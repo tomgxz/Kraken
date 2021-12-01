@@ -17,7 +17,10 @@ class Kraken():
         from PIL import ImageTk, Image
         self.pilImageTk=ImageTk
         self.pilImage=Image
-        
+
+        from encryption import Encryption
+        self.Encryptor=Encryption()
+
         self.init()
 
         self.loginScreen()
@@ -304,7 +307,7 @@ class Kraken():
             bd=5,
             relief="groove",
             height=1,
-            #command=self.takeTurn,
+            command=self.signupVerify,
         )
 
         self.signupScreenSubmitButton.place(relx=0.5,rely=0.8,anchor="center")
@@ -322,6 +325,81 @@ class Kraken():
 
     def clearSignupScreen(self):
         self.signupScreenContainer.destroy()
+
+    def signupVerify(self):
+        n=self.signupScreenNameTextVar.get()
+        u=self.signupScreenUsernameTextVar.get()
+        p1=self.signupScreenPassword1TextVar.get()
+        p2=self.signupScreenPassword2TextVar.get()
+
+        def verifyField(field,fieldName,mustHaveChar=True,minLen=4,canHaveSpace=False,canHaveSpecialChar=True):
+            specialChar="%&{}\\<>*?/$!'\":@+`|="
+            
+            if type(field) != str:
+                raise Exception("HEY! thats not a string?")
+            
+            if len(field) == 0 and mustHaveChar:
+                return False,f"{fieldName} is not filled out."
+            if len(field) < minLen:
+                return False,f"{fieldName} must be greater than {minLen-1} characters."
+            if not canHaveSpace and " " in field:
+                return False,f"{fieldName} cannot contain spaces."
+            if not canHaveSpecialChar:
+                for char in specialChar:
+                    if char in field:
+                        return False,f"{fieldName} cannot contain '{char}'"
+
+            return True,""
+            
+
+        res,out=verifyField(n,"Name",canHaveSpace=True,canHaveSpecialChar=False)
+        
+        if res==False:
+            self.errorMessage("Validation Error",out)
+            return False
+        
+        res,out=verifyField(u,"Usernae",canHaveSpecialChar=False)
+
+        if res==False:
+            self.errorMessage("Validation Error",out)
+            return False
+        
+        res,out=verifyField(p1,"Password",minLen=8)
+
+        if res==False:
+            self.errorMessage("Validation Error",out)
+            return False
+
+        if p1 != p2:    
+            self.errorMessage("Validation Error","Passwords do not match.")
+            return False
+
+        if not self.Encryptor.verify(u):
+            self.errorMessage("Validation Error","An account with this username already exists. Please try another one")
+            return False
+        
+        self.Encryptor.store(self.Encryptor.encrypt(u),self.Encryptor.encrypt(p1))
+
+    def errorMessage(self,title,msg):
+        def onErrorBackClick(self):
+            self.errorBorder.destroy()
+        
+        self.errorBorder=self.tkinter.Frame(self.root,width=int(1920/4),height=int(1080/4),bg=self.colors["danger"])
+        borderWidth=6 # must be even
+        self.errorContainer=self.tkinter.Frame(self.errorBorder,bg=self.colors["grey"]["100"],bd=2,width=int(1920/4)-borderWidth,height=int(1080/4)-borderWidth)
+        
+        self.errorContainer.place(relx=0.5,rely=0.5,anchor="center")
+        self.errorBorder.place(relx=0.5,rely=0.5,anchor="center")
+
+        self.errorTitle=self.tkinter.Label(self.errorContainer,text=title,font=self.subheaderFont,bg=self.colors["grey"]["100"])
+        self.errorTitle.place(relx=0.5,rely=0.1,anchor="n")
+
+        self.errorMessageText=self.tkinter.Label(self.errorContainer,text=msg,font=self.captionFontItalic,bg=self.colors["grey"]["100"],fg=self.colors["grey"]["600"])
+        self.errorMessageText.place(relx=0.5,rely=0.3,anchor="center")
+
+        self.errorBack=self.tkinter.Button(self.errorContainer,text="back",font=self.bodyFont,bg=self.colors["danger"],command=lambda self=self: onErrorBackClick(self))
+        self.errorBack.place(relx=0.05,rely=0.95,anchor="sw")
+        
         
     def generateEntryInput(self,parent,name,entryColor="black",hidden=False):
         container=self.tkinter.Frame(parent,bg=self.bgcolor)
@@ -348,7 +426,28 @@ class Kraken():
 
         return container,label,textvar,entry,label2
 
-        
+
+       
 
 
 Kraken()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
