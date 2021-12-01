@@ -20,7 +20,7 @@ class Kraken():
         
         self.init()
 
-        self.introScreen()
+        self.loginScreen()
 
         self.root.mainloop()
 
@@ -34,7 +34,7 @@ class Kraken():
         self.w=self.root.winfo_screenwidth()
         self.h=self.root.winfo_screenheight()
         self.root.geometry(f"{int(self.w/1.5)}x{int(self.h/1.5)}")
-        self.root.minsize(int(self.w/2),int(self.h/2))
+        self.root.minsize(int(1920/2),int(1080/2))
         self.root.state("zoomed")
 
         self.root.configure(bg=self.bgcolor)
@@ -96,19 +96,20 @@ class Kraken():
             weight="bold"
         )
 
-        self.captionFont=self.tkinterFont(
+        self.subheaderFont=self.tkinterFont(
             family=self.fontPrimary["family"],
-            size="20"
+            size="18",
+            weight="bold"
         )
 
         self.captionFontItalic=self.tkinterFont(
-            family=self.fontPrimary["family"],
-            size="20",
+            family=self.fontSecondary["family"],
+            size="12",
             slant="italic"
         )
 
         self.bodyFont=self.tkinterFont(
-            family=self.fontPrimary["family"],
+            family=self.fontSecondary["family"],
             size="12"
         )
 
@@ -131,8 +132,6 @@ class Kraken():
         return self.pilImageTk.PhotoImage(img)
 
     def introScreen(self):
-        self.introScreenContainer=self.tkinter.Frame(self.root,bg=self.bgcolor,width=int(self.root.winfo_width()/2),height=int(self.root.winfo_height()/2))
-        self.introScreenContainer.place(relx=0.5,rely=0.5,anchor="center")
 
         def titleTextThread(self):
             text1="Kraken - Loading"
@@ -152,9 +151,13 @@ class Kraken():
             for i in range(99):                
                 self.introScreenProgressBar.step()        
                 self.root.update()
-                self.time.sleep(0.05)
+                self.time.sleep(0.03)
+            self.clearIntroScreen()
+            self.loginScreen()
+
+        self.introScreenContainer=self.tkinter.Frame(self.root,bg=self.bgcolor,width=int(1920/2),height=int(1080/2))
+        self.introScreenContainer.place(relx=0.5,rely=0.5,anchor="center")   
                 
-    
         self.introScreenTitleTextVariable=self.tkinter.StringVar(self.introScreenContainer,"Kraken - Loading")
         self.introScreenTitleTextThread=True
         
@@ -177,30 +180,175 @@ class Kraken():
         self.threads.append(self.introScreenThread2)
         self.introScreenThread2.start()
 
+    def clearIntroScreen(self):
+        self.introScreenContainer.destroy()
+
+    def loginScreen(self):
+
+        def onSignupOptionClickEvent(e,self):
+            self.clearLoginScreen()
+            self.signupScreen()
+
+        def onPasswordShowClickEvent(e,self):
+            self.loginScreenPasswordEntryShow=self.tkinter.Entry(self.loginScreenPasswordContainer,textvariable=self.loginScreenPasswordTextVar,width=32,fg=self.loginScreenPasswordEntry["fg"],relief="solid")
+            self.loginScreenPasswordEntryShow.grid(row=0,column=1)
+            
+        def onPasswordShowUnclickEvent(e,self):
+            self.loginScreenPasswordEntryShow.destroy()
         
+        self.loginScreenContainer=self.tkinter.Frame(self.root,bg=self.bgcolor,width=int(1920/2),height=int(1080/2))
+        self.loginScreenContainer.place(relx=0.5,rely=0.5,anchor="center")
+
+        self.loginScreenTitleText=self.tkinter.Label(self.loginScreenContainer,text="Kraken - Login / Signup",bg=self.bgcolor,font=self.titleFont)
+        self.loginScreenTitleText.place(relx=0.5,rely=0.2,anchor="n")
+
+        self.loginScreenImageObjectSecondary=self.generateImage(self.icon["secondary"]["256"],100,100)
+        self.loginScreenImageSecondary=self.tkinter.Canvas(self.loginScreenContainer,width=100,height=100,bg=self.bgcolor,bd=0)
+        self.loginScreenImageSecondary.place(relx=0.5,rely=0,anchor="n")
+        self.loginScreenImageSecondary.create_image(52,52,image=self.loginScreenImageObjectSecondary,anchor=self.tkinter.CENTER)
+
+        self.loginScreenForm=self.tkinter.Frame(self.loginScreenContainer,bg=self.bgcolor,width=600,height=200)
+        self.loginScreenForm.place(relx=0.5,rely=0.55,anchor="center")
+
+        self.loginScreenUsernameContainer,self.loginScreenUsernameLabel,self.loginScreenUsernameTextVar,self.loginScreenUsernameEntry,_=self.generateEntryInput(self.loginScreenForm,"Username",entryColor=self.colors["secondary"]["dark"])
+
+        self.loginScreenPasswordContainer,self.loginScreenPasswordLabel,self.loginScreenPasswordTextVar,self.loginScreenPasswordEntry,self.loginScreenPasswordEye=self.generateEntryInput(self.loginScreenForm,"Password",hidden=True,entryColor=self.colors["primary"]["light"])
+
+        self.loginScreenPasswordEye.bind("<Button-1>",lambda event, self=self: onPasswordShowClickEvent(event,self))
+        self.loginScreenPasswordEye.bind("<ButtonRelease-1>",lambda event, self=self: onPasswordShowUnclickEvent(event,self))
 
         
+
+        self.loginScreenSubmitButton=self.tkinter.Button(
+            self.loginScreenContainer,
+            text="Submit",
+            font=self.subheaderFont,
+            bg=self.colors["primary"]["normal"],
+            activebackground=self.colors["primary"]["dark"],
+            bd=5,
+            relief="groove",
+            height=1,
+            #command=self.takeTurn,
+        )
+
+        self.loginScreenSubmitButton.place(relx=0.5,rely=0.75,anchor="center")
+
+        self.loginScreenOptionSelector=self.tkinter.Frame(self.loginScreenContainer,bg=self.bgcolor,width=320,height=36)
+        self.loginScreenOptionSelector.place(relx=0.5,rely=0.4,anchor="center")
+
+        self.loginScreenLoginOption=self.tkinter.Label(self.loginScreenOptionSelector,font=self.subheaderFont,text="Login",fg=self.colors["primary"]["normal"],bg=self.bgcolor)
+        self.loginScreenLoginOption.place(relx=0,rely=0.5,anchor="w")
+
+        self.loginScreenSignupOption=self.tkinter.Label(self.loginScreenOptionSelector,font=self.subheaderFont,text="Sign Up",bg=self.bgcolor)
+        self.loginScreenSignupOption.place(relx=1,rely=0.5,anchor="e")
+
+        self.loginScreenSignupOption.bind("<Button-1>",lambda event, self=self: onSignupOptionClickEvent(event,self)) 
+
+    def clearLoginScreen(self):
+        self.loginScreenContainer.destroy()
+
+    def signupScreen(self):
+
+        def onLoginOptionClickEvent(e,self):
+            self.clearSignupScreen()
+            self.loginScreen()
+
+        def onPasswordShow1ClickEvent(e,self):
+            self.signupScreenPassword1EntryShow=self.tkinter.Entry(self.signupScreenPassword1Container,textvariable=self.signupScreenPassword1TextVar,width=32,fg=self.signupScreenPassword1Entry["fg"],relief="solid")
+            self.signupScreenPassword1EntryShow.grid(row=0,column=1)
+            
+        def onPasswordShow1UnclickEvent(e,self):
+            self.signupScreenPassword1EntryShow.destroy()
+
+        def onPasswordShow2ClickEvent(e,self):
+            self.signupScreenPassword2EntryShow=self.tkinter.Entry(self.signupScreenPassword2Container,textvariable=self.signupScreenPassword2TextVar,width=32,fg=self.signupScreenPassword2Entry["fg"],relief="solid")
+            self.signupScreenPassword2EntryShow.grid(row=0,column=1)
+            
+        def onPasswordShow2UnclickEvent(e,self):
+            self.signupScreenPassword2EntryShow.destroy()
+            
         
+        self.signupScreenContainer=self.tkinter.Frame(self.root,bg=self.bgcolor,width=int(1920/2),height=int(1080/2))
+        self.signupScreenContainer.place(relx=0.5,rely=0.5,anchor="center")
+
+        self.signupScreenTitleText=self.tkinter.Label(self.signupScreenContainer,text="Kraken - Login / Signup",bg=self.bgcolor,font=self.titleFont)
+        self.signupScreenTitleText.place(relx=0.5,rely=0.2,anchor="n")
+
+        self.signupScreenImageObjectSecondary=self.generateImage(self.icon["secondary"]["256"],100,100)
+        self.signupScreenImageSecondary=self.tkinter.Canvas(self.signupScreenContainer,width=100,height=100,bg=self.bgcolor,bd=0)
+        self.signupScreenImageSecondary.place(relx=0.5,rely=0,anchor="n")
+        self.signupScreenImageSecondary.create_image(52,52,image=self.signupScreenImageObjectSecondary,anchor=self.tkinter.CENTER)
+
+        self.signupScreenForm=self.tkinter.Frame(self.signupScreenContainer,bg=self.bgcolor,width=600,height=200)
+        self.signupScreenForm.place(relx=0.5,rely=0.6,anchor="center")
+
+        self.signupScreenNameContainer,self.signupScreenNameLabel,self.signupScreenNameTextVar,self.signupScreenNameEntry,_=self.generateEntryInput(self.signupScreenForm,"Name",entryColor=self.colors["secondary"]["dark"])
+
+        self.signupScreenUsernameContainer,self.signupScreenUsernameLabel,self.signupScreenUsernameTextVar,self.signupScreenUsernameEntry,_=self.generateEntryInput(self.signupScreenForm,"Username",entryColor=self.colors["secondary"]["dark"])
+
+        self.signupScreenPassword1Container,self.signupScreen1PasswordLabel,self.signupScreenPassword1TextVar,self.signupScreenPassword1Entry,self.signupScreenPassword1Eye=self.generateEntryInput(self.signupScreenForm,"Password",hidden=True,entryColor=self.colors["primary"]["light"])
+        self.signupScreenPassword2Container,self.signupScreen2PasswordLabel,self.signupScreenPassword2TextVar,self.signupScreenPassword2Entry,self.signupScreenPassword2Eye=self.generateEntryInput(self.signupScreenForm,"Repeat Password",hidden=True,entryColor=self.colors["primary"]["light"])
+
+        self.signupScreenPassword1Eye.bind("<Button-1>",lambda event, self=self: onPasswordShow1ClickEvent(event,self))
+        self.signupScreenPassword1Eye.bind("<ButtonRelease-1>",lambda event, self=self: onPasswordShow1UnclickEvent(event,self))
+
+        self.signupScreenPassword2Eye.bind("<Button-1>",lambda event, self=self: onPasswordShow2ClickEvent(event,self))
+        self.signupScreenPassword2Eye.bind("<ButtonRelease-1>",lambda event, self=self: onPasswordShow2UnclickEvent(event,self))
+
+        self.signupScreenSubmitButton=self.tkinter.Button(
+            self.signupScreenContainer,
+            text="Submit",
+            font=self.subheaderFont,
+            bg=self.colors["primary"]["normal"],
+            activebackground=self.colors["primary"]["dark"],
+            bd=5,
+            relief="groove",
+            height=1,
+            #command=self.takeTurn,
+        )
+
+        self.signupScreenSubmitButton.place(relx=0.5,rely=0.8,anchor="center")
+
+        self.signupScreenOptionSelector=self.tkinter.Frame(self.signupScreenContainer,bg=self.bgcolor,width=320,height=36)
+        self.signupScreenOptionSelector.place(relx=0.5,rely=0.4,anchor="center")
+
+        self.signupScreenLoginOption=self.tkinter.Label(self.signupScreenOptionSelector,font=self.subheaderFont,text="Login",bg=self.bgcolor)
+        self.signupScreenLoginOption.place(relx=0,rely=0.5,anchor="w")
+
+        self.signupScreenSignupOption=self.tkinter.Label(self.signupScreenOptionSelector,font=self.subheaderFont,text="Sign Up",fg=self.colors["primary"]["normal"],bg=self.bgcolor)
+        self.signupScreenSignupOption.place(relx=1,rely=0.5,anchor="e")
+
+        self.signupScreenLoginOption.bind("<Button-1>",lambda event, self=self: onLoginOptionClickEvent(event,self)) 
+
+    def clearSignupScreen(self):
+        self.signupScreenContainer.destroy()
+        
+    def generateEntryInput(self,parent,name,entryColor="black",hidden=False):
+        container=self.tkinter.Frame(parent,bg=self.bgcolor)
+        container.pack(side="top",anchor="e")
+
+        label=self.tkinter.Label(container,bg=self.bgcolor,text=name,font=self.captionFontItalic)
+        label.grid(row=0,column=0,ipadx=10)
+
+        textvar=self.tkinter.StringVar()
+
+        showCharOld="█"
+
+        if hidden:
+            entry=self.tkinter.Entry(container,textvariable=textvar,width=32,fg=entryColor,relief="solid",show="_",)
+            label2=self.tkinter.Label(container,bg=self.bgcolor,text="👁",font=self.tkinterFont(size="14"))
+            label2.grid(row=0,column=2)
+        else:
+            entry=self.tkinter.Entry(container,textvariable=textvar,width=32,fg=entryColor,relief="solid")
+            label2=self.tkinter.Label(container,bg=self.bgcolor,text="⠀⠀",font=self.captionFontItalic)
+            label2.grid(row=0,column=2,padx=0.4)
+
+        entry.grid(row=0,column=1)
+            
+
+        return container,label,textvar,entry,label2
+
+        
+
 
 Kraken()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
