@@ -21,13 +21,35 @@ class Encryption():
     def encrypt(self,x):
         return self.cryptor(self.getKey()).encrypt(x.encode())
 
+    def usernameExists(self,usr):
+        with open(self.usrFile,"rb") as usrList:
+            usrs=usrList.readlines()
+            for line in usrs:
+                if usr == self.decrypt(line):
+                    return True
+        return False
+
+    def credentialsExist(self,usr,pwd):
+        userpos=0
+        with open(self.usrFile,"rb") as usrList:
+            usrs=usrList.readlines()
+            itera=0
+            for line in usrs:
+                if usr == self.decrypt(line):
+                    usrpos=itera
+                    break
+                userpos+=1
+        with open(self.pwdFile,"rb") as pwdList:
+            pwds=pwdList.readlines()
+            if pwd == self.decrypt(pwds[userpos]):
+                return True
+        return False
+
     def verify(self,usr):
         with open(self.usrFile,"rb") as usrList:
             usrs=usrList.readlines()
             for line in usrs:
-                dec=self.decrypt(line)
-                print(dec,usr)
-                if usr == dec:
+                if usr == self.decrypt(line):
                     return False
         return True
 
@@ -38,3 +60,8 @@ class Encryption():
         with open(self.pwdFile,"ab") as pwdList:
             pwdList.write(pwd+"\n".encode())
             pwdList.close()
+
+
+x=Encryption()
+
+print(x.decrypt(b"gAAAAABhp3V8FZ0H0JGfP4-HdFaPuqSCFtJMQeiRqLPf5eWIrIDYTRDdI27NRXyQLZVkSrRXp2B1uaI_xN2XrCRwNOOr5bRTug=="))

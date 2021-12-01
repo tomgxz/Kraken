@@ -231,7 +231,7 @@ class Kraken():
             bd=5,
             relief="groove",
             height=1,
-            #command=self.takeTurn,
+            command=self.loginVerify,
         )
 
         self.loginScreenSubmitButton.place(relx=0.5,rely=0.75,anchor="center")
@@ -326,45 +326,61 @@ class Kraken():
     def clearSignupScreen(self):
         self.signupScreenContainer.destroy()
 
+    def loginVerify(self):
+        u=self.loginScreenUsernameTextVar.get()
+        p=self.loginScreenPasswordTextVar.get()
+
+        if not self.Encryptor.usernameExists(u):
+            self.errorMessage("Verification Error","Username not recognised.")
+            return False
+        
+        if not self.Encryptor.credentialsExist(u,p):
+            self.errorMessage("Verification Error","Incorrect password.")
+            return False
+
+        self.successMessage("Login Successful","You are being logged in")
+
+
+    def verifyField(self,field,fieldName,mustHaveChar=True,minLen=4,canHaveSpace=False,canHaveSpecialChar=True):
+        specialChar="%&{}\\<>*?/$!'\":@+`|="
+            
+        if type(field) != str:
+            raise Exception("HEY! thats not a string?")
+            
+        if len(field) == 0 and mustHaveChar:
+            return False,f"{fieldName} is not filled out."
+        if len(field) < minLen:
+            return False,f"{fieldName} must be greater than {minLen-1} characters."
+        if not canHaveSpace and " " in field:
+            return False,f"{fieldName} cannot contain spaces."
+        if not canHaveSpecialChar:
+            for char in specialChar:
+                if char in field:
+                    return False,f"{fieldName} cannot contain '{char}'"
+
+        return True,""
+            
+
     def signupVerify(self):
         n=self.signupScreenNameTextVar.get()
         u=self.signupScreenUsernameTextVar.get()
         p1=self.signupScreenPassword1TextVar.get()
         p2=self.signupScreenPassword2TextVar.get()
 
-        def verifyField(field,fieldName,mustHaveChar=True,minLen=4,canHaveSpace=False,canHaveSpecialChar=True):
-            specialChar="%&{}\\<>*?/$!'\":@+`|="
-            
-            if type(field) != str:
-                raise Exception("HEY! thats not a string?")
-            
-            if len(field) == 0 and mustHaveChar:
-                return False,f"{fieldName} is not filled out."
-            if len(field) < minLen:
-                return False,f"{fieldName} must be greater than {minLen-1} characters."
-            if not canHaveSpace and " " in field:
-                return False,f"{fieldName} cannot contain spaces."
-            if not canHaveSpecialChar:
-                for char in specialChar:
-                    if char in field:
-                        return False,f"{fieldName} cannot contain '{char}'"
 
-            return True,""
-            
-
-        res,out=verifyField(n,"Name",canHaveSpace=True,canHaveSpecialChar=False)
+        res,out=self.verifyField(n,"Name",canHaveSpace=True,canHaveSpecialChar=False)
         
         if res==False:
             self.errorMessage("Validation Error",out)
             return False
         
-        res,out=verifyField(u,"Usernae",canHaveSpecialChar=False)
+        res,out=self.verifyField(u,"Usernae",canHaveSpecialChar=False)
 
         if res==False:
             self.errorMessage("Validation Error",out)
             return False
         
-        res,out=verifyField(p1,"Password",minLen=8)
+        res,out=self.verifyField(p1,"Password",minLen=8)
 
         if res==False:
             self.errorMessage("Validation Error",out)
@@ -375,10 +391,12 @@ class Kraken():
             return False
 
         if not self.Encryptor.verify(u):
-            self.errorMessage("Validation Error","An account with this username already exists. Please try another one")
+            self.errorMessage("Validation Error","An account with this username already exists.")
             return False
         
         self.Encryptor.store(self.Encryptor.encrypt(u),self.Encryptor.encrypt(p1))
+
+        self.successMessage("Sign up successful","You can now log in",command=self.loginScreen)
 
     def errorMessage(self,title,msg):
         def onErrorBackClick(self):
@@ -399,6 +417,28 @@ class Kraken():
 
         self.errorBack=self.tkinter.Button(self.errorContainer,text="back",font=self.bodyFont,bg=self.colors["danger"],command=lambda self=self: onErrorBackClick(self))
         self.errorBack.place(relx=0.05,rely=0.95,anchor="sw")
+
+    def successMessage(self,title,msg,command=None):
+        def onSuccessBackClick(self):
+            self.successBorder.destroy()
+            if command is not None:
+                command()
+
+        self.successBorder=self.tkinter.Frame(self.root,width=int(1920/4),height=int(1080/4),bg=self.colors["primary"]["normal"])
+        borderWidth=6 # must be even
+        self.successContainer=self.tkinter.Frame(self.successBorder,bg=self.colors["grey"]["100"],bd=2,width=int(1920/4)-borderWidth,height=int(1080/4)-borderWidth)
+        
+        self.successContainer.place(relx=0.5,rely=0.5,anchor="center")
+        self.successBorder.place(relx=0.5,rely=0.5,anchor="center")
+
+        self.successTitle=self.tkinter.Label(self.successContainer,text=title,font=self.subheaderFont,bg=self.colors["grey"]["100"])
+        self.successTitle.place(relx=0.5,rely=0.1,anchor="n")
+
+        self.successMessageText=self.tkinter.Label(self.successContainer,text=msg,font=self.captionFontItalic,bg=self.colors["grey"]["100"],fg=self.colors["grey"]["600"])
+        self.successMessageText.place(relx=0.5,rely=0.3,anchor="center")
+
+        self.successBack=self.tkinter.Button(self.successContainer,text="Click here to continue",font=self.bodyFont,bg=self.colors["primary"]["normal"],command=lambda self=self: onSuccessBackClick(self))
+        self.successBack.place(relx=0.5,rely=0.5,anchor="c")
         
         
     def generateEntryInput(self,parent,name,entryColor="black",hidden=False):
