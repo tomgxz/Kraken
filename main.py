@@ -1,11 +1,13 @@
 class Kraken():
     def __init__(self):
 
-        import os,time,threading
+        import os,time,threading,random,datetime
         self.os=os
         self.time=time
         self.threading=threading
         self.threads=[]
+        self.random=random
+        self.datetime=datetime
 
         import tkinter
         from tkinter.font import Font
@@ -18,12 +20,20 @@ class Kraken():
         self.pilImageTk=ImageTk
         self.pilImage=Image
 
+        from configparser import ConfigParser
+        self.configparser=ConfigParser
+
         from encryption import Encryption
         self.Encryptor=Encryption()
 
-        self.init()
+        #self.init()
 
-        self.loginScreen()
+        self.root=self.tkinter.Tk()
+
+        from loadingscreen import LoadingScreen
+        from loginscreen import LoginScreen
+        from signupscreen import SignupScreen
+        SignupScreen(self,self.root)
 
         self.root.mainloop()
 
@@ -129,45 +139,69 @@ class Kraken():
             darkcolor=self.colors["primary"]["light"]
         )
 
+    def clearAll(self):
+        for child in self.root.winfo_children():
+            child.destroy()
+    
     def generateImage(self,path,w,h):
         img=self.pilImage.open(path)
         img=img.resize((w,h),self.pilImage.ANTIALIAS)
         return self.pilImageTk.PhotoImage(img)
 
-    def introScreen(self):
+    def loadingText(self,x="Kraken",y="Loading"):
+        texts=[
+            f"{x} - {y}",
+            f"{x} - {y}.",
+            f"{x} - {y}..",
+            f"{x} - {y}...",
+        ]
 
-        def titleTextThread(self):
-            text1="Kraken - Loading"
-            text2="Kraken - Loading."
-            text3="Kraken - Loading.."
-            text4="Kraken - Loading..."
-            texts=[text1,text2,text3,text4]
-            itera=0
-            while self.introScreenTitleTextThread:
-                self.introScreenTitleTextVariable.set(texts[itera])
-                self.time.sleep(0.2)
-                itera+=1
-                if itera > len(texts)-1:
-                    itera=0
+        itera=0
+        while True:
+            self.introScreenTitleTextVariable.set(texts[itera])
+            self.time.sleep(0.2)
+            itera+=1
+            if itera > len(texts)-1:
+                itera=0
+
+    def generateProgressBar(self,parent,length,style="white"):               
+        x=self.ttk.Progressbar(parent,orient="horizontal",length=length,mode="determinate",takefocus=True,maximum=100,style=f'{style}.Horizontal.TProgressbar')
+        return x
+
+    def introScreen(self):
 
         def introBarThread(self):
             for i in range(99):                
                 self.introScreenProgressBar.step()        
                 self.root.update()
                 self.time.sleep(0.03)
-            self.clearIntroScreen()
-            self.loginScreen()
+            
 
         self.introScreenContainer=self.tkinter.Frame(self.root,bg=self.bgcolor,width=int(1920/2),height=int(1080/2))
         self.introScreenContainer.place(relx=0.5,rely=0.5,anchor="center")   
                 
         self.introScreenTitleTextVariable=self.tkinter.StringVar(self.introScreenContainer,"Kraken - Loading")
-        self.introScreenTitleTextThread=True
         
         self.introScreenTitleText=self.tkinter.Label(self.introScreenContainer,textvariable=self.introScreenTitleTextVariable,bg=self.bgcolor,font=self.titleFont)
-        self.introScreenTitleText.place(relx=0.5,rely=0.5,anchor="center")
+        self.introScreenTitleText.place(relx=0.5,rely=0.5,anchor="center")        
 
-        self.introScreenProgressBar=self.ttk.Progressbar(self.introScreenContainer,orient="horizontal",length=200,mode="determinate",takefocus=True,maximum=100,style='white.Horizontal.TProgressbar')
+        def threadFinish():
+            print(1)
+            self.clearIntroScreen()
+            self.loginScreen()
+
+        def t(self,x):
+            threadTime="random"
+            threadSleep=0.1
+            
+            for i in range(99):
+                x.step()
+                self.root.update()
+                self.time.sleep(threadSleep if threadTime=="set" else self.random.uniform(0.001,0.05))
+            self.clearIntroScreen()
+            self.loginScreen()
+
+        self.introScreenProgressBar=self.generateProgressBar(self.introScreenContainer,200,style="white")
         self.introScreenProgressBar.place(relx=0.5,rely=0.7,anchor="center")
 
         self.introScreenImageObject=self.generateImage(self.icon["gradient"]["256"],100,100)
@@ -175,16 +209,30 @@ class Kraken():
         self.introScreenImage.place(relx=0.5,rely=0.3,anchor="center")
         self.introScreenImage.create_image(52,52,image=self.introScreenImageObject,anchor=self.tkinter.CENTER)
 
-        self.introScreenThread1=self.threading.Thread(target=titleTextThread, args=[self])
-        self.threads.append(self.introScreenThread1)
-        self.introScreenThread1.start()
-
-        self.introScreenThread2=self.threading.Thread(target=introBarThread, args=[self])
+        self.introScreenThread2=self.threading.Thread(target=t, args=[self,self.introScreenProgressBar])
         self.threads.append(self.introScreenThread2)
         self.introScreenThread2.start()
 
+        self.introScreenThread1=self.threading.Thread(target=self.loadingText, args=[])
+        self.threads.append(self.introScreenThread1)
+        self.introScreenThread1.start()
+
     def clearIntroScreen(self):
         self.introScreenContainer.destroy()
+
+        objects=[
+            self.introScreenContainer,
+            self.introScreenTitleTextVariable,
+            self.introScreenTitleText,
+            self.introScreenProgressBar,
+            self.introScreenImageObject,
+            self.introScreenImage,
+            self.introScreenThread1,
+            self.introScreenThread2
+        ]
+
+        for obj in objects:
+            del obj
 
     def loginScreen(self):
 
@@ -338,10 +386,10 @@ class Kraken():
             self.errorMessage("Verification Error","Incorrect password.")
             return False
 
-        self.successMessage("Login Successful","You are being logged in")
+        self.successMessage("Login Successful","You are being logged in",command=self.clearAll)
 
 
-    def verifyField(self,field,fieldName,mustHaveChar=True,minLen=4,canHaveSpace=False,canHaveSpecialChar=True):
+    def verifyField(self,field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,canHaveSpecialChar=True):
         specialChar="%&{}\\<>*?/$!'\":@+`|="
             
         if type(field) != str:
@@ -396,11 +444,21 @@ class Kraken():
         
         self.Encryptor.store(self.Encryptor.encrypt(u),self.Encryptor.encrypt(p1))
 
+        self.generateUser(u,n)
+
         self.successMessage("Sign up successful","You can now log in",command=self.loginScreen)
 
-    def errorMessage(self,title,msg):
+    def errorMessage(self,title,msg,command=None):
         def onErrorBackClick(self):
             self.errorBorder.destroy()
+
+            objects=[self.errorBorder,self.errorContainer,self.errorTitle,self.errorMessageText,self.errorBack]
+            for o in objects:
+                o.destroy()
+
+            if command is not None:
+                command()
+            
         
         self.errorBorder=self.tkinter.Frame(self.root,width=int(1920/4),height=int(1080/4),bg=self.colors["danger"])
         borderWidth=6 # must be even
@@ -421,6 +479,11 @@ class Kraken():
     def successMessage(self,title,msg,command=None):
         def onSuccessBackClick(self):
             self.successBorder.destroy()
+            
+            objects=[self.successBorder,self.successContainer,self.successTitle,self.successMessageText,self.successBack]
+            for o in objects:
+                o.destroy()
+                
             if command is not None:
                 command()
 
@@ -466,28 +529,43 @@ class Kraken():
 
         return container,label,textvar,entry,label2
 
+    def generateUser(self,usr,name):
 
-       
+        userConfigFile=f"data/user/{usr}/user.ini"
+        
+        folderStructure=[
+            f"data/user/{usr}/",
+            f"data/user/{usr}/sites/"
+        ]
+
+        fileStructure=[
+            userConfigFile,
+        ]
+
+        for folder in folderStructure:
+            if not self.os.path.isdir(folder):
+                self.os.makedirs(folder)
+        for file in fileStructure:
+            with open(file,"w") as f:
+                f.close()
+
+        self.generateUserData(userConfigFile,usr,name)
+
+    def generateUserData(self,file,usr,name):
+        config=self.configparser()
+        config.read(file)
+        
+        section="user"
+        config.add_section(section)
+
+        config.set(section,"name",name)
+        config.set(section,"username",usr)
+        config.set(section,"created",str(self.datetime.datetime.utcnow())) # time in gb not in us
+        config.set(section,"lastsession",str())
+        
+        with open(file,"w") as f:
+            config.write(f)
 
 
 Kraken()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

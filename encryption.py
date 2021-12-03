@@ -60,8 +60,3 @@ class Encryption():
         with open(self.pwdFile,"ab") as pwdList:
             pwdList.write(pwd+"\n".encode())
             pwdList.close()
-
-
-x=Encryption()
-
-print(x.decrypt(b"gAAAAABhp3V8FZ0H0JGfP4-HdFaPuqSCFtJMQeiRqLPf5eWIrIDYTRDdI27NRXyQLZVkSrRXp2B1uaI_xN2XrCRwNOOr5bRTug=="))
