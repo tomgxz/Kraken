@@ -7,6 +7,8 @@ class SignupScreen(Screen):
     def __init__(self,master,root,titleTextA="Kraken",titleTextB="Form"):
         super().__init__(master,root)
 
+        self.master.logger.info("Generating signup screen")
+
         self.container=self.tkinter.Frame(self.root,bg=self.bgcolor,width=self.internalWidth,height=self.internalHeight)
         self.container.place(relx=0.5,rely=0.5,anchor="center")
 
@@ -57,12 +59,15 @@ class SignupScreen(Screen):
 
         self.submitBtn.place(relx=0.5,rely=0.8,anchor="center")
 
+        self.master.logger.info("Signup screen generated")
+
     def onLoginOptionClickEvent(self,e=None):
         try:
             from assets.screen.loginscreen import LoginScreen
         except ModuleNotFoundError:
             from loginscreen import LoginScreen
         LoginScreen(self.master,self.root)
+        self.master.logger.info("Signup screen cleared")
         self.clear()
         
     def onPassword1ShowClickEvent(self,e=None):

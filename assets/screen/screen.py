@@ -1,5 +1,7 @@
 class Screen():
     def __init__(self,master,root):
+        master.logger.info("Generating screen")
+        
         self.master=master
         self.root=root
 
@@ -29,6 +31,8 @@ class Screen():
 
         self.internalWidth=int(1920/2)
         self.internalHeight=int(1080/2)
+
+        self.master.logger.info("Screen generated")
         
     def init(self):
 
@@ -37,6 +41,8 @@ class Screen():
         self.root.configure(bg=self.bgcolor)
 
     def initGraphics(self):
+        self.master.logger.info("Initializing screen graphics")
+        
         primary   = {"light":"#58a1ee","accent":"#338ceb","normal":"#1c7fe9","dark":"#1263ba"}
         secondary = {"light":"#dd51e1","accent":"#cc23d1","normal":"#a91dae","dark":"#88188c"}
         accent1   = {"light":"#6acbf1","accent":"#57c4ef","normal":"#27b3eb","dark":"#118bbb"}
@@ -126,13 +132,18 @@ class Screen():
     def clearAll(self):
         for child in self.root.winfo_children():
             child.destroy()
+        self.master.logger.info("Cleared all tkinter widgets")
 
     def generateImage(self,path,w,h):
+        self.master.logger.info("Generating tkinter image")
         img=self.pilImage.open(path)
         img=img.resize((w,h),self.pilImage.ANTIALIAS)
-        return self.pilImageTk.PhotoImage(img)
+        img=self.pilImageTk.PhotoImage(img)
+        self.master.logger.info("Tkinter image generated")
+        return img
 
     def loadingText(self,obj,x="Kraken",y="Loading"):
+        self.master.logger.info("Loading text started")
         texts=[
             f"{x} - {y}",
             f"{x} - {y}.",
@@ -177,6 +188,7 @@ class Screen():
         return container,label,textvar,entry,label2
 
     def progressBarThread(self,x,command=None):
+        self.master.logger.info("Progress bar started")
         threadTime="random"
         threadSleep=0.1
             
@@ -189,4 +201,5 @@ class Screen():
 
     def clear(self):
         self.container.destroy()
+        self.master.logger.info("Screen deleted")
         del self

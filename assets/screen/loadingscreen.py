@@ -7,6 +7,8 @@ class LoadingScreen(Screen):
     def __init__(self,master,root,titleTextA="Kraken",titleTextB="Loading"):
         super().__init__(master,root)
 
+        self.master.logger.info("Generating loading screen")
+
         self.titleTextA=titleTextA
         self.titleTextB=titleTextB
 
@@ -34,10 +36,13 @@ class LoadingScreen(Screen):
         self.threads.append(self.progbarThread)
         self.progbarThread.start()
 
+        self.master.logger.info("Loading screen generated")
+
     def next(self):
         try:
             from assets.screen.loginscreen import LoginScreen
         except ModuleNotFoundError:
             from loginscreen import LoginScreen
         LoginScreen(self.master,self.root)
+        self.master.logger.info("Loading screen cleared")
         self.clear()
