@@ -1,4 +1,3 @@
-
 class Generator():
     """ Core interface for HTMLGenerator """
 

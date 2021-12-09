@@ -1,5 +1,5 @@
 class Encryption():
-    def __init__(self):
+    def __init__(self,logger):
         from cryptography.fernet import Fernet
         from dotenv import load_dotenv
         import os
@@ -9,8 +9,12 @@ class Encryption():
 
         load_dotenv()
 
-        self.usrFile="assets/bin/xugz.bin"
-        self.pwdFile="assets/bin/vugx.bin"
+        self.usrFile="data/bin/xugz.bin"
+        self.pwdFile="data/bin/vugx.bin"
+
+        self.logger=logger
+
+        self.logger.info("Encryption object initialised")
 
     def getKey(self):
         return self.os.environ.get("KEY").encode()
@@ -22,41 +26,56 @@ class Encryption():
         return self.cryptor(self.getKey()).encrypt(x.encode())
 
     def usernameExists(self,usr):
+        self.logger.info("Searching for username...")
         with open(self.usrFile,"rb") as usrList:
             usrs=usrList.readlines()
             for line in usrs:
                 if usr == self.decrypt(line):
+                    self.logger.info("Username exists")
                     return True
+        self.logger.info("Username does not exist")
         return False
 
     def credentialsExist(self,usr,pwd):
-        userpos=0
+        self.logger.info("Searching for credentials...")
+        userpos=None
         with open(self.usrFile,"rb") as usrList:
             usrs=usrList.readlines()
             itera=0
             for line in usrs:
                 if usr == self.decrypt(line):
                     usrpos=itera
+                    self.logger.info("Username exists")
                     break
                 userpos+=1
+        if userpos is None:
+            self.logger.info("Username does not exist")
+            return False
         with open(self.pwdFile,"rb") as pwdList:
             pwds=pwdList.readlines()
             if pwd == self.decrypt(pwds[userpos]):
+                self.logger.info("Password exists")
                 return True
+        self.logger.info("Password does not exist")
         return False
 
     def verify(self,usr):
+        self.logger.info("Searching for username...")
         with open(self.usrFile,"rb") as usrList:
             usrs=usrList.readlines()
             for line in usrs:
                 if usr == self.decrypt(line):
+                    self.logger.info("Username exists")
                     return False
+        self.logger.info("Username does not exist")
         return True
 
     def store(self,usr,pwd):
+        self.logger.info("Storing Credentials...")
         with open(self.usrFile,"ab") as usrList:
             usrList.write(usr+"\n".encode())
             usrList.close()
         with open(self.pwdFile,"ab") as pwdList:
             pwdList.write(pwd+"\n".encode())
             pwdList.close()
+        self.logger.info("Credentials stored")
