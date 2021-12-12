@@ -53,7 +53,9 @@ class Kraken():
             from encryption import Encryption
 
             from assets.screen.loadingscreen import LoadingScreen
+            from assets.screen.loginloadingscreen import LoginLoadingScreen
             from assets.screen.loginscreen import LoginScreen
+            from assets.screen.screen import Screen
             from assets.screen.signupscreen import SignupScreen
 
             from assets.tk.dangerpopup import DangerPopup
@@ -181,6 +183,8 @@ class Kraken():
             return False
 
         self.successPopup(origin,"Login Successful","You are being logged in",command=self.clearAll)
+
+        origin.next()
 
 
     def verifyField(self,field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,canHaveSpecialChar=True):

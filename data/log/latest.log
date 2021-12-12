@@ -1,27 +1,27 @@
-[12-09-2021 07:40:53] [WARNING]: Session file is empty
-[12-09-2021 07:40:53] [ERROR]: No date created attribute in session file - previous log file will be deleted
-[12-09-2021 07:40:53] [INFO]: Logging initialised
-[12-09-2021 07:40:53] [INFO]: Required modules imported
-[12-09-2021 07:40:53] [INFO]: Encryption object initialised
-[12-09-2021 07:40:53] [INFO]: Classes imported
-[12-09-2021 07:40:54] [INFO]: Tkinter main root initalised
-[12-09-2021 07:40:54] [INFO]: Tkinter main root formatted
-[12-09-2021 07:40:54] [INFO]: Generating screen
-[12-09-2021 07:40:54] [INFO]: Initializing screen graphics
-[12-09-2021 07:40:54] [INFO]: Screen generated
-[12-09-2021 07:40:54] [INFO]: Generating loading screen
-[12-09-2021 07:40:54] [INFO]: Generating tkinter image
-[12-09-2021 07:40:54] [INFO]: Tkinter image generated
-[12-09-2021 07:40:54] [INFO]: Loading text started
-[12-09-2021 07:40:54] [INFO]: Progress bar started
-[12-09-2021 07:40:54] [INFO]: Loading screen generated
-[12-09-2021 07:40:54] [INFO]: Tkinter mainloop started
-[12-09-2021 07:40:58] [INFO]: Generating screen
-[12-09-2021 07:40:58] [INFO]: Initializing screen graphics
-[12-09-2021 07:40:58] [INFO]: Screen generated
-[12-09-2021 07:40:58] [INFO]: Generating login screen
-[12-09-2021 07:40:58] [INFO]: Generating tkinter image
-[12-09-2021 07:40:58] [INFO]: Tkinter image generated
-[12-09-2021 07:40:58] [INFO]: Login screen generated
-[12-09-2021 07:40:58] [INFO]: Loading screen cleared
-[12-09-2021 07:40:58] [INFO]: Screen deleted
+[12-12-2021 21:34:05] [WARNING]: Session file is empty
+[12-12-2021 21:34:05] [ERROR]: No date created attribute in session file - previous log file will be deleted
+[12-12-2021 21:34:05] [INFO]: Logging initialised
+[12-12-2021 21:34:05] [INFO]: Required modules imported
+[12-12-2021 21:34:05] [INFO]: Encryption object initialised
+[12-12-2021 21:34:05] [INFO]: Classes imported
+[12-12-2021 21:34:05] [INFO]: Tkinter main root initalised
+[12-12-2021 21:34:05] [INFO]: Tkinter main root formatted
+[12-12-2021 21:34:05] [INFO]: Generating screen
+[12-12-2021 21:34:05] [INFO]: Initializing screen graphics
+[12-12-2021 21:34:05] [INFO]: Screen generated
+[12-12-2021 21:34:05] [INFO]: Generating loading screen
+[12-12-2021 21:34:05] [INFO]: Generating tkinter image
+[12-12-2021 21:34:05] [INFO]: Tkinter image generated
+[12-12-2021 21:34:05] [INFO]: Loading text started
+[12-12-2021 21:34:05] [INFO]: Progress bar started
+[12-12-2021 21:34:05] [INFO]: Loading screen generated
+[12-12-2021 21:34:05] [INFO]: Tkinter mainloop started
+[12-12-2021 21:34:09] [INFO]: Generating screen
+[12-12-2021 21:34:09] [INFO]: Initializing screen graphics
+[12-12-2021 21:34:09] [INFO]: Screen generated
+[12-12-2021 21:34:09] [INFO]: Generating login screen
+[12-12-2021 21:34:09] [INFO]: Generating tkinter image
+[12-12-2021 21:34:09] [INFO]: Tkinter image generated
+[12-12-2021 21:34:09] [INFO]: Login screen generated
+[12-12-2021 21:34:09] [INFO]: Loading screen cleared
+[12-12-2021 21:34:09] [INFO]: Screen deleted

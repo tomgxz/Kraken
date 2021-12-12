@@ -4,7 +4,8 @@ except ModuleNotFoundError:
     from screen import Screen
 
 class LoadingScreen(Screen):
-    def __init__(self,master,root,titleTextA="Kraken",titleTextB="Loading"):
+    def __init__(self,master,root,titleTextA="Kraken",titleTextB="Loading",progBarRandomMin=0.001,progBarRandomMax=0.05):
+        print(titleTextA,titleTextB)
         super().__init__(master,root)
 
         self.master.logger.info("Generating loading screen")
@@ -25,14 +26,14 @@ class LoadingScreen(Screen):
         self.titleText=self.tkinter.Label(self.container,textvariable=self.titleTextVar,bg=self.bgcolor,font=self.titleFont)
         self.titleText.place(relx=0.5,rely=0.4,anchor="n")
 
-        self.textThread=self.threading.Thread(target=self.loadingText,args=[self.titleTextVar])
+        self.textThread=self.threading.Thread(target=self.loadingText,args=[self.titleTextVar,self.titleTextA,self.titleTextB])
         self.threads.append(self.textThread)
         self.textThread.start()
 
         self.progbar=self.generateProgressBar(self.container,200,style="white")
         self.progbar.place(relx=0.5,rely=0.7,anchor="center")
 
-        self.progbarThread=self.threading.Thread(target=self.progressBarThread,args=[self.progbar,self.next])
+        self.progbarThread=self.threading.Thread(target=self.progressBarThread,args=[self.progbar,self.next,progBarRandomMin,progBarRandomMax])
         self.threads.append(self.progbarThread)
         self.progbarThread.start()
 

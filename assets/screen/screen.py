@@ -187,7 +187,7 @@ class Screen():
 
         return container,label,textvar,entry,label2
 
-    def progressBarThread(self,x,command=None):
+    def progressBarThread(self,x,command=None,randomMin=0.001,randomMax=0.05):
         self.master.logger.info("Progress bar started")
         threadTime="random"
         threadSleep=0.1
@@ -195,7 +195,7 @@ class Screen():
         for i in range(99):
             x.step()
             self.root.update()
-            self.time.sleep(threadSleep if threadTime=="set" else self.random.uniform(0.001,0.05))
+            self.time.sleep(threadSleep if threadTime=="set" else self.random.uniform(randomMin,randomMax))
         if command is not None:
             command()
 

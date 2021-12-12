@@ -4,7 +4,8 @@ except ModuleNotFoundError:
     from screen import Screen
 
 class LoginScreen(Screen):
-    def __init__(self,master,root,titleTextA="Kraken",titleTextB="Form"):
+    def __init__(self,master,root):
+        
         super().__init__(master,root)
 
         self.master.logger.info("Generating login screen")
@@ -61,6 +62,15 @@ class LoginScreen(Screen):
         except ModuleNotFoundError:
             from signupscreen import SignupScreen
         SignupScreen(self.master,self.root)
+        self.master.logger.info("Login screen cleared")
+        self.clear()
+
+    def next(self):
+        try:
+            from assets.screen.loginloadingscreen import LoginLoadingScreen
+        except ModuleNotFoundError:
+            from loginloadingscreen import LoginLoadingScreen
+        LoginLoadingScreen(self.master,self.root)
         self.master.logger.info("Login screen cleared")
         self.clear()
         

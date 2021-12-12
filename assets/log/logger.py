@@ -16,6 +16,7 @@ class Logger():
                 "File(s) dont exist")
 
         self.logger=self.logging.getLogger()
+        self.logger.propagate = False
         self.logger.setLevel(self.logging.INFO)
         
         self.loggingFormatter=self.logging.Formatter(self.format,self.dateTime)
