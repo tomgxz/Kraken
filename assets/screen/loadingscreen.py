@@ -5,7 +5,6 @@ except ModuleNotFoundError:
 
 class LoadingScreen(Screen):
     def __init__(self,master,root,titleTextA="Kraken",titleTextB="Loading",progBarRandomMin=0.001,progBarRandomMax=0.05):
-        print(titleTextA,titleTextB)
         super().__init__(master,root)
 
         self.master.logger.info("Generating loading screen")

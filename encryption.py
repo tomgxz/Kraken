@@ -38,7 +38,7 @@ class Encryption():
 
     def credentialsExist(self,usr,pwd):
         self.logger.info("Searching for credentials...")
-        userpos=None
+        usrpos=None
         with open(self.usrFile,"rb") as usrList:
             usrs=usrList.readlines()
             itera=0
@@ -47,27 +47,16 @@ class Encryption():
                     usrpos=itera
                     self.logger.info("Username exists")
                     break
-        if userpos is None:
+        if usrpos is None:
             self.logger.info("Username does not exist")
             return False
         with open(self.pwdFile,"rb") as pwdList:
             pwds=pwdList.readlines()
-            if pwd == self.decrypt(pwds[userpos]):
+            if pwd == self.decrypt(pwds[usrpos]):
                 self.logger.info("Password exists")
                 return True
         self.logger.info("Password does not exist")
         return False
-
-    def verify(self,usr):
-        self.logger.info("Searching for username...")
-        with open(self.usrFile,"rb") as usrList:
-            usrs=usrList.readlines()
-            for line in usrs:
-                if usr == self.decrypt(line):
-                    self.logger.info("Username exists")
-                    return False
-        self.logger.info("Username does not exist")
-        return True
 
     def store(self,usr,pwd):
         self.logger.info("Storing Credentials...")

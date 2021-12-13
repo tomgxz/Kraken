@@ -80,11 +80,31 @@ class Kraken():
         self.logger.info("Tkinter mainloop started")
         self.root.mainloop()
 
+    def appendSessionFile(self,key,value):
+        self.logger.info("Appending data to session file")
+        
+        with open(self.sessionFile,"r") as f:
+            old=f.read()
+            f.close()
+
+        with open(self.sessionFile,"w") as f:
+            f.write(old)
+            f.write(f"\n {key}:{value}")
+
+        self.logger.info("Data appended to session file")
+        
+        return True
+
     def init(self):
         """"""
         self.root=self.tkinter.Tk()
 
         self.logger.info("Tkinter main root initalised")
+
+        self.appendSessionFile("datecreated",self.datetime.datetime.now())
+
+        #with open(self.sessionFile,"w") as f:
+        #    f.write(f"datecreated:{self.datetime.datetime.now()}")
 
         self.root.title("Kraken") # window title
         self.root.tk.call("wm","iconphoto",self.root._w,self.tkinter.PhotoImage(file="assets/images/icon/512-512/kraken-icon-png-primary-512-512.png")) # icon
@@ -103,9 +123,11 @@ class Kraken():
         #if not (self.os.path.exists(self.sessionFile) or self.os.path.exists(self.logFile)):
         if self.os.path.exists(self.sessionFile) and self.os.path.exists(self.logFile): # if both files exist, session.txt and latest.log
             with open(self.sessionFile,"r") as f:
-                if f.readlines() == []: # if there are no lines in the file
+                lines=f.read()
+                if lines == "": # if there are no lines in the file
                     commands.append(lambda:self.logger.warning("Session file is empty"))
-                self.previousSessionData={line.split(":")[0]:line.split(":")[1] for line in [x.strip("\n") for x in f.readlines()]}
+                self.previousSessionData={line.split(":")[0]:line.split(":")[1] for line in [x.strip("\n") for x in lines.split("\n")]}
+                
             open(self.sessionFile,"w").close() # clear file
 
             logFileInt=1
@@ -179,10 +201,12 @@ class Kraken():
             return False
         
         if not self.Encryptor.credentialsExist(u,p):
-            self.dangerPopup(origin,"Verification Error","Incorrect password.")
+            self.dangerPopup(origin,"Verification Error","Incorrect credentials.")
             return False
 
         self.successPopup(origin,"Login Successful","You are being logged in",command=self.clearAll)
+
+        self.appendSessionFile("username",u)
 
         origin.next()
 
@@ -238,7 +262,7 @@ class Kraken():
             self.dangerPopup(origin,"Validation Error","Passwords do not match.")
             return False
 
-        if not self.Encryptor.verify(u):
+        if self.Encryptor.usernameExists(u):
             self.dangerPopup(origin,"Validation Error","An account with this username already exists.")
             return False
         
