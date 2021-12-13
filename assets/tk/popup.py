@@ -1,5 +1,12 @@
 class Popup():
+    """ Custom tkinter popup widget for Kraken """
+    
     def __init__(self,screen,title="title",msg="msg",btnText="back",color="#000000",command=None,w=int(1920/4),h=int(1080/4)):
+        """
+        Constructs a :class: 'Popup <Popup>'
+
+        :param screen :
+        """
         self.command=command
         
         borderWidth=6 # must be even
@@ -23,3 +30,7 @@ class Popup():
         if self.command is not None:
             self.command()
         del self
+
+if __name__ == "__main__":
+    raise Exception(
+        "This module is to be used in conjunction with the Kraken application and not as a standalone module.")

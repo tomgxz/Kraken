@@ -4,8 +4,18 @@ except ModuleNotFoundError:
     from screen import Screen
 
 class LoginScreen(Screen):
+    """ The tkinter login screen for Kraken. Inherits from :class: Screen. """
+    
     def __init__(self,master,root):
-        
+        """
+        Constructs a :class: 'LoginScreen <LoginScreen>'
+
+        :param master object:
+            Reference to the master of this class, which should be the main application object
+        :param root object:
+            The tkinter root
+        """
+                
         super().__init__(master,root)
 
         self.master.logger.info("Generating login screen")
@@ -66,6 +76,8 @@ class LoginScreen(Screen):
         self.clear()
 
     def next(self):
+        """ Move the window to the next screen, defined in the function. """
+        
         try:
             from assets.screen.loginloadingscreen import LoginLoadingScreen
         except ModuleNotFoundError:
@@ -75,9 +87,27 @@ class LoginScreen(Screen):
         self.clear()
         
     def onPasswordShowClickEvent(self,e=None):
+        """
+        Displays the password field
+
+        :param e object:
+            (Optional, None) The event triggering this function
+        """
+        
         self.passwordShow=self.tkinter.Entry(self.passwordContainer,textvariable=self.passwordTextVar,width=32,fg=self.passwordEntry["fg"],relief="solid")
         self.passwordShow.grid(row=0,column=1)
 
     def onPasswordShowUnclickEvent(self,e=None):
+        """
+        Hides the password field
+
+        :param e object:
+            (Optional, None) The event triggering this function
+        """
+        
         self.passwordShow.destroy()
         del self.passwordShow
+
+if __name__ == "__main__":
+    raise Exception(
+        "This module is to be used in conjunction with the Kraken application and not as a standalone module.")

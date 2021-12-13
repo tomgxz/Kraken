@@ -1,5 +1,5 @@
 class Generator():
-    """ Core interface for HTMLGenerator """
+    """ Generator for Kraken """
 
     def __init__(
         self,
@@ -514,3 +514,7 @@ class Generator():
                 "webm"
             ]
         }
+
+if __name__ == "__main__":
+    raise Exception(
+        "This module is to be used in conjunction with the Kraken application and not as a standalone module.")

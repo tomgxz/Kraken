@@ -4,7 +4,22 @@ except ModuleNotFoundError:
     from screen import Screen
 
 class LoadingScreen(Screen):
+    """ The tkinter loading screen for Kraken. Inherits from :class: Screen. """
+    
     def __init__(self,master,root,titleTextA="Kraken",titleTextB="Loading",progBarRandomMin=0.001,progBarRandomMax=0.05):
+        """
+        Constructs a :class: 'LoadingScreen <LoadingScreen>'
+
+        :param master object:
+            Reference to the master of this class, which should be the main application object
+        :param root object:
+            The tkinter root
+        :param titleTextA str:
+            (Optional, "Kraken") Defines the first part of the title being displayed on screen
+        :param titleTextB str:
+            (Optional, "Loading") Defines the second part of the title being displayed on screen
+        """
+        
         super().__init__(master,root)
 
         self.master.logger.info("Generating loading screen")
@@ -39,6 +54,7 @@ class LoadingScreen(Screen):
         self.master.logger.info("Loading screen generated")
 
     def next(self):
+        """ Move the window to the next screen, defined in the function. """
         try:
             from assets.screen.loginscreen import LoginScreen
         except ModuleNotFoundError:
@@ -46,3 +62,7 @@ class LoadingScreen(Screen):
         LoginScreen(self.master,self.root)
         self.master.logger.info("Loading screen cleared")
         self.clear()
+
+if __name__ == "__main__":
+    raise Exception(
+        "This module is to be used in conjunction with the Kraken application and not as a standalone module.")

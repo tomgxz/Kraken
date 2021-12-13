@@ -1,5 +1,16 @@
 class Screen():
+    """ The tkinter screen for Kraken """
+    
     def __init__(self,master,root):
+        """
+        Constructs a :class: 'Screen <Screen>'
+
+        :param master object:
+            Reference to the master of this class, which should be the main application object
+        :param root object:
+            The tkinter root
+        """
+                
         master.logger.info("Generating screen")
         
         self.master=master
@@ -33,14 +44,10 @@ class Screen():
         self.internalHeight=int(1080/2)
 
         self.master.logger.info("Screen generated")
-        
+
     def init(self):
-
-        self.initGraphics()
-
-        self.root.configure(bg=self.bgcolor)
-
-    def initGraphics(self):
+        """ Initialize the screen graphics """
+        
         self.master.logger.info("Initializing screen graphics")
         
         primary   = {"light":"#58a1ee","accent":"#338ceb","normal":"#1c7fe9","dark":"#1263ba"}
@@ -129,12 +136,35 @@ class Screen():
             darkcolor=self.colors["primary"]["light"]
         )
 
+        self.root.configure(bg=self.bgcolor)
+
     def clearAll(self):
+        """
+        Destroys all tkinter elements except for the main root window
+
+        :returns: A boolean determining whether the process was successful
+        :rtype: bool
+        """
         for child in self.root.winfo_children():
             child.destroy()
         self.master.logger.info("Cleared all tkinter widgets")
+        return True
 
     def generateImage(self,path,w,h):
+        """
+        Generate a tkinter image that can be inserted into a tkinter canvas widget
+
+        :param path str:
+            The location (path) of the image
+        :param w int:
+            The desired width of the image
+        :param h int:
+            The desired height of the imaeg
+
+        :returns: a tkinter image object
+        :rtype: object
+        """
+        
         self.master.logger.info("Generating tkinter image")
         img=self.pilImage.open(path)
         img=img.resize((w,h),self.pilImage.ANTIALIAS)
@@ -143,6 +173,17 @@ class Screen():
         return img
 
     def loadingText(self,obj,x="Kraken",y="Loading"):
+        """
+        Starts running a loading text loop. It is advisable to only use this in a thread
+
+        :param obj object:
+            A reference to the tkinter StringVar widget
+        :param x str:
+            (Optional, "Kraken") The first part of the text to be displayed. If set to None, it will only display :param: y
+        :param y str:
+            (Optional, "Loading") The second part of the text to be displayed. If set to None, it will only display :param: x
+        """
+        
         self.master.logger.info("Loading text started")
         texts=[
             f"{x} - {y}",
@@ -150,6 +191,22 @@ class Screen():
             f"{x} - {y}..",
             f"{x} - {y}...",
         ]
+
+        if x == None:
+            texts=[
+                f"{y}",
+                f"{y}.",
+                f"{y}..",
+                f"{y}...",
+            ]
+
+        if y == None:
+            texts=[
+                f"{x}",
+                f"{x}.",
+                f"{x}..",
+                f"{x}...",
+            ]
 
         itera=0
         while True:
@@ -159,10 +216,42 @@ class Screen():
             if itera > len(texts)-1:
                 itera=0
 
-    def generateProgressBar(self,parent,length,style="white"):               
+    def generateProgressBar(self,parent,length,style="white"):
+        """
+        Generates a tkinter progress bar widget
+
+        :param parent object:
+            A reference to the parent tkinter widget
+        :param length int:
+            The length of the progress bar
+        :param style str:
+            (Optional, "white") A string reffering to the custom style of the progressbar
+
+        :returns: the unplaced tkinter widget
+        :rtype: object
+        """
+        
         return self.ttk.Progressbar(parent,orient="horizontal",length=length,mode="determinate",takefocus=True,maximum=100,style=f'{style}.Horizontal.TProgressbar')
 
     def generateEntryInput(self,parent,name,entryColor="black",hidden=False):
+        """
+        Generates a tkinter entry widget
+
+        :param parent object:
+            A reference to the parent tkinter widget
+        :param name str:
+            The name to be displayed next to the entry
+        :param length int:
+            The length of the entry
+        :param entryColor str:
+            (Optional, "black") The color of the entry text. Can be a hex code or a valid color name
+        :param hidden bool:
+            (Optional, False) Determines whether the entry is hidden, such as a password field
+
+        :returns: All of the components of the entry: the container, label, stringvar, entry and label containing the reveal button. The label contianing the reveal button will be empty if :param: hidden is false (or unchanged)
+        :rtype: object, object, object, object, object
+        """
+        
         container=self.tkinter.Frame(parent,bg=self.bgcolor)
         container.pack(side="top",anchor="e")
 
@@ -174,7 +263,7 @@ class Screen():
         showCharOld="█"
 
         if hidden:
-            entry=self.tkinter.Entry(container,textvariable=textvar,width=32,fg=entryColor,relief="solid",show="_",)
+            entry=self.tkinter.Entry(container,textvariable=textvar,width=32,fg=entryColor,relief="solid",show="_")
             label2=self.tkinter.Label(container,bg=self.bgcolor,text="👁",font=self.tkinterFont(size="14"))
             label2.grid(row=0,column=2)
         else:
@@ -188,6 +277,19 @@ class Screen():
         return container,label,textvar,entry,label2
 
     def progressBarThread(self,x,command=None,randomMin=0.001,randomMax=0.05):
+        """
+        Starts running a progress bar loop. It is advisable to only use this in a thread
+
+        :param x object:
+            A reference to the progress bar object
+        :param command:
+            (Optional, None) A command to be run when the progress bar finishes. Will not run anything if set to none.
+        :param randomMin float:
+            (Optional, 0.001) The minimum wait time between progress bar steps
+        :param randomMax float:
+            (Optional, 0.05) The maximum wait time between progress bar steps            
+        """
+        
         self.master.logger.info("Progress bar started")
         threadTime="random"
         threadSleep=0.1
@@ -200,6 +302,11 @@ class Screen():
             command()
 
     def clear(self):
+        """ Clear the screen """
         self.container.destroy()
         self.master.logger.info("Screen deleted")
         del self
+
+if __name__ == "__main__":
+    raise Exception(
+        "This module is to be used in conjunction with the Kraken application and not as a standalone module.")

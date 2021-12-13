@@ -1,0 +1,4 @@
+fixed session file writing -
+    no space before line
+    no empty line at the start
+documentation

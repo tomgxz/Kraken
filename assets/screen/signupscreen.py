@@ -4,7 +4,18 @@ except ModuleNotFoundError:
     from screen import Screen
 
 class SignupScreen(Screen):
-    def __init__(self,master,root,titleTextA="Kraken",titleTextB="Form"):
+    """ The tkinter signup screen for Kraken. Inherits from :class: Screen. """
+    
+    def __init__(self,master,root):
+        """
+        Constructs a :class: 'SignupScreen <SignupScreen>'
+
+        :param master object:
+            Reference to the master of this class, which should be the main application object
+        :param root object:
+            The tkinter root
+        """
+        
         super().__init__(master,root)
 
         self.master.logger.info("Generating signup screen")
@@ -62,6 +73,13 @@ class SignupScreen(Screen):
         self.master.logger.info("Signup screen generated")
 
     def onLoginOptionClickEvent(self,e=None):
+        """
+        Moves to the login screen
+
+        :param e object:
+            (Optional, None) The event triggering this function
+        """
+        
         try:
             from assets.screen.loginscreen import LoginScreen
         except ModuleNotFoundError:
@@ -71,18 +89,49 @@ class SignupScreen(Screen):
         self.clear()
         
     def onPassword1ShowClickEvent(self,e=None):
+        """
+        Displays the first password field
+
+        :param e object:
+            (Optional, None) The event triggering this function
+        """
+        
         self.password1Show=self.tkinter.Entry(self.password1Container,textvariable=self.password1TextVar,width=32,fg=self.password1Entry["fg"],relief="solid")
         self.password1Show.grid(row=0,column=1)
 
     def onPassword1ShowUnclickEvent(self,e=None):
+        """
+        Hides the first password field
+
+        :param e object:
+            (Optional, None) The event triggering this function
+        """
+        
         self.password1Show.destroy()
         del self.password1Show
 
     def onPassword2ShowClickEvent(self,e=None):
+        """
+        Displays the second password field
+
+        :param e object:
+            (Optional, None) The event triggering this function
+        """
+        
         self.password2Show=self.tkinter.Entry(self.password2Container,textvariable=self.password2TextVar,width=32,fg=self.password2Entry["fg"],relief="solid")
         self.password2Show.grid(row=0,column=1)
 
     def onPassword2ShowUnclickEvent(self,e=None):
+        """
+        Hides the second password field
+
+        :param e object:
+            (Optional, None) The event triggering this function
+        """
+        
         self.password2Show.destroy()
         del self.password2Show
 
+if __name__ == "__main__":
+    raise Exception(
+        "This module is to be used in conjunction with the Kraken application and not as a standalone module.")

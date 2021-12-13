@@ -1,8 +1,9 @@
 class Kraken():
-    """"""
+    """ Core application interface for Kraken """
 
     def __init__(self):
-        """"""
+        """ Constructs a :class: 'Kraken <Kraken>' """
+        
         # import os library here, required to generate logger
         import os
         self.os=os
@@ -81,6 +82,18 @@ class Kraken():
         self.root.mainloop()
 
     def appendSessionFile(self,key,value):
+        """
+        Adds an entry to the session.txt file found in the data/ directory. Entry is in the format <param key>:<param value>
+
+        :param key str:
+            The key of the entry. Will be succeeded by :param value:
+        :param value str:
+            The value of the entry. Will be prefixed by :param key:
+
+        :returns: A boolean determining whether the process was successful
+        :rtype: bool
+        """
+        
         self.logger.info("Appending data to session file")
         
         with open(self.sessionFile,"r") as f:
@@ -88,15 +101,23 @@ class Kraken():
             f.close()
 
         with open(self.sessionFile,"w") as f:
-            f.write(old)
-            f.write(f"\n {key}:{value}")
+            if old != "":
+                f.write(f"{old}\n{key}:{value}")
+            else:
+                f.write(f"{key}:{value}")
 
         self.logger.info("Data appended to session file")
         
         return True
 
     def init(self):
-        """"""
+        """
+        Initialises the application and writes the creation of the application to the session.txt file
+
+        :returns: A boolean determining whether the process was successful
+        :rtype: bool
+        """
+        
         self.root=self.tkinter.Tk()
 
         self.logger.info("Tkinter main root initalised")
@@ -116,8 +137,16 @@ class Kraken():
 
         self.logger.info("Tkinter main root formatted")
 
+        return True
+
     def initLogger(self):
-        """"""
+        """
+        Initialises the logger and resets the log and session file
+
+        :returns: A boolean determining whether the process was successful
+        :rtype: bool
+        """
+        
         commands=[] # used to store log commands before the log has been generated, so that they can be appended
 
         #if not (self.os.path.exists(self.sessionFile) or self.os.path.exists(self.logFile)):
@@ -184,15 +213,34 @@ class Kraken():
                 command()
 
             self.logger.info("Logging initialised")
+
+        return True
         
 
     def clearAll(self):
-        """"""
+        """
+        Destroys all tkinter elements except for the main root window
+
+        :returns: A boolean determining whether the process was successful
+        :rtype: bool
+        """
+        
         for child in self.root.winfo_children():
             child.destroy()
+        self.logger.info("Cleared all tkinter widgets")
+        return True
 
     def loginVerify(self,origin):
-        """"""
+        """
+        Verifies the credentials given on the login screen and acts appropriatley. Uses the Encryption class to determine whether the credentials exist
+
+        :param origin object:
+            A reference to the object which called this function. In this case, it will be the :LoginScreen:
+
+        :returns: Will return False if the credentials are invalid
+        :rtype: bool
+        """
+        
         u=origin.usernameTextVar.get()
         p=origin.passwordTextVar.get()
 
@@ -212,7 +260,29 @@ class Kraken():
 
 
     def verifyField(self,field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,canHaveSpecialChar=True):
-        """"""
+        """
+        Validates an input from a tkinter entry field.
+
+        :param field str:
+            The string to be checked.
+        :param fieldName str:
+            The name of the tkinter entry containing :field:. Only used for user ease.
+        :param mustHaveChar bool:
+            (Optional, True) Does the code check to see whether :field: has any characters in.
+        :parm minLen int:
+            (Optional, 3) What is the minimum length of :field:.
+        :param canHaveSpace bool:
+            (Optional, False) Can :field: contain spaces.
+        :param canHaveSpecialChar bool:
+            (Optional, True) Can :field: contain certain special characters (listed below)
+
+        Special characters used in the :canHaveSpecialChar: checking:
+            %&{}\\<>*?/$!'\":@+`|=
+
+        :returns: A boolean identifying whether the field is valid, and a string containing the error message if it is not. If the field is valid it will return an empty string.
+        :rtype: bool, str
+        """
+        
         specialChar="%&{}\\<>*?/$!'\":@+`|="
             
         if type(field) != str:
@@ -233,7 +303,16 @@ class Kraken():
             
 
     def signupVerify(self,origin):
-        """"""
+        """
+        Verifies the credentials given on the signup screen and acts appropriatley. Uses the Encryption class to check the user can exist, and create the user.
+
+        :param origin object:
+            A reference to the object which called this function. In this case, it will be the :SignupScreen:
+        
+        :returns: A boolean determining whether the user was created.
+        :rtype: bool
+        """
+        
         n=origin.nameTextVar.get()
         u=origin.usernameTextVar.get()
         p1=origin.password1TextVar.get()
@@ -273,7 +352,17 @@ class Kraken():
         self.successPopup(origin,"Sign up successful","You can now log in",command=origin.onLoginOptionClickEvent)
         
     def generateUser(self,usr,name):
-        """"""
+        """
+        Generates the nesseccary files for a user to exist.
+
+        :param usr str:
+            The username of the user
+        :param name str:
+            The name of the user
+
+        :returns: A boolean determining whether the process was successful
+        :rtype: bool
+        """
 
         userConfigFile=f"data/user/{usr}/user.ini"
         
@@ -295,8 +384,22 @@ class Kraken():
 
         self.generateUserData(userConfigFile,usr,name)
 
+        return True
+
     def generateUserData(self,file,usr,name):
-        """"""
+        """
+        Generates the user data (config) file
+
+        :param file str:
+            The location (path) of the user data file
+        :param usr str:
+            The username of the user
+        :param name str:
+            The name of the user
+
+        :returns: A boolean determining whether the process was successful
+        :rtype: bool
+        """
         
         config=self.configparser()
         config.read(file)
@@ -311,6 +414,8 @@ class Kraken():
         
         with open(file,"w") as f:
             config.write(f)
+
+        return True
 
 if __name__ == "__main__":
     Kraken()
