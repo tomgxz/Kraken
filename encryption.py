@@ -105,6 +105,7 @@ class Encryption():
                     usrpos=itera
                     self.logger.info("Username exists")
                     break
+                itera+=1
         if usrpos is None:
             self.logger.info("Username does not exist")
             return False

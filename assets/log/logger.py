@@ -1,7 +1,7 @@
 class Logger():
     """ Logging system for Kraken """
     
-    def __init__(self,sessionFile:str="",logFile:str="",formatting:str="[%(asctime)s] [%(levelname)s]: %(message)s",dateTime:str="%m-%d-%Y %H:%M:%S",*a,**k):
+    def __init__(self,sessionFile:str="",logFile:str="",formatting:str="[%(asctime)s.%(msecs)03d] [%(levelname)s]: %(message)s",dateTime:str="%m-%d-%Y %H:%M:%S",*a,**k):
         """
         Constructs a :class: 'Logger <Logger>'
 

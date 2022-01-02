@@ -51,6 +51,8 @@ class LoadingScreen(Screen):
         self.threads.append(self.progbarThread)
         self.progbarThread.start()
 
+        self.activateLoadThread()
+
         self.master.logger.info("Loading screen generated")
 
     def next(self):
@@ -62,6 +64,14 @@ class LoadingScreen(Screen):
         LoginScreen(self.master,self.root)
         self.master.logger.info("Loading screen cleared")
         self.clear()
+
+    def loadThread(self):
+        return None
+
+    def activateLoadThread(self):
+        self.t=self.threading.Thread(target=self.loadThread)
+        self.threads.append(self.t)
+        self.t.start()
 
 if __name__ == "__main__":
     raise Exception(

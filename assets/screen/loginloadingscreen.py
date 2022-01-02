@@ -22,19 +22,21 @@ class LoginLoadingScreen(LoadingScreen):
         super().__init__(master,root,titleTextA=titleTextA,titleTextB=titleTextB,progBarRandomMin=0.0001,progBarRandomMax=0.001)
 
         
+
+        
     def next(self):
         """ Move the window to the next screen, defined in the function. """
-        self.clear()
-        self.clearAll()
-
-        return
         try:
-            from assets.screen.loginscreen import LoginScreen
+            from assets.screen.menuscreen import MenuScreen
         except ModuleNotFoundError:
-            from loginscreen import LoginScreen
-        LoginScreen(self.master,self.root)
+            from menuscreen import MenuScreen
+        MenuScreen(self.master,self.root)
         self.master.logger.info("Loading screen cleared")
         self.clear()
+
+    def loadThread(self):
+        self.master.emptyImageObject=self.generateImage(self.images["kraken_tentacles_one"],468,211)
+        self.master.sidebarLogoObject=self.generateImage(self.icon["primary"]["512"],100,100)
 
 if __name__ == "__main__":
     raise Exception(

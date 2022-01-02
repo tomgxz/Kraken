@@ -3,6 +3,8 @@ class Kraken():
 
     def __init__(self):
         """ Constructs a :class: 'Kraken <Kraken>' """
+
+        import fontawesome
         
         # import os library here, required to generate logger
         import os
@@ -14,7 +16,7 @@ class Kraken():
 
         # generate the logger
         self.initLogger()
-
+    
         # import required built-in libraries - error catching not required as all python installations will have these
         import time,threading,random,datetime
         self.time=time
@@ -56,6 +58,7 @@ class Kraken():
             from assets.screen.loadingscreen import LoadingScreen
             from assets.screen.loginloadingscreen import LoginLoadingScreen
             from assets.screen.loginscreen import LoginScreen
+            from assets.screen.menuscreen import MenuScreen
             from assets.screen.screen import Screen
             from assets.screen.signupscreen import SignupScreen
 
@@ -76,7 +79,7 @@ class Kraken():
 
         self.init() # generate tkinter
 
-        LoadingScreen(self,self.root) # load up the loading screen
+        LoginScreen(self,self.root) # load up the loading screen
 
         self.logger.info("Tkinter mainloop started")
         self.root.mainloop()
@@ -133,7 +136,7 @@ class Kraken():
         self.h=self.root.winfo_screenheight()
         self.root.geometry(f"{int(self.w/1.5)}x{int(self.h/1.5)}")
         self.root.minsize(int(1920/2),int(1080/2))
-        self.root.state("zoomed") # fullscreen
+        #self.root.state("zoomed") # fullscreen
 
         self.logger.info("Tkinter main root formatted")
 
@@ -155,7 +158,9 @@ class Kraken():
                 lines=f.read()
                 if lines == "": # if there are no lines in the file
                     commands.append(lambda:self.logger.warning("Session file is empty"))
-                self.previousSessionData={line.split(":")[0]:line.split(":")[1] for line in [x.strip("\n") for x in lines.split("\n")]}
+                    self.previousSessionData={}
+                else:
+                    self.previousSessionData={line.split(":")[0]:line.split(":")[1] for line in [x.strip("\n") for x in lines.split("\n")]}
                 
             open(self.sessionFile,"w").close() # clear file
 
@@ -253,8 +258,13 @@ class Kraken():
             return False
 
         self.successPopup(origin,"Login Successful","You are being logged in",command=self.clearAll)
-
         self.appendSessionFile("username",u)
+
+        self.username=u
+        self.userdir=f"data/user/{u}"
+        self.usersitesdir=f"{self.userdir}/sites"
+        self.usercfg=f"{self.userdir}/user.ini"
+        self.userhassites=not self.os.listdir(self.usersitesdir)==[]
 
         origin.next()
 
@@ -375,12 +385,8 @@ class Kraken():
             userConfigFile,
         ]
 
-        for folder in folderStructure:
-            if not self.os.path.isdir(folder):
-                self.os.makedirs(folder)
-        for file in fileStructure:
-            with open(file,"w") as f:
-                f.close()
+        self.generateFolderStructure(folderStructure)
+        self.generateFileStructure(fileStructure)
 
         self.generateUserData(userConfigFile,usr,name)
 
@@ -416,6 +422,70 @@ class Kraken():
             config.write(f)
 
         return True
+
+    def getSessionData(self):
+        """
+        Retrieves the data from the session file
+        
+        :returns: A dictionary of the data
+        :rtype: dict
+        """
+        
+        self.logger.info("Retrieving session file data")
+        with open(self.sessionFile,"r") as f:
+            lines=f.read()
+            if lines == "": # if there are no lines in the file
+                self.logger.warning("Session file is empty")
+                dat={}
+            else:
+                dat={line.split(":")[0]:line.split(":")[1] for line in [x.strip("\n") for x in lines.split("\n")]}
+        self.logger.info("Session file data retrieved")
+        return dat
+
+
+    def generateFolderStructure(self,folders):
+        for folder in folders:
+            if self.os.path.isdir(folder):
+                self.logger.warning(f"Folder {folder} to create already exists, ignoring")
+                continue
+            try:
+                self.os.makedirs(folder)
+            except OSError as e:
+                self.logger.exception(e)
+                raise OSError(
+                      e)
+
+    def generateFileStructure(self,files):
+        for file in files:
+            if self.os.path.exists(file):
+                self.logger.warning(f"File {file} to create already exists, copying file to recovery directory in Kraken files and clearing file")
+                raise Exception
+            try:
+                with open(file,"w") as f:
+                    f.close()
+            except OSError as e:
+                self.logger.exception(e)
+                raise OSError(
+                      e)
+
+    def createNewSite(self,siteName):
+        self.logger.info(f"Generating a new site for user {self.username}")
+
+        siteConfigFile=f"data/user/{self.username}/sites/{siteName}/site.ini"
+
+        folderStructure=[
+            f"data/user/{self.username}/sites/{siteName}",
+            f"data/user/{self.username}/sites/{siteName}/output",
+        ]
+
+        fileStructure=[
+            siteConfigFile,
+        ]
+
+        self.generateFolderStructure(folderStructure)
+        self.generateFileStructure(fileStructure)
+        
+        self.logger.info(f"Generated a new site for user {self.username}")
 
 if __name__ == "__main__":
     Kraken()

@@ -84,10 +84,40 @@ class Screen():
             "black":"assets/images/icon/svg/kraken-icon-svg-black.svg"
         }
 
+        self.images={
+            "kraken_tentacles_one":"assets/images/kraken_tentacles_one.png"
+        }
+
         self.bgcolor=self.colors["light"]
 
         self.fontPrimary={"family":"Lexend"}
         self.fontSecondary={"family":"Roboto"}
+
+        self.fafonts={
+            "brands":"Font Awesome 6 Brands Regular",
+            "duotone":"Font Awesome 6 Duotone Light",
+            "light":"Font Awesome 6 Pro Light",
+            "regular":"Font Awesome 6 Pro Regular",
+            "solid":"Font Awesome 6 Pro Solid",
+            "thin":"Font Awesome 6 Pro Thin"
+        }
+
+        self.fasizes={"massive":48,"large":"36","medium":"26","caption":"18","small":"12"}
+
+        #self.fatkinterfonts=[]
+
+        for key in self.fafonts:
+            for size in self.fasizes:
+                exec(f"self.fa{key}{size}=self.tkinterFont(family=self.fafonts['{key}'],size='{self.fasizes[size]}')")
+                #eval(f"self.fatkinterfonts.append(self.fa{key}{size})")
+
+        #print(self.fatkinterfonts)
+        
+
+        self.falightlarge=self.tkinterFont(
+            family=self.fafonts["light"],
+            size="36"
+        )
 
         self.titleFont=self.tkinterFont(
             family=self.fontPrimary["family"],
@@ -301,9 +331,38 @@ class Screen():
         if command is not None:
             command()
 
+    def onElementHover(self,e,color):
+        e.widget.config(bg=self.colors[color]["dark"])
+
+    def onElementHoverExit(self,e,color):
+        e.widget.config(bg=self.colors[color]["normal"])
+
+    def onTextHover(self,e,color,colored=True):
+        if colored:
+            e.widget.config(fg=self.colors[color]["dark"])
+        else:
+            e.widget.config(fg=self.colors["grey"]["800"])
+
+    def onTextHoverExit(self,e,color,colored=True):
+        if colored:
+            e.widget.config(fg=self.colors[color]["normal"])
+        else:
+            e.widget.config(fg=self.colors["dark"])
+
+    def initElementHover(self,e,color):
+        e.bind("<Enter>", lambda event, color=color: self.onElementHover(event,color))
+        e.bind("<Leave>", lambda event, color=color: self.onElementHoverExit(event,color))
+
+    def initTextHover(self,e,color,colored=True):
+        e.bind("<Enter>", lambda event, color=color, colored=colored: self.onTextHover(event,color,colored))
+        e.bind("<Leave>", lambda event, color=color, colored=colored: self.onTextHoverExit(event,color,colored))
+
     def clear(self):
         """ Clear the screen """
-        self.container.destroy()
+        try:
+            self.container.destroy()
+        except:
+            self.clearAll()
         self.master.logger.info("Screen deleted")
         del self
 
