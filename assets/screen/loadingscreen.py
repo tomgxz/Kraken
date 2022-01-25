@@ -31,7 +31,7 @@ class LoadingScreen(Screen):
         self.container.place(relx=0.5,rely=0.5,anchor="center")
 
         self.imageObject=self.generateImage(self.icon["gradient"]["512"],100,100)
-        self.image=self.tkinter.Canvas(self.container,width=100,height=100,bg=self.bgcolor,bd=0)
+        self.image=self.tkinter.Canvas(self.container,width=100,height=100,bg=self.bgcolor,bd=0,highlightthickness=0)
         self.image.place(relx=0.5,rely=0.3,anchor="center")
         self.image.create_image(52,52,image=self.imageObject,anchor="center")
 

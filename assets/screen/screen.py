@@ -367,5 +367,9 @@ class Screen():
         del self
 
 if __name__ == "__main__":
+    import dis
+
+    dis.dis(Screen)
+    
     raise Exception(
         "This module is to be used in conjunction with the Kraken application and not as a standalone module.")

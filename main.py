@@ -62,8 +62,10 @@ class Kraken():
             from assets.screen.screen import Screen
             from assets.screen.signupscreen import SignupScreen
 
+            from assets.tk.popup import Popup
             from assets.tk.dangerpopup import DangerPopup
             from assets.tk.successpopup import SuccessPopup
+            from assets.tk.newsitepopup import NewSitePopup
             
         except ModuleNotFoundError as e: # import error
             self.logger.error("Internal module not found - exiting program")
@@ -72,8 +74,10 @@ class Kraken():
         
         else:
             self.Encryptor=Encryption(self.logger)
+            self.popup=Popup
             self.dangerPopup=DangerPopup
             self.successPopup=SuccessPopup
+            self.newSitePopup=NewSitePopup
 
         self.logger.info("Classes imported")
 
@@ -452,7 +456,7 @@ class Kraken():
                 self.os.makedirs(folder)
             except OSError as e:
                 self.logger.exception(e)
-                raise OSError(
+                raise OSError(	
                       e)
 
     def generateFileStructure(self,files):
@@ -471,11 +475,17 @@ class Kraken():
     def createNewSite(self,siteName):
         self.logger.info(f"Generating a new site for user {self.username}")
 
-        siteConfigFile=f"data/user/{self.username}/sites/{siteName}/site.ini"
+        sitePath="data/user/{self.username}/sites/{siteName}"
+
+        if self.os.path.exists(sitePath):
+            self.logger.warning(f"Site with this name ({siteName}) already exists")
+            return False
+
+        siteConfigFile=f"{sitePath}/site.ini"
 
         folderStructure=[
-            f"data/user/{self.username}/sites/{siteName}",
-            f"data/user/{self.username}/sites/{siteName}/output",
+            f"{sitePath}",
+            f"{sitePath}/output",
         ]
 
         fileStructure=[
@@ -485,8 +495,7 @@ class Kraken():
         self.generateFolderStructure(folderStructure)
         self.generateFileStructure(fileStructure)
         
-        self.logger.info(f"Generated a new site for user {self.username}")
+        self.logger.info(f"Generated a new site with name {siteName} for user {self.username}")
 
 if __name__ == "__main__":
     Kraken()
-

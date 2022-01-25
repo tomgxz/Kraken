@@ -19,9 +19,7 @@ class LoginLoadingScreen(LoadingScreen):
             (Optional, "Logging you in") Defines the second part of the title being displayed on screen
         """
         
-        super().__init__(master,root,titleTextA=titleTextA,titleTextB=titleTextB,progBarRandomMin=0.0001,progBarRandomMax=0.001)
-
-        
+        super().__init__(master,root,titleTextA=titleTextA,titleTextB=titleTextB,progBarRandomMin=0.0001,progBarRandomMax=0.001)        
 
         
     def next(self):
