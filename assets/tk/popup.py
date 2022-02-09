@@ -1,6 +1,6 @@
 class Popup():
     """ Custom tkinter popup widget for Kraken """
-    
+
     def __init__(self,screen,title="title",msg="msg",btnText="back",color="#000000",command=None,w=int(1920/4),h=int(1080/4)):
         """
         Constructs a :class: 'Popup <Popup>'
@@ -10,7 +10,7 @@ class Popup():
         self.command=command
 
         self.bgcolor=screen.colors["grey"]["100"]
-        
+
         borderWidth=6 # must be even
         self.border=screen.tkinter.Frame(screen.root,width=w,height=h,bg=color)
         self.container=screen.tkinter.Frame(self.border,bg=self.bgcolor,width=w-borderWidth,height=h-borderWidth)

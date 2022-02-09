@@ -5,7 +5,7 @@ except ModuleNotFoundError:
 
 class MenuScreen(Screen):
     """ The tkinter login screen for Kraken. Inherits from :class: Screen. """
-    
+
     def __init__(self,master,root):
         """
         Constructs a :class: 'MenuScreen <MenuScreen>'
@@ -15,7 +15,7 @@ class MenuScreen(Screen):
         :param root object:
             The tkinter root
         """
-                
+
         super().__init__(master,root)
 
         self.master.logger.info("Generating menu screen")
@@ -43,14 +43,14 @@ class MenuScreen(Screen):
         sessionDat=self.master.getSessionData()
         if "username" in sessionDat:
             text=f"Welcome, {sessionDat['username']}"
-            
+
         self.title=self.tkinter.Label(self.content,text=text,font=self.titleFont,bg=self.bgcolor)
         self.title.grid(row=0,column=0,sticky="nw")
 
         if not self.master.userhassites:
             self.emptyContainer=self.tkinter.Frame(self.content,bg=self.bgcolor,width=468,height=int(self.master.w/2))
             self.emptyContainer.place(relx=0.5,rely=0.5,anchor="center")
-            
+
             self.master.emptyImage=self.tkinter.Canvas(self.emptyContainer,bg=self.bgcolor,width=468,height=211,highlightthickness=0)
             self.master.emptyImage.pack()
             self.master.emptyImage.create_image(int(468/2),int(211/2),image=self.master.emptyImageObject,anchor="center")
@@ -61,24 +61,38 @@ class MenuScreen(Screen):
             self.emptyText2=self.tkinter.Label(self.emptyContainer,text="Maybe you should create a new site?",font=self.subheaderFont,bg=self.bgcolor,width=468,fg=self.colors["primary"]["normal"])
             self.emptyText2.pack()
 
-            self.emptyText2.bind("<Button-1>",self.createNewSite)
+            self.emptyText2.bind("<Button-1>",self.createNewSiteBtnClick)
 
             self.initTextHover(self.emptyText2,color="primary")
-    
+
         if self.master.userhassites:
-            self.caption=self.tkinter.Label(self.content,text="Your sites:",font=self.headerFont,bg=self.bgcolor)
+            self.contentHeaderContainer=self.tkinter.Label(self.content,bg=self.bgcolor)
+            self.contentHeaderContainer.grid(row=1,column=0,sticky="n",expand=True)
+
+            self.caption=self.tkinter.Label(self.contentHeaderContainer,text="Your sites:",font=self.headerFont,bg=self.bgcolor)
             self.caption.grid(row=1,column=0,sticky="nw")
-            
+
+            self.newSiteBtn=self.tkinter.Button(self.contentHeaderContainer,
+                text="Create New Site",
+                font=self.subheaderFont,
+                bg=self.colors["accent1"]["normal"],
+                activebackground=self.colors["accent1"]["dark"],
+                bd=5,
+                relief="groove",
+                height=1,
+                command=self.createNewSiteBtnClick
+            )
+
+            self.newSiteBtn.grid(row=1,column=1,sticky="ne")
 
         self.master.logger.info("Menu screen generated")
 
-    def createNewSite(self,event):
-        print(self,event)
+    def createNewSiteBtnClick(self,event=None):
         self.master.newSitePopup(self)
 
     def next(self):
         """ Move the window to the next screen, defined in the function. """
-        
+
         try:
             from assets.screen.loginloadingscreen import LoginLoadingScreen
         except ModuleNotFoundError:
@@ -97,7 +111,7 @@ class MenuScreen(Screen):
 
         return True
 
-            
+
 if __name__ == "__main__":
     raise Exception(
         "This module is to be used in conjunction with the Kraken application and not as a standalone module.")
