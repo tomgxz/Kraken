@@ -263,7 +263,7 @@ class Screen():
         
         return self.ttk.Progressbar(parent,orient="horizontal",length=length,mode="determinate",takefocus=True,maximum=100,style=f'{style}.Horizontal.TProgressbar')
 
-    def generateEntryInput(self,parent,name,entryColor="black",hidden=False):
+    def generateEntryInput(self,parent,name,entryColor="black",hidden=False,spacer=True):
         """
         Generates a tkinter entry widget
 
@@ -294,11 +294,14 @@ class Screen():
 
         if hidden:
             entry=self.tkinter.Entry(container,textvariable=textvar,width=32,fg=entryColor,relief="solid",show="_")
-            label2=self.tkinter.Label(container,bg=self.bgcolor,text="👁",font=self.tkinterFont(size="14"))
+            label2=self.tkinter.Label(container,bg=self.bgcolor,text="👁",font=self.tkinterFont(family=self.fontPrimary["family"],size="14"))
             label2.grid(row=0,column=2)
         else:
+            text=""
+            if spacer:
+                text="⠀⠀"
             entry=self.tkinter.Entry(container,textvariable=textvar,width=32,fg=entryColor,relief="solid")
-            label2=self.tkinter.Label(container,bg=self.bgcolor,text="⠀⠀",font=self.captionFontItalic)
+            label2=self.tkinter.Label(container,bg=self.bgcolor,text=text,font=self.captionFontItalic)
             label2.grid(row=0,column=2,padx=0.4)
 
         entry.grid(row=0,column=1)
@@ -367,9 +370,5 @@ class Screen():
         del self
 
 if __name__ == "__main__":
-    import dis
-
-    dis.dis(Screen)
-    
     raise Exception(
         "This module is to be used in conjunction with the Kraken application and not as a standalone module.")

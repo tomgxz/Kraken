@@ -20,7 +20,10 @@ class NewSitePopup(Popup):
         self.form=screen.tkinter.Frame(self.container,bg=screen.colors["grey"]["100"])
         self.form.place(relx=0.5,rely=0.5,anchor="center")
         
-        self.entryContainer,self.entryLabel,self.entryTextVar,self.entryEntry,_=screen.generateEntryInput(self.form,"Site Name",entryColor=screen.colors["secondary"]["dark"])
+        self.entryContainer,self.entryLabel,self.entryTextVar,self.entryEntry,_=screen.generateEntryInput(self.form,"Site Name",entryColor=screen.colors["secondary"]["dark"],spacer=False)
+        self.entryContainer.configure(bg=self.screen.color["primary"]["normal"])
+        self.entryEntry.configure(bg=self.bgcolor)
+
 
     def submit(self):
         content=self.entryTextVar.get()
