@@ -1,6 +1,6 @@
 class Screen():
     """ The tkinter screen for Kraken """
-    
+
     def __init__(self,master,root):
         """
         Constructs a :class: 'Screen <Screen>'
@@ -10,9 +10,9 @@ class Screen():
         :param root object:
             The tkinter root
         """
-                
+
         master.logger.info("Generating screen")
-        
+
         self.master=master
         self.root=root
 
@@ -47,29 +47,29 @@ class Screen():
 
     def init(self):
         """ Initialize the screen graphics """
-        
+
         self.master.logger.info("Initializing screen graphics")
-        
+
         primary   = {"light":"#58a1ee","accent":"#338ceb","normal":"#1c7fe9","dark":"#1263ba"}
         secondary = {"light":"#dd51e1","accent":"#cc23d1","normal":"#a91dae","dark":"#88188c"}
         accent1   = {"light":"#6acbf1","accent":"#57c4ef","normal":"#27b3eb","dark":"#118bbb"}
         accent2   = {"light":"#3a0dbf","accent":"#2e0b99","normal":"#270982","dark":"#1d075f"}
-        
+
         grey = {"100":"#dee2e6","200":"#ced4da","300":"#adb5bd","400":"#81888F","500":"#8d959d","600":"#495057","700":"#343a40","800":"#212529"}
 
         self.colors={
             "light":"#f8f9fa",
-            "dark":"#e9ecef",
+            "dark":"#121212",
 
             "danger":"#EA5D5C",
             "warning":"#ffc107",
             "success":"#4dbd74",
-            
+
             "primary":primary,
             "secondary":secondary,
             "accent1":accent1,
             "accent2":accent2,
-            
+
             "grey":grey,
         }
 
@@ -112,7 +112,7 @@ class Screen():
                 #eval(f"self.fatkinterfonts.append(self.fa{key}{size})")
 
         #print(self.fatkinterfonts)
-        
+
 
         self.falightlarge=self.tkinterFont(
             family=self.fafonts["light"],
@@ -155,7 +155,7 @@ class Screen():
 
         self.style = self.ttk.Style()
         self.style.theme_use('clam')
-        
+
         self.style.configure(
             "white.Horizontal.TProgressbar",
             borderradius="5",
@@ -194,7 +194,7 @@ class Screen():
         :returns: a tkinter image object
         :rtype: object
         """
-        
+
         self.master.logger.info("Generating tkinter image")
         img=self.pilImage.open(path)
         img=img.resize((w,h),self.pilImage.ANTIALIAS)
@@ -213,7 +213,7 @@ class Screen():
         :param y str:
             (Optional, "Loading") The second part of the text to be displayed. If set to None, it will only display :param: x
         """
-        
+
         self.master.logger.info("Loading text started")
         texts=[
             f"{x} - {y}",
@@ -260,7 +260,7 @@ class Screen():
         :returns: the unplaced tkinter widget
         :rtype: object
         """
-        
+
         return self.ttk.Progressbar(parent,orient="horizontal",length=length,mode="determinate",takefocus=True,maximum=100,style=f'{style}.Horizontal.TProgressbar')
 
     def generateEntryInput(self,parent,name,entryColor="black",hidden=False,spacer=True):
@@ -281,7 +281,7 @@ class Screen():
         :returns: All of the components of the entry: the container, label, stringvar, entry and label containing the reveal button. The label contianing the reveal button will be empty if :param: hidden is false (or unchanged)
         :rtype: object, object, object, object, object
         """
-        
+
         container=self.tkinter.Frame(parent,bg=self.bgcolor)
         container.pack(side="top",anchor="e")
 
@@ -305,7 +305,7 @@ class Screen():
             label2.grid(row=0,column=2,padx=0.4)
 
         entry.grid(row=0,column=1)
-            
+
 
         return container,label,textvar,entry,label2
 
@@ -320,13 +320,13 @@ class Screen():
         :param randomMin float:
             (Optional, 0.001) The minimum wait time between progress bar steps
         :param randomMax float:
-            (Optional, 0.05) The maximum wait time between progress bar steps            
+            (Optional, 0.05) The maximum wait time between progress bar steps
         """
-        
+
         self.master.logger.info("Progress bar started")
         threadTime="random"
         threadSleep=0.1
-            
+
         for i in range(99):
             x.step()
             self.root.update()

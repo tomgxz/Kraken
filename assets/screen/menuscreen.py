@@ -36,7 +36,7 @@ class MenuScreen(Screen):
         self.columnpad1=self.tkinter.Frame(self.root,bg=self.bgcolor,width=32,height=self.master.h)
         self.columnpad1.pack(expand=False,fill="both",side="left",anchor="nw")
 
-        self.content=self.tkinter.Frame(self.root,bg=self.bgcolor,width=int(self.master.w-100),height=self.master.h)
+        self.content=self.tkinter.Frame(self.root,bg=self.bgcolor,width=int(self.master.minwidth-100),height=self.master.minheight)
         self.content.pack(expand=True,fill="both",side="right")
 
         text="Welcome, user"
@@ -48,7 +48,7 @@ class MenuScreen(Screen):
         self.title.grid(row=0,column=0,sticky="nw")
 
         if not self.master.userhassites:
-            self.emptyContainer=self.tkinter.Frame(self.content,bg=self.bgcolor,width=468,height=int(self.master.w/2))
+            self.emptyContainer=self.tkinter.Frame(self.content,bg=self.bgcolor,width=468,height=int(self.master.minwidth/2))
             self.emptyContainer.place(relx=0.5,rely=0.5,anchor="center")
 
             self.master.emptyImage=self.tkinter.Canvas(self.emptyContainer,bg=self.bgcolor,width=468,height=211,highlightthickness=0)
@@ -66,13 +66,16 @@ class MenuScreen(Screen):
             self.initTextHover(self.emptyText2,color="primary")
 
         if self.master.userhassites:
-            self.contentHeaderContainer=self.tkinter.Label(self.content,bg=self.bgcolor)
-            self.contentHeaderContainer.grid(row=1,column=0,sticky="n",expand=True)
+            self.contentHeaderContainer=self.tkinter.Frame(self.content,bg=self.bgcolor)
+            self.contentHeaderContainer.grid(row=1,column=0,sticky="n")
 
             self.caption=self.tkinter.Label(self.contentHeaderContainer,text="Your sites:",font=self.headerFont,bg=self.bgcolor)
             self.caption.grid(row=1,column=0,sticky="nw")
 
-            self.newSiteBtn=self.tkinter.Button(self.contentHeaderContainer,
+            self.newSiteBtnContainer=self.tkinter.Frame(self.contentHeaderContainer,bg=self.bgcolor)
+            self.newSiteBtnContainer.grid(row=1,column=1,sticky="ne")
+
+            self.newSiteBtn=self.tkinter.Button(self.newSiteBtnContainer,
                 text="Create New Site",
                 font=self.subheaderFont,
                 bg=self.colors["accent1"]["normal"],
@@ -83,11 +86,58 @@ class MenuScreen(Screen):
                 command=self.createNewSiteBtnClick
             )
 
-            self.newSiteBtn.grid(row=1,column=1,sticky="ne")
+            self.newSiteBtn.pack(side="right")
+
+            self.siteList=self.tkinter.Frame(self.content,bg=self.bgcolor)
+            self.siteList.grid(row=2,column=0,sticky="n")
+
+            sites=self.master.os.listdir(self.master.usersitesdir)
+            for site in enumerate(sites):
+                sites[site[0]]=f"{self.master.os.path.abspath(self.master.usersitesdir)}\\{site[1]}\\"
+            self.siteListElements={}
+            colorItera=[
+                self.colors["primary"]["light"],
+                self.colors["secondary"]["light"],
+                self.colors["accent1"]["normal"]
+            ]
+            colorIteraHover=[
+                self.colors["primary"]["normal"],
+                self.colors["secondary"]["normal"],
+                self.colors["accent1"]["dark"]
+            ]
+            itera=0
+            for site in sites:
+                siteConfig=self.configparser()
+                siteConfig.read(f"{site}site.ini")
+                sitename=siteConfig.get("site","sitename")
+                color=colorItera[itera%3]
+                focussedDict=self.siteListElements[siteConfig.get("site","sitename")]={}
+                focussedDict["frame"]=self.tkinter.Frame(self.siteList,width=300,height=150,bg=color)
+                focussedDict["title"]=self.tkinter.Label(focussedDict["frame"],bg=color,text=sitename,font=self.subheaderFont)
+                focussedDict["frame"].bind("<Enter>",lambda event,color=colorIteraHover[itera%3],focussedDict=focussedDict:self.siteElementOnMouseEnter(event,color,focussedDict))
+                focussedDict["frame"].bind("<Leave>",lambda event,color=color,focussedDict=focussedDict:self.siteElementOnMouseExit(event,color,focussedDict))
+                itera+=1
+
+            for item in self.siteListElements:
+                focussed=self.siteListElements[item]
+                focussed["frame"].pack(padx=32,pady=16)
+                focussed["title"].place(x=4,y=4)
 
         self.master.logger.info("Menu screen generated")
 
+    def siteElementOnMouseEnter(self,event,color,elementGroup):
+        elementGroup["frame"].configure(bg=color)
+        elementGroup["title"].configure(bg=color)
+
+    def siteElementOnMouseExit(self,event,color,elementGroup):
+        elementGroup["frame"].configure(bg=color)
+        elementGroup["title"].configure(bg=color)
+
     def createNewSiteBtnClick(self,event=None):
+        try:self.newSiteBtn.configure(state="disabled",bg=self.colors["grey"]["400"])
+        except:pass
+        try:self.emptyText2.unbind("<Button-1>")
+        except:pass
         self.master.newSitePopup(self)
 
     def next(self):

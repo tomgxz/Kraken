@@ -115,6 +115,9 @@ class Kraken():
         self.root.minsize(int(1920/2),int(1080/2))
         #self.root.state("zoomed") # fullscreen
 
+        self.minwidth=int(1920/2)
+        self.minheight=int(1080/2)
+
         self.logger.info("Tkinter main root formatted")
 
         return True

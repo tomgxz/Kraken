@@ -51,6 +51,17 @@ class NewSitePopup(Popup):
 
         return True
 
+    def onBackClick(self):
+        self.border.destroy()
+
+        try:self.screen.newSiteBtn.configure(state="normal",bg=self.screen.colors["accent1"]["normal"])
+        except:pass
+        try:self.screen.emptyText2.bind("<Button-1>",self.screen.createNewSiteBtnClick)
+        except:pass
+
+        del self
+
+
 if __name__ == "__main__":
     raise Exception(
         "This module is to be used in conjunction with the Kraken application and not as a standalone module.")
