@@ -63,6 +63,7 @@ class Kraken():
             from assets.screen.menuscreen import MenuScreen
             from assets.screen.screen import Screen
             from assets.screen.signupscreen import SignupScreen
+            from assets.screen.sitemenuscreen import SiteMenuScreen
 
             from assets.tk.popup import Popup
             from assets.tk.dangerpopup import DangerPopup
@@ -511,6 +512,7 @@ class Kraken():
 
         siteConfigFileContent.set(section,"user",self.username)
         siteConfigFileContent.set(section,"sitename",siteName)
+        siteConfigFileContent.set(section,"sitedesc","no description set")
         siteConfigFileContent.set(section,"created",str(self.datetime.datetime.utcnow())) # time in gb not in us
         siteConfigFileContent.set(section,"siteFilesPath",f"{self.os.path.abspath(sitePath)}\\output\\")
 

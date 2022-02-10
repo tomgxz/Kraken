@@ -110,28 +110,39 @@ class MenuScreen(Screen):
                 siteConfig=self.configparser()
                 siteConfig.read(f"{site}site.ini")
                 sitename=siteConfig.get("site","sitename")
+                sitedesc=siteConfig.get("site","sitedesc")
                 color=colorItera[itera%3]
                 focussedDict=self.siteListElements[siteConfig.get("site","sitename")]={}
+                focussedDict["path"]=site
                 focussedDict["frame"]=self.tkinter.Frame(self.siteList,width=300,height=150,bg=color)
                 focussedDict["title"]=self.tkinter.Label(focussedDict["frame"],bg=color,text=sitename,font=self.subheaderFont)
+                focussedDict["text"]=self.tkinter.Label(focussedDict["frame"],bg=colorIteraHover[itera%3],text=sitedesc,font=self.captionFontItalic)
                 focussedDict["frame"].bind("<Enter>",lambda event,color=colorIteraHover[itera%3],focussedDict=focussedDict:self.siteElementOnMouseEnter(event,color,focussedDict))
                 focussedDict["frame"].bind("<Leave>",lambda event,color=color,focussedDict=focussedDict:self.siteElementOnMouseExit(event,color,focussedDict))
+                focussedDict["frame"].bind("<Button-1>",lambda event,focussedDict=focussedDict:self.siteElementOnMouseDown(event,focussedDict))
                 itera+=1
 
+            itera=0
             for item in self.siteListElements:
                 focussed=self.siteListElements[item]
-                focussed["frame"].pack(padx=32,pady=16)
+                focussed["frame"].grid(row=int(itera/3),column=itera%3,padx=32,pady=16)
                 focussed["title"].place(x=4,y=4)
+                itera+=1
 
         self.master.logger.info("Menu screen generated")
+
+    def siteElementOnMouseDown(self,event,elementGroup):
+        self.next(elementGroup["path"])
 
     def siteElementOnMouseEnter(self,event,color,elementGroup):
         elementGroup["frame"].configure(bg=color)
         elementGroup["title"].configure(bg=color)
+        elementGroup["text"].place(x=4,y=124)
 
     def siteElementOnMouseExit(self,event,color,elementGroup):
         elementGroup["frame"].configure(bg=color)
         elementGroup["title"].configure(bg=color)
+        elementGroup["text"].place_forget()
 
     def createNewSiteBtnClick(self,event=None):
         try:self.newSiteBtn.configure(state="disabled",bg=self.colors["grey"]["400"])
@@ -140,27 +151,20 @@ class MenuScreen(Screen):
         except:pass
         self.master.newSitePopup(self)
 
-    def next(self):
+    def next(self,sitePath):
         """ Move the window to the next screen, defined in the function. """
 
-        try:
-            from assets.screen.loginloadingscreen import LoginLoadingScreen
-        except ModuleNotFoundError:
-            from loginloadingscreen import LoginLoadingScreen
-        LoginLoadingScreen(self.master,self.root)
-        self.master.logger.info("Login screen cleared")
+        try: from assets.screen.sitemenuscreen import SiteMenuScreen
+        except ModuleNotFoundError: from sitemenuscreen import SiteMenuScreen
+        SiteMenuScreen(self.master,self.root,sitePath)
+        self.master.logger.info("Menu screen cleared")
         self.clear()
 
     def onSettingsIconClickEvent(self,event=None):
-        if self.settingsIconClicked:
-            self.settingsIcon.configure(font=self.falightmassive,fg=self.colors["primary"]["normal"])
-        else:
-            self.settingsIcon.configure(font=self.fasolidmassive,fg=self.colors["primary"]["dark"])
-
+        if self.settingsIconClicked: self.settingsIcon.configure(font=self.falightmassive,fg=self.colors["primary"]["normal"])
+        else: self.settingsIcon.configure(font=self.fasolidmassive,fg=self.colors["primary"]["dark"])
         self.settingsIconClicked=not self.settingsIconClicked
-
         return True
-
 
 if __name__ == "__main__":
     raise Exception(
