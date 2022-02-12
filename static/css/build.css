@@ -1,0 +1,113 @@
+.section {
+    height:100vw;
+    justify-content: center;
+}
+
+.section .section-content {
+    padding-left:32px;
+    padding-right:32px;
+}
+
+.section.one .section-header {
+    flex-direction: column;
+    align-items: center;
+}
+
+.section.one .section-header .section-header-item:not(:last-child) {
+    margin-bottom: 16px
+}
+
+.section.one .section-header .header-options {
+    width:100%;
+    display:flex;
+    justify-content: space-evenly
+}
+
+.section.one .section-header .header-option {
+    cursor:pointer;
+}
+
+.section.one .section-header .header-option:active {
+    opacity:.8;
+}
+
+.section.one .section-header .header-option.active {
+    color:var(--colors-secondary);
+}
+
+.section.one .section-header .figure-container.one .figure.one {
+    background-image:url(../img/icon/512-512/kraken-icon-png-secondary-512-512.png);
+    background-size:cover;
+    width:128px;
+    height:128px;
+}
+
+.section.one .section-body {
+    justify-content: center
+}
+
+.section.one .section-body .field-container:not(.active) {
+    visibility: hidden;
+    opacity:0;
+    position:absolute;
+    top:0;
+    left:0;
+    width:0px;
+    height:0px;
+}
+
+.section.one .section-body .field-container {
+    margin-top:32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section.one .section-body .field-container .field-submit {
+    margin-top:32px;
+}
+
+.section.one .section-body .field-container .field-options {
+    width:360px;
+    display:flex;
+    flex-direction:column;
+}
+
+.section.one .section-body .field-container .field-option:not(:last-child) {
+    margin-bottom:8px
+}
+
+.section.one .section-body .field-container .field-option {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.section.one .section-body .field-container .field-option .field-input-container {
+    display:flex;
+    flex-direction: row;   
+}
+
+.section.one .section-body .field-container .field-option .field-input {
+    font-family: var(--font-body);
+}
+
+.section.one .section-body .field-container .field-option .field-input-container .eye-reveal,
+.section.one .section-body .field-container .field-option .field-input-container .eye-spacer {
+    width:19px;
+    height:19px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:8px;
+}
+
+.section.one .section-body .field-container .field-option .field-input-container .eye-reveal:active {
+    color:var(--colors-secondary);
+    text-shadow: 0px 0px 8px rgba(0,0,0,.2)
+}
+
+.section.one .section-body .field-container .field-warning {
+    color:#e63832;
+    margin-bottom:8px;
+}

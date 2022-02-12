@@ -1,7 +1,7 @@
 # Kraken files
-assets/log/__pycache__
-assets/screen/__pycache__
-assets/tk/__pycache__
+tkinter/assets/log/__pycache__
+tkinter/assets/screen/__pycache__
+tkinter/assets/tk/__pycache__
 
 
 # Byte-compiled / optimized / DLL files

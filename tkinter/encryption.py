@@ -1,11 +1,14 @@
 class Encryption():
     """ Encryption module for Kraken"""
-
-    def __init__(self,master):
+    
+    def __init__(self,logger):
         """
         Constructs a :class: 'Encryption <Encryption>'
-        """
 
+        :param logger object:
+            A refference to the logging object used throughout the Kraken code
+        """
+        
         from cryptography.fernet import Fernet
         from dotenv import load_dotenv
         import os
@@ -13,9 +16,14 @@ class Encryption():
         self.os=os
         self.cryptor=Fernet
 
-        self.master=master
-
         load_dotenv()
+
+        self.usrFile="data/bin/xugz.bin"
+        self.pwdFile="data/bin/vugx.bin"
+
+        self.logger=logger
+
+        self.logger.info("Encryption object initialised")
 
     def getKey(self):
         """
@@ -24,20 +32,20 @@ class Encryption():
         :returns: An byte-encoded string
         :rtype: str
         """
-
+        
         return self.os.environ.get("KEY").encode()
 
     def decrypt(self,x):
         """
         Decrypts a string. The string must have been encoded by this module.
-
+        
         :param x str:
             The encrypted string to decrypt.
 
         :returns: The decrypted string
         :rtype: str
         """
-
+        
         return self.cryptor(self.getKey()).decrypt(x).decode()
 
     def encrypt(self,x):
@@ -50,7 +58,7 @@ class Encryption():
         :returns: The encrypted byte-encoded string
         :rtype: str
         """
-
+        
         return self.cryptor(self.getKey()).encrypt(x.encode())
 
     def usernameExists(self,usr):
@@ -60,13 +68,18 @@ class Encryption():
         :param usr str:
             A decrypted username to search for
 
-        :returns: A boolean reffering to whether the username exists
+        :returns: A boolean reffering to whether the username exists in the file
         :rtype: bool
         """
-
-        x=self.master.execute(f"SELECT EXISTS(SELECT * FROM users WHERE username='{usr}')").fetchone()
-        if x[0]==1:
-            return True
+        
+        self.logger.info("Searching for username...")
+        with open(self.usrFile,"rb") as usrList:
+            usrs=usrList.readlines()
+            for line in usrs:
+                if usr == self.decrypt(line):
+                    self.logger.info("Username exists")
+                    return True
+        self.logger.info("Username does not exist")
         return False
 
     def credentialsExist(self,usr,pwd):
@@ -81,7 +94,7 @@ class Encryption():
         :returns: A boolean reffering to whether the credentials match
         :rtype: bool
         """
-
+        
         self.logger.info("Searching for credentials...")
         usrpos=None
         with open(self.usrFile,"rb") as usrList:
@@ -90,14 +103,18 @@ class Encryption():
             for line in usrs:
                 if usr == self.decrypt(line):
                     usrpos=itera
+                    self.logger.info("Username exists")
                     break
                 itera+=1
         if usrpos is None:
+            self.logger.info("Username does not exist")
             return False
         with open(self.pwdFile,"rb") as pwdList:
             pwds=pwdList.readlines()
             if pwd == self.decrypt(pwds[usrpos]):
+                self.logger.info("Password exists")
                 return True
+        self.logger.info("Password does not exist")
         return False
 
     def store(self,usr,pwd):
@@ -112,13 +129,15 @@ class Encryption():
         :returns: A boolea determining whether the process was successful
         :rtype: bool
         """
-
+        
+        self.logger.info("Storing Credentials...")
         with open(self.usrFile,"ab") as usrList:
             usrList.write(usr+"\n".encode())
             usrList.close()
         with open(self.pwdFile,"ab") as pwdList:
             pwdList.write(pwd+"\n".encode())
             pwdList.close()
+        self.logger.info("Credentials stored")
         return True
 
 if __name__ == "__main__":
