@@ -69,7 +69,7 @@ class Encryption():
             return True
         return False
 
-    def credentialsExist(self,usr,pwd):
+    def checkCredentials(self,usr,pwd):
         """
         See whether the username and password combination inputted match in the bin files
 
@@ -82,43 +82,24 @@ class Encryption():
         :rtype: bool
         """
 
-        self.logger.info("Searching for credentials...")
-        usrpos=None
-        with open(self.usrFile,"rb") as usrList:
-            usrs=usrList.readlines()
-            itera=0
-            for line in usrs:
-                if usr == self.decrypt(line):
-                    usrpos=itera
-                    break
-                itera+=1
-        if usrpos is None:
+        if not self.usernameExists(usr):
             return False
-        with open(self.pwdFile,"rb") as pwdList:
-            pwds=pwdList.readlines()
-            if pwd == self.decrypt(pwds[usrpos]):
-                return True
-        return False
+        print(self.decrypt(self.master.execute(f"SELECT password FROM users WHERE username='{usr}'").fetchone()[0]))
 
-    def store(self,usr,pwd):
+    def createUser(self,usr,pwd):
         """
-        Stores an encrypted username and password. Both paramaters must have been previously encrypted by this module.
+        Stores a username with an encrypted password. Params are passed in decrypted
 
         :param usr str:
-            An encrypted byte-encoded string containing the username to store
+            The username to store as the primary key
         :param pwd str:
-            An encrypted byte-encoded string containing the password to store
+            The password to be stored
 
-        :returns: A boolea determining whether the process was successful
+        :returns: A boolean determining whether the process was successful
         :rtype: bool
         """
-
-        with open(self.usrFile,"ab") as usrList:
-            usrList.write(usr+"\n".encode())
-            usrList.close()
-        with open(self.pwdFile,"ab") as pwdList:
-            pwdList.write(pwd+"\n".encode())
-            pwdList.close()
+        print(f"INSERT INTO users (username password) VALUES ('{usr}','{str(self.encrypt(pwd))[2:]})")
+        self.master.execute(f"INSERT INTO users (username password) VALUES ('{usr}','{str(self.encrypt(pwd))[2:]})")
         return True
 
 if __name__ == "__main__":

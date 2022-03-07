@@ -165,7 +165,9 @@ class Kraken():
             open(self.logFile,"w").close() # clear file
 
         elif self.os.path.exists(self.sessionFile) and not(self.os.path.exists(self.logFile)): # if latest.log doesnt exist
-            commands.append(self.logger.warning("Previous log file does not exist"))
+            commands.append(lambda:self.logger.warning("Previous log file does not exist"))
+            if not self.os.path.exists("data/log/"):
+                self.os.makedirs("data/log/")
             open(self.logFile,"w").close()
 
         elif (not self.os.path.exists(self.sessionFile)) and (not self.os.path.exists(self.logFile)): # if neither exists

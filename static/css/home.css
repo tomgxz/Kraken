@@ -1,0 +1,82 @@
+.globalnav {
+    background: var(--colors-grey-100);
+    position:static;
+}
+
+.application-container {
+    width:100vw;
+    height:100vh;
+    display:flex;
+    flex-direction:row;
+}
+
+.application-content {
+    width:100%;
+    height:100%;
+    padding: 16px;
+}
+
+.application-content .text-header-container {
+    margin-bottom:128px;
+}
+
+.application-content .empty-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+}
+
+.application-content .empty-container .empty-image {
+    background-image: url(../img/kraken_tentacles_one.png);
+    width: 65%;
+    height: 346px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom:32px;
+}
+
+.application-content .empty-container .empty-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.application-content .empty-container .empty-text-container .text.two {
+    position: relative;
+    overflow:visible
+}
+
+.application-content .empty-container .empty-text-container .text.two:hover {
+    background-position:right;
+    cursor:pointer;
+}
+
+.application-content .empty-container .empty-text-container .text.two::after {
+    content: "";
+    background-color: var(--colors-primary-dark);
+    width: 513px;
+    height: 4px;
+    position: absolute;
+    bottom: -5px;
+    right: -18px;
+    opacity:1;
+    
+    transition:
+        background-color 200ms ease-in-out,
+        width 200ms ease-in-out,
+        height 200ms ease-in-out,
+        bottom 200ms ease-in-out,
+        right 200ms ease-in-out,
+        opacity 200ms ease-in-out;
+}
+
+.application-content .empty-container .empty-text-container .text.two:hover::after {
+    background-color: var(--colors-primary);
+    width: 538px;
+    height: 19px;
+    bottom: 0;
+    right: 0;
+    opacity: 0.2;
+}
