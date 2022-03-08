@@ -36,8 +36,8 @@ class Kraken():
         self.User = User
 
         @self.loginManager.user_loader
-        def loadUser(username):
-            return self.User.query.get(username)
+        def loadUser(id):
+            return self.User.query.get(id)
 
         self.app.run(host="127.0.0.1",port="1380")
 
@@ -58,7 +58,10 @@ class Kraken():
             return render_template("home-nosite.html",name=current_user.name)
 
         @self.app.route("/login/")
-        def auth_login(): return render_template("login.html")
+        def auth_login():
+            if current_user.is_authenticated:
+                return redirect(url_for("main_home"))
+            return render_template("login.html")
 
         @self.app.route("/login/", methods=["post"])
         def auth_login_post():
@@ -66,17 +69,20 @@ class Kraken():
             password = request.form.get("password")
             remember = True if request.form.get('remember') else False
 
-            user = self.User.query.filter_by(username=username).first()
+            user = self.User.query.filter_by(id=username).first()
 
             if not user or not check_password_hash(user.password, password):
                 flash('Please check your login details and try again.')
                 return redirect(url_for('auth_login'))
 
-            login_user(username,remember=remember)
+            login_user(user,remember=remember)
             return redirect(url_for("main_home"))
 
         @self.app.route("/signup/")
-        def auth_signup(): return render_template("signup.html")
+        def auth_signup():
+            if current_user.is_authenticated:
+                return redirect(url_for("main_home"))
+            return render_template("signup.html")
 
         @self.app.route("/signup/", methods=["post"])
         def auth_signup_post():
@@ -87,14 +93,6 @@ class Kraken():
             username=request.form.get("username")
             password1=request.form.get("password")
             password2=request.form.get("password-repeat")
-
-            #if KrakenDB().rowExists("users","username",f"'{username}'"):
-            #    flash("Username already exists")
-            #    return redirect(url_for("auth_signup"))
-
-            #if KrakenDB().rowExists("users","email",f"'{email}'"):
-            #    flash("Email already in use")
-            #    return redirect(url_for("auth_signup"))
 
             verifyOutput=self.verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
 
@@ -124,13 +122,13 @@ class Kraken():
                 flash("Passwords do not match")
                 return redirect(url_for("auth_signup"))
 
-            user = User.query.filter_by(email=email).first()
+            user = self.User.query.filter_by(email=email).first()
 
             if user:
                 flash("That username is already in use")
                 return redirect(url_for("auth_login"))
 
-            newUser = User(username=username, email=email, name=name, password=generate_password_hash(password1, method='sha256'))
+            newUser = self.User(id=username, email=email, name=name, password=generate_password_hash(password1, method='sha256'))
 
             self.db.session.add(newUser)
             self.db.session.commit()
