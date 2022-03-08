@@ -57,6 +57,52 @@ class Kraken():
         def main_home():
             return render_template("home-nosite.html",name=current_user.name)
 
+
+        @self.app.route("/account/settings/")
+        @login_required
+        def settings():
+            return redirect(url_for("settings_profile"))
+
+        @self.app.route("/account/settings/profile")
+        @login_required
+        def settings_profile():
+            flash(1)
+            return render_template("settings-profile.html")
+
+        @self.app.route("/account/settings/admin")
+        @login_required
+        def settings_admin():
+            flash(2)
+            return render_template("settings-admin.html")
+
+        @self.app.route("/account/settings/looks")
+        @login_required
+        def settings_looks():
+            flash(3)
+            return render_template("settings-looks.html")
+
+        @self.app.route("/account/settings/sites")
+        @login_required
+        def settings_sites():
+            flash(4)
+            return render_template("settings-sites.html")
+
+        @self.app.route("/account/settings/code")
+        @login_required
+        def settings_code():
+            flash(5)
+            return render_template("settings-code.html")
+
+        @self.app.route("/help")
+        def main_help():
+            return "This page dont exist yet :("
+
+        @self.app.route("/account/settings/dev")
+        @login_required
+        def settings_dev():
+            flash(7)
+            return render_template("settings-dev.html")
+
         @self.app.route("/login/")
         def auth_login():
             if current_user.is_authenticated:
@@ -135,19 +181,12 @@ class Kraken():
 
             return redirect(url_for("auth_login"))
 
-        @self.app.route("/logout/")
+        @self.app.route("/account/logout/")
         @login_required
         def auth_logout():
             logout_user()
             return redirect(url_for("auth_login"))
 
-        self.blueprints={
-            "main-index":main_index,
-            "main-home":main_home,
-            "auth-login":auth_login,
-            "auth-signup":auth_signup,
-            "auth-logout":auth_logout
-        }
 
     def verifyField(self,field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,canHaveSpecialChar=True):
         specialChar="%&{}\\<>*?/$!'\":@+`|="

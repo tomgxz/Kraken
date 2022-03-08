@@ -563,6 +563,12 @@ abbr {
 .link:visited {
     color: var(--link-previsited-color);
 }
+    
+.link.notformatted {
+    text-decoration:none;
+    opacity:1;
+    color:var(--colors-dark);
+}
 
 }
 

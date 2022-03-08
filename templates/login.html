@@ -4,29 +4,29 @@
 {% set navbarOptionsEnabled = False %}
 
 {% block content %}
-<link href="../static/css/index.css" rel="stylesheet" type="text/css" />
 
+<link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet" type="text/css" />
 <div class="application-content">
     <div class="text-header-container">
-        <h2 class="text header large dark one">Kraken - Login</h2>
+        <h2 class="text header xl dark one">Kraken - Login</h2>
         <ul class="header-options">
             <li class="header-option header-option-login active notextselect">
-                <h4 class="text large bold">Login</h4>
+                <h4 class="text header bold">Login</h4>
             </li>
             <li class="header-option header-option-signup notextselect" onclick="window.location.href=`{{ url_for('auth_signup') }}`">
-                <h4 class="text large bold">Signup</h4>
+                <h4 class="text header bold">Signup</h4>
             </li>
         </ul>
     </div>
     <div class="field-container active">
         <span class="field-warning text italic">
-          {% with messages = get_flashed_messages() %}
+            {% with messages = get_flashed_messages() %}
 
-          {% if messages %}
-            {{ messages[0] }}
-          {% endif %}
+            {% if messages %}
+              {{ messages[0] }}
+            {% endif %}
 
-          {% endwith %}
+            {% endwith %}
         </span>
 
         <form class="field-options" method="post" action="/login/">

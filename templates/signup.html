@@ -4,17 +4,17 @@
 {% set navbarOptionsEnabled = False %}
 
 {% block content %}
-<link href="../static/css/index.css" rel="stylesheet" type="text/css" />
 
+<link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet" type="text/css" />
 <div class="application-content">
     <div class="text-header-container">
-        <h2 class="text header large dark one">Kraken - Signup</h2>
+        <h2 class="text header xl dark one">Kraken - Signup</h2>
         <ul class="header-options">
             <div class="header-option header-option-login notextselect" onclick="window.location.href=`{{ url_for('auth_login') }}`">
-                <h4 class="text large bold">Login</h4>
+                <h4 class="text header bold">Login</h4>
             </div>
             <div class="header-option header-option-signup active notextselect">
-                <h4 class="text large bold">Signup</h4>
+                <h4 class="text header bold">Signup</h4>
             </div>
         </ul>
     </div>

@@ -1,0 +1,43 @@
+{% extends "settings-base.html" %}
+
+{% set navbarLogoColor = "primary" %}
+{% set navbarOptionsEnabled = True %}
+
+{% set settingsSidebarActivated = 1 %}
+
+{% block settings_content %}
+
+<h3 class="settings-content-header text header dark">Profile</h3>
+
+<form class="settings-content-options">
+
+    <div class="settings-content-option one">
+        <h4 class="settings-content-option-title text dark bold">Name</h4>
+        <input class="settings-content-option-input" type="text" name="settings_profile_name">
+        <p class="settings-content-option-caption text small dark">Your name probably isn't used much yet, but may appear in reference to websites that you have created. Your current name is set to "{{current_user.name}}".</p>
+    </div>
+
+    <div class="settings-content-option two">
+        <h4 class="settings-content-option-title text dark bold">Profile Picture</h4>
+        <input class="settings-content-option-input" type="text" name="settings_profile_picture">
+    </div>
+
+    <div class="settings-content-option three">
+        <h4 class="settings-content-option-title text dark bold">Bio</h4>
+        <input class="settings-content-option-input" type="text" name="settings_profile_bio">
+    </div>
+
+    <div class="settings-content-option four">
+        <h4 class="settings-content-option-title text dark bold">Url</h4>
+        <input class="settings-content-option-input" type="text" name="settings_profile_url">
+    </div>
+
+    <div class="settings-content-option">
+
+    Update profile
+
+    </div>
+    
+</form>
+
+{% endblock %}

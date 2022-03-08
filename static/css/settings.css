@@ -1,0 +1,95 @@
+.settings-container {
+    height: calc(100vh - 32px - 188px);
+    display: flex;
+}
+
+.settings-sidebar {
+    width: 400px;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.settings-sidebar-item-icon {
+    width:46px;
+    font-size:24px;
+    display: flex;
+    justify-content: center;
+}
+
+.settings-sidebar-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    position:relative;
+}
+
+.settings-sidebar-item:not(:last-of-type) {
+    margin-bottom: 4px;
+}
+
+.settings-sidebar-item.is-active {
+    background: var(--colors-grey-200);
+}
+
+.settings-sidebar-item.is-active::before {
+    content:"";
+    background-color:var(--colors-primary);
+    height:100%;
+    border-radius:5px;
+    position:absolute;
+    top:0;
+    left:-10px;
+    width:6px;
+}
+
+.settings-sidebar-item:hover {
+    background: var(--colors-grey-300);
+}
+
+.settings-sidebar-item.is-active .settings-sidebar-item-title {
+    font-weight: 700;
+}
+
+.settings-sidebar-separator {
+    padding-left: 8px;
+    padding-top: 2px;
+    margin-bottom: 8px;
+    margin-top: 24px;
+    width: 100%;
+    border-top: 2px solid var(--colors-grey-400);
+}
+
+.settings-content {
+    width: calc(100% - 400px - 32px);
+    margin-left: 32px;
+}
+
+.settings-content .settings-content-header {
+    border-bottom: 2px solid var(--colors-grey-400);
+    width: 100%;
+    margin-bottom: 16px;
+    padding-bottom: 4px;
+}
+
+.settings-content .settings-content-option {
+    width: 80%;
+    margin-left: 16px;
+    margin-bottom: 24px;
+}
+
+.settings-content .settings-content-option-input {
+    padding: 5px 12px;
+    border-radius: 5px;
+    border-style: solid;
+}
+
+.settings-content .settings-content-option-title {
+    margin-bottom: 6px;
+}
+
+.settings-content .settings-content-option-caption {
+    margin-top:6px;
+}

@@ -1,0 +1,136 @@
+.application-container {
+    width:100vw;
+    height:100vh;
+    display:flex;
+    flex-direction:row;
+}
+
+.application-content {
+    width:100%;
+    height:100%;
+    padding: 16px;
+}
+
+.application-content .text-header-container {
+    margin-bottom:64px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.application-content .text-header-container .text.one {
+    margin-bottom:16px;
+}
+
+.application-content .header-option {
+    position:relative;
+    overflow:visible;
+}
+
+.application-content .header-option::after {
+    content: "";
+    background-color: var(--colors-grey-500);
+    width: 70%;
+    height: 4px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -5px;
+    right: -8px;
+    opacity:1;
+    transition:background-color 200ms ease-in-out,width 200ms ease-in-out,height 200ms ease-in-out,bottom 200ms ease-in-out,right 200ms ease-in-out,opacity 200ms ease-in-out;
+}
+
+.application-content .header-option.active::after {
+    background-color: var(--colors-secondary-dark);
+}
+
+.application-content .header-option:hover::after {
+    background-color: var(--colors-grey-300);
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    opacity: 0.2;
+}
+
+.application-content .header-option.active:hover::after {
+    background-color: var(--colors-secondary);
+}
+
+.application-content .section-header-item:not(:last-child) {
+    margin-bottom: 16px
+}
+
+.application-content .header-options {
+    width:50%;
+    display:flex;
+    justify-content: space-evenly
+}
+
+.application-content .header-option {
+    cursor:pointer;
+}
+
+.application-content .header-option:active {
+    opacity:.8;
+}
+
+.application-content .header-option.active {
+    color:var(--colors-secondary);
+}
+
+.application-content .field-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.application-content .field-container .field-submit {
+    margin-top:32px;
+    align-self: center;
+}
+
+.application-content .field-container .field-options {
+    width:360px;
+    display:flex;
+    flex-direction:column;
+}
+
+.application-content .field-container .field-option:not(:last-child) {
+    margin-bottom:8px
+}
+
+.application-content .field-container .field-option {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.application-content .field-container .field-option .field-input-container {
+    display:flex;
+    flex-direction: row;
+}
+
+.application-content .field-container .field-option .field-input {
+    font-family: var(--font-body);
+}
+
+.application-content .field-container .field-option .field-input-container .eye-reveal,
+.application-content .field-container .field-option .field-input-container .eye-spacer {
+    width:19px;
+    height:19px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:8px;
+}
+
+.application-content .field-container .field-option .field-input-container .eye-reveal:active {
+    color:var(--colors-secondary);
+}
+
+.application-content .field-container .field-warning {
+    color:#e63832;
+    margin-bottom:8px;
+}
