@@ -7,10 +7,35 @@
 
 {% block settings_content %}
 
-ToDo:
+<h3 class="settings-content-header text header dark">My Websites</h3>
 
-My sites
+<form class="settings-content-options">
 
-sites will be listed with their name, their size, and settings option
+    <div class="settings-content-table">
+        <div class="settings-content-table-header">
+            <div class="settings-content-table-row"><span class="text header dark">Websites</span></div>
+            <div class="settings-content-table-row"><span class="text header small dark">{{current_user.user_id}}</span></div>
+        </div>
+        
+        <div class="settings-content-table-content">
+        
+            {% for i in range(10) %}
+            
+            {% set privateWebsite = i%2 %}
+                
+            <div class="settings-content-table-row {% if i==9 %}last-row{% endif %}">
+                <span class="settings-content-table-row-icon text dark"><i class="fa-regular {% if privateWebsite %}fa-lock{% else %}fa-book-bookmark{%endif%}"></i></span>
+                <span class="settings-content-table-row-title text dark"><a class="text link dark notformatted">Tomgxz/EpilepsyMachine</a></span>
+                <span class="settings-content-table-row-size text dark">1KB</span>
+                <span class="settings-content-table-row-settings text dark"><a class="text link primary notformatted">Website Settings</a></span>
+            </div>
+            
+            {% endfor %}
+
+        </div>
+    </div>
+
+    
+</form>
 
 {% endblock %}

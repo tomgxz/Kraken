@@ -74,9 +74,13 @@
     padding-bottom: 4px;
 }
 
+.settings-content-options {
+    padding-bottom:32px;
+    padding-left:16px;
+}
+
 .settings-content .settings-content-option {
     width: 80%;
-    margin-left: 16px;
     margin-bottom: 24px;
 }
 
@@ -84,6 +88,16 @@
     padding: 5px 12px;
     border-radius: 5px;
     border-style: solid;
+    border-width: 2px;
+    font-family: var(--font-body);
+    width:232px;
+}
+
+.settings-content textarea.settings-content-option-input {
+    min-width: 190px;
+    min-height: 28px;
+    max-width: 100%;
+    max-height: 192px;
 }
 
 .settings-content .settings-content-option-title {
@@ -92,4 +106,84 @@
 
 .settings-content .settings-content-option-caption {
     margin-top:6px;
+}
+
+.settings-content .settings-content-option-image-upload {
+    width:200px;
+    height:200px;
+    position:relative;
+    cursor:pointer;
+}
+
+.settings-content .settings-content-option-image-upload-figure {
+    width:200px;
+    height:200px;
+    background-size: 200px 200px;
+    background-position: center;
+    border-radius:50%
+}
+
+.settings-content .settings-content-option-image-upload::before {
+    content: "Upload Image";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--colors-dark-rgb),.3);
+    top: 0;
+    left: 0;
+    opacity:0;
+    position: absolute;
+    border-radius: 50%;
+    color: var(--colors-dark);
+    font-family: var(--font-header);
+    font-size: 26px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:opacity 100ms ease-in-out;
+}
+
+.settings-content .settings-content-option-image-upload:hover::before {
+    opacity:1;
+}
+
+.settings-content .settings-content-separator {
+    width:100%;
+    height:0px;
+    border-top:2px solid var(--colors-grey-400);
+    margin-bottom:24px;
+}
+
+.settings-content .settings-content-update .settings-content-option-caption {
+    margin-top:0px;
+    margin-bottom:8px;
+}
+
+.settings-content .settings-content-table {
+    border: 2px solid var(--colors-grey-400);
+    border-radius: 10px;
+    overflow:hidden;
+    max-width:780px;
+}
+
+.settings-content .settings-content-table-header {
+    background-color:var(--colors-grey-100);
+}
+
+.settings-content .settings-content-table-row {
+    padding: 16px;
+}
+
+.settings-content .settings-content-table-row:not(:last-of-type),
+.settings-content .settings-content-table-header {
+    border-bottom: 2px solid var(--colors-grey-400);
+}
+
+.settings-content-table-row-icon,
+.settings-content-table-row-title {
+    margin-right:6px;
+}
+
+.settings-content-table-row-settings {
+    float: right;
 }

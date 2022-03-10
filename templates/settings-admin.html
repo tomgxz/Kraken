@@ -5,18 +5,75 @@
 
 {% set settingsSidebarActivated = 2 %}
 
+
 {% block settings_content %}
 
-ToDo:
+<h3 class="settings-content-header text header dark">Account</h3>
 
-username
+<form class="settings-content-options">
 
-export
+    <div class="settings-content-option one">
+        <h4 class="settings-content-option-title text dark bold">Change Username</h4>
+        <p class="settings-content-option-caption text small danger dark"><span class="text small danger bold">WARNING</span>. Changing your username can <a class="text small link danger">create issues</a>.</p>
+        <div class="btn primary thin rounded slide m-xs-t">
+            <span class="btn-content text uppercase primary">Dew it</span>
+        </div>
+    </div>
+    
+    <div class="settings-content-option one">
+        <h4 class="settings-content-option-title text dark bold">Change Email</h4>
+        <input class="settings-content-option-input" type="text" name="settings_admin_email" placeholder="New Email"><br>
+        <input class="settings-content-option-input m-xs-t" type="password" name="settings_admin_email_password" placeholder="Password">
+        <p class="settings-content-option-caption text small dark">Your old and new email addresses will be sent confirmation codes in order to change them.</p>
+        <div class="btn primary thin rounded slide m-xs-t">
+            <span class="btn-content text uppercase primary">Dew it</span>
+        </div>
+    </div>
+    
+    <div class="settings-content-separator one"></div>
 
-archive account
+    <div class="settings-content-option three">
+        <h4 class="settings-content-option-title text dark bold">Export Account Data</h4>
+        <p class="settings-content-option-caption text small dark">Export all metadata, websites, and other stored information for your account. They will be available to download here.</p>
+        <div class="btn primary thin rounded slide m-xs-t">
+            <span class="btn-content text uppercase primary">Export Metadata</span>
+        </div>
+        <div class="btn primary thin rounded slide m-xs-t">
+            <span class="btn-content text uppercase primary">Export Websites</span>
+        </div>
+        <div class="btn primary thin rounded slide m-xs-t">
+            <span class="btn-content text uppercase primary">Download All</span>
+        </div>
+    </div>
+    
+    <div class="settings-content-separator two"></div>
 
-reset account
+    <div class="settings-content-option four">
+        <h4 class="settings-content-option-title text dark bold danger">Archive Account</h4>
+        <p class="settings-content-option-caption text small dark">This will disable your account until you wish to unlock it.</p>
+        <div class="btn danger thin rounded slide m-xs-t">
+            <span class="btn-content text uppercase danger">Archive your account</span>
+        </div>
+    </div>
+    
+    <div class="settings-content-option five">
+        <h4 class="settings-content-option-title text dark bold danger">Reset Account</h4>
+        <p class="settings-content-option-caption text small dark">This will remove all of your websites, custom code, and non-essential settings. The only remaining settings will be your username, name, email, and password. It is recommended that you export your account data before doing this.</p>
+        <div class="btn danger thin rounded slide m-xs-t">
+            <span class="btn-content text uppercase danger">Reset your account</span>
+        </div>
+    </div>
+    
+    <div class="settings-content-option six">
+        <h4 class="settings-content-option-title text dark bold danger">Delete Account</h4>
+        <p class="settings-content-option-caption text small dark">This will remove all trace of your account from our servers, and is an irreversable actions. It is recommended that you export your account data before doing this.</p>
+        <div class="btn danger thin rounded slide m-xs-t">
+            <span class="btn-content text uppercase danger">Delete your account</span>
+        </div>
+    </div>
 
-delete acount
+
+    
+</form>
 
 {% endblock %}

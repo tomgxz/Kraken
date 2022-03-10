@@ -9,6 +9,8 @@ from flask import Flask, render_template, Blueprint, redirect, url_for, request,
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, login_user, login_required, current_user, logout_user
+from random import choice
+from PIL import Image
 
 db=SQLAlchemy()
 
@@ -32,12 +34,13 @@ class Kraken():
         self.loginManager.login_view="auth_login"
         self.loginManager.init_app(self.app)
 
-        from models import User
+        from models import User, Site
         self.User = User
+        self.Site = Site
 
         @self.loginManager.user_loader
-        def loadUser(id):
-            return self.User.query.get(id)
+        def loadUser(user_id):
+            return self.User.query.get(user_id)
 
         self.app.run(host="127.0.0.1",port="1380")
 
@@ -55,8 +58,16 @@ class Kraken():
         @self.app.route("/home/")
         @login_required
         def main_home():
-            return render_template("home-nosite.html",name=current_user.name)
+            if False:
+                return render_template("home-sites.html")
+            return render_template("home-nosite.html")
 
+        @self.app.route("/home/new/")
+        @login_required
+        def site_create():
+            def getSiteNames(user_id): return self.Site.query.filter_by(user_id=user_id).all()
+
+            return render_template("site-create.html",passedFunction_getSiteNames=getSiteNames)
 
         @self.app.route("/account/settings/")
         @login_required
@@ -66,7 +77,7 @@ class Kraken():
         @self.app.route("/account/settings/profile")
         @login_required
         def settings_profile():
-            flash(1)
+            flash(1,self.getUserImage(current_user.user_id))
             return render_template("settings-profile.html")
 
         @self.app.route("/account/settings/admin")
@@ -115,7 +126,7 @@ class Kraken():
             password = request.form.get("password")
             remember = True if request.form.get('remember') else False
 
-            user = self.User.query.filter_by(id=username).first()
+            user = self.User.query.filter_by(user_id=username).first()
 
             if not user or not check_password_hash(user.password, password):
                 flash('Please check your login details and try again.')
@@ -171,13 +182,16 @@ class Kraken():
             user = self.User.query.filter_by(email=email).first()
 
             if user:
+                flash("That email is already in use")
+                return redirect(url_for("auth_login"))
+
+            user = self.User.query.filter_by(user_id=username).first()
+
+            if user:
                 flash("That username is already in use")
                 return redirect(url_for("auth_login"))
 
-            newUser = self.User(id=username, email=email, name=name, password=generate_password_hash(password1, method='sha256'))
-
-            self.db.session.add(newUser)
-            self.db.session.commit()
+            self.createUser(username,email,name,password1)
 
             return redirect(url_for("auth_login"))
 
@@ -187,6 +201,29 @@ class Kraken():
             logout_user()
             return redirect(url_for("auth_login"))
 
+    def createUser(self,u,e,n,p):
+        newUser = self.User(
+            user_id=u,
+            name=n,
+            email=e,
+            password=generate_password_hash(p, method='sha256'),
+            bio="",
+            url="",
+            archived=False,
+            tabpreference=4,
+        )
+
+        #pr="/   static/data/defaultIcons/default-"
+        #defaultIcons=[f"{pr}1.png"]
+
+        #img=Image.open(choice(defaultIcons))
+        #img.save(f"/static/data/userIcons/{u}.png")
+
+        self.db.session.add(newUser)
+        self.db.session.commit()
+
+    def getUserImage(self,u):
+        return f"/data/userIcons/{u}.png"
 
     def verifyField(self,field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,canHaveSpecialChar=True):
         specialChar="%&{}\\<>*?/$!'\":@+`|="

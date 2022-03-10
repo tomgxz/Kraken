@@ -5,16 +5,31 @@
 
 {% set settingsSidebarActivated = 3 %}
 
+
 {% block settings_content %}
 
-ToDo:
+<h3 class="settings-content-header text header dark">Appearance and Accessibility</h3>
 
-Theme preferences
+<form class="settings-content-options">
 
-Enable shortcuts
-
-Shortcut list
-
-Make UI larger (beta)
+    <div class="settings-content-option one">
+        <h4 class="settings-content-option-title text dark bold">Tab Preference</h4>
+        
+        <select class="settings-content-option-input" name="settings_looks_tab_preference">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4" selected="selected">4 (Default)</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+            <option value="10">10</option>
+            <option value="12">12</option> 
+        </select>
+        
+        <p class="settings-content-option-caption text small dark">When editing and rendering code, this determines how many spaces represent one tab. (Doesn't do anything yet lmao)</p>
+    </div>
+    
+</form>
 
 {% endblock %}

@@ -8,13 +8,13 @@
 <link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet" type="text/css" />
 <div class="application-content">
     <div class="text-header-container">
-        <h2 class="text header large dark one">Welcome, {{ name }}</h2>
+        <h2 class="text header large dark one">Welcome, {{current_user.name}}</h2>
     </div>
     <div class="empty-container">
         <div class="empty-image"></div>
         <div class="empty-text-container">
             <h4 class="text header dark one">Looks Pretty Empty Here...</h4>
-            <h4 class="text header primary two">Maybe you should create a new site?</h4>
+            <a class="text header two link primary" href="{{url_for('site_create')}}">Maybe you should create a new site?</a>
         </div>
     </div>
 </div>
