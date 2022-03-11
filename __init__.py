@@ -76,6 +76,7 @@ class Kraken():
             return render_template("site-create.html",passedFunction_getSiteNames=getSiteNames)
 
         @self.app.route("/home/new/", methods=["post"])
+        @login_required
         def site_create_post():
 
             def listToStr(var):
@@ -108,6 +109,10 @@ class Kraken():
 
             return redirect(url_for("site_create_options"))
 
+        @self.app.route("/home/new/1")
+        @login_required
+        def site_create_options_1():
+            return render_template("site-create-options-1.html")
 
         @self.app.route("/account/settings/")
         @login_required

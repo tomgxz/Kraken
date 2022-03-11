@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% set navbarLogoColor = "primary" %}
+{% set navbarOptionsEnabled = True %}
+
+{% block content %}
+
+<link href="{{url_for('static', filename='css/site-create.css')}}" rel="stylesheet" type="text/css" />
+<div class="application-content">
+    <div class="text-header-container">
+        <h2 class="text header large dark one">Create a new site</h2>
+        
+    </div>
+    
+    <div class="main">
+        <div class="main-content thin">
+            {%block site_create_base%}
+            {%endblock%}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

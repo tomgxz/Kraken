@@ -24,6 +24,7 @@ Link classes:
 
 Btn classes:
     .btn <light|dark|primary|secondary|accent> <square|rounded|pill> [slide]
+    .btn.slide [from-left|from-right]
 
     If slide is set, the btn must contain a span element with syntax:
         span .btn-content .text (all text classes apply here)
@@ -785,6 +786,14 @@ abbr {
     transition: left .2s ease;
     top: 0;
     left: 100%;
+}
+    
+.btn.slide.from-left::before {
+    left:-100%
+}
+    
+.btn.slide.from-right::before {
+    left:100%
 }
 
 .btn.slide:hover::before {
@@ -3398,6 +3407,56 @@ a.p-xl-b {
             content: none;
         }
     }
+    
+}
+
+/* Expanding columns */
+@media {
+.expanding-columns-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 1em;
+    overflow: hidden
+}
+
+.expanding-columns-container .expanding-column {
+    height: 100%;
+    box-shadow: inset rgb(0 0 0 / .1) 0 0 11px 4px, inset rgb(0 0 0 / .1) 0 -1px;
+    flex-grow: 1;
+    transition: flex-basis 200ms ease-in-out;
+    position: relative;
+    overflow: hidden;
+    flex-basis: 1px;
+    background-color: var(--expanding-column-bg-color)
+}
+
+.expanding-columns-container .expanding-column:hover {
+    flex-basis: 90px
+}
+
+.expanding-columns-container .expanding-column.clickable {
+    cursor: pointer;
+}
+
+.expanding-columns-container .expanding-column.clickable:active {
+    opacity: .8
+}
+
+.expanding-columns-container .expanding-column .expanding-text {
+    width: 100%;
+    text-align: center;
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 200ms ease-in-out
+}
+
+.expanding-columns-container .expanding-column:hover .expanding-text {
+    opacity: 1
+}
     
 }
 

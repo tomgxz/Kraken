@@ -1,107 +1,88 @@
-{% extends "base.html" %}
+{% extends "site_create_base.html" %}
 
 {% set navbarLogoColor = "primary" %}
 {% set navbarOptionsEnabled = True %}
 
-{% block content %}
+{% block site_create_base %}
 
-<link href="{{url_for('static', filename='css/site-create.css')}}" rel="stylesheet" type="text/css" />
-<div class="application-content">
-    <div class="text-header-container">
-        <h2 class="text header large dark one">Create a new site</h2>
+    <p class="text dark">Want to import an exported site? <a class="link text primary">Import a website.</a></p>
+    <div class="horizontal-separator one m-s-v"></div>
+
+    <form class="new-site-form one" method="post">
         
-    </div>
-    
-    <div class="main">
-        <div class="main-content thin hiddenoverflow">
-            <p class="text dark">Want to import an exported site? <a class="link text primary">Import a website.</a></p>
-            <div class="horizontal-separator one m-s-v"></div>
-            
-            <form class="new-site-form" method="post">
-                <div class="form-input-container one">
-                    <div class="form-input-content-column">
-                        <span class="text large dark one">Owner</span>
-                        <span class="text large dark two"><span>@{{current_user.user_id}}</span><span class="m-m-l m-s-r">/</span></span>
-                    </div>
-                    <div class="form-input-content-column">
-                        <span class="text large dark one">Website Name <sup class="text large danger">*</sup></span>
-                        <input id="new_site_name" class="new-site-input text dark two input small-text-input" data-form-input-display="inactive" type="text" name="new_site_name">
-                    </div>
-                    
-                    <div class="message-container m-s-t text small one visibly-hidden">Your site name will look like: <span class="message-container-jsedit"></span></div>
-                    
-                    <p class="text dark m-s-t two">The name must be at least 4 characters long, and contain only lowercase alphanumeric characters, dashes, underscores and periods. Any illegal characters will be converted into dashes. If you need inspiration for a name, you ain't gonna get any from me :)</p>
-                </div>
-                
-                <div class="horizontal-separator two m-s-v"></div>
-                
-                <div class="form-input-container two">
-                    
-                    <div class="input-checkbox">
-                        <input class="input-checkbox-input" name="new_site_privacy" id="new_site_privacy_visible" type="radio" value="public">
-                        <span class="input-checkbox-icon"><i class="faicon fa-regular fa-book-bookmark"></i></span>
-                        
-                        <div class="input-checkbox-text-container">
-                            <span class="input-checkbox-title text bold one">Public</span>
-                            <span class="input-checkbox-caption text small two">Anyone online can see this website. Only you can edit it.</span>
-                        </div>
-                    </div>
-                    
-                    <div class="input-checkbox">
-                        <input class="input-checkbox-input" name="new_site_privacy" id="new_site_privacy_hidden" type="radio" value="private">
-                        <span class="input-checkbox-icon"><i class="faicon fa-regular fa-lock" style="color: var(--colors-warning)"></i></span>
-
-                        <div class="input-checkbox-text-container">
-                            <span class="input-checkbox-title text bold one">Private</span>
-                            <span class="input-checkbox-caption text small two">Only people who you give the link can view the website.</span>
-                        </div>
-                    </div>
-                    
-                    <div class="horizontal-separator three m-s-v"></div>
-                    
-                    <button class="field-submit btn primary thin rounded slide" type="submit" disabled=true id="new_site_form_submit">
-                        <span class="btn-content text uppercase primary">Create Site</span>
-                    </button>
-                    
-                </div>
-            </form>
+        <div class="form-input-container one">
+            <div class="form-input-content-column">
+                <span class="text large dark one">Owner</span>
+                <span class="text large dark two"><span>@{{current_user.user_id}}</span><span class="m-m-l m-s-r">/</span></span>
+            </div>
+            <div class="form-input-content-column">
+                <span class="text large dark one">Website Name <sup class="text large danger">*</sup></span>
+                <input id="new_site_name" class="new-site-input text dark two input small-text-input" data-form-input-display="inactive" type="text" name="new_site_name">
+            </div>
+            <div class="message-container m-s-t text small one visibly-hidden">Your site name will look like: <span class="message-container-jsedit"></span></div>
+            <p class="text dark m-s-t two">The name must be at least 4 characters long, and contain only lowercase alphanumeric characters, dashes, underscores and periods. Any illegal characters will be converted into dashes. If you need inspiration for a name, you ain't gonna get any from me :)</p>
         </div>
-    </div>
-</div>
+        
+        <div class="horizontal-separator two m-s-v"></div>
+        
+        <div class="form-input-container two">
+            <div class="input-checkbox">
+                <input class="input-checkbox-input" name="new_site_privacy" id="new_site_privacy_visible" type="radio" value="public">
+                <span class="input-checkbox-icon"><i class="faicon fa-regular fa-book-bookmark"></i></span>
+                <div class="input-checkbox-text-container">
+                    <span class="input-checkbox-title text bold one">Public</span>
+                    <span class="input-checkbox-caption text small two">Anyone online can see this website. Only you can edit it.</span>
+                </div>
+            </div>
+            <div class="input-checkbox">
+                <input class="input-checkbox-input" name="new_site_privacy" id="new_site_privacy_hidden" type="radio" value="private">
+                <span class="input-checkbox-icon"><i class="faicon fa-regular fa-lock" style="color: var(--colors-warning)"></i></span>
+                <div class="input-checkbox-text-container">
+                    <span class="input-checkbox-title text bold one">Private</span>
+                    <span class="input-checkbox-caption text small two">Only people who you give the link can view the website.</span>
+                </div>
+            </div>
+            <div class="horizontal-separator three m-s-v"></div>
+            <button class="field-submit btn primary thin rounded slide" type="submit" disabled=true id="new_site_form_submit">
+            <span class="btn-content text uppercase primary">Create Site</span>
+            </button>
+        </div>
+        
+    </form>
 
-<script>
-    function verifyNameField() {
-        var nameInput = document.getElementById("new_site_name");
-        var val = nameInput.value;
-        
-        hideFormMessage()
-        
-        if (val.length < 1) { return "inactive" }
-        if (val.length < 4) { return "danger" }
-        
-        var check=true
-        for (var i=0;i<val.length;i++) {
-            var letter = val[i]
-            if (requiredChars.includes(letter)) { check=false }
-        }
-        
-        if (check) { return "danger" }
-        
-        var sitenames = ["helloworld"]
-        
-        if (sitenames.includes(val)) { return "danger" }
-        for (var i=0;i<val.length;i++) {
-            var letter = val[i]
-            if (!(allowedChars.includes(letter))) { editFormMessage(nameInput,val);return "warning" }
-        }
-        
-        if (hasRepeatedDashes(val)) { editFormMessage(nameInput,replaceRepeatedDashes(val));return "warning" }
-        
-        hideFormMessage()
-        return "success"
-    }    
-</script>   
+    <script>
+        function verifyNameField() {
+            var nameInput = document.getElementById("new_site_name");
+            var val = nameInput.value;
 
-<script src="{{url_for('static', filename='js/site-create.js')}}"></script>
+            hideFormMessage()
+
+            if (val.length < 1) { return "inactive" }
+            if (val.length < 4) { return "danger" }
+
+            var check=true
+            for (var i=0;i<val.length;i++) {
+                var letter = val[i]
+                if (requiredChars.includes(letter)) { check=false }
+            }
+
+            if (check) { return "danger" }
+
+            var sitenames = ["helloworld"]
+
+            if (sitenames.includes(val)) { return "danger" }
+            for (var i=0;i<val.length;i++) {
+                var letter = val[i]
+                if (!(allowedChars.includes(letter))) { editFormMessage(nameInput,val);return "warning" }
+            }
+
+            if (hasRepeatedDashes(val)) { editFormMessage(nameInput,replaceRepeatedDashes(val));return "warning" }
+
+            hideFormMessage()
+            return "success"
+        }    
+    </script>
+
+    <script src="{{url_for('static', filename='js/site-create.js')}}"></script>
 
 {% endblock %}
