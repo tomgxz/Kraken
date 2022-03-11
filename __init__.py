@@ -62,12 +62,52 @@ class Kraken():
                 return render_template("home-sites.html")
             return render_template("home-nosite.html")
 
+        @self.app.errorhandler(404)
+        def main_404(e): return "Page not found - i.e. you made a mistake"
+
+        @self.app.errorhandler(500)
+        def main_500(e): return "Server go boom - i.e. I made a mistake"
+
         @self.app.route("/home/new/")
         @login_required
         def site_create():
             def getSiteNames(user_id): return self.Site.query.filter_by(user_id=user_id).all()
 
             return render_template("site-create.html",passedFunction_getSiteNames=getSiteNames)
+
+        @self.app.route("/home/new/", methods=["post"])
+        def site_create_post():
+
+            def listToStr(var):
+                out=""
+                for char in var:
+                    out+=char
+                return out
+            def replaceToDash(var):
+                var=list(var)
+                for i in range(len(var)):
+                    if var[i] not in "qwertyuiopasdfghjklzxcvbnm-._1234567890":
+                        var[i]="-"
+                return listToStr(var)
+            def replaceRepeatedDashesRecursion(var):
+                var=list(var)
+                for i in range(len(var)):
+                    if i+1 >= len(var):
+                        return listToStr(var)
+                    if var[i] == "-" and var[i+1] == "-":
+                        del var[i]
+                        var = list(replaceRepeatedDashesRecursion(var))
+                        return listToStr(var)
+
+            sitename = request.form.get("new_site_name")
+            isPublic = request.form.get("new_site_privacy")=="public"
+
+            sitename=replaceRepeatedDashesRecursion(replaceToDash(sitename.lower()))
+
+            return sitename
+
+            return redirect(url_for("site_create_options"))
+
 
         @self.app.route("/account/settings/")
         @login_required

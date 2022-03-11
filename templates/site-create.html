@@ -17,7 +17,7 @@
             <p class="text dark">Want to import an exported site? <a class="link text primary">Import a website.</a></p>
             <div class="horizontal-separator one m-s-v"></div>
             
-            <form class="new-site-form">
+            <form class="new-site-form" method="post">
                 <div class="form-input-container one">
                     <div class="form-input-content-column">
                         <span class="text large dark one">Owner</span>
@@ -27,15 +27,18 @@
                         <span class="text large dark one">Website Name <sup class="text large danger">*</sup></span>
                         <input id="new_site_name" class="new-site-input text dark two input small-text-input" data-form-input-display="inactive" type="text" name="new_site_name">
                     </div>
+                    
+                    <div class="message-container m-s-t text small one visibly-hidden">Your site name will look like: <span class="message-container-jsedit"></span></div>
+                    
+                    <p class="text dark m-s-t two">The name must be at least 4 characters long, and contain only lowercase alphanumeric characters, dashes, underscores and periods. Any illegal characters will be converted into dashes. If you need inspiration for a name, you ain't gonna get any from me :)</p>
                 </div>
-                <p class="text dark m-s-t">The name must be at least 4 characters long, and contain only lowercase alphanumeric characters, dashes, underscores and periods. Any illegal characters will be converted into dashes. If you need inspiration for a name, you ain't gonna get any from me :)</p>
                 
                 <div class="horizontal-separator two m-s-v"></div>
                 
                 <div class="form-input-container two">
                     
                     <div class="input-checkbox">
-                        <input class="input-checkbox-input" name="new_site_privacy" id="new_site_privacy_visible" type="radio">
+                        <input class="input-checkbox-input" name="new_site_privacy" id="new_site_privacy_visible" type="radio" value="public">
                         <span class="input-checkbox-icon"><i class="faicon fa-regular fa-book-bookmark"></i></span>
                         
                         <div class="input-checkbox-text-container">
@@ -45,7 +48,7 @@
                     </div>
                     
                     <div class="input-checkbox">
-                        <input class="input-checkbox-input" name="new_site_privacy" id="new_site_privacy_hidden" type="radio">
+                        <input class="input-checkbox-input" name="new_site_privacy" id="new_site_privacy_hidden" type="radio" value="private">
                         <span class="input-checkbox-icon"><i class="faicon fa-regular fa-lock" style="color: var(--colors-warning)"></i></span>
 
                         <div class="input-checkbox-text-container">
@@ -71,17 +74,30 @@
         var nameInput = document.getElementById("new_site_name");
         var val = nameInput.value;
         
+        hideFormMessage()
+        
         if (val.length < 1) { return "inactive" }
         if (val.length < 4) { return "danger" }
+        
+        var check=true
+        for (var i=0;i<val.length;i++) {
+            var letter = val[i]
+            if (requiredChars.includes(letter)) { check=false }
+        }
+        
+        if (check) { return "danger" }
         
         var sitenames = ["helloworld"]
         
         if (sitenames.includes(val)) { return "danger" }
         for (var i=0;i<val.length;i++) {
             var letter = val[i]
-            if (!(allowedChars.includes(letter))) { return "warning" }
+            if (!(allowedChars.includes(letter))) { editFormMessage(nameInput,val);return "warning" }
         }
         
+        if (hasRepeatedDashes(val)) { editFormMessage(nameInput,replaceRepeatedDashes(val));return "warning" }
+        
+        hideFormMessage()
         return "success"
     }    
 </script>   

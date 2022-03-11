@@ -3,12 +3,13 @@
 }
 
 .new-site-form .form-input-container {
-    padding-bottom:32px;
+    padding-bottom:8px;
     padding-left:16px;
 }
 
 .new-site-form .form-input-container.one {
     display:flex;
+    flex-wrap:wrap;
 }
 
 .new-site-form .form-input-container.one .form-input-content-column {
@@ -44,6 +45,10 @@
 .new-site-form .form-input-container.one [data-form-input-display="danger"].new-site-input {
     border-color:var(--colors-danger);
     box-shadow: 0px 0px 22px -8px var(--colors-danger);
+}
+
+.new-site-form .form-input-container.one .message-container {
+    width:100%;
 }
 
 .input-checkbox {
