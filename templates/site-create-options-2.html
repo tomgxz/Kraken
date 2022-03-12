@@ -1,0 +1,67 @@
+{% extends "site_create_base.html" %}
+
+{% set navbarLogoColor = "primary" %}
+{% set navbarOptionsEnabled = True %}
+
+{% set fontsList = [
+
+["Lexend","Roboto",True,True],
+["Prata","Lato",True,True],
+["DM Sans","Catamaran",True,True],
+["Titillium Web","Raleway",True,True],
+["Caudex","PT Mono",True,True],
+["Noto Serif Display","Lora",True,True],
+["Staatliches","Syne Mono",True,True],
+
+]
+%}
+
+{% block site_create_base %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <p class="text dark">Choose font family - individual elements can be customised</p>
+    <div class="horizontal-separator one m-s-v"></div>
+
+    <form class="new-site-form three" method="post">
+
+        <div class="text-options">
+            {%for fontList in fontsList%}
+            
+            {%set counter=fontsList.index(fontList)+1%}
+            
+            {%set headerFont=fontList[0]%}
+            {%set paraFont=fontList[1]%}
+            
+            <div class="text-option {{counter}}{%if counter==1%} active{%endif%}">
+                
+                {%if fontList[2]%}
+                <link href="https://fonts.googleapis.com/css2?family={{headerFont}}&display=swap" rel="stylesheet">
+                {%endif%}
+
+                {%if fontList[3]%}
+                <link href="https://fonts.googleapis.com/css2?family={{paraFont}}&display=swap" rel="stylesheet">
+                {%endif%}
+                
+                <div class="text-option-header text header dark one" style="font-family:'{{headerFont}}'">{{headerFont}}</div>
+                <div class="text-option-paragraph text two" style="font-family:'{{paraFont}}'">Paragraph text - {{paraFont}}</div>
+                
+                <input class="visibly-hidden text-option-list" value="{{headerFont}},{{paraFont}}" name="new_site_font_face_list_inactive">
+            </div>
+            
+            {%endfor%}
+        </div>
+
+        <div class="submit-container">
+            <button class="field-submit btn primary thin rounded slide" type="submit">
+                <span class="btn-content text uppercase primary">Continue</span>
+            </button>
+        </div>
+
+    </form>
+
+    <script src="{{url_for('static', filename='js/colorConversion.js')}}"></script>
+    <script src="{{url_for('static', filename='js/site-create-options-2.js')}}"></script>
+
+{% endblock %}

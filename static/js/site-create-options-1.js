@@ -15,6 +15,7 @@ var btnDark=document.getElementById("new_site_darkModeToggle");
 var lightModeSelected=true;
 var lightOptions=document.querySelector(".new-site-form.two .light-color-options");
 var darkOptions=document.querySelector(".new-site-form.two .dark-color-options");
+var stored=document.getElementById("color-output")
 
 // the primary color should be quite visible against the selected theme. Dark against light etc
 // the secondary color should be slightly less so, and a rotation around the color wheel. Red against purple etc
@@ -34,6 +35,13 @@ var darkOptions=document.querySelector(".new-site-form.two .dark-color-options")
 // the light and dark colors can be changed, but must be kept within bounds (eg #303030 and # f0f0f0) which havent been set
 // the darkest and lightest greys cannot go darker or lighter than these colors
 
+function updateStored() {
+    var out="";var keys=Object.keys(colors);
+    for (var i=0; i<keys.length; i++) { out=out+keys[i]+":"+colors[keys[i]]+"," }
+    out=out.slice(0,out.length-1)
+    stored.value=out
+}
+
 function updateLightDarkVariables() {
     var val = 100-lightDarkBoundsSlider.value;
 
@@ -46,6 +54,8 @@ function updateLightDarkVariables() {
     newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
     newColor = rgbToHex(newColor.r,newColor.b,newColor.g);
     setColor("dark","#"+newColor);
+
+    updateStored()
 }
 
 function updateLightDarkDisplay() {
@@ -53,9 +63,37 @@ function updateLightDarkDisplay() {
     colorDisplay["light"][1].innerHTML=colors["light"]
     colorDisplay["dark"][0].style.backgroundColor=colors["dark"]
     colorDisplay["dark"][1].innerHTML=colors["dark"]
+
+    updateStored()
+}
+
+function updateColorVariables() {
+    var changePercent = 20
+
+    var newColor = hexToRgb(colors["primary"])
+    newColor = darken(rgbToHsl(newColor.r,newColor.g,newColor.g),changePercent)
+    newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+    newColor = rgbToHex(newColor.r,newColor.b,newColor.g);
+    console.log(colors["primary"],newColor)
+
+    updateStored()
+}
+
+function updateColorDisplays() {
+    colorDisplay["primary"][0].style.backgroundColor=colors["primary"];colorDisplay["primary"][1].innerHTML=colors["primary"]
+    colorDisplay["primary-dark"][0].style.backgroundColor=colors["primary-dark"];colorDisplay["primary-light"][0].style.backgroundColor=colors["primary-light"];
+
+    colorDisplay["secondary"][0].style.backgroundColor=colors["secondary"];colorDisplay["secondary"][1].innerHTML=colors["secondary"]
+    colorDisplay["secondary-dark"][0].style.backgroundColor=colors["secondary-dark"];colorDisplay["secondary-light"][0].style.backgroundColor=colors["secondary-light"];
+
+    colorDisplay["accent"][0].style.backgroundColor=colors["accent"];colorDisplay["accent"][1].innerHTML=colors["accent"]
+    colorDisplay["accent-dark"][0].style.backgroundColor=colors["accent-dark"];colorDisplay["accent-light"][0].style.backgroundColor=colors["accent-light"];
+
+    updateStored()
 }
 
 function updateDisplays() {
+    updateStored()
     updateLightDarkDisplay()
 }
 
@@ -93,3 +131,5 @@ var colorDisplay = {
 var lightDarkBoundsSlider = document.getElementById("new_site_colors_light_dark_bounds_slider");
 
 lightDarkBoundsSlider.addEventListener("mouseup",()=>{updateLightDarkVariables();updateDisplays()})
+
+updateStored()

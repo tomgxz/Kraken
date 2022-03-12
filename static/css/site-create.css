@@ -2,6 +2,7 @@
 
 .new-site-form {
     width:100%;
+    margin-bottom: 32px;
 }
 
 .new-site-form .form-input-container {
@@ -96,7 +97,7 @@
     justify-content:space-evenly;
 }
 
-.new-site-form.two .color-display-container .color-display:not(:last-of-type) {
+.new-site-form.two .color-display-container .color-display {
     margin-bottom:var(--margin-m);
 }
 
@@ -172,9 +173,6 @@
     height: 100%;
 }
 
-}
-
-
 .sliding-input {
     -webkit-appearance: none;
     height: 100%;
@@ -248,4 +246,41 @@
 .input-slider-and-number .sliding-input {
     width:-webkit-fill-available;
     margin-right:8px;
+}
+
+.new-site-form.two .submit-container {
+    display:flex;
+    justify-content:center;
+}
+    
+}
+
+.new-site-form.three .text-options {
+    margin-bottom:var(--margin-m);
+}
+
+.new-site-form.three .text-option {
+    display:flex;
+    flex-direction:column;
+    width:60%;
+    border-radius:0.5em;
+    padding:8px;
+    background-color:transparent;
+    cursor:pointer;
+    transition:background-color 100ms ease-in-out,border-color 100ms ease-in-out;
+    border-width:2px;
+    border-style:solid;
+    border-color:transparent;
+}
+
+.new-site-form.three .text-option:hover {
+    background-color:var(--colors-grey-100);
+}
+
+.new-site-form.three .text-option.active {
+    border-color:var(--colors-primary)
+}
+
+.new-site-form.three .text-option:not(:last-of-type) {
+    margin-bottom:16px;
 }

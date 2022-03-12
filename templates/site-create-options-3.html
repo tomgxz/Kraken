@@ -1,0 +1,28 @@
+{% extends "site_create_base.html" %}
+
+{% set navbarLogoColor = "primary" %}
+{% set navbarOptionsEnabled = True %}
+
+{% block site_create_base %}
+
+    <p class="text dark">Choose default styles</p>
+    <div class="horizontal-separator one m-s-v"></div>
+
+    <form class="new-site-form four" method="post">
+
+        <div class="style-options">
+            
+        </div>
+
+        <div class="submit-container">
+            <button class="field-submit btn primary thin rounded slide" type="submit">
+                <span class="btn-content text uppercase primary">Continue</span>
+            </button>
+        </div>
+
+    </form>
+
+    <script src="{{url_for('static', filename='js/colorConversion.js')}}"></script>
+    <script src="{{url_for('static', filename='js/site-create-options-2.js')}}"></script>
+
+{% endblock %}

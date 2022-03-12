@@ -107,13 +107,17 @@
             
         </div>
         
+        <div class="submit-container">
+            <button class="field-submit btn primary thin rounded slide" type="submit">
+                <span class="btn-content text uppercase primary">Continue</span>
+            </button>
+        </div>
         
-        
-        
+        <input id="color-output" class="visibly-hidden" type="text" value="." name="new_site_color_options_dict">
         
     </form>
 
-    <script src="{{url_for('static', filename='js/site-create-options-1.js')}}"></script>
     <script src="{{url_for('static', filename='js/colorConversion.js')}}"></script>
+    <script src="{{url_for('static', filename='js/site-create-options-1.js')}}"></script>
 
 {% endblock %}

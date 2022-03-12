@@ -5,7 +5,7 @@ Dependencies:
     flask-sqlalchemy
     sqlite3
 """
-from flask import Flask, render_template, Blueprint, redirect, url_for, request, flash
+from flask import Flask, render_template, Blueprint, redirect, url_for, request, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, login_user, login_required, current_user, logout_user
@@ -105,14 +105,46 @@ class Kraken():
 
             sitename=replaceRepeatedDashesRecursion(replaceToDash(sitename.lower()))
 
-            return sitename
+            session["new_site_sitename"]=sitename
 
-            return redirect(url_for("site_create_options"))
+            return redirect(url_for("site_create_options_1"))
 
         @self.app.route("/home/new/1")
         @login_required
         def site_create_options_1():
+            if not request.referrer == url_for("site_create",_external=True): return redirect(url_for("site_create"))
             return render_template("site-create-options-1.html")
+
+        @self.app.route("/home/new/1", methods=["post"])
+        @login_required
+        def site_create_options_1_post():
+            formOutput = request.form.get("new_site_color_options_dict").split(",")
+            colorOptions = {}
+            for pair in formOutput:
+                x=pair.split(":")
+                colorOptions[x[0]]=x[1]
+
+            session["new_site_colorOptions"]=colorOptions
+
+            return redirect(url_for("site_create_options_2"))
+
+        @self.app.route("/home/new/2")
+        @login_required
+        def site_create_options_2():
+            if not request.referrer == url_for("site_create_options_1",_external=True): return redirect(url_for("site_create"))
+            return render_template("site-create-options-2.html")
+
+        @self.app.route("/home/new/2", methods=["post"])
+        @login_required
+        def site_create_options_2_post():
+            formOutput = request.form.get("new_site_font_face_list_active").split(",")
+            session["new_site_colorOptions"]=formOutput
+            return redirect(url_for("site_create_options_3"))
+
+        @self.app.route("/home/new/3")
+        @login_required
+        def site_create_options_3():
+            return render_template("site-create-options-3.html")
 
         @self.app.route("/account/settings/")
         @login_required
