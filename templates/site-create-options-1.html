@@ -26,7 +26,6 @@
         
         <div class="horizontal-separator one m-s-v"></div>
         <!--
-        <span class="text large danger">There is but the illusion of choice here. All options lead to the same color. (I'm too lazy to build this)</span>
         
         <div class="light-color-options">
             <div class="color-option"></div>
@@ -34,18 +33,29 @@
         
         <div class="dark-color-options">
             <div class="color-option"></div>
-        </div>
+        </div>-->
         
         <div class="horizontal-separator two m-s-v"></div>
         
         <div class="color-options">
-            <div class="light-dark-options"></div>
-            <div class="main-color-options"></div>
-            <div class="grey-options"></div>
+            <div class="input-slider-option one">
+                <span class="text dark bold">Light & Dark Bounds</span>
+                <div class="input-slider-and-number">
+                    <input class="input sliding-input" type="range" min="0" max="100" value="100" name="new_site_colors_light_dark_bounds" id="new_site_colors_light_dark_bounds_slider">
+                    <input class="input small-number-input" type="text" pattern="[-+]?d*" min="-100" max="100" id="new_site_colors_light_dark_bounds_number">
+                </div>
+            </div>
+            <div class="input-slider-option two">
+                <span class="text dark bold">Monochromatic Temperature</span>
+                <div class="input-slider-and-number">
+                    <input class="input sliding-input" type="range" min="-100" max="100" value="0" name="new_site_colors_monochromatic_tint" id="new_site_colors_monochromatic_temperature_slider">
+                    <input class="input small-number-input" type="text" pattern="[-+]?d*" min="-100" max="100" id="new_site_colors_monochromatic_temperature_number">
+                </div>
+            </div>
         </div>
         
         <div class="horizontal-separator three m-s-v"></div>
-        -->
+        
         <div class="color-display-container">
             
             <div class="color-display light-dark-display">
@@ -58,22 +68,22 @@
                 <div class="color-triple-card primary-color">
                     <div class="color-triple-card-main" style="background-color:#e63946;color:#000000"><span class="color-code text uppercase center">#e63946</span></div>
                     <div class="color-triple-card-sub-container">
-                        <div class="color-triple-card-sub" style="background-color:#ba2b36;color:#000000"></div>
-                        <div class="color-triple-card-sub" style="background-color:#f2414f;color:#000000"></div>
+                        <div class="color-triple-card-sub one" style="background-color:#ba2b36;color:#000000"></div>
+                        <div class="color-triple-card-sub two" style="background-color:#f2414f;color:#000000"></div>
                     </div>
                 </div>
                 <div class="color-triple-card secondary-color">
                     <div class="color-triple-card-main" style="background-color:#457b9d;color:#000000"><span class="color-code text uppercase center">#457b9d</span></div>
                     <div class="color-triple-card-sub-container">
-                        <div class="color-triple-card-sub" style="background-color:#3f708f;color:#000000"></div>
-                        <div class="color-triple-card-sub" style="background-color:#508eb5;color:#000000"></div>
+                        <div class="color-triple-card-sub one" style="background-color:#3f708f;color:#000000"></div>
+                        <div class="color-triple-card-sub two" style="background-color:#508eb5;color:#000000"></div>
                     </div>
                 </div>
                 <div class="color-triple-card accent-color">
                     <div class="color-triple-card-main" style="background-color:#a8dadc;color:#000000"><span class="color-code text uppercase center">#a8dadc</span></div>
                     <div class="color-triple-card-sub-container">
-                        <div class="color-triple-card-sub" style="background-color:#93c5c7;color:#000000"></div>
-                        <div class="color-triple-card-sub" style="background-color:#b4ebed;color:#000000"></div>
+                        <div class="color-triple-card-sub one" style="background-color:#93c5c7;color:#000000"></div>
+                        <div class="color-triple-card-sub two" style="background-color:#b4ebed;color:#000000"></div>
                     </div>
                 </div>
 
@@ -82,15 +92,15 @@
             <div class="color-display grey-display">
                 <div class="color-columns grey-colors expanding-columns-container">
                     
-                    <div class="color-column expanding-column" style="background-color:#303030;color:#ffffff"><span class="color-code expanding-text text uppercase center">#303030</span></div>
-                    <div class="color-column expanding-column" style="background-color:#474747;color:#ffffff"><span class="color-code expanding-text text uppercase center">#474747</span></div>
-                    <div class="color-column expanding-column" style="background-color:#5e5e5e;color:#ffffff"><span class="color-code expanding-text text uppercase center">#5e5e5e</span></div>
-                    <div class="color-column expanding-column" style="background-color:#757575;color:#ffffff"><span class="color-code expanding-text text uppercase center">#757575</span></div>
-                    <div class="color-column expanding-column" style="background-color:#8c8c8c;color:#000000"><span class="color-code expanding-text text uppercase center">#8c8c8c</span></div>
-                    <div class="color-column expanding-column" style="background-color:#a3a3a3;color:#000000"><span class="color-code expanding-text text uppercase center">#a3a3a3</span></div>
-                    <div class="color-column expanding-column" style="background-color:#bababa;color:#000000"><span class="color-code expanding-text text uppercase center">#bababa</span></div>
-                    <div class="color-column expanding-column" style="background-color:#d1d1d1;color:#000000"><span class="color-code expanding-text text uppercase center">#d1d1d1</span></div>
-                    <div class="color-column expanding-column" style="background-color:#e8e8e8;color:#000000"><span class="color-code expanding-text text uppercase center">#e8e8e8</span></div>
+                    <div class="color-column expanding-column g900" style="background-color:#303030;color:#ffffff"><span class="color-code expanding-text text uppercase center">#303030</span></div>
+                    <div class="color-column expanding-column g800" style="background-color:#474747;color:#ffffff"><span class="color-code expanding-text text uppercase center">#474747</span></div>
+                    <div class="color-column expanding-column g700" style="background-color:#5e5e5e;color:#ffffff"><span class="color-code expanding-text text uppercase center">#5e5e5e</span></div>
+                    <div class="color-column expanding-column g600" style="background-color:#757575;color:#ffffff"><span class="color-code expanding-text text uppercase center">#757575</span></div>
+                    <div class="color-column expanding-column g500" style="background-color:#8c8c8c;color:#000000"><span class="color-code expanding-text text uppercase center">#8c8c8c</span></div>
+                    <div class="color-column expanding-column g400" style="background-color:#a3a3a3;color:#000000"><span class="color-code expanding-text text uppercase center">#a3a3a3</span></div>
+                    <div class="color-column expanding-column g300" style="background-color:#bababa;color:#000000"><span class="color-code expanding-text text uppercase center">#bababa</span></div>
+                    <div class="color-column expanding-column g200" style="background-color:#d1d1d1;color:#000000"><span class="color-code expanding-text text uppercase center">#d1d1d1</span></div>
+                    <div class="color-column expanding-column g100" style="background-color:#e8e8e8;color:#000000"><span class="color-code expanding-text text uppercase center">#e8e8e8</span></div>
                     
                 </div>
             </div>
@@ -99,8 +109,11 @@
         
         
         
+        
+        
     </form>
 
     <script src="{{url_for('static', filename='js/site-create-options-1.js')}}"></script>
+    <script src="{{url_for('static', filename='js/colorConversion.js')}}"></script>
 
 {% endblock %}

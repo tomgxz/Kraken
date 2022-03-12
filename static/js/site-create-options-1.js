@@ -1,14 +1,14 @@
 function toggleOptions() {
-  lightOptions.classList.add("visibly-hidden");darkOptions.classList.add("visibly-hidden");
-  if (lightModeSelected) { lightOptions.classList.remove("visibly-hidden") }
-  else { darkOptions.classList.remove("visibly-hidden") }
+    return
+    lightOptions.classList.add("visibly-hidden");darkOptions.classList.add("visibly-hidden");
+    if (lightModeSelected) { lightOptions.classList.remove("visibly-hidden") }
+    else { darkOptions.classList.remove("visibly-hidden") }
 }
 
 function setColor(k,v) { colors[k]=v }
 
 function setDarkMode() { setColor["default-background", colors["dark"]]; setColor["default-text", colors["light"]] }
 function setLightMode() { setColor["default-background", colors["light"]]; setColor["default-text", colors["dark"]] }
-
 
 var btnLight=document.getElementById("new_site_lightModeToggle");
 var btnDark=document.getElementById("new_site_darkModeToggle");
@@ -34,15 +34,62 @@ var darkOptions=document.querySelector(".new-site-form.two .dark-color-options")
 // the light and dark colors can be changed, but must be kept within bounds (eg #303030 and # f0f0f0) which havent been set
 // the darkest and lightest greys cannot go darker or lighter than these colors
 
-var defaultColors = { "light":"#ffffff", "dark":"#000000", "primary":"#e63946", "secondary":"#457b9d", "accent":"#a8dadc",
-"default-background":"#", "default-text":"#", "grey-100":"#303030", "grey-200":"#474747", "grey-300":"#5e5e5e", "grey-400":"#757575",
+function updateLightDarkVariables() {
+    var val = 100-lightDarkBoundsSlider.value;
+
+    var newColor = darken({h:0,s:0,l:100},val/12);
+    newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+    newColor = rgbToHex(newColor.r,newColor.b,newColor.g);
+    setColor("light","#"+newColor);
+
+    var newColor = lighten({h:0,s:0,l:0},val/8);
+    newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+    newColor = rgbToHex(newColor.r,newColor.b,newColor.g);
+    setColor("dark","#"+newColor);
+}
+
+function updateLightDarkDisplay() {
+    colorDisplay["light"][0].style.backgroundColor=colors["light"]
+    colorDisplay["light"][1].innerHTML=colors["light"]
+    colorDisplay["dark"][0].style.backgroundColor=colors["dark"]
+    colorDisplay["dark"][1].innerHTML=colors["dark"]
+}
+
+function updateDisplays() {
+    updateLightDarkDisplay()
+}
+
+var options = ["light","dark","primary","primary-dark","primary-light","secondary","secondary-dark","secondary-light","accent","accent-dark",
+"accent-light","grey-100","grey-200","grey-300","grey-400","grey-500","grey-600","grey-700","grey-800","grey-900"]
+var defaultColors = { "light":"#ffffff", "dark":"#000000", "primary":"#e63946", "primary-dark":"", "primary-light":"", "secondary":"#457b9d",
+"secondary-dark":"","secondary-light":"", "accent":"#a8dadc","accent-dark":"","accent-light":"","grey-100":"#303030", "grey-200":"#474747", "grey-300":"#5e5e5e", "grey-400":"#757575",
 "grey-500":"#8c8c8c", "grey-600":"#a3a3a3", "grey-700":"#bababa", "grey-800":"#d1d1d1", "grey-900":"#e8e8e8" }
-
-var defaultColors = { "light":"#ffffff", "dark":"#000000", "primary":"#e63946", "secondary":"#457b9d", "accent":"#a8dadc",
-"default-background":"#", "default-text":"#", "grey-100":"#303030", "grey-200":"#474747", "grey-300":"#5e5e5e", "grey-400":"#757575",
+var colors = { "light":"#ffffff", "dark":"#000000", "primary":"#e63946", "primary-dark":"", "primary-light":"", "secondary":"#457b9d",
+"secondary-dark":"","secondary-light":"", "accent":"#a8dadc","accent-dark":"","accent-light":"","grey-100":"#303030", "grey-200":"#474747", "grey-300":"#5e5e5e", "grey-400":"#757575",
 "grey-500":"#8c8c8c", "grey-600":"#a3a3a3", "grey-700":"#bababa", "grey-800":"#d1d1d1", "grey-900":"#e8e8e8" }
+var colorDisplay = {
+    "light":[document.querySelector(".new-site-form.two .color-display-container .light-dark-display .light-color"),document.querySelector(".new-site-form.two .color-display-container .light-dark-display .light-color .color-code")],
+    "dark":[document.querySelector(".new-site-form.two .color-display-container .light-dark-display .dark-color"),document.querySelector(".new-site-form.two .color-display-container .light-dark-display .dark-color .color-code")],
+    "primary":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .primary-color .color-triple-card-main"),document.querySelector(".new-site-form.two .color-display-container .main-color-display .primary-color .color-triple-card-main .color-code")],
+    "primary-dark":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .primary-color .color-triple-card-sub.one")],
+    "primary-light":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .primary-color .color-triple-card-sub.two")],
+    "secondary":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .secondary-color .color-triple-card-main"),document.querySelector(".new-site-form.two .color-display-container .main-color-display .secondary-color .color-triple-card-main .color-code")],
+    "secondary-dark":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .secondary-color .color-triple-card-sub.one")],
+    "secondary-light":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .secondary-color .color-triple-card-sub.two")],
+    "accent":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .accent-color .color-triple-card-main"),document.querySelector(".new-site-form.two .color-display-container .main-color-display .accent-color .color-triple-card-main .color-code")],
+    "accent-dark":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .accent-color .color-triple-card-sub.one")],
+    "accent-light":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .accent-color .color-triple-card-sub.two")],
+    "grey-100":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g100"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g100 .color-code")],
+    "grey-200":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g200"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g200 .color-code")],
+    "grey-300":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g300"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g300 .color-code")],
+    "grey-400":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g400"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g400 .color-code")],
+    "grey-500":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g500"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g500 .color-code")],
+    "grey-600":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g600"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g600 .color-code")],
+    "grey-700":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g700"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g700 .color-code")],
+    "grey-800":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g800"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g800 .color-code")],
+    "grey-900":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g900"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g900 .color-code")],
+}
 
-btnLight.addEventListener("click",()=>{ lightModeSelected=true;toggleOptions() })
-btnDark.addEventListener("click",()=>{ lightModeSelected=false;toggleOptions() })
+var lightDarkBoundsSlider = document.getElementById("new_site_colors_light_dark_bounds_slider");
 
-toggleOptions()
+lightDarkBoundsSlider.addEventListener("mouseup",()=>{updateLightDarkVariables();updateDisplays()})

@@ -1,3 +1,5 @@
+@media {
+
 .new-site-form {
     width:100%;
 }
@@ -138,7 +140,7 @@
     display: flex;
     flex-direction: column;
     width: -webkit-fill-available;
-    height: 92px;
+    height: 140px;
     align-items: center;
     justify-content: center;
     border-radius: 1em;
@@ -168,4 +170,82 @@
 .new-site-form.two .main-color-display .color-triple-card-sub {
     width: 50%;
     height: 100%;
+}
+
+}
+
+
+.sliding-input {
+    -webkit-appearance: none;
+    height: 100%;
+    background: transparent;
+    border:none;
+}
+
+.sliding-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: var(--colors-light);
+    margin-top: -3px;
+    box-shadow: 0px 0px 11px -3px rgb(0 0 0 / 50%);
+    cursor: pointer;
+    border: 1px solid var(--colors-grey-400);
+}
+
+.sliding-input::-webkit-slider-runnable-track {
+    width: 60%;
+    height: 9px;
+    background:var(--slider-background)
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.input-slider-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-slider-option .sliding-input {
+    width:40%;
+}
+
+.color-options {
+    display:flex;
+    flex-direction:column;
+}
+
+.color-options .input-slider-option:not(:last-of-type) {
+    margin-bottom:var(--margin-xs)
+}
+
+.input-slider-option #new_site_colors_light_dark_bounds_slider.sliding-input::-webkit-slider-runnable-track {
+    background:linear-gradient(to right, #333333, #000000);
+    border-radius:3px;
+}
+
+.input-slider-option #new_site_colors_monochromatic_temperature_slider.sliding-input::-webkit-slider-runnable-track {
+    background:linear-gradient(to right, #3962D2, #ffffff, #F19C38);
+    border-radius:3px;
+}
+
+.small-number-input {
+    padding: 5px;
+    width: 45px;
+}
+
+.input-slider-and-number {
+    display:flex;
+    flex-direction:row;
+    width:45%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.input-slider-and-number .sliding-input {
+    width:-webkit-fill-available;
+    margin-right:8px;
 }
