@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% set navbarLogoColor = "gradient" %}
+{% set navbarOptionsEnabled = True %}
+
+{% set settingsSidebarActivated = get_flashed_messages()[0] %}
+
+{% block content %}
+
+<link href="{{url_for('static', filename='css/settings.css')}}" rel="stylesheet" type="text/css" />
+<div class="application-content">
+    <div class="text-header-container">
+        <h2 class="text header large dark one"></h2>
+    </div>
+    
+    <div class="settings-container">
+        <div class="settings-sidebar">
+
+            <a class="settings-sidebar-item one{% if settingsSidebarActivated==1 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==1 %}href="{{ url_for('settings_profile') }}"{% endif %}>
+                <i class="settings-sidebar-item-icon fa-regular fa-user"></i>
+                <span class="settings-sidebar-item-title text large">Public Profile</span>
+            </a>
+            
+            <a class="settings-sidebar-item two{% if settingsSidebarActivated==2 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==2 %}href="{{ url_for('settings_admin') }}"{% endif %}>
+                <i class="settings-sidebar-item-icon fa-regular fa-gear"></i>
+                <span class="settings-sidebar-item-title text large">Account</span>
+            </a>
+            
+            <a class="settings-sidebar-item three{% if settingsSidebarActivated==3 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==3 %}href="{{ url_for('settings_looks') }}"{% endif %}>
+                <i class="settings-sidebar-item-icon fa-regular fa-paintbrush"></i>
+                <span class="settings-sidebar-item-title text large">Appearance & Accessibility</span>
+            </a>           
+            
+            <div class="settings-sidebar-separator text one">Code and websites</div>
+            
+            <a class="settings-sidebar-item four{% if settingsSidebarActivated==4 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==4 %}href="{{ url_for('settings_sites') }}"{% endif %}>
+                <i class="settings-sidebar-item-icon fa-regular fa-browser"></i>
+                <span class="settings-sidebar-item-title text large">My Websites</span>
+            </a>
+            
+            <a class="settings-sidebar-item five{% if settingsSidebarActivated==5 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==5 %}href="{{ url_for('settings_code') }}"{% endif %}>
+                <i class="settings-sidebar-item-icon fa-regular fa-list-timeline"></i>
+                <span class="settings-sidebar-item-title text large">Custom Code & Elements</span>
+            </a>
+            
+            <div class="settings-sidebar-separator text two"> </div>
+            
+            <a class="settings-sidebar-item six{% if settingsSidebarActivated==6 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==6 %}href="{{ url_for('main_help') }}"{% endif %}>
+                <i class="settings-sidebar-item-icon fa-regular fa-book-blank"></i>
+                <span class="settings-sidebar-item-title text large">Help & Documentation</span>
+            </a>
+            
+            <a class="settings-sidebar-item seven{% if settingsSidebarActivated==7 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==7 %}href="{{ url_for('settings_dev') }}"{% endif %}>
+                <i class="settings-sidebar-item-icon fa-regular fa-code-simple"></i>
+                <span class="settings-sidebar-item-title text large">Developer settings</span>
+            </a>
+            
+
+        </div>
+        
+        <div class="settings-content">
+            
+            {% block settings_content %}
+            {% endblock %}
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

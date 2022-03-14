@@ -47,7 +47,7 @@
                 <div class="text-option-header text header dark one" style="font-family:'{{headerFont}}'">{{headerFont}}</div>
                 <div class="text-option-paragraph text two" style="font-family:'{{paraFont}}'">Paragraph text - {{paraFont}}</div>
                 
-                <input class="visibly-hidden text-option-list" value="{{headerFont}},{{paraFont}}" name="new_site_font_face_list_inactive">
+                <input class="visibly-hidden text-option-list" value="{{headerFont}},{{paraFont}}" name="new_site_font_face_list_{%if counter==1%}active{%else%}inactive{%endif%}">
             </div>
             
             {%endfor%}

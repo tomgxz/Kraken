@@ -16,6 +16,7 @@ CREATE TABLE site (
   private BOOLEAN NOT NULL,
   deleted BOOLEAN NOT NULL,
   user_id TEXT,
+  sitePath TEXT,
   CONSTRAINT fk_user_id,
     FOREIGN KEY (user_id) REFERENCES user(user_id)
 )

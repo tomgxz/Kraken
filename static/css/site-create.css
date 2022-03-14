@@ -284,3 +284,18 @@
 .new-site-form.three .text-option:not(:last-of-type) {
     margin-bottom:16px;
 }
+
+.new-site-form.four .button-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 335px;
+    transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+}
+
+.new-site-form.four .button-option-container {
+    height:55px;
+    margin-bottom: var(--margin-s);
+    display: flex;
+    align-items: center;
+}

@@ -42,6 +42,12 @@ function jsE(el) {
     }
 }
 
+function removeClass(e,a) { e.classList.remove(a) }
+function removeClasses(e,a) { a.forEach((x)=>{ e.classList.remove(x) }) }
+
+function addClass(e,a) { e.classList.add(a) }
+function addClasses(e,a) { a.forEach((x)=>{ e.classList.add(x) }) }
+
 $(document).ready(function () {
     document.body.classList.remove("visibly-hidden");jsE(document.body); // reveal the page when it has been loaded
     

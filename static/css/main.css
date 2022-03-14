@@ -802,26 +802,32 @@ abbr {
 
 .btn.slide.light {
     border-color: rgba(var(--colors-light-rgb), .15);
+    color:var(--colors-light)
 }
 
 .btn.slide.dark {
     border-color: rgba(var(--colors-dark-rgb), .15);
+    color:var(--colors-dark)
 }
 
 .btn.slide.primary {
     border-color: rgba(var(--colors-primary-rgb), .15);
+    color:var(--colors-primary)
 }
 
 .btn.slide.secondary {
     border-color: rgba(var(--colors-secondary-rgb), .15);
+    color:var(--colors-secondary)
 }
 
 .btn.slide.accent {
     border-color: rgba(var(--colors-accent-rgb), .15);
+    color:var(--colors-accent)
 }
     
 .btn.slide.danger {
     border-color: rgba(var(--colors-danger-rgb), .15);
+    color:var(--colors-danger)
 }
 
 .btn.slide.light:hover:not([disabled]) {

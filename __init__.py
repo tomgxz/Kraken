@@ -68,6 +68,13 @@ class Kraken():
         @self.app.errorhandler(500)
         def main_500(e): return "Server go boom - i.e. I made a mistake"
 
+        @self.app.route("/@<name>/<site>")
+        @self.app.route("/@<name>/<site>/home")
+        @login_required
+        def site_edit_home(name=None,site=None):
+            if current_user.user_id is not name: return "External view of site"
+            return render_template("site-edit-home.html")
+
         @self.app.route("/home/new/")
         @login_required
         def site_create():
@@ -106,6 +113,7 @@ class Kraken():
             sitename=replaceRepeatedDashesRecursion(replaceToDash(sitename.lower()))
 
             session["new_site_sitename"]=sitename
+            session["new_site_isPublic"]=isPublic
 
             return redirect(url_for("site_create_options_1"))
 
@@ -138,13 +146,28 @@ class Kraken():
         @login_required
         def site_create_options_2_post():
             formOutput = request.form.get("new_site_font_face_list_active").split(",")
-            session["new_site_colorOptions"]=formOutput
+            session["new_site_fontOptions"]=formOutput
             return redirect(url_for("site_create_options_3"))
 
         @self.app.route("/home/new/3")
         @login_required
         def site_create_options_3():
             return render_template("site-create-options-3.html")
+
+        @self.app.route("/home/new/3", methods=["post"])
+        @login_required
+        def site_create_options_3_post():
+            formOutput = request.form.get("new_site_style_options_list").split(",")
+            styleOptions = {}
+            for pair in formOutput:
+                x=pair.split(":")
+                if x[1] == "false": x[1]=False
+                if x[1] == "true": x[1]=True
+                if x[1] == "null": x[1]=None
+                styleOptions[x[0]]=x[1]
+            session["new_site_styleOptions"]=styleOptions
+            return str(session["new_site_sitename"])+str(session["new_site_isPublic"])+str(session["new_site_colorOptions"])+str(session["new_site_fontOptions"])+str(session["new_site_styleOptions"])
+
 
         @self.app.route("/account/settings/")
         @login_required
@@ -220,8 +243,6 @@ class Kraken():
 
         @self.app.route("/signup/", methods=["post"])
         def auth_signup_post():
-            # signup validation code here
-
             name=request.form.get("name")
             email=request.form.get("email")
             username=request.form.get("username")
@@ -289,6 +310,8 @@ class Kraken():
             archived=False,
             tabpreference=4,
         )
+
+        # ADD CODE TO GENERATE USER FOLDER
 
         #pr="/   static/data/defaultIcons/default-"
         #defaultIcons=[f"{pr}1.png"]
