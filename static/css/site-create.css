@@ -54,6 +54,12 @@
     width:100%;
 }
 
+.new-site-form.one .form-input-container.three {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .input-checkbox {
     margin-top:15px;
     margin-bottom:15px;
@@ -252,7 +258,7 @@
     display:flex;
     justify-content:center;
 }
-    
+
 }
 
 .new-site-form.three .text-options {

@@ -9,7 +9,7 @@
     <div class="horizontal-separator one m-s-v"></div>
 
     <form class="new-site-form one" method="post">
-        
+
         <div class="form-input-container one">
             <div class="form-input-content-column">
                 <span class="text large dark one">Owner</span>
@@ -22,9 +22,16 @@
             <div class="message-container m-s-t text small one visibly-hidden">Your site name will look like: <span class="message-container-jsedit"></span></div>
             <p class="text dark m-s-t two">The name must be at least 4 characters long, and contain only lowercase alphanumeric characters, dashes, underscores and periods. Any illegal characters will be converted into dashes. If you need inspiration for a name, you ain't gonna get any from me :)</p>
         </div>
-        
+
         <div class="horizontal-separator two m-s-v"></div>
-        
+
+        <div class="form-input-container three">
+            <span class="text large dark one">Description (Optional)</span>
+            <input id="new_site_desc" class="new-site-input text dark two input small-text-input" type="text" name="new_site_desc">
+        </div>
+
+        <div class="horizontal-separator three m-s-v"></div>
+
         <div class="form-input-container two">
             <div class="input-checkbox">
                 <input class="input-checkbox-input" name="new_site_privacy" id="new_site_privacy_visible" type="radio" value="public">
@@ -47,7 +54,7 @@
             <span class="btn-content text uppercase primary">Create Site</span>
             </button>
         </div>
-        
+
     </form>
 
     <script>
@@ -80,7 +87,7 @@
 
             hideFormMessage()
             return "success"
-        }    
+        }
     </script>
 
     <script src="{{url_for('static', filename='js/site-create.js')}}"></script>

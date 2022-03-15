@@ -4,6 +4,9 @@ Dependencies:
     flask-login
     flask-sqlalchemy
     sqlite3
+    pillow
+    configparser
+    datetime
 """
 from flask import Flask, render_template, Blueprint, redirect, url_for, request, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -11,6 +14,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, login_user, login_required, current_user, logout_user
 from random import choice
 from PIL import Image
+from configparser import ConfigParser
+
 
 db=SQLAlchemy()
 
@@ -20,9 +25,10 @@ class Kraken():
 
     def __init__(self):
 
-        import os,sqlite3
+        import os,sqlite3,datetime
         self.os=os
         self.sqlite3=sqlite3
+        self.datetime=datetime
 
         self.db=db
 
@@ -72,7 +78,7 @@ class Kraken():
         @self.app.route("/@<name>/<site>/home")
         @login_required
         def site_edit_home(name=None,site=None):
-            if current_user.user_id is not name: return "External view of site"
+            if current_user.user_id!=name: return "External view of site"
             return render_template("site-edit-home.html")
 
         @self.app.route("/home/new/")
@@ -108,11 +114,13 @@ class Kraken():
                         return listToStr(var)
 
             sitename = request.form.get("new_site_name")
+            sitedesc = request.form.get("new_site_desc")
             isPublic = request.form.get("new_site_privacy")=="public"
 
             sitename=replaceRepeatedDashesRecursion(replaceToDash(sitename.lower()))
 
             session["new_site_sitename"]=sitename
+            session["new_site_sitedesc"]=sitedesc
             session["new_site_isPublic"]=isPublic
 
             return redirect(url_for("site_create_options_1"))
@@ -152,6 +160,7 @@ class Kraken():
         @self.app.route("/home/new/3")
         @login_required
         def site_create_options_3():
+            if not request.referrer == url_for("site_create_options_2",_external=True): return redirect(url_for("site_create"))
             return render_template("site-create-options-3.html")
 
         @self.app.route("/home/new/3", methods=["post"])
@@ -165,9 +174,28 @@ class Kraken():
                 if x[1] == "true": x[1]=True
                 if x[1] == "null": x[1]=None
                 styleOptions[x[0]]=x[1]
-            session["new_site_styleOptions"]=styleOptions
-            return str(session["new_site_sitename"])+str(session["new_site_isPublic"])+str(session["new_site_colorOptions"])+str(session["new_site_fontOptions"])+str(session["new_site_styleOptions"])
+            session["new_site_buttonOptions"]=styleOptions
+            return redirect(url_for("site_create_generate"))
 
+        @self.app.route("/home/new/generate")
+        @login_required
+        def site_create_generate():
+            if not request.referrer == url_for("site_create_options_3",_external=True): return redirect(url_for("site_create"))
+            siteSettings={
+                "name":session["new_site_sitename"],
+                "user":str(current_user.user_id),
+                "desc":session["new_site_sitedesc"] if session["new_site_sitedesc"]!="" else "No Description Set",
+                "created":str(self.datetime.datetime.utcnow()),
+                "isPublic":session["new_site_isPublic"],
+                "colorOptions":session["new_site_colorOptions"],
+                "fontOptions":session["new_site_fontOptions"],
+                "buttonOptions":session["new_site_buttonOptions"]
+            }
+            self.createSiteStructure(siteSettings)
+
+            session["new_site_sitename"]="";session["new_site_sitedesc"]="";session["new_site_isPublic"]="";session["new_site_colorOptions"]={};session["new_site_fontOptions"]=[];session["new_site_buttonOptions"]={}
+
+            return redirect(url_for("site_edit_home",name="@"+siteSettings["user"],site=siteSettings["name"]))
 
         @self.app.route("/account/settings/")
         @login_required
@@ -311,7 +339,13 @@ class Kraken():
             tabpreference=4,
         )
 
-        # ADD CODE TO GENERATE USER FOLDER
+        # FILE AND FOLDER GENERATION
+
+        prefix="/static/data/userData/"
+
+        folderStructure=[f"{prefix}{u}",f"{prefix}{u}/sites/"]
+
+        self.generateFolderStructure(folderStructure)
 
         #pr="/   static/data/defaultIcons/default-"
         #defaultIcons=[f"{pr}1.png"]
@@ -321,6 +355,76 @@ class Kraken():
 
         self.db.session.add(newUser)
         self.db.session.commit()
+
+    def createSiteStructure(self,siteSettings):
+        sitePath=self.os.path.abspath(f"static/data/userData/{siteSettings['user']}/sites/{siteSettings['name']}")
+        siteConfigFile=f"{sitePath}/site.ini"
+
+        folderStructure=[f"{sitePath}",f"{sitePath}/output"]
+        fileStructure=[siteConfigFile]
+
+        self.generateFolderStructure(folderStructure)
+        self.generateFileStructure(fileStructure)
+
+        with open("txt.txt","w") as f:
+            f.write(str(siteSettings))
+
+        cfgContent=ConfigParser()
+        cfgContent.read(siteConfigFile)
+
+        section="settings"
+        try: cfgContent.add_section(section)
+        except: pass
+
+        cfgContent.set(section,"name",siteSettings["name"])
+        cfgContent.set(section,"user",siteSettings["user"])
+        cfgContent.set(section,"desc",siteSettings["desc"])
+        cfgContent.set(section,"isPublic",str(siteSettings["isPublic"]).lower())
+
+        section="color"
+        try: cfgContent.add_section(section)
+        except: pass
+
+        for key in siteSettings["colorOptions"]:
+            cfgContent.set(section,key,siteSettings["colorOptions"][key])
+
+        section="font"
+        try: cfgContent.add_section(section)
+        except: pass
+
+        cfgContent.set(section,"header",siteSettings["fontOptions"][0])
+        cfgContent.set(section,"body",siteSettings["fontOptions"][1])
+
+        section="button"
+        try: cfgContent.add_section(section)
+        except: pass
+        for key in siteSettings["buttonOptions"]:
+            cfgContent.set(section,key,str(siteSettings["buttonOptions"][key]).lower())
+
+        with open(siteConfigFile,"w") as f:
+            cfgContent.write(f)
+            f.close()
+
+    def generateFolderStructure(self,folders):
+        for folder in folders:
+            if self.os.path.isdir(folder):
+                continue
+            try:
+                self.os.makedirs(folder)
+            except OSError as e:
+                raise OSError(
+                      e)
+
+    def generateFileStructure(self,files):
+        for file in files:
+            if self.os.path.exists(file):
+                continue
+            try:
+                with open(file,"w") as f:
+                    f.close()
+            except OSError as e:
+                raise OSError(
+                      e)
 
     def getUserImage(self,u):
         return f"/data/userIcons/{u}.png"

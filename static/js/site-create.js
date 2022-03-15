@@ -61,6 +61,7 @@ var requiredChars = "qwertyuiopasdfghjklzxcvbnm1234567890"
 var allowedChars = "qwertyuiopasdfghjklzxcvbnm-._1234567890";
 var formSubmit = document.getElementById("new_site_form_submit");
 var formName = document.getElementById("new_site_name");
+var formDesc = document.getElementById("new_site_desc");
 var formPrivacy1 = document.getElementById("new_site_privacy_visible");
 var formPrivacy2 = document.getElementById("new_site_privacy_hidden");
 var messageContainer = document.querySelector(".new-site-form .form-input-container.one .message-container");
