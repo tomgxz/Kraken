@@ -58,6 +58,19 @@ class Kraken():
         self.initPages()
 
     def initPages(self):
+        self.initPages_main()
+        self.initPages_auth()
+        self.initPages_site_create()
+        self.initPages_settings()
+
+        @self.app.route("/@<name>/<site>")
+        @self.app.route("/@<name>/<site>/home")
+        @login_required
+        def site_edit_home(name=None,site=None):
+            if current_user.user_id!=name: return "External view of site"
+            return render_template("site-edit-home.html")
+
+    def initPages_main(self):
         @self.app.route("/")
         def main_index(): return redirect(url_for("auth_login"))
 
@@ -74,13 +87,97 @@ class Kraken():
         @self.app.errorhandler(500)
         def main_500(e): return "Server go boom - i.e. I made a mistake"
 
-        @self.app.route("/@<name>/<site>")
-        @self.app.route("/@<name>/<site>/home")
-        @login_required
-        def site_edit_home(name=None,site=None):
-            if current_user.user_id!=name: return "External view of site"
-            return render_template("site-edit-home.html")
+        @self.app.route("/help")
+        def main_help():
+            return "This page dont exist yet :("
 
+    def initPages_auth(self):
+        @self.app.route("/login/")
+        def auth_login():
+            if current_user.is_authenticated:
+                return redirect(url_for("main_home"))
+            return render_template("login.html")
+
+        @self.app.route("/login/", methods=["post"])
+        def auth_login_post():
+            username = request.form.get("username")
+            password = request.form.get("password")
+            remember = True if request.form.get('remember') else False
+
+            user = self.User.query.filter_by(user_id=username).first()
+
+            if not user or not check_password_hash(user.password, password):
+                flash('Please check your login details and try again.')
+                return redirect(url_for('auth_login'))
+
+            login_user(user,remember=remember)
+            return redirect(url_for("main_home"))
+
+        @self.app.route("/signup/")
+        def auth_signup():
+            if current_user.is_authenticated:
+                return redirect(url_for("main_home"))
+            return render_template("signup.html")
+
+        @self.app.route("/signup/", methods=["post"])
+        def auth_signup_post():
+            name=request.form.get("name")
+            email=request.form.get("email")
+            username=request.form.get("username")
+            password1=request.form.get("password")
+            password2=request.form.get("password-repeat")
+
+            verifyOutput=self.verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
+
+            if len(verifyOutput) > 0:
+                flash(verifyOutput,name,email,username)
+                return redirect(url_for("auth_signup"))
+
+            verifyOutput=self.verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
+
+            if len(verifyOutput) > 0:
+                flash(verifyOutput)
+                return redirect(url_for("auth_signup"))
+
+            verifyOutput=self.verifyField(username,"Username",canHaveSpecialChar=False)
+
+            if len(verifyOutput) > 0:
+                flash(verifyOutput)
+                return redirect(url_for("auth_signup"))
+
+            verifyOutput=self.verifyField(password1,"Password",minLen=8)
+
+            if len(verifyOutput) > 0:
+                flash(verifyOutput)
+                return redirect(url_for("auth_signup"))
+
+            if password1!=password2:
+                flash("Passwords do not match")
+                return redirect(url_for("auth_signup"))
+
+            user = self.User.query.filter_by(email=email).first()
+
+            if user:
+                flash("That email is already in use")
+                return redirect(url_for("auth_login"))
+
+            user = self.User.query.filter_by(user_id=username).first()
+
+            if user:
+                flash("That username is already in use")
+                return redirect(url_for("auth_login"))
+
+            self.createUser(username,email,name,password1)
+
+            return redirect(url_for("auth_login"))
+
+        @self.app.route("/account/logout/")
+        @login_required
+        def auth_logout():
+            logout_user()
+            return redirect(url_for("auth_login"))
+
+    def initPages_site_create(self):
         @self.app.route("/home/new/")
         @login_required
         def site_create():
@@ -197,6 +294,7 @@ class Kraken():
 
             return redirect(url_for("site_edit_home",name="@"+siteSettings["user"],site=siteSettings["name"]))
 
+    def initPages_settings(self):
         @self.app.route("/account/settings/")
         @login_required
         def settings():
@@ -232,100 +330,11 @@ class Kraken():
             flash(5)
             return render_template("settings-code.html")
 
-        @self.app.route("/help")
-        def main_help():
-            return "This page dont exist yet :("
-
         @self.app.route("/account/settings/dev")
         @login_required
         def settings_dev():
             flash(7)
             return render_template("settings-dev.html")
-
-        @self.app.route("/login/")
-        def auth_login():
-            if current_user.is_authenticated:
-                return redirect(url_for("main_home"))
-            return render_template("login.html")
-
-        @self.app.route("/login/", methods=["post"])
-        def auth_login_post():
-            username = request.form.get("username")
-            password = request.form.get("password")
-            remember = True if request.form.get('remember') else False
-
-            user = self.User.query.filter_by(user_id=username).first()
-
-            if not user or not check_password_hash(user.password, password):
-                flash('Please check your login details and try again.')
-                return redirect(url_for('auth_login'))
-
-            login_user(user,remember=remember)
-            return redirect(url_for("main_home"))
-
-        @self.app.route("/signup/")
-        def auth_signup():
-            if current_user.is_authenticated:
-                return redirect(url_for("main_home"))
-            return render_template("signup.html")
-
-        @self.app.route("/signup/", methods=["post"])
-        def auth_signup_post():
-            name=request.form.get("name")
-            email=request.form.get("email")
-            username=request.form.get("username")
-            password1=request.form.get("password")
-            password2=request.form.get("password-repeat")
-
-            verifyOutput=self.verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
-
-            if len(verifyOutput) > 0:
-                flash(verifyOutput,name,email,username)
-                return redirect(url_for("auth_signup"))
-
-            verifyOutput=self.verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
-
-            if len(verifyOutput) > 0:
-                flash(verifyOutput)
-                return redirect(url_for("auth_signup"))
-
-            verifyOutput=self.verifyField(username,"Username",canHaveSpecialChar=False)
-
-            if len(verifyOutput) > 0:
-                flash(verifyOutput)
-                return redirect(url_for("auth_signup"))
-
-            verifyOutput=self.verifyField(password1,"Password",minLen=8)
-
-            if len(verifyOutput) > 0:
-                flash(verifyOutput)
-                return redirect(url_for("auth_signup"))
-
-            if password1!=password2:
-                flash("Passwords do not match")
-                return redirect(url_for("auth_signup"))
-
-            user = self.User.query.filter_by(email=email).first()
-
-            if user:
-                flash("That email is already in use")
-                return redirect(url_for("auth_login"))
-
-            user = self.User.query.filter_by(user_id=username).first()
-
-            if user:
-                flash("That username is already in use")
-                return redirect(url_for("auth_login"))
-
-            self.createUser(username,email,name,password1)
-
-            return redirect(url_for("auth_login"))
-
-        @self.app.route("/account/logout/")
-        @login_required
-        def auth_logout():
-            logout_user()
-            return redirect(url_for("auth_login"))
 
     def createUser(self,u,e,n,p):
         newUser = self.User(
