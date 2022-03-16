@@ -8,7 +8,7 @@ function checkFormSubmitButton() {
   formSubmit.removeAttribute("disabled"); return;
 }
 
-function editFormMessage(nameInput,val) {
+function editFormMessageSiteNameWarning(val) {
   messageContainer.classList.remove("visibly-hidden")
   newInner=val.toLowerCase()
   for (var i=0; i<newInner.length; i++) {
@@ -18,8 +18,9 @@ function editFormMessage(nameInput,val) {
     }
   }
   if (hasRepeatedDashes(newInner)) { newInner=replaceRepeatedDashes(newInner) }
-  messageSpan.innerHTML=newInner
+  messageSpan.innerHTML=val
 }
+
 
 function hideFormMessage() {
   messageContainer.classList.add("visibly-hidden")
@@ -55,6 +56,37 @@ function replaceRepeatedDashesRecursion(val) {
     }
   }
   return val
+}
+
+function verifyNameField() {
+    var nameInput = document.getElementById("new_site_name");
+    var val = nameInput.value;
+
+    hideFormMessage()
+
+    if (val.length < 1) { return "inactive" }
+    if (val.length < 4) { return "danger" }
+
+    var check=true
+    for (var i=0;i<val.length;i++) {
+        var letter = val[i]
+        if (requiredChars.includes(letter)) { check=false }
+    }
+
+    if (check) { return "danger" }
+
+    var sitenames = ["helloworld"]
+
+    if (flashedSiteNames.includes(val)) { editFormMessage("A site with this name already exists!");return "danger" }
+    for (var i=0;i<val.length;i++) {
+        var letter = val[i]
+        if (!(allowedChars.includes(letter))) { editFormMessageSiteNameWarning(val);return "warning" }
+    }
+
+    if (hasRepeatedDashes(val)) { editFormMessageSiteNameWarning(replaceRepeatedDashes(val));return "warning" }
+
+    hideFormMessage()
+    return "success"
 }
 
 var requiredChars = "qwertyuiopasdfghjklzxcvbnm1234567890"

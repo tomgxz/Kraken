@@ -38,7 +38,7 @@ class Site(db.Model):
         # private BOOLEAN NOT NULL
     deleted = db.Column( db.Boolean, nullable=False)
         # deleted BOOLEAN NOT NULL
-    staticpath = db.Column( db.Text )
+    sitePath = db.Column( db.Text )
         # staticpath TEXT
 
     def get_id(self): return self.site_id

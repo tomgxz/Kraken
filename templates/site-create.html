@@ -20,7 +20,7 @@
                 <input id="new_site_name" class="new-site-input text dark two input small-text-input" data-form-input-display="inactive" type="text" name="new_site_name">
             </div>
             <div class="message-container m-s-t text small one visibly-hidden">Your site name will look like: <span class="message-container-jsedit"></span></div>
-            <p class="text dark m-s-t two">The name must be at least 4 characters long, and contain only lowercase alphanumeric characters, dashes, underscores and periods. Any illegal characters will be converted into dashes. If you need inspiration for a name, you ain't gonna get any from me :)</p>
+            <p class="text dark m-s-t two">The name must be at least 4 characters long, and contain only lowercase alphanumeric characters, dashes, underscores and periods. Any illegal characters will be converted into dashes. It must also be unique! If you need inspiration for a name, you ain't gonna get any from me :)</p>
         </div>
 
         <div class="horizontal-separator two m-s-v"></div>
@@ -58,36 +58,7 @@
     </form>
 
     <script>
-        function verifyNameField() {
-            var nameInput = document.getElementById("new_site_name");
-            var val = nameInput.value;
-
-            hideFormMessage()
-
-            if (val.length < 1) { return "inactive" }
-            if (val.length < 4) { return "danger" }
-
-            var check=true
-            for (var i=0;i<val.length;i++) {
-                var letter = val[i]
-                if (requiredChars.includes(letter)) { check=false }
-            }
-
-            if (check) { return "danger" }
-
-            var sitenames = ["helloworld"]
-
-            if (sitenames.includes(val)) { return "danger" }
-            for (var i=0;i<val.length;i++) {
-                var letter = val[i]
-                if (!(allowedChars.includes(letter))) { editFormMessage(nameInput,val);return "warning" }
-            }
-
-            if (hasRepeatedDashes(val)) { editFormMessage(nameInput,replaceRepeatedDashes(val));return "warning" }
-
-            hideFormMessage()
-            return "success"
-        }
+        var flashedSiteNames = "{{get_flashed_messages()[0]}}".split(",")
     </script>
 
     <script src="{{url_for('static', filename='js/site-create.js')}}"></script>

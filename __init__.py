@@ -181,9 +181,11 @@ class Kraken():
         @self.app.route("/home/new/")
         @login_required
         def site_create():
-            def getSiteNames(user_id): return self.Site.query.filter_by(user_id=user_id).all()
-
-            return render_template("site-create.html",passedFunction_getSiteNames=getSiteNames)
+            out=""
+            for name in [x.name for x in self.Site.query.filter_by(user_id=current_user.user_id).all()]:
+                out+=name+","
+            flash(out[:-1])
+            return render_template("site-create.html")
 
         @self.app.route("/home/new/", methods=["post"])
         @login_required
@@ -282,7 +284,7 @@ class Kraken():
                 "name":session["new_site_sitename"],
                 "user":str(current_user.user_id),
                 "desc":session["new_site_sitedesc"] if session["new_site_sitedesc"]!="" else "No Description Set",
-                "created":str(self.datetime.datetime.utcnow()),
+                "created":self.datetime.datetime.utcnow(),
                 "isPublic":session["new_site_isPublic"],
                 "colorOptions":session["new_site_colorOptions"],
                 "fontOptions":session["new_site_fontOptions"],
@@ -322,6 +324,7 @@ class Kraken():
         @login_required
         def settings_sites():
             flash(4)
+            flash([x.name for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])
             return render_template("settings-sites.html")
 
         @self.app.route("/account/settings/code")
@@ -375,9 +378,6 @@ class Kraken():
         self.generateFolderStructure(folderStructure)
         self.generateFileStructure(fileStructure)
 
-        with open("txt.txt","w") as f:
-            f.write(str(siteSettings))
-
         cfgContent=ConfigParser()
         cfgContent.read(siteConfigFile)
 
@@ -388,7 +388,6 @@ class Kraken():
         cfgContent.set(section,"name",siteSettings["name"])
         cfgContent.set(section,"user",siteSettings["user"])
         cfgContent.set(section,"desc",siteSettings["desc"])
-        cfgContent.set(section,"isPublic",str(siteSettings["isPublic"]).lower())
 
         section="color"
         try: cfgContent.add_section(section)
@@ -413,6 +412,18 @@ class Kraken():
         with open(siteConfigFile,"w") as f:
             cfgContent.write(f)
             f.close()
+
+        newSite = self.Site(
+            name=siteSettings["name"],
+            datecreated=siteSettings["created"],
+            private=not siteSettings["isPublic"],
+            deleted=False,
+            user_id=siteSettings["user"],
+            sitePath=sitePath,
+        )
+
+        self.db.session.add(newSite)
+        self.db.session.commit()
 
     def generateFolderStructure(self,folders):
         for folder in folders:
