@@ -7,6 +7,7 @@ Dependencies:
     pillow
     configparser
     datetime
+    math
 """
 from flask import Flask, render_template, Blueprint, redirect, url_for, request, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -15,7 +16,7 @@ from flask_login import LoginManager, login_user, login_required, current_user, 
 from random import choice
 from PIL import Image
 from configparser import ConfigParser
-
+import math
 
 db=SQLAlchemy()
 
@@ -294,7 +295,7 @@ class Kraken():
 
             session["new_site_sitename"]="";session["new_site_sitedesc"]="";session["new_site_isPublic"]="";session["new_site_colorOptions"]={};session["new_site_fontOptions"]=[];session["new_site_buttonOptions"]={}
 
-            return redirect(url_for("site_edit_home",name="@"+siteSettings["user"],site=siteSettings["name"]))
+            return redirect(url_for("site_edit_home",name="@"+siteSettings["user"],site=siteSettings["name"]).replace("%40%40","@"))
 
     def initPages_settings(self):
         @self.app.route("/account/settings/")
@@ -324,7 +325,7 @@ class Kraken():
         @login_required
         def settings_sites():
             flash(4)
-            flash([x.name for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])
+            flash([[x.user_id,x.name,x.private,self.convertByteSize(self.getFolderSize(self.os.path.abspath(x.sitePath)))] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])
             return render_template("settings-sites.html")
 
         @self.app.route("/account/settings/code")
@@ -463,6 +464,23 @@ class Kraken():
                     return f"{fieldName} cannot contain '{char}'"
 
         return ""
+
+    def getFolderSize(self,path):
+        size=self.os.path.getsize(path)
+        for sub in self.os.listdir(path):
+            subPath=self.os.path.join(path,sub)
+            if self.os.path.isfile(subPath): size+=self.os.path.getsize(subPath)
+            elif self.os.path.isdir(subPath): size+=self.getFolderSize(subPath)
+        return size
+
+    def convertByteSize(self,bytes):
+       if bytes==0: return "0B"
+       sizes=("B","KB","MB","GB","TB","PB","EB","ZB","YB")
+       i=int(math.floor(math.log(bytes,1024)))
+       p=math.pow(1024,i)
+       s=round(bytes/p,2)
+       if i==0: s=int(s)
+       return f"{s}{sizes[i]}"
 
 if __name__ == "__main__":
     Kraken()
