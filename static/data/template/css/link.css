@@ -1,0 +1,78 @@
+.link {
+    text-decoration: var(--link-decoration-normal);
+    opacity: 0.75;
+    transition: opacity 200ms linear;
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: var(--link-decoration-hovered);
+    opacity: 1;
+}
+
+.link.disabled {
+    opacity: .5;
+}
+
+.link.disabled:hover {
+    opacity: .5;
+}
+
+.link.notformatted {
+    text-decoration: none;
+    opacity: 1;
+    color: var(--colors-dark);
+}
+
+.link.link-slide {
+    --link-slide-width: calc(100% - 15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0 8px;
+    outline-offset: -7px;
+}
+
+.link.link-slide::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0%;
+    height: 2px;
+    bottom: 0px;
+    left: 9px;
+    background-color: var(--colors-light);
+    transition: width 200ms ease;
+}
+
+.link.link-slide:hover::before {
+    width: var(--link-sliding-width);
+}
+
+.link.underline-box {
+    position: relative;
+    overflow: visible;
+}
+
+.link.underline-box::after {
+    content: "";
+    background-color: var(--colors-primary-dark);
+    width: 70%;
+    height: 16%;
+    position: absolute;
+    bottom: -5px;
+    right: -6%;
+    opacity: 1;
+    border-radius: 0.2em;
+    transition: background-color 200ms ease-in-out, width 200ms ease-in-out, height 200ms ease-in-out, bottom 200ms ease-in-out, right 200ms ease-in-out, opacity 200ms ease-in-out;
+}
+
+.link.underline-box:hover::after {
+    background-color: var(--colors-primary);
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    opacity: 0.2;
+}

@@ -1,0 +1,273 @@
+.globalnav {
+    background: rgb(var(--colors-dark-rgb), 0.85);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: 96px;
+    max-height: 96px;
+    font-size: 17px;
+}
+
+.globalnav.globalnav-vertical {
+    width: 96px;
+    height: 100vh;
+    max-height: none;
+    max-width: 96px;
+}
+
+.globalnav * {
+    float: inherit;
+    font-size: 1em;
+    font-family: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.globalnav .globalnav-content {
+    margin: 0 auto;
+    max-width: 788px;
+    width: 788px;
+    padding: 0 22px;
+    position: relative;
+    height: inherit;
+    z-index: 2;
+    padding-left: max(22px, env(safe-area-inset-left));
+    padding-right: max(22px, env(safe-area-inset-right));
+}
+
+.globalnav.globalnav-vertical .globalnav-content {
+    margin: auto 0;
+    padding: 22px 0;
+    width: inherit;
+    padding-top: max(22px, env(safe-area-inset-top));
+    padding-bottom: max(22px, env(safe-area-inset-bottom));
+}
+
+.globalnav .globalnav-header {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    overflow: hidden;
+}
+
+.globalnav.globalnav-vertical .globalnav-header {
+    width: 48px;
+    height: 100%;
+}
+
+.globalnav .globalnav-list {
+    cursor: default;
+    margin: 0 -8px;
+    width: auto;
+    height: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    align-items: center;
+}
+
+.globalnav.globalnav-vertical .globalnav-list {
+    margin: -8px 0;
+    width: inherit;
+    height: 100%;
+    flex-direction: column;
+}
+
+.globalnav .globalnav-logo,
+.globalnav .globalnav-item {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: inherit;
+    z-index: 1;
+    vertical-align: top;
+}
+
+.globalnav.globalnav-vertical .globalnav-item {
+    width: 100%;
+    justify-content: center;
+    height: fit-content;
+}
+
+.globalnav .globalnav-link {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -.01em;
+    position: relative;
+    z-index: 1;
+    padding: 0 8px;
+    height: 44px;
+    opacity: .6;
+    background: no-repeat;
+    text-decoration: none;
+    white-space: nowrap;
+    -webkit-transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline-offset: -7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.globalnav .globalnav-link span {
+    font-size: inherit;
+}
+
+.globalnav .globalnav-link:hover {
+    opacity: 1;
+}
+
+.globalnav .globalnav-link:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0%;
+    height: 2px;
+    bottom: 5px;
+    left: 9px;
+    background-color: var(--colors-light);
+    transition: width 200ms ease;
+}
+
+.globalnav .globalnav-link:hover::before {
+    width: calc(100% - 20px);
+}
+
+.globalnav .globalnav-link-home::before {
+    content: none;
+}
+
+.globalnav .globalnav-link-text {
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.globalnav.globalnav-vertical .globalnav-link-text {
+    letter-spacing: 0;
+}
+
+.globalnav .globalnav-logo,
+.globalnav .globalnav-logo .globalnav-link {
+    height: inherit;
+}
+
+.globalnav.globalnav-vertical .globalnav-logo,
+.globalnav.globalnav-vertical .globalnav-logo .globalnav-link {
+    width: inherit;
+    height: initial;
+}
+
+.globalnav .globalnav-logo .globalnav-logo-image {
+    height: 100%;
+}
+
+.globalnav.globalnav-vertical .globalnav-logo .globalnav-logo-image {
+    width: 100%;
+}
+
+.globalnav .globalnav-logo .globalnav-link {
+    padding: 8px 0;
+}
+
+.globalnav.globalnav-vertical .globalnav-logo .globalnav-link {
+    padding: 0 8px;
+}
+
+.globalnav-hamburger {
+    display: none !important;
+}
+
+@media screen and (max-width:800px) {
+    .globalnav .globalnav-content {
+        width: 100%;
+        height: 100%;
+    }
+    .globalnav .globalnav-header {
+        display: block;
+    }
+}
+
+@media screen and (max-width:680px) {
+    ul.globalnav-list {
+        top: -100%;
+        left: 8px;
+        background-color: var(--colors-grey-800);
+        background-image: url(../img/spaceBackground/cyan/5.png);
+        background-size: cover;
+        background-position-x: center;
+        background-blend-mode: color-dodge;
+        width: 100vw !important;
+        height: 100vh !important;
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly !important;
+        transition: top 500ms cubic-bezier(.12, .11, 0, .78);
+    }
+    .globalnav-item {
+        height: 10%;
+        transform: translateX(48px);
+        opacity: 0;
+        transition: transform 200ms ease-out, opacity 200ms ease-out;
+    }
+    .globalnav-item .link {
+        opacity: 1;
+    }
+    .globalnav-hamburger {
+        display: inline-block !important;
+        opacity: 1;
+    }
+    .globalnav {
+        position: fixed;
+        height: 60px;
+    }
+    .globalnav .globalnav-content {
+        opacity: 1 !important;
+    }
+    .globalnav .globalnav-link-home svg {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    ul.globalnav-list.is-active {
+        top: 0;
+    }
+    ul.globalnav-list.is-active .globalnav-item {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .globalnav-item.one {
+        transition-delay: .5s, .5s;
+    }
+    .globalnav-item.two {
+        transition-delay: .55s, .55s;
+    }
+    .globalnav-item.three {
+        transition-delay: .6s, .6s;
+    }
+    .globalnav-link {
+        opacity: 1 !important;
+    }
+    .globalnav-link:before {
+        content: none;
+    }
+}

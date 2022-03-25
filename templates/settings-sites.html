@@ -24,9 +24,9 @@
 
             <div class="settings-content-table-row {% if site==flashedSiteNames[-1] %}last-row{% endif %}">
                 <span class="settings-content-table-row-icon text dark"><i class="fa-regular {% if site[2] %}fa-lock{% else %}fa-book-bookmark{%endif%}"></i></span>
-                <span class="settings-content-table-row-title text dark"><a href='{{url_for("site_edit_home",name="@"+site[0],site=site[1]).replace("%40%40","@")}}' class="text link dark notformatted">@{{site[0]}}/{{site[1]}}</a></span>
+                <span class="settings-content-table-row-title text dark"><a href='{{url_for("site_edit_home",name=site[0],site=site[1])}}' class="text link dark notformatted">@{{site[0]}}/{{site[1]}}</a></span>
                 <span class="settings-content-table-row-size text dark">{{site[3]}}</span>
-                <span class="settings-content-table-row-settings text dark"><a href='{{url_for("site_edit_home",name="@"+site[0],site=site[1]).replace("%40%40","@")}}' class="text link primary notformatted">Website Settings</a></span>
+                <span class="settings-content-table-row-settings text dark"><a href='{{url_for("site_edit_home",name=site[0],site=site[1])}}' class="text link primary notformatted">Website Settings</a></span>
             </div>
 
 

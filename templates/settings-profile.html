@@ -14,7 +14,7 @@
 
     <div class="settings-content-option one">
         <h4 class="settings-content-option-title text dark bold">Name</h4>
-        <input class="settings-content-option-input" type="text" name="settings_profile_name">
+        <input class="settings-content-option-input" type="text" name="settings_profile_name" placeholder="{{current_user.name}}">
         <p class="settings-content-option-caption text small dark">Your name probably isn't used much yet, but may appear in reference to websites that you have created. Your current name is set to "{{current_user.name}}".</p>
     </div>
 
@@ -25,7 +25,7 @@
         </div>
         <p class="settings-content-option-caption text small dark">The image must be a minimum of 200x200 pixels, and in a 1:1 ratio. This is not operational yet, and probably won't be for a while.</p>
     </div>
-    
+
     <div class="settings-content-separator one"></div>
 
     <div class="settings-content-option three">
@@ -37,11 +37,11 @@
         <h4 class="settings-content-option-title text dark bold">Url</h4>
         <input class="settings-content-option-input" type="text" name="settings_profile_url">
     </div>
-    
+
     <div class="settings-content-separator two"></div>
-    
+
     <div class="settings-content-option settings-content-update">
-        
+
         <p class="settings-content-option-caption text small dark">All of the above fields are optional and can be left blank. By filling them out, you agree that this information can be displayed publically and stored in our servers. We don't have a privacy statement, but we probably should.</p>
 
         <button class="field-submit btn primary thin rounded slide" type="submit">
@@ -49,7 +49,7 @@
         </button>
 
     </div>
-    
+
 </form>
 
 {% endblock %}

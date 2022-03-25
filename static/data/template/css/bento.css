@@ -1,0 +1,58 @@
+.bento-container {
+    width: 75%;
+    height: 1340px;
+}
+
+.bento {
+    background-color: transparent;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    height: 100%
+}
+
+.bento-box {
+    height: fit-content;
+    width: fit-content;
+}
+
+.bento-box .bento-figure {
+    background-position-y: bottom;
+    width: 100%;
+    height: inherit;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.bento.primary .bento-box {
+    --bento-color: var(--colors-primary);
+}
+
+.bento.secondary .bento-box {
+    --bento-color: var(--colors-secondary);
+}
+
+.bento.accent .bento-box {
+    --bento-color: var(--colors-accent);
+}
+
+.bento-box.color-animation {
+    --bento-color: var(--color-animation-changed) !important;
+}
+
+.bento-box {
+    width: inherit;
+    height: inherit;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    background-color: var(--bento-color);
+}
+
+.bento-box * {
+    z-index: 1;
+}

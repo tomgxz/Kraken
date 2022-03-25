@@ -24,7 +24,7 @@ class Kraken():
 
     global db
 
-    def __init__(self):
+    def __init__(self,host,port):
 
         import os,sqlite3,datetime
         self.os=os
@@ -49,7 +49,7 @@ class Kraken():
         def loadUser(user_id):
             return self.User.query.get(user_id)
 
-        self.app.run(host="127.0.0.1",port="1380")
+        self.app.run(host=host,port=port)
 
     def initFlask(self):
         self.app = Flask(__name__)
@@ -64,12 +64,19 @@ class Kraken():
         self.initPages_site_create()
         self.initPages_settings()
 
-        @self.app.route("/@<name>/<site>")
-        @self.app.route("/@<name>/<site>/home")
+        @self.app.route("/<name>/<site>/")
+        @self.app.route("/<name>/<site>/home/")
         @login_required
         def site_edit_home(name=None,site=None):
+            flash(1)
+            flash(name)
+            flash(site)
             if current_user.user_id!=name: return "External view of site"
             return render_template("site-edit-home.html")
+
+        @self.app.route("/<name>/<site>/edit/")
+        def  site_edit_app(name=None,site=None):
+            return "bsknbosknfbolektnabe now edit things"
 
     def initPages_main(self):
         @self.app.route("/")
@@ -295,14 +302,14 @@ class Kraken():
 
             session["new_site_sitename"]="";session["new_site_sitedesc"]="";session["new_site_isPublic"]="";session["new_site_colorOptions"]={};session["new_site_fontOptions"]=[];session["new_site_buttonOptions"]={}
 
-            return redirect(url_for("site_edit_home",name="@"+siteSettings["user"],site=siteSettings["name"]).replace("%40%40","@"))
+            return redirect(url_for("site_edit_home",name=siteSettings["user"],site=siteSettings["name"]))
 
     def initPages_settings(self):
         @self.app.route("/account/settings/")
         @login_required
         def settings():
             return redirect(url_for("settings_profile"))
-
+            
         @self.app.route("/account/settings/profile")
         @login_required
         def settings_profile():
@@ -354,17 +361,11 @@ class Kraken():
 
         # FILE AND FOLDER GENERATION
 
-        prefix="/static/data/userData/"
+        prefix="static/data/userData/"
 
-        folderStructure=[f"{prefix}{u}",f"{prefix}{u}/sites/"]
+        folderStructure=[self.os.path.abspath(f"{prefix}{u}"),self.os.path.abspath(f"{prefix}{u}/sites/")]
 
         self.generateFolderStructure(folderStructure)
-
-        #pr="/   static/data/defaultIcons/default-"
-        #defaultIcons=[f"{pr}1.png"]
-
-        #img=Image.open(choice(defaultIcons))
-        #img.save(f"/static/data/userIcons/{u}.png")
 
         self.db.session.add(newUser)
         self.db.session.commit()
@@ -483,4 +484,4 @@ class Kraken():
        return f"{s}{sizes[i]}"
 
 if __name__ == "__main__":
-    Kraken()
+    Kraken("0.0.0.0",1380)
