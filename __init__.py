@@ -9,6 +9,7 @@ Dependencies:
     datetime
     math
 """
+
 from flask import Flask, render_template, Blueprint, redirect, url_for, request, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -85,7 +86,8 @@ class Kraken():
         @self.app.route("/home/")
         @login_required
         def main_home():
-            if False:
+            if len(self.Site.query.filter_by(user_id=current_user.user_id).all()) > 0: # check to see if user has any sites
+                flash([[x.user_id,x.name,x.private,self.getSiteCfg(x.name)["color"]["primary"]] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])
                 return render_template("home-sites.html")
             return render_template("home-nosite.html")
 
@@ -309,7 +311,7 @@ class Kraken():
         @login_required
         def settings():
             return redirect(url_for("settings_profile"))
-            
+
         @self.app.route("/account/settings/profile")
         @login_required
         def settings_profile():
@@ -482,6 +484,15 @@ class Kraken():
        s=round(bytes/p,2)
        if i==0: s=int(s)
        return f"{s}{sizes[i]}"
+
+    def getSiteCfg(self,siteName):
+        cfgPath=self.os.path.abspath(f"static/data/userData/{current_user.user_id}/sites/{siteName}/site.ini")
+
+        cfgContent=ConfigParser()
+        cfgContent.read(cfgPath)
+
+        return cfgContent
+
 
 if __name__ == "__main__":
     Kraken("0.0.0.0",1380)

@@ -19,7 +19,7 @@ Text classes:
     .text <light|dark|primary|secondary|accent|grey-100 => grey-800> [italic] [bold|thin] [ellipsis] [xl|large|default-size|small] [header|jumbo] [lowercase|uppercase] [notextselect] [left|center|right|justify]
 
 Link classes:
-    .text .link [classes for text] [disabled] [link-slide]
+    .text .link [classes for text] [disabled] [link-slide] [notformatted]
     (link-slide class requires the css variable --link-slide-width)
 
 Btn classes:
@@ -1170,6 +1170,12 @@ em classes:
     }
     .flex-row {
         flex-direction: row;
+    }
+    .flex-column-reverse {
+        flex-direction: column-reverse;
+    }
+    .flex-row-reverse {
+        flex-direction: row-reverse;
     }
 }
 
@@ -2577,7 +2583,7 @@ em classes:
 @media {
     .globalnav {
         background: rgb(var(--colors-dark-rgb), 0.85);
-        position: absolute;
+        /*position: absolute;*/
         top: 0;
         right: 0;
         left: 0;

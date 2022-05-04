@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% set navbarLogoColor = "primary" %}
+{% set navbarOptionsEnabled = True %}
+
+{% set sites = get_flashed_messages()[0] %}
+
+{% block content %}
+
+<link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet" type="text/css" />
+<div class="application-content">
+
+    <div class="text-header-container">
+        <h2 class="text header large dark one">Welcome, {{current_user.name}}</h2>
+    </div>
+
+    <div class="site-divs-container" style="display:flex;">
+
+        {% for site in sites %}
+
+        <a class="site-div link notformatted" href="{{url_for('site_edit_home',name=site[0],site=site[1])}}" style="background-color:{{site[3]+'bb'}}">
+
+            {% if site[2] %}
+                <div class="site-div-private-watermark" style="position: absolute;opacity: 0.5;font-size: 136px;right: 16px;top: 16px;">
+                    <i class="faicon fa-regular fa-lock"></i>
+                </div>
+            {% else %}
+              <div class="site-div-public-watermark" style="position: absolute;opacity: 0.5;font-size: 136px;right: 16px;top: 16px;">
+                  <i class="faicon fa-regular fa-book-bookmark"></i>
+              </div>
+            {% endif %}
+
+            <h5 class="site-div-title text large one">{{ site[1] }}</h5>
+        </a>
+
+        {% endfor %}
+
+        <a class="site-div link notformatted" style="background-color:var(--colors-primary-light);display:flex;align-items:center;justify-content:center" href="{{url_for('site_create')}}">
+            <h5 class="site-div-title text header jumbo small one center">Create New Site</h5>
+        </a>
+
+        <!--
+        <div class="empty-text-container">
+            <h4 class="text header dark one">It Doesn't Look Pretty Empty Here...</h4>
+            <a class="text header two link primary" href="{{url_for('site_create')}}">I just forgot to load the sites</a>
+        </div>
+        -->
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,5 +1,10 @@
-::root {
+:root {
     --link-previsited-color:var(--colors-dark);
+}
+
+.application-content .text-header-container {
+    display:flex;
+    align-items: center;
 }
 
 .application-content .empty-container {
@@ -64,3 +69,19 @@
     opacity: 0.2;
 }
 
+.site-div {
+    width: 320px;
+    position: relative;
+    height: 180px;
+    padding: 16px;
+    border-radius: 1em;
+    margin-left:32px;
+    margin-bottom:32px;
+    border: 0px solid rgba(var(--colors-dark-rgb),0);
+    transition: 200ms border ease-in-out;
+    cursor:pointer;
+}
+
+.site-div:hover {
+    border: 5px solid rgba(var(--colors-dark-rgb),1);
+}
