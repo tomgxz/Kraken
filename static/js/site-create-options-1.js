@@ -17,6 +17,10 @@ var lightOptions=document.querySelector(".new-site-form.two .light-color-options
 var darkOptions=document.querySelector(".new-site-form.two .dark-color-options");
 var stored=document.getElementById("color-output")
 
+var primaryColorPicker=document.getElementById("new_site_colors_primary_picker");
+var secondaryColorPicker=document.getElementById("new_site_colors_secondary_picker");
+var accentColorPicker=document.getElementById("new_site_colors_accent_picker");
+
 // the primary color should be quite visible against the selected theme. Dark against light etc
 // the secondary color should be slightly less so, and a rotation around the color wheel. Red against purple etc
 // the accent color shpuld be lighter than both the primary and secondary colors, but not very overpowering
@@ -71,10 +75,20 @@ function updateColorVariables() {
     var changePercent = 20
 
     var newColor = hexToRgb(colors["primary"])
-    newColor = darken(rgbToHsl(newColor.r,newColor.g,newColor.g),changePercent)
+    // color is correct
+    newColor = rgbToHsl(newColor.r,newColor.g,newColor.g)
+    // color is incorrect
+    newColor = darken(newColor,changePercent)
+    console.log(newColor)
+    newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+    newColor = rgbToHex(newColor.r/255,newColor.b/255,newColor.g/255);
+    setColor("primary-dark",newColor)
+
+    newColor = hexToRgb(colors["primary"])
+    newColor = lighten(rgbToHsl(newColor.r,newColor.g,newColor.g),changePercent)
     newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
     newColor = rgbToHex(newColor.r,newColor.b,newColor.g);
-    console.log(colors["primary"],newColor)
+    setColor("primary-light",newColor)
 
     updateStored()
 }
@@ -95,6 +109,13 @@ function updateColorDisplays() {
 function updateDisplays() {
     updateStored()
     updateLightDarkDisplay()
+}
+
+function updatePrimaryColorDiv() {
+    setColor("primary",primaryColorPicker.value)
+
+    updateColorVariables()
+    updateColorDisplays()
 }
 
 var options = ["light","dark","primary","primary-dark","primary-light","secondary","secondary-dark","secondary-light","accent","accent-dark",
@@ -131,5 +152,6 @@ var colorDisplay = {
 var lightDarkBoundsSlider = document.getElementById("new_site_colors_light_dark_bounds_slider");
 
 lightDarkBoundsSlider.addEventListener("mouseup",()=>{updateLightDarkVariables();updateDisplays()})
+primaryColorPicker.addEventListener("change",()=>{updatePrimaryColorDiv();updateStored()})
 
 updateStored()

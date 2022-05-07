@@ -13,6 +13,8 @@ function rgbToHsl(r, g, b){
     var max = Math.max(r, g, b), min = Math.min(r, g, b);
     var h, s, l = (max + min) / 2;
 
+    console.log(h,s,l)
+
     if(max == min){
         h = s = 0; // achromatic
     }else{
@@ -26,7 +28,7 @@ function rgbToHsl(r, g, b){
         h /= 6;
     }
 
-    return { h: Math.round(h*360), s: Math.round(s*100), l: Math.round(l*100) };
+    return { h: h, s: s, l: l };
 }
 
 // Assumes: h is contained in [0, 360] and s and l are contained in [0, 100]

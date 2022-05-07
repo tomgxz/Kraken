@@ -9,7 +9,7 @@
     <div class="horizontal-separator one m-s-v"></div>
 
     <form class="new-site-form two" method="post">
-        
+
         <div class="light-dark-selector-container">
             <div class="light-dark-selector">
                 <h2 class="text large center one">Light or dark mode?</h2>
@@ -23,20 +23,11 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="horizontal-separator one m-s-v"></div>
-        <!--
-        
-        <div class="light-color-options">
-            <div class="color-option"></div>
-        </div>
-        
-        <div class="dark-color-options">
-            <div class="color-option"></div>
-        </div>-->
-        
+
         <div class="horizontal-separator two m-s-v"></div>
-        
+
         <div class="color-options">
             <div class="input-slider-option one">
                 <span class="text dark bold">Light & Dark Bounds</span>
@@ -53,33 +44,38 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="horizontal-separator three m-s-v"></div>
-        
+
         <div class="color-display-container">
-            
+
             <div class="color-display light-dark-display">
                 <div class="color-single-card light-color" style="background-color:#ffffff;color:#000000"><span class="color-code text uppercase center">#ffffff</span></div>
                 <div class="color-single-card dark-color" style="background-color:#000000;color:#ffffff"><span class="color-code text uppercase center">#000000</span></div>
             </div>
-            
+
             <div class="color-display main-color-display">
-                
+
                 <div class="color-triple-card primary-color">
+                    <input type="color" class="color-card-picker-input" id="new_site_colors_primary_picker" value="#e63946">
                     <div class="color-triple-card-main" style="background-color:#e63946;color:#000000"><span class="color-code text uppercase center">#e63946</span></div>
                     <div class="color-triple-card-sub-container">
                         <div class="color-triple-card-sub one" style="background-color:#ba2b36;color:#000000"></div>
                         <div class="color-triple-card-sub two" style="background-color:#f2414f;color:#000000"></div>
                     </div>
                 </div>
+
                 <div class="color-triple-card secondary-color">
+                    <input type="color" class="color-card-picker-input" id="new_site_colors_secondary_picker" value="#457b9d">
                     <div class="color-triple-card-main" style="background-color:#457b9d;color:#000000"><span class="color-code text uppercase center">#457b9d</span></div>
                     <div class="color-triple-card-sub-container">
                         <div class="color-triple-card-sub one" style="background-color:#3f708f;color:#000000"></div>
                         <div class="color-triple-card-sub two" style="background-color:#508eb5;color:#000000"></div>
                     </div>
                 </div>
+
                 <div class="color-triple-card accent-color">
+                    <input type="color" class="color-card-picker-input" id="new_site_colors_accent_picker" value="#a8dadc">
                     <div class="color-triple-card-main" style="background-color:#a8dadc;color:#000000"><span class="color-code text uppercase center">#a8dadc</span></div>
                     <div class="color-triple-card-sub-container">
                         <div class="color-triple-card-sub one" style="background-color:#93c5c7;color:#000000"></div>
@@ -88,10 +84,10 @@
                 </div>
 
             </div>
-            
+
             <div class="color-display grey-display">
                 <div class="color-columns grey-colors expanding-columns-container">
-                    
+
                     <div class="color-column expanding-column g900" style="background-color:#303030;color:#ffffff"><span class="color-code expanding-text text uppercase center">#303030</span></div>
                     <div class="color-column expanding-column g800" style="background-color:#474747;color:#ffffff"><span class="color-code expanding-text text uppercase center">#474747</span></div>
                     <div class="color-column expanding-column g700" style="background-color:#5e5e5e;color:#ffffff"><span class="color-code expanding-text text uppercase center">#5e5e5e</span></div>
@@ -101,20 +97,20 @@
                     <div class="color-column expanding-column g300" style="background-color:#bababa;color:#000000"><span class="color-code expanding-text text uppercase center">#bababa</span></div>
                     <div class="color-column expanding-column g200" style="background-color:#d1d1d1;color:#000000"><span class="color-code expanding-text text uppercase center">#d1d1d1</span></div>
                     <div class="color-column expanding-column g100" style="background-color:#e8e8e8;color:#000000"><span class="color-code expanding-text text uppercase center">#e8e8e8</span></div>
-                    
+
                 </div>
             </div>
-            
+
         </div>
-        
+
         <div class="submit-container">
             <button class="field-submit btn primary thin rounded slide" type="submit">
                 <span class="btn-content text uppercase primary">Continue</span>
             </button>
         </div>
-        
+
         <input id="color-output" class="visibly-hidden" type="text" value="." name="new_site_color_options_dict">
-        
+
     </form>
 
     <script src="{{url_for('static', filename='js/colorConversion.js')}}"></script>

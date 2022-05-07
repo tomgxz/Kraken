@@ -1,5 +1,5 @@
 .globalnav {
-    background: var(--colors-grey-100);
+    background: var(--colors-grey-200);
     position:fixed;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .globalnav-floating-option-content {
-    
+
 }
 
 .globalnav-floating-options-backdrop {
@@ -92,4 +92,3 @@
 .main-content.thin {
     width:60%
 }
-

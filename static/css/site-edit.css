@@ -1,0 +1,23 @@
+.localnav {
+    border-radius: 1em;
+    margin-right: 32px;
+}
+.localnav .localnav-item.one .localnav-item-collapsible-text,
+.localnav .localnav-item.three .localnav-item-collapsible-text {
+    width: 119px;
+}
+.localnav .localnav-item.two .localnav-item-collapsible-text {
+    width: 104px;
+}
+.localnav .localnav-item.four .localnav-item-collapsible-text {
+    width: 134px;
+}
+
+.application-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.site-builder {
+    width:100%
+}

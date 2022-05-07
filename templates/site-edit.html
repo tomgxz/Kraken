@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% set navbarLogoColor = "gradient" %}
+{% set navbarOptionsEnabled = True %}
+
+{% set settingsSidebarActivated = get_flashed_messages()[0] %}
+{% set currentName = get_flashed_messages()[1] %}
+{% set currentSite = get_flashed_messages()[2] %}
+
+{% block content %}
+
+<link href="{{url_for('static', filename='css/site-edit.css')}}" rel="stylesheet" type="text/css" />
+<script>
+  fetch("{{url_for('static', filename='data/userData/'+currentName+'/sites/'+currentSite+'/siteDat.json')}}").then(response => {
+   return response.json();
+  })
+.then(jsondata => console.log(jsondata));
+</script>
+<div class="application-content">
+
+    <div class="localnav localnav-vertical localnav-collapsible">
+        <div class="localnav-content">
+            <ul class="localnav-list">
+              <ul class="localnav-list" style="height:30%">
+                <li class="localnav-item one">
+                    <a class="link unformatted">
+                        <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-layer-group"></i></div>
+                        <div class="localnav-item-collapsible-text text bold primary">Website Pages</div>
+                    </a>
+                </li>
+
+                <li class="localnav-item two">
+                    <a class="link unformatted">
+                        <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-circle-plus"></i></div>
+                        <div class="localnav-item-collapsible-text text bold primary">Add Element</div>
+                    </a>
+                </li>
+
+                <li class="localnav-item three">
+                    <a class="link unformatted">
+                        <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-paintbrush"></i></div>
+                        <div class="localnav-item-collapsible-text text bold primary">Website Styles</div>
+                    </a>
+                </li>
+                </ul>
+
+                <li class="localnav-item four">
+                    <a class="link unformatted">
+                        <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-gear"></i></div>
+                        <div class="localnav-item-collapsible-text text bold primary">Website Settings</div>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="site-builder">
+        <main class="site-builder-preview" id="contains_site">
+
+        </main>
+    </div>
+
+</div>
+
+{% endblock %}

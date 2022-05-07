@@ -2829,6 +2829,106 @@ em classes:
     }
 }
 
+/* Localnav */
+@media {
+    .localnav {
+        background-color:var(--colors-grey-100);
+        display:block;
+        width:100%;
+        height:48px;
+        max-height:48px;
+        max-width:100%;
+    }
+    .localnav.localnav-vertical {
+        height:100%;
+        width:48px;
+        max-height:100%;
+        max-width:48px;
+    }
+    .localnav * {
+        float: inherit;
+        font-size: 1em;
+        margin: 0;
+        padding: 0;
+    }
+    .localnav .localnav-content {
+        margin: 0 auto;
+        max-width: 788px;
+        width: 788px;
+        padding: 0 12px;
+        position: relative;
+        height: inherit;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+    }
+    .localnav.localnav-vertical .localnav-content {
+        margin: auto 0;
+        padding: 12px 0;
+        width: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .localnav .localnav-list {
+        cursor: default;
+        margin: 0 -8px;
+        width: auto;
+        height: inherit;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        align-items: center;
+    }
+    .localnav.localnav-vertical .localnav-list {
+        margin: -8px 0;
+        width: inherit;
+        height: 90%;
+        flex-direction: column;
+    }
+
+    .localnav.localnav-collapsible .localnav-item-collapsible-text {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 12px;
+        background-color: var(--colors-grey-100);
+        border: 2px solid var(--colors-primary);
+        padding: 2px 4px;
+        left: 32px;
+        /*margin-left: 8px;*/
+        margin-left: 0px;
+        border-radius: 0.5em;
+        width: 120px;
+        transition:opacity 200ms ease-in-out,visibility 200ms ease-in-out,margin-left 200ms ease-in-out;
+    }
+    .localnav-item a.link {
+        position:relative;
+    }
+    .localnav.localnav-collapsible .localnav-item-collapsible-icon {
+        transition:color 200ms ease-in-out;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .localnav.localnav-collapsible .localnav-item:hover .localnav-item-collapsible-text {
+        opacity:1;
+        visibility:visible;
+        margin-left:8px;
+    }
+    .localnav.localnav-collapsible .localnav-item:hover .localnav-item-collapsible-icon {
+        color:var(--colors-primary);
+    }
+}
+
 /* Expanding columns */
 @media {
     .expanding-columns-container {

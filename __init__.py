@@ -76,8 +76,11 @@ class Kraken():
             return render_template("site-edit-home.html")
 
         @self.app.route("/<name>/<site>/edit/")
-        def  site_edit_app(name=None,site=None):
-            return "bsknbosknfbolektnabe now edit things"
+        def site_edit_app(name=None,site=None):
+            flash(2)
+            flash(name)
+            flash(site)
+            return render_template("site-edit.html")
 
     def initPages_main(self):
         @self.app.route("/")
@@ -377,7 +380,7 @@ class Kraken():
         siteConfigFile=f"{sitePath}/site.ini"
 
         folderStructure=[f"{sitePath}",f"{sitePath}/output"]
-        fileStructure=[siteConfigFile]
+        fileStructure=[siteConfigFile,f"{sitePath}/siteDat.json"]
 
         self.generateFolderStructure(folderStructure)
         self.generateFileStructure(fileStructure)
@@ -445,6 +448,8 @@ class Kraken():
                 continue
             try:
                 with open(file,"w") as f:
+                    if self.os.path.splitext(file)[-1] == ".json":
+                        f.write("{\"content\":[]}")
                     f.close()
             except OSError as e:
                 raise OSError(

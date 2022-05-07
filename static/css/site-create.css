@@ -153,6 +153,7 @@
     border-radius: 1em;
     box-shadow: rgb(0 0 0 / 20%) 0px 6px 40px -10px;
     overflow:hidden;
+    position:relative;
 }
 
 .new-site-form.two .main-color-display .color-triple-card:not(:last-of-type) {
@@ -177,6 +178,19 @@
 .new-site-form.two .main-color-display .color-triple-card-sub {
     width: 50%;
     height: 100%;
+}
+
+.new-site-form.two .color-card-picker-input {
+    position:absolute;
+    top:0;
+    left:0;
+    -webkit-appearance: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    opacity: 0;
+    cursor: pointer;
 }
 
 .sliding-input {
