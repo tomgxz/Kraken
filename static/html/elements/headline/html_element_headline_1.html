@@ -1,0 +1,64 @@
+<link href="../../../css/blank.css" rel="stylesheet" type="text/css">
+<link href="../../../css/main.css" rel="stylesheet" type="text/css">
+
+<style>
+
+.headline {
+    width:100%;
+    --headline-m-width:100%;
+
+    display:flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    padding-left:32px;
+    padding-right:32px;
+    padding-top:16px;
+    padding-bottom:16px;
+}
+
+.headline.type-1 {
+    align-text:center;
+}
+
+.headline.type-1 .headline-text-container {
+    max-width:80%;
+}
+
+.headline.type-1 .headline-text {
+    font-size: 64px;
+    font-family: var(--font-header);
+    font-weight: 600;
+    width: fit-content;
+    overflow: hidden;
+    text-decoration: none;
+    text-transform: none;
+    text-align: center;
+}
+
+@media only screen and (max-width:425px) {
+    .headline {
+        padding-left:8px;
+        padding-right:8px;
+        padding-top:4px;
+        padding-bottom:4px;
+    }
+
+    .headline.type-1 .headline-text {
+        font-size: 48px;
+    }
+}
+
+</style>
+
+<div class="headline type-1" style="background-color:blue">
+  <div class="headline-text-container">
+    <h1 class="headline-text">
+      Hello There
+    </h1>
+  </div>
+</div>

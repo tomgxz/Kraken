@@ -28,11 +28,7 @@ class Kraken():
     def __init__(self,host,port):
 
         import os,sqlite3,datetime
-        self.os=os
-        self.sqlite3=sqlite3
-        self.datetime=datetime
-
-        self.db=db
+        self.os=os;self.sqlite3=sqlite3;self.datetime=datetime;self.db=db
 
         self.initFlask()
 
@@ -43,8 +39,8 @@ class Kraken():
         self.loginManager.init_app(self.app)
 
         from models import User, Site
-        self.User = User
-        self.Site = Site
+        self.User=User
+        self.Site=Site
 
         @self.loginManager.user_loader
         def loadUser(user_id):
@@ -95,20 +91,20 @@ class Kraken():
             return render_template("home-nosite.html")
 
         @self.app.errorhandler(404)
-        def main_404(e): return "Page not found - i.e. you made a mistake"
+        @self.app.route("/404")
+        def main_404(e=None): return "Page not found - i.e. you made a mistake"
 
         @self.app.errorhandler(500)
-        def main_500(e): return "Server go boom - i.e. I made a mistake"
+        @self.app.route("/404")
+        def main_500(e=None): return "Server go boom - i.e. I made a mistake"
 
         @self.app.route("/help")
-        def main_help():
-            return "This page dont exist yet :("
+        def main_help(): return "This page dont exist yet :("
 
     def initPages_auth(self):
         @self.app.route("/login/")
         def auth_login():
-            if current_user.is_authenticated:
-                return redirect(url_for("main_home"))
+            if current_user.is_authenticated: return redirect(url_for("main_home"))
             return render_template("login.html")
 
         @self.app.route("/login/", methods=["post"])
@@ -497,7 +493,6 @@ class Kraken():
         cfgContent.read(cfgPath)
 
         return cfgContent
-
 
 if __name__ == "__main__":
     Kraken("0.0.0.0",1380)

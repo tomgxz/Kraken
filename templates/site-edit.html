@@ -18,7 +18,7 @@
 </script>
 <div class="application-content">
 
-    <div class="localnav localnav-vertical localnav-collapsible">
+    <div class="localnav one localnav-vertical localnav-collapsible">
         <div class="localnav-content">
             <ul class="localnav-list">
               <ul class="localnav-list" style="height:30%">
@@ -30,7 +30,7 @@
                 </li>
 
                 <li class="localnav-item two">
-                    <a class="link unformatted">
+                    <a class="link unformatted" id="localnav_add_element_btn">
                         <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-circle-plus"></i></div>
                         <div class="localnav-item-collapsible-text text bold primary">Add Element</div>
                     </a>
@@ -57,6 +57,32 @@
 
     </div>
 
+    <div class="element-selector-container">
+        <div class="element-selector">
+            <div class="element-selector-exit-btn"><i class="faicon fa-solid fa-xmark"></i></div>
+
+            <div class="element-selector-sidebar">
+                <div class="element-selector-nav" id="element_selector_nav">
+                  <div class="element-selector-nav-content">
+                      <ul class="element-selector-nav-list">
+                        <ul class="element-selector-nav-list two" style="height:30%">
+
+                      </ul>
+                      </ul>
+                  </div>
+
+                </div>
+            </div>
+
+            <div class="vertical-separator" style="height:85%"></div>
+
+            <div class="element-selector-content">
+                <div class="element-selector-list" id="element_selector_list">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="site-builder">
         <main class="site-builder-preview" id="contains_site">
 
@@ -64,5 +90,7 @@
     </div>
 
 </div>
+
+<script src="{{url_for('static', filename='js/site-edit.js')}}"></script>
 
 {% endblock %}

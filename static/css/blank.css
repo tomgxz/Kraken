@@ -1,0 +1,89 @@
+    /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+    @media (prefers-reduced-motion: reduce) {
+        html:focus-within {
+            scroll-behavior: auto !important;
+        }
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    html {
+        scroll-behavior: smooth;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+    body {
+        min-height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
+        text-rendering: optimizeSpeed;
+        margin: 0;
+        padding: 0;
+    }
+    ol,
+    ul {
+        list-style: none;
+    }
+    pre,
+    code,
+    address,
+    caption,
+    th,
+    figcaption {
+        font-size: 1em;
+        font-weight: normal;
+        font-style: normal
+    }
+    fieldset,
+    iframe {
+        border: 0
+    }
+    img,
+    picture,
+    .image {
+        max-width: 100%;
+        display: block;
+    }
+    caption,
+    th {
+        text-align: left
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0
+    }
+    main,
+    summary,
+    details {
+        display: block
+    }
+    audio,
+    canvas,
+    video,
+    progress {
+        vertical-align: baseline
+    }
+    body,
+    input,
+    textarea,
+    select,
+    button {
+        font-synthesis: none;
+        -moz-font-feature-settings: 'kern';
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        direction: ltr;
+        text-align: left
+    }
