@@ -69,7 +69,14 @@ function elementNavbarSetSelected() {
 
 function elementSelectorDisplayPreview() {
   function layer1(text) {
-    path=`../../../static/html/elements/${text.split(/[\r\n]+/g)[elementSelectorNavSelectedInt-1]}`
+    path=`../../../static/html/elements/${text.split(/[\r\n]+/g)[elementSelectorNavSelectedInt-1]}`;
+
+    fetch(path+"/css.css")
+        .then( response => {
+            if (!response.ok) { throw new Error(`HTTP error: ${response.status}`) }
+            return response.text();})
+        .then( text0 => elementSelectorList.innerHTML = elementSelectorList.innerHTML + `<style>${text0}</style>`  )
+
     fetch(path+"/files")
         .then( response => {
             if (!response.ok) { throw new Error(`HTTP error: ${response.status}`) }
@@ -78,7 +85,7 @@ function elementSelectorDisplayPreview() {
   }
 
   function layer2(path,text) {
-      text=text.split(/[\r\n]+/g)
+      text=text.split(/[\r\n]+/g).filter(function(value, index, arr){ return value != "" });
       for (var i=0; i<text.length; i++) {
           layer3(`${path}/${text[i]}`)
           //fetch(`${path}/${text[i]}`)
@@ -90,20 +97,44 @@ function elementSelectorDisplayPreview() {
   }
 
   function layer3(text) {
-      elementSelectorList.innerHTML = elementSelectorList.innerHTML+`<div class="element-selector-list-item"><iframe src="${text}" --data-js-iframe-${iframeCount}" frameborder="0" marginheight="0" scrolling="no" width="100%" height="200px"></div>`
-
-      var currentIframe=elementSelectorList.querySelector(`--data-js-iframe-${iframeCount}`)
-      var iframes = iFrameResize({log:true},currentIframe);
-
-      iframeCount++
+      fetch(text)
+          .then( response => {
+              if (!response.ok) { throw new Error(`HTTP error: ${response.status}`) }
+              return response.text();})
+          .then( text2 => layer4(text2) )
   }
+
+  function layer4(text) {
+      elementSelectorList.innerHTML = elementSelectorList.innerHTML + text
+
+      previewElements = elementSelectorList.querySelectorAll("[data-preview]")
+      previewElements.forEach((e)=>{
+          console.log(e)
+          e.style.cursor = "pointer"
+          e.style.marginBottom = "32px"
+      })
+  }
+
+  elementSelectorList.innerHTML = "";
 
   fetch("../../../static/html/elements/classes")
     .then( response => {
         if (!response.ok) { throw new Error(`HTTP error: ${response.status}`) }
         return response.text() })
     .then( text => layer1(text) )
+}
 
+function parseXml(xml) {
+    var parser = new DOMParser();
+    return parser.parseFromString(xml,"text/xml");
+}
+
+function parseXmlFile(path) {
+    fetch(path)
+        .then( response => {
+            if (!response.ok) { throw new Error(`HTTP error: ${response.status}`) }
+            return response.text() })
+        .then( xml => {xml = parseXml(xml);return xml} )
 }
 
 var builder = document.getElementById("contains_site");
@@ -114,17 +145,17 @@ var elementSelectorList=document.getElementById("element_selector_list");
 var elementSelectorNav=document.getElementById("element_selector_nav");
 var elementSelectorNavItem=`<li class="element-selector-nav-item [i]"><a class="link unformatted" id="element_selector_nav_[n1]"><span class="text bold">[n2]</span></a></li>`;
 var elementClassList="";
-var iframeCount=0;
+var previewElements;
 
 addElementBtn.addEventListener("click",() => {
     document.querySelector(".application-content .element-selector-container").classList.add("shown");
     elementSelectorNavSelected="one";
     elementNavbarSetSelected()
-})
+});
 
 document.querySelector(".application-content .element-selector-exit-btn").addEventListener("click",() => {
     document.querySelector(".application-content .element-selector-container").classList.remove("shown")
-})
+});
 
 // element selector navbar content
 
@@ -134,3 +165,5 @@ fetch("../../../static/html/elements/classes")
     return response.text();
   })
   .then( text => setElementNavbar(text) )
+
+parseXmlFile("../../../static/data/userData/test/sites/testing-site/site.xml");

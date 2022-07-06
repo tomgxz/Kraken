@@ -8,6 +8,8 @@ Dependencies:
     configparser
     datetime
     math
+
+    npm install iframe-resizer --save
 """
 
 from flask import Flask, render_template, Blueprint, redirect, url_for, request, flash, session
