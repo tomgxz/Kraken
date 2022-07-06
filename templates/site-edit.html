@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+section{% extends "base.html" %}
 
 {% set navbarLogoColor = "gradient" %}
 {% set navbarOptionsEnabled = True %}
@@ -33,9 +33,9 @@
                 </li>
 
                 <li class="localnav-item two">
-                    <a class="link unformatted" id="localnav_add_element_btn">
+                    <a class="link unformatted" id="localnav_add_section_btn">
                         <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-circle-plus"></i></div>
-                        <div class="localnav-item-collapsible-text text bold primary">Add Element</div>
+                        <div class="localnav-item-collapsible-text text bold primary">Add Section</div>
                     </a>
                 </li>
 
@@ -60,15 +60,15 @@
 
     </div>
 
-    <div class="element-selector-container">
-        <div class="element-selector">
-            <div class="element-selector-exit-btn"><i class="faicon fa-solid fa-xmark"></i></div>
+    <div class="section-selector-container">
+        <div class="section-selector">
+            <div class="section-selector-exit-btn"><i class="faicon fa-solid fa-xmark"></i></div>
 
-            <div class="element-selector-sidebar">
-                <div class="element-selector-nav" id="element_selector_nav">
-                  <div class="element-selector-nav-content">
-                      <ul class="element-selector-nav-list">
-                        <ul class="element-selector-nav-list two" style="height:30%">
+            <div class="section-selector-sidebar">
+                <div class="section-selector-nav" id="section_selector_nav">
+                  <div class="section-selector-nav-content">
+                      <ul class="section-selector-nav-list">
+                        <ul class="section-selector-nav-list two" style="height:30%">
 
                       </ul>
                       </ul>
@@ -79,8 +79,8 @@
 
             <div class="vertical-separator" style="height:85%"></div>
 
-            <div class="element-selector-content">
-                <div class="element-selector-list" id="element_selector_list">
+            <div class="section-selector-content">
+                <div class="section-selector-list" id="section_selector_list">
                 </div>
             </div>
         </div>

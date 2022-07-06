@@ -50,32 +50,32 @@ function addElement(parent,name,src,css,js,type,order) {
     )
 }
 
-function setElementNavbar(text) {
+function setSectionNavbar(text) {
     text=text.split(/[\r\n]+/g);out="";
     for (var i=0; i<text.length; i++) {
-        out=out+elementSelectorNavItem
+        out=out+sectionSelectorNavItem
           .replace("[i]",number2words(i+1).replace(" ",""))
           .replace("[n1]",text[i].replace(" ",""))
           .replace("[n2]",capitalizeWords(text[i]))
     }
-    elementSelectorNav.querySelector("ul.element-selector-nav-list").innerHTML=out;
+    sectionSelectorNav.querySelector("ul.section-selector-nav-list").innerHTML=out;
 }
 
-function elementNavbarSetSelected() {
-    elementSelectorNav.querySelector(`ul.element-selector-nav-list li a.link`).style.opacity=0.75;
-    elementSelectorNav.querySelector(`ul.element-selector-nav-list li.${elementSelectorNavSelected} a.link`).style.opacity=1;
-    elementSelectorDisplayPreview();
+function sectionNavbarSetSelected() {
+    sectionSelectorNav.querySelector(`ul.section-selector-nav-list li a.link`).style.opacity=0.75;
+    sectionSelectorNav.querySelector(`ul.section-selector-nav-list li.${sectionSelectorNavSelected} a.link`).style.opacity=1;
+    sectionSelectorDisplayPreview();
 }
 
-function elementSelectorDisplayPreview() {
+function sectionSelectorDisplayPreview() {
   function layer1(text) {
-    path=`../../../static/html/elements/${text.split(/[\r\n]+/g)[elementSelectorNavSelectedInt-1]}`;
+    path=`../../../static/html/sections/${text.split(/[\r\n]+/g)[sectionSelectorNavSelectedInt-1]}`;
 
     fetch(path+"/css.css")
         .then( response => {
             if (!response.ok) { throw new Error(`HTTP error: ${response.status}`) }
             return response.text();})
-        .then( text0 => elementSelectorList.innerHTML = elementSelectorList.innerHTML + `<style>${text0}</style>`  )
+        .then( text0 => sectionSelectorList.innerHTML = sectionSelectorList.innerHTML + `<style>${text0}</style>`  )
 
     fetch(path+"/files")
         .then( response => {
@@ -105,19 +105,18 @@ function elementSelectorDisplayPreview() {
   }
 
   function layer4(text) {
-      elementSelectorList.innerHTML = elementSelectorList.innerHTML + text
+      sectionSelectorList.innerHTML = sectionSelectorList.innerHTML + text
 
-      previewElements = elementSelectorList.querySelectorAll("[data-preview]")
-      previewElements.forEach((e)=>{
-          console.log(e)
+      previewSections = sectionSelectorList.querySelectorAll("[data-preview]")
+      previewSections.forEach((e)=>{
           e.style.cursor = "pointer"
           e.style.marginBottom = "32px"
       })
   }
 
-  elementSelectorList.innerHTML = "";
+  sectionSelectorList.innerHTML = "";
 
-  fetch("../../../static/html/elements/classes")
+  fetch("../../../static/html/sections/classes")
     .then( response => {
         if (!response.ok) { throw new Error(`HTTP error: ${response.status}`) }
         return response.text() })
@@ -138,32 +137,35 @@ function parseXmlFile(path) {
 }
 
 var builder = document.getElementById("contains_site");
-var addElementBtn = document.getElementById("localnav_add_element_btn");
-var elementSelectorNavSelected="one";
-var elementSelectorNavSelectedInt=1;
-var elementSelectorList=document.getElementById("element_selector_list");
-var elementSelectorNav=document.getElementById("element_selector_nav");
-var elementSelectorNavItem=`<li class="element-selector-nav-item [i]"><a class="link unformatted" id="element_selector_nav_[n1]"><span class="text bold">[n2]</span></a></li>`;
-var elementClassList="";
-var previewElements;
+var addSectionBtn = document.getElementById("localnav_add_section_btn");
+var sectionSelectorNavSelected="one";
+var sectionSelectorNavSelectedInt=1;
+var sectionSelectorContainer=document.querySelector(".application-content .section-selector-container");
+var sectionSelectorList=document.getElementById("section_selector_list");
+var sectionSelectorNav=document.getElementById("section_selector_nav");
+var sectionSelectorNavItem=`<li class="section-selector-nav-item [i]"><a class="link unformatted" id="section_sele  ctor_nav_[n1]"><span class="text bold">[n2]</span></a></li>`;
+var sectionClassList="";
+var previewSections;
 
-addElementBtn.addEventListener("click",() => {
-    document.querySelector(".application-content .element-selector-container").classList.add("shown");
-    elementSelectorNavSelected="one";
-    elementNavbarSetSelected()
+addSectionBtn.addEventListener("click",() => {
+    if (!(sectionSelectorContainer.classList.contains("shown"))) {
+      sectionSelectorContainer.classList.add("shown");
+      sectionSelectorNavSelected="one";
+      sectionNavbarSetSelected()
+    }
 });
 
-document.querySelector(".application-content .element-selector-exit-btn").addEventListener("click",() => {
-    document.querySelector(".application-content .element-selector-container").classList.remove("shown")
+document.querySelector(".application-content .section-selector-exit-btn").addEventListener("click",() => {
+    document.querySelector(".application-content .section-selector-container").classList.remove("shown")
 });
 
-// element selector navbar content
+// section selector navbar content
 
-fetch("../../../static/html/elements/classes")
+fetch("../../../static/html/sections/classes")
   .then( response => {
     if (!response.ok) { throw new Error(`HTTP error: ${response.status}`) }
     return response.text();
   })
-  .then( text => setElementNavbar(text) )
+  .then( text => setSectionNavbar(text) )
 
 parseXmlFile("../../../static/data/userData/test/sites/testing-site/site.xml");

@@ -22,7 +22,7 @@
     width:100%
 }
 
-.element-selector {
+.section-selector {
     width:80%;
     height:80%;
     background-color: var(--colors-grey-100);
@@ -32,7 +32,7 @@
     flex-direction: row;
     align-items: center;
 }
-.element-selector-container {
+.section-selector-container {
     position:absolute;
     width: calc(100% - 208px);
     height: calc(100% - 32px);
@@ -49,13 +49,13 @@
     visibility:hidden;
     transition: right 200ms ease-out, opacity 200ms ease-out, transform 200ms ease-out, visibility 200ms ease-out;
 }
-.element-selector-container.shown {
+.section-selector-container.shown {
     right: 16px;
     opacity:1;
     transform:scale(1);
     visibility:visible;
 }
-.element-selector-exit-btn {
+.section-selector-exit-btn {
     position: absolute;
     top: 16px;
     right: 16px;
@@ -63,12 +63,12 @@
     cursor: pointer;
 }
 
-.element-selector-sidebar {
+.section-selector-sidebar {
     width:180px;
     height:100%;
 }
 
-.element-selector-nav {
+.section-selector-nav {
     background-color: transparent;
     display: block;
     height: 100%;
@@ -76,7 +76,7 @@
     max-height: 100%;
     max-width: 180px;
 }
-.element-selector-nav .element-selector-nav-content {
+.section-selector-nav .section-selector-nav-content {
     margin: 0 auto;
     position: relative;
     height: inherit;
@@ -86,7 +86,7 @@
     flex-direction: column;
     justify-content: center;
 }
-.element-selector-nav .element-selector-nav-list {
+.section-selector-nav .section-selector-nav-list {
     cursor: default;
     margin: 0 -8px;
     display: -webkit-box;
@@ -99,11 +99,11 @@
     height: 85%;
     flex-direction: column;
 }
-.element-selector-nav-item a.link {
+.section-selector-nav-item a.link {
     position: relative;
 }
 
-.element-selector-content {
+.section-selector-content {
     height: 100%;
     display: flex;
     /*width: -webkit-fill-available;*/
@@ -111,7 +111,7 @@
     align-items: center;
     justify-content: center;
 }
-.element-selector-content .element-selector-list {
+.section-selector-content .section-selector-list {
     max-width: 90%;
     width: 90%;
     height: 85%;
@@ -120,21 +120,21 @@
     align-items: center;
     overflow-y: scroll;
 }
-.element-selector-content .element-selector-list-item {
+.section-selector-content .section-selector-list-item {
     width: 45%;
     height: fit-content;
     display: flex;
     justify-content: center;
 }
 
-.element-selector-content .element-selector-list::-webkit-scrollbar {
+.section-selector-content .section-selector-list::-webkit-scrollbar {
     background: transparent;
 }
-.element-selector-content .element-selector-list::-webkit-scrollbar-thumb {
+.section-selector-content .section-selector-list::-webkit-scrollbar-thumb {
     background-color:var(--colors-grey-300);
 }
 
-.element-selector-404-error {
+.section-selector-404-error {
     font-weight: 700;
     font-family: var(--font-header);
     font-size: 32px;
