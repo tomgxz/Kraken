@@ -17,7 +17,7 @@ The clients for this software would be businesses or individuals who require a w
 |--|--|--|
 | | | |
 | | | |
-\
+
 <img alt="404 no stakeholders" src="https://lh5.googleusercontent.com/4uvZ_jq6raFf03ail16FfgqLPm9JP5gdU8V-y3wZAfbUpKUVSNls_AyQkpSCeZ10CrUPHeXBtRubFjCSOWe2scR_DFF6y7YcZc2VesnJbeRY-9vynC5GyrSNOOH4g_Px8H1jbhP-i_bE8n_1Z6K6Rg"/>
 
   
@@ -114,8 +114,11 @@ Their image resizing system is nice. It makes use of the ```object-fit:cover``` 
 Something else zyro does is have all of their style attributes defined in one class, which rely on variables such as ```--grid-row```,```--m-grid-column```, and```--element-width``` that are defined in element.style  (the style attribute of the HTML object), which have presumably been put their by JavaScript.
 
 This is the CSS class with all of the variable references:
+
 <img alt="research-zyro" src="https://lh4.googleusercontent.com/X7rGrjfPJxcZP9GrmGuyIrjOCsNrGFrjrJ-bqzdhgxXNLK1IY_hHV5tq-4bZROZ9uYr8CnvydM7Jk9AK37JJE_y04qEdm7vUvjNNnu_fI1QgpICINXxVlW5Uu47Kfktirshq8xm4xWBw4QzyBKZ6WMJN4fu8d0w8j-Lq7HXG3tU5CY2L6EriMYUA7A" width="360"/>
+
 This is the HTML style attribute with all of the variable declarations in it:
+
 <img alt="research-zyro" src="https://lh4.googleusercontent.com/3Bd9HaJjJ0osuEaZOOc0gaV47AllPCGZHU4wpQvH0andtH39rO4_LA3gDPntgIr82QiwKJam0IMXaBSeoHtCeAT8NSRd2S2cTTLVNdXEEBMcBTnkKp8iIGORGxufhbw84cPq60wZNiPv7Vaz89EYkecq22EaQlUEiuVvBcPlAyDuye98B37gKNwA2w" width="360"/>
 
 When moving elements around the layout, Zyro adds four variables to the element, top, left, width, and height, which they use to render the positioning of the element while you are moving it. When you release the element, these values are removed. This positioning would probably be done in JavaScript by taking the position of the cursor when you clicked on the element, getting the position of the element when you click on it, and then offsetting the position of the element by the amount you remove the cursor. Then, when you release the cursor, it runs the code to calculate the new grid positioning of the element. They also have a max width for desktop, where the element cannot be moved further.
