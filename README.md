@@ -41,7 +41,6 @@ The program uses abstraction as it removes the complex process of having to prog
 In their template list, they also give the option to preview the website, with all of its functionality in a separate page. They allow you to view it in different sizes as well.
 
 <img alt="research-squarespace-4" src="https://lh6.googleusercontent.com/LHJzOfj9A_6wXIMYhHQR0DkdHhVzN4nSDL6LTghu3nUUsvGNFrW--MyvAcaikYt_5rVs_cMYNWHJ6I8Au0KfoqsN03BZ6rbcl7s9dDOFqjbBpaqkUF6Zqjv-YK_bccaihznPTZ7nNlTjejYNybUOsvKTckaHC1ipN8H03MCTuP2AJgFwb5cke2ml" height="360"/>
-
 <img alt="research-squarespace-5" src="https://lh6.googleusercontent.com/4deX5c1Ep9XPrPXPD_VwahIqANJZ4BD7kuAuv3wPYCLB2m5Ee7c7b0mkCNz9FNKT66LvE56sxLwrm_b6HCLGB8u3Yni_M6SI2xy8HPriRcbq_xW9M3tnVyWpKOXtkn3gDyMknPDyG6-5GzNZeP7PHA" height="360"/>
 
 When first starting to edit the site, squarespace offer an assistant with some basic first steps to creating the website, which makes it easier for the client to be able to understand how the editor works and how to effectively use it.
@@ -56,15 +55,12 @@ Their design options include the styles, browser icon, 404 page, and custom css 
 Their editor works in the conventional way of a grid based system, where you can place elements anywhere on the grid. It will then assign the item the style property ```grid-area:row-start/col-start/row-end/col-end```, or ```grid-area:y/x/height/width``` to define the position of the element. They have different attributes for different screen sizes, and you can edit both different styles by switching between laptop mode and phone mode.
 
 <img alt="research-squarespace-9" src="https://lh6.googleusercontent.com/YApgdzdXYzdDGzf9MwE5GFovaajl1mqd1RPN0PC4xRLXweQ58AwLSMzB4Vf4RoBVdz3UaRN8PHxfqbsk96rbsd5QTrqh2FSrpq7bs2d67vWcjLZ6uo3wwSFYn80a2fN9A4VdYpR6ZU6fGGmOoHizFoxS2zYPM1h8R9Cs-bEdKkDQHNbxs00rvamDvg" width="640"/>
-
 <img alt="research-squarespace-10" src="https://lh3.googleusercontent.com/jSX67py4IMFc6OQrQ6o5oTeOg-l6vrrfNL8CYyeM_JgzzVRGf86uoSX_a8g5U90kRLg4VyRDx_AetbDcTuT60m2Q31tvln44fwl410JQpoLY-9OT1hJCVh-EU1BwbuazbaQeeEftVV2Iu2HZHck8Fj3I-hywukOP0_PYtnQOtWbfMe7iDOdXCfuclA" height="360"/>
 
 The website is split into sections, where each section contains a content wrapper with the grid positioning system inside.
 
 <img alt="research-squarespace-11" src="https://lh3.googleusercontent.com/cf-XLNirmnX0qBJrjkLiNOIkbeyYlHB_KrMsb5ARvDERoAm9n7JEG2OcBxSLY9yNAD__O-ojjEVHdGXMFkzaFGX5Yn5qnyN8ty6HYBsHOuJXbZ7JrvRPEHIvhiOW-BMl1ngIeaFt8cJkFqSr9zoxxVMD6VmCUGmzN2u93t84la5xtAWt107xYE4tdQ" width="640"/>
-
 <img alt="research-squarespace-12" src="https://lh4.googleusercontent.com/1AEcECEM1wk74DGWqVbg5gmNWo_Dt2RfCAWYsGhKZrwxzH1uH6j7kR3x_Zo7ASvQawiR1Iw9MG_lzPZVkke-GJq2te6OyAxomxVFsiiAma-2W-uHxXKQF3b9-J4ML6w8xncG2v4lJGFm7virRDFAithmPBkVn6Xv2SVDhrND8agB4ihh2a9G6d-ahg" width="640"/>
-
 <img alt="research-squarespace-13" src="https://lh3.googleusercontent.com/BS4wFAn7mCikSTD8ObNh9PF6J_AMIjUTvY3ceB3vDF8MQoZSuA6_YlixNiLTPSOGyv7b_A3piKPOyKAzAQTA9FCY50FnmBN-HtzlPzGU_I92nVELGq2Y0lY54XFQfyYfUMx5Z04CB8Z4VHMLbDL7zWVCNr7TJdiRsic17qC_X9emTCwltI2z85D7zg" width="640"/>
 
 By selecting text, you get a popup that displays the text formatting options. Whenever you click on an element, you get a different popup that displays the design options for said element
@@ -80,13 +76,11 @@ My solution will have the option to preview and use templates in a similar way t
 Zyro also use an assistant to help the user understand how to use their editor.
 
 <img alt="research-zyro" src="https://lh5.googleusercontent.com/S0OwKYuCciTU8C4I51QQcsDQDKe0lVabMJD2n2Ui7IJzArSoj75-j-ZtjMi5lKPgAa_ceJ1--ye1Om8so6_IYAgfZ2oq_6Zs-zfHoRfAZhuPEK3wXVCIsji2G2cGuqRz_OSxcu55Tr83_jyC1DQY9bRkCbfJV_4G33Xs0neRtib_E04YPDhpai7njA" height="360"/>
-
 <img alt="research-zyro" src="https://lh5.googleusercontent.com/-vItU2Wcqt5wXqsJEOwun3I3FV0-nxIds5YcUWCuSZN2REVyfxGe3NZNopRUWhJjEHlcxUue96C5FlAbcNEihc7g-DCIHwGQown7olWi_zahY2EQhneDWTx4pHqdQKYaEb-0A6ShPD5hGGcI_NJqSu_muxIHVWFRFSkwXderRlTN_20GuyGywRl6Cw" height="360"/>
 
 Zyro have two ways of positioning objects; one of them is very similar to the way squarespace do it, with a grid positioning system, and the second is something they call smart layout. It instead uses only columns to position, and the elements can be moved up and down said columns freely and snap to other elements, like how many editors like photoshop might do. You can toggle the snapping to other elements in section settings
 
 <img alt="research-zyro" src="https://lh4.googleusercontent.com/ROxnCPT2jj-6Ug5JvXI-CjaNcU21iZ-ft--M3lo6c8iyZbGZpk2sBSNMGZpBN4sAxQo_TfPFDJc4YzYx-F4QewOFqq61-AnULblX94yGQ3yqZ2xwpa8y5jP1Y9femHEL9n8Ox5RBEXVNPMGhkJO4wGYbcv84Havc06gtyiU9ykedwRAYczvrEmLDRA" width="360"/>
-
 <img alt="research-zyro" src="https://lh6.googleusercontent.com/KE2qzng016t_fXdGx-TeMWaTWYkE1SNRNm9GMjwa30nXhYXy0tUrWUKZrI9gbWiXGy_hjjPQLYh34hTtaOWSYsVwVXLUcwpBvfFHoVCcG5RVlTExMD3OIOarKeUS3DYsMqVhF6_OB9ioO5oxE7AsGWWrZTIKSXQewR6pHnVqzwvvQEjczZJ9T8DrfQ" width="360"/>
 <img alt="research-zyro" src="https://lh6.googleusercontent.com/EtcJ4lja464xzMvE0qx-Gnen8zCXwMXhun60PIY0cMn-QKRUUnifacAO9sToMfSbCCcBpG0b58kTIk2_ChLJ8ylblGG7L6bcz4Xtgyk3GsTyV18ALhk-dvfoLGq1a18ifQ8ZWQSKwiE6ae6PIHrLHeZN_Eq6H0Z--uNyhJXTz3HZAS8iIBmfPMhzOg" width="360"/>
 
