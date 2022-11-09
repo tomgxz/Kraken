@@ -2909,6 +2909,7 @@ em classes:
         border-radius: 0.5em;
         width: 120px;
         transition:opacity 200ms ease-in-out,visibility 200ms ease-in-out,margin-left 200ms ease-in-out;
+        z-index:32;
     }
     .localnav-item a.link {
         position:relative;

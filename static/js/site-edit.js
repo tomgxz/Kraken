@@ -136,6 +136,8 @@ function parseXmlFile(path) {
         .then( xml => {xml = parseXml(xml);return xml} )
 }
 
+function insertWebsite(html) { builder.innerHTML=html; }
+
 var builder = document.getElementById("contains_site");
 var addSectionBtn = document.getElementById("localnav_add_section_btn");
 var sectionSelectorNavSelected="one";
@@ -150,6 +152,7 @@ var previewSections;
 addSectionBtn.addEventListener("click",() => {
     if (!(sectionSelectorContainer.classList.contains("shown"))) {
       sectionSelectorContainer.classList.add("shown");
+      document.querySelector(".lightbox-mask").classList.add("shown")
       sectionSelectorNavSelected="one";
       sectionNavbarSetSelected()
     }
@@ -157,6 +160,13 @@ addSectionBtn.addEventListener("click",() => {
 
 document.querySelector(".application-content .section-selector-exit-btn").addEventListener("click",() => {
     document.querySelector(".application-content .section-selector-container").classList.remove("shown")
+    document.querySelector(".lightbox-mask").classList.remove("shown")
+});
+
+document.querySelector(".lightbox-mask").addEventListener("click",() => {
+  console.log(1);
+    document.querySelector(".application-content .section-selector-container").classList.remove("shown")
+    document.querySelector(".lightbox-mask").classList.remove("shown")
 });
 
 // section selector navbar content
@@ -169,3 +179,10 @@ fetch("../../../static/html/sections/classes")
   .then( text => setSectionNavbar(text) )
 
 parseXmlFile("../../../static/data/userData/test/sites/testing-site/site.xml");
+
+fetch("../../../static/data/userData/test/sites/testing-site/files/1.html")
+  .then( response => {
+    if (!response.ok) { throw new Error(`HTTP error: ${response.status}`) }
+    return response.text();
+  })
+  .then( text =>  insertWebsite(text))

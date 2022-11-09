@@ -29,13 +29,17 @@ class Kraken():
 
     def __init__(self,host,port):
 
+        # import modules and add them to the function
         import os,sqlite3,datetime
         self.os=os;self.sqlite3=sqlite3;self.datetime=datetime;self.db=db
 
+        # initialise the flask server
         self.initFlask()
 
+        # start the sql database
         self.db.init_app(self.app)
 
+        # start the sql database
         self.loginManager=LoginManager()
         self.loginManager.login_view="auth_login"
         self.loginManager.init_app(self.app)
@@ -48,9 +52,11 @@ class Kraken():
         def loadUser(user_id):
             return self.User.query.get(user_id)
 
+        # start the flask server
         self.app.run(host=host,port=port)
 
     def initFlask(self):
+        # setup the flask application
         self.app = Flask(__name__)
         self.app.config["SECRET_KEY"]="secret-key-goes-here"
         self.app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///db.sqlite"
@@ -58,6 +64,8 @@ class Kraken():
         self.initPages()
 
     def initPages(self):
+        # generate all of the website pages from the jinja2 html files in the /templates folder
+        # jinja2 is a way of programatically generating html files using variables, iteration, and templates
         self.initPages_main()
         self.initPages_auth()
         self.initPages_site_create()
@@ -111,12 +119,15 @@ class Kraken():
 
         @self.app.route("/login/", methods=["post"])
         def auth_login_post():
+            # get the filled in items from the login form
             username = request.form.get("username")
             password = request.form.get("password")
             remember = True if request.form.get('remember') else False
 
+            # get the user from the database. if there's no user it returns none
             user = self.User.query.filter_by(user_id=username).first()
 
+            #  check for correct password
             if not user or not check_password_hash(user.password, password):
                 flash('Please check your login details and try again.')
                 return redirect(url_for('auth_login'))
@@ -128,60 +139,69 @@ class Kraken():
         def auth_signup():
             if current_user.is_authenticated:
                 return redirect(url_for("main_home"))
+            flash([False])
             return render_template("signup.html")
 
         @self.app.route("/signup/", methods=["post"])
         def auth_signup_post():
+            # get the filled in items from the signup form
             name=request.form.get("name")
             email=request.form.get("email")
             username=request.form.get("username")
             password1=request.form.get("password")
             password2=request.form.get("password-repeat")
 
+            # this function returns either an empty string if the field meets the requirements
+            # defined by the arguments, or an error message. So, if len(verifyOutput) > 0, that
+            # means that the field is invalid
             verifyOutput=self.verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
 
             if len(verifyOutput) > 0:
-                flash(verifyOutput,name,email,username)
+                flash([True,verifyOutput,"",email,username])
                 return redirect(url_for("auth_signup"))
 
             verifyOutput=self.verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
 
             if len(verifyOutput) > 0:
-                flash(verifyOutput)
+                flash([True,verifyOutput,name,"",username])
                 return redirect(url_for("auth_signup"))
 
             verifyOutput=self.verifyField(username,"Username",canHaveSpecialChar=False)
 
             if len(verifyOutput) > 0:
-                flash(verifyOutput)
+                flash([True,verifyOutput,name,email,""])
                 return redirect(url_for("auth_signup"))
 
             verifyOutput=self.verifyField(password1,"Password",minLen=8)
 
             if len(verifyOutput) > 0:
-                flash(verifyOutput)
+                flash([True,verifyOutput,name,email,username])
                 return redirect(url_for("auth_signup"))
 
             if password1!=password2:
-                flash("Passwords do not match")
+                flash([True,"Passwords do not match",name,email,username])
                 return redirect(url_for("auth_signup"))
 
+            # check whether this email already has an account
             user = self.User.query.filter_by(email=email).first()
 
             if user:
-                flash("That email is already in use")
-                return redirect(url_for("auth_login"))
+                flash([True,"That email is already in use",name,"",username])
+                return redirect(url_for("auth_signup"))
 
+            # check whether this username already exists
             user = self.User.query.filter_by(user_id=username).first()
 
             if user:
-                flash("That username is already in use")
-                return redirect(url_for("auth_login"))
+                flash([True,"That username is already in use",name,email,""])
+                return redirect(url_for("auth_signup"))
 
+            # create a new user in the database and send to the login page
             self.createUser(username,email,name,password1)
 
             return redirect(url_for("auth_login"))
 
+        @self.app.route("/logout/")
         @self.app.route("/account/logout/")
         @login_required
         def auth_logout():
@@ -193,8 +213,8 @@ class Kraken():
         @login_required
         def site_create():
             out=""
-            for name in [x.name for x in self.Site.query.filter_by(user_id=current_user.user_id).all()]:
-                out+=name+","
+            # get all current site names for the logged in user, then flash (send) it to the site, where it is processed by the javascript
+            for name in [x.name for x in self.Site.query.filter_by(user_id=current_user.user_id).all()]: out+=name+","
             flash(out[:-1])
             return render_template("site-create.html")
 
@@ -208,27 +228,29 @@ class Kraken():
                     out+=char
                 return out
             def replaceToDash(var):
+                # replaces any invalid characters in the string var with a dash, used to format the site name correctly so that there arent any errors
                 var=list(var)
                 for i in range(len(var)):
-                    if var[i] not in "qwertyuiopasdfghjklzxcvbnm-._1234567890":
-                        var[i]="-"
+                    if var[i] not in "qwertyuiopasdfghjklzxcvbnm-._1234567890": var[i]="-"
                 return listToStr(var)
             def replaceRepeatedDashesRecursion(var):
+                # recursive function to remove adjacent dashes from a string
                 var=list(var)
                 for i in range(len(var)):
-                    if i+1 >= len(var):
-                        return listToStr(var)
+                    if i+1 >= len(var): return listToStr(var)
                     if var[i] == "-" and var[i+1] == "-":
                         del var[i]
                         var = list(replaceRepeatedDashesRecursion(var))
                         return listToStr(var)
 
+            # get the user inputs
             sitename = request.form.get("new_site_name")
             sitedesc = request.form.get("new_site_desc")
             isPublic = request.form.get("new_site_privacy")=="public"
 
-            sitename=replaceRepeatedDashesRecursion(replaceToDash(sitename.lower()))
+            sitename=replaceRepeatedDashesRecursion(replaceToDash(sitename.lower())) # remove adjacent dashes
 
+            # session can carry over variables between functions
             session["new_site_sitename"]=sitename
             session["new_site_sitedesc"]=sitedesc
             session["new_site_isPublic"]=isPublic
@@ -238,6 +260,7 @@ class Kraken():
         @self.app.route("/home/new/1")
         @login_required
         def site_create_options_1():
+            # stop people from starting halfway through the form i.e. if they didnt come from the previous site_create page, send them to the start
             if not request.referrer == url_for("site_create",_external=True): return redirect(url_for("site_create"))
             return render_template("site-create-options-1.html")
 
@@ -257,6 +280,7 @@ class Kraken():
         @self.app.route("/home/new/2")
         @login_required
         def site_create_options_2():
+            # stop people from starting halfway through the form i.e. if they didnt come from the previous site_create page, send them to the start
             if not request.referrer == url_for("site_create_options_1",_external=True): return redirect(url_for("site_create"))
             return render_template("site-create-options-2.html")
 
@@ -270,6 +294,7 @@ class Kraken():
         @self.app.route("/home/new/3")
         @login_required
         def site_create_options_3():
+            # stop people from starting halfway through the form i.e. if they didnt come from the previous site_create page, send them to the start
             if not request.referrer == url_for("site_create_options_2",_external=True): return redirect(url_for("site_create"))
             return render_template("site-create-options-3.html")
 
@@ -377,11 +402,14 @@ class Kraken():
         sitePath=self.os.path.abspath(f"static/data/userData/{siteSettings['user']}/sites/{siteSettings['name']}")
         siteConfigFile=f"{sitePath}/site.ini"
 
-        folderStructure=[f"{sitePath}",f"{sitePath}/output"]
-        fileStructure=[siteConfigFile,f"{sitePath}/siteDat.json"]
+        folderStructure=[f"{sitePath}",f"{sitePath}/output",f"{sitePath}/files"]
+        fileStructure=[siteConfigFile,f"{sitePath}/siteDat.json",f"{sitePath}/files/1.html"]
 
         self.generateFolderStructure(folderStructure)
         self.generateFileStructure(fileStructure)
+
+        with open(f"{sitePath}/siteDat.json","w") as f: f.write("{\"pages\":{\"Home\":\"1.html\"},\"css\":{},\"js\":{}}")
+        with open(f"{sitePath}/files/1.html","w") as f: f.write(self.defaultHtmlPage(siteSettings["name"],siteSettings["desc"],siteSettings["user"]))
 
         cfgContent=ConfigParser()
         cfgContent.read(siteConfigFile)
@@ -411,8 +439,8 @@ class Kraken():
         section="button"
         try: cfgContent.add_section(section)
         except: pass
-        for key in siteSettings["buttonOptions"]:
-            cfgContent.set(section,key,str(siteSettings["buttonOptions"][key]).lower())
+
+        for key in siteSettings["buttonOptions"]: cfgContent.set(section,key,str(siteSettings["buttonOptions"][key]).lower())
 
         with open(siteConfigFile,"w") as f:
             cfgContent.write(f)
@@ -496,5 +524,9 @@ class Kraken():
 
         return cfgContent
 
+    def defaultHtmlPage(self,n,d,u):
+        return f"""<div class=\"page\" data-content-parentview>
+</div>"""
+        
 if __name__ == "__main__":
     Kraken("0.0.0.0",1380)

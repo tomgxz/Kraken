@@ -2,6 +2,7 @@
 
 {% set navbarLogoColor = "secondary" %}
 {% set navbarOptionsEnabled = False %}
+{% set messages = get_flashed_messages()[0] %}
 
 {% block content %}
 
@@ -20,13 +21,9 @@
     </div>
     <div class="field-container active">
         <span class="field-warning text italic">
-            {% with messages = get_flashed_messages() %}
-
-            {% if messages %}
-              {{ messages[0] }}
+            {% if messages[0] %}
+              {{ messages[1] }}
             {% endif %}
-
-            {% endwith %}
         </span>
 
         <form class="field-options" method="post" action="/signup/">
@@ -34,7 +31,7 @@
           <div class="field-option field-option-name">
               <h4 class="text italic">Name</h4>
               <div class="field-input-container">
-                  <input class="field-input" placeholder="Name" type="name" name="name" autofocus>
+                  <input class="field-input" placeholder="Name" type="name" name="name" autofocus value="{{ messages[2]}}">
                   <span class="eye-spacer"></span>
               </div>
           </div>
@@ -42,7 +39,7 @@
           <div class="field-option field-option-email">
               <h4 class="text italic">Email</h4>
               <div class="field-input-container">
-                  <input class="field-input" placeholder="name@domain.com" type="email" name="email" autofocus>
+                  <input class="field-input" placeholder="name@domain.com" type="email" name="email" autofocus value="{{ messages[3]}}">
                   <span class="eye-spacer"></span>
               </div>
           </div>
@@ -50,7 +47,7 @@
           <div class="field-option field-option-username">
               <h4 class="text italic">Username</h4>
               <div class="field-input-container">
-                  <input class="field-input" placeholder="Username" type="text" name="username" autofocus>
+                  <input class="field-input" placeholder="Username" type="text" name="username" autofocus value="{{ messages[4]}}">
                   <span class="eye-spacer"></span>
               </div>
           </div>
@@ -64,7 +61,7 @@
                   </span>
               </div>
           </div>
-          
+
           <div class="field-option field-option-password-repeat">
               <h4 class="text italic">Repeat Password</h4>
               <div class="field-input-container">
