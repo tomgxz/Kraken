@@ -460,29 +460,24 @@ class Kraken():
 
     def generateFolderStructure(self,folders):
         for folder in folders:
-            if self.os.path.isdir(folder):
-                continue
-            try:
-                self.os.makedirs(folder)
+            if self.os.path.isdir(folder): continue
+            try: self.os.makedirs(folder)
             except OSError as e:
                 raise OSError(
                       e)
 
     def generateFileStructure(self,files):
         for file in files:
-            if self.os.path.exists(file):
-                continue
+            if self.os.path.exists(file): continue
             try:
                 with open(file,"w") as f:
-                    if self.os.path.splitext(file)[-1] == ".json":
-                        f.write("{\"content\":[]}")
+                    if self.os.path.splitext(file)[-1] == ".json": f.write("{\"content\":[]}")
                     f.close()
             except OSError as e:
                 raise OSError(
                       e)
 
-    def getUserImage(self,u):
-        return f"/data/userIcons/{u}.png"
+    def getUserImage(self,u): return f"/data/userIcons/{u}.png"
 
     def verifyField(self,field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,canHaveSpecialChar=True):
         specialChar="%&{}\\<>*?/$!'\":@+`|="
@@ -527,6 +522,5 @@ class Kraken():
     def defaultHtmlPage(self,n,d,u):
         return f"""<div class=\"page\" data-content-parentview>
 </div>"""
-        
-if __name__ == "__main__":
-    Kraken("0.0.0.0",1380)
+
+if __name__ == "__main__": Kraken("0.0.0.0",1380)
