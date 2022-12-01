@@ -4,11 +4,11 @@ tkinter/assets/screen/__pycache__
 tkinter/assets/tk/__pycache__
 db.sqlite
 db.sqlite.old
-README.md
 stakeholders.txt
 static/data/userData
 dbCommands.txt
 tkinter
+tkinter/
 
 
 
