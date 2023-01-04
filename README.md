@@ -1,3 +1,4 @@
+
 ﻿## Analysis
 ### Problem identification
 With the internet constantly growing, and more and more people relying on it, the demand for websites is constantly increasing - it is now expected for businesses to have their own webpage that people can easily access. They can range in style from business portfolios, to online stores, to games. However, a lot of people may find it difficult to create a website for themselves or their organisation, and the task of manually programming it can seem very daunting. The main aim of this project is to develop a website that allows clients to produce their own website via a simple user interface, which alleviates the technical intricacies of HTML, CSS and JavaScript. Clients will be able to select from a variety of styles and themes - or create their own - upload media such as images and videos, and then interact with a drag and drop interface to organise a webpage. Each website they create would have it’s own page dedicated to it, with options to customise the styles of the site, ability to create, organise, and link together pages of the website, preview the website in a variety of display sizes, and of course add pre-made elements and edit the parameters of the elements in the site. The requirements for a client to be able to use it would also be low, due to the entire application being contained within its own website, meaning that the client would only need a web browser and internet connection. This means the client doesn't need to install software onto their computer, nor do they need to worry about software updates.
@@ -136,14 +137,66 @@ Thing 1|Explanation
 Thing 2|Explanation
 
 ### Success Criteria
-Criteria|How to evidence
--|-
-Thing 1|Explanation
-Thing 2|Explanation
+
+ - Login system
+ - ability to view password with the all seeing eye
+ - Sign up fields to be Name, email, username, and two passwords to make sure they get it correct
+ - fully functional error checking on all fields as followed
+> All fields must not be empty
+Name can have spaces and non alphanumeric characters, must be longer than 2
+Email must be in an email format
+Username cannot have non alphanumeric characters, must be longer than 2
+Password must be longer than 8
+Repeat password must be identical to Password
+Email cannot already be in the database
+Username cannot already be in the database
+
+ - The homepage, when there are no sites, displays a prompt to create a new site
+ - The homepage, when the user has created sites, lists all of them along with a "create new site" button
+ - Ability to (export and) import sites in a zip file so that you can transfer them between sites. This is different to downloading a useable copy of the website. Export function may not be necessary as it is given in the site settings.
+ - When creating a site, you get the following options
+> Website Name: at least 4 chars, and any illegal characters are converted into dashes. The user is given a preview of what their site name will look like when it doesn't match the criteria.
+Description: optional
+Whether the site is public or private: determines who has access to the site URLs
+
+ - You then proceed through options that allow you to change the default styling properties of the site.
+> These will be the options for color palettes, primary and secondary fonts, and button settings.
+
+- Sites can be accessed by the URL: `/<username>/<sitename>`, and, if public, can be viewed (but not edited) by anyone from this URL. If private, other users will be told this and redirected home.
+- The owner of a site can assign other users the ability to edit public or private sites, but you can't have two people editing at the same time. (This is because it would be more complicated to program)
+- The site will have a config file, where it stores all of its global variables - mostly style choices - which have been selected when creating the site. These can also be edited at any time in the site homepage.
+> These variables include primary, secondary, accent and grey colors, primary and secondary fonts, button styling choices, and animation types.
+
+- The site page (`/<username>/<sitename>`) can be programmatically assigned due to the python backend: it can take both parameters, search for them in the database, make sure that the current user has permissions, and display the appropriate site.
+- On the site page, the user will get a preview of the website, along with customizability options for the website: the ability to edit the site, reorganise the site structure (which pages go where), edit site settings (such as default colors), and export the site.
+- when editing the site, the organisation will look like this
+> a navigation bar on the left that contains the options: "website pages" where you can navigate to a different page, "add section" where you can add another template section to the current page, "website styles" where you can change global settings such as fonts and colors, and "add element" where you can drag and drop individual elements into the canvas to edit.
+a central canvas where the actual web page can be previewed
+a popup modal for the centre which appears when you need to select a section or element to add to the page
+a styling section on the right hand side where you can edit all of the styling properties for a selected element
+
+
+- The central canvas will import the raw html and css files from the server, and it will rely on data tags in the html element to understand what does what and how to edit it.
+- Whenever a widget is selected, a box will be drawn around it, with the ability to resize it. the style menu on the right will also populate with style options for the selected element that can be changed in real time, and can be previewed when hovered over, so that the user can easily understand what certain buttons will do.
+- Whenever a widget is selected and held, an outline of the parent section's grid system is previewed, and the element can be moved around. It does this by tracking the position of the cursor and relating that to the start position of the cursor on the widget (the anchor point) to render it in the correct place using left right top bottom css tags. When released, the widget will snap into the nearest grid space to where it was released. A similar thing happens when you select and hold one of the resize elements on the outline, where it tracks the cursor and then snaps into the closest grid space to resize it.
+- The position parameters, that are changed as described above, are separate for the desktop view and mobile view of the web page. Changing the position when the page is in desktop mode will not affect the position in mobile mode, and vice versa.
+- When a widget is right clicked, it will show useful commands such as copy, paste, delete, duplicate, etc.
+>
+
+- To export the site, the user will have two options, that will be clearly defined in the UI
+- They can download the site, which will download a zip file containing all the required HTML, CSS, and JavaScript code, so that they can unpack the archive and run the webpage by simply opening the HTML file.
+- They can export the site, which will download a different zip file that contains all of the internal files that Kraken uses to run the editor for the page. This means that the user can download backups and send their websites to other people.
+>
+
 
 
 ## Design
 
+### User Interface Design
+
+![](./MainPageTemplate.png)
+
+This is the main "template" that all of the pages are built on. The main content will be displayed inside.
 
 ### Features
 To assemble the web pages, the clients will be able to drag and drop pre-designed elements categorised in groups such as headlines, quotes, forms, footers and more. The elements can be previewed in a sidebar next to the main canvas of the page, displayed with the correct styles of the website, from which they can be placed on the webpage. The website itself would be divided into sections, where you can drag and drop whole sections into the page or add individual elements into an existing section, such as text elements or images. After placing the elements into the canvas, the client can select the element to be able to interact with them, by moving them around, changing their styling (such as padding, size, coloring, transparency, position, font size, and many more) in a panel called the inspector panel, adding children to the element, or writing custom element-specific HTML, CSS, or JavaScript code that can be translated into the preview in real time. These custom elements / pieces of code will then be saved in the clients account, so that they can be used in other projects and/or published so that other clients can use them. The canvas will highlight elements with a border when they are hovered over, so that the client can easily see what the different elements are and how they can interact with them. The overall aim of the editor is for someone with very minimal knowledge, even none at all, about web design or programming to be able to interact with it, hence the WYSIWYG intuitiveness.
@@ -193,4 +246,4 @@ The clients designs will be stored on the server which can be recoverable and ed
 
 The client would be able to share the website to other clients, giving them viewing permissions (if the website is private), the ability to download the site, and potentially be able to edit the site. The client would also be able to transfer the ownership of the site to someone else.
 
-To access the website builder, the url functions like this: `/u/<User>/<Site>/[]`, where the backend interprets the url to send the correct information to the client as to be able to load the site. It will check for permissions for the client to send the appropriate site to them.
+To access the website builder, the URL functions like this: `/<username>/<sitename>/`, where the backend interprets the URL to send the correct information to the client as to be able to load the site. It will check for permissions for the client to send the appropriate site to them.
