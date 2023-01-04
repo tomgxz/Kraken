@@ -1,3 +1,4 @@
+
 ## Analysis
 ### Problem identification
 With the internet constantly growing, and more and more people relying on it, the demand for websites is constantly increasing - it is now expected for businesses to have their own webpage that people can easily access. They can range in style from business portfolios, to online stores, to games. However, a lot of people may find it difficult to create a website for themselves or their organisation, and the task of manually programming it can seem very daunting. The main aim of this project is to develop a website that allows clients to produce their own website via a simple user interface, which alleviates the technical intricacies of HTML, CSS and JavaScript. Clients will be able to select from a variety of styles and themes - or create their own - upload media such as images and videos, and then interact with a drag and drop interface to organise a webpage. Each website they create would have it’s own page dedicated to it, with options to customise the styles of the site, ability to create, organise, and link together pages of the website, preview the website in a variety of display sizes, and of course add pre-made elements and edit the parameters of the elements in the site. The requirements for a client to be able to use it would also be low, due to the entire application being contained within its own website, meaning that the client would only need a web browser and internet connection. This means the client doesn't need to install software onto their computer, nor do they need to worry about software updates.
@@ -193,11 +194,43 @@ a styling section on the right hand side where you can edit all of the styling p
 
 ### User Interface Design
 
-![Alt 1](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/MainPageTemplate.png?raw=true)
+![Main Page Template diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/MainPageTemplate.png?raw=true)
 
-![Alt 2](https://raw.githubusercontent.com/Tomgxz/Kraken/main/.readmeassets/MainPageTemplate.png)
+This is the main "template" that all of the pages are built on. The main content will be displayed inside. Defining this in a separate file beforehand (`/templates/base.html`) means that the website has a more unified feel and it allows the user to always be able to go home and access the navigation menu. Defining it in a separate file also removes redundancy as the code for it only appears once.
 
-This is the main "template" that all of the pages are built on. The main content will be displayed inside.
+Home Button
+>The Home button, placed in the top left hand corner so that it is easy to find and matches how other websites do it; it meets the standardised expectations that the client has.
+
+Hamburger
+>The navigation menu has been hidden behind a hamburger at the bottom of the sidebar. This is because, due to the navbar being docked on the side, having lots of links on it would look messy and be hard to read. Therefore, you can click the hamburger and a modal will appear with all of those links. Clicking the hamburger again, or anywhere else on the screen, will close the modal. The reason why the navbar is on the side of the screen is not only a design choice, but it means that the website builder has more space vertically.
+
+Main Content
+>This area is where most of the interactive elements will be. These can be seen in subsequent diagrams below.
+
+
+#### Login and Signup Pages
+
+![Login/Signup page diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/LoginFormTemplate.png?raw=true)
+
+This shows the layout of the login and signup pages. Built inside the main template, it contains:
+- The header to tell the user what they are doing
+- The buttons to toggle between login and sign up
+- A warning message area for incorrect credentials or invalid input
+- The form area which is populated by inputs with labels next to them
+- The submit button at the bottom
+
+#### Homepage
+
+![Homepage diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/HomepageTemplate.png?raw=true)
+
+This shows the layout homepage once you've logged in, if you already have created a website. Built inside the main template, it contains:
+- The header, saying "Welcome, <username>" so that they know that it is the homepage
+- A grid of all of their current sites.
+> The grid will change the number of columns programatically, based on the display size. It contains square divs, each showing the title of the website, an icon informing the user as to whether it is public or private, and is colored based on the primary color of said website. The text color redefines itself based on what the background color of the div is, to make sure it is easy to read
+
+- A create new site button with the same dimensions as the site divs, at the end of the grid layout.
+
+
 
 ### Features
 To assemble the web pages, the clients will be able to drag and drop pre-designed elements categorised in groups such as headlines, quotes, forms, footers and more. The elements can be previewed in a sidebar next to the main canvas of the page, displayed with the correct styles of the website, from which they can be placed on the webpage. The website itself would be divided into sections, where you can drag and drop whole sections into the page or add individual elements into an existing section, such as text elements or images. After placing the elements into the canvas, the client can select the element to be able to interact with them, by moving them around, changing their styling (such as padding, size, coloring, transparency, position, font size, and many more) in a panel called the inspector panel, adding children to the element, or writing custom element-specific HTML, CSS, or JavaScript code that can be translated into the preview in real time. These custom elements / pieces of code will then be saved in the clients account, so that they can be used in other projects and/or published so that other clients can use them. The canvas will highlight elements with a border when they are hovered over, so that the client can easily see what the different elements are and how they can interact with them. The overall aim of the editor is for someone with very minimal knowledge, even none at all, about web design or programming to be able to interact with it, hence the WYSIWYG intuitiveness.

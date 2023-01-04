@@ -14,11 +14,11 @@
         <h2 class="text header large dark one">Welcome, {{current_user.name}}</h2>
     </div>
 
-    <div class="site-divs-container" style="display:flex;">
+    <div class="site-divs-container" style="display:flex;flex-wrap:wrap">
 
         {% for site in sites %}
 
-        <a class="site-div link notformatted" href="{{url_for('site_edit_home',name=site[0],site=site[1])}}" style="background-color:{{site[3]+'bb'}}">
+        <a class="site-div link notformatted" href="{{url_for('site_edit_home',name=site[0],site=site[1])}}" style="background-color:{%if site[3]%}{{site[3]+'bb'}}{%else%}var(--colors-primary){%endif%}">
 
             {% if site[2] %}
                 <div class="site-div-private-watermark" style="position: absolute;opacity: 0.5;font-size: 136px;right: 16px;top: 16px;">
