@@ -193,7 +193,7 @@ a styling section on the right hand side where you can edit all of the styling p
 
 ### User Interface Design
 
-![](./MainPageTemplate.png)
+![](/.readmeassets/MainPageTemplate.png)
 
 This is the main "template" that all of the pages are built on. The main content will be displayed inside.
 
