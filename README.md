@@ -207,7 +207,6 @@ Hamburger
 Main Content
 >This area is where most of the interactive elements will be. These can be seen in subsequent diagrams below.
 
-
 #### Login and Signup Pages
 
 ![Login/Signup page diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/LoginFormTemplate.png?raw=true)
@@ -223,13 +222,26 @@ This shows the layout of the login and signup pages. Built inside the main templ
 
 ![Homepage diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/HomepageTemplate.png?raw=true)
 
-This shows the layout homepage once you've logged in, if you already have created a website. Built inside the main template, it contains:
+This shows the layout of the homepage once you've logged in, if you already have created a website. Built inside the main template, it contains:
 - The header, saying "Welcome, <username>" so that they know that it is the homepage
 - A grid of all of their current sites.
 > The grid will change the number of columns programatically, based on the display size. It contains square divs, each showing the title of the website, an icon informing the user as to whether it is public or private, and is colored based on the primary color of said website. The text color redefines itself based on what the background color of the div is, to make sure it is easy to read
 
 - A create new site button with the same dimensions as the site divs, at the end of the grid layout.
 
+#### Site Home
+
+![Site home diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/SiteHomeTemplate.png?raw=true)
+
+This shows the layout of the site page for the owner (when they visit `/<username>/<sitename>`). Built inside the main template, it contains:
+- The header, displaying the name of the site so that the user knows which site they are editing.
+- Navigation options, a list of links that allow the user to navigate the menu system
+> The links include:
+Home, which will display a preview of the website in the content window
+Edit site, which links to the editor
+Site preferences, site styles and site settings, which all open setting menus in the content window.
+
+- The main content window, which will display content based on what is selected in the navigation options. By default, it will display a preview of the website, but can also display setting menus as well.
 
 
 ### Features
