@@ -1,0 +1,7 @@
+{
+  name:"Kraken",
+  version:"0.1.0",
+  description:"Web-hosted website builder",
+  author:"Thomas Lee",
+  license:"GNU"
+}
