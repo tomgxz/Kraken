@@ -79,34 +79,34 @@ My solution will have the option to preview and use templates in a similar way t
 
 Zyro also use an assistant to help the user understand how to use their editor.
 
-<img alt="research-zyro" src="https://lh5.googleusercontent.com/S0OwKYuCciTU8C4I51QQcsDQDKe0lVabMJD2n2Ui7IJzArSoj75-j-ZtjMi5lKPgAa_ceJ1--ye1Om8so6_IYAgfZ2oq_6Zs-zfHoRfAZhuPEK3wXVCIsji2G2cGuqRz_OSxcu55Tr83_jyC1DQY9bRkCbfJV_4G33Xs0neRtib_E04YPDhpai7njA" height="360"/>
+<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro1.png?raw=true" height="360"/>
 
-<img alt="research-zyro" src="https://lh5.googleusercontent.com/-vItU2Wcqt5wXqsJEOwun3I3FV0-nxIds5YcUWCuSZN2REVyfxGe3NZNopRUWhJjEHlcxUue96C5FlAbcNEihc7g-DCIHwGQown7olWi_zahY2EQhneDWTx4pHqdQKYaEb-0A6ShPD5hGGcI_NJqSu_muxIHVWFRFSkwXderRlTN_20GuyGywRl6Cw" height="360"/>
+<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro2.png?raw=true" height="360"/>
 
 Zyro have two ways of positioning objects; one of them is very similar to the way squarespace do it, with a grid positioning system, and the second is something they call smart layout. It instead uses only columns to position, and the elements can be moved up and down said columns freely and snap to other elements, like how many editors like photoshop might do. You can toggle the snapping to other elements in section settings
 
-<img alt="research-zyro" src="https://lh4.googleusercontent.com/ROxnCPT2jj-6Ug5JvXI-CjaNcU21iZ-ft--M3lo6c8iyZbGZpk2sBSNMGZpBN4sAxQo_TfPFDJc4YzYx-F4QewOFqq61-AnULblX94yGQ3yqZ2xwpa8y5jP1Y9femHEL9n8Ox5RBEXVNPMGhkJO4wGYbcv84Havc06gtyiU9ykedwRAYczvrEmLDRA" width="360"/>
+<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro3.png?raw=true" width="360"/>
 
-<img alt="research-zyro" src="https://lh6.googleusercontent.com/KE2qzng016t_fXdGx-TeMWaTWYkE1SNRNm9GMjwa30nXhYXy0tUrWUKZrI9gbWiXGy_hjjPQLYh34hTtaOWSYsVwVXLUcwpBvfFHoVCcG5RVlTExMD3OIOarKeUS3DYsMqVhF6_OB9ioO5oxE7AsGWWrZTIKSXQewR6pHnVqzwvvQEjczZJ9T8DrfQ" width="360"/>
-<img alt="research-zyro" src="https://lh6.googleusercontent.com/EtcJ4lja464xzMvE0qx-Gnen8zCXwMXhun60PIY0cMn-QKRUUnifacAO9sToMfSbCCcBpG0b58kTIk2_ChLJ8ylblGG7L6bcz4Xtgyk3GsTyV18ALhk-dvfoLGq1a18ifQ8ZWQSKwiE6ae6PIHrLHeZN_Eq6H0Z--uNyhJXTz3HZAS8iIBmfPMhzOg" width="360"/>
+<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro4.png?raw=true" width="360"/>
+<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro5.png?raw=true" width="360"/>
 
 Their image resizing system is nice. It makes use of the ```object-fit:cover``` property in the style of the image, and just changing the width and height attributes when being dragged, as explained later
 
-<img alt="research-zyro" src="https://lh6.googleusercontent.com/T50XFpiRq5sBvajAxl3lIYad4kgz2ykblrH28UB3hlxRzfY3Lr3nrveA305zbsylf9KfyLiPX8Y4APmACEa_vwZ4E675ED68PELTRgvtjbyKOZGLM0eSdCVhFQE6mT32bbXjZS_vTWArv4gJ9DzfVrNncZ6Ej1IUZhLAX64QaPnZaMDV0zat8lvRIg" width="360"/>
+<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro6.gif?raw=true" width="360"/>
 
 Something else zyro does is have all of their style attributes defined in one class, which rely on variables such as ```--grid-row```,```--m-grid-column```, and```--element-width``` that are defined in element.style (the style attribute of the HTML object), which have presumably been put their by JavaScript.
 
 This is the CSS class with all of the variable references:
 
-<img alt="research-zyro" src="https://lh4.googleusercontent.com/X7rGrjfPJxcZP9GrmGuyIrjOCsNrGFrjrJ-bqzdhgxXNLK1IY_hHV5tq-4bZROZ9uYr8CnvydM7Jk9AK37JJE_y04qEdm7vUvjNNnu_fI1QgpICINXxVlW5Uu47Kfktirshq8xm4xWBw4QzyBKZ6WMJN4fu8d0w8j-Lq7HXG3tU5CY2L6EriMYUA7A" width="360"/>
+<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro7.png?raw=true" width="360"/>
 
 This is the HTML style attribute with all of the variable declarations in it:
 
-<img alt="research-zyro" src="https://lh4.googleusercontent.com/3Bd9HaJjJ0osuEaZOOc0gaV47AllPCGZHU4wpQvH0andtH39rO4_LA3gDPntgIr82QiwKJam0IMXaBSeoHtCeAT8NSRd2S2cTTLVNdXEEBMcBTnkKp8iIGORGxufhbw84cPq60wZNiPv7Vaz89EYkecq22EaQlUEiuVvBcPlAyDuye98B37gKNwA2w" width="360"/>
+<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro8.png?raw=true" width="360"/>
 
 When moving elements around the layout, Zyro adds four variables to the element, top, left, width, and height, which they use to render the positioning of the element while you are moving it. When you release the element, these values are removed. This positioning would probably be done in JavaScript by taking the position of the cursor when you clicked on the element, getting the position of the element when you click on it, and then offsetting the position of the element by the amount you remove the cursor. Then, when you release the cursor, it runs the code to calculate the new grid positioning of the element. They also have a max width for desktop, where the element cannot be moved further.
 
-<img alt="research-zyro" src="https://lh4.googleusercontent.com/JhjuJvoNGNdeNjPF7M_VITx7KkcEB8yq_rKxjZ1yhtXaB3op08v4jYC9Vy8hfPBqZguR808YCAWWBDYlV4elGNSxsVs6zKfe_xtwyyTjJlPq8TPmZVoLsaO9PY1LomnxTBBoPXq_tLBRtkBQMCaXh_WDviL6wIgCSIPUcGnQY271jdRG_-5IJtmKNw" width="640"/>
+<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro9.png?raw=true" width="640"/>
 
 #### Initial concept consider this research
 My solution will be a web-based, multi user program where the user uses a grid-based, drag and drop system using pre-defined template elements that they can then customise. There will be a tutorial for when you first create an account to help new users understand the system. The user will be able to customise styles for their site, organise pages, access a library of predefined templates for widgets such as text, buttons, or links, and have control over the styling of each individual element in their pages. The aim is to have an easy learning curve and a low bar of entry for understanding so that anybody can use it.
