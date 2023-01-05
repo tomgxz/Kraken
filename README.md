@@ -243,6 +243,22 @@ Site preferences, site styles and site settings, which all open setting menus in
 
 - The main content window, which will display content based on what is selected in the navigation options. By default, it will display a preview of the website, but can also display setting menus as well.
 
+### Site Edit
+
+![Site edit diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/SiteEditTemplate.png?raw=true)
+
+This shows the layout of the site editor. Built inside the main template, it contains:
+- The navigation bar, docked to the left, which contains icons for different links. When hovered, these icons will display a label for what they will open.
+> Some of these options will be: Add section, add element, website pages, website styles, and website settings
+
+- The display options bar, docked to the top, will contain some settings for how the editor is shown, and are put here so that the user has easy access to them.
+> These will include things like display size, switching between desktop, tablet, and mobile aspect ratios, previewing the website, and other settings.
+
+- The selected element options, docked to the top, will contain quick-access site settings until an element is selected in the content window. When an element is selected, it will display style settings for that element.
+>  
+
+- The content window will display the site so that the user can edit. There is more information on the mechanics of this section at other parts of the report.
+
 
 ### Features
 To assemble the web pages, the clients will be able to drag and drop pre-designed elements categorised in groups such as headlines, quotes, forms, footers and more. The elements can be previewed in a sidebar next to the main canvas of the page, displayed with the correct styles of the website, from which they can be placed on the webpage. The website itself would be divided into sections, where you can drag and drop whole sections into the page or add individual elements into an existing section, such as text elements or images. After placing the elements into the canvas, the client can select the element to be able to interact with them, by moving them around, changing their styling (such as padding, size, coloring, transparency, position, font size, and many more) in a panel called the inspector panel, adding children to the element, or writing custom element-specific HTML, CSS, or JavaScript code that can be translated into the preview in real time. These custom elements / pieces of code will then be saved in the clients account, so that they can be used in other projects and/or published so that other clients can use them. The canvas will highlight elements with a border when they are hovered over, so that the client can easily see what the different elements are and how they can interact with them. The overall aim of the editor is for someone with very minimal knowledge, even none at all, about web design or programming to be able to interact with it, hence the WYSIWYG intuitiveness.
