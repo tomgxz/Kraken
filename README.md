@@ -38,38 +38,38 @@ The program uses abstraction as it removes the complex process of having to prog
 
 ### Research
 #### Existing solution - Squarespace
-In their template list, they also give the option to preview the website, with all of its functionality in a separate page. They allow you to view it in different sizes as well.
+In their template list, they give the option to preview the website, with all of its functionality in a separate page. They allow you to view it in different sizes as well.
 
-<img alt="research-squarespace-1" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace1.png?raw=true" height="360"/>
+<img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace1.png?raw=true" height="360"/>
 
-<img alt="research-squarespace-2" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace2.png?raw=true" height="360"/>
+<img alt="Squarespace research image: template preview in different sizes" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace2.png?raw=true" height="360"/>
 
 When first starting to edit the site, squarespace offer an assistant with some basic first steps to creating the website, which makes it easier for the client to be able to understand how the editor works and how to effectively use it.
 
-<img alt="research-squarespace-3" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace3.png?raw=true" height="360"/>
+<img alt="Squarespace research image: assistant" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace3.png?raw=true" height="360"/>
 
 Their design options include the styles, browser icon, 404 page, and custom css options. They can change the fonts, color scheme, global animations, spacing, and default styles for certain widgets.
 
-<img alt="research-squarespace-4" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace4.png?raw=true" height="360"/>
-<img alt="research-squarespace-5" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace5.png?raw=true" height="360"/>
+<img alt="Squarespace research image: design menu" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace4.png?raw=true" height="360"/>
+<img alt="Squarespace research image: style menu" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace5.png?raw=true" height="360"/>
 
 Their editor works in the conventional way of a grid based system, where you can place elements anywhere on the grid. It will then assign the item the style property ```grid-area:row-start/col-start/row-end/col-end```, or ```grid-area:y/x/height/width``` to define the position of the element. They have different attributes for different screen sizes, and you can edit both different styles by switching between laptop mode and phone mode.
 
-<img alt="research-squarespace-6" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace6.png?raw=true" width="640"/>
+<img alt="Squarespace research image: element drag and drop" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace6.png?raw=true" width="640"/>
 
-<img alt="research-squarespace-7" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace7.png?raw=true" height="360"/>
+<img alt="Squarespace research image: grid positioning css" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace7.png?raw=true" height="360"/>
 
 The website is split into sections, where each section contains a content wrapper with the grid positioning system inside.
 
-<img alt="research-squarespace-8" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace8.png?raw=true" width="640"/>
+<img alt="Squarespace research image: construction diagram" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace8.png?raw=true" width="640"/>
 
-<img alt="research-squarespace-9" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace9.png?raw=true" width="640"/>
+<img alt="Squarespace research image: grid container construction diagram" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace9.png?raw=true" width="640"/>
 
-<img alt="research-squarespace-10" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace10.png?raw=true" width="640"/>
+<img alt="Squarespace research image: grid construction diagram" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace10.png?raw=true" width="640"/>
 
 By selecting text, you get a popup that displays the text formatting options. Whenever you click on an element, you get a different popup that displays the design options for said element
 
-<img alt="research-squarespace-11" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace11.png?raw=true" width="640"/>
+<img alt="Squarespace research image: text edit and style popup" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace11.png?raw=true" width="640"/>
 
 ##### Parts I can apply to my project
 
@@ -79,34 +79,34 @@ My solution will have the option to preview and use templates in a similar way t
 
 Zyro also use an assistant to help the user understand how to use their editor.
 
-<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro1.png?raw=true" height="360"/>
+<img alt="Zyro research image: assistant image 1" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro1.png?raw=true" height="360"/>
 
-<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro2.png?raw=true" height="360"/>
+<img alt="Zyro research image: assistant image 2" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro2.png?raw=true" height="360"/>
 
 Zyro have two ways of positioning objects; one of them is very similar to the way squarespace do it, with a grid positioning system, and the second is something they call smart layout. It instead uses only columns to position, and the elements can be moved up and down said columns freely and snap to other elements, like how many editors like photoshop might do. You can toggle the snapping to other elements in section settings
 
-<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro3.png?raw=true" width="360"/>
+<img alt="Zyro research image: grid positioning system" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro3.png?raw=true" width="360"/>
 
-<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro4.png?raw=true" width="360"/>
-<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro5.png?raw=true" width="360"/>
+<img alt="Zyro research image: smart layout positioning system" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro4.png?raw=true" width="360"/>
+<img alt="Zyro research image: snap to guides setting" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro5.png?raw=true" width="360"/>
 
 Their image resizing system is nice. It makes use of the ```object-fit:cover``` property in the style of the image, and just changing the width and height attributes when being dragged, as explained later
 
-<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro6.gif?raw=true" width="360"/>
+<img alt="Zyro research image: image resize animation" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro6.gif?raw=true" width="360"/>
 
 Something else zyro does is have all of their style attributes defined in one class, which rely on variables such as ```--grid-row```,```--m-grid-column```, and```--element-width``` that are defined in element.style (the style attribute of the HTML object), which have presumably been put their by JavaScript.
 
 This is the CSS class with all of the variable references:
 
-<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro7.png?raw=true" width="360"/>
+<img alt="Zyro research image: css: positioning variable usage" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro7.png?raw=true" width="360"/>
 
 This is the HTML style attribute with all of the variable declarations in it:
 
-<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro8.png?raw=true" width="360"/>
+<img alt="Zyro research image: positioning variable declaration" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro8.png?raw=true" width="360"/>
 
 When moving elements around the layout, Zyro adds four variables to the element, top, left, width, and height, which they use to render the positioning of the element while you are moving it. When you release the element, these values are removed. This positioning would probably be done in JavaScript by taking the position of the cursor when you clicked on the element, getting the position of the element when you click on it, and then offsetting the position of the element by the amount you remove the cursor. Then, when you release the cursor, it runs the code to calculate the new grid positioning of the element. They also have a max width for desktop, where the element cannot be moved further.
 
-<img alt="research-zyro" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro9.png?raw=true" width="640"/>
+<img alt="Zyro research image: live position variable declaration" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro9.png?raw=true" width="640"/>
 
 #### Initial concept consider this research
 My solution will be a web-based, multi user program where the user uses a grid-based, drag and drop system using pre-defined template elements that they can then customise. There will be a tutorial for when you first create an account to help new users understand the system. The user will be able to customise styles for their site, organise pages, access a library of predefined templates for widgets such as text, buttons, or links, and have control over the styling of each individual element in their pages. The aim is to have an easy learning curve and a low bar of entry for understanding so that anybody can use it.
