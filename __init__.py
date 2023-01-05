@@ -12,6 +12,10 @@ Dependencies:
     npm install iframe-resizer --save
 """
 
+# TODO: Fix color picker for site style generation page
+# TODO: Add click listener to sections in dropdown
+# TODO: make sure you dont render a random site that doesnt exist (line 83)
+
 from flask import Flask, render_template, Blueprint, redirect, url_for, request, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -96,7 +100,7 @@ class Kraken():
         @login_required
         def main_home():
             if len(self.Site.query.filter_by(user_id=current_user.user_id).all()) > 0: # check to see if user has any sites
-                flash([[x.user_id,x.name,x.private,self.getSiteCfg(x.name)["color"]["primary"]] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])
+                flash([[x.user_id,x.name,x.private] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])
                 return render_template("home-sites.html")
             return render_template("home-nosite.html")
 
@@ -426,8 +430,7 @@ class Kraken():
         try: cfgContent.add_section(section)
         except: pass
 
-        for key in siteSettings["colorOptions"]:
-            cfgContent.set(section,key,siteSettings["colorOptions"][key])
+        for key in siteSettings["colorOptions"]: cfgContent.set(section,key,siteSettings["colorOptions"][key])
 
         section="font"
         try: cfgContent.add_section(section)
