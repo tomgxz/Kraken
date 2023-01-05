@@ -194,7 +194,7 @@ a styling section on the right hand side where you can edit all of the styling p
 
 ### User Interface Design
 
-![Main Page Template diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/MainPageTemplate.png?raw=true)
+![Main Page Template diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/templates/MainPageTemplate.png?raw=true)
 
 This is the main "template" that all of the pages are built on. The main content will be displayed inside. Defining this in a separate file beforehand (`/templates/base.html`) means that the website has a more unified feel and it allows the user to always be able to go home and access the navigation menu. Defining it in a separate file also removes redundancy as the code for it only appears once.
 
@@ -209,7 +209,7 @@ Main Content
 
 #### Login and Signup Pages
 
-![Login/Signup page diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/LoginFormTemplate.png?raw=true)
+![Login/Signup page diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/templates/LoginFormTemplate.png?raw=true)
 
 This shows the layout of the login and signup pages. Built inside the main template, it contains:
 - The header to tell the user what they are doing
@@ -220,7 +220,7 @@ This shows the layout of the login and signup pages. Built inside the main templ
 
 #### Homepage
 
-![Homepage diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/HomepageTemplate.png?raw=true)
+![Homepage diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/templates/HomepageTemplate.png?raw=true)
 
 This shows the layout of the homepage once you've logged in, if you already have created a website. Built inside the main template, it contains:
 - The header, saying "Welcome, <username>" so that they know that it is the homepage
@@ -231,7 +231,7 @@ This shows the layout of the homepage once you've logged in, if you already have
 
 #### Site Home
 
-![Site home diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/SiteHomeTemplate.png?raw=true)
+![Site home diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/templates/SiteHomeTemplate.png?raw=true)
 
 This shows the layout of the site page for the owner (when they visit `/<username>/<sitename>`). Built inside the main template, it contains:
 - The header, displaying the name of the site so that the user knows which site they are editing.
@@ -245,7 +245,7 @@ Site preferences, site styles and site settings, which all open setting menus in
 
 ### Site Edit
 
-![Site edit diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/SiteEditTemplate.png?raw=true)
+![Site edit diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/templates/SiteEditTemplate.png?raw=true)
 
 This shows the layout of the site editor. Built inside the main template, it contains:
 - The navigation bar, docked to the left, which contains icons for different links. When hovered, these icons will display a label for what they will open.
