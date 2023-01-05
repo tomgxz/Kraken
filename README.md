@@ -40,36 +40,36 @@ The program uses abstraction as it removes the complex process of having to prog
 #### Existing solution - Squarespace
 In their template list, they also give the option to preview the website, with all of its functionality in a separate page. They allow you to view it in different sizes as well.
 
-<img alt="research-squarespace-4" src="https://lh6.googleusercontent.com/LHJzOfj9A_6wXIMYhHQR0DkdHhVzN4nSDL6LTghu3nUUsvGNFrW--MyvAcaikYt_5rVs_cMYNWHJ6I8Au0KfoqsN03BZ6rbcl7s9dDOFqjbBpaqkUF6Zqjv-YK_bccaihznPTZ7nNlTjejYNybUOsvKTckaHC1ipN8H03MCTuP2AJgFwb5cke2ml" height="360"/>
+<img alt="research-squarespace-1" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace1.png?raw=true" height="360"/>
 
-<img alt="research-squarespace-5" src="https://lh6.googleusercontent.com/4deX5c1Ep9XPrPXPD_VwahIqANJZ4BD7kuAuv3wPYCLB2m5Ee7c7b0mkCNz9FNKT66LvE56sxLwrm_b6HCLGB8u3Yni_M6SI2xy8HPriRcbq_xW9M3tnVyWpKOXtkn3gDyMknPDyG6-5GzNZeP7PHA" height="360"/>
+<img alt="research-squarespace-2" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace2.png?raw=true" height="360"/>
 
 When first starting to edit the site, squarespace offer an assistant with some basic first steps to creating the website, which makes it easier for the client to be able to understand how the editor works and how to effectively use it.
 
-<img alt="research-squarespace-6" src="https://lh4.googleusercontent.com/PGXuevk3IgcYNprwAzUvwxBSuKW7wBpZxZWfwz2s6TCFkmfOMv3V9t6G01B9OVCgWLkHZftd1DWNEvi6syy9tMG2fZxdtFm3Fz_-TC3A0InOLuP-Vz3ndGdkC0KTpGelubJ9nLROLv1lnTGYNzLwfA" height="360"/>
+<img alt="research-squarespace-3" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace3.png?raw=true" height="360"/>
 
 Their design options include the styles, browser icon, 404 page, and custom css options. They can change the fonts, color scheme, global animations, spacing, and default styles for certain widgets.
 
-<img alt="research-squarespace-7" src="https://lh5.googleusercontent.com/zgryJycyYJV2YPL6xErutkA_QbplHhED2QA9wS0z0ROEfVD4BassWMh4O0iE_BU6z_EmHfYba6SbrYZwMmV6jR9rM7FznuKJC6etSVPp5u68bRMq7czWlCk2caYi_uG7utvAdtVvoHqCxv1WBVH73g" height="360"/>
-<img alt="research-squarespace-8" src="https://lh5.googleusercontent.com/K8GbumvM658mweDK5wKAUe1wtP9WxKkPHQAHCNxvpUJK2LtwrOwQGXr9X3VZrqzTRggiK6ID5ffxYYwHjmKVpqqHsHgrwDtG217NxGFSeOa2ExQy_PHBkkTAoKBwgwoJ__phgCoNg7bteLyIneFXMf8" height="360"/>
+<img alt="research-squarespace-4" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace4.png?raw=true" height="360"/>
+<img alt="research-squarespace-5" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace5.png?raw=true" height="360"/>
 
 Their editor works in the conventional way of a grid based system, where you can place elements anywhere on the grid. It will then assign the item the style property ```grid-area:row-start/col-start/row-end/col-end```, or ```grid-area:y/x/height/width``` to define the position of the element. They have different attributes for different screen sizes, and you can edit both different styles by switching between laptop mode and phone mode.
 
-<img alt="research-squarespace-9" src="https://lh6.googleusercontent.com/YApgdzdXYzdDGzf9MwE5GFovaajl1mqd1RPN0PC4xRLXweQ58AwLSMzB4Vf4RoBVdz3UaRN8PHxfqbsk96rbsd5QTrqh2FSrpq7bs2d67vWcjLZ6uo3wwSFYn80a2fN9A4VdYpR6ZU6fGGmOoHizFoxS2zYPM1h8R9Cs-bEdKkDQHNbxs00rvamDvg" width="640"/>
+<img alt="research-squarespace-6" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace6.png?raw=true" width="640"/>
 
-<img alt="research-squarespace-10" src="https://lh3.googleusercontent.com/jSX67py4IMFc6OQrQ6o5oTeOg-l6vrrfNL8CYyeM_JgzzVRGf86uoSX_a8g5U90kRLg4VyRDx_AetbDcTuT60m2Q31tvln44fwl410JQpoLY-9OT1hJCVh-EU1BwbuazbaQeeEftVV2Iu2HZHck8Fj3I-hywukOP0_PYtnQOtWbfMe7iDOdXCfuclA" height="360"/>
+<img alt="research-squarespace-7" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace7.png?raw=true" height="360"/>
 
 The website is split into sections, where each section contains a content wrapper with the grid positioning system inside.
 
-<img alt="research-squarespace-11" src="https://lh3.googleusercontent.com/cf-XLNirmnX0qBJrjkLiNOIkbeyYlHB_KrMsb5ARvDERoAm9n7JEG2OcBxSLY9yNAD__O-ojjEVHdGXMFkzaFGX5Yn5qnyN8ty6HYBsHOuJXbZ7JrvRPEHIvhiOW-BMl1ngIeaFt8cJkFqSr9zoxxVMD6VmCUGmzN2u93t84la5xtAWt107xYE4tdQ" width="640"/>
+<img alt="research-squarespace-8" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace8.png?raw=true" width="640"/>
 
-<img alt="research-squarespace-12" src="https://lh4.googleusercontent.com/1AEcECEM1wk74DGWqVbg5gmNWo_Dt2RfCAWYsGhKZrwxzH1uH6j7kR3x_Zo7ASvQawiR1Iw9MG_lzPZVkke-GJq2te6OyAxomxVFsiiAma-2W-uHxXKQF3b9-J4ML6w8xncG2v4lJGFm7virRDFAithmPBkVn6Xv2SVDhrND8agB4ihh2a9G6d-ahg" width="640"/>
+<img alt="research-squarespace-9" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace9.png?raw=true" width="640"/>
 
-<img alt="research-squarespace-13" src="https://lh3.googleusercontent.com/BS4wFAn7mCikSTD8ObNh9PF6J_AMIjUTvY3ceB3vDF8MQoZSuA6_YlixNiLTPSOGyv7b_A3piKPOyKAzAQTA9FCY50FnmBN-HtzlPzGU_I92nVELGq2Y0lY54XFQfyYfUMx5Z04CB8Z4VHMLbDL7zWVCNr7TJdiRsic17qC_X9emTCwltI2z85D7zg" width="640"/>
+<img alt="research-squarespace-10" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace10.png?raw=true" width="640"/>
 
 By selecting text, you get a popup that displays the text formatting options. Whenever you click on an element, you get a different popup that displays the design options for said element
 
-<img alt="research-squarespace-14" src="https://lh3.googleusercontent.com/ev5HPHTQPOsLEgQW5NfRt-sSZQ3uM5pD8cclTsFAjOaMfMQ88n5OF7gRm1mlKnAeD0mhCTwekKXL5DZtyhSas_GvTOG6Qr0DF5indKilMvJLXv9cLgwE6OoBgGlc98sFSU6s6FBTN1o8-sG7-MCU4RjDfMPPOTsduPwuthf8CDzyK4m8eVGCBv22ww" width="640"/>
+<img alt="research-squarespace-11" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace11.png?raw=true" width="640"/>
 
 ##### Parts I can apply to my project
 
