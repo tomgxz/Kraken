@@ -243,7 +243,7 @@ Site preferences, site styles and site settings, which all open setting menus in
 
 - The main content window, which will display content based on what is selected in the navigation options. By default, it will display a preview of the website, but can also display setting menus as well.
 
-### Site Edit
+#### Site Edit
 
 ![Site edit diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/templates/SiteEditTemplate.png?raw=true)
 
