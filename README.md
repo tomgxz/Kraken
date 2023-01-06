@@ -40,9 +40,7 @@ The program uses abstraction as it removes the complex process of having to prog
 #### Existing solution - Squarespace
 In their template list, they give the option to preview the website, with all of its functionality in a separate page. They allow you to view it in different sizes as well.
 
-<img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace1.png?raw=true" height="360"/>
-
-<img alt="Squarespace research image: template preview in different sizes" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace2.png?raw=true" height="360"/>
+<img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace12.png?raw=true" height="360"/>
 
 When first starting to edit the site, squarespace offer an assistant with some basic first steps to creating the website, which makes it easier for the client to be able to understand how the editor works and how to effectively use it.
 
@@ -50,8 +48,7 @@ When first starting to edit the site, squarespace offer an assistant with some b
 
 Their design options include the styles, browser icon, 404 page, and custom css options. They can change the fonts, color scheme, global animations, spacing, and default styles for certain widgets.
 
-<img alt="Squarespace research image: design menu" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace4.png?raw=true" height="360"/>
-<img alt="Squarespace research image: style menu" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace5.png?raw=true" height="360"/>
+<img alt="Squarespace research image: design menu" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace13.png?raw=true" height="360"/>
 
 Their editor works in the conventional way of a grid based system, where you can place elements anywhere on the grid. It will then assign the item the style property ```grid-area:row-start/col-start/row-end/col-end```, or ```grid-area:y/x/height/width``` to define the position of the element. They have different attributes for different screen sizes, and you can edit both different styles by switching between laptop mode and phone mode.
 
@@ -279,7 +276,7 @@ ARIA (Accessible Rich Internet Applications) attributes will be used throughout 
 
 To make it easier for users to navigate, and also to reduce cognitive load on users, the site will have a deliberatley simple structure, with many features being hidden behind modals or popup boxes. Elements such as the home button will be placed in conventional positions to make it easier for the user to find.
 
-### Stakeholder input :D
+### Stakeholder input :D  
 
 
 
