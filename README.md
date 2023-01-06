@@ -259,6 +259,54 @@ This shows the layout of the site editor. Built inside the main template, it con
 
 - The content window will display the site so that the user can edit. There is more information on the mechanics of this section at other parts of the report.
 
+### Usability
+The usability features that I have considered make sure that the program is easy to use for as many users as possible, including those with accessibility issues. All of the buttons in the designs are large and easy to notice. All times when font selection or styling is used, previews for what the font looks like are shown so that the user can clearly see what it will look like. This functionality is also borrowed by other styling and positioning functions in the editor. All colors will be checked to make sure they have a large enough contrast ratio, so that people with color deficiencies will see an adequate contrast between the text and the background. This includes elements such as color pickers, where the label text that shows the hex code will change color depending on the background, to make sure that it is still readable. [WebAIM](https://webaim.org/resources/contrastchecker/), a website used to improve accessibility on the internet, will be used to make sure that their is enough contrast in the text. Furthermore, links in text will also be checked to make sure that they have at least a 3:1 contrast ratio with the surrounding text, so that they are visible enough. Quoted from [WebAIM](https://webaim.org/intro/#types),
+> "Often, these [accessibility features] promote overall usability, beyond people with disabilities. Everyone benefits from helpful illustrations, logically-organized content and intuitive navigation. Similarly, while users with disabilities need captions and transcripts, they can be helpful to anyone who uses multimedia in silent or noisy environments."
+
+The basic accessibility requirements that are suggested, and that could apply to this project, include:
+
+|  |  |
+|--|--|
+|Provide equivalent alternative text|Provides text for non-text elements. It is especially helpful for people who are blind and rely on a screen reader to have the content of the website read to them.|
+|Create logical document structure|Headings, lists, and other structural elements provide meaning and structure to web pages. They can also facilitate keyboard navigation within the page.|
+|Ensure users can complete and submit all forms|Every form element (text field, checkbox, dropdown list, etc.) needs a programmatically-associated label. There may be some text that is not focused by tabbing through the form. Users must be able to submit the form.|
+|Write links that make sense out of context|Every link should make sense when read by itself. Screen reader users may choose to read only the links on a web page.|
+|Do not rely on color alone to convey meaning|Color can enhance comprehension but cannot alone convey meaning. That information may not be available to a person who is color blind and will be unavailable to screen reader users.|
+|Make sure content is clearly written and easy to read|Write clearly, use clear fonts, and use headings and lists logically.|
+|Design to standards|Valid and conventional HTML & CSS promote accessibility by making code more flexible and robust. It also means that screen readers can correctly interpret some elements of the website.|
+
+ARIA (Accessible Rich Internet Applications) attributes will be used throughout the website to allow screen readers to navigate the website. These attributes can be used by assistive technologies, such as screen readers, to provide a more detailed and customized experience for users. It is particularly useful for improving the accessibility of dynamic content and advanced user interface controls, such as those that are used in rich internet applications.
+
+To make it easier for users to navigate, and also to reduce cognitive load on users, the site will have a deliberatley simple structure, with many features being hidden behind modals or popup boxes. Elements such as the home button will be placed in conventional positions to make it easier for the user to find.
+
+### Stakeholder input :D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Features
 To assemble the web pages, the clients will be able to drag and drop pre-designed elements categorised in groups such as headlines, quotes, forms, footers and more. The elements can be previewed in a sidebar next to the main canvas of the page, displayed with the correct styles of the website, from which they can be placed on the webpage. The website itself would be divided into sections, where you can drag and drop whole sections into the page or add individual elements into an existing section, such as text elements or images. After placing the elements into the canvas, the client can select the element to be able to interact with them, by moving them around, changing their styling (such as padding, size, coloring, transparency, position, font size, and many more) in a panel called the inspector panel, adding children to the element, or writing custom element-specific HTML, CSS, or JavaScript code that can be translated into the preview in real time. These custom elements / pieces of code will then be saved in the clients account, so that they can be used in other projects and/or published so that other clients can use them. The canvas will highlight elements with a border when they are hovered over, so that the client can easily see what the different elements are and how they can interact with them. The overall aim of the editor is for someone with very minimal knowledge, even none at all, about web design or programming to be able to interact with it, hence the WYSIWYG intuitiveness.
