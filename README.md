@@ -278,8 +278,105 @@ To make it easier for users to navigate, and also to reduce cognitive load on us
 
 ### Stakeholder input :D  
 
+### How I'm going to code it: python, flask, html, sql, etc
+
+### Data storage
+There will be two different methods of storing information for the website:
+- The multi-user system, including the information about the users' sites, will be stored in an SQL database using the `flask_sqlalchemy` python library, so that it can easily be integrated into the flask backend.
+- The server will store the users' sites, including the HTML, CSS and JavaScript code.
+
+#### SQL database storage
+I have decided to use SQL to store the multi-user information as I have previous experience using SQL, and therefore it will be easy for me to setup and use. It is also useful due to its entity-relationship capability, meaning it will be well suited for storing information about users' sites. It also has a python library that integrates it to the current backend library that I am using, flask. This means that there will be less work for me to do, as most of the functionality that I will need is already built in and tested.
+
+This is the planned entity relationship diagram for the SQL database. It contains two entities, USER and SITE, that are connected with a one-to-many relationship with user_id being the foreign key in SITE.
+
+```mermaid
+erDiagram  
+
+USER ||--o{ SITE : user_id
+USER {
+string user_id
+string name
+string name
+string email
+string password
+string bio
+string url
+bool archived
+int tabpreference
+}
+
+SITE {
+int site_id
+string user_id
+string name
+datetime datecreated
+bool private
+bool deleted
+text sitepath
+}
+```
+
+To incorporate a multi-user editing system for certain sites, the entity relationship diagram for the database will look like this. However, this may not be implemented due to time constraints.
+
+It contains three entities, USER, SITE and LINK. It is similar to the previous one, with a linking table added between the two original entities, allowing for multiple users to be able to edit multiple sites. Each LINK also contains information about the USER's permissions for the SITE.
+
+```mermaid
+erDiagram  
+
+USER ||--o{ LINK: user_id
+USER {
+string user_id
+string name
+string name
+string email
+string password
+string bio
+string url
+bool archived
+int tabpreference
+}
+
+LINK {
+string user_id
+int site_id
+string role
+bool canedit
+bool canview
+}
+
+SITE ||--o{ LINK: site_id
+SITE {
+int site_id
+string user_id
+string name
+datetime datecreated
+bool private
+bool deleted
+text sitepath
+}
+```
+
+#### Server-side file storage
+For storage of the actual user website files, I have chosen server-side storage as it can't be easily stored in SQL. It is all stored server-side so that the user can access their files from any computer with an internet connection. The way I intend to store the site information is shown below.
+
+```mermaid
+graph TD
+    A[userData] --> B[username]
+    B --> C[sites]
+    C --> D[sitename]
+    D --> G[files]
+    D --> site.ini
+    D --> siteDat.json
+    G --> 1.html
+    G --> 2.html
+    G --> 3.html
+```
 
 
+
+### Algorithms
+The main parts of this solution are using a SQL database to store information about the multi-user system, the UI design and interactivity, and the actual drag-and-drop editor.
 
 
 
