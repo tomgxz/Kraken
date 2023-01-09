@@ -53,8 +53,7 @@ class Kraken():
         self.Site=Site
 
         @self.loginManager.user_loader
-        def loadUser(user_id):
-            return self.User.query.get(user_id)
+        def loadUser(user_id): return self.User.query.get(user_id)
 
         # start the flask server
         self.app.run(host=host,port=port)
