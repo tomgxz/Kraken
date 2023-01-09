@@ -291,30 +291,31 @@ I have decided to use SQL to store the multi-user information as I have previous
 This is the planned entity relationship diagram for the SQL database. It contains two entities, USER and SITE, that are connected with a one-to-many relationship with user_id being the foreign key in SITE.
 
 ```mermaid
-erDiagram  
+%%{'init':{'theme': 'base','themeVariables':{'darkmode':true,'primaryColor': '#0d1117','primaryTextColor': '#c9d1d9','primaryBorderColor': '#80b1db','fontFamily':'-apple-system,BlinkMacSystemFont,Segoe UI,Noto Sans,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'}}}%%
 
-USER ||--o{ SITE : user_id
-USER {
-string user_id
-string name
-string name
-string email
-string password
-string bio
-string url
-bool archived
-int tabpreference
-}
+erDiagram
+    USER ||--o{ SITE : user_id
+    USER {
+    string user_id
+    string name
+    string name
+    string email
+    string password
+    string bio
+    string url
+    bool archived
+    int tabpreference
+    }
 
-SITE {
-int site_id
-string user_id
-string name
-datetime datecreated
-bool private
-bool deleted
-text sitepath
-}
+    SITE {
+    int site_id
+    string user_id
+    string name
+    datetime datecreated
+    bool private
+    bool deleted
+    text sitepath
+    }
 ```
 
 To incorporate a multi-user editing system for certain sites, the entity relationship diagram for the database will look like this. However, this may not be implemented due to time constraints.
