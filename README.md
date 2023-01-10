@@ -362,8 +362,6 @@ text sitepath
 For storage of the actual user website files, I have chosen server-side storage as it can't be easily stored in SQL. It is all stored server-side so that the user can access their files from any computer with an internet connection. The way I intend to store the site information is shown below.
 
 ```mermaid
-%%{'init':{'theme': 'base','themeVariables':{'darkmode':true,'primaryColor': '#0d1117',"secondaryColor": "#0d1117","tertiaryColor": "#0d1117",'primaryTextColor': '#c9d1d9','primaryBorderColor': '#80b1db','fontFamily':'-apple-system,BlinkMacSystemFont,Segoe UI,Noto Sans,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'}}}%%
-
 graph TD
     A[userData] --> B[username]
     B --> C[sites]
