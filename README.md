@@ -280,6 +280,65 @@ To make it easier for users to navigate, and also to reduce cognitive load on us
 
 ### How I'm going to code it: python, flask, html, sql, etc
 
+### Website structure and backend
+#### Flask
+I have decided to use the flask python library as the backend for this website, as I have prior experience in using it and it suits my project. It is well documented online, relatively lightweight, and easy to use. Although it doesn't include as many built-in features as other libraries (such as Django), there are plenty of other python libraries, such as `flask-login` and `flask-sqlalchemy` that can add in all of the functionality that is missing from the framework.
+
+#### Jinja
+I have decided to use the Jinja2 template syntax for the storage of the HTML files, as it has in-built functionality with flask, via use of the `flask.render_template()` function. All of the HTML files used for the website will be stored in the `templates/` folder in the server directory.
+
+Jinja is a template system built for Python and Flask (other frameworks have different template systems). It makes use of templates to reduce duplicated code and make it easier to develop. It means that you can use logic operations in the template file, with functionality for `if`, `while`, `for`, and variable declaration and usage.
+
+An example system of a Jinja file structure might look like:
+
+##### base.html
+```HTML
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jinja Example</title>
+  </head>
+  <body>
+
+    {% block content %}
+    {% endblock %}
+
+  </body>
+</html>
+```
+##### itemlist.html
+```HTML
+{% extends "base.html" %}
+
+{% block content%}
+
+<h1>A list of items</h1>
+<ul>
+{% for item in items %}
+  <li>{{ item }}</li>
+{% endfor %}
+
+{% endblock %}
+```
+##### main.py
+```python
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    items = ["apple", "banana", "cherry"]
+    return render_template("itemlist.html", items=items)
+```
+
+In `base.html`, you can see the `{% ... %}`, which states that this is a control statement. In this case, it defines that the `block` referenced as `content` is to be inserted here. You can have multiple blocks with different names so that a child file can add multiple blocks of content in different places throughout the template.
+
+In `itemlist.html`, you can see that it `extends base.html`, meaning that it is using `base.html` as a template, and looking at that file to find where to insert the code inside `block content`. It also makes use of a `for` loop to programatically add list items to the website, based on the list `items`, that is imported in `main.py`, in the `render_template()` command. The `{{ ... }}` indicates that the contents are a Jinja expression.
+
+#### HTML, CSS and JavaScript
+As with a lot of websites, I will be building it using HTML (via Jinja's template generation), CSS and JavaScript. This is because they are all web standards, and are therefore supported by all modern web browsers and devices (although devices is not much of an issue as it will run better on a high resolution landscape display). It will allow for SEO compatibility, it is open source (and therefore free), and it is highly versatile and can accomplish a lot. I am also very competent with HTML, CSS & JavaScript, and have a lot of experience programming with them.
+
 ### Data storage
 There will be two different methods of storing information for the website:
 - The multi-user system, including the information about the users' sites, will be stored in an SQL database using the `flask_sqlalchemy` python library, so that it can easily be integrated into the flask backend.
