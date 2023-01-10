@@ -374,7 +374,14 @@ graph TD
     G --> 3.html
 ```
 
+The `username` and `sitename` folders will be named by the primary keys of the data in the SQL database to avoid any duplicate folder names.
 
+The `files` folder will contain all of the HTML files, named sequentially, and any custom CSS and JavaScript files that the user has added.
+
+The `siteDat.json` file will contain all the information about the site file structure, referencing which page requires which HTML file in the `files` folder, and which CSS and JavaScript code blocks need to be imported.
+> The server will have a store of CSS and JavaScript that will format every template element and section.
+
+The site.ini config file will contain all of the information about the site settings, theming and preferences.
 
 ### Algorithms
 The main parts of this solution are using a SQL database to store information about the multi-user system, the UI design and interactivity, and the actual drag-and-drop editor.
