@@ -2,6 +2,7 @@
 ## Analysis
 ### Problem identification
 With the internet constantly growing, and more and more people relying on it, the demand for websites is constantly increasing - it is now expected for businesses to have their own webpage that people can easily access. They can range in style from business portfolios, to online stores, to games. However, a lot of people may find it difficult to create a website for themselves or their organisation, and the task of manually programming it can seem very daunting. The main aim of this project is to develop a website that allows clients to produce their own website via a simple user interface, which alleviates the technical intricacies of HTML, CSS and JavaScript. Clients will be able to select from a variety of styles and themes - or create their own - upload media such as images and videos, and then interact with a drag and drop interface to organise a webpage. Each website they create would have it’s own page dedicated to it, with options to customise the styles of the site, ability to create, organise, and link together pages of the website, preview the website in a variety of display sizes, and of course add pre-made elements and edit the parameters of the elements in the site. The requirements for a client to be able to use it would also be low, due to the entire application being contained within its own website, meaning that the client would only need a web browser and internet connection. This means the client doesn't need to install software onto their computer, nor do they need to worry about software updates.
+
 #### Stakeholders
 The clients for this software would be businesses or individuals who require a website but do not have the technical competency or time to build one themselves.
 
@@ -31,8 +32,10 @@ The problem can be broken down into smaller tasks that need to be run for the pr
 > They would either be stored in HTM, CSS, and JS files, which would remove the need to convert them, or they could be stored all in XML files, which would make accessing the files easier: the program could convert the XML elements into HTML, CSS, and JS to allow it to be showed. This would allow for the storage of more information about the site and elements, and would mean it could all be in one file, including all the separate pages. The
 - Converting the user's site into runnable HTML, CSS and JavaScript, so that they can download and use it.
 > There would need to be a way for JS to do it so that the user can edit the site in the editor, and a way for the server (written in python) to do it as well
+
 ##### Divide and conquer
 These smaller steps are all doable on their own, and combining them together mould make a divide and conquer approach. The advantage of it being coded in a modular way such as this is that each part can be tested and built on its own, without relying on other parts of the project.
+
 ##### Abstraction
 The program uses abstraction as it removes the complex process of having to program code by transferring it into a more simple, graphical interface. This removes the need of the client to have knowledge and experience in programming and therefore opening the market to a much larger audience.
 
@@ -69,11 +72,9 @@ By selecting text, you get a popup that displays the text formatting options. Wh
 <img alt="Squarespace research image: text edit and style popup" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace11.png?raw=true" width="640"/>
 
 ##### Parts I can apply to my project
-
 My solution will have the option to preview and use templates in a similar way to how Squarespace does it, along with their grid positioning system, which is, for lack of a better phrase, an "industry standard." There will also be a similar formatting option setup, but in will be docked on the right hand side with all of the formatting in the same place.
 
 #### Existing solution - Zyro
-
 Zyro also use an assistant to help the user understand how to use their editor.
 
 <img alt="Zyro research image: assistant image 1" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro1.png?raw=true" height="360"/>
@@ -117,21 +118,11 @@ I should probably contact the "stakeholders" at this point as I'm developing ide
 
 #### Hardware Requirements
 A computer capable of accessing the internet.
+
 #### Software Requirements
 A JavaScript-compatible web browser and an active internet connection.
 
 ### Stakeholder requirements
-#### Design
-Requirement|Explanation
--|-|
-Thing 1|Explanation
-Thing 2|Explanation
-
-#### Functionality
-Requirement|Explanation
--|-|
-Thing 1|Explanation
-Thing 2|Explanation
 
 ### Success Criteria
 
@@ -185,10 +176,7 @@ a styling section on the right hand side where you can edit all of the styling p
 - They can export the site, which will download a different zip file that contains all of the internal files that Kraken uses to run the editor for the page. This means that the user can download backups and send their websites to other people.
 >
 
-
-
 ## Design
-
 ### User Interface Design
 
 ![Main Page Template diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/templates/MainPageTemplate.png?raw=true)
