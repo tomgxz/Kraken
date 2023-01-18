@@ -452,6 +452,11 @@ These will define which functionalities can be used for each element.
 graph TD
     A[data-kraken-resizable is clicked] --> B[Render resize box]
 
+    B --> a["In the parent element of\n the selected element, add\n 12 elements with absolute\n positions"]
+    a --> b["Using CSS, make four\n of them edges, and\n eight of them boxes"]
+    a --> c["Using JS, position them\n so that they create a\n bounding box around\n the element"]
+
+
     B --> D["For each edge,\nadd event listeners"]
 
     D --> M["When resize box edge\nis clicked (and held)"]
