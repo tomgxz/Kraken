@@ -266,8 +266,6 @@ To make it easier for users to navigate, and also to reduce cognitive load on us
 
 ### Stakeholder input :D  
 
-### How I'm going to code it: python, flask, html, sql, etc
-
 ### Website structure and backend
 #### Flask
 I have decided to use the flask python library as the backend for this website, as I have prior experience in using it and it suits my project. It is well documented online, relatively lightweight, and easy to use. Although it doesn't include as many built-in features as other libraries (such as Django), there are plenty of other python libraries, such as `flask-login` and `flask-sqlalchemy` that can add in all of the functionality that is missing from the framework.
@@ -431,7 +429,57 @@ The `siteDat.json` file will contain all the information about the site file str
 The `site.ini` config file will contain all of the information about the site settings, theming and preferences.
 
 ### Algorithms
-The main parts of this solution are using a SQL database to store information about the multi-user system, the UI design and interactivity, and the actual drag-and-drop editor.
+The main parts of this solution are using a SQL database to store information about the multi-user system, the UI design and interactivity, and the actual drag-and-drop editor, with the drag-and-drop editor being the most complex. The main things that the drag-and-drop editor should be able to do are:
+- Display a resize box around a clicked element.
+- Resize an element when its resize box is dragged.
+- Preview a live display of a dragged element (moving with the cursor), along with the resize box rendering where the element will land when dropped (snapping to the grid).
+- Display a set of styling features in the right hand menu for a selected element or section.
+- Display a set of options next to a selected element.
+- Display a text editor for a selected element with editable text.
+- Display a set of options in the bottom corner of a selected section.
+- Preview a live display of a dragged section, and renumber the sections into their new positions when dropped.
+
+In the JavaScript code, each element will have a set of event listeners on them, defined by data tags in the HTML elements:
+- `data-kraken-resizable`
+- `data-kraken-draggable`
+- `data-kraken-editable-text`
+- `data-kraken-editable-style`
+
+These will define which functionalities can be used for each element.
+
+##### Resize box
+```mermaid
+graph TD
+    A[data-kraken-resizable is clicked] --> B[Render resize box]
+
+    B --> D["For each edge,\nadd event listeners"]
+
+    D --> M["When resize box edge\nis clicked (and held)"]
+    M --> N["Store cursor's current\nposition to work out the\nnew positioning values"]
+    N --> O["Add temporary positioning\nattributes (left right top and\nbottom) to the resize box\nelements and the element itself"]
+    M --> P["When the cursor's\nposition changes"]
+    P --> Q["Update the position of the\n resize box so that it snaps\n to the nearest grid box"]
+    P --> R["Update the position of\n the element so that it\n follows the cursor"]
+    M --> S["When the cursor is released"]
+    S --> T["Set the element's positon\nto the closest grid box to\nthe cursor, and re-render\nthe resize box to match"]
+
+    B --> C["For each corner,\nadd event listers"]
+
+    C --> E["When resize box corner\nis clicked (and held)"]
+    E --> F["Store cursor's current\nposition to work out the\nnew positioning values"]
+    F --> G["Add temporary width, height,\nand positioning attributes to\nthe resize box elements\nand the element itself"]
+    E --> H["When the cursor's\nposition changes"]
+    H --> I["Update the size of the\nresize box elements so that\nit snaps to the grid box\nclosest to the cursor"]
+    H --> J["Update the content of\nthe element to match the\nresize box's new size"]
+    E --> K["When the cursor is released"]
+    K --> L["Take the temporary variables\nand store them as the new\nwidth, height, and position\nfor the element"]
+```
+
+##### Dragging and dropping elements
+##### Dragging and dropping sections
+##### Displaying element and section options
+##### Displaying text editors
+
 
 
 
