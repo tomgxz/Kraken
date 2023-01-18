@@ -450,35 +450,39 @@ These will define which functionalities can be used for each element.
 ##### Resize box
 ```mermaid
 graph TD
-    A[data-kraken-resizable is clicked] --> B[Render resize box]
-
+    A[data-kraken-resizable is clicked] --> B[Render resize box
     B --> a["In the parent element of\n the selected element, add\n 12 elements with absolute\n positions"]
-    a --> b["Using CSS, make four\n of them edges, and\n eight of them boxes"]
-    a --> c["Using JS, position them\n so that they create a\n bounding box around\n the element"]
-
-
     B --> D["For each edge,\n add event listeners"]
-
-    D --> M["When resize box edge\nis clicked (and held)"]
-    M --> N["Store cursor's current\n position to work out the\n new positioning values"]
-    N --> O["Add temporary positioning\n attributes (left right top and\n bottom) to the resize box\n elements and the element itself"]
-    M --> P["When the cursor's\n position changes"]
-    P --> Q["Update the position of the\n resize box so that it snaps\n to the nearest grid box"]
-    P --> R["Update the position of\n the element so that it\n follows the cursor"]
-    M --> S["When the cursor is released"]
-    S --> T["Set the element's position\n to the closest grid box to\n the cursor, and re-render\n the resize box to match"]
-
     B --> C["For each corner,\n add event listers"]
-
-    C --> E["When resize box corner\nis clicked (and held)"]
-    E --> F["Store cursor's current\n position to work out the\n new positioning values"]
-    F --> G["Add temporary width, height,\n and positioning attributes to\n the resize box elements\n and the element itself"]
-    E --> H["When the cursor's\n position changes"]
-    H --> I["Update the size of the\n resize box elements so that\nit snaps to the grid box\n closest to the cursor"]
-    H --> J["Update the content of\n the element to match the\n resize box's new size"]
-    E --> K["When the cursor is released"]
-    K --> L["Take the temporary variables\n and store them as the new\n width, height, and position\n for the element"]
 ```
+```mermaid
+graph TD
+  a["In the parent element of\n the selected element, add\n 12 elements with absolute\n positions"] --> b["Using CSS, make four\n of them edges, and\n eight of them boxes"]
+  a --> c["Using JS, position them\n so that they create a\n bounding box around\n the element"]
+```
+```mermaid
+graph TD
+  M["When resize box edge\nis clicked (and held)"] --> N["Store cursor's current\n position to work out the\n new positioning values"]
+  N --> O["Add temporary positioning\n attributes (left right top and\n bottom) to the resize box\n elements and the element itself"]
+  M --> P["When the cursor's\n position changes"]
+  P --> Q["Update the position of the\n resize box so that it snaps\n to the nearest grid box"]
+  P --> R["Update the position of\n the element so that it\n follows the cursor"]
+  M --> S["When the cursor is released"]
+  S --> T["Set the element's position\n to the closest grid box to\n the cursor, and re-render\n the resize box to match"]
+```
+```mermaid
+graph TD
+  C["For each corner,\n add event listers"] --> E["When resize box corner\nis clicked (and held)"]
+  E --> F["Store cursor's current\n position to work out the\n new positioning values"]
+  F --> G["Add temporary width, height,\n and positioning attributes to\n the resize box elements\n and the element itself"]
+  E --> H["When the cursor's\n position changes"]
+  H --> I["Update the size of the\n resize box elements so that\nit snaps to the grid box\n closest to the cursor"]
+  H --> J["Update the content of\n the element to match the\n resize box's new size"]
+  E --> K["When the cursor is released"]
+  K --> L["Take the temporary variables\n and store them as the new\n width, height, and position\n for the element"]
+```
+
+
 
 ##### Dragging and dropping elements
 ##### Dragging and dropping sections
