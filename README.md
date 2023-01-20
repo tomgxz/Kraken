@@ -544,15 +544,6 @@ graph TD
 #### Diagram showing how the subroutines link
 
 ```mermaid
-%%{init:{
-  "theme": "forest",
-  "themeVariables": {
-    "primaryColor":"#98c4e4",
-    "secondaryColor":"#b3c3ff",
-    "tertiaryColor":"#ccd7ff"
-  }
-}}%%
-
 mindmap
   root((MAIN))
 
