@@ -278,7 +278,7 @@ Jinja is a template system built for Python and Flask (other frameworks have dif
 An example system of a Jinja file structure might look like:
 
 ##### base.html
-```HTML
+```jinja
 <!DOCTYPE html>
 <html>
   <head>
