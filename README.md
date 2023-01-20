@@ -43,33 +43,33 @@ The program uses abstraction as it removes the complex process of having to prog
 #### Existing solution - Squarespace
 In their template list, they give the option to preview the website, with all of its functionality in a separate page. They allow you to view it in different sizes as well.
 
-<img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace12.png?raw=true" height="360"/>
+<img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace12.png?raw=true" height="360"/>
 
 When first starting to edit the site, squarespace offer an assistant with some basic first steps to creating the website, which makes it easier for the client to be able to understand how the editor works and how to effectively use it.
 
-<img alt="Squarespace research image: assistant" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace3.png?raw=true" height="360"/>
+<img alt="Squarespace research image: assistant" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace3.png?raw=true" height="360"/>
 
 Their design options include the styles, browser icon, 404 page, and custom css options. They can change the fonts, color scheme, global animations, spacing, and default styles for certain widgets.
 
-<img alt="Squarespace research image: design menu" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace13.png?raw=true" height="360"/>
+<img alt="Squarespace research image: design menu" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace13.png?raw=true" height="360"/>
 
 Their editor works in the conventional way of a grid based system, where you can place elements anywhere on the grid. It will then assign the item the style property ```grid-area:row-start/col-start/row-end/col-end```, or ```grid-area:y/x/height/width``` to define the position of the element. They have different attributes for different screen sizes, and you can edit both different styles by switching between laptop mode and phone mode.
 
-<img alt="Squarespace research image: element drag and drop" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace6.png?raw=true" width="640"/>
+<img alt="Squarespace research image: element drag and drop" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace6.png?raw=true" width="640"/>
 
-<img alt="Squarespace research image: grid positioning css" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace7.png?raw=true" height="360"/>
+<img alt="Squarespace research image: grid positioning css" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace7.png?raw=true" height="360"/>
 
 The website is split into sections, where each section contains a content wrapper with the grid positioning system inside.
 
-<img alt="Squarespace research image: construction diagram" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace8.png?raw=true" width="640"/>
+<img alt="Squarespace research image: construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace8.png?raw=true" width="640"/>
 
-<img alt="Squarespace research image: grid container construction diagram" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace9.png?raw=true" width="640"/>
+<img alt="Squarespace research image: grid container construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace9.png?raw=true" width="640"/>
 
-<img alt="Squarespace research image: grid construction diagram" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace10.png?raw=true" width="640"/>
+<img alt="Squarespace research image: grid construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace10.png?raw=true" width="640"/>
 
 By selecting text, you get a popup that displays the text formatting options. Whenever you click on an element, you get a different popup that displays the design options for said element
 
-<img alt="Squarespace research image: text edit and style popup" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchSquarespace11.png?raw=true" width="640"/>
+<img alt="Squarespace research image: text edit and style popup" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace11.png?raw=true" width="640"/>
 
 ##### Parts I can apply to my project
 My solution will have the option to preview and use templates in a similar way to how Squarespace does it, along with their grid positioning system, which is, for lack of a better phrase, an "industry standard." There will also be a similar formatting option setup, but in will be docked on the right hand side with all of the formatting in the same place.
@@ -77,34 +77,34 @@ My solution will have the option to preview and use templates in a similar way t
 #### Existing solution - Zyro
 Zyro also use an assistant to help the user understand how to use their editor.
 
-<img alt="Zyro research image: assistant image 1" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro1.png?raw=true" height="360"/>
+<img alt="Zyro research image: assistant image 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro1.png?raw=true" height="360"/>
 
-<img alt="Zyro research image: assistant image 2" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro2.png?raw=true" height="360"/>
+<img alt="Zyro research image: assistant image 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro2.png?raw=true" height="360"/>
 
 Zyro have two ways of positioning objects; one of them is very similar to the way squarespace do it, with a grid positioning system, and the second is something they call smart layout. It instead uses only columns to position, and the elements can be moved up and down said columns freely and snap to other elements, like how many editors like photoshop might do. You can toggle the snapping to other elements in section settings
 
-<img alt="Zyro research image: grid positioning system" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro3.png?raw=true" width="360"/>
+<img alt="Zyro research image: grid positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro3.png?raw=true" width="360"/>
 
-<img alt="Zyro research image: smart layout positioning system" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro4.png?raw=true" width="360"/>
-<img alt="Zyro research image: snap to guides setting" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro5.png?raw=true" width="360"/>
+<img alt="Zyro research image: smart layout positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro4.png?raw=true" width="360"/>
+<img alt="Zyro research image: snap to guides setting" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro5.png?raw=true" width="360"/>
 
 Their image resizing system is nice. It makes use of the ```object-fit:cover``` property in the style of the image, and just changing the width and height attributes when being dragged, as explained later
 
-<img alt="Zyro research image: image resize animation" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro6.gif?raw=true" width="360"/>
+<img alt="Zyro research image: image resize animation" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro6.gif?raw=true" width="360"/>
 
 Something else zyro does is have all of their style attributes defined in one class, which rely on variables such as ```--grid-row```,```--m-grid-column```, and```--element-width``` that are defined in element.style (the style attribute of the HTML object), which have presumably been put their by JavaScript.
 
 This is the CSS class with all of the variable references:
 
-<img alt="Zyro research image: css: positioning variable usage" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro7.png?raw=true" width="360"/>
+<img alt="Zyro research image: css: positioning variable usage" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro7.png?raw=true" width="360"/>
 
 This is the HTML style attribute with all of the variable declarations in it:
 
-<img alt="Zyro research image: positioning variable declaration" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro8.png?raw=true" width="360"/>
+<img alt="Zyro research image: positioning variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro8.png?raw=true" width="360"/>
 
 When moving elements around the layout, Zyro adds four variables to the element, top, left, width, and height, which they use to render the positioning of the element while you are moving it. When you release the element, these values are removed. This positioning would probably be done in JavaScript by taking the position of the cursor when you clicked on the element, getting the position of the element when you click on it, and then offsetting the position of the element by the amount you remove the cursor. Then, when you release the cursor, it runs the code to calculate the new grid positioning of the element. They also have a max width for desktop, where the element cannot be moved further.
 
-<img alt="Zyro research image: live position variable declaration" src="https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/research/ResearchZyro9.png?raw=true" width="640"/>
+<img alt="Zyro research image: live position variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro9.png?raw=true" width="640"/>
 
 #### Initial concept consider this research
 My solution will be a web-based, multi user program where the user uses a grid-based, drag and drop system using pre-defined template elements that they can then customise. There will be a tutorial for when you first create an account to help new users understand the system. The user will be able to customise styles for their site, organise pages, access a library of predefined templates for widgets such as text, buttons, or links, and have control over the styling of each individual element in their pages. The aim is to have an easy learning curve and a low bar of entry for understanding so that anybody can use it.
@@ -179,7 +179,7 @@ a styling section on the right hand side where you can edit all of the styling p
 ## Design
 ### User Interface Design
 
-![Main Page Template diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/templates/MainPageTemplate.png?raw=true)
+![Main Page Template diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/MainPageTemplate.png?raw=true)
 
 This is the main "template" that all of the pages are built on. The main content will be displayed inside. Defining this in a separate file beforehand (`/templates/base.html`) means that the website has a more unified feel and it allows the user to always be able to go home and access the navigation menu. Defining it in a separate file also removes redundancy as the code for it only appears once.
 
@@ -194,7 +194,7 @@ Main Content
 
 #### Login and Signup Pages
 
-![Login/Signup page diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/templates/LoginFormTemplate.png?raw=true)
+![Login/Signup page diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/LoginFormTemplate.png?raw=true)
 
 This shows the layout of the login and signup pages. Built inside the main template, it contains:
 - The header to tell the user what they are doing
@@ -205,7 +205,7 @@ This shows the layout of the login and signup pages. Built inside the main templ
 
 #### Homepage
 
-![Homepage diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/templates/HomepageTemplate.png?raw=true)
+![Homepage diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/HomepageTemplate.png?raw=true)
 
 This shows the layout of the homepage once you've logged in, if you already have created a website. Built inside the main template, it contains:
 - The header, saying "Welcome, <username>" so that they know that it is the homepage
@@ -216,7 +216,7 @@ This shows the layout of the homepage once you've logged in, if you already have
 
 #### Site Home
 
-![Site home diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/templates/SiteHomeTemplate.png?raw=true)
+![Site home diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/SiteHomeTemplate.png?raw=true)
 
 This shows the layout of the site page for the owner (when they visit `/<username>/<sitename>`). Built inside the main template, it contains:
 - The header, displaying the name of the site so that the user knows which site they are editing.
@@ -230,7 +230,7 @@ Site preferences, site styles and site settings, which all open setting menus in
 
 #### Site Edit
 
-![Site edit diagram](https://github.com/Tomgxz/Kraken/blob/main/.readmeassets/templates/SiteEditTemplate.png?raw=true)
+![Site edit diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/SiteEditTemplate.png?raw=true)
 
 This shows the layout of the site editor. Built inside the main template, it contains:
 - The navigation bar, docked to the left, which contains icons for different links. When hovered, these icons will display a label for what they will open.
@@ -543,27 +543,84 @@ graph TD
 
 #### Diagram showing how the subroutines link
 
+<!--
+
+MERMAID MINDMAP DOESNT WORK IN GITHUB MARKDOWN YET SO USE AN IMAGE INSTEAD
+
 ```mermaid
+%%{init:{
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#98c4e4",
+    "secondaryColor": "#b3c3ff",
+    "tertiaryColor": "#ccd7ff"
+  }
+}}
+
 mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectivness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
+  root((MAIN))
+
+    (Editor Opened)
+        (Check for user permissions)
+            (If editor, run as normal)
+            (If viewer, direct to the preview page)
+            (If private, display an error screen)
+        (Load files from server)
+            (Necessary files will be listed in the siteDat json file)
+            (HTML will be populated with kraken data attributes)
+            (Apply all of the necessary CSS and JavaScript)
+                (Use dedicated style and script tags, instead of importing them)
+
+    (Action taken)
+        (Store action in action log)
+            (This can be accessed for undos, redos and saves)
+
+    (Editor Saved)
+        (If an element is selected, prompt to deselect to save)
+        (Fetch HTML from editor)
+            (Remove imported CSS and JavaScript from HTML block)
+            (Remove any current selected tags)
+            (Update any changed HTML files in the server storage)
+        (Look at action log for any changes to imported files)
+            (If changes, update sideDat json file as necessary)
+
+    (Display settings changed)
+        (If aspect ratio has been altered)
+            (Append necessary data attributes to container element)
+            (Resize container as necessary)
+            (Update JavaScript displaysize variables)
+                (So that it knows what CSS and HTML to update, if necessary, and which subroutines to call on event listeners)
+
+
+    (Element Selected)
+        (If locked, pass)
+            (Display unlock button)
+        (Check for attributes to determine functionality)
+            (If styleable, populate style area with relevant options)
+                (Listen for hovers and selects to add styling)
+                (Listen for deselection of element to update styles)
+            (If draggable, draw a bounding box)
+                (Listen for click and hold)
+            (If resizable, draw a bounding box with resize points)
+                (Listen for click and hold)
+        (Append necessary selected tags)
+
+    (Section Selected)
+        (If locked, pass)
+            (Display unlock button)
+        (Check for attributes to determine functionality)
+            (If styleable, populate style area with relevant options)
+                (Listen for hovers and selects to add styling)
+                (Listen for deselection of element to update styles)
+            (If draggable, listen for click and hold)
+            (If resizable, listen for hover over bottom border)
+                (Display a resize toggle and listen for click and hold)
+            (Append necessary selected tags)
 ```
 
+-->
 
+![Diagram showing how the subroutines link](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-mindmap-subroutines.svg?raw=true)
 
 
 
