@@ -336,7 +336,7 @@ I have decided to use SQL to store the multi-user information as I have previous
 This is the planned entity relationship diagram for the SQL database. It contains two entities, USER and SITE, that are connected with a one-to-many relationship with user_id being the foreign key in SITE.
 
 ```mermaid
-%%{'init':{'theme': 'dark','themeVariables':{'darkmode':true,'fontFamily':'-apple-system,BlinkMacSystemFont,Segoe UI,Noto Sans,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'}}}%%
+%%{'init':{'theme': 'dark','themeVariables':{'darkmode':true,'primaryColor':'#f00','fontFamily':'-apple-system,BlinkMacSystemFont,Segoe UI,Noto Sans,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'}}}%%
 
 erDiagram
     USER ||--o{ SITE : user_id
