@@ -444,15 +444,23 @@ In the JavaScript code, each element will have a set of event listeners on them,
 - `data-kraken-draggable`
 - `data-kraken-editable-text`
 - `data-kraken-editable-style`
+- `data-kraken-locked`
 
 These will define which functionalities can be used for each element.
+For all of the below diagrams, if the element has the tag `data-kraken-locked`, it will only show a button next to the element/section to unlock it.
+
+When an element is selected, depending on its function, it will be tagged with one of these attributes, so that the JavaScript can easily edit it:
+- `data-kraken-selected-text`
+- `data-kraken-selected-style`
+- `data-kraken-selected-resize`
+- `data-kraken-selected-drag`
 
 ##### Resize box
 ```mermaid
 graph TD
-    A[data-kraken-resizable is clicked] --> B[Render resize box]
-    B --> a["In the parent element of\n the selected element, add\n 12 elements with absolute\n positions"]
-    B --> C["For each corner,\n add event listers"]
+  A[data-kraken-resizable is clicked] --> B[Render resize box]
+  B --> a["In the parent element of\n the selected element, add\n 12 elements with absolute\n positions"]
+  B --> C["For each corner,\n add event listers"]
 ```
 ```mermaid
 graph TD
@@ -486,13 +494,52 @@ graph TD
 ```
 
 ##### Dragging and dropping sections
-
+```mermaid
+graph TD
+  A[data-kraken-section & data-kraken-draggable is clicked and held] --> B["Add drop shadow until\n dropped to make it clear\n that it's being moved"]
+  B --> b["It could possibly also\n be scaled down a bit"]
+  A --> C["Store cursor's current\n position to work out the\n new positioning values"]
+  C --> D["Add temporary positioning\n attributes (left right top and\n bottom) to the section"]
+  A --> E["When the cursor's\n position changes"]
+  E --> F["Update the position of\n the section so that it\n follows the cursor"]
+  A --> G["When the cursor is released"]
+  G --> H["Using the mouse\n positions that were\n recorded"]
+  H --> I["Work out what the new\n order of the sections\n are and renumber them\n accordingly"]
+  H --> J["Restructure the HTML\n file so that the sections\n are in the new order"]
+  G --> K["Remove any temporary\n styling applied by the\n drag-and-drop feature"]
+```
 
 ##### Displaying element and section options
-
+```mermaid
+graph TD
+  A[data-kraken-editable-style is clicked] --> B["Lookup the class of the\n element that was selected"]
+  B --> C["Using this, load the relevant\n styling options in the\n right-hand option menu"]
+  C --> E["When a style option is hovered"]
+  E --> e["Update this change in the\n element.style of the selected element,\n and listen for when it is un-hovered"]
+  C --> F["When a style option is un-hovered"]
+  F --> f["If the style option was not clicked,\n remove the style attribute from the\n element.style of the selected element"]
+  C --> G["When a style option is changed"]
+  G --> g["Update this change in the\n element.style of the selected\n element"]
+  C --> I["When the element\n is deselected"]
+  C --> H["When the apply changes\n button is clicked"]
+  H --> J["Take all of the newly-added styles in\n element.style and add them to the\n elements style bank"]
+  I --> J
+```
 
 ##### Displaying text editors
+```mermaid
+graph TD
+  A[data-kraken-editable-text is clicked] --> B["Style the element appropriately"]
+  A --> E["Inside the text element\n of the selected element\n (h1, p, etc), append a text\n input element"]
+  E --> F["Remove the text from the\n element and set it as the\n content for the input"]
 
+  B --> C["Add a colored underline\n to the text to indicate\n that it is selected for\n text editing"]
+  C --> D["Copy all styling of the\n text into the newly generated\n input so that it is seamless"]
+
+  A --> G["When the input loses focus"]
+  G --> H["Fetch the content of the input"]
+  H --> I["Remove the input and\n replace it with the stored content"] 
+```
 
 
 
