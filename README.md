@@ -336,7 +336,7 @@ I have decided to use SQL to store the multi-user information as I have previous
 This is the planned entity relationship diagram for the SQL database. It contains two entities, USER and SITE, that are connected with a one-to-many relationship with user_id being the foreign key in SITE.
 
 ```mermaid
-%%{'init':{'theme': 'dark','themeVariables':{'darkmode':true,'primaryColor': '#0d1117',"secondaryColor": "#0d1117","tertiaryColor": "#0d1117",'primaryTextColor': '#c9d1d9','primaryBorderColor': '#80b1db','fontFamily':'-apple-system,BlinkMacSystemFont,Segoe UI,Noto Sans,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'}}}%%
+%%{'init':{'theme': 'dark','themeVariables':{'darkmode':true,'fontFamily':'-apple-system,BlinkMacSystemFont,Segoe UI,Noto Sans,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'}}}%%
 
 erDiagram
     USER ||--o{ SITE : user_id
@@ -407,16 +407,11 @@ text sitepath
 For storage of the actual user website files, I have chosen server-side storage as it can't be easily stored in SQL. It is all stored server-side so that the user can access their files from any computer with an internet connection. The way I intend to store the site information is shown below.
 
 ```mermaid
-graph TD
-    A[userData] --> B[username]
-    B --> C[sites]
-    C --> D[sitename]
-    D --> G[files]
-    D --> site.ini
-    D --> siteDat.json
-    G --> 1.html
-    G --> 2.html
-    G --> 3.html
+%%{init: {'flowchart': {'curve': 'linear'}} }%%
+graph TB
+    a(userData):::large --> b("&lt;username&gt;") --> c(sites) --> d("&lt;sitename&gt;") --> e(files) & f(site.ini) & g(siteDat.json)
+    e --> h(1.html) & i(2.html) & j(3.html)
+
 ```
 
 The `username` and `sitename` folders will be named by the primary keys of the data in the SQL database to avoid any duplicate folder names.
