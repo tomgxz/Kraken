@@ -541,6 +541,67 @@ graph TD
   H --> I["Remove the input and\n replace it with the stored content"]
 ```
 
+##### Multi-user system
+The SQL and multi-user algorithms are all handled by libraries that I am using, which means that I can use function calls such as `login_user(user)` from the `flask_login` library, or `user = self.User.query.filter_by(user_id=username).first()` that uses an inherited class in the `models.py` file to perform an SQL query. As such, the algorithms for the multi-user system are all based on input verification.
+
+```mermaid
+graph TD
+  A[User submits login information] --> B["Fetch inputs username and\n password from request.form"]
+  B --> C["Run the SQL query\n SELECT user_id FROM User\n WHERE user_id=username\n to fetch the user"]
+  C --> D["If no user is\n returned, prompt the\n user to try again"]
+  C --> E["If one user is returned"]
+  E --> F["Hash and check the\n password given against\n that in the database"]
+  F --> G["If the hashes do not match,\n prompt the user to try again"]
+  F --> H["If the hashes match,\n run the login_user subroutine and\n redirect them to the homepage"]
+```
+
+```mermaid
+graph TD
+  A[User submits signup information] --> B["Fetch the inputs from\n request.form: name, email,\n username, password1,\n password2"]
+  B --> C["Use the function verifyField\n to check each input"]
+  C --> D["name:\n canHaveSpace=true,\n canHaveSpecialChar=True"]
+  C --> E["email:\n minLen=0,\n canHaveSpace=false,\n canHaveSpecialChar=true"]
+  C --> F["username:\n canHaveSpecialChar=false"]
+  C --> G["password1:\n minLen=8"]
+  D --> H["If any of these return\n an error, prompt the\n user to try again"]
+  E --> H
+  F --> H
+  G --> H
+  H --> h["Else, continue to the next\n phase of validation"]
+  h --> I["Check email to make sure\n it is formatted correctly"]
+  h --> J["Check that password1 doesn't\n equal password2"]
+  h --> K["Using the SQL query\n SELECT user_id FROM User\n WHERE user_id=username\n to see whether any other users\n with this username exist"]
+  I --> L["If any of these return\n an error, prompt the\n user to try again"]
+  J --> L
+  K --> L
+  L --> M["Else, run the createUser\n function, sign them in,\n and redirect to home"]
+```
+
+```mermaid
+graph TD
+  A[verifyField Function] --> B["Takes variables:"]
+  B --> a["field:\n the content of\n the field"]
+  B --> b["fieldname:\n the name of\n the field"]
+  B --> c["mustHaveChar:\n whether field has\n to have content,\n default=true"]
+  B --> d["minLen:\n the minimum\n length of field,\n default=3"]
+  B --> e["canHaveSpace:\n whether field can\n have whitespace,\n default=false"]
+  B --> f["canHaveSpecialChars:\n whether field can\n have any of a list of\n special characters,\n default=true"]
+  A --> C["For each of the given\n options, check to see whether\n field matches the criteria"]
+  C --> D["If it does, return an\n empty string"]
+  C --> E["If not, return a\n string containing the\n error message"]
+```
+
+```mermaid
+graph TD
+  A[createUser Function] --> B["Takes variables:"]
+  B --> a["username:\n the user's\n username"]
+  B --> b["email:\n the user's\n email address"]
+  B --> c["name:\n the user's name"]
+  B --> d["password:\n the user's\n hashed password"]
+  A --> C["Insert a new user\n into the User table\n using the given variables"]
+  C --> D["Generate the user's\n folder structure in the\n server storage"]
+```
+
 #### Diagram showing how the subroutines link
 
 <!--
