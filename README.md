@@ -251,7 +251,7 @@ The usability features that I have considered make sure that the program is easy
 The basic accessibility requirements that are suggested, and that could apply to this project, include:
 
 |Requirement|Explanation|
-|--|--|
+|:---:|---:|
 |Provide equivalent alternative text|Provides text for non-text elements. It is especially helpful for people who are blind and rely on a screen reader to have the content of the website read to them.|
 |Create logical document structure|Headings, lists, and other structural elements provide meaning and structure to web pages. They can also facilitate keyboard navigation within the page.|
 |Ensure users can complete and submit all forms|Every form element (text field, checkbox, dropdown list, etc.) needs a programmatically-associated label. There may be some text that is not focused by tabbing through the form. Users must be able to submit the form.|
@@ -538,7 +538,7 @@ graph TD
 
   A --> G["When the input loses focus"]
   G --> H["Fetch the content of the input"]
-  H --> I["Remove the input and\n replace it with the stored content"] 
+  H --> I["Remove the input and\n replace it with the stored content"]
 ```
 
 
