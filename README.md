@@ -293,7 +293,7 @@ An example system of a Jinja file structure might look like:
 </html>
 ```
 ##### itemlist.html
-```HTML
+```jinja
 {% extends "base.html" %}
 
 {% block content%}
