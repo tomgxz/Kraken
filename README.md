@@ -541,7 +541,78 @@ graph TD
   H --> I["Remove the input and\n replace it with the stored content"]
 ```
 
+#### Diagram showing how the subroutines link
 
+```mermaid
+%%{init:{
+  "theme": "forest",
+  "themeVariables": {
+    "primaryColor":"#98c4e4",
+    "secondaryColor":"#b3c3ff",
+    "tertiaryColor":"#ccd7ff"
+  }
+}}%%
+
+mindmap
+  root((MAIN))
+
+    (Editor Opened)
+        (Check for user permissions)
+            (If editor, run as normal)
+            (If viewer, direct to the preview page)
+            (If private, display an error screen)
+        (Load files from server)
+            (Necessary files will be listed in the siteDat json file)
+            (HTML will be populated with kraken data attributes)
+            (Apply all of the necessary CSS and JavaScript)
+                (Use dedicated style and script tags, instead of importing them)
+
+    (Action taken)
+        (Store action in action log)
+            (This can be accessed for undos, redos and saves)
+
+    (Editor Saved)
+        (If an element is selected, prompt to deselect to save)
+        (Fetch HTML from editor)
+            (Remove imported CSS and JavaScript from HTML block)
+            (Remove any current selected tags)
+            (Update any changed HTML files in the server storage)
+        (Look at action log for any changes to imported files)
+            (If changes, update sideDat json file as necessary)
+
+    (Display settings changed)
+        (If aspect ratio has been altered)
+            (Append necessary data attributes to container element)
+            (Resize container as necessary)
+            (Update JavaScript displaysize variables)
+                (So that it knows what CSS and HTML to update, if necessary, and which subroutines to call on event listeners)
+
+
+    (Element Selected)
+        (If locked, pass)
+            (Display unlock button)
+        (Check for attributes to determine functionality)
+            (If styleable, populate style area with relevant options)
+                (Listen for hovers and selects to add styling)
+                (Listen for deselection of element to update styles)
+            (If draggable, draw a bounding box)
+                (Listen for click and hold)
+            (If resizable, draw a bounding box with resize points)
+                (Listen for click and hold)
+        (Append necessary selected tags)
+
+    (Section Selected)
+        (If locked, pass)
+            (Display unlock button)
+        (Check for attributes to determine functionality)
+            (If styleable, populate style area with relevant options)
+                (Listen for hovers and selects to add styling)
+                (Listen for deselection of element to update styles)
+            (If draggable, listen for click and hold)
+            (If resizable, listen for hover over bottom border)
+                (Display a resize toggle and listen for click and hold)
+            (Append necessary selected tags)
+```
 
 
 
