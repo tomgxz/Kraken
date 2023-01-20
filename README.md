@@ -545,10 +545,10 @@ graph TD
 
 ```mermaid
 mindmap
-  root((MAIN))
+  root(("MAIN"))
 
-    Editor Opened
-        Check for user permissions
+    "Editor Opened"
+        "Check for user permissions"
             If editor, run as normal
             If viewer, direct to the preview page
             If private, display an error screen
