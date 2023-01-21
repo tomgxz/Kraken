@@ -523,7 +523,19 @@ graph TD
   G --> H("Fetch the content\n of the input") --> I("Remove the input\n and replace it with the\n stored content")
 ```
 #### Multi-user system algorithms
-The SQL and multi-user algorithms are all mostly handled by libraries that I am using, which means that I can use function calls such as `login_user(user)` from the `flask_login` library, or `user = self.User.query.filter_by(user_id=username).first()` that uses an inherited class in the `models.py` file to perform an SQL query. As such, the algorithms for the multi-user system are all based on input verification.
+A lot of the SQL and multi-user algorithms are handled by libraries that I am using, which means that I can use function calls such as `login_user(user)` from the `flask_login` library, or `user = self.User.query.filter_by(user_id=username).first()` that uses an inherited class in the `models.py` file to perform an SQL query. As such, it will reduce a lot of the programming work I will need to do, as I can simply call a function from a different module to do it for me.
+
+The main things that the multi-user system should be able to do are:
+- Read and write to an SQL database that contains information on the users and their sites
+- Use the database to allow the user to login
+- Use the database to allow a new user to sign up
+- Verify the user's inputs to make sure they are valid
+- Use the database to organise sites and permissions
+- Use the database to store and create sites for the users
+- Generate folders and files on the server to store user and site infomation
+- Import and export sites that are stored in the database and on the server
+
+TODO: pseudocode for a multi user permission system for the sites
 
 ##### Login page
 ```mermaid
@@ -560,10 +572,48 @@ graph TD
   A --> C("Insert a new user\n into the User table\n using the given variables") --> D("Generate the user's\n folder structure in the\n server storage")
 ```
 
-##### Multi-user system - creating a site
+##### Creating a new site
 
+```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 
-TODO: add the algorithms for creating the sites
+graph TD
+  A("User clicks on the\n create new site option") --> B("Redirect the user\n to the first site create\n page and take them through\n a set of options, seen below") & F("If the user tries to\n go to one of the option\n pages without doing them\n in chronological order,\n they will be redirected\n back to the first page")
+  B --> C("When the user\n completes these\n options") & G("When the user completes \na page of options, they will\n be stored in flask.session.\n This means that the \nvariables can be carried over\n into the next page")
+  C --> D("They will be\n redirected to the \nhomepage of the\n site") & E("The flask backend will\n fetch the site settings\n from flask.session,\n and append them to a\n dictionary")
+  E --> H("It will then call the\n createSiteStructure subroutine\n to create the site and add\n all of the siteSettings to it")
+```
+
+```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
+graph TD
+  A("Option Page 1 - General Settings")
+  A --> B("The option to import\n an exported site")
+  A --> C("The name of the\n new website")
+  C --> c("The user will be\n told what the\n criteria are")
+  c --> d("If it meets the\n criteria, the input\n box will have a\n green border") & e("If it is too\n short, the input\n box will have a\n red border") & f("If it has any\n illegal characters,\n the input box will\n have an orange\n border")
+  f --> g("The user will still be able\n to submit the form,\n but they will be shown\n what the site name will\n look like: any\n illegal characters will\n be replaced with dashes")
+  f --> h("Illegal characters\n are any character\n that are not lowercase,\n alphanumeric, dashes,\n underscores or periods")
+  A --> D("The description\n for the website\n (the user is shown\n that it is optional)")
+  A --> E("Whether they want\n to set the website to\n public or private")
+  E --> F("The user will be\n told that they can\n change this later")
+  A --> G("When all options are\n valid, the &quot;Create Site&quot;\n button will become\n clickable")
+```
+
+```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
+graph TD
+  A("Option Page 2 - Colour Scheme") --> C("Whether the user\n wants light or\n dark mode for\n their website") & D("What the light\n and dark bounds\n are (how dark the\n darkest colour is\n and vice versa)") & E("What the monochromatic\n colour temperature\n should be (using a slider)") & F("What the primary,\n secondary, and accent\n colours are (using\n colour pickers)") --> G("All of these options will affect a set of\n preview boxes showing what the different colours will be") --> H("When they are finished,\n the user can click continue\n to move to the next page")
+```
+
+```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
+graph TD
+  A("Option Page 3 - Font Family") --> C("The user will be displayed a\n list of font groups") --> D("Each group will have a main,\n large font, and a smaller font\n (with the label paragraph text)") --> E("The font names will be\n displayed in their\n respective fonts") --> F("The user can click on a\n font pair to select it,\n and then click continue\n to finish")
+```
 
 
 
