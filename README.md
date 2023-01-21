@@ -554,6 +554,11 @@ graph TD
   A --> C("Insert a new user\n into the User table\n using the given variables") --> D("Generate the user's\n folder structure in the\n server storage")
 ```
 
+
+TODO: add the algorithms for creating the sites
+
+
+
 #### Diagram showing how the subroutines link
 
 <!--
@@ -636,11 +641,219 @@ mindmap
 ![Diagram showing how the subroutines link](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-mindmap-subroutines.svg?raw=true)
 
 
+### Subroutines
+Now that I have a rough idea of what the subroutines will do and how they will fit together, I can start planning them in pseudocode. The multi-user subroutines will be written in python as that is what I am using for the backend, whereas the subroutines for the website builder will be written in JavaScript, and will be imported into the HTML.
+
+TODO: Talk about how the JavaScript subroutines will be organised in the files.
+
+#### Multi-user system - login system
+
+##### auth_login_post
+The flask backend will call this subroutine when the user submits the login form. Using the `flask` `request` import, the subroutine will be able to fetch the data inputted from the form. The password that it recieves will already have been hashed on the client's side so that it is being sent over the internet encrypted.
+
+##### Pseudocode Algorithm
+```python
+@self.app.route("login",method=post)
+def auth_login_post(): # run when the user submits the login form
+
+  # fetch inputs from the form using the ids of the inputs
+  username = flask.request.form.get("username")
+  password = flask.request.form.get("password")
+  remember = flask.request.form.get("remember")
+
+  # fetch a list of users that match the username from the database
+  user = db.query(f"SELECT * from USER where user_id={username}").fetchall()
+
+  # if the list of users is empty
+  # or the user's hashed password doesn't match the inputted hashed password
+  if user.length = 0 || user[0].password == password:
+    flash("Please check your login details and try again") # flash() passes a message to the next request (next page the user will see)
+    return flask.redirect(flask.url_for("auth_login")) # redirect the user to the login page and ask them to try again
+
+  flask.login_user(user,remember=remember) # login the user
+  return flask.redirect(flask.url_for("main_home"))
+```
+
+##### auth_signup_post
+The flask backend will call this subroutine when the user submits the signup form. It uses similar functionality to the `auth_login_post` function, including the passwords being hashed client-side. It uses the `verifyField` subroutine to check that fields are valid, along with the `createUser` subroutine to insert a new user into the database and add them to the server storage. Both subroutines are shown later.
+
+##### Pseudocode Algorithm
+```python
+@self.app.route("signup",method=post)
+def auth_signup_post(): # run when the user submits the signup form
+
+  # fetch inputs from the form using the ids of the inputs
+  name = flask.request.form.get("name")
+  email = flask.request.form.get("email")
+  username = flask.request.form.get("username")
+  password1 = flask.request.form.get("password")
+  password2 = flask.request.form.get("password-repeat")
+
+  # Use the verifyField function to check the inputs are valid. It returns an empty string if valid, or an error message if not.
+  out = verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
+
+  if out.length > 0:
+    flash([True,out,"",email,username])
+    return flask.redirect(flask.url_for("auth_signup"))
+
+  out = verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
+
+  if out.length > 0:
+    flash([True,out,name,"",username])
+    return flask.redirect(flask.url_for("auth_signup"))
+
+  # Check to see whether the email is in a valid format
+  if not isEmailFormat(email):
+    flash([True,"Email is not in a recognised format",name,"",username])
+    return flask.redirect(flask.url_for("auth_signup"))
+
+  # Run an SQL query to check whether this email already has an account
+  user = db.query(f"SELECT * from USER where email={username}").fetchall()
+
+  if user:
+      flash([True,"That email is already in use",name,"",username])
+      return flask.redirect(flask.url_for("auth_signup"))
+
+  out = verifyField(username,"Username",canHaveSpecialChar=False)
+
+  if out.length > 0:
+    flash([True,out,name,email,""])
+    return flask.redirect(flask.url_for("auth_signup"))
+
+  out = verifyField(password1,"Password",minLen=8)
+
+  if out.length > 0:
+    flash([True,out,name,email,username])
+    return flask.redirect(flask.url_for("auth_signup"))
+
+  # Make sure the passwords match
+  if password1 != password2:
+    flash([True,"Passwords do not match",name,email,username])
+    return flask.redirect(flask.url_for("auth_signup"))
+
+
+  # run the createUser function to insert a user into the database
+  createUser(username,email,name,password)
+
+  # redirect to the home page
+  return flask.redirect(flask.url_for("main_home"))
+```
+
+TODO: talk about how the flashes for the error messages work
+
+##### verifyField
+This subroutine will be called from `auth_signup_post` to make sure that all of the fields that the user inputted are valid. It takes four variables that are the requirements that the field has to meet, along with the content of the field, and the name of the field for any error messages. It will return an empty string if the field meets all of the requirements, and it will return an error message if it doesn't.
+
+##### Pseudocode Algorithm
+```python
+def verifyField(field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,canHaveSpecialChar=True):
+  # field, required, string, the content of the field
+  # fieldName, required, string, the name of the field inputted
+  # mustHaveChar, optional (default=true), boolean, whether or not field must contain characters
+  # minLen, optional (default=3), integer, the mininmum length of field
+  # canHaveSpace, optional (default=false), boolean, whether or not field can contain whitespace
+  # canHaveSpecialChar, optional (default=true), boolean, whether or not field can contain any of a list of special characters
+
+  specialChar = "%&{}\\<>*?/$!'\":@+`|=" # the list of special characters that canHaveSpecialChar refers to
+
+  # Make sure that field is the correct datatype
+  if field.type is not str:
+    raise Exception(f"Invalid data type for field. Expected string, recieved {field.type}")
+
+  # If field is empty and mustHaveChar is true
+  if field.length == 0 and mustHaveChar:
+    return f"{fieldName} is not filled out."
+
+  # If field is shorter than minLen
+  if field.length < minLen:
+    return f"{fieldName} must be greater than {minLen-1} characters."
+
+  # If field contains spaces and canHaveSpace is false
+  if not canHaveSpace and " " in field:
+    return f"{fieldName} cannot contain spaces."
+
+  # If the field contains any of the specialChars and canHaveSpecialChar is false
+  if not canHaveSpecialChar:
+    for char in specialChar:
+      if char in field:
+        return f"{fieldName} cannot contain '{char}'"
+
+  # Everything's good, return an empty string
+  return ""
+```
+
+##### createUser
+This subroutine will be called from `auth_signup_post` when it wants to add a new user to the system. It will, using the arguments given, insert a new user into the database, and generate the required folder structure for the user, using the subroutine `generateFolderStructure`. It is a procedure, and therefore will not return anything.
+
+##### Pseudocode Algorithm
+```python
+def createUser(username,email,name,password):
+  # generate the model for a new user
+  newUser = self.User(
+    user_id=username,
+    name=name,
+    email=email,
+    password=password,
+    bio="",
+    url="",
+    archived=False,
+    tabpreference=4,
+  )
+
+  prefix="static/data/userData/" # the base path for where the folders should be created
+
+  # using the os.path module, get the absolute paths of all of the reuqired folders
+  folderStructure=[os.path.abspath(f"{prefix}{u}"),os.path.abspath(f"{prefix}{u}/sites/")]
+
+  # create all the required folders
+  generateFolderStructure(folderStructure)
+
+  # using the generated model, commit it to the database
+  db.session.add(newUser)
+  db.session.commit()
+```
+
+#### Multi-user system - creating a new site
+TODO: add the algorithms for creating the sites
+
+
+#### Utility subroutines
+These subroutines are called in different parts of the python files to do different, specific actions. This means that it removes duplicate code for procedures that may need to be used many times throughout
+
+##### generateFolderStructure
+This subroutine is called whenever the code needs to generate a list of folders. It makes use of the in-built `os` library in python. It is called when a new user is created, or when a user creates a new site.
+
+##### Pseudocode Algorithm
+```python
+def generateFolderStructure(folders):
+  for folder in folders: # iterate through the list of folders
+    if os.path.isdir(folder): # if the folder already exists
+      continue
+    try:
+      os.makedirs(folder)
+    except OSError as e: # error catching if required
+      raise OSError(e)
+```
+
+##### generateFileStructure
+This subroutine is called whenever the code needs to generate a list of files. It makes use of the in-built `os` library in python. It is called  when a user creates a new site.
+
+##### Pseudocode Algorithm
+```python
+def generateFileStructure(files):
+  for file in files: # iterate through the list of files
+    if os.path.exists(file): # if the file already exists
+      continue
+    try:
+      with open(file,"w") as f: f.close() # write a new, empty file
+    except OSError as e: # error catching if required
+      raise OSError(e)
+```
 
 
 
 
-
+#### Birthday Invite Generator
 
 
 
