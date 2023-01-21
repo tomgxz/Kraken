@@ -87,13 +87,7 @@ Their editor works in the conventional way of a grid-based system, where the use
 
 The website is split into sections, where each section contains a content wrapper with the grid positioning system inside.
 
-<img alt="Squarespace research image: construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace8.png?raw=true" width="640"/>
-
-<img alt="Squarespace research image: grid container construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace9.png?raw=true" width="640"/>
-
-<img alt="Squarespace research image: grid construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace10.png?raw=true" width="640"/>
-
-<img alt="Squarespace research image: construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace14.png?raw=true" width="640"/>
+<img alt="Squarespace research image: construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace14.png?raw=true"/>
 
 Selecting text gives the user a popup that displays the text formatting options. Whenever the user clicks on an element, they get a different popup that displays the design options for said element.
 
