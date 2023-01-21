@@ -336,30 +336,29 @@ I have decided to use SQL to store the multi-user information as I have previous
 This is the planned entity relationship diagram for the SQL database. It contains two entities, USER and SITE, that are connected with a one-to-many relationship with user_id being the foreign key in SITE.
 
 ```mermaid
-%%{'init':{'theme': 'dark','themeVariables':{'darkmode':true,'primaryColor':'#f00','fontFamily':'-apple-system,BlinkMacSystemFont,Segoe UI,Noto Sans,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'}}}%%
+%%{init: {'theme':'dark', 'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 
 erDiagram
-    USER ||--o{ SITE : user_id
+    USER ||--o{ SITE : has
     USER {
-    string user_id
-    string name
-    string name
-    string email
-    string password
-    string bio
-    string url
-    bool archived
-    int tabpreference
+        string user_id
+        string name
+        string email
+        string password
+        string bio
+        string url
+        bool archived
+        int tabpreference
     }
 
     SITE {
-    int site_id
-    string user_id
-    string name
-    datetime datecreated
-    bool private
-    bool deleted
-    text sitepath
+        int site_id
+        string user_id
+        string name
+        datetime datecreated
+        bool private
+        bool deleted
+        text sitepath
     }
 ```
 
@@ -368,46 +367,49 @@ To incorporate a multi-user editing system for certain sites, the entity relatio
 It contains three entities, USER, SITE and LINK. It is similar to the previous one, with a linking table added between the two original entities, allowing for multiple users to be able to edit multiple sites. Each LINK also contains information about the USER's permissions for the SITE.
 
 ```mermaid
+%%{init: {'theme':'dark', 'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
 erDiagram  
 
-USER ||--o{ LINK: user_id
-USER {
-string user_id
-string name
-string name
-string email
-string password
-string bio
-string url
-bool archived
-int tabpreference
-}
+    USER ||--o{ LINK: has
+    USER {
+        string user_id
+        string name
+        string name
+        string email
+        string password
+        string bio
+        string url
+        bool archived
+        int tabpreference
+    }
 
-LINK {
-string user_id
-int site_id
-string role
-bool canedit
-bool canview
-}
+    LINK {
+        string user_id
+        int site_id
+        string role
+        bool canedit
+        bool canview
+    }
 
-SITE ||--o{ LINK: site_id
-SITE {
-int site_id
-string user_id
-string name
-datetime datecreated
-bool private
-bool deleted
-text sitepath
-}
+    SITE ||--o{ LINK: "to"
+    SITE {
+        int site_id
+        string user_id
+        string name
+        datetime datecreated
+        bool private
+        bool deleted
+        text sitepath
+    }
 ```
 
 #### Server-side file storage
 For storage of the actual user website files, I have chosen server-side storage as it can't be easily stored in SQL. It is all stored server-side so that the user can access their files from any computer with an internet connection. The way I intend to store the site information is shown below.
 
 ```mermaid
-%%{initialize: {'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
 graph TB
     a(userData):::large --> b("&lt;username&gt;") --> c(sites) --> d("&lt;sitename&gt;") --> e(files) & f(site.ini) & g(siteDat.json)
     e --> h(1.html) & i(2.html) & j(3.html)
@@ -451,149 +453,105 @@ When an element is selected, depending on its function, it will be tagged with o
 
 ##### Resize box
 ```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
 graph TD
-  A[data-kraken-resizable is clicked] --> B[Render resize box]
-  B --> a["In the parent element of\n the selected element, add\n 12 elements with absolute\n positions"]
-  B --> C["For each corner,\n add event listers"]
+  A(data-kraken-resizable is clicked) --> B(Render resize box) --> a("In the parent element of\n the selected element, add\n 12 elements with absolute\n positions") & C("For each corner,\n add event listers")
 ```
 ```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
 graph TD
-  a["In the parent element of\n the selected element, add\n 12 elements with absolute\n positions"] --> b["Using CSS, make four\n of them edges, and\n eight of them boxes"]
-  a --> c["Using JS, position them\n so that they create a\n bounding box around\n the element"]
+  a("In the parent element of\n the selected element, add\n 12 elements with absolute\n positions") --> b("Using CSS, make four\n of them edges, and\n eight of them boxes") & c("Using JS, position them\n so that they create a\n bounding box around\n the element")
 ```
 ```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
 graph TD
-  C["For each corner,\n add event listers"] --> E["When resize box corner\nis clicked (and held)"]
-  E --> F["Store cursor's current\n position to work out the\n new positioning values"]
-  F --> G["Add temporary width, height,\n and positioning attributes to\n the resize box elements\n and the element itself"]
-  E --> H["When the cursor's\n position changes"]
-  H --> I["Update the size of the\n resize box elements so that\nit snaps to the grid box\n closest to the cursor"]
-  H --> J["Update the content of\n the element to match the\n resize box's new size"]
-  E --> K["When the cursor is released"]
-  K --> L["Take the temporary variables\n and store them as the new\n width, height, and position\n for the element"]
+  C("For each corner,\n add event listers") --> E("When resize box corner\nis clicked (and held)") --> F("Store cursor's current\n position to work out the\n new positioning values") & H("When the cursor's\n position changes") & K("When the cursor is released")
+  F --> G("Add temporary width, height,\n and positioning attributes to\n the resize box elements\n and the element itself")
+  H --> I("Update the size of the\n resize box elements so that\nit snaps to the grid box\n closest to the cursor") & J("Update the content of\n the element to match the\n resize box's new size")
+  K --> L("Take the temporary variables\n and store them as the new\n width, height, and position\n for the element")
 ```
 
 ##### Dragging and dropping elements
 ```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
 graph TD
-  A[data-kraken-draggable is clicked] --> B[Render resize box]
-  B --> D["For each edge,\n add event listeners"]
-  D --> M["When resize box edge\nis clicked (and held)"] --> N["Store cursor's current\n position to work out the\n new positioning values"]
-  N --> O["Add temporary positioning\n attributes (left right top and\n bottom) to the resize box\n elements and the element itself"]
-  M --> P["When the cursor's\n position changes"]
-  P --> Q["Update the position of the\n resize box so that it snaps\n to the nearest grid box"]
-  P --> R["Update the position of\n the element so that it\n follows the cursor"]
-  M --> S["When the cursor is released"]
-  S --> T["Set the element's position\n to the closest grid box to\n the cursor, and re-render\n the resize box to match"]
+  A(data-kraken-draggable is clicked) --> B(Render resize box) --> D("For each edge,\n add event listeners") --> M("When resize box edge\nis clicked (and held)") --> N("Store cursor's current\n position to work out the\n new positioning values") --> O("Add temporary positioning\n attributes (left right top and\n bottom) to the resize box\n elements and the element itself")
+  M --> P("When the cursor's\n position changes") --> Q("Update the position of the\n resize box so that it snaps\n to the nearest grid box") & R("Update the position of\n the element so that it\n follows the cursor")
+  M --> S("When the cursor is released") --> T("Set the element's position\n to the closest grid box to\n the cursor, and re-render\n the resize box to match")
 ```
 
 ##### Dragging and dropping sections
 ```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
 graph TD
-  A[data-kraken-section & data-kraken-draggable is clicked and held] --> B["Add drop shadow until\n dropped to make it clear\n that it's being moved"]
-  B --> b["It could possibly also\n be scaled down a bit"]
-  A --> C["Store cursor's current\n position to work out the\n new positioning values"]
-  C --> D["Add temporary positioning\n attributes (left right top and\n bottom) to the section"]
-  A --> E["When the cursor's\n position changes"]
-  E --> F["Update the position of\n the section so that it\n follows the cursor"]
-  A --> G["When the cursor is released"]
-  G --> H["Using the mouse\n positions that were\n recorded"]
-  H --> I["Work out what the new\n order of the sections\n are and renumber them\n accordingly"]
-  H --> J["Restructure the HTML\n file so that the sections\n are in the new order"]
-  G --> K["Remove any temporary\n styling applied by the\n drag-and-drop feature"]
+  A(data-kraken-section & data-kraken-draggable is clicked and held) --> B("Add drop shadow until\n dropped to make it clear\n that it's being moved") & C("Store cursor's current\n position to work out the\n new positioning values") & E("When the cursor's\n position changes") & G("When the cursor is released")
+  B --> b("It could possibly also\n be scaled down a bit")
+  C --> D("Add temporary positioning\n attributes (left right top and\n bottom) to the section")
+  E --> F("Update the position of\n the section so that it\n follows the cursor")
+  G --> H("Using the mouse\n positions that were\n recorded") --> I("Work out what the new\n order of the sections\n are and renumber them\n accordingly") & J("Restructure the HTML\n file so that the sections\n are in the new order")
+  G --> K("Remove any temporary\n styling applied by the\n drag-and-drop feature")
 ```
 
 ##### Displaying element and section options
 ```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
 graph TD
-  A[data-kraken-editable-style is clicked] --> B["Lookup the class of the\n element that was selected"]
-  B --> C["Using this, load the relevant\n styling options in the\n right-hand option menu"]
-  C --> E["When a style option is hovered"]
-  E --> e["Update this change in the\n element.style of the selected element,\n and listen for when it is un-hovered"]
-  C --> F["When a style option is un-hovered"]
-  F --> f["If the style option was not clicked,\n remove the style attribute from the\n element.style of the selected element"]
-  C --> G["When a style option is changed"]
-  G --> g["Update this change in the\n element.style of the selected\n element"]
-  C --> I["When the element\n is deselected"]
-  C --> H["When the apply changes\n button is clicked"]
-  H --> J["Take all of the newly-added styles in\n element.style and add them to the\n elements style bank"]
-  I --> J
+  A(data-kraken-editable-style is clicked) --> B("Lookup the class of the\n element that was selected") --> C("Using this, load the relevant\n styling options in the\n right-hand option menu") --> E("When a style option\n is hovered") & F("When a style option\n is un-hovered") & G("When a style option\n is changed") & I("When the element\n is deselected") & H("When the apply\n changes button\n is clicked")
+  E --> e("Update this change in\n the element.style of the\n selected element, and\n listen for when it is\n un-hovered")
+  F --> f("If the style option was\n not clicked, remove the\n style attribute from the\n element.style of the\n selected element")
+  G --> g("Update this change\n in the element.style\n of the selected element")
+  H & I--> J("Take all of the newly-added styles in\n element.style and add them to the\n elements style bank")
 ```
 
 ##### Displaying text editors
 ```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
 graph TD
-  A[data-kraken-editable-text is clicked] --> B["Style the element appropriately"]
-  A --> E["Inside the text element\n of the selected element\n (h1, p, etc), append a text\n input element"]
-  E --> F["Remove the text from the\n element and set it as the\n content for the input"]
-
-  B --> C["Add a colored underline\n to the text to indicate\n that it is selected for\n text editing"]
-  C --> D["Copy all styling of the\n text into the newly generated\n input so that it is seamless"]
-
-  A --> G["When the input loses focus"]
-  G --> H["Fetch the content of the input"]
-  H --> I["Remove the input and\n replace it with the stored content"]
+  A(data-kraken-editable-text is clicked) --> B("Style the element\n appropriately") & E("Inside the text element\n of the selected element\n (h1, p, etc), append a text\n input element") & G("When the input\n loses focus")
+  E --> F("Remove the text from the\n element and set it as the\n content for the input")
+  B --> C("Add a colored underline\n to the text to indicate\n that it is selected for\n text editing") --> D("Copy all styling of the\n text into the newly generated\n input so that it is seamless")
+  G --> H("Fetch the content\n of the input") --> I("Remove the input\n and replace it with the\n stored content")
 ```
 
 ##### Multi-user system
 The SQL and multi-user algorithms are all handled by libraries that I am using, which means that I can use function calls such as `login_user(user)` from the `flask_login` library, or `user = self.User.query.filter_by(user_id=username).first()` that uses an inherited class in the `models.py` file to perform an SQL query. As such, the algorithms for the multi-user system are all based on input verification.
 
 ```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
 graph TD
-  A[User submits login information] --> B["Fetch inputs username and\n password from request.form"]
-  B --> C["Run the SQL query\n SELECT user_id FROM User\n WHERE user_id=username\n to fetch the user"]
-  C --> D["If no user is\n returned, prompt the\n user to try again"]
-  C --> E["If one user is returned"]
-  E --> F["Hash and check the\n password given against\n that in the database"]
-  F --> G["If the hashes do not match,\n prompt the user to try again"]
-  F --> H["If the hashes match,\n run the login_user subroutine and\n redirect them to the homepage"]
+  A(User submits login information) --> B("Fetch inputs username and\n password from request.form") --> C("Run the SQL query\n SELECT user_id FROM User\n WHERE user_id=username\n to fetch the user") --> D("If no user is\n returned, prompt the\n user to try again") & E("If one user is returned")
+  E --> F("Hash and check the\n password given against\n that in the database") --> G("If the hashes do\n not match, prompt\n the user to try again") & H("If the hashes match,\n run the login_user\n subroutine an redirect\n them to the homepage")
 ```
 
 ```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
 graph TD
-  A[User submits signup information] --> B["Fetch the inputs from\n request.form: name, email,\n username, password1,\n password2"]
-  B --> C["Use the function verifyField\n to check each input"]
-  C --> D["name:\n canHaveSpace=true,\n canHaveSpecialChar=True"]
-  C --> E["email:\n minLen=0,\n canHaveSpace=false,\n canHaveSpecialChar=true"]
-  C --> F["username:\n canHaveSpecialChar=false"]
-  C --> G["password1:\n minLen=8"]
-  D --> H["If any of these return\n an error, prompt the\n user to try again"]
-  E --> H
-  F --> H
-  G --> H
-  H --> h["Else, continue to the next\n phase of validation"]
-  h --> I["Check email to make sure\n it is formatted correctly"]
-  h --> J["Check that password1 doesn't\n equal password2"]
-  h --> K["Using the SQL query\n SELECT user_id FROM User\n WHERE user_id=username\n to see whether any other users\n with this username exist"]
-  I --> L["If any of these return\n an error, prompt the\n user to try again"]
-  J --> L
-  K --> L
-  L --> M["Else, run the createUser\n function, sign them in,\n and redirect to home"]
+  A(User submits signup information) --> B("Fetch the inputs from\n request.form: name,\n email, username,\n password1, password2") --> C("Use the function verifyField\n to check each input") --> D("name:\n canHaveSpace=true,\n canHaveSpecialChar=True") & E("email:\n minLen=0,\n canHaveSpace=false,\n canHaveSpecialChar=true") & F("username:\n canHaveSpecialChar=false") & G("password1:\n minLen=8") --> H("If any of these return\n an error, prompt the\n user to try again") --> h("Else, continue to the next\n phase of validation") --> I("Check email to make sure\n it is formatted correctly") & J("Check that password1 doesn't\n equal password2") & K("Using the SQL query\n SELECT user_id FROM User\n WHERE user_id=username\n to see whether any other users\n with this username exist") --> L("If any of these return\n an error, prompt the\n user to try again") --> M("Else, run the createUser\n function, sign them in,\n and redirect to home")
 ```
 
 ```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
 graph TD
-  A[verifyField Function] --> B["Takes variables:"]
-  B --> a["field:\n the content of\n the field"]
-  B --> b["fieldname:\n the name of\n the field"]
-  B --> c["mustHaveChar:\n whether field has\n to have content,\n default=true"]
-  B --> d["minLen:\n the minimum\n length of field,\n default=3"]
-  B --> e["canHaveSpace:\n whether field can\n have whitespace,\n default=false"]
-  B --> f["canHaveSpecialChars:\n whether field can\n have any of a list of\n special characters,\n default=true"]
-  A --> C["For each of the given\n options, check to see whether\n field matches the criteria"]
-  C --> D["If it does, return an\n empty string"]
-  C --> E["If not, return a\n string containing the\n error message"]
+  A(verifyField Function) --> B("Takes variables:") --> a("field:\n the content of\n the field") & b("fieldname:\n the name of\n the field") & c("mustHaveChar:\n whether field has\n to have content,\n default=true") & d("minLen:\n the minimum\n length of field,\n default=3") & e("canHaveSpace:\n whether field can\n have whitespace,\n default=false") & f("canHaveSpecialChars:\n whether field can\n have any of a list of\n special characters,\n default=true")
+  A --> C("For each of the given\n options, check to see whether\n field matches the criteria") --> D("If it does, return an\n empty string") & E("If not, return a\n string containing the\n error message")
 ```
 
 ```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
 graph TD
-  A[createUser Function] --> B["Takes variables:"]
-  B --> a["username:\n the user's\n username"]
-  B --> b["email:\n the user's\n email address"]
-  B --> c["name:\n the user's name"]
-  B --> d["password:\n the user's\n hashed password"]
-  A --> C["Insert a new user\n into the User table\n using the given variables"]
-  C --> D["Generate the user's\n folder structure in the\n server storage"]
+  A(createUser Function) --> B("Takes variables:") --> a("username:\n the user's\n username") & b("email:\n the user's\n email address") & c("name:\n the user's name") & d("password:\n the user's\n hashed password")
+  A --> C("Insert a new user\n into the User table\n using the given variables") --> D("Generate the user's\n folder structure in the\n server storage")
 ```
 
 #### Diagram showing how the subroutines link
