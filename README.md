@@ -93,6 +93,8 @@ The website is split into sections, where each section contains a content wrappe
 
 <img alt="Squarespace research image: grid construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace10.png?raw=true" width="640"/>
 
+<img alt="Squarespace research image: construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace14.png?raw=true" width="640"/>
+
 Selecting text gives the user a popup that displays the text formatting options. Whenever the user clicks on an element, they get a different popup that displays the design options for said element.
 
 <img alt="Squarespace research image: text edit and style popup" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace11.png?raw=true" width="640"/>
