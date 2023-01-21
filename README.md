@@ -1,7 +1,19 @@
 
 ## Analysis
 ### Problem identification
-With the internet constantly growing, and more and more people relying on it, the demand for websites is constantly increasing - it is now expected for businesses to have their own webpage that people can easily access. They can range in style from business portfolios, to online stores, to games. However, a lot of people may find it difficult to create a website for themselves or their organisation, and the task of manually programming it can seem very daunting. The main aim of this project is to develop a website that allows clients to produce their own website via a simple user interface, which alleviates the technical intricacies of HTML, CSS and JavaScript. Clients will be able to select from a variety of styles and themes - or create their own - upload media such as images and videos, and then interact with a drag and drop interface to organise a webpage. Each website they create would have it’s own page dedicated to it, with options to customise the styles of the site, ability to create, organise, and link together pages of the website, preview the website in a variety of display sizes, and of course add pre-made elements and edit the parameters of the elements in the site. The requirements for a client to be able to use it would also be low, due to the entire application being contained within its own website, meaning that the client would only need a web browser and internet connection. This means the client doesn't need to install software onto their computer, nor do they need to worry about software updates.
+The main aim of this project is to develop a website that allows clients to produce their own website via a simple user interface, which alleviates the technical intricacies of HTML, CSS and JavaScript. Clients will be able to select from a variety of styles and themes - or create their own - upload media such as images and videos, and then interact with a drag and drop interface to organise a webpage. Each website they create would have it’s own page dedicated to it, with options to customise the styles of the site, ability to create, organise, and link together pages of the website, preview the website in a variety of display sizes, and of course add pre-made elements and edit the parameters of the elements in the site.
+
+With the internet constantly growing, and more and more people relying on it, the demand for websites is constantly increasing. They can range in style from business portfolios, to online stores, to games. Regardless of who you are or what you do, a website is often expected of you, especially for businesses. However, the problem of creating a professional and functional website can be a daunting task for many individuals and small businesses, especially those without technical expertise or resources. Existing website builders may be difficult to navigate, require extensive coding knowledge, or lack the necessary design flexibility to create a unique and effective online presence. Furthermore, many website builders are geared towards certain industries or types of websites, making it difficult for users to find a platform that meets their specific needs, and the task of manually programming it can seem very daunting.
+
+The main aim of this project is to develop a website that allows clients to produce their own website via a simple user interface, which alleviates the technical intricacies of HTML, CSS and JavaScript and allows them to focus on creating a website that reflects their brand and meets their business goals. Clients will be able to select from a variety of styles and themes - or create their own - upload media such as images and videos, and then interact with a drag and drop interface to organize a webpage. Each website they create would have its own page dedicated to it, with options to customize the styles of the site, ability to create, organize, and link together pages of the website, preview the website in a variety of display sizes, and of course add pre-made elements and edit the parameters of the elements in the site.
+
+The need for a drag and drop website builder that is easy to use is increasingly important in today's digital age, where having an online presence is crucial for businesses, organizations, and individuals. A website builder that is user-friendly and offers a wide range of customizable design options would greatly benefit users who may not have the technical know-how to create a website on their own.
+
+Moreover, the rise of mobile devices and the increasing importance of responsive design have made it crucial for websites to be optimized for different screen sizes and devices. As such, this project would also be geared towards easily creating mobile-friendly websites to ensure optimal user experience.
+
+The requirements for a client to be able to use it would also be low, due to the entire application being contained within its own website, meaning that the client would only need a web browser and internet connection. This means the client doesn't need to install software onto their computer, nor do they need to worry about software updates.
+
+In summary, the problem that this website builder aims to solve is to provide an easy to use, drag-and-drop website builder for individuals and small businesses, which can be easily customized to their specific needs and optimized for different devices, without requiring technical expertise. This will greatly benefit users by allowing them to create a professional and functional website that meets their business goals and reflects their brand, without the need for a background in technology or coding.
 
 #### Stakeholders
 The clients for this software would be businesses or individuals who require a website but do not have the technical competency or time to build one themselves.
@@ -14,10 +26,22 @@ The clients for this software would be businesses or individuals who require a w
 <img alt="404 no stakeholders" src="https://lh5.googleusercontent.com/4uvZ_jq6raFf03ail16FfgqLPm9JP5gdU8V-y3wZAfbUpKUVSNls_AyQkpSCeZ10CrUPHeXBtRubFjCSOWe2scR_DFF6y7YcZc2VesnJbeRY-9vynC5GyrSNOOH4g_Px8H1jbhP-i_bE8n_1Z6K6Rg"/>
 
 #### Why it is suited to a computational approach
-This problem lends itself to acomputational approach due to the fact that websites are inherently computational. The solution will be run from a server that hosts a website, meaning it will need a computer to use. There is no alternative that would not require a computer to be able to create a website, as at one point you will need to write and host the code that you have produced. This program would simply act as a bridge between the client and the code.
+This problem is suitable for a computational approach because it automates many of the technical and design tasks that are typically associated with creating a website. This is achieved by breaking down the process of website building into smaller, more manageable tasks that can be easily handled by a computer program.
+
+For example, it can implement a drag-and-drop interface to allow users to easily add and arrange elements on a webpage, such as text, images, and videos, without the need for coding. The website builder can also include a visual editor that allows users to easily customize the design and layout of their website, such as selecting from a variety of pre-designed templates or themes. The website builder can also apply pre-defined styles and formatting to the website, as well as organize and link the pages together.
+
+In addition, the solution can also use computational algorithms to optimize the website for different devices and screen sizes, ensuring that the website is responsive and easy to navigate on any device. This can be done by using CSS media queries, which can change the layout of the website based on the width of the screen, and JavaScript libraries that can detect the device and size of the screen, and adjust the layout accordingly.
+
+Using a computational approach can also ensure that the website is secure, fast and reliable. It can use techniques like minifying, compression and caching to make the website load faster, and use authentication and authorization mechanisms to ensure the website is secure.
+
+The solution will be accessible through a server that hosts a website, which requires a computer to use. There is no alternative that would not require a computer to be able to create a website, as at some point you will need to write and host the code that you have produced. This solution would act as a bridge between the client and the code, making it easy for users to create a website without needing to understand the technical details of coding.
 
 #### Computational methods that the solution lends itself to:
 ##### Problem recognition
+This solution is suitable for problem recognition because it addresses a specific problem that many individuals and small businesses face: the difficulty of creating a professional and functional website without technical expertise or resources. By providing a user-friendly, drag-and-drop interface, a website builder allows users to easily create and edit their website without the need for coding or technical expertise. This addresses the problem of users not having the technical skills or resources to create a website on their own.
+
+Furthermore, a website builder can also use computational algorithms to optimize the website for different devices and screen sizes, ensuring that the website is responsive and easy to navigate on any device. This addresses the problem of the rise of mobile devices and the increasing importance of responsive design in today's digital age.
+
 ##### Problem decomposition
 The problem can be broken down into smaller tasks that need to be run for the program can be used effectively.
 - Creating an account system, and a database to store the user's data.
@@ -34,10 +58,12 @@ The problem can be broken down into smaller tasks that need to be run for the pr
 > There would need to be a way for JS to do it so that the user can edit the site in the editor, and a way for the server (written in python) to do it as well
 
 ##### Divide and conquer
-These smaller steps are all doable on their own, and combining them together mould make a divide and conquer approach. The advantage of it being coded in a modular way such as this is that each part can be tested and built on its own, without relying on other parts of the project.
+These smaller steps are all doable on their own, and combining them together would make a divide and conquer approach. The advantage of it being coded in a modular way such as this is that each part can be tested and built on its own, without relying on other parts of the project.
 
 ##### Abstraction
-The program uses abstraction as it removes the complex process of having to program code by transferring it into a more simple, graphical interface. This removes the need of the client to have knowledge and experience in programming and therefore opening the market to a much larger audience.
+The program uses abstraction as it removes the complex process of having to program code by transferring it into a more simple, graphical interface - it provides a high-level interface for users to create a website, while hiding the underlying implementation details. This removes the need of the client to have knowledge and experience in programming and therefore opening the market to a much larger audience.
+
+For example, the website builder can use a drag-and-drop interface to allow users to easily add and arrange elements on a webpage, such as text, images, and videos, without the need for coding. This drag-and-drop interface abstracts away the implementation details of adding and arranging elements on a webpage using HTML and CSS code.
 
 ### Research
 #### Existing solution - Squarespace
@@ -45,19 +71,19 @@ In their template list, they give the option to preview the website, with all of
 
 <img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace12.png?raw=true" height="360"/>
 
-When first starting to edit the site, squarespace offer an assistant with some basic first steps to creating the website, which makes it easier for the client to be able to understand how the editor works and how to effectively use it.
+When first starting to edit the site, Squarespace offer an assistant with some basic first steps to creating the website, which makes it easier for the client to be able to understand how the editor works and how to effectively use it.
 
 <img alt="Squarespace research image: assistant" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace3.png?raw=true" height="360"/>
 
-Their design options include the styles, browser icon, 404 page, and custom css options. They can change the fonts, color scheme, global animations, spacing, and default styles for certain widgets.
+Their design options include the styles, browser icon, 404 page, and custom CSS options. They can change the fonts, color scheme, global animations, spacing, and default styles for certain widgets.
 
 <img alt="Squarespace research image: design menu" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace13.png?raw=true" height="360"/>
 
-Their editor works in the conventional way of a grid based system, where you can place elements anywhere on the grid. It will then assign the item the style property ```grid-area:row-start/col-start/row-end/col-end```, or ```grid-area:y/x/height/width``` to define the position of the element. They have different attributes for different screen sizes, and you can edit both different styles by switching between laptop mode and phone mode.
+Their editor works in the conventional way of a grid based system, where you can place elements anywhere on the grid. It will then assign the item the style property `grid-area:row-start/col-start/row-end/col-end`, or `grid-area:y/x/height/width` to define the position of the element. They have different attributes for different screen sizes, and you can edit both different styles by switching between laptop mode and phone mode.
 
 <img alt="Squarespace research image: element drag and drop" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace6.png?raw=true" width="640"/>
 
-<img alt="Squarespace research image: grid positioning css" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace7.png?raw=true" height="360"/>
+<img alt="Squarespace research image: grid positioning CSS" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace7.png?raw=true" height="360"/>
 
 The website is split into sections, where each section contains a content wrapper with the grid positioning system inside.
 
@@ -74,25 +100,27 @@ By selecting text, you get a popup that displays the text formatting options. Wh
 ##### Parts I can apply to my project
 My solution will have the option to preview and use templates in a similar way to how Squarespace does it, along with their grid positioning system, which is, for lack of a better phrase, an "industry standard." There will also be a similar formatting option setup, but in will be docked on the right hand side with all of the formatting in the same place.
 
+Squarespace also offers a variety of features such as e-commerce integration, SEO tools, analytics, 24/7 customer support, and a Content Management System (CMS) that allows users to easily update and manage their website's content. Although these features are useful in a website builder, I do not particularly intend on including them in the first release of my solution as I am aware of the timeframe that I have, and how long these features would take to make. My system would have a CMS, but not at the scale or capability of Squarespace's.
+
 #### Existing solution - Zyro
-Zyro also use an assistant to help the user understand how to use their editor.
+Zyro also uses an assistant to help the user understand how to use their editor.
 
 <img alt="Zyro research image: assistant image 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro1.png?raw=true" height="360"/>
 
 <img alt="Zyro research image: assistant image 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro2.png?raw=true" height="360"/>
 
-Zyro have two ways of positioning objects; one of them is very similar to the way squarespace do it, with a grid positioning system, and the second is something they call smart layout. It instead uses only columns to position, and the elements can be moved up and down said columns freely and snap to other elements, like how many editors like photoshop might do. You can toggle the snapping to other elements in section settings
+Zyro have two ways of positioning objects; one of them is very similar to the way Squarespace do it, with a grid positioning system, and the second is something they call smart layout. It instead uses only columns to position, and the elements can be moved up and down said columns freely and snap to other elements, like how many editors like photoshop might do. You can toggle the snapping to other elements in section settings
 
 <img alt="Zyro research image: grid positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro3.png?raw=true" width="360"/>
 
 <img alt="Zyro research image: smart layout positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro4.png?raw=true" width="360"/>
 <img alt="Zyro research image: snap to guides setting" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro5.png?raw=true" width="360"/>
 
-Their image resizing system is nice. It makes use of the ```object-fit:cover``` property in the style of the image, and just changing the width and height attributes when being dragged, as explained later
+Their image resizing system is nice. It makes use of the `object-fit:cover` property in the style of the image, and just changing the width and height attributes when being dragged, as explained later
 
 <img alt="Zyro research image: image resize animation" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro6.gif?raw=true" width="360"/>
 
-Something else zyro does is have all of their style attributes defined in one class, which rely on variables such as ```--grid-row```,```--m-grid-column```, and```--element-width``` that are defined in element.style (the style attribute of the HTML object), which have presumably been put their by JavaScript.
+Something else Zyro does is have all of their style attributes defined in one class, which rely on variables such as `--grid-row`,`--m-grid-column`, and `--element-width` that are defined in `element.style` (the style attribute of the HTML object), which have presumably been put their by JavaScript.
 
 This is the CSS class with all of the variable references:
 
@@ -102,9 +130,14 @@ This is the HTML style attribute with all of the variable declarations in it:
 
 <img alt="Zyro research image: positioning variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro8.png?raw=true" width="360"/>
 
-When moving elements around the layout, Zyro adds four variables to the element, top, left, width, and height, which they use to render the positioning of the element while you are moving it. When you release the element, these values are removed. This positioning would probably be done in JavaScript by taking the position of the cursor when you clicked on the element, getting the position of the element when you click on it, and then offsetting the position of the element by the amount you remove the cursor. Then, when you release the cursor, it runs the code to calculate the new grid positioning of the element. They also have a max width for desktop, where the element cannot be moved further.
+When moving elements around the layout, Zyro adds four variables to the element, `top`, `left`, `width`, and `height`, which they use to render the positioning of the element while you are moving it. When you release the element, these values are removed. This positioning would probably be done in JavaScript by taking the position of the cursor when you clicked on the element, getting the position of the element when you click on it, and then offsetting the position of the element by the amount you remove the cursor. Then, when you release the cursor, it runs the code to calculate the new grid positioning of the element. They also have a max width for desktop, where the element cannot be moved further.
 
 <img alt="Zyro research image: live position variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro9.png?raw=true" width="640"/>
+
+##### Parts I can apply to my project
+Like Squarespace, Zyro uses a grid positioning system that I will probably be implementing into my project. Their system for moving elements around with temporary `element.style` declarations is also a good way of implementing it, that I will use as well.
+
+Zyro also include an built-in AI-based website creation tool called Zyro AI Writer which can help users create website content with ease. Similar to the Squarespace e-commerce system, I believe that this will not fit into the timeframe of the initial release of this solution, so will probably not be implemented.
 
 #### Initial concept consider this research
 My solution will be a web-based, multi user program where the user uses a grid-based, drag and drop system using pre-defined template elements that they can then customise. There will be a tutorial for when you first create an account to help new users understand the system. The user will be able to customise styles for their site, organise pages, access a library of predefined templates for widgets such as text, buttons, or links, and have control over the styling of each individual element in their pages. The aim is to have an easy learning curve and a low bar of entry for understanding so that anybody can use it.
@@ -115,21 +148,37 @@ The main limitation it would have would be that, as it is a server side applicat
 I should probably contact the "stakeholders" at this point as I'm developing ideas on how the website builder would function.
 
 ### Hardware and Software Requirements
-
 #### Hardware Requirements
-A computer capable of accessing the internet.
+For the client, they will need a computer capable of accessing the internet.
+
+In terms of the server side, hardware requirements may include:
+- A server to host the website builder application and handle user requests. This server could be physical or virtual, and run on any operating system that can also run python (as it is the language I will be using to program the backend).
+- The server will require a CPU that has enough processing power: it may need a high number of cores and a fast clock speed to allow it to handle high traffic and many concurrent users.
+- The server will need enough memory (RAM) to handle the requests and processes of the application.
+- The server will require a sufficient amount of storage to store the website builder application, as well as the images and files uploaded by the users to the CMS.
+- The server will need a high-speed network connection to handle incoming and outgoing traffic between itself and the users. The faster the connection, the better the user's experience will be.
+
+In addition to the above hardware requirements, it should be designed with scalability in mind, so that can be adjusted if the size of the application or the number of users increases.
 
 #### Software Requirements
-A JavaScript-compatible web browser and an active internet connection.
+For the client, they will need a JavaScript-compatible web browser and an active internet connection.
+
+For the server, software requirements may include:
+- The operating system used on the server should be able to run Python, alongside other software listed below.
+- Python - it will need to be able to run Python in order to host the website builder.
+- A file structure system to store the code and assets for the website builder.
+- A database or file structure system to manage and store the data and media uploaded by the users to the CMS.
+- Firewall software to monitor the incoming and outgoing traffic and stop potential threats from corrupting the system.
+- Load balancer software may be required when the userbase increases to manage server resources and route traffic to available servers.
 
 ### Stakeholder requirements
 
 ### Success Criteria
-
- - Login system
- - ability to view password with the all seeing eye
- - Sign up fields to be Name, email, username, and two passwords to make sure they get it correct
- - fully functional error checking on all fields as followed
+- Login system
+- ability to view password with the all seeing eye
+- Sign up fields to be Name, email, username, and two passwords to make sure they get it correct
+- SQL database that stores user and site information
+- fully functional error checking on all fields as followed
 > All fields must not be empty
 Name can have spaces and non alphanumeric characters, must be longer than 2
 Email must be in an email format
@@ -139,15 +188,15 @@ Repeat password must be identical to Password
 Email cannot already be in the database
 Username cannot already be in the database
 
- - The homepage, when there are no sites, displays a prompt to create a new site
- - The homepage, when the user has created sites, lists all of them along with a "create new site" button
- - Ability to (export and) import sites in a zip file so that you can transfer them between sites. This is different to downloading a useable copy of the website. Export function may not be necessary as it is given in the site settings.
- - When creating a site, you get the following options
+- The homepage, when there are no sites, displays a prompt to create a new site
+- The homepage, when the user has created sites, lists all of them along with a "create new site" button
+- Ability to (export and) import sites in a zip file so that you can transfer them between sites. This is different to downloading a useable copy of the website. Export function may not be necessary as it is given in the site settings.
+- When creating a site, you get the following options
 > Website Name: at least 4 chars, and any illegal characters are converted into dashes. The user is given a preview of what their site name will look like when it doesn't match the criteria.
 Description: optional
 Whether the site is public or private: determines who has access to the site URLs
 
- - You then proceed through options that allow you to change the default styling properties of the site.
+- You then proceed through options that allow you to change the default styling properties of the site.
 > These will be the options for color palettes, primary and secondary fonts, and button settings.
 
 - Sites can be accessed by the URL: `/<username>/<sitename>`, and, if public, can be viewed (but not edited) by anyone from this URL. If private, other users will be told this and redirected home.
@@ -155,18 +204,22 @@ Whether the site is public or private: determines who has access to the site URL
 - The site will have a config file, where it stores all of its global variables - mostly style choices - which have been selected when creating the site. These can also be edited at any time in the site homepage.
 > These variables include primary, secondary, accent and grey colors, primary and secondary fonts, button styling choices, and animation types.
 
-- The site page (`/<username>/<sitename>`) can be programmatically assigned due to the python backend: it can take both parameters, search for them in the database, make sure that the current user has permissions, and display the appropriate site.
+- File storage system to store user site files
+- CMS system for users to be able to upload custom content
+>
+
+- The site page (`/<username>/<sitename>`) can be programmatically assigned due to the Python backend: it can take both parameters, search for them in the database, make sure that the current user has permissions, and display the appropriate site.
 - On the site page, the user will get a preview of the website, along with customizability options for the website: the ability to edit the site, reorganise the site structure (which pages go where), edit site settings (such as default colors), and export the site.
-- when editing the site, the organisation will look like this
+- When editing the site, the organisation will look like this
 > a navigation bar on the left that contains the options: "website pages" where you can navigate to a different page, "add section" where you can add another template section to the current page, "website styles" where you can change global settings such as fonts and colors, and "add element" where you can drag and drop individual elements into the canvas to edit.
 a central canvas where the actual web page can be previewed
 a popup modal for the centre which appears when you need to select a section or element to add to the page
 a styling section on the right hand side where you can edit all of the styling properties for a selected element
 
 
-- The central canvas will import the raw html and css files from the server, and it will rely on data tags in the html element to understand what does what and how to edit it.
+- The central canvas will import the raw HTML and CSS files from the server, and it will rely on data tags in the html element to understand what does what and how to edit it.
 - Whenever a widget is selected, a box will be drawn around it, with the ability to resize it. the style menu on the right will also populate with style options for the selected element that can be changed in real time, and can be previewed when hovered over, so that the user can easily understand what certain buttons will do.
-- Whenever a widget is selected and held, an outline of the parent section's grid system is previewed, and the element can be moved around. It does this by tracking the position of the cursor and relating that to the start position of the cursor on the widget (the anchor point) to render it in the correct place using left right top bottom css tags. When released, the widget will snap into the nearest grid space to where it was released. A similar thing happens when you select and hold one of the resize elements on the outline, where it tracks the cursor and then snaps into the closest grid space to resize it.
+- Whenever a widget is selected and held, an outline of the parent section's grid system is previewed, and the element can be moved around. It does this by tracking the position of the cursor and relating that to the start position of the cursor on the widget (the anchor point) to render it in the correct place using left right top bottom CSS tags. When released, the widget will snap into the nearest grid space to where it was released. A similar thing happens when you select and hold one of the resize elements on the outline, where it tracks the cursor and then snaps into the closest grid space to resize it.
 - The position parameters, that are changed as described above, are separate for the desktop view and mobile view of the web page. Changing the position when the page is in desktop mode will not affect the position in mobile mode, and vice versa.
 - When a widget is right clicked, it will show useful commands such as copy, paste, delete, duplicate, etc.
 >
@@ -181,10 +234,10 @@ a styling section on the right hand side where you can edit all of the styling p
 
 ![Main Page Template diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/MainPageTemplate.png?raw=true)
 
-This is the main "template" that all of the pages are built on. The main content will be displayed inside. Defining this in a separate file beforehand (`/templates/base.html`) means that the website has a more unified feel and it allows the user to always be able to go home and access the navigation menu. Defining it in a separate file also removes redundancy as the code for it only appears once.
+This is the main "template" that all of the pages are built on, where the main content will be displayed inside. Defining this in a separate file beforehand (`/templates/base.html`) means that the website has a more unified feel and it allows the user to always be able to go home and access the navigation menu. Defining it in a separate file also removes redundancy as the code for it only appears once.
 
 Home Button
->The Home button, placed in the top left hand corner so that it is easy to find and matches how other websites do it; it meets the standardised expectations that the client has.
+>The Home button is placed in the top left hand corner so that it is easy to find and matches how other websites do it; it conforms to the established design patterns and standardised expectations that the user will be familiar with.
 
 Hamburger
 >The navigation menu has been hidden behind a hamburger at the bottom of the sidebar. This is because, due to the navbar being docked on the side, having lots of links on it would look messy and be hard to read. Therefore, you can click the hamburger and a modal will appear with all of those links. Clicking the hamburger again, or anywhere else on the screen, will close the modal. The reason why the navbar is on the side of the screen is not only a design choice, but it means that the website builder has more space vertically.
@@ -200,19 +253,19 @@ This shows the layout of the login and signup pages. Built inside the main templ
 - The header to tell the user what they are doing
 - The buttons to toggle between login and sign up
 - A warning message area for incorrect credentials or invalid input
-- The form area which is populated by inputs with labels next to them
+- The form area, which is populated by inputs with labels next to them
 - The submit button at the bottom
 
 #### Homepage
 
 ![Homepage diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/HomepageTemplate.png?raw=true)
 
-This shows the layout of the homepage once you've logged in, if you already have created a website. Built inside the main template, it contains:
-- The header, saying "Welcome, <username>" so that they know that it is the homepage
+This shows the layout of the homepage once you've logged in, if you already have created a website. If you haven't made any websites yet, it will look similar to this but without the grid of their websites. Built inside the main template, it contains:
+- The header, saying "Welcome, `<username>`" so that they know that it is the homepage
 - A grid of all of their current sites.
-> The grid will change the number of columns programatically, based on the display size. It contains square divs, each showing the title of the website, an icon informing the user as to whether it is public or private, and is colored based on the primary color of said website. The text color redefines itself based on what the background color of the div is, to make sure it is easy to read
+> The grid will change the number of columns programmatically, based on the display size. It contains square `div`s, each showing the title of the website, an icon informing the user as to whether it is public or private, and is coloured based on the primary color of said website. The text color redefines itself based on what the background color of the `div` is, to make sure it is easy to read
 
-- A create new site button with the same dimensions as the site divs, at the end of the grid layout.
+- A create new site button with the same dimensions as the site `div`s, at the end of the grid layout.
 
 #### Site Home
 
@@ -222,9 +275,9 @@ This shows the layout of the site page for the owner (when they visit `/<usernam
 - The header, displaying the name of the site so that the user knows which site they are editing.
 - Navigation options, a list of links that allow the user to navigate the menu system
 > The links include:
-Home, which will display a preview of the website in the content window
-Edit site, which links to the editor
-Site preferences, site styles and site settings, which all open setting menus in the content window.
+>- Home, which will display a preview of the website in the content window
+>- Edit site, which links to the editor
+>- Site preferences, site styles and site settings, which all open setting menus in the content window.
 
 - The main content window, which will display content based on what is selected in the navigation options. By default, it will display a preview of the website, but can also display setting menus as well.
 
@@ -245,13 +298,18 @@ This shows the layout of the site editor. Built inside the main template, it con
 - The content window will display the site so that the user can edit. There is more information on the mechanics of this section at other parts of the report.
 
 ### Usability
-The usability features that I have considered make sure that the program is easy to use for as many users as possible, including those with accessibility issues. All of the buttons in the designs are large and easy to notice. All times when font selection or styling is used, previews for what the font looks like are shown so that the user can clearly see what it will look like. This functionality is also borrowed by other styling and positioning functions in the editor. All colors will be checked to make sure they have a large enough contrast ratio, so that people with color deficiencies will see an adequate contrast between the text and the background. This includes elements such as color pickers, where the label text that shows the hex code will change color depending on the background, to make sure that it is still readable. [WebAIM](https://webaim.org/resources/contrastchecker/), a website used to improve accessibility on the internet, will be used to make sure that their is enough contrast in the text. Furthermore, links in text will also be checked to make sure that they have at least a 3:1 contrast ratio with the surrounding text, so that they are visible enough. Quoted from [WebAIM](https://webaim.org/intro/#types),
+The usability features that I have considered make sure that the program is easy to use for as many users as possible, including those with accessibility issues. All of the buttons in the designs are large and easy to notice. All times when font selection or styling is used, previews for what the font looks like are shown so that the user can clearly see what it will look like. This functionality is also borrowed by other styling and positioning functions in the editor.
+
+To make it easier for users to navigate, and also to reduce cognitive load on users, the site will have a deliberatley simple structure, with many features being hidden behind modals or popup boxes. Elements such as the home button will be placed in conventional positions to make it easier for the user to find.
+
+#### Accessibility
+All colors will be checked to make sure they have a large enough contrast ratio, so that people with color deficiencies will see an adequate contrast between the text and the background. This includes elements such as color pickers, where the label text that shows the hex code will change color depending on the background, to make sure that it is still readable. [WebAIM](https://webaim.org/resources/contrastchecker/), a website used to improve accessibility on the internet, will be used to make sure that their is enough contrast in the text. Furthermore, links in text will also be checked to make sure that they have at least a 3:1 contrast ratio with the surrounding text, so that they are visible enough. Quoted from [WebAIM](https://webaim.org/intro/#types),
 > "Often, these [accessibility features] promote overall usability, beyond people with disabilities. Everyone benefits from helpful illustrations, logically-organized content and intuitive navigation. Similarly, while users with disabilities need captions and transcripts, they can be helpful to anyone who uses multimedia in silent or noisy environments."
 
 The basic accessibility requirements that are suggested, and that could apply to this project, include:
 
 |Requirement|Explanation|
-|:---:|---:|
+|:---:|---|
 |Provide equivalent alternative text|Provides text for non-text elements. It is especially helpful for people who are blind and rely on a screen reader to have the content of the website read to them.|
 |Create logical document structure|Headings, lists, and other structural elements provide meaning and structure to web pages. They can also facilitate keyboard navigation within the page.|
 |Ensure users can complete and submit all forms|Every form element (text field, checkbox, dropdown list, etc.) needs a programmatically-associated label. There may be some text that is not focused by tabbing through the form. Users must be able to submit the form.|
@@ -260,18 +318,17 @@ The basic accessibility requirements that are suggested, and that could apply to
 |Make sure content is clearly written and easy to read|Write clearly, use clear fonts, and use headings and lists logically.|
 |Design to standards|Valid and conventional HTML & CSS promote accessibility by making code more flexible and robust. It also means that screen readers can correctly interpret some elements of the website.|
 
+#### ARIA
 ARIA (Accessible Rich Internet Applications) attributes will be used throughout the website to allow screen readers to navigate the website. These attributes can be used by assistive technologies, such as screen readers, to provide a more detailed and customized experience for users. It is particularly useful for improving the accessibility of dynamic content and advanced user interface controls, such as those that are used in rich internet applications.
-
-To make it easier for users to navigate, and also to reduce cognitive load on users, the site will have a deliberatley simple structure, with many features being hidden behind modals or popup boxes. Elements such as the home button will be placed in conventional positions to make it easier for the user to find.
 
 ### Stakeholder input :D  
 
 ### Website structure and backend
 #### Flask
-I have decided to use the flask python library as the backend for this website, as I have prior experience in using it and it suits my project. It is well documented online, relatively lightweight, and easy to use. Although it doesn't include as many built-in features as other libraries (such as Django), there are plenty of other python libraries, such as `flask-login` and `flask-sqlalchemy` that can add in all of the functionality that is missing from the framework.
+I have decided to use the Flask Python library as the backend for this website, as I have prior experience in using it and it suits my project. It is well documented online, relatively lightweight, and easy to use. Although it doesn't include as many built-in features as other libraries (such as Django), there are plenty of other python libraries, such as `flask-login` and `flask-sqlalchemy` that can add in all of the functionality that is missing from the framework.
 
 #### Jinja
-I have decided to use the Jinja2 template syntax for the storage of the HTML files, as it has in-built functionality with flask, via use of the `flask.render_template()` function. All of the HTML files used for the website will be stored in the `templates/` folder in the server directory.
+I have decided to use the Jinja2 template syntax for the storage of the HTML files, as it has in-built functionality with Flask, via use of the `flask.render_template()` function. All of the HTML files used for the website will be stored in the `templates/` folder in the server directory.
 
 Jinja is a template system built for Python and Flask (other frameworks have different template systems). It makes use of templates to reduce duplicated code and make it easier to develop. It means that you can use logic operations in the template file, with functionality for `if`, `while`, `for`, and variable declaration and usage.
 
@@ -279,7 +336,6 @@ An example system of a Jinja file structure might look like:
 
 ##### base.html
 ```jinja
-<!DOCTYPE html>
 <html>
   <head>
     <title>Jinja Example</title>
@@ -327,13 +383,13 @@ As with a lot of websites, I will be building it using HTML (via Jinja's templat
 
 ### Data storage
 There will be two different methods of storing information for the website:
-- The multi-user system, including the information about the users' sites, will be stored in an SQL database using the `flask_sqlalchemy` python library, so that it can easily be integrated into the flask backend.
+- The multi-user system, including the information about the users' sites, will be stored in an SQL database using the `flask_sqlalchemy` Python library, so that it can easily be integrated into the flask backend.
 - The server will store the users' sites, including the HTML, CSS and JavaScript code.
 
 #### SQL database storage
 I have decided to use SQL to store the multi-user information as I have previous experience using SQL, and therefore it will be easy for me to setup and use. It is also useful due to its entity-relationship capability, meaning it will be well suited for storing information about users' sites. It also has a python library that integrates it to the current backend library that I am using, flask. This means that there will be less work for me to do, as most of the functionality that I will need is already built in and tested.
 
-This is the planned entity relationship diagram for the SQL database. It contains two entities, USER and SITE, that are connected with a one-to-many relationship with user_id being the foreign key in SITE.
+This is the planned entity relationship diagram for the SQL database. It contains two entities, `USER` and `SITE`, that are connected with a one-to-many relationship with `user_id` being the foreign key in `SITE`.
 
 ```mermaid
 %%{init: {'theme':'dark', 'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
@@ -364,7 +420,7 @@ erDiagram
 
 To incorporate a multi-user editing system for certain sites, the entity relationship diagram for the database will look like this. However, this may not be implemented due to time constraints.
 
-It contains three entities, USER, SITE and LINK. It is similar to the previous one, with a linking table added between the two original entities, allowing for multiple users to be able to edit multiple sites. Each LINK also contains information about the USER's permissions for the SITE.
+It contains three entities, `USER`, `SITE` and `LINK`. It is similar to the previous one, with a linking table added between the two original entities, allowing for multiple users to be able to edit multiple sites. Each `LINK` also contains information about the `USER`'s permissions for the `SITE`.
 
 ```mermaid
 %%{init: {'theme':'dark', 'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
@@ -535,15 +591,13 @@ The main things that the multi-user system should be able to do are:
 - Generate folders and files on the server to store user and site infomation
 - Import and export sites that are stored in the database and on the server
 
-TODO: pseudocode for a multi user permission system for the sites
-
 ##### Login page
 ```mermaid
 %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 
 graph TD
-  A(User submits login information) --> B("Fetch inputs username and\n password from request.form") --> C("Run the SQL query\n SELECT user_id FROM User\n WHERE user_id=username\n to fetch the user") --> D("If no user is\n returned, prompt the\n user to try again") & E("If one user is returned")
-  E --> F("Hash and check the\n password given against\n that in the database") --> G("If the hashes do\n not match, prompt\n the user to try again") & H("If the hashes match,\n run the login_user\n subroutine an redirect\n them to the homepage")
+  A(User submits login information) --> B("Fetch inputs username and\n password from request.form") --> C("Run the SQL query\n &quot;SELECT user_id FROM User\n WHERE user_id=username&quot;\n to fetch the user") --> D("If no user is\n returned, prompt the\n user to try again") & E("If one user is returned")
+  E --> F("Hash and check the\n password given against\n that in the database") --> G("If the hashes do\n not match, prompt\n the user to try again") & H("If the hashes match,\n run the login_user\n subroutine and redirect\n them to the homepage")
 ```
 
 ##### Signup page
@@ -551,7 +605,7 @@ graph TD
 %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 
 graph TD
-  A(User submits signup information) --> B("Fetch the inputs from\n request.form: name,\n email, username,\n password1, password2") --> C("Use the function verifyField\n to check each input") --> D("name:\n canHaveSpace=true,\n canHaveSpecialChar=True") & E("email:\n minLen=0,\n canHaveSpace=false,\n canHaveSpecialChar=true") & F("username:\n canHaveSpecialChar=false") & G("password1:\n minLen=8") --> H("If any of these return\n an error, prompt the\n user to try again") --> h("Else, continue to the next\n phase of validation") --> I("Check email to make sure\n it is formatted correctly") & J("Check that password1 doesn't\n equal password2") & K("Using the SQL query\n SELECT user_id FROM User\n WHERE user_id=username\n to see whether any other users\n with this username exist") --> L("If any of these return\n an error, prompt the\n user to try again") --> M("Else, run the createUser\n function, sign them in,\n and redirect to home")
+  A(User submits signup information) --> B("Fetch the inputs from\n request.form: name,\n email, username,\n password1, password2") --> C("Use the function verifyField\n to check each input") --> D("name:\n canHaveSpace=true,\n canHaveSpecialChar=True") & E("email:\n minLen=0,\n canHaveSpace=false,\n canHaveSpecialChar=true") & F("username:\n canHaveSpecialChar=false") & G("password1:\n minLen=8") --> H("If any of these return\n an error, prompt the\n user to try again") --> h("Else, continue to the next\n phase of validation") --> I("Check email to make sure\n it is formatted correctly") & J("Check that password1 doesn't\n equal password2") & K("Using the SQL query\n &quot;SELECT user_id FROM User\n WHERE user_id=username&quot;\n to see whether any other users\n with this username exist") --> L("If any of these return\n an error, prompt the\n user to try again") --> M("Else, run the createUser\n function, sign them in,\n and redirect to home")
 ```
 
 ##### Field verification
@@ -559,8 +613,8 @@ graph TD
 %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 
 graph TD
-  A(verifyField Function) --> B("Takes variables:") --> a("field:\n the content of\n the field") & b("fieldname:\n the name of\n the field") & c("mustHaveChar:\n whether field has\n to have content,\n default=true") & d("minLen:\n the minimum\n length of field,\n default=3") & e("canHaveSpace:\n whether field can\n have whitespace,\n default=false") & f("canHaveSpecialChars:\n whether field can\n have any of a list of\n special characters,\n default=true")
-  A --> C("For each of the given\n options, check to see whether\n field matches the criteria") --> D("If it does, return an\n empty string") & E("If not, return a\n string containing the\n error message")
+  A(verifyField Function) --> B("Takes variables:") --> a("field:\n the content\n of the field") & b("fieldname:\n the name \nof the field") & c("mustHaveChar:\n whether field\n has to have\n content,\n default=true") & d("minLen:\n the minimum\n length of\n field,\n default=3") & e("canHaveSpace:\n whether field\n can have\n whitespace,\n default=false") & f("canHaveSpecialChars:\n whether field can\n have any of a list of\n special characters,\n default=true")
+  A --> C("For each of the\n given options,\n check to see\n whether field\n matches the\n criteria") --> D("If it does,\n return an\n empty string") & E("If not, return\n a string\n containing the\n error message")
 ```
 
 ##### Creating a new user
@@ -590,22 +644,17 @@ graph TD
 graph TD
   A("Option Page 1 - General Settings")
   A --> B("The option to import\n an exported site")
-  A --> C("The name of the\n new website")
-  C --> c("The user will be\n told what the\n criteria are")
-  c --> d("If it meets the\n criteria, the input\n box will have a\n green border") & e("If it is too\n short, the input\n box will have a\n red border") & f("If it has any\n illegal characters,\n the input box will\n have an orange\n border")
-  f --> g("The user will still be able\n to submit the form,\n but they will be shown\n what the site name will\n look like: any\n illegal characters will\n be replaced with dashes")
-  f --> h("Illegal characters\n are any character\n that are not lowercase,\n alphanumeric, dashes,\n underscores or periods")
-  A --> D("The description\n for the website\n (the user is shown\n that it is optional)")
-  A --> E("Whether they want\n to set the website to\n public or private")
+  A --> C("The name of the\n new website") --> c("The user will be\n told what the\n criteria are") --> d("If it meets the\n criteria, the input\n box will have a\n green border") & e("If it is too\n short, the input\n box will have a\n red border") & f("If it has any\n illegal characters,\n the input box will\n have an orange\n border")
+  f --> g("The user will still be able\n to submit the form,\n but they will be shown\n what the site name will\n look like: any\n illegal characters will\n be replaced with dashes") & h("Illegal characters\n are any character\n that are not lowercase,\n alphanumeric, dashes,\n underscores or periods")
+  A --> D("The description\n for the website\n (the user is shown\n that it is optional)") & E("Whether they want\n to set the website to\n public or private") & G("When all options are\n valid, the &quot;Create Site&quot;\n button will become\n clickable")
   E --> F("The user will be\n told that they can\n change this later")
-  A --> G("When all options are\n valid, the &quot;Create Site&quot;\n button will become\n clickable")
 ```
 
 ```mermaid
 %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 
 graph TD
-  A("Option Page 2 - Colour Scheme") --> C("Whether the user\n wants light or\n dark mode for\n their website") & D("What the light\n and dark bounds\n are (how dark the\n darkest colour is\n and vice versa)") & E("What the monochromatic\n colour temperature\n should be (using a slider)") & F("What the primary,\n secondary, and accent\n colours are (using\n colour pickers)") --> G("All of these options will affect a set of\n preview boxes showing what the different colours will be") --> H("When they are finished,\n the user can click continue\n to move to the next page")
+  A("Option Page 2 - Colour Scheme") --> C("Whether the user\n wants light or\n dark mode for\n their website") & D("What the light\n and dark bounds\n are (how dark\n should the darkest\n colour be, and\n vice versa)") & E("What the monochromatic\n colour temperature\n should be (using a slider)") & F("What the primary,\n secondary, and accent\n colours are (using\n colour pickers)") --> G("All of these options will affect a set of\n preview boxes showing what the different colours will be") --> H("When they are finished,\n the user can click continue\n to move to the next page")
 ```
 
 ```mermaid
@@ -902,6 +951,7 @@ def generateFileStructure(files):
       raise OSError(e)
 ```
 
+TODO: pseudocode for a multi user permission system for the sites
 
 
 
