@@ -425,7 +425,10 @@ The `siteDat.json` file will contain all the information about the site file str
 The `site.ini` config file will contain all of the information about the site settings, theming and preferences.
 
 ### Algorithms
-The main parts of this solution are using a SQL database to store information about the multi-user system, the UI design and interactivity, and the actual drag-and-drop editor, with the drag-and-drop editor being the most complex. The main things that the drag-and-drop editor should be able to do are:
+The main parts of this solution are using a SQL database to store information about the multi-user system, the UI design and interactivity, and the actual drag-and-drop editor, with the drag-and-drop editor being the most complex.
+
+#### Drag-and-drop editor algorithms
+The main things that the drag-and-drop editor should be able to do are:
 - Display a resize box around a clicked element.
 - Resize an element when its resize box is dragged.
 - Preview a live display of a dragged element (moving with the cursor), along with the resize box rendering where the element will land when dropped (snapping to the grid).
@@ -519,10 +522,10 @@ graph TD
   B --> C("Add a colored underline\n to the text to indicate\n that it is selected for\n text editing") --> D("Copy all styling of the\n text into the newly generated\n input so that it is seamless")
   G --> H("Fetch the content\n of the input") --> I("Remove the input\n and replace it with the\n stored content")
 ```
-
-##### Multi-user system
+#### Multi-user system algorithms
 The SQL and multi-user algorithms are all mostly handled by libraries that I am using, which means that I can use function calls such as `login_user(user)` from the `flask_login` library, or `user = self.User.query.filter_by(user_id=username).first()` that uses an inherited class in the `models.py` file to perform an SQL query. As such, the algorithms for the multi-user system are all based on input verification.
 
+##### Login page
 ```mermaid
 %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 
@@ -531,6 +534,7 @@ graph TD
   E --> F("Hash and check the\n password given against\n that in the database") --> G("If the hashes do\n not match, prompt\n the user to try again") & H("If the hashes match,\n run the login_user\n subroutine an redirect\n them to the homepage")
 ```
 
+##### Signup page
 ```mermaid
 %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 
@@ -538,6 +542,7 @@ graph TD
   A(User submits signup information) --> B("Fetch the inputs from\n request.form: name,\n email, username,\n password1, password2") --> C("Use the function verifyField\n to check each input") --> D("name:\n canHaveSpace=true,\n canHaveSpecialChar=True") & E("email:\n minLen=0,\n canHaveSpace=false,\n canHaveSpecialChar=true") & F("username:\n canHaveSpecialChar=false") & G("password1:\n minLen=8") --> H("If any of these return\n an error, prompt the\n user to try again") --> h("Else, continue to the next\n phase of validation") --> I("Check email to make sure\n it is formatted correctly") & J("Check that password1 doesn't\n equal password2") & K("Using the SQL query\n SELECT user_id FROM User\n WHERE user_id=username\n to see whether any other users\n with this username exist") --> L("If any of these return\n an error, prompt the\n user to try again") --> M("Else, run the createUser\n function, sign them in,\n and redirect to home")
 ```
 
+##### Field verification
 ```mermaid
 %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 
@@ -546,6 +551,7 @@ graph TD
   A --> C("For each of the given\n options, check to see whether\n field matches the criteria") --> D("If it does, return an\n empty string") & E("If not, return a\n string containing the\n error message")
 ```
 
+##### Creating a new user
 ```mermaid
 %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 
@@ -553,6 +559,8 @@ graph TD
   A(createUser Function) --> B("Takes variables:") --> a("username:\n the user's\n username") & b("email:\n the user's\n email address") & c("name:\n the user's name") & d("password:\n the user's\n hashed password")
   A --> C("Insert a new user\n into the User table\n using the given variables") --> D("Generate the user's\n folder structure in the\n server storage")
 ```
+
+##### Multi-user system - creating a site
 
 
 TODO: add the algorithms for creating the sites
