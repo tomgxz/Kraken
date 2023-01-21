@@ -662,7 +662,7 @@ graph TD
 
 
 
-#### Diagram showing how the subroutines link
+### Diagram showing how the subroutines link
 
 <!--
 
@@ -912,9 +912,12 @@ def createUser(username,email,name,password):
   db.session.commit()
 ```
 
+##### Diagram showing how these subroutines link
+
 #### Multi-user system - creating a new site
 TODO: add the algorithms for creating the sites
 
+##### Diagrams showing how these subroutines link
 
 #### Utility subroutines
 These subroutines are called in different parts of the Python files to perform specific actions. This means that it removes duplicate code for procedures that may need to be used many times throughout
@@ -949,6 +952,8 @@ def generateFileStructure(files):
 
 TODO: pseudocode for a multi-user permission system for the sites
 
+TODO: JavaScript pseudocode for drag and drop editor
+
 #### Explanation and justification of this process
 The initial concept seems large and complicated, but the way it is broken down above into separate parts will make the development easier and faster, and will aid the testing and maintaining of the code due to it's modularity.
 
@@ -966,7 +971,7 @@ The code will be very modular, which will help with development and any changes 
 
 
 
-#### Birthday Invite Generator
+TODO: Birthday Invite Generator
 
 
 
