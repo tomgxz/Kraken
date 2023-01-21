@@ -651,7 +651,6 @@ TODO: Talk about how the JavaScript subroutines will be organised in the files.
 ##### auth_login_post
 The flask backend will call this subroutine when the user submits the login form. Using the `flask` `request` import, the subroutine will be able to fetch the data inputted from the form. The password that it recieves will already have been hashed on the client's side so that it is being sent over the internet encrypted.
 
-##### Pseudocode Algorithm
 ```python
 @self.app.route("login",method=post)
 def auth_login_post(): # run when the user submits the login form
@@ -677,7 +676,6 @@ def auth_login_post(): # run when the user submits the login form
 ##### auth_signup_post
 The flask backend will call this subroutine when the user submits the signup form. It uses similar functionality to the `auth_login_post` function, including the passwords being hashed client-side. It uses the `verifyField` subroutine to check that fields are valid, along with the `createUser` subroutine to insert a new user into the database and add them to the server storage. Both subroutines are shown later.
 
-##### Pseudocode Algorithm
 ```python
 @self.app.route("signup",method=post)
 def auth_signup_post(): # run when the user submits the signup form
@@ -744,7 +742,6 @@ TODO: talk about how the flashes for the error messages work
 ##### verifyField
 This subroutine will be called from `auth_signup_post` to make sure that all of the fields that the user inputted are valid. It takes four variables that are the requirements that the field has to meet, along with the content of the field, and the name of the field for any error messages. It will return an empty string if the field meets all of the requirements, and it will return an error message if it doesn't.
 
-##### Pseudocode Algorithm
 ```python
 def verifyField(field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,canHaveSpecialChar=True):
   # field, required, string, the content of the field
@@ -785,7 +782,6 @@ def verifyField(field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,ca
 ##### createUser
 This subroutine will be called from `auth_signup_post` when it wants to add a new user to the system. It will, using the arguments given, insert a new user into the database, and generate the required folder structure for the user, using the subroutine `generateFolderStructure`. It is a procedure, and therefore will not return anything.
 
-##### Pseudocode Algorithm
 ```python
 def createUser(username,email,name,password):
   # generate the model for a new user
@@ -823,7 +819,6 @@ These subroutines are called in different parts of the python files to do differ
 ##### generateFolderStructure
 This subroutine is called whenever the code needs to generate a list of folders. It makes use of the in-built `os` library in python. It is called when a new user is created, or when a user creates a new site.
 
-##### Pseudocode Algorithm
 ```python
 def generateFolderStructure(folders):
   for folder in folders: # iterate through the list of folders
@@ -838,7 +833,6 @@ def generateFolderStructure(folders):
 ##### generateFileStructure
 This subroutine is called whenever the code needs to generate a list of files. It makes use of the in-built `os` library in python. It is called  when a user creates a new site.
 
-##### Pseudocode Algorithm
 ```python
 def generateFileStructure(files):
   for file in files: # iterate through the list of files
