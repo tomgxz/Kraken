@@ -407,7 +407,7 @@ text sitepath
 For storage of the actual user website files, I have chosen server-side storage as it can't be easily stored in SQL. It is all stored server-side so that the user can access their files from any computer with an internet connection. The way I intend to store the site information is shown below.
 
 ```mermaid
-%%{init: {'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+%%{initialize: {'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 graph TB
     a(userData):::large --> b("&lt;username&gt;") --> c(sites) --> d("&lt;sitename&gt;") --> e(files) & f(site.ini) & g(siteDat.json)
     e --> h(1.html) & i(2.html) & j(3.html)
