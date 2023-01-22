@@ -179,13 +179,13 @@ Like Squarespace, Zyro uses a grid positioning system that will be implemented i
 
 Zyro also includes a built-in AI-based website creation tool called Zyro AI Writer, which can help users easily create website content. Similar to the Squarespace e-commerce system, this will not fit into the timeframe of the initial release of this solution, so it will not be implemented.
 
-#### Key features of the solution considering this research
+### Key features of the solution
 
 TODO: rewrite to explain more
 
 This solution will be a web-based, multi-user program where the user uses a grid-based, drag-and-drop system using pre-defined template elements that they can customise. There will be a tutorial for creating a site to help new users understand the system. The user will be able to customise styles for their site, organise pages, access a library of pre-defined templates for widgets such as text, buttons, or links, and control the styling of each element in their pages. The aim is to have an easy learning curve and a low entry bar for understanding so that anybody can use it.
 
-#### Limitations of the solution
+### Limitations of the solution
 The main limitation is that, as a server-side application, the user will always need an active internet connection to access it, and if the server goes down, there will be no way of using the program.
 
 #### Meeting with the stakeholders
@@ -1026,7 +1026,7 @@ TODO: pseudocode for a multi-user permission system for the sites
 
 TODO: JavaScript pseudocode for drag and drop editor
 
-#### Explanation and justification of this process
+### Explanation and justification of this process
 The initial concept seems large and complicated, but the way it is broken down above into separate parts will make the development easier and faster, and will aid the testing and maintaining of the code due to it's modularity.
 
 The program will be split into three main sections: the multi-user system (including the login system and the creation of sites), the site edit system (including the drag-and-drop editor and the styling system), and the user interface.
