@@ -1011,10 +1011,10 @@ These are the main variables that the JavaSript code will use:
 |`fontDropdownItem`| string| Template for a font dropdown element for the font family dropdown in the style modal.|
 
 ### Validation
-To make sure that the program is robust and will not throw critical errors, all user inputs must be validated to make sure that they have inputted valid data. Due to the usage of `<input>`s in the HTML code as the vast majority of the input methods, HTML can make sure that the correct data type is being inputted. However, some text that the user input needs to be validated to make sure that it meets certain requirements. Instances of this include:
+To make sure that the program is robust and will not throw critical errors, validation will be used throughout the code to ensure that the data entered by users is accurate, complete, and conforms to specific rules and constraints. Due to the usage of `<input>`s in the HTML code as the vast majority of the input methods, HTML can make sure that the correct data type is being inputted. However, some text that the user input needs to be validated to make sure that it meets certain requirements. Instances of this include:
 
 ##### Login and signup forms
-For the login and signup forms, the text inputted need to have specific parameters. For example, the username must have a minimum length of 3 characters, must not contain special characters, and must be unique in the database. To verify most of this, the `verifyFunction` subroutine is used. This subroutine is outlined earlier in the document. For specific things like checking that the username is unique, or that the password matches the given user, SQL queries are used to validate the inputs.
+For the login and signup forms, the text inputted need to have specific parameters. For example, the username must have a minimum length of 3 characters, must not contain special characters, and must be unique in the database. To verify most of this, the `verifyFunction` subroutine is used. This subroutine is outlined earlier in the document. For specific things like checking that the username is unique, or that the password matches the given user, SQL queries are used to validate the inputs. The data here is verified on the client-side before being sent, and is then checked server-side to double check that the data is valid.
 
 ##### Website Name when creating a new site
 The website name must meet these specific requirements:
@@ -1022,8 +1022,16 @@ The website name must meet these specific requirements:
 - At least one alphanumeric character
 - Illegal characters can be inputted, but will be changed
 
-In the JavaScript, it will take the content of the input and replace any illegal characters into dashes, then display this name to the user. It will also make sure that the form can be submitted until the input matches the given criteria. This process is outlined earlier in the document.
+In the JavaScript, it will take the content of the input and replace any illegal characters into dashes, then display this name to the user. It will also make sure that the form can be submitted until the input matches the given criteria. This process is outlined earlier in the document. This is an example of client-side validation, where the JavaScript checks the data locally before sending it off to the server.
 
+##### Importing an exported site
+When the user attempts to import a zip file containing a website, the zip file will be verified to conform with a specific format that exporting will use. If any malicious files are found, or any extra files that are not supposed to be there, the website will throw an error client-side before sending it to the server. It will also make sure that the HTML files contained are in the correct format.
+
+##### Uploading data to the CMS
+There will be a whitelist for the allowed files that can be uploaded to the CMS, and these will be checked and validated before they are sent to the server.
+
+##### Data Sanitization
+Throughout the code, the user input will be checked and cleaned to remove the risk of potentially dangerous or malicious data before being stored in the database. For example, to negate the possibility of an SQL injection attack, the library used to manage the database removes any usage of SQL queries in the code, meaning the data inputted cannot be used to execute a query. Other attack methods that will be looked into include XSS (cross-site scripting), DDoS (distributed denial of service), and MitM (man in the middle) attacks.
 
 
 
