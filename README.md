@@ -1021,6 +1021,7 @@ The website name must meet these specific requirements:
 - At least four characters
 - At least one alphanumeric character
 - Illegal characters can be inputted, but will be changed
+
 In the JavaScript, it will take the content of the input and replace any illegal characters into dashes, then display this name to the user. It will also make sure that the form can be submitted until the input matches the given criteria. This process is outlined earlier in the document.
 
 
