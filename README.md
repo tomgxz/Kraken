@@ -189,8 +189,8 @@ For the server, software requirements may include the following:
 - Ability to (export and) import sites in a zip file so you can transfer them between sites, which is different to downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
 - When creating a site, the user will get the following options
 >- Website Name: at least four characters, and any illegal characters are converted into dashes. The user is given a preview of what their site name will look like when it does not match the criteria.
->-Description: optional
->-Whether the site is public or private: determines who has access to the site URLs
+>- Description: optional
+>- Whether the site is public or private: determines who has access to the site URLs
 
 - The user then proceeds through options that allow them to change the default styling properties of the site.
 > These will be the options for colour palettes, primary and secondary fonts, and button settings.
