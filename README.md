@@ -265,8 +265,7 @@ For the server, software requirements may include the following:
 
 ### Success Criteria
 
-TODO: sort into essential and desirable categories
-
+#### Essential Features
 - Login system
 - the ability to view the password with the all-seeing eye
 - Signup fields to be name, email, username, and two passwords to make sure they get it correct
@@ -283,19 +282,14 @@ TODO: sort into essential and desirable categories
 
 - The homepage, when there are no sites, displays a prompt to create a new site
 - The homepage, when the user has created sites, lists all of them along with a "create new site" button
-- Ability to (export and) import sites in a zip file so you can transfer them between sites, which is different to downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
 - When creating a site, the user will get the following options
 >- Website Name: at least four characters, and any illegal characters are converted into dashes. The user is given a preview of what their site name will look like when it does not match the criteria.
 >- Description: optional
 >- Whether the site is public or private: determines who has access to the site URLs
 
-- The user then proceeds through options that allow them to change the default styling properties of the site.
-> These will be the options for colour palettes, primary and secondary fonts, and button settings.
-
 - Sites can be accessed with the URL: `/<username>/<sitename>`, and, if public, can be viewed (but not edited) by anyone from this URL. If private, other users will be told this and redirected home.
-- The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously. (This is because it would be more complicated to program)
 - The site will have a config file, where it stores all of its global variables - mostly style choices - which have been selected when creating the site. These can also be edited at any time on the site's homepage.
-> These variables include primary, secondary, accent, and grey colours, primary and secondary fonts, button styling choices, and animation types.
+> These variables include primary, secondary, accent, and grey colours, primary and secondary fonts, and animation types.
 
 - File storage system to store user site files
 - CMS system for users to be able to upload custom content
@@ -315,6 +309,16 @@ TODO: sort into essential and desirable categories
 - Whenever a widget is selected and held, an outline of the parent section's grid system is previewed, and the element can be moved around. It does this by tracking the cursor's position and relating that to the start position of the cursor on the widget (the anchor point) to render it in the correct place using left, right, top, and bottom CSS tags. When released, the widget will snap into the nearest grid space to where it was released. A similar thing happens when the user selects and holds one of the resize elements on the outline, where it tracks the cursor and then snaps into the closest grid space to resize it.
 - The position parameters, that are changed as described above, are separate for the desktop and mobile views of the web page. Changing the position when the page is in desktop mode will not affect the position in mobile mode and vice versa.
 - When a widget is right-clicked, it will show useful commands such as copy, paste, delete and duplicate.
+>
+
+#### Desirable Features
+- Ability to (export and) import sites in a zip file so you can transfer them between sites, which is different to downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
+>
+
+- When creating the site, the user can select options that allow them to change the default styling properties of the site.
+> These will be the options for colour palettes and font families.
+
+- The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously. (This is because it would be more complicated to program)
 >
 
 - To export the site, the user will have two options that will be clearly defined in the UI
