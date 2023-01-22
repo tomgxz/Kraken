@@ -20,7 +20,7 @@
 >
 
 - [Design](#design)
-  - [Top-Down Design](#top-down-design)
+  - [URL Navigation](#url-navigation)
   - [User Interface Design](#user-interface-design)
   - [Usability](#usability)
     - [Accessibility](#accessibility)
@@ -323,11 +323,39 @@ TODO: sort into essential and desirable categories
 
 ## Design
 
-### Top-Down Design
+### URL Navigation
 
-TODO: flowchart outlining the key features of the design
+```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 
-TODO: flowchart outlining the page navigation, colour coded based on permissions
+graph TB
+    a((Root)) --> o(Login):::g
+    a --> p(Signup):::g
+    a --> b(Account):::o
+    a --> j("&lt;username&gt;"):::g
+    a --> q(Home):::o
+    b --> c(Settings):::o
+    b --> i(Logout):::o
+    c --> d(Profile):::o
+    c --> e(Admin):::o
+    c --> f(Looks):::o
+    c --> g(Sites):::o
+    c --> h(Code):::o
+    j --> v("&lt;sitename&gt;\n (public)"):::g
+    j --> k("&lt;sitename&gt;\n (private)"):::r
+    v --> l(Home):::g
+    k --> w(Home):::r
+    w --> m
+    w --> n
+    l --> m(Edit):::r
+    l --> n(Settings):::r
+    q --> r(New):::o --> s(1):::o
+    r --> t(2):::o
+    r --> u(Generate):::o
+    classDef g fill:#030
+    classDef o fill:#630
+    classDef r fill:#600
+```
 
 ### User Interface Design
 
