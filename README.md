@@ -23,6 +23,9 @@ Some potential clients could include:
 - Freelancers: Freelancers and independent contractors who want to create a website to showcase their work and promote their services.
 
 
+#### Initial talks with stakeholders
+
+
 <img alt="404 no stakeholders" src="https://lh5.googleusercontent.com/4uvZ_jq6raFf03ail16FfgqLPm9JP5gdU8V-y3wZAfbUpKUVSNls_AyQkpSCeZ10CrUPHeXBtRubFjCSOWe2scR_DFF6y7YcZc2VesnJbeRY-9vynC5GyrSNOOH4g_Px8H1jbhP-i_bE8n_1Z6K6Rg"/>
 
 #### Why it is suited to a computational approach
@@ -135,9 +138,13 @@ Like Squarespace, Zyro uses a grid positioning system that will be implemented i
 
 Zyro also includes a built-in AI-based website creation tool called Zyro AI Writer, which can help users easily create website content. Similar to the Squarespace e-commerce system, this will not fit into the timeframe of the initial release of this solution, so it will not be implemented.
 
-#### Initial concept consider this research
+#### Key features of the solution considering this research
+
+TODO: rewrite to explain more
+
 This solution will be a web-based, multi-user program where the user uses a grid-based, drag-and-drop system using pre-defined template elements that they can customise. There will be a tutorial for creating a site to help new users understand the system. The user will be able to customise styles for their site, organise pages, access a library of pre-defined templates for widgets such as text, buttons, or links, and control the styling of each element in their pages. The aim is to have an easy learning curve and a low entry bar for understanding so that anybody can use it.
 
+#### Limitations
 The main limitation is that, as a server-side application, the user will always need an active internet connection to access it, and if the server goes down, there will be no way of using the program.
 
 #### Meeting with the stakeholders
@@ -170,6 +177,9 @@ For the server, software requirements may include the following:
 ### Stakeholder requirements
 
 ### Success Criteria
+
+TODO: sort into essential and desirable categories
+
 - Login system
 - the ability to view the password with the all-seeing eye
 - Signup fields to be name, email, username, and two passwords to make sure they get it correct
@@ -226,6 +236,13 @@ For the server, software requirements may include the following:
 >
 
 ## Design
+
+### Top-Down Design
+
+TODO: flowchart outlining the key features of the design
+
+TODO: flowchart outlining the page navigation, colour coded based on permissions
+
 ### User Interface Design
 
 ![Main Page Template diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/MainPageTemplate.png?raw=true)
@@ -292,6 +309,10 @@ This shows the layout of the site editor. Built inside the main template, it con
 >  
 
 - The content window will display the site so the user can edit it. There is more information on the mechanics of this section in other parts of the report.
+
+### User Settings Pages
+
+TODO: user settings layout
 
 ### Usability
 The usability features I have considered ensure that the program is easy to use for as many users as possible, including those with accessibility issues. All of the buttons in the designs are large and easy to notice. When font selection or styling is used, previews for what the font looks like are shown so the user can clearly see what it will look like. This functionality is borrowed by other styling and positioning functions in the editor.
@@ -660,6 +681,9 @@ graph TD
   A("Option Page 3 - Font Family") --> C("The user will be displayed a\n list of font groups") --> D("Each group will have a main,\n large font, and a smaller font\n (with the label paragraph text)") --> E("The font names will be\n displayed in their\n respective fonts") --> F("The user can click on a\n font pair to select it,\n and then click continue\n to finish")
 ```
 
+##### User Settings algorithms
+
+TODO: user settings algorithms
 
 
 ### Diagram showing how the subroutines link
@@ -919,8 +943,15 @@ TODO: add the algorithms for creating the sites
 
 ##### Diagrams showing how these subroutines link
 
+#### Multi-user system - user settings
+TODO: add the subroutines for user settings
+
+##### Diagrams showing how these subroutines link
+
 #### Utility subroutines
 These subroutines are called in different parts of the Python files to perform specific actions. This means that it removes duplicate code for procedures that may need to be used many times throughout
+
+TODO: add subroutines relating to user settings
 
 ##### generateFolderStructure
 This subroutine is called whenever the code needs to generate a list of folders. It makes use of the in-built `os` library in Python. It is called when a new user is created or when a user creates a new site.
@@ -1034,7 +1065,7 @@ There will be a whitelist for the allowed files that can be uploaded to the CMS,
 Throughout the code, the user input will be checked and cleaned to remove the risk of potentially dangerous or malicious data before being stored in the database. For example, to negate the possibility of an SQL injection attack, the library used to manage the database removes any usage of SQL queries in the code, meaning the data inputted cannot be used to execute a query. Other attack methods that will be looked into include XSS (cross-site scripting), DDoS (distributed denial of service), and MitM (man in the middle) attacks.
 
 ### Testing method
-When developing the project, a lot of the testing done will be white box testing, done by the developers. Unit testing will be used to ensure that all of the subroutines function as expected and intended. By testing each module of the program individually, this means that when they are all combined together, the program will function correct. Integration testing will be performed to make sure the program functions as a whole. This will include checking how different modules interact with each other, and how the front-end interacts with the back-end of the website.
+When developing the project, a lot of the alpha testing done will be white box testing, done by the developers. Unit testing will be used to ensure that all of the subroutines function as expected and intended. By testing each module of the program individually, this means that when they are all combined together, the program will function correct. Integration testing will be performed to make sure the program functions as a whole. This will include checking how different modules interact with each other, and how the front-end interacts with the back-end of the website.
 
 Different areas of testing when programming will include the input data of the program (for example, the user input on the login form), how the program handles said data, and what the result will be. To ensure that it has suitable error catching throughout, each module should go through destructive testing. For user input, this means using a variety of incorrect entries to see how it handles them. For the editor, this means attempting to perform styling that is invalid, dragging elements outside their boundary region, or making them too large. This will also include security testing; making sure that SQL injection or XSS attacks do not work.
 
