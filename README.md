@@ -363,6 +363,11 @@
       classDef r fill:#600
   ```
 
+  The different nodes are colour coded based on the permission required to access those pages. If a user does not have the required permission, the user will be redirected to the nearest parent node that the user has access to. If they are signed out, most of the pages will redirect the user to the Login page. The colour coding is as such:
+  - Green: Any user can access this page, and they do not need to be signed in; it is public.
+  - Orange: You need to be logged in to access this page. This mostly relates to account-based pages such as the settings menu or creating a new site.
+  - Red: You need to be the owner of this website, or have sufficient permissions granted by the owner. This only applies to the user websites that are set to private.
+
 ### User Interface Design
 
   ![Main Page Template diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/MainPageTemplate.png?raw=true)
