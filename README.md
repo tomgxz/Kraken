@@ -175,22 +175,22 @@ For the server, software requirements may include the following:
 - Signup fields to be name, email, username, and two passwords to make sure they get it correct
 - SQL database that stores user and site information
 - fully functional error checking on all fields as follows
-> All fields must not be empty
-> Name can have spaces and non-alphanumeric characters and must be longer than 2.
-> Email must be in an email format.
-> Username cannot have non-alphanumeric characters and must be longer than 2.
-> Password must be longer than 8.
-> The repeated password must be identical to password.
-> Email cannot already be in the database.
-> Username cannot already be in the database.
+>- All fields must not be empty
+>- Name can have spaces and non-alphanumeric characters and must be longer than 2.
+>- Email must be in an email format.
+>- Username cannot have non-alphanumeric characters and must be longer than 2.
+>- Password must be longer than 8.
+>- The repeated password must be identical to password.
+>- Email cannot already be in the database.
+>- Username cannot already be in the database.
 
 - The homepage, when there are no sites, displays a prompt to create a new site
 - The homepage, when the user has created sites, lists all of them along with a "create new site" button
 - Ability to (export and) import sites in a zip file so you can transfer them between sites, which is different to downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
 - When creating a site, the user will get the following options
-> Website Name: at least four characters, and any illegal characters are converted into dashes. The user is given a preview of what their site name will look like when it does not match the criteria.
-Description: optional
-Whether the site is public or private: determines who has access to the site URLs
+>- Website Name: at least four characters, and any illegal characters are converted into dashes. The user is given a preview of what their site name will look like when it does not match the criteria.
+>-Description: optional
+>-Whether the site is public or private: determines who has access to the site URLs
 
 - The user then proceeds through options that allow them to change the default styling properties of the site.
 > These will be the options for colour palettes, primary and secondary fonts, and button settings.
@@ -207,10 +207,10 @@ Whether the site is public or private: determines who has access to the site URL
 - The site page (`/<username>/<sitename>`) can be programmatically assigned due to the Python backend: it can take both parameters, search for them in the database, make sure that the current user has permissions, and display the appropriate site.
 - On the site page, the user will get a preview of the website, along with customisability options for the website: the ability to edit the site, reorganise the site structure (which pages go where), edit site settings (such as default colours), and export the site.
 - When editing the site, the organisation will look like this
-> a navigation bar on the left that contains the options: "website pages", where you can navigate to a different page, "add section", where you can add another template section to the current page, "website styles", where you can change global settings such as fonts and colours, and "add element", where you can drag and drop individual elements into the canvas to edit.
-a central canvas where the actual web page can be previewed
-a popup modal for the centre which appears when the user needs to select a section or element to add to the page
-a styling section on the right-hand side where the user can edit all of the styling properties for a selected element
+>- a navigation bar on the left that contains the options: "website pages", where you can navigate to a different page, "add section", where you can add another template section to the current page, "website styles", where you can change global settings such as fonts and colours, and "add element", where you can drag and drop individual elements into the canvas to edit.
+>- a central canvas where the actual web page can be previewed
+>- a popup modal for the centre which appears when the user needs to select a section or element to add to the page
+>- a styling section on the right-hand side where the user can edit all of the styling properties for a selected element
 
 
 - The central canvas will import the raw HTML and CSS files from the server and rely on data tags in the HTML element to understand what does what and how to edit it.
