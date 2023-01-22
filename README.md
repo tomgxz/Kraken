@@ -48,55 +48,55 @@
 
 
 ## Mark Scheme
-3.1. Analysis of the problem (10 marks)||
-:-|-
-3.1.1 Problem identification | Describe and justify the features that make the problem solvable by computational methods
-||Explain why the problem is amendable to a computational approach
-3.1.2 Stakeholders | Identify and describe those who will have an interest in the solution explaining how the solution is appropriate to their needs (this may be named individuals, groups or persona that describes the target end user).
-3.1.3 Research the problem | Research the problem and solutions to similar problems to identify and justify suitable approaches to a solution
-||Describe the essential features of a computational solution explaining these choices.
-||Explain the limitations of the proposed solution
-3.1.4 Specify the proposed solution | Specify and justify the solution requirements including hardware and software configuration (if appropriate).
-||Identify and justify measurable success criteria for the proposed solution.
+  3.1. Analysis of the problem (10 marks)||
+  :-|-
+  3.1.1 Problem identification | Describe and justify the features that make the problem solvable by computational methods
+  ||Explain why the problem is amendable to a computational approach
+  3.1.2 Stakeholders | Identify and describe those who will have an interest in the solution explaining how the solution is appropriate to their needs (this may be named individuals, groups or persona that describes the target end user).
+  3.1.3 Research the problem | Research the problem and solutions to similar problems to identify and justify suitable approaches to a solution
+  ||Describe the essential features of a computational solution explaining these choices.
+  ||Explain the limitations of the proposed solution
+  3.1.4 Specify the proposed solution | Specify and justify the solution requirements including hardware and software configuration (if appropriate).
+  ||Identify and justify measurable success criteria for the proposed solution.
 
-3.2 Design of the solution (15 marks)||
-:-|-
-3.2.1 Decompose the problem | Break down the problem into smaller parts suitable for computational solutions justifying any decisions made
-3.2.2 Describe the solution | Explain and justify the structure of the solution
-||Describe the parts of the solution using algorithms justifying how these algorithms form a complete solution to the problem.
-||Describe usability features to be included in the solution.
-||Identify key variables / data structures / classes justifying choices and any necessary validation.
-3.2.3 Describe the approach to testing | Identify the test data to be used during the iterative development and post development phases and justify the choice of this test data
+  3.2 Design of the solution (15 marks)||
+  :-|-
+  3.2.1 Decompose the problem | Break down the problem into smaller parts suitable for computational solutions justifying any decisions made
+  3.2.2 Describe the solution | Explain and justify the structure of the solution
+  ||Describe the parts of the solution using algorithms justifying how these algorithms form a complete solution to the problem.
+  ||Describe usability features to be included in the solution.
+  ||Identify key variables / data structures / classes justifying choices and any necessary validation.
+  3.2.3 Describe the approach to testing | Identify the test data to be used during the iterative development and post development phases and justify the choice of this test data
 
-3.3 Developing the solution (25 marks)||
-:-|-
-3.3.1 Iterative development process | Provide annotated evidence of each stage of the iterative development process justifying any decision made.
-||Provide annotated evidence of prototype solutions justifying any decision made.
-3.3.2 Testing to inform development | Provide annotated evidence for testing at each stage justifying the reason for the test.
-||Provide annotated evidence of any remedial actions taken justifying the decision made.
+  3.3 Developing the solution (25 marks)||
+  :-|-
+  3.3.1 Iterative development process | Provide annotated evidence of each stage of the iterative development process justifying any decision made.
+  ||Provide annotated evidence of prototype solutions justifying any decision made.
+  3.3.2 Testing to inform development | Provide annotated evidence for testing at each stage justifying the reason for the test.
+  ||Provide annotated evidence of any remedial actions taken justifying the decision made.
 
-3.4 Evaluation (20 marks)||
-:-|-
-3.4.1 Testing to inform evaluation | Provide annotated evidence of testing the solution of robustness at the end of the development process.
-||Provide annotated evidence of usability testing (user feedback).
-3.4.2 Success of the solution | Use the test evidence from the development and post development process to evaluate the solution against the success criteria from the analysis.
-3.4.3 Describe the final product | Provide annotated evidence of the usability features from the design, commenting on their effectiveness
-3.4.4 Maintenance and development | Discuss the maintainability of the solution.
-||Discuss potential further development of the solution.
+  3.4 Evaluation (20 marks)||
+  :-|-
+  3.4.1 Testing to inform evaluation | Provide annotated evidence of testing the solution of robustness at the end of the development process.
+  ||Provide annotated evidence of usability testing (user feedback).
+  3.4.2 Success of the solution | Use the test evidence from the development and post development process to evaluate the solution against the success criteria from the analysis.
+  3.4.3 Describe the final product | Provide annotated evidence of the usability features from the design, commenting on their effectiveness
+  3.4.4 Maintenance and development | Discuss the maintainability of the solution.
+  ||Discuss potential further development of the solution.
 
 ## Analysis
 ### Problem identification
-With the internet constantly growing and more and more people relying on it, the demand for websites is constantly increasing. They can range in style from business portfolios and online stores to games. Regardless of who you are or what you do, a website is often expected of you, especially for businesses. However, the problem of creating a professional and functional website can be a daunting task for many individuals and small businesses, especially those who need more technical expertise or resources. Existing website builders may be difficult to navigate, require extensive coding knowledge, or lack the necessary design flexibility to create a unique and effective online presence. Furthermore, many website builders are geared toward certain industries or types of websites, making it difficult for users to find a platform that meets their specific needs. The task of manually programming it can seem very daunting.
+  With the internet constantly growing and more and more people relying on it, the demand for websites is constantly increasing. They can range in style from business portfolios and online stores to games. Regardless of who you are or what you do, a website is often expected of you, especially for businesses. However, the problem of creating a professional and functional website can be a daunting task for many individuals and small businesses, especially those who need more technical expertise or resources. Existing website builders may be difficult to navigate, require extensive coding knowledge, or lack the necessary design flexibility to create a unique and effective online presence. Furthermore, many website builders are geared toward certain industries or types of websites, making it difficult for users to find a platform that meets their specific needs. The task of manually programming it can seem very daunting.
 
-The main aim of this project is to develop a website that allows clients to produce their website via a simple user interface, which alleviates the technical intricacies of HTML, CSS, and JavaScript and allows them to focus on creating a website that reflects their brand and meets their business goals. Clients can select from various styles and themes (or create their own), upload media such as images and videos, and then interact with a drag-and-drop interface to organise a webpage. Each website they create would have a page dedicated to it, with options to customise the styles of the site, the ability to create, organise, and link together pages of the website, preview the website in a variety of display sizes, and add pre-made elements and edit the parameters of the elements in the site.
+  The main aim of this project is to develop a website that allows clients to produce their website via a simple user interface, which alleviates the technical intricacies of HTML, CSS, and JavaScript and allows them to focus on creating a website that reflects their brand and meets their business goals. Clients can select from various styles and themes (or create their own), upload media such as images and videos, and then interact with a drag-and-drop interface to organise a webpage. Each website they create would have a page dedicated to it, with options to customise the styles of the site, the ability to create, organise, and link together pages of the website, preview the website in a variety of display sizes, and add pre-made elements and edit the parameters of the elements in the site.
 
-A drag-and-drop website builder that is easy to use is increasingly important in today's digital age, where having an online presence is crucial for businesses, organisations, and individuals. A user-friendly website builder that offers a wide range of customisable design options would greatly benefit users who may not have the technical know-how to create a website on their own.
+  A drag-and-drop website builder that is easy to use is increasingly important in today's digital age, where having an online presence is crucial for businesses, organisations, and individuals. A user-friendly website builder that offers a wide range of customisable design options would greatly benefit users who may not have the technical know-how to create a website on their own.
 
-Moreover, the rise of mobile devices and the increasing importance of responsive design have made it crucial for websites to be optimised for different screen sizes and devices. As such, this project would also be geared towards easily creating mobile-friendly websites to ensure optimal user experience.
+  Moreover, the rise of mobile devices and the increasing importance of responsive design have made it crucial for websites to be optimised for different screen sizes and devices. As such, this project would also be geared towards easily creating mobile-friendly websites to ensure optimal user experience.
 
-The requirements for a client to be able to use it would also be low due to the entire application being contained within the website: this means that the client would only need a web browser and an internet connection. They do not need to install software onto their computer, nor do they need to worry about software updates.
+  The requirements for a client to be able to use it would also be low due to the entire application being contained within the website: this means that the client would only need a web browser and an internet connection. They do not need to install software onto their computer, nor do they need to worry about software updates.
 
-In summary, the problem that this website builder aims to solve is to provide an easy-to-use, drag-and-drop website builder for individuals and small businesses, which can be easily customised to their specific needs and optimised for different devices without requiring technical expertise. This will greatly benefit users by allowing them to create a professional and functional website that meets their business goals and reflects their brand without needing a background in technology or coding.
+  In summary, the problem that this website builder aims to solve is to provide an easy-to-use, drag-and-drop website builder for individuals and small businesses, which can be easily customised to their specific needs and optimised for different devices without requiring technical expertise. This will greatly benefit users by allowing them to create a professional and functional website that meets their business goals and reflects their brand without needing a background in technology or coding.
 
 ### Stakeholders
 The clients for this solution could be a wide range of individuals or organisations looking to create a website without the need for technical competency or dedicating large amounts of time to it.
