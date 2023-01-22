@@ -207,10 +207,10 @@ For the server, software requirements may include the following:
 - The site page (`/<username>/<sitename>`) can be programmatically assigned due to the Python backend: it can take both parameters, search for them in the database, make sure that the current user has permissions, and display the appropriate site.
 - On the site page, the user will get a preview of the website, along with customisability options for the website: the ability to edit the site, reorganise the site structure (which pages go where), edit site settings (such as default colours), and export the site.
 - When editing the site, the organisation will look like this
->- a navigation bar on the left that contains the options: "website pages", where you can navigate to a different page, "add section", where you can add another template section to the current page, "website styles", where you can change global settings such as fonts and colours, and "add element", where you can drag and drop individual elements into the canvas to edit.
->- a central canvas where the actual web page can be previewed
->- a popup modal for the centre which appears when the user needs to select a section or element to add to the page
->- a styling section on the right-hand side where the user can edit all of the styling properties for a selected element
+>- A navigation bar on the left that contains the options: "website pages", where you can navigate to a different page, "add section", where you can add another template section to the current page, "website styles", where you can change global settings such as fonts and colours, and "add element", where you can drag and drop individual elements into the canvas to edit.
+>- A central canvas where the actual web page can be previewed
+>- A popup modal for the centre which appears when the user needs to select a section or element to add to the page
+>- A styling section on the right-hand side where the user can edit all of the styling properties for a selected element
 
 
 - The central canvas will import the raw HTML and CSS files from the server and rely on data tags in the HTML element to understand what does what and how to edit it.
