@@ -154,278 +154,278 @@
 
 ### Research
 #### Existing solution - Squarespace
-Their template list gives the option to preview the website, with all of its functionality in a separate page. They allow their users to view it in different sizes as well.
+  Their template list gives the option to preview the website, with all of its functionality in a separate page. They allow their users to view it in different sizes as well.
 
-<img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace12.png?raw=true" height="360"/>
+  <img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace12.png?raw=true" height="360"/>
 
-When first editing the site, Squarespace offers an assistant with some basic first steps to creating the website, making it easier for the client to understand how the editor works and how to use it effectively.
+  When first editing the site, Squarespace offers an assistant with some basic first steps to creating the website, making it easier for the client to understand how the editor works and how to use it effectively.
 
-<img alt="Squarespace research image: assistant" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace3.png?raw=true" height="360"/>
+  <img alt="Squarespace research image: assistant" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace3.png?raw=true" height="360"/>
 
-Their design options include styles, browser icons, 404 pages, and custom CSS. They can change the fonts, colour scheme, global animations, spacing, and default styles for certain widgets.
+  Their design options include styles, browser icons, 404 pages, and custom CSS. They can change the fonts, colour scheme, global animations, spacing, and default styles for certain widgets.
 
-<img alt="Squarespace research image: design menu" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace13.png?raw=true" height="360"/>
+  <img alt="Squarespace research image: design menu" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace13.png?raw=true" height="360"/>
 
-Their editor works in the conventional way of a grid-based system, where the user can place elements anywhere on the grid. It will then assign the item the style property `grid-area:row-start/col-start/row-end/col-end` or `grid-area:y/x/height/width` to define the position of the element. They have different attributes for different screen sizes, and the user can edit both styles separately by switching between laptop and phone modes.
+  Their editor works in the conventional way of a grid-based system, where the user can place elements anywhere on the grid. It will then assign the item the style property `grid-area:row-start/col-start/row-end/col-end` or `grid-area:y/x/height/width` to define the position of the element. They have different attributes for different screen sizes, and the user can edit both styles separately by switching between laptop and phone modes.
 
-<img alt="Squarespace research image: element drag and drop" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace6.png?raw=true" width="640"/>
+  <img alt="Squarespace research image: element drag and drop" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace6.png?raw=true" width="640"/>
 
-<img alt="Squarespace research image: grid positioning CSS" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace7.png?raw=true" height="360"/>
+  <img alt="Squarespace research image: grid positioning CSS" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace7.png?raw=true" height="360"/>
 
-The website is split into sections, where each section contains a content wrapper with the grid positioning system inside.
+  The website is split into sections, where each section contains a content wrapper with the grid positioning system inside.
 
-<img alt="Squarespace research image: construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace14.png?raw=true"/>
+  <img alt="Squarespace research image: construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace14.png?raw=true"/>
 
-Selecting text gives the user a popup that displays the text formatting options. Whenever the user clicks on an element, they get a different popup that displays the design options for said element.
+  Selecting text gives the user a popup that displays the text formatting options. Whenever the user clicks on an element, they get a different popup that displays the design options for said element.
 
-<img alt="Squarespace research image: text edit and style popup" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace11.png?raw=true" width="640"/>
+  <img alt="Squarespace research image: text edit and style popup" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace11.png?raw=true" width="640"/>
 
 ##### Parts I can apply to my project
-This solution will have the option to preview and use templates similarly to how Squarespace does it, along with their grid positioning system, which is, for lack of a better phrase, an "industry standard." There will also be a similar formatting option setup, but it will be docked on the right-hand side with all the formatting settings in the same place.
+  This solution will have the option to preview and use templates similarly to how Squarespace does it, along with their grid positioning system, which is, for lack of a better phrase, an "industry standard." There will also be a similar formatting option setup, but it will be docked on the right-hand side with all the formatting settings in the same place.
 
-Squarespace also offers a variety of features such as e-commerce integration, SEO tools, analytics, 24/7 customer support, and a Content Management System (CMS) that allows users to update and manage their website's content easily. Although these features are useful in a website builder, I intend not to include them in the solution's first release due to the timeframe for it and how long these features would take to make. This solution would have a CMS, but not at the scale or capability of Squarespace.
+  Squarespace also offers a variety of features such as e-commerce integration, SEO tools, analytics, 24/7 customer support, and a Content Management System (CMS) that allows users to update and manage their website's content easily. Although these features are useful in a website builder, I intend not to include them in the solution's first release due to the timeframe for it and how long these features would take to make. This solution would have a CMS, but not at the scale or capability of Squarespace.
 
 #### Existing solution - Zyro
-Zyro also uses an assistant to help the user understand how to use their editor.
+  Zyro also uses an assistant to help the user understand how to use their editor.
 
-<img alt="Zyro research image: assistant image 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro1.png?raw=true" height="360"/>
+  <img alt="Zyro research image: assistant image 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro1.png?raw=true" height="360"/>
 
-<img alt="Zyro research image: assistant image 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro2.png?raw=true" height="360"/>
+  <img alt="Zyro research image: assistant image 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro2.png?raw=true" height="360"/>
 
-Zyro has two ways of positioning objects; one is very similar to the way Squarespace does, with a grid positioning system, and the second is a smart layout. It instead uses only columns to position, and the elements can be moved up and down said columns freely and snap to other elements, like how many editors like photoshop might do. The user can toggle the snapping to other elements in section settings.
+  Zyro has two ways of positioning objects; one is very similar to the way Squarespace does, with a grid positioning system, and the second is a smart layout. It instead uses only columns to position, and the elements can be moved up and down said columns freely and snap to other elements, like how many editors like photoshop might do. The user can toggle the snapping to other elements in section settings.
 
-<img alt="Zyro research image: grid positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro3.png?raw=true" width="360"/>
+  <img alt="Zyro research image: grid positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro3.png?raw=true" width="360"/>
 
-<img alt="Zyro research image: smart layout positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro4.png?raw=true" width="360"/>
-<img alt="Zyro research image: snap to guides setting" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro5.png?raw=true" width="360"/>
+  <img alt="Zyro research image: smart layout positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro4.png?raw=true" width="360"/>
+  <img alt="Zyro research image: snap to guides setting" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro5.png?raw=true" width="360"/>
 
-Their image resizing system is good. It uses the `object-fit: cover` property in the style of the image and changes the width and height attributes when being dragged, as explained later.
+  Their image resizing system is good. It uses the `object-fit: cover` property in the style of the image and changes the width and height attributes when being dragged, as explained later.
 
-<img alt="Zyro research image: image resize animation" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro6.gif?raw=true" width="360"/>
+  <img alt="Zyro research image: image resize animation" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro6.gif?raw=true" width="360"/>
 
-Something else Zyro does is have all of their style attributes defined in one class, which relies on variables such as `--grid-row`,`--m-grid-column`, and `--element-width` that are defined in `element.style` (the style attribute of the HTML object), which have presumably been put there by JavaScript.
+  Something else Zyro does is have all of their style attributes defined in one class, which relies on variables such as `--grid-row`,`--m-grid-column`, and `--element-width` that are defined in `element.style` (the style attribute of the HTML object), which have presumably been put there by JavaScript.
 
-The CSS class with all of the variable references:
+  The CSS class with all of the variable references:
 
-<img alt="Zyro research image: css: positioning variable usage" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro7.png?raw=true" width="360"/>
+  <img alt="Zyro research image: css: positioning variable usage" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro7.png?raw=true" width="360"/>
 
-The HTML style attribute with all of the variable declarations in it:
+  The HTML style attribute with all of the variable declarations in it:
 
-<img alt="Zyro research image: positioning variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro8.png?raw=true" width="360"/>
+  <img alt="Zyro research image: positioning variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro8.png?raw=true" width="360"/>
 
-When moving elements around the layout, Zyro adds four variables to the element, `top`, `left`, `width`, and `height`, which they use to render the element positioning while you are moving it. When the user releases the element, these values are removed. This positioning will be done in JavaScript by taking the position of the cursor when the user clicks on the element, getting the element's position when they click on it, and then offsetting the element's position by the amount they move the cursor. Then, when the user releases the cursor, it runs the code to calculate the new grid positioning of the element. They also have a max width for desktop mode, where the element cannot be moved further.
+  When moving elements around the layout, Zyro adds four variables to the element, `top`, `left`, `width`, and `height`, which they use to render the element positioning while you are moving it. When the user releases the element, these values are removed. This positioning will be done in JavaScript by taking the position of the cursor when the user clicks on the element, getting the element's position when they click on it, and then offsetting the element's position by the amount they move the cursor. Then, when the user releases the cursor, it runs the code to calculate the new grid positioning of the element. They also have a max width for desktop mode, where the element cannot be moved further.
 
-<img alt="Zyro research image: live position variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro9.png?raw=true" width="640"/>
+  <img alt="Zyro research image: live position variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro9.png?raw=true" width="640"/>
 
 ##### Parts I can apply to my project
-Like Squarespace, Zyro uses a grid positioning system that will be implemented in this project. Their system for moving elements around with temporary `element.style` declarations is also a good way of implementing it that will be used as well.
+  Like Squarespace, Zyro uses a grid positioning system that will be implemented in this project. Their system for moving elements around with temporary `element.style` declarations is also a good way of implementing it that will be used as well.
 
-Zyro also includes a built-in AI-based website creation tool called Zyro AI Writer, which can help users easily create website content. Similar to the Squarespace e-commerce system, this will not fit into the timeframe of the initial release of this solution, so it will not be implemented.
+  Zyro also includes a built-in AI-based website creation tool called Zyro AI Writer, which can help users easily create website content. Similar to the Squarespace e-commerce system, this will not fit into the timeframe of the initial release of this solution, so it will not be implemented.
 
 ### Key features of the solution
-TODO: rewrite
+  TODO: rewrite
 
-This solution will be a web-based, multi-user program where the user uses a grid-based, drag-and-drop system using pre-defined template elements that they can customise. There will be a tutorial for creating a site to help new users understand the system. The user will be able to customise styles for their site, organise pages, access a library of pre-defined templates for widgets such as text, buttons, or links, and control the styling of each element in their pages.
+  This solution will be a web-based, multi-user program where the user uses a grid-based, drag-and-drop system using pre-defined template elements that they can customise. There will be a tutorial for creating a site to help new users understand the system. The user will be able to customise styles for their site, organise pages, access a library of pre-defined templates for widgets such as text, buttons, or links, and control the styling of each element in their pages.
 
-The aim is to have an easy learning curve and a low entry bar for understanding so that anybody can use it. Ease of use is also key - the cognitive load on the user should be low enough that it allows them to focus on designing the website due to
+  The aim is to have an easy learning curve and a low entry bar for understanding so that anybody can use it. Ease of use is also key - the cognitive load on the user should be low enough that it allows them to focus on designing the website due to
 
 ### Limitations of the solution
-The main limitation is that, as a server-side application, the user will always need an active internet connection to access it, and if the server goes down, there will be no way of using the program.
+  The main limitation is that, as a server-side application, the user will always need an active internet connection to access it, and if the server goes down, there will be no way of using the program.
 
 #### Meeting with the stakeholders
-I should probably contact the "stakeholders" at this point as I'm developing ideas on how the website builder would function.
+  I should probably contact the "stakeholders" at this point as I'm developing ideas on how the website builder would function.
 
 ### Hardware and Software Requirements
 #### Hardware Requirements
-The client will need a computer capable of accessing the internet.
+  The client will need a computer capable of accessing the internet.
 
-In terms of the server side, hardware requirements may include the following:
-- A server to host the website builder application and handle user requests. This server could be physical or virtual and run on any operating system that can also run Python (as it is the language I will be using to program the backend).
-- The server will require a CPU with enough processing power: it may need a high number of cores and a fast clock speed to handle high traffic and many concurrent users.
-- The server will need enough memory (RAM) to handle the requests and processes of the application.
-- The server will require a sufficient amount of storage to store the website builder application and the images and files uploaded by the users to the CMS.
-- The server will need a high-speed network connection to handle incoming and outgoing traffic between itself and the users. The faster the connection, the better the user's experience will be.
+  In terms of the server side, hardware requirements may include the following:
+  - A server to host the website builder application and handle user requests. This server could be physical or virtual and run on any operating system that can also run Python (as it is the language I will be using to program the backend).
+  - The server will require a CPU with enough processing power: it may need a high number of cores and a fast clock speed to handle high traffic and many concurrent users.
+  - The server will need enough memory (RAM) to handle the requests and processes of the application.
+  - The server will require a sufficient amount of storage to store the website builder application and the images and files uploaded by the users to the CMS.
+  - The server will need a high-speed network connection to handle incoming and outgoing traffic between itself and the users. The faster the connection, the better the user's experience will be.
 
-In addition to the above hardware requirements, it should be designed with scalability in mind so it can be adjusted if the application size or the number of users increases.
+  In addition to the above hardware requirements, it should be designed with scalability in mind so it can be adjusted if the application size or the number of users increases.
 
 #### Software Requirements
-The client will need a JavaScript-compatible web browser and an active internet connection.
+  The client will need a JavaScript-compatible web browser and an active internet connection.
 
-For the server, software requirements may include the following:
-- The operating system used on the server should be able to run Python alongside other software listed below.
-- Python - it will need to be able to run Python in order to host the website builder.
-- A file structure system to store the code and assets for the website builder.
-- A database or file structure system to manage and store the data and media uploaded by the users to the CMS.
-- Firewall software to monitor incoming and outgoing traffic and stop potential threats from corrupting the system.
-- Load balancer software may be required when the user base increases to manage server resources and route traffic to available servers.
+  For the server, software requirements may include the following:
+  - The operating system used on the server should be able to run Python alongside other software listed below.
+  - Python - it will need to be able to run Python in order to host the website builder.
+  - A file structure system to store the code and assets for the website builder.
+  - A database or file structure system to manage and store the data and media uploaded by the users to the CMS.
+  - Firewall software to monitor incoming and outgoing traffic and stop potential threats from corrupting the system.
+  - Load balancer software may be required when the user base increases to manage server resources and route traffic to available servers.
 
 ### Stakeholder requirements
 
 ### Success Criteria
 
 #### Essential Features
-- Login system
-- the ability to view the password with the all-seeing eye
-- Signup fields to be name, email, username, and two passwords to make sure they get it correct
-- SQL database that stores user and site information
-- fully functional error checking on all fields as follows
->- All fields must not be empty
->- Name can have spaces and non-alphanumeric characters and must be longer than 2.
->- Email must be in an email format.
->- Username cannot have non-alphanumeric characters and must be longer than 2.
->- Password must be longer than 8.
->- The repeated password must be identical to password.
->- Email cannot already be in the database.
->- Username cannot already be in the database.
+  - Login system
+  - the ability to view the password with the all-seeing eye
+  - Signup fields to be name, email, username, and two passwords to make sure they get it correct
+  - SQL database that stores user and site information
+  - fully functional error checking on all fields as follows
+  >- All fields must not be empty
+  >- Name can have spaces and non-alphanumeric characters and must be longer than 2.
+  >- Email must be in an email format.
+  >- Username cannot have non-alphanumeric characters and must be longer than 2.
+  >- Password must be longer than 8.
+  >- The repeated password must be identical to password.
+  >- Email cannot already be in the database.
+  >- Username cannot already be in the database.
 
-- The homepage, when there are no sites, displays a prompt to create a new site
-- The homepage, when the user has created sites, lists all of them along with a "create new site" button
-- When creating a site, the user will get the following options
->- Website Name: at least four characters, and any illegal characters are converted into dashes. The user is given a preview of what their site name will look like when it does not match the criteria.
->- Description: optional
->- Whether the site is public or private: determines who has access to the site URLs
+  - The homepage, when there are no sites, displays a prompt to create a new site
+  - The homepage, when the user has created sites, lists all of them along with a "create new site" button
+  - When creating a site, the user will get the following options
+  >- Website Name: at least four characters, and any illegal characters are converted into dashes. The user is given a preview of what their site name will look like when it does not match the criteria.
+  >- Description: optional
+  >- Whether the site is public or private: determines who has access to the site URLs
 
-- Sites can be accessed with the URL: `/<username>/<sitename>`, and, if public, can be viewed (but not edited) by anyone from this URL. If private, other users will be told this and redirected home.
-- The site will have a config file, where it stores all of its global variables - mostly style choices - which have been selected when creating the site. These can also be edited at any time on the site's homepage.
-> These variables include primary, secondary, accent, and grey colours, primary and secondary fonts, and animation types.
+  - Sites can be accessed with the URL: `/<username>/<sitename>`, and, if public, can be viewed (but not edited) by anyone from this URL. If private, other users will be told this and redirected home.
+  - The site will have a config file, where it stores all of its global variables - mostly style choices - which have been selected when creating the site. These can also be edited at any time on the site's homepage.
+  > These variables include primary, secondary, accent, and grey colours, primary and secondary fonts, and animation types.
 
-- File storage system to store user site files
-- CMS system for users to be able to upload custom content
->
+  - File storage system to store user site files
+  - CMS system for users to be able to upload custom content
+  >
 
-- The site page (`/<username>/<sitename>`) can be programmatically assigned due to the Python backend: it can take both parameters, search for them in the database, make sure that the current user has permissions, and display the appropriate site.
-- On the site page, the user will get a preview of the website, along with customisability options for the website: the ability to edit the site, reorganise the site structure (which pages go where), edit site settings (such as default colours), and export the site.
-- When editing the site, the organisation will look like this
->- A navigation bar on the left that contains the options: "website pages", where you can navigate to a different page, "add section", where you can add another template section to the current page, "website styles", where you can change global settings such as fonts and colours, and "add element", where you can drag and drop individual elements into the canvas to edit.
->- A central canvas where the actual web page can be previewed
->- A popup modal for the centre which appears when the user needs to select a section or element to add to the page
->- A styling section on the right-hand side where the user can edit all of the styling properties for a selected element
+  - The site page (`/<username>/<sitename>`) can be programmatically assigned due to the Python backend: it can take both parameters, search for them in the database, make sure that the current user has permissions, and display the appropriate site.
+  - On the site page, the user will get a preview of the website, along with customisability options for the website: the ability to edit the site, reorganise the site structure (which pages go where), edit site settings (such as default colours), and export the site.
+  - When editing the site, the organisation will look like this
+  >- A navigation bar on the left that contains the options: "website pages", where you can navigate to a different page, "add section", where you can add another template section to the current page, "website styles", where you can change global settings such as fonts and colours, and "add element", where you can drag and drop individual elements into the canvas to edit.
+  >- A central canvas where the actual web page can be previewed
+  >- A popup modal for the centre which appears when the user needs to select a section or element to add to the page
+  >- A styling section on the right-hand side where the user can edit all of the styling properties for a selected element
 
 
-- The central canvas will import the raw HTML and CSS files from the server and rely on data tags in the HTML element to understand what does what and how to edit it.
-- Whenever a widget is selected, a box will be drawn around it, with the ability to resize it. The style menu on the right will also populate with style options for the selected element that can be changed in real-time and previewed when hovered over so that the user can easily understand what certain buttons will do.
-- Whenever a widget is selected and held, an outline of the parent section's grid system is previewed, and the element can be moved around. It does this by tracking the cursor's position and relating that to the start position of the cursor on the widget (the anchor point) to render it in the correct place using left, right, top, and bottom CSS tags. When released, the widget will snap into the nearest grid space to where it was released. A similar thing happens when the user selects and holds one of the resize elements on the outline, where it tracks the cursor and then snaps into the closest grid space to resize it.
-- The position parameters, that are changed as described above, are separate for the desktop and mobile views of the web page. Changing the position when the page is in desktop mode will not affect the position in mobile mode and vice versa.
-- When a widget is right-clicked, it will show useful commands such as copy, paste, delete and duplicate.
->
+  - The central canvas will import the raw HTML and CSS files from the server and rely on data tags in the HTML element to understand what does what and how to edit it.
+  - Whenever a widget is selected, a box will be drawn around it, with the ability to resize it. The style menu on the right will also populate with style options for the selected element that can be changed in real-time and previewed when hovered over so that the user can easily understand what certain buttons will do.
+  - Whenever a widget is selected and held, an outline of the parent section's grid system is previewed, and the element can be moved around. It does this by tracking the cursor's position and relating that to the start position of the cursor on the widget (the anchor point) to render it in the correct place using left, right, top, and bottom CSS tags. When released, the widget will snap into the nearest grid space to where it was released. A similar thing happens when the user selects and holds one of the resize elements on the outline, where it tracks the cursor and then snaps into the closest grid space to resize it.
+  - The position parameters, that are changed as described above, are separate for the desktop and mobile views of the web page. Changing the position when the page is in desktop mode will not affect the position in mobile mode and vice versa.
+  - When a widget is right-clicked, it will show useful commands such as copy, paste, delete and duplicate.
+  >
 
 #### Desirable Features
-- Ability to (export and) import sites in a zip file so you can transfer them between sites, which is different to downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
->
+  - Ability to (export and) import sites in a zip file so you can transfer them between sites, which is different to downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
+  >
 
-- When creating the site, the user can select options that allow them to change the default styling properties of the site.
-> These will be the options for colour palettes and font families.
+  - When creating the site, the user can select options that allow them to change the default styling properties of the site.
+  > These will be the options for colour palettes and font families.
 
-- The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously. (This is because it would be more complicated to program)
->
+  - The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously. (This is because it would be more complicated to program)
+  >
 
-- To export the site, the user will have two options that will be clearly defined in the UI
-- They can download the site, which will download a zip file containing all the required HTML, CSS, and JavaScript code, so that they can unpack the archive and run the webpage by simply opening the HTML file.
-- They can export the site, which will download a different zip file that contains all of the internal files that Kraken uses to run the editor for the page. This means the user can download backups and send their websites to others.
->
+  - To export the site, the user will have two options that will be clearly defined in the UI
+  - They can download the site, which will download a zip file containing all the required HTML, CSS, and JavaScript code, so that they can unpack the archive and run the webpage by simply opening the HTML file.
+  - They can export the site, which will download a different zip file that contains all of the internal files that Kraken uses to run the editor for the page. This means the user can download backups and send their websites to others.
+  >
 
 ## Design
 
 ### URL Navigation
 
-```mermaid
-%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+  ```mermaid
+  %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 
-graph TB
-    a((Root)) --> o(Login):::g
-    a --> p(Signup):::g
-    a --> b(Account):::o
-    a --> j("&lt;username&gt;"):::g
-    a --> q(Home):::o
-    b --> c(Settings):::o
-    b --> i(Logout):::o
-    c --> d(Profile):::o
-    c --> e(Admin):::o
-    c --> f(Looks):::o
-    c --> g(Sites):::o
-    c --> h(Code):::o
-    j --> v("&lt;sitename&gt;\n (public)"):::g
-    j --> k("&lt;sitename&gt;\n (private)"):::r
-    v --> l(Home):::g
-    k --> w(Home):::r
-    w --> m
-    w --> n
-    l --> m(Edit):::r
-    l --> n(Settings):::r
-    q --> r(New):::o --> s(1):::o
-    r --> t(2):::o
-    r --> u(Generate):::o
-    classDef g fill:#030
-    classDef o fill:#630
-    classDef r fill:#600
-```
+  graph TB
+      a((Root)) --> o(Login):::g
+      a --> p(Signup):::g
+      a --> b(Account):::o
+      a --> j("&lt;username&gt;"):::g
+      a --> q(Home):::o
+      b --> c(Settings):::o
+      b --> i(Logout):::o
+      c --> d(Profile):::o
+      c --> e(Admin):::o
+      c --> f(Looks):::o
+      c --> g(Sites):::o
+      c --> h(Code):::o
+      j --> v("&lt;sitename&gt;\n (public)"):::g
+      j --> k("&lt;sitename&gt;\n (private)"):::r
+      v --> l(Home):::g
+      k --> w(Home):::r
+      w --> m
+      w --> n
+      l --> m(Edit):::r
+      l --> n(Settings):::r
+      q --> r(New):::o --> s(1):::o
+      r --> t(2):::o
+      r --> u(Generate):::o
+      classDef g fill:#030
+      classDef o fill:#630
+      classDef r fill:#600
+  ```
 
 ### User Interface Design
 
-![Main Page Template diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/MainPageTemplate.png?raw=true)
+  ![Main Page Template diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/MainPageTemplate.png?raw=true)
 
-This is the main "template" on which all pages are built, where the main content will be displayed inside. Defining this in a separate file beforehand (`/templates/base.html`) means that the website has a more unified feel and allows the user to go home and access the navigation menu. Defining it in a separate file also removes redundancy, as the code for it only appears once.
+  This is the main "template" on which all pages are built, where the main content will be displayed inside. Defining this in a separate file beforehand (`/templates/base.html`) means that the website has a more unified feel and allows the user to go home and access the navigation menu. Defining it in a separate file also removes redundancy, as the code for it only appears once.
 
-Home Button
->The Home button is placed in the top left-hand corner so that it is easy to find and matches how other websites do it; it conforms to the established design patterns and standardised expectations that the user will be familiar with.
+  Home Button
+  >The Home button is placed in the top left-hand corner so that it is easy to find and matches how other websites do it; it conforms to the established design patterns and standardised expectations that the user will be familiar with.
 
-Hamburger
->The navigation menu has been hidden behind a hamburger at the bottom of the sidebar. This is because, due to the navbar being docked on the side, having lots of links on it would look messy and be hard to read. Therefore, the user can click the hamburger, and a modal will appear with all those links. Clicking the hamburger again, or anywhere else on the screen, will close the modal. The reason why the navbar is on the side of the screen is not only a design choice, but it means that the website builder has more space vertically.
+  Hamburger
+  >The navigation menu has been hidden behind a hamburger at the bottom of the sidebar. This is because, due to the navbar being docked on the side, having lots of links on it would look messy and be hard to read. Therefore, the user can click the hamburger, and a modal will appear with all those links. Clicking the hamburger again, or anywhere else on the screen, will close the modal. The reason why the navbar is on the side of the screen is not only a design choice, but it means that the website builder has more space vertically.
 
-Main Content
->This area is where most of the interactive elements will be. These can be seen in the following diagrams.
+  Main Content
+  >This area is where most of the interactive elements will be. These can be seen in the following diagrams.
 
 #### Login and Signup Pages
 
-![Login/Signup page diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/LoginFormTemplate.png?raw=true)
+  ![Login/Signup page diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/LoginFormTemplate.png?raw=true)
 
-This shows the layout of the login and signup pages. Built inside the main template, it contains the following:
-- The header to tell the user what they are doing
-- The buttons to toggle between login and sign up
-- A warning message area for incorrect credentials or invalid input
-- The form area, which is populated by inputs with labels next to them
-- The submit button at the bottom
+  This shows the layout of the login and signup pages. Built inside the main template, it contains the following:
+  - The header to tell the user what they are doing
+  - The buttons to toggle between login and sign up
+  - A warning message area for incorrect credentials or invalid input
+  - The form area, which is populated by inputs with labels next to them
+  - The submit button at the bottom
 
 #### Homepage
 
-![Homepage diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/HomepageTemplate.png?raw=true)
+  ![Homepage diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/HomepageTemplate.png?raw=true)
 
-This shows the layout of the homepage once the user has logged in, if the user already has created a website. If the user has not made any websites yet, it will look similar to this but without the grid of their websites. Built inside the main template, it contains the following:
-- The header, saying "Welcome, `<username>`" so that they know that it is the homepage
-- A grid of all of their current sites.
-> The grid will programmatically change the number of columns based on the display size. It contains square `div`s, each showing the title of the website, an icon informing the user as to whether it is public or private, and is coloured based on the primary colour of said website. The text colour redefines itself based on what the background colour of the `div` is, to make sure it is easy to read
+  This shows the layout of the homepage once the user has logged in, if the user already has created a website. If the user has not made any websites yet, it will look similar to this but without the grid of their websites. Built inside the main template, it contains the following:
+  - The header, saying "Welcome, `<username>`" so that they know that it is the homepage
+  - A grid of all of their current sites.
+  > The grid will programmatically change the number of columns based on the display size. It contains square `div`s, each showing the title of the website, an icon informing the user as to whether it is public or private, and is coloured based on the primary colour of said website. The text colour redefines itself based on what the background colour of the `div` is, to make sure it is easy to read
 
-- A create new site button with the same dimensions as the site `div`s, at the end of the grid layout.
+  - A create new site button with the same dimensions as the site `div`s, at the end of the grid layout.
 
 #### Site Home
 
-![Site home diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/SiteHomeTemplate.png?raw=true)
+  ![Site home diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/SiteHomeTemplate.png?raw=true)
 
-This shows the layout of the site page for the owner (when they visit `/<username>/<sitename>`). Built inside the main template, it contains the following:
-- The header displays the site's name so that the user knows which site they are editing.
-- Navigation options, a list of links that allow the user to navigate the menu system
-> The links include:
->- Home, which will display a preview of the website in the content window
->- Edit site, which links to the editor
->- Site preferences, site styles, and site settings all open setting menus in the content window.
+  This shows the layout of the site page for the owner (when they visit `/<username>/<sitename>`). Built inside the main template, it contains the following:
+  - The header displays the site's name so that the user knows which site they are editing.
+  - Navigation options, a list of links that allow the user to navigate the menu system
+  > The links include:
+  >- Home, which will display a preview of the website in the content window
+  >- Edit site, which links to the editor
+  >- Site preferences, site styles, and site settings all open setting menus in the content window.
 
-- The main content window will display content based on what is selected in the navigation options. By default, it will display a preview of the website but can also display setting menus as well.
+  - The main content window will display content based on what is selected in the navigation options. By default, it will display a preview of the website but can also display setting menus as well.
 
 #### Site Edit
 
-![Site edit diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/SiteEditTemplate.png?raw=true)
+  ![Site edit diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/SiteEditTemplate.png?raw=true)
 
-This shows the layout of the site editor. Built inside the main template, it contains the following:
-- The navigation bar, docked to the left, contains icons for different links. When hovered, these icons will display a label for what they will open.
-> Some of these options will be: Add section, add element, website pages, website styles, and website settings
+  This shows the layout of the site editor. Built inside the main template, it contains the following:
+  - The navigation bar, docked to the left, contains icons for different links. When hovered, these icons will display a label for what they will open.
+  > Some of these options will be: Add section, add element, website pages, website styles, and website settings
 
-- The display options bar, docked to the top, will contain some settings for how the editor is shown and are put here so the user can easily access them.
-> These will include display size, switching between desktop, tablet, and mobile aspect ratios, previewing the website, and other settings.
+  - The display options bar, docked to the top, will contain some settings for how the editor is shown and are put here so the user can easily access them.
+  > These will include display size, switching between desktop, tablet, and mobile aspect ratios, previewing the website, and other settings.
 
-- The selected element options, docked to the top, will contain quick-access site settings until an element is selected in the content window. When an element is selected, it will display style settings.
->  
+  - The selected element options, docked to the top, will contain quick-access site settings until an element is selected in the content window. When an element is selected, it will display style settings.
+  >  
 
-- The content window will display the site so the user can edit it. There is more information on the mechanics of this section in other parts of the report.
+  - The content window will display the site so the user can edit it. There is more information on the mechanics of this section in other parts of the report.
 
 ### User Settings Pages
 
