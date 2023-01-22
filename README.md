@@ -967,7 +967,50 @@ Breaking it down like this ensures that the program is modularised in such a way
 
 The code will be very modular, which will help with development and any changes that will be made later. This will be achieved by following this design and separating the multi-user system, editing system, and user interface. If another developer were to take over the programming, this design would make it easier to understand and make ammendments. The two different programming languages, Python and JavaScript, will communicate via Flasks `session` and `flash` features to make sure that the two languages can interact with each other. The functions will be containied in a class, that will be initialised when ran, to make use of the `self` variable communication so that all of the subroutines can use the same variables. It will also use variables and `return` statements for some subroutines where necessary.
 
+### Inputs and Outputs
 
+|Input|Process|Output|
+|---|---|---|
+|Login submit button| `auth_login_post` to verify user input.| Log in the user to the session, or providing a suitable error message.|
+|Signup submit button| `auth_login_signup` to verify user input, insert the new user into the database and generating the new folder structure for the user.| Log in the user to the session, or provide a suitable error message.|
+|Create site inputs (when the user goes through the new site creation pages)|Store the inputs in the session, and generate a new site in the database & file structure from the inputs given.| Redirect the user to the site page.|
+|Home button| Redirect the user to the homepage.| Redirect the user to the homepage.|
+|Menu hamburger| Darken the main content and display the menu items over them.| Show the user the menu items.|
+|Hamburger open and anything else selected| Remove the darkening of the main content and hide the menu items.| Hide the menu items.|
+|Site edit option (Add Section, Website Pages, etc)| A modal will open over the main content with the main content being darkened, with the content relating to the selected option.| A modal with relevant options is displayed.|
+|Display size option.| The site container will change width to match the option selected. The elements in the container will have the necessary data tags appended.| The editing window will change size to match the selected option.|
+|Element selected| Fetch element data tags to perform appropriate tasks. Listen for events such as dragging the element, or the resize box, if necessary.| Display appropriate style settings in right hand dock. Display resize box. Display text editor if necessary.|
+|Section selected| Fetch section data tags to perform appropriate tasks. Listen for events such as dragging the section up and down, or dragging on the bottom to resize, if necessary.| Display appropriate style settings in right hand dock. Display resize bar on bottom when hovered.|
+|Style option hovered| Apply the hovered style to the selected element.| Render what the element will look like with the hovered style.|
+|Style option selected| Apply the selected style to the selected element.| Add the selected style option to the element.|
+
+
+### Key variables
+These are the main variables that the Python program will use:
+|Name|Data Type|How it is used|
+|---|---|---|
+|`host`| string, in the format `x.x.x.x`| Defines the host the server uses|
+|`port`| integer| Defines the port the server uses
+|`db`| `flask_sqlalchemy.SQLAlchemy` object| Access the SQL database|
+|`loginManager`| `flask_login.LoginManager` object| Manage the user login system|
+|`app`| `flask.Flask` object| Manage the site routing|
+
+These are the main variables that the JavaSript code will use:
+|Name|Data Type|How it is used|
+|---|---|---|
+|`requiredChars`| string| A set of characters of which at least one must be in a site name for it to be valid.|
+|`allowedChars`| string| A set of characters that are allowed in the site name when creating a new site.|
+|`defaultColors`| dictionary of strings| The default colour scheme when generating a new site.|
+|`colors`| dictionary of strings| The selected colour options when generating a new site.|
+|`colorDisplay`| dictionary of lists of elements| The colour preview elements when generating a new site - the first one is the element that changes colour, the second one is the text element that displays the current hex colour.|
+|`colors`| dictionary of strings| The selected colour options when generating a new site.|
+|`textOptions`| list of elements| A list of the text options when generating a new site - they get given event listeners for when they are selected.|
+|`sectionSelectorNavSelected`| string| A written number referring to the selected section category in the `Add Section` modal.|
+|`sectionSelectorNavSelectedInt`| integer| An integer version of the previous variable. A written number is used to insert it into classes, as integers are not allowed.|
+|`sectionSelectorNavItem`| string| Template for a section link element for the section navigation bar in the `Add Section` modal.|
+|`selectedElement`| element| The currently selected element.|
+|`fonts`| list of dicts| A list of all of the fonts that the style settings use.|
+|`fontDropdownItem`| string| Template for a font dropdown element for the font family dropdown in the style modal.|
 
 
 
