@@ -968,7 +968,6 @@ Breaking it down like this ensures that the program is modularised in such a way
 The code will be very modular, which will help with development and any changes that will be made later. This will be achieved by following this design and separating the multi-user system, editing system, and user interface. If another developer were to take over the programming, this design would make it easier to understand and make ammendments. The two different programming languages, Python and JavaScript, will communicate via Flasks `session` and `flash` features to make sure that the two languages can interact with each other. The functions will be containied in a class, that will be initialised when ran, to make use of the `self` variable communication so that all of the subroutines can use the same variables. It will also use variables and `return` statements for some subroutines where necessary.
 
 ### Inputs and Outputs
-
 |Input|Process|Output|
 |---|---|---|
 |Login submit button| `auth_login_post` to verify user input.| Log in the user to the session, or providing a suitable error message.|
@@ -983,7 +982,6 @@ The code will be very modular, which will help with development and any changes 
 |Section selected| Fetch section data tags to perform appropriate tasks. Listen for events such as dragging the section up and down, or dragging on the bottom to resize, if necessary.| Display appropriate style settings in right hand dock. Display resize bar on bottom when hovered.|
 |Style option hovered| Apply the hovered style to the selected element.| Render what the element will look like with the hovered style.|
 |Style option selected| Apply the selected style to the selected element.| Add the selected style option to the element.|
-
 
 ### Key variables
 These are the main variables that the Python program will use:
