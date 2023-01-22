@@ -176,13 +176,13 @@ For the server, software requirements may include the following:
 - SQL database that stores user and site information
 - fully functional error checking on all fields as follows
 > All fields must not be empty
-Name can have spaces and non-alphanumeric characters and must be longer than 2.
-Email must be in an email format.
-Username cannot have non-alphanumeric characters and must be longer than 2.
-Password must be longer than 8.
-The repeated password must be identical to password.
-Email cannot already be in the database.
-Username cannot already be in the database.
+> Name can have spaces and non-alphanumeric characters and must be longer than 2.
+> Email must be in an email format.
+> Username cannot have non-alphanumeric characters and must be longer than 2.
+> Password must be longer than 8.
+> The repeated password must be identical to password.
+> Email cannot already be in the database.
+> Username cannot already be in the database.
 
 - The homepage, when there are no sites, displays a prompt to create a new site
 - The homepage, when the user has created sites, lists all of them along with a "create new site" button
