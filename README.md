@@ -1010,6 +1010,31 @@ These are the main variables that the JavaSript code will use:
 |`fonts`| list of dicts| A list of all of the fonts that the style settings use.|
 |`fontDropdownItem`| string| Template for a font dropdown element for the font family dropdown in the style modal.|
 
+### Validation
+To make sure that the program is robust and will not throw critical errors, all user inputs must be validated to make sure that they have inputted valid data. Due to the usage of `<input>`s in the HTML code as the vast majority of the input methods, HTML can make sure that the correct data type is being inputted. However, some text that the user input needs to be validated to make sure that it meets certain requirements. Instances of this include:
+
+##### Login and signup forms
+For the login and signup forms, the text inputted need to have specific parameters. For example, the username must have a minimum length of 3 characters, must not contain special characters, and must be unique in the database. To verify most of this, the `verifyFunction` subroutine is used. This subroutine is outlined earlier in the document. For specific things like checking that the username is unique, or that the password matches the given user, SQL queries are used to validate the inputs.
+
+##### Website Name when creating a new site
+The website name must meet these specific requirements:
+- At least four characters
+- At least one alphanumeric character
+- Illegal characters can be inputted, but will be changed
+In the JavaScript, it will take the content of the input and replace any illegal characters into dashes, then display this name to the user. It will also make sure that the form can be submitted until the input matches the given criteria. This process is outlined earlier in the document.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 TODO: Birthday Invite Generator
