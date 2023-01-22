@@ -1,3 +1,40 @@
+### Mark Scheme
+3.1. Analysis of the problem (10 marks)||
+:-|-
+3.1.1 Problem identification | Describe and justify the features that make the problem solvable by computational methods
+||Explain why the problem is amendable to a computational approach
+3.1.2 Stakeholders | Identify and describe those who will have an interest in the solution explaining how the solution is appropriate to their needs (this may be named individuals, groups or persona that describes the target end user).
+3.1.3 Research the problem | Research the problem and solutions to similar problems to identify and justify suitable approaches to a solution
+||Describe the essential features of a computational solution explaining these choices.
+||Explain the limitations of the proposed solution
+3.1.4 Specify the proposed solution | Specify and justify the solution requirements including hardware and software configuration (if appropriate).
+||Identify and justify measurable success criteria for the proposed solution.
+
+3.2 Design of the solution (15 marks)||
+:-|-
+3.2.1 Decompose the problem | Break down the problem into smaller parts suitable for computational solutions justifying any decisions made
+3.2.2 Describe the solution | Explain and justify the structure of the solution
+||Describe the parts of the solution using algorithms justifying how these algorithms form a complete solution to the problem.
+||Describe usability features to be included in the solution.
+||Identify key variables / data structures / classes justifying choices and any necessary validation.
+3.2.3 Describe the approach to testing | Identify the test data to be used during the iterative development and post development phases and justify the choice of this test data
+
+3.3 Developing the solution (25 marks)||
+:-|-
+3.3.1 Iterative development process | Provide annotated evidence of each stage of the iterative development process justifying any decision made.
+||Provide annotated evidence of prototype solutions justifying any decision made.
+3.3.2 Testing to inform development | Provide annotated evidence for testing at each stage justifying the reason for the test.
+||Provide annotated evidence of any remedial actions taken justifying the decision made.
+
+3.4 Evaluation (20 marks)||
+:-|-
+3.4.1 Testing to inform evaluation | Provide annotated evidence of testing the solution of robustness at the end of the development process.
+||Provide annotated evidence of usability testing (user feedback).
+3.4.2 Success of the solution | Use the test evidence from the development and post development process to evaluate the solution against the success criteria from the analysis.
+3.4.3 Describe the final product | Provide annotated evidence of the usability features from the design, commenting on their effectiveness
+3.4.4 Maintenance and development | Discuss the maintainability of the solution.
+||Discuss potential further development of the solution.
+
 ## Analysis
 ### Problem identification
 With the internet constantly growing and more and more people relying on it, the demand for websites is constantly increasing. They can range in style from business portfolios and online stores to games. Regardless of who you are or what you do, a website is often expected of you, especially for businesses. However, the problem of creating a professional and functional website can be a daunting task for many individuals and small businesses, especially those who need more technical expertise or resources. Existing website builders may be difficult to navigate, require extensive coding knowledge, or lack the necessary design flexibility to create a unique and effective online presence. Furthermore, many website builders are geared toward certain industries or types of websites, making it difficult for users to find a platform that meets their specific needs. The task of manually programming it can seem very daunting.
