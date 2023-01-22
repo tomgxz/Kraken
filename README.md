@@ -1,5 +1,50 @@
 ## Table of Contents
-[Analysis](#analysis)
+- [Mark Scheme](#mark-scheme)
+>
+
+- [Analysis](#analysis)
+  - [Problem identification](#problem-identification)
+  - [Stakeholders](#stakeholders)
+  - [Why it is suited to a computational approach](#why-it-is-suited-to-a-computational-approach)
+  - [Research](#research)
+    - [Existing solution - Squarespace](#existing-solution---squarespace)
+    - [Existing solution - Zyro](#existing-solution---zyro)
+  - [Key features of the solution](#key-features-of-the-solution)
+  - [Limitations of the solution](#limitations-of-the-solution)
+  - [Meeting with the stakeholders](#meeting-with-the-stakeholders)
+  - [Hardware and Software Requirements](#hardware-and-software-requirements)
+    - [Hardware Requirements](#hardware-requirements)
+    - [Software Requirements](#software-requirements)
+  - [Stakeholder requirements](#stakeholder-requirements)
+  - [Success Criteria](#success-criteria)
+>
+
+- [Design](#design)
+  - [Top-Down Design](#top-down-design)
+  - [User Interface Design](#user-interface-design)
+  - [Usability](#usability)
+    - [Accessibility](#accessibility)
+    - [ARIA](#aria)
+  - [Stakeholder input :D](#stakeholder-input-d)
+  - [Website structure and backend](#website-structure-and-backend)
+  - [Data storage](#data-storage)
+  - [Algorithms](#algorithms)
+    - [Drag-and-drop editor algorithms](#drag-and-drop-editor-algorithms)
+    - [Multi-user system algorithms](#multi-user-system-algorithms)
+  - [Diagram showing how the subroutines link](#diagram-showing-how-the-subroutines-link)
+  - [Subroutines](#subroutines)
+    - [Multi-user system - login system](#multi-user-system---login-system)
+    - [Multi-user system - creating a new site](#multi-user-system---creating-a-new-site)
+    - [Multi-user system - user settings](#multi-user-system---user-settings)
+    - [Utility subroutines](#utility-subroutines)
+  - [Explanation and justification of this process](#explanation-and-justification-of-this-process)
+  - [Inputs and Outputs](#inputs-and-outputs)
+  - [Key variables](#key-variables)
+  - [Validation](#validation)
+  - [Testing method](#testing-method)
+>
+
+- [Development and Testing](#development-and-testing)
 
 
 ## Mark Scheme
