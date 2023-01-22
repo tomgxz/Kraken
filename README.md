@@ -437,7 +437,20 @@
 
 ### User Settings Pages
 
-  TODO: user settings layout
+  ![User settings diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/SettingsTemplate.png?raw=true)
+
+  This shows the layout of the settings for the logged-in user. Built inside the main template, it contains the following:
+  - The header displays "Settings" to inform the user of what page they are on.
+  - Settings navigation options, a list of links that separate different categories of settings
+  > The links include:
+  >- Public Profile - settings that dictate how your profile will appear to other people, such as name, profile picture, and bio.
+  >- Account - account based settings, most of which have warnings next to them, such as change username, export account data, archive account and delete account.
+  >- Appearance & Accessibility - Accessibility settings such as high contrast mode, and utility settings such as tab preference for writing code.
+  >- My Websites - A table of the users websites. Contains a link to the website, how large the size of the website is, the name of the site, and its privacy status.
+  >- Custom Code & Elements - A beta option for storing custom code and elements, in a similar fashion to the above website menu.
+  >- Help and Documentation - Documentation and a help guide for the application.
+
+  - The options content window will display content based on what is selected in the settings navigation options.
 
 ### Usability
   The usability features I have considered ensure that the program is easy to use for as many users as possible, including those with accessibility issues. All of the buttons in the designs are large and easy to notice. When font selection or styling is used, previews for what the font looks like are shown so the user can clearly see what it will look like. This functionality is borrowed by other styling and positioning functions in the editor.
