@@ -10,6 +10,9 @@ dbCommands.txt
 tkinter
 tkinter/
 *.psd
+.grip.py
+.grip
+.ignore
 
 
 
