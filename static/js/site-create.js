@@ -18,7 +18,7 @@ function editFormMessageSiteNameWarning(val) {
     }
   }
   if (hasRepeatedDashes(newInner)) { newInner=replaceRepeatedDashes(newInner) }
-  messageSpan.innerHTML=val
+  messageSpan.innerHTML=newInner
 }
 
 
