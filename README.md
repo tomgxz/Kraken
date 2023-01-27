@@ -1286,6 +1286,8 @@
     <body>
       <ol>
 
+        {# Iterate through the list in the first flashed message, and create a list element for each one #}
+
         {% for element in get_flashed_messages()[0] %}
           <li>{{element}}</li>
         {% endfor %}
@@ -1343,6 +1345,7 @@
           <link rel="canonical" href="CanonicalUrl">
 
   		<!-- Font Awesome Imports -->
+      <!-- fa is a large icon database where you can import them into your website -->
           <script src="https://kit.fontawesome.com/73a2cc1270.js"></script>
           <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
 
@@ -1355,6 +1358,9 @@
 
           <div class="page">
               <div class="application-container">
+
+                  <!-- Navigation bar, docked on the left hand side -->
+                  <!-- Contains the logo as a link to the homepage at the top, and a hamburger at the bottom -->
 
                   <nav class="globalnav globalnav-vertical">
                       <div class="globalnav-content">
@@ -1379,6 +1385,8 @@
                       </div>
                   </nav>
 
+                  <!-- Floating option modal for the navbar, which is opened and closed via the hamburger in the navigation bar -->
+
                   <div class="globalnav-floating-options">
                       <a class="globalnav-floating-option one" href="{{ url_for('main_home') }}">
                           <span class="globalnav-floating-option-content text header small dark">My Sites</span>
@@ -1393,9 +1401,10 @@
                       </a>
                   </div>
 
+                  <!-- Backdrop behind nav bar modal to apply a darkness filter behind the modal -->
+
                   <div class="globalnav-floating-options-backdrop"></div>
 
-                  <script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}">
 
                   <!-- External Script Imports -->
                       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -1403,6 +1412,7 @@
 
               		<!-- Internal Script Imports -->
                       <script src="{{url_for('static', filename='js/main.js')}}"></script>
+                      <script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}">
 
                   {% block content %}
                   {% endblock %}
@@ -1438,6 +1448,9 @@
           </ul>
       </div>
       <div class="field-container active">
+
+          <!-- Warning area for the form that uses the flashed warning message -->
+
           <span class="field-warning text italic">
               {% with messages = get_flashed_messages() %}
 
@@ -1504,6 +1517,9 @@
           </ul>
       </div>
       <div class="field-container active">
+
+          <!-- Warning area for the form that uses the flashed warning message -->
+
           <span class="field-warning text italic">
               {% if messages[0] %}
                 {{ messages[1] }}
@@ -1661,10 +1677,6 @@
 
   .globalnav-floating-option:not(:first-of-type) {
       margin-top:16px;
-  }
-
-  .globalnav-floating-option-content {
-
   }
 
   .globalnav-floating-options-backdrop {
