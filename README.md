@@ -1258,9 +1258,8 @@ Having got the framework for the backend in place, I then created a basic templa
 ##### __init__.py changes
 ```python
 from flask import Flask, render_template, redirect, flash
-
-======================
-
+```
+```python
   def initPages(self):
 
     @self.app.route("/")
@@ -1362,7 +1361,6 @@ Before creating the database structure, I decided to create the frontend for the
                                     <span class="globalnav-link-hidden-text visibly-hidden">Kraken</span>
                                 </a>
                             </div>
-                            {% if navbarOptionsEnabled %}
                               <ul class="globalnav-list">
                                   <li class="globalnav-item one fake" role="button"></li>
                                   <li class="globalnav-item two" role="button">
@@ -1373,12 +1371,9 @@ Before creating the database structure, I decided to create the frontend for the
                                       </div>
                                   </li>
                               </ul>
-                            {% endif %}
                         </div>
                     </div>
                 </nav>
-
-                {% if navbarOptionsEnabled %}
 
                 <div class="globalnav-floating-options">
                     <a class="globalnav-floating-option one" href="{{ url_for('main_home') }}">
@@ -1397,8 +1392,6 @@ Before creating the database structure, I decided to create the frontend for the
                 <div class="globalnav-floating-options-backdrop"></div>
 
                 <script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}">
-
-                {% endif %}
 
                 <!-- External Script Imports -->
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
