@@ -1260,14 +1260,14 @@ Having got the framework for the backend in place, I then created a basic templa
 from flask import Flask, render_template, redirect, flash
 ```
 ```python
-  def initPages(self):
+def initPages(self):
 
-    @self.app.route("/")
-    def main_index():
-      # flash sends a message to the next site that flask renders
-      flash(["Apples","Oranges","Pears",1,2,3])
-      # render_template takes the Jinja template file given in the templates folder and turns it into true HTML
-      return render_template("test.html")
+  @self.app.route("/")
+  def main_index():
+    # flash sends a message to the next site that flask renders
+    flash(["Apples","Oranges","Pears",1,2,3])
+    # render_template takes the Jinja template file given in the templates folder and turns it into true HTML
+    return render_template("test.html")
 
 ```
 
