@@ -1212,15 +1212,517 @@
 
 ## Development and Testing
 
+Before designing the website, I first had to create the flask backend running. For this, I modified some code that I have used before when using Flask as a backend.
+
+##### __init__.py
+```python
+from flask import Flask
+
+# The home class of the application
+class Kraken():
+  def __init__(self,host,port):
+
+    # Create the flask application and secret key
+    self.app = Flask(__name__)
+    self.app.config["SECRET_KEY"]="secret-key-goes-here"
+
+    # Initialise all of the website pages
+    self.initPages()
+
+    # Run the application
+    self.app.run(host=host,port=port)
+
+  def initPages(self):
+
+    # When the root page is visited, run this function
+    @self.app.route("/")
+    def main_index():
+      # Display the given text
+      return "This is the homepage!"
+
+if __name__ == "__main__":
+  # Initialise the application on port 1380
+  Kraken("0.0.0.0",1380)
+```
+
+When run, it would output this to the console:
+
+![The console after running this code](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.1_creatingthebackend_console.png?raw=true)
+
+And look like this in the website:
+
+![The website after running this code](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.1_creatingthebackend_browser.png?raw=true)
+
+Having got the framework for the backend in place, I then created a basic template for the HTML (in Jinja) and some CSS code to work with it, so that I could test some of the functions that I wanted to use. These files were created at `/templates/test.html` and `/static/css/test.css`, and were deleted afterwards when I knew that the system was functioning as intended. To make sure that some of the modules of Flask were working as intended, I used the `render_template` and `flash` functions in Python, ran a loop in the HTML file using Jinja, and used `url_for` to import the CSS file.
+
+##### __init__.py changes
+```python
+from flask import Flask, render_template, redirect, flash
+
+======================
+
+  def initPages(self):
+
+    @self.app.route("/")
+    def main_index():
+      # flash sends a message to the next site that flask renders
+      flash(["Apples","Oranges","Pears",1,2,3])
+      # render_template takes the Jinja template file given in the templates folder and turns it into true HTML
+      return render_template("test.html")
+
+```
+
+##### /templates/test.html
+```jinja
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kraken Test :)</title>
+
+    <link href="{{url_for('static', filename='css/test.css')}}" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <ol>
+
+      {% for element in get_flashed_messages()[0] %}
+        <li>{{element}}</li>
+      {% endfor %}
+
+    </ol>
+  </body>
+</html>
+```
+
+##### /static/css/test.css
+```css
+ol{
+  background-color:#e8e8ff;
+  font-size:12px;
+  font-family:Lexend,sans-serif;
+  width:200px;
+}
+
+li:first-of-type{
+  font-size:16px;
+}
+```
+
+When run, the website looked like this:
+
+![The website after running this code](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.2_testingflaskandjinja_browser.png?raw=true)
+
+As you can see by the image, using the `flash` function, flask successfully sends the list `["Apples","Oranges","Pears",1,2,3]` to the webpage for it to be recieved by the `get_flashed_messages` function. It also successfully managed to iterate through the list using `{% for element in get_flashed_messages()[0] %}`, and used the `url_for` function to import the stylesheet.
+
+Before creating the database structure, I decided to create the frontend for the login and signup pages, so that it would be easier to test. Due to the above code working successfully, I started off by making a `base.html` template, that all of the other Jinja files would build on top of. I then created the `login.html` and `signup.html` files as well. This was made easier by my previous experience in web design, as I could use a library of CSS code that I have collected to speed up the design process.
+
+##### /templates/base.html
+```jinja
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-type" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Kraken</title>
+
+		<!-- Site Meta -->
+        <meta name="title" content="Kraken">
+        <meta name="robots" content="index, follow">
+        <meta name="language" content="English">
+
+		<!-- Site Icons -->
+        <link rel="apple-touch-icon" sizes="512x512" href="{{url_for('static', filename='img/icon/apple-touch-icon/apple-touch-icon-512-512.png')}}">
+        <link rel="icon" type="image/png" sizes="512x512" href="{{url_for('static', filename='img/icon/tab-icon/tab-icon-512-512.png')}}">
+        <link rel="mask-icon" href="{{url_for('static', filename='img/icon/mask-icon/mask-icon.svg')}}">
+
+        <link rel="canonical" href="CanonicalUrl">
+
+		<!-- Font Awesome Imports -->
+        <script src="https://kit.fontawesome.com/73a2cc1270.js"></script>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+
+		<!-- Internal Stylesheet Imports -->
+        <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{url_for('static', filename='css/build.css')}}" rel="stylesheet" type="text/css" />
+
+    </head>
+    <body>
+
+        <div class="page">
+            <div class="application-container">
+
+                <nav class="globalnav globalnav-vertical">
+                    <div class="globalnav-content">
+                        <div class="globalnav-list">
+                            <div class="globalnav-logo">
+                                <a class="globalnav-link globalnav-link-home link unformatted" href="{{ url_for('main_home') }}">
+                                    <img class="globalnav-logo-image" alt="Kraken" src="{{url_for('static', filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-512-512.png')}}" preserveAspectRatio>
+                                    <span class="globalnav-link-hidden-text visibly-hidden">Kraken</span>
+                                </a>
+                            </div>
+                            {% if navbarOptionsEnabled %}
+                              <ul class="globalnav-list">
+                                  <li class="globalnav-item one fake" role="button"></li>
+                                  <li class="globalnav-item two" role="button">
+                                      <div class="hamburger hamburger--collapse js-hamburger" id="globalnav-hamburger">
+                                          <div class="hamburger-box">
+                                              <div class="hamburger-inner"></div>
+                                          </div>
+                                      </div>
+                                  </li>
+                              </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </nav>
+
+                {% if navbarOptionsEnabled %}
+
+                <div class="globalnav-floating-options">
+                    <a class="globalnav-floating-option one" href="{{ url_for('main_home') }}">
+                        <span class="globalnav-floating-option-content text header small dark">My Sites</span>
+                    </a>
+
+                    <a class="globalnav-floating-option two" href="{{ url_for('settings') }}">
+                        <span class="globalnav-floating-option-content text header small dark">Settings</span>
+                    </a>
+
+                    <a class="globalnav-floating-option three" href="{{ url_for('auth_logout') }}">
+                        <span class="globalnav-floating-option-content text header small dark">Logout</span>
+                    </a>
+                </div>
+
+                <div class="globalnav-floating-options-backdrop"></div>
+
+                <script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}">
+
+                {% endif %}
+
+                <!-- External Script Imports -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+
+            		<!-- Internal Script Imports -->
+                    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+                {% block content %}
+                {% endblock %}
+
+            </div>
+        </div>
+
+    </body>
+</html>
+```
+
+##### /templates/login.html
+```jinja
+{% extends "base.html" %}
+
+{% set navbarLogoColor = "secondary" %}
+{% set navbarOptionsEnabled = False %}
+
+{% block content %}
+
+<link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet" type="text/css" />
+
+<div class="application-content">
+    <div class="text-header-container">
+        <h2 class="text header xl dark one">Kraken - Login</h2>
+        <ul class="header-options">
+            <li class="header-option header-option-login active notextselect">
+                <h4 class="text header bold">Login</h4>
+            </li>
+            <li class="header-option header-option-signup notextselect" onclick="window.location.href=`{{ url_for('auth_signup') }}`">
+                <h4 class="text header bold">Signup</h4>
+            </li>
+        </ul>
+    </div>
+    <div class="field-container active">
+        <span class="field-warning text italic">
+            {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+              {{ messages[0] }}
+            {% endif %}
+
+            {% endwith %}
+        </span>
+
+        <form class="field-options" method="post" action="/login/">
+
+            <div class="field-option field-option-username">
+                <h4 class="text italic">Username</h4>
+                <div class="field-input-container">
+                    <input class="field-input" placeholder="Username" type="text" name="username">
+                    <span class="eye-spacer"></span>
+                </div>
+            </div>
+            <div class="field-option field-option-password">
+                <h4 class="text italic">Password</h4>
+                <div class="field-input-container">
+                    <input class="field-input" placeholder="Password" type="password" name="password">
+                    <span class="eye-reveal">
+                    <i class="fa-solid fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+
+            <button class="field-submit btn secondary rounded slide" type="submit">
+              <span class="btn-content text uppercase secondary">Submit</span>
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="../static/js/login.js"></script>
+
+{% endblock %}
+```
+
+##### /templates/signup.html
+```jinja
+{% extends "base.html" %}
+
+{% set navbarLogoColor = "secondary" %}
+{% set navbarOptionsEnabled = False %}
+
+{% block content %}
+
+<link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet" type="text/css" />
+<div class="application-content">
+    <div class="text-header-container">
+        <h2 class="text header xl dark one">Kraken - Signup</h2>
+        <ul class="header-options">
+            <div class="header-option header-option-login notextselect" onclick="window.location.href=`{{ url_for('auth_login') }}`">
+                <h4 class="text header bold">Login</h4>
+            </div>
+            <div class="header-option header-option-signup active notextselect">
+                <h4 class="text header bold">Signup</h4>
+            </div>
+        </ul>
+    </div>
+    <div class="field-container active">
+        <span class="field-warning text italic">
+            {% if messages[0] %}
+              {{ messages[1] }}
+            {% endif %}
+        </span>
+
+        <form class="field-options" method="post" action="/signup/">
+
+          <div class="field-option field-option-name">
+              <h4 class="text italic">Name</h4>
+              <div class="field-input-container">
+                  <input class="field-input" placeholder="Name" type="name" name="name" autofocus>
+                  <span class="eye-spacer"></span>
+              </div>
+          </div>
+
+          <div class="field-option field-option-email">
+              <h4 class="text italic">Email</h4>
+              <div class="field-input-container">
+                  <input class="field-input" placeholder="name@domain.com" type="email" name="email" autofocus>
+                  <span class="eye-spacer"></span>
+              </div>
+          </div>
+
+          <div class="field-option field-option-username">
+              <h4 class="text italic">Username</h4>
+              <div class="field-input-container">
+                  <input class="field-input" placeholder="Username" type="text" name="username" autofocus>
+                  <span class="eye-spacer"></span>
+              </div>
+          </div>
+
+          <div class="field-option field-option-password">
+              <h4 class="text italic">Password</h4>
+              <div class="field-input-container">
+                  <input class="field-input" placeholder="Password" type="password" name="password">
+                  <span class="eye-reveal">
+                  <i class="fa-solid fa-eye"></i>
+                  </span>
+              </div>
+          </div>
+
+          <div class="field-option field-option-password-repeat">
+              <h4 class="text italic">Repeat Password</h4>
+              <div class="field-input-container">
+                  <input class="field-input" placeholder="Again :/" type="password" name="password-repeat">
+                  <span class="eye-reveal">
+                  <i class="fa-solid fa-eye"></i>
+                  </span>
+              </div>
+          </div>
+
+          <button class="field-submit btn secondary rounded slide" type="submit">
+            <span class="btn-content text uppercase secondary">Submit</span>
+          </button>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="../static/js/signup.js"></script>
+
+{% endblock %}
+```
+
+The files make use of `url_for` to fetch many different URLs, including page icons, stylesheets, images, links to other pages, and scripts.
+
+For example, the URL for the home button image in `base.html` is defined by `{{url_for('static', filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-512-512.png')}}`. The variable `navbarLogoColor` is declared in child templates to define which colour should be used.
+
+TODO: how are the navbar images stored
+
+The inheriting system is displayed here in these files, where you can see `{% block content %} {% endblock %}` in `base.html`, to define where the code block `content` will be inserted into the file, and then `{% extends "base.html" %}` and `{% block content %} {% endblock %}` in `login.html` and `signup.html`, which define what file will be extended, and which block to insert into.
+
+The CSS and JavaScript for both pages is imported from the `/static/css/` and `/static/js/` directories respectively. `main.css` is my library of CSS code that I have collected (the syntax for classes is shown below), and `build.css` contains the CSS for the `base.html` template.
+
+##### Syntax for /templates/main.css
+```css
+Global classes:
+    .notextselect
+    .nopointerevents
+    .visibly-hidden
+    .fake
+    .box
+    .no-inversion
+
+Positional Classes:
+    .relative
+    .sticky
+    .fixed
+    .abs
+    .static
+
+Text classes:
+    .text <light|dark|primary|secondary|accent|grey-100 => grey-800> [italic] [bold|thin] [ellipsis] [xl|large|default-size|small] [header|jumbo] [lowercase|uppercase] [notextselect] [left|center|right|justify]
+
+Link classes:
+    .text .link [classes for text] [disabled] [link-slide] [notformatted]
+    (link-slide class requires the css variable --link-slide-width)
+
+Btn classes:
+    .btn <light|dark|primary|secondary|accent> <square|rounded|pill> [slide]
+    .btn.slide [from-left|from-right]
+
+    If slide is set, the btn must contain a span element with syntax:
+        span .btn-content .text (all text classes apply here)
+    which contains the text of the button
+
+    A span like this is recommended even if the .slide class is not present so you can format the text inside separately
+
+em classes:
+    [classes for text]
+
+/* .section-content.fixed-width will set the width to 1440px, and will set the width to 100% when the viewport width is less than 1440px */
+```
+
+##### build.css
+```css
+.globalnav {
+    background: var(--colors-grey-200);
+    position:fixed;
+}
+
+.globalnav-floating-options {
+    transform:scale(0);
+    transform-origin:bottom left;
+    opacity:0;
+    margin:0;
+    transition:transform,opacity,margin,visibility;
+    transition-delay:130ms;
+    transition-duration: 260ms;
+    transition-timing-function: ease-in-out;
+    background-color:var(--colors-grey-100);
+    position:fixed;
+    bottom:0;
+    left:96px;
+    z-index:8;
+    padding:16px 8px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    visibility:hidden;
+}
+
+.globalnav-floating-options.is-active {
+    margin-bottom:16px;
+    margin-left:16px;
+    transform:scale(1);
+    opacity:1;
+    visibility:visible;
+}
+
+.globalnav-floating-option:not(:first-of-type) {
+    margin-top:16px;
+}
+
+.globalnav-floating-option-content {
+
+}
+
+.globalnav-floating-options-backdrop {
+    z-index:7;
+    position:fixed;
+    width:calc(100vw - 96px);
+    height:100vh;
+    background-color: #000;
+    top:0;
+    right:0;
+    opacity:0;
+    transition: opacity 260ms 130ms ease-in-out, visibility 260ms 130ms ease-in-out;
+    visibility: hidden;
+}
+
+.globalnav-floating-options-backdrop.is-active {
+    opacity:0.4;
+    visibility: visible;
+}
+
+.application-container {
+    width:calc(100vw - 96px);
+    height:100vh;
+    display:flex;
+    flex-direction:row;
+    margin-left:96px;
+}
+
+.application-content {
+    width:100%;
+    height:100%;
+    padding: 16px;
+}
+
+.application-content .text-header-container {
+    margin-bottom:64px;
+}
+
+.main {
+    /*height:calc(100% - 79px - 64px);*/
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+
+.main-content {
+    width:100%;
+    height:100%;
+}
+
+.main-content.thin {
+    width:60%
+}
+```
 
 
-
-
-
-
-
-
-TODO: Birthday Invite Generator
+For clarity, I have removed some unnecessary elements from the head of `base.html`, such as the open-graph protocol and some of the meta elements.
 
 ### Features
   To assemble the web pages, the users can drag and drop pre-designed elements categorised into groups such as headlines, quotes, forms, footers, and more. The elements can be previewed in a sidebar next to the main canvas of the page, displayed with the correct styles of the website, from which they can be placed on the webpage. The website would be divided into sections. The user can drag and drop whole sections into the page or add individual elements into an existing section, such as text elements or images. After placing the elements into the canvas, the user can select the element to be able to interact with them by moving them around, changing their styling (such as padding, size, colouring, transparency, position, font size, and many more) in a panel called the inspector panel, adding children to the element, or writing custom element-specific HTML, CSS, or JavaScript code that can be translated into the preview in real-time. These custom elements/pieces of code will then be saved in the user's account so that they can be used in other projects or published so that other users can use them. The canvas will highlight elements with a border when hovered over so that the user can easily see the different elements and how they interact with them. The overall aim of the editor is for someone with very minimal knowledge, even none at all, about web design or programming to be able to interact with it, hence the WYSIWYG intuitiveness.
