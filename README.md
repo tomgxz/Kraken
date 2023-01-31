@@ -225,7 +225,7 @@
   Zyro also includes a built-in AI-based website creation tool called Zyro AI Writer, which can help users easily create website content. Similar to the Squarespace e-commerce system, this will not fit into the timeframe of the initial release of this solution, so it will not be implemented.
 
 ### Key features of the solution
-  TODO: rewrite
+  <!--TODO: rewrite-->
 
   This solution will be a web-based, multi-user program where the user uses a grid-based, drag-and-drop system using pre-defined template elements that they can customise. There will be a tutorial for creating a site to help new users understand the system. The user will be able to customise styles for their site, organise pages, access a library of pre-defined templates for widgets such as text, buttons, or links, and control the styling of each element in their pages.
 
@@ -639,6 +639,8 @@
 ### Algorithms
   The main parts of this solution are using a SQL database to store information about the multi-user system, the UI design and interactivity, and the actual drag-and-drop editor, with the drag-and-drop editor being the most complex.
 
+<!--TODO: add algorithms for hidden navigation bar -->
+
 #### Drag-and-drop editor algorithms
   The main things that the drag-and-drop editor should be able to do are:
   - Display a resize box around a clicked element.
@@ -822,7 +824,7 @@
 
 ##### User Settings algorithms
 
-  TODO: user settings algorithms
+  <!--TODO: user settings algorithms-->
 
 ### Diagram showing how the subroutines link
 
@@ -908,7 +910,7 @@
 ### Subroutines
   Now that I have a rough idea of what the subroutines will do and how they will fit together, I can start planning them in pseudocode. The multi-user subroutines will be written in Python, as it is used for the backend, whereas the subroutines for the website builder will be written in JavaScript and imported into the HTML.
 
-  TODO: Talk about how the JavaScript subroutines will be organised in the files.
+  <!--TODO: Talk about how the JavaScript subroutines will be organised in the files.-->
 
 #### Multi-user system - login system
 
@@ -1001,7 +1003,7 @@
     return flask.redirect(flask.url_for("main_home"))
   ```
 
-  TODO: talk about how the flashes for the error messages work
+  <!--TODO: talk about how the flashes for the error messages work-->
 
 ##### verifyField
   This subroutine will be called from `auth_signup_post` to ensure that all of the fields the user inputted are valid. It takes four variables, the requirements that the field has to meet, along with the field's content and name for any error messages. It will return an empty string if the field meets all the requirements and an error message if it does not.
@@ -1076,19 +1078,19 @@
 ##### Diagram showing how these subroutines link
 
 #### Multi-user system - creating a new site
-  TODO: add the algorithms for creating the sites
+  <!--TODO: add the algorithms for creating the sites-->
 
 ##### Diagrams showing how these subroutines link
 
 #### Multi-user system - user settings
-  TODO: add the subroutines for user settings
+  <!--TODO: add the subroutines for user settings-->
 
 ##### Diagrams showing how these subroutines link
 
 #### Utility subroutines
   These subroutines are called in different parts of the Python files to perform specific actions. This means that it removes duplicate code for procedures that may need to be used many times throughout
 
-  TODO: add subroutines relating to user settings
+  <!--TODO: add subroutines relating to user settings-->
 
 ##### generateFolderStructure
   This subroutine is called whenever the code needs to generate a list of folders. It makes use of the in-built `os` library in Python. It is called when a new user is created or when a user creates a new site.
@@ -1118,9 +1120,9 @@
         raise OSError(e)
   ```
 
-  TODO: pseudocode for a multi-user permission system for the sites
+  <!--TODO: pseudocode for a multi-user permission system for the sites-->
 
-  TODO: JavaScript pseudocode for drag and drop editor
+  <!--TODO: JavaScript pseudocode for drag and drop editor-->
 
 ### Explanation and justification of this process
   The initial concept seems large and complicated, but the way it is broken down above into separate parts will make the development easier and faster, and will aid the testing and maintaining of the code due to it's modularity.
