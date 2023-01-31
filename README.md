@@ -1314,7 +1314,7 @@
   ```
 
   When run, the website looked like this:
-  
+
   <img alt="A screenshot of the test page that I programmed" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.2_testingflaskandjinja_browser.png?raw=true" width="750"/>
 
   As you can see by the image, using the `flash` function, flask successfully sends the list `["Apples","Oranges","Pears",1,2,3]` to the webpage for it to be recieved by the `get_flashed_messages` function. It also successfully managed to iterate through the list using `{% for element in get_flashed_messages()[0] %}`, and used the `url_for` function to import the stylesheet.
@@ -1917,6 +1917,138 @@
   <img alt="A screenshot of the floating navigation options when closed" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_floatingnavclosed.png?raw=true" width="360"/>
 
   <!-- TODO: combine these screenshots -->
+
+  There is validation of the inputs both client-side and server-side, so I needed to implement that into the JavaScript for the login and signup pages. I also need to add code so that when the all-seeing eye is pressed, the password field is miraculously revealed. For the validation, I will use the `verifyField` function that I have written in pseudocode (which will also be used in the Python backend). Because of this, there will be three files, `auth.js`, `login.js` and `signup.js` so that there is less duplicated code.
+
+##### /static/js/auth.js
+  ```js
+  // Function called for each field to make sure it is in the correct format, takes a few arguments as flags for what makes it valid
+  function verifyField(field,fieldName,mustHaveChar=true,minLen=3,canHaveSpace=false,canHaveSpecialChar=true) {
+    // List of special characters for the canHaveSpecialChar flag
+    specialChar="%&{}\\<>*?/$!'\":@+`|="
+
+    // Make sure that the input given is a string
+    if (typeof field != "string") {throw new Error("HEY! that's not a string?")}
+
+    // Check through all the flags given and throw an appropriate error message if input is invalid
+    if (field.length == 0 && mustHaveChar) {return `${fieldName} is not filled out.`}
+    if (field.length < minLen) {return `${fieldName} must be greater than ${minLen-1} characters.`}
+    if (!canHaveSpace && field.includes(" ")) {return `${fieldName} cannot contain spaces.`}
+    if (!canHaveSpecialChar) {
+      for (var char in specialChar) {
+        if (field.includes(char)) {
+          return `${fieldName} cannot contain '${char}'`
+        }
+      }
+    }
+
+    return ""
+  }
+
+  // Initialise the code for the all seeing eyes to enable viewing the password
+  function initAllSeeingEye(element,reveal) {
+    element.addEventListener("click", e=> {
+      reveal.setAttribute('type',reveal.getAttribute('type') === 'password' ? 'text' : 'password');
+      element.classList.toggle('fa-eye-slash');
+    })
+  }
+
+  // fetch warning element and disable submit bottom
+  warningSpan = document.querySelector(".field-container .field-warning")
+  document.querySelector(".field-submit").disabled = true
+  ```
+
+##### /static/js/login.js
+  ```js
+  // function called when an input is changed, to check whether all inputs are valid
+  function verifyAllFields() {
+    if (fields["Username"].value.length < 1) {
+      warningSpan.innerText = "Username is not filled out"
+      document.querySelector(".field-submit").disabled = true
+      return
+    }
+
+    if (fields["Password"].value.length < 1) {
+      warningSpan.innerText = "Password is not filled out"
+      document.querySelector(".field-submit").disabled = true
+      return
+    }
+
+    warningSpan.innerText = ""
+    document.querySelector(".field-submit").disabled = false
+  }
+
+  // Dictionary of all fields in the form
+  fields={
+    "Username":document.querySelector(".field-option-username .field-input"),
+    "Password":document.querySelector(".field-option-password .field-input")
+  }
+
+  initAllSeeingEye(document.querySelector(".field-option-password .eye-reveal i"),document.querySelector(".field-option-password .field-input"))
+  document.querySelectorAll(".field-input").forEach(field=>{console.log(field);field.addEventListener("change",verifyAllFields)})
+  ```
+
+##### /static/js/signup.js
+  ```js
+  // function called when an input is changed, to check whether all inputs are valid
+  function verifyAllFields() {
+    verifyOutput=self.verifyField(fields["Name"].value,"Name",canHaveSpace=true)
+
+    if (verifyOutput.length > 0) {
+      warningSpan.innerText = verifyOutput
+      document.querySelector(".field-submit").disabled = true
+      return
+    }
+
+    verifyOutput=self.verifyField(fields["Email"].value,"Email",minLen=0,canHaveSpace=false)
+
+    if (verifyOutput.length > 0) {
+      warningSpan.innerText = verifyOutput
+      document.querySelector(".field-submit").disabled = true
+      return
+    }
+
+    verifyOutput=self.verifyField(fields["Username"].value,"Username",canHaveSpecialChar=false)
+
+    if (verifyOutput.length > 0) {
+      warningSpan.innerText = verifyOutput
+      document.querySelector(".field-submit").disabled = true
+      return
+    }
+
+    verifyOutput=self.verifyField(fields["Password"].value,"Password",minLen=8)
+
+    if (verifyOutput.length > 0) {
+      warningSpan.innerText = verifyOutput
+      document.querySelector(".field-submit").disabled = true
+      return
+    }
+
+    // Make sure passwords match
+    if (fields["Password"].value!=fields["Repeat Password"].value) {
+      warningSpan.innerText = "Passwords do not match"
+      document.querySelector(".field-submit").disabled = true
+      return
+    }
+
+    // If no errors are called, then enable the button and clear the warning message
+    warningSpan.innerText = ""
+    document.querySelector(".field-submit").disabled = false
+  }
+
+  // Dictionary of all fields in the form
+  fields={
+    "Name":document.querySelector(".field-option-name .field-input"),
+    "Email":document.querySelector(".field-option-email .field-input"),
+    "Username":document.querySelector(".field-option-username .field-input"),
+    "Password":document.querySelector(".field-option-password .field-input"),
+    "Repeat Password":document.querySelector(".field-option-password-repeat .field-input")
+  }
+
+  initAllSeeingEye(document.querySelector(".field-option-password .eye-reveal i"),document.querySelector(".field-option-password .field-input"))
+  initAllSeeingEye(document.querySelector(".field-option-password-repeat .eye-reveal i"),document.querySelector(".field-option-password-repeat .field-input"))
+  document.querySelectorAll(".field-input").forEach(field=>{console.log(field);field.addEventListener("change",verifyAllFields)})
+  ```
 
 
 
