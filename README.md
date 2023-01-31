@@ -1314,8 +1314,8 @@
   ```
 
   When run, the website looked like this:
-
-  ![The website after running this code](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.2_testingflaskandjinja_browser.png?raw=true)
+  
+  <img alt="A screenshot of the test page that I programmed" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.2_testingflaskandjinja_browser.png?raw=true" width="750"/>
 
   As you can see by the image, using the `flash` function, flask successfully sends the list `["Apples","Oranges","Pears",1,2,3]` to the webpage for it to be recieved by the `get_flashed_messages` function. It also successfully managed to iterate through the list using `{% for element in get_flashed_messages()[0] %}`, and used the `url_for` function to import the stylesheet.
 
