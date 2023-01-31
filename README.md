@@ -1913,10 +1913,10 @@
 
   After running the website, the floating navigation options looked like this:
 
-  <img alt="A screenshot of the floating navigation options when opened" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_floatingnavopen.png?raw=true" width="600"/>
-    <img alt="A screenshot of the floating navigation options when closed" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_floatingnavclosed.png?raw=true" width="600"/>
+  <img alt="A screenshot of the floating navigation options when opened" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_floatingnavopen.png?raw=true" width="360"/>
+  <img alt="A screenshot of the floating navigation options when closed" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_floatingnavclosed.png?raw=true" width="360"/>
 
-
+  <!-- TODO: combine these screenshots -->
 
 
 
