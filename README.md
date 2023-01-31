@@ -1496,6 +1496,13 @@
                       </span>
                   </div>
               </div>
+              <div class="field-option field-option-remember">
+                  <h4 class="text italic">Remember Me</h4>
+                  <div class="field-input-container">
+                      <input class="field-input" type="checkbox" name="remember">
+                      <span class="eye-spacer"></span>
+                  </div>
+              </div>
 
               <button class="field-submit btn secondary rounded slide" type="submit">
                 <span class="btn-content text uppercase secondary">Submit</span>
@@ -2050,7 +2057,106 @@
   document.querySelectorAll(".field-input").forEach(field=>{console.log(field);field.addEventListener("change",verifyAllFields)})
   ```
 
+  I then implemented the server-side validation, which re-checks all of the validation performed client-side (using the same `verifyField` function), to ensure that the inputs are valid and weren't tampered with client-side. The database checking has not yet been implemented at this point, as I wanted to get the login and signup pages fully completed before creating the database.
 
+##### changes to __init__.py
+  ```python
+  @self.app.route("/login/", methods=["post"])
+  def auth_login_post():
+      # get the filled in items from the login form
+      username = request.form.get("username")
+      password = request.form.get("password")
+      remember = True if request.form.get('remember') else False
+
+      # TODO: get the user from the database. if there's no user it returns none
+      if False:
+          flash(['Please check your login details and try again.',remember])
+          return redirect(url_for('auth_login'))
+
+      # TODO: check for correct password
+      if False:
+          flash(['Please check your login details and try again.',remember])
+          return redirect(url_for('auth_login'))
+
+      # TODO: login user
+      return redirect(url_for("main_home"))
+  ```
+  ```python
+  @self.app.route("/signup/", methods=["post"])
+  def auth_signup_post():
+      # get the filled in items from the signup form
+      name=request.form.get("name")
+      email=request.form.get("email")
+      username=request.form.get("username")
+      password1=request.form.get("password")
+      password2=request.form.get("password-repeat")
+
+      # this function returns either an empty string if the field meets the requirements
+      # defined by the arguments, or an error message. So, if len(verifyOutput) > 0, that
+      # means that the field is invalid
+      verifyOutput=self.verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
+
+      if len(verifyOutput) > 0:
+          flash([True,verifyOutput,"",email,username])
+          return redirect(url_for("auth_signup"))
+
+      verifyOutput=self.verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
+
+      if len(verifyOutput) > 0:
+          flash([True,verifyOutput,name,"",username])
+          return redirect(url_for("auth_signup"))
+
+      verifyOutput=self.verifyField(username,"Username",canHaveSpecialChar=False)
+
+      if len(verifyOutput) > 0:
+          flash([True,verifyOutput,name,email,""])
+          return redirect(url_for("auth_signup"))
+
+      verifyOutput=self.verifyField(password1,"Password",minLen=8)
+
+      if len(verifyOutput) > 0:
+          flash([True,verifyOutput,name,email,username])
+          return redirect(url_for("auth_signup"))
+
+      if password1!=password2:
+          flash([True,"Passwords do not match",name,email,username])
+          return redirect(url_for("auth_signup"))
+
+      # TODO: check whether this email already has an account
+
+      if False:
+          flash([True,"That email is already in use",name,"",username])
+          return redirect(url_for("auth_signup"))
+
+      # TODO: check whether this username already exists
+
+      if False:
+          flash([True,"That username is already in use",name,email,""])
+          return redirect(url_for("auth_signup"))
+
+      # TODO: create a new user in the database
+
+      return redirect(url_for("auth_login"))
+  ```
+  ```python
+  def verifyField(self,field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,canHaveSpecialChar=True):
+      # List of special characters for the canHaveSpecialChar flag
+      specialChar="%&{}\\<>*?/$!'\":@+`|="
+
+      # Make sure that the input given is a string
+      if type(field) != str: Exception("HEY! that's not a string?")
+
+      # Check through all the flags given and throw an appropriate error message if input is invalid
+      if len(field) == 0 and mustHaveChar: return f"{fieldName} is not filled out."
+      if len(field) < minLen: return f"{fieldName} must be greater than {minLen-1} characters."
+      if not canHaveSpace and " " in field: return f"{fieldName} cannot contain spaces."
+      if not canHaveSpecialChar:
+        for char in specialChar:
+          if char in field:
+              return f"{fieldName} cannot contain '{char}'"
+
+      return ""
+  ```
 
 
 ### Features
