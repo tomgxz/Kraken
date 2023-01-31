@@ -1252,7 +1252,7 @@
   <img alt="The console after running this code" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.1_creatingthebackend_console.png?raw=true" width="750"/>
 
   And look like this in the website:
-  
+
   <img alt="The website after running this code" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.1_creatingthebackend_browser.png?raw=true" width="750"/>
 
   Having got the framework for the backend in place, I then created a basic template for the HTML (in Jinja) and some CSS code to work with it, so that I could test some of the functions that I wanted to use. These files were created at `/templates/test.html` and `/static/css/test.css`, and were deleted afterwards when I knew that the system was functioning as intended. To make sure that some of the modules of Flask were working as intended, I used the `render_template` and `flash` functions in Python, ran a loop in the HTML file using Jinja, and used `url_for` to import the CSS file.
@@ -1886,6 +1886,7 @@
   <img alt="A screenshot of the login page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_logincssdesign.png?raw=true" width="750"/>
   <img alt="A screenshot of the signup page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_signupcssdesign.png?raw=true" width="750"/>
 
+  <!-- TODO: redo these screenshots -->
 
   Currently, when you click the submit button, it redirects to a page saying "Method not allowed", as the post functions have not been added to `__init__.py` yet.
 
