@@ -1319,9 +1319,29 @@
 
   As you can see by the image, using the `flash` function, flask successfully sends the list `["Apples","Oranges","Pears",1,2,3]` to the webpage for it to be recieved by the `get_flashed_messages` function. It also successfully managed to iterate through the list using `{% for element in get_flashed_messages()[0] %}`, and used the `url_for` function to import the stylesheet.
 
-  Before creating the database structure, I decided to create the frontend for the login and signup pages, so that it would be easier to test. Due to the above code working successfully, I started off by making a `base.html` template, that all of the other Jinja files would build on top of. I then created the `login.html` and `signup.html` files as well. This was made easier by my previous experience in web design, as I could use a library of CSS code that I have collected to speed up the design process.
+  Before creating the database structure, I decided to create the frontend for the login and signup pages, so that it would be easier to test. Due to the above code working successfully, I started off by making a `base.html` template, that all of the other Jinja files would build on top of. I then created the `login.html` and `signup.html` files as well. This was made easier by my previous experience in web design, as I could use a library of CSS code that I have collected to speed up the design process. To be able to view the templates, I added some `app.route` functions to `__init__.py` using the `render_template` function.
+
+<!-- TODO: add icon code -->
 
 <!-- Before creating the database structure... -->
+
+##### __init__.py changes
+  ```python
+  def initPages(self):
+
+    @self.app.route("/")
+      def main_home():
+          return "Hi o/"
+
+     @self.app.route("/login/")
+     def auth_login():
+         return render_template("login.html")
+
+     @self.app.route("/signup/")
+     def auth_signup():
+         return render_template("signup.html")
+
+  ```
 
 ##### /templates/base.html
   ```jinja
@@ -1369,7 +1389,7 @@
                           <div class="globalnav-list">
                               <div class="globalnav-logo">
                                   <a class="globalnav-link globalnav-link-home link unformatted" href="{{ url_for('main_home') }}">
-                                      <img class="globalnav-logo-image" alt="Kraken" src="{{url_for('static', filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-512-512.png')}}" preserveAspectRatio>
+                                      <img class="globalnav-logo-image" alt="Kraken" src="{{url_for('static', filename='img/icon/512-512/kraken-icon-png-primary-512-512.png')}}" preserveAspectRatio>
                                       <span class="globalnav-link-hidden-text visibly-hidden">Kraken</span>
                                   </a>
                               </div>
@@ -1390,15 +1410,17 @@
                   <!-- Floating option modal for the navbar, which is opened and closed via the hamburger in the navigation bar -->
 
                   <div class="globalnav-floating-options">
-                      <a class="globalnav-floating-option one" href="{{ url_for('main_home') }}">
+                      <!-- URL links are left blank for now as the pages have not yet been created -->
+
+                      <a class="globalnav-floating-option one" href="">
                           <span class="globalnav-floating-option-content text header small dark">My Sites</span>
                       </a>
 
-                      <a class="globalnav-floating-option two" href="{{ url_for('settings') }}">
+                      <a class="globalnav-floating-option two" href="">
                           <span class="globalnav-floating-option-content text header small dark">Settings</span>
                       </a>
 
-                      <a class="globalnav-floating-option three" href="{{ url_for('auth_logout') }}">
+                      <a class="globalnav-floating-option three" href="">
                           <span class="globalnav-floating-option-content text header small dark">Logout</span>
                       </a>
                   </div>
@@ -1414,7 +1436,7 @@
 
               		<!-- Internal Script Imports -->
                       <script src="{{url_for('static', filename='js/main.js')}}"></script>
-                      <script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}">
+                      <script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}"></script>
 
                   {% block content %}
                   {% endblock %}
@@ -1426,12 +1448,11 @@
   </html>
   ```
 
+  For clarity, I have removed some unnecessary elements from the head of `base.html`, such as the open-graph protocol and some of the meta elements.
+
 ##### /templates/login.html
   ```jinja
   {% extends "base.html" %}
-
-  {% set navbarLogoColor = "secondary" %}
-  {% set navbarOptionsEnabled = False %}
 
   {% block content %}
 
@@ -1454,13 +1475,7 @@
           <!-- Warning area for the form that uses the flashed warning message -->
 
           <span class="field-warning text italic">
-              {% with messages = get_flashed_messages() %}
-
-              {% if messages %}
-                {{ messages[0] }}
-              {% endif %}
-
-              {% endwith %}
+            <!-- TODO: add code for flashed warning msg -->
           </span>
 
           <form class="field-options" method="post" action="/login/">
@@ -1491,17 +1506,12 @@
       </div>
   </div>
 
-  <script src="../static/js/login.js"></script>
-
   {% endblock %}
   ```
 
 ##### /templates/signup.html
   ```jinja
   {% extends "base.html" %}
-
-  {% set navbarLogoColor = "secondary" %}
-  {% set navbarOptionsEnabled = False %}
 
   {% block content %}
 
@@ -1523,9 +1533,7 @@
           <!-- Warning area for the form that uses the flashed warning message -->
 
           <span class="field-warning text italic">
-              {% if messages[0] %}
-                {{ messages[1] }}
-              {% endif %}
+            <!-- TODO: add code for flashed warning msg -->
           </span>
 
           <form class="field-options" method="post" action="/signup/">
@@ -1583,8 +1591,6 @@
       </div>
   </div>
 
-  <script src="../static/js/signup.js"></script>
-
   {% endblock %}
   ```
 
@@ -1592,13 +1598,15 @@
 
   For example, the URL for the home button image in `base.html` is defined by `{{url_for('static', filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-512-512.png')}}`. The variable `navbarLogoColor` is declared in child templates to define which colour should be used.
 
-  TODO: how are the navbar images stored
+   I also added some icons to be used as the logo for the website. They are located in `/static/img/icon/<resolution>/` where there are different folders for each resolution of the icon. These were generated by me using a bit of Python code that I have written previously. To add some variation to the site, there are three colours of logo: primary (blue), secondary (magenta) and gradient (a gradient of the two going from top left to bottom right). These colours match up with the primary and secondary colours of the website, defined in the CSS code.
 
   The inheriting system is displayed here in these files, where you can see `{% block content %} {% endblock %}` in `base.html`, to define where the code block `content` will be inserted into the file, and then `{% extends "base.html" %}` and `{% block content %} {% endblock %}` in `login.html` and `signup.html`, which define what file will be extended, and which block to insert into.
 
-  The CSS and JavaScript for both pages is imported from the `/static/css/` and `/static/js/` directories respectively. `main.css` is my library of CSS code that I have collected (the syntax for classes is shown below), and `build.css` contains the CSS for the `base.html` template.
+  The CSS and JavaScript for both pages is imported from the `/static/css/` and `/static/js/` directories respectively. `main.css` is my library of CSS code that I have collected (the syntax for classes is shown below), and `build.css` contains the CSS for the `base.html` template. `build.css` contains the code for the floating navigation options, that I tested by appending classes in devtools. This means that the only thing I need to do for it to work is to program the event listeners. The login and signup pages have a CSS file called `auth.css`, that defines the page-specific styling for the login form.
 
-<!-- The css and javascript... -->
+  For JavaScript, I added in some abstract imports to be filled in later: `main.js` for global code, and `globalnav-floating-options.js` for when I code the navigation bar.
+
+<!-- The css and js ... -->
 
 ##### Syntax for /templates/main.css
   ```css
@@ -1640,7 +1648,7 @@
   /* .section-content.fixed-width will set the width to 1440px, and will set the width to 100% when the viewport width is less than 1440px */
   ```
 
-##### build.css
+##### /static/css/build.css
   ```css
   .globalnav {
       background: var(--colors-grey-200);
@@ -1734,8 +1742,180 @@
   }
   ```
 
+##### /static/css/auth.css
+  ```css
+  .application-container {
+      width:100vw;
+      height:100vh;
+      display:flex;
+      flex-direction:row;
+  }
 
-  For clarity, I have removed some unnecessary elements from the head of `base.html`, such as the open-graph protocol and some of the meta elements.
+  .application-content {
+      width:100%;
+      height:100%;
+      padding: 16px;
+  }
+
+  .application-content .text-header-container {
+      margin-bottom:64px;
+      display:flex;
+      flex-direction:column;
+      align-items: center;
+  }
+
+  .application-content .text-header-container .text.one {
+      margin-bottom:16px;
+  }
+
+  .application-content .header-option {
+      position:relative;
+      overflow:visible;
+  }
+
+  .application-content .header-option::after {
+      content: "";
+      background-color: var(--colors-grey-500);
+      width: 70%;
+      height: 4px;
+      border-radius: 5px;
+      position: absolute;
+      bottom: -5px;
+      right: -8px;
+      opacity:1;
+      transition:background-color 200ms ease-in-out,width 200ms ease-in-out,height 200ms ease-in-out,bottom 200ms ease-in-out,right 200ms ease-in-out,opacity 200ms ease-in-out;
+  }
+
+  .application-content .header-option.active::after {
+      background-color: var(--colors-secondary-dark);
+  }
+
+  .application-content .header-option:hover::after {
+      background-color: var(--colors-grey-300);
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      right: 0;
+      opacity: 0.2;
+  }
+
+  .application-content .header-option.active:hover::after {
+      background-color: var(--colors-secondary);
+  }
+
+  .application-content .section-header-item:not(:last-child) {
+      margin-bottom: 16px
+  }
+
+  .application-content .header-options {
+      width:50%;
+      display:flex;
+      justify-content: space-evenly
+  }
+
+  .application-content .header-option {
+      cursor:pointer;
+  }
+
+  .application-content .header-option:active {
+      opacity:.8;
+  }
+
+  .application-content .header-option.active {
+      color:var(--colors-secondary);
+  }
+
+  .application-content .field-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .application-content .field-container .field-submit {
+      margin-top:32px;
+      align-self: center;
+  }
+
+  .application-content .field-container .field-options {
+      width:360px;
+      display:flex;
+      flex-direction:column;
+  }
+
+  .application-content .field-container .field-option:not(:last-child) {
+      margin-bottom:8px
+  }
+
+  .application-content .field-container .field-option {
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .application-content .field-container .field-option .field-input-container {
+      display:flex;
+      flex-direction: row;
+  }
+
+  .application-content .field-container .field-option .field-input {
+      font-family: var(--font-body);
+  }
+
+  .application-content .field-container .field-option .field-input-container .eye-reveal,
+  .application-content .field-container .field-option .field-input-container .eye-spacer {
+      width:19px;
+      height:19px;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      margin-left:8px;
+  }
+
+  .application-content .field-container .field-option .field-input-container .eye-reveal:active {
+      color:var(--colors-secondary);
+  }
+
+  .application-content .field-container .field-warning {
+      color:#e63832;
+      margin-bottom:8px;
+  }
+  ```
+
+  After running the website, the login and signup pages looked like this:
+  ![A screenshot of the login page](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_logincssdesign.png?raw=true)
+  ![A screenshot of the signup page](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_signupcssdesign.png?raw=true)
+
+  Currently, when you click the submit button, it redirects to a page saying "Method not allowed", as the post functions have not been added to `__init__.py` yet.
+
+  The next step was to set up the front-end programming for the login and signup pages, and the navigation bar. Starting with the navgiation bar, I needed to set event listeners for the hamburger and background darkener `div`. These listeners would add or remove the `is-active` class to the hamburger, options list, and background, so that the website renders correctly. The file is already imported into `base.html` via `<script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}">`.
+
+<!-- Front end prog - globalnav hide -->
+
+##### /static/js/globalnav-floating-options.js
+  ```js
+  document.getElementById("globalnav-hamburger").addEventListener("click",()=>{
+      document.getElementById("globalnav-hamburger").classList.toggle('is-active');
+      document.querySelectorAll(".globalnav-floating-options").forEach((e)=>{e.classList.toggle("is-active")});
+      document.querySelectorAll(".globalnav-floating-options-backdrop").forEach((e)=>{e.classList.toggle("is-active")});
+  });
+
+  document.querySelectorAll(".globalnav-floating-options-backdrop").forEach((e)=>{
+      e.addEventListener("click",()=>{
+          document.getElementById("globalnav-hamburger").classList.remove('is-active');
+          document.querySelectorAll(".globalnav-floating-options").forEach((e)=>{e.classList.remove("is-active")});
+          document.querySelectorAll(".globalnav-floating-options-backdrop").forEach((e)=>{e.classList.remove("is-active")});
+      })
+  });
+  ```
+
+  After running the website, the floating navigation options looked like this:
+  ![A screenshot of the floating navigation options when opened](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_floatingnavopen.png?raw=true)
+  ![A screenshot of the floating navigation options when closed](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_floatingnavclosed.png?raw=true)
+
+
+
+
+
 
 ### Features
   To assemble the web pages, the users can drag and drop pre-designed elements categorised into groups such as headlines, quotes, forms, footers, and more. The elements can be previewed in a sidebar next to the main canvas of the page, displayed with the correct styles of the website, from which they can be placed on the webpage. The website would be divided into sections. The user can drag and drop whole sections into the page or add individual elements into an existing section, such as text elements or images. After placing the elements into the canvas, the user can select the element to be able to interact with them by moving them around, changing their styling (such as padding, size, colouring, transparency, position, font size, and many more) in a panel called the inspector panel, adding children to the element, or writing custom element-specific HTML, CSS, or JavaScript code that can be translated into the preview in real-time. These custom elements/pieces of code will then be saved in the user's account so that they can be used in other projects or published so that other users can use them. The canvas will highlight elements with a border when hovered over so that the user can easily see the different elements and how they interact with them. The overall aim of the editor is for someone with very minimal knowledge, even none at all, about web design or programming to be able to interact with it, hence the WYSIWYG intuitiveness.
