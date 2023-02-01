@@ -2160,19 +2160,7 @@
       return ""
   ```
 
-##### changes to /templates/login.html
-  ```jinja
-  {% set messages = get_flashed_messages()[0] %}
-  ```
-  ```jinja
-  <span class="field-warning text italic">
-    {% if messages[0] %}
-      {{ messages[1] }}
-    {% endif %}
-  </span>
-  ```
-
-##### changes to /templates/signup.html
+##### changes to /templates/login.html and /templates/signup.html
   ```jinja
   {% set messages = get_flashed_messages()[0] %}
   ```
@@ -2240,6 +2228,66 @@
   <input class="field-input" placeholder="Username" type="text" name="username" autofocus value="{{ messages[4]}}">
   ```
 
+  To finish the design of the login and signup pages, I added a jinja variable that defines the colour of the logo in the sidebar, and added another variable that defines whether or not the hamburger and subsequent option modal is visible or not. This is because, although it will be required for other sites (such as the homepage), the navigation bar is not necessary here as all of the links in the navigation bar will redirect to `/login` as the user is not signed in.
+
+##### changes to /templates/base.html
+  ```jinja
+  <!-- navbarLogoColor is a jinja variable that is defined in files that extend from this one. It defines what colour the logo should be - primary, secondary, or gradient -->
+  <link rel="apple-touch-icon" sizes="512x512" href="{{url_for('static', filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-128-128.png')}}">
+  <link rel="icon" type="image/png" sizes="128x128" href="{{url_for('static', filename='img/icon/128-128/kraken-icon-png-'+navbarLogoColor+'-128-128.png')}}">
+  ```
+  ```jinja
+  <img class="globalnav-logo-image" alt="Kraken" src="{{url_for('static', filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-512-512.png')}}" preserveAspectRatio>
+  ```
+  ```jinja
+  {% if navbarOptionsEnabled %}
+    <ul class="globalnav-list">
+      <li class="globalnav-item one fake" role="button"></li>
+      <li class="globalnav-item two" role="button">
+        <div class="hamburger hamburger--collapse js-hamburger" id="globalnav-hamburger">
+          <div class="hamburger-box">
+            <div class="hamburger-inner"></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  {% endif %}
+  ```
+  ```jinja
+  {% if navbarOptionsEnabled %}
+
+  <!-- Floating option modal for the navbar, which is opened and closed via the hamburger in the navigation bar -->
+
+  <div class="globalnav-floating-options">
+      <a class="globalnav-floating-option one" href="">
+          <span class="globalnav-floating-option-content text header small dark">My Sites</span>
+      </a>
+
+      <a class="globalnav-floating-option two" href="">
+          <span class="globalnav-floating-option-content text header small dark">Settings</span>
+      </a>
+
+      <a class="globalnav-floating-option three" href="">
+          <span class="globalnav-floating-option-content text header small dark">Logout</span>
+      </a>
+  </div>
+
+  <!-- Backdrop behind nav bar modal to apply a darkness filter behind the modal -->
+
+  <div class="globalnav-floating-options-backdrop"></div>
+
+  <script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}"></script>
+
+  {% endif %}
+  ```
+
+  All of the logo images now have the `navbarLogoColor` variable to define which image to fetch. The hamburger and navigation options are now surrounded in `{% if navbarOptionsEnabled %}`. Both of these variables will be defined in files that extend from this file, such as `login.html`. The script import for `/js/globalnav-floating-options.js` has also been moved into the if block to remove unnecessary imports.
+
+##### changes to /templates/login.html and /templates/signup.html
+  ```jinja
+  {% set navbarLogoColor = "secondary" %}
+  {% set navbarOptionsEnabled = False %}
+  ```
 
 ### Features
   To assemble the web pages, the users can drag and drop pre-designed elements categorised into groups such as headlines, quotes, forms, footers, and more. The elements can be previewed in a sidebar next to the main canvas of the page, displayed with the correct styles of the website, from which they can be placed on the webpage. The website would be divided into sections. The user can drag and drop whole sections into the page or add individual elements into an existing section, such as text elements or images. After placing the elements into the canvas, the user can select the element to be able to interact with them by moving them around, changing their styling (such as padding, size, colouring, transparency, position, font size, and many more) in a panel called the inspector panel, adding children to the element, or writing custom element-specific HTML, CSS, or JavaScript code that can be translated into the preview in real-time. These custom elements/pieces of code will then be saved in the user's account so that they can be used in other projects or published so that other users can use them. The canvas will highlight elements with a border when hovered over so that the user can easily see the different elements and how they interact with them. The overall aim of the editor is for someone with very minimal knowledge, even none at all, about web design or programming to be able to interact with it, hence the WYSIWYG intuitiveness.
