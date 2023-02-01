@@ -45,6 +45,7 @@
   >
 
   - [Development and Testing](#development-and-testing)
+    - [Stage 1 - Setting up the website](#stage-1---setting-up-the-website)
 
 ## Mark Scheme
   3.1. Analysis of the problem (10 marks)||
