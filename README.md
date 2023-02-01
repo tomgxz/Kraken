@@ -2057,7 +2057,7 @@
   document.querySelectorAll(".field-input").forEach(field=>{console.log(field);field.addEventListener("change",verifyAllFields)})
   ```
 
-  I then implemented the server-side validation, which re-checks all of the validation performed client-side (using the same `verifyField` function), to ensure that the inputs are valid and weren't tampered with client-side. The database checking has not yet been implemented at this point, as I wanted to get the login and signup pages fully completed before creating the database.
+  I then implemented the server-side validation, which re-checks all of the validation performed client-side (using the same `verifyField` function), to ensure that the inputs are valid and weren't tampered with client-side. The database checking has not yet been implemented at this point, as I wanted to get the login and signup pages fully completed before creating the database. This also involved adding code to the templates to interpret the flashed error message.
 
 ##### changes to __init__.py
   ```python
@@ -2070,12 +2070,13 @@
 
       # TODO: get the user from the database. if there's no user it returns none
       if False:
-          flash(['Please check your login details and try again.',remember])
+          # Flashes true to signify that there is an error, and the message behind it
+          flash([True,'Please check your login details and try again.'])
           return redirect(url_for('auth_login'))
 
       # TODO: check for correct password
       if False:
-          flash(['Please check your login details and try again.',remember])
+          flash([True,'Please check your login details and try again.'])
           return redirect(url_for('auth_login'))
 
       # TODO: login user
@@ -2097,41 +2098,42 @@
       verifyOutput=self.verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
 
       if len(verifyOutput) > 0:
-          flash([True,verifyOutput,"",email,username])
+          # Flashes true to signify that there is an error, and the message behind it
+          flash([True,verifyOutput])
           return redirect(url_for("auth_signup"))
 
       verifyOutput=self.verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
 
       if len(verifyOutput) > 0:
-          flash([True,verifyOutput,name,"",username])
+          flash([True,verifyOutput])
           return redirect(url_for("auth_signup"))
 
       verifyOutput=self.verifyField(username,"Username",canHaveSpecialChar=False)
 
       if len(verifyOutput) > 0:
-          flash([True,verifyOutput,name,email,""])
+          flash([True,verifyOutput])
           return redirect(url_for("auth_signup"))
 
       verifyOutput=self.verifyField(password1,"Password",minLen=8)
 
       if len(verifyOutput) > 0:
-          flash([True,verifyOutput,name,email,username])
+          flash([True,verifyOutput])
           return redirect(url_for("auth_signup"))
 
       if password1!=password2:
-          flash([True,"Passwords do not match",name,email,username])
+          flash([True,"Passwords do not match"])
           return redirect(url_for("auth_signup"))
 
       # TODO: check whether this email already has an account
 
       if False:
-          flash([True,"That email is already in use",name,"",username])
+          flash([True,"That email is already in use"])
           return redirect(url_for("auth_signup"))
 
       # TODO: check whether this username already exists
 
       if False:
-          flash([True,"That username is already in use",name,email,""])
+          flash([True,"That username is already in use"])
           return redirect(url_for("auth_signup"))
 
       # TODO: create a new user in the database
@@ -2156,6 +2158,86 @@
               return f"{fieldName} cannot contain '{char}'"
 
       return ""
+  ```
+
+##### changes to /templates/login.html
+  ```jinja
+  {% set messages = get_flashed_messages()[0] %}
+  ```
+  ```jinja
+  <span class="field-warning text italic">
+    {% if messages[0] %}
+      {{ messages[1] }}
+    {% endif %}
+  </span>
+  ```
+
+##### changes to /templates/signup.html
+  ```jinja
+  {% set messages = get_flashed_messages()[0] %}
+  ```
+  ```jinja
+  <span class="field-warning text italic">
+    {% if messages[0] %}
+      {{ messages[1] }}
+    {% endif %}
+  </span>
+  ```
+
+  At the suggestion of one of the stakeholders, I also added a feature so that when you submit the form, and it throws an error, the form values are carried over so that the user doesn't have to fill them out again. I implemented this using the `flash` function, flashing a list containing the inputs that they had given.
+
+<!-- Carrying inputs over -->
+
+##### changes to __init__.py
+  ```python
+  def auth_login_post():
+  ```
+  ```python
+    # Flashes true to signify an error, the error message, the username given, and the remember flag given
+    flash([True,'Please check your login details and try again.',username,remember])
+    return redirect(url_for('auth_login'))
+  ```
+  ```python
+  def auth_signup_post():
+  ```
+  ```python
+    if len(verifyOutput) > 0:
+      # Flashes true to signify an error, the error message, the name given (removed due to error), the email given, and the username given
+      flash([True,verifyOutput,"",email,username])
+      return redirect(url_for("auth_signup"))
+  ```
+  ```python
+      flash([True,verifyOutput,name,"",username])
+  ```
+  ```python
+      flash([True,verifyOutput,name,email,""])
+  ```
+  ```python
+      flash([True,verifyOutput,name,email,username])
+  ```
+  ```python
+    if password1!=password2:
+      flash([True,"Passwords do not match",name,email,username])
+      return redirect(url_for("auth_signup"))
+  ```
+
+##### changes to /templates/login.html
+  ```jinja
+  <input class="field-input" placeholder="Username" type="text" name="username" value="{{messages[2]}}">
+  ```
+  ```jinja
+  <input class="field-input" type="checkbox" name="remember"  value={{messages[3]}}>
+  ```
+
+##### changes to /templates/signup.html
+  ```jinja
+  <input class="field-input" placeholder="Name" type="name" name="name" autofocus value="{{ messages[2]}}">
+  ```
+  ```jinja
+  <input class="field-input" placeholder="name@domain.com" type="email" name="email" autofocus value="{{ messages[3]}}">
+  ```
+  ```jinja
+  <input class="field-input" placeholder="Username" type="text" name="username" autofocus value="{{ messages[4]}}">
   ```
 
 
