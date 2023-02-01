@@ -1216,6 +1216,8 @@
 
   Before designing the website, I first had to create the flask backend running. For this, I modified some code that I have used before when using Flask as a backend.
 
+### Stage 1 - Setting up the website
+
 ##### __init__.py
   ```python
   from flask import Flask
@@ -1259,7 +1261,7 @@
 
 <!-- Having got the framework in place... -->
 
-##### __init__.py changes
+##### changes to __init__.py
   ```python
   from flask import Flask, render_template, redirect, flash
   ```
@@ -1325,7 +1327,7 @@
 
 <!-- Before creating the database structure... -->
 
-##### __init__.py changes
+##### changes to __init__.py
   ```python
   def initPages(self):
 
