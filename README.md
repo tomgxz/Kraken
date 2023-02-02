@@ -1223,26 +1223,25 @@
   ```python
   from flask import Flask
 
-  # The home class of the application
+  # The main class of the application
   class Kraken():
     def __init__(self,host,port):
-
-      # Create the flask application and secret key
-      self.app = Flask(__name__)
+      # Create the Flask application and set a secret key
+      self.app = Flask("Kraken")
       self.app.config["SECRET_KEY"]="secret-key-goes-here"
 
-      # Initialise all of the website pages
+      # Initialise the website pages
       self.initPages()
 
-      # Run the application
+      # Run the Flask application
       self.app.run(host=host,port=port)
 
     def initPages(self):
 
-      # When the root page is visited, run this function
+      # Home page route
       @self.app.route("/")
       def main_index():
-        # Display the given text
+        # Display the returned text
         return "This is the homepage!"
 
   if __name__ == "__main__":
@@ -1269,6 +1268,7 @@
   ```python
   def initPages(self):
 
+    # Home page route
     @self.app.route("/")
     def main_index():
       # flash sends a message to the next site that flask renders
@@ -1332,17 +1332,20 @@
   ```python
   def initPages(self):
 
-    @self.app.route("/")
-      def main_home():
-          return "Hi o/"
+     # Home page route
+     @self.app.route("/")
+     def main_home():
+       return "Hi o/"
 
+     # Login page route
      @self.app.route("/login/")
      def auth_login():
-         return render_template("login.html")
+       return render_template("login.html")
 
+     # Signup page route
      @self.app.route("/signup/")
      def auth_signup():
-         return render_template("signup.html")
+       return render_template("signup.html")
 
   ```
 
@@ -2067,91 +2070,104 @@
   from flask import Flask, render_template, redirect, flash, request
   ```
   ```python
+  # Login post route
   @self.app.route("/login/", methods=["post"])
   def auth_login_post():
-      # get the filled in items from the login form
-      username = request.form.get("username")
-      password = request.form.get("password")
-      remember = True if request.form.get('remember') else False
+    # Get the filled-in items from the login form
+    username = request.form.get("username")
+    password = request.form.get("password")
+    remember = True if request.form.get('remember') else False
 
-      # TODO: get the user from the database. if there's no user it returns none
-      if False:
-          # Flashes true to signify that there is an error, and the message behind it
-          flash([True,'Please check your login details and try again.'])
-          return redirect(url_for('auth_login'))
+    # TODO: get the user from the database. if there's no user it returns none
+    if False:
+      # Flashes true to signify an error, the error message, the username given, and the remember flag given
+      flash([True,'Please check your login details and try again.'])
+      return redirect(url_for('auth_login'))
 
-      # TODO: check for correct password
-      if False:
-          flash([True,'Please check your login details and try again.'])
-          return redirect(url_for('auth_login'))
+    # TODO: check for correct password
+    if False:
+      flash([True,'Please check your login details and try again.'])
+      return redirect(url_for('auth_login'))
 
-      # TODO: login user
-      return redirect(url_for("main_home"))
+    # TODO: login user
+    return redirect(url_for("main_home"))
+
   ```
   ```python
+  # Signup post route
   @self.app.route("/signup/", methods=["post"])
   def auth_signup_post():
-      # get the filled in items from the signup form
-      name=request.form.get("name")
-      email=request.form.get("email")
-      username=request.form.get("username")
-      password1=request.form.get("password")
-      password2=request.form.get("password-repeat")
+    # Get the filled-in items from the signup form
+    name=request.form.get("name")
+    email=request.form.get("email")
+    username=request.form.get("username")
+    password1=request.form.get("password")
+    password2=request.form.get("password-repeat")
 
-      # this function returns either an empty string if the field meets the requirements
-      # defined by the arguments, or an error message. So, if len(verifyOutput) > 0, that
-      # means that the field is invalid
-      verifyOutput=self.verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
+    # the verifyField function returns either an empty string if the field meets the requirements
+    # defined by the arguments, or an error message. So, if len(verifyOutput) > 0, that
+    # means that the field is invalid
 
-      if len(verifyOutput) > 0:
-          # Flashes true to signify that there is an error, and the message behind it
-          flash([True,verifyOutput])
-          return redirect(url_for("auth_signup"))
+    # Verify the name input and return an error message if invalid
+    verifyOutput=self.verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
 
-      verifyOutput=self.verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
+    if len(verifyOutput) > 0:
+      # Flashes true to signify an error, and the error message
+      flash([True,verifyOutput])
+      return redirect(url_for("auth_signup"))
 
-      if len(verifyOutput) > 0:
-          flash([True,verifyOutput])
-          return redirect(url_for("auth_signup"))
+    # Verify the email input and return an error message if invalid
+    verifyOutput=self.verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
 
-      verifyOutput=self.verifyField(username,"Username",canHaveSpecialChar=False)
+    if len(verifyOutput) > 0:
+      # Flash an error message
+      flash([True,verifyOutput])
+      return redirect(url_for("auth_signup"))
 
-      if len(verifyOutput) > 0:
-          flash([True,verifyOutput])
-          return redirect(url_for("auth_signup"))
+    # Verify the username input and return an error message if invalid
+    verifyOutput=self.verifyField(username,"Username",canHaveSpecialChar=False)
 
-      verifyOutput=self.verifyField(password1,"Password",minLen=8)
+    if len(verifyOutput) > 0:
+      # Flash an error message
+      flash([True,verifyOutput])
+      return redirect(url_for("auth_signup"))
 
-      if len(verifyOutput) > 0:
-          flash([True,verifyOutput])
-          return redirect(url_for("auth_signup"))
+    # Verify the password input and return an error message if invalid
+    verifyOutput=self.verifyField(password1,"Password",minLen=8)
 
-      if password1!=password2:
-          flash([True,"Passwords do not match"])
-          return redirect(url_for("auth_signup"))
+    if len(verifyOutput) > 0:
+      # Flash an error message
+      flash([True,verifyOutput])
+      return redirect(url_for("auth_signup"))
 
-      # TODO: check whether this email already has an account
+    # Return an error message if the passwords do not match
+    if password1!=password2:
+      # Flash an error message
+      flash([True,"Passwords do not match"])
+      return redirect(url_for("auth_signup"))
 
-      if False:
-          flash([True,"That email is already in use"])
-          return redirect(url_for("auth_signup"))
+    # TODO: check whether this email already has an account
 
-      # TODO: check whether this username already exists
+    if False:
+      flash([True,"That email is already in use"])
+      return redirect(url_for("auth_signup"))
 
-      if False:
-          flash([True,"That username is already in use"])
-          return redirect(url_for("auth_signup"))
+    # TODO: check whether this username already exists
 
-      # TODO: create a new user in the database
+    if False:
+      flash([True,"That username is already in use"])
+      return redirect(url_for("auth_signup"))
 
-      return redirect(url_for("auth_login"))
+    # TODO: create a new user in the database
+
+    return redirect(url_for("auth_login"))
   ```
   ```python
   def verifyField(self,field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,canHaveSpecialChar=True):
       # List of special characters for the canHaveSpecialChar flag
       specialChar="%&{}\\<>*?/$!'\":@+`|="
 
-      # Make sure that the input given is a string
+      # Make sure that the input given is a string, raise an exception if its not
       if type(field) != str: Exception("HEY! that's not a string?")
 
       # Check through all the flags given and throw an appropriate error message if input is invalid
@@ -2161,9 +2177,9 @@
       if not canHaveSpecialChar:
         for char in specialChar:
           if char in field:
-              return f"{fieldName} cannot contain '{char}'"
+            return f"{fieldName} cannot contain '{char}'"
 
-      return ""
+      return "" # Return an empty string if the input is valid
   ```
 
 ##### changes to /templates/login.html and /templates/signup.html
@@ -2178,12 +2194,27 @@
   </span>
   ```
 
-  At the suggestion of one of the stakeholders, I also added a feature so that when you submit the form, and it throws an error, the form values are carried over so that the user doesn't have to fill them out again. I implemented this using the `flash` function, flashing a list containing the inputs that they had given.
+  At the suggestion of one of the stakeholders, I also added a feature so that when you submit the form, and it throws an error, the form values are carried over so that the user doesn't have to fill them out again. I implemented this using the `flash` function, flashing a list containing the inputs that they had given. To make sure that this didn't cause any issues when opening the page for the first time, the `auth_login` and `auth_signup` functions also flash a list (`[False,"","","",""]`) to prevent any index errors.
 
 <!-- Carrying inputs over -->
 
 ##### changes to __init__.py
   ```python
+  # Login page route
+  def auth_login():
+    # Flash an empty list of values to stop errors in the Jinja code
+    flash([False,"","","",""])
+    return render_template("login.html")
+  ```
+  ```python
+  # Signup page route
+  def auth_signup():
+    # Flash an empty list of values to stop errors in the Jinja code
+    flash([False,"","","",""])
+    return render_template("signup.html")
+  ```
+  ```python
+  # Login post route
   def auth_login_post():
   ```
   ```python
@@ -2192,6 +2223,7 @@
     return redirect(url_for('auth_login'))
   ```
   ```python
+  # Signup post route
   def auth_signup_post():
   ```
   ```python
@@ -2201,6 +2233,7 @@
       return redirect(url_for("auth_signup"))
   ```
   ```python
+      # Flash an error message and the filled in values
       flash([True,verifyOutput,name,"",username])
   ```
   ```python
@@ -2210,7 +2243,9 @@
       flash([True,verifyOutput,name,email,username])
   ```
   ```python
+    # Return an error message if the passwords do not match
     if password1!=password2:
+      # Flash an error message and the filled in values
       flash([True,"Passwords do not match",name,email,username])
       return redirect(url_for("auth_signup"))
   ```
@@ -2235,6 +2270,8 @@
   ```
 
   To finish the design of the login and signup pages, I added a jinja variable that defines the colour of the logo in the sidebar, and added another variable that defines whether or not the hamburger and subsequent option modal is visible or not. This is because, although it will be required for other sites (such as the homepage), the navigation bar is not necessary here as all of the links in the navigation bar will redirect to `/login` as the user is not signed in.
+
+<!-- Logo color and navbar toggle -->
 
 ##### changes to /templates/base.html
   ```jinja
@@ -2295,7 +2332,122 @@
 
   All of the logo images now have the `navbarLogoColor` variable to define which image to fetch. The hamburger and navigation options are now surrounded in `{% if navbarOptionsEnabled %}`. Both of these variables will be defined in files that extend from this file, such as `login.html`. The script import for `/js/globalnav-floating-options.js` has also been moved into the if block to remove unnecessary imports.
 
+### Stage 2 - Creating and implementing the database
 
+  After completing the login and signup pages, I created the dabase, referring to the entity relationship diagram that I had outlined when planning. The two entities are `User` and `Site`, where `user_id` is a foregin key in `Site` to allow them to link together via a one to many relationship. The `User` entity contains some settings information, such as `bio`, `url`, and `tabpreference`, which will be able to be changed in the settings page, that are implemented now to make development down the line easier.
+
+  ```mermaid
+  %%{init: {'theme':'dark', 'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
+  erDiagram
+      USER ||--o{ SITE : has
+      USER {
+          string user_id
+          string name
+          string email
+          string password
+          string bio
+          string url
+          bool archived
+          int tabpreference
+      }
+
+      SITE {
+          int site_id
+          string user_id
+          string name
+          datetime datecreated
+          bool private
+          bool deleted
+          text sitepath
+      }
+  ```
+
+  The database is managed by the `flask_sqlalchemy.SQLAlchemy` object. In `__init.py`, the object is created (with the variable name `databaseObject`) when the file is run so that `models.py`, the new file that I created which contains the entity classes, can import it. After adding the `databaseObject` object to the class, it imports the two classes from `models.py`, so that the database can interact with them.
+
+##### changes to __init__.py
+  ```python
+  from flask_sqlalchemy import SQLAlchemy
+
+  # Create the database object
+  databaseObject = SQLAlchemy()
+
+  # The main class of the application
+  class Kraken():
+    # Global reference to database object
+    global databaseObject
+
+    def __init__(self,host,port):
+      # Assign the database object to the local db reference
+      self.db=databaseObject
+  ```
+  ```python
+      # Import the User and Site entities from models.py
+      from models import User, Site
+      self.User=User
+      self.Site=Site
+  ```
+
+##### models.py
+  ```python
+  from flask_login import UserMixin
+
+  # Import the SQLAlchemy database object from the main class
+  from __init__ import databaseObject as db
+
+  # User class to store the user's information in the database
+  class User(UserMixin,db.Model):
+    # Set the name of the table in the database to "user"
+    __tablename__="user"
+
+    # Define the columns in the table
+    # Primary Key user_id as a string
+    user_id = db.Column( db.String, primary_key=True)
+    # Name as a string
+    name = db.Column( db.String )
+    # Email as a string, cannot be null and must be unique
+    email = db.Column( db.String, nullable=False, unique=True)
+    # Password as a string, cannot be null
+    password = db.Column( db.String, nullable=False)
+    # Bio as a text field
+    bio = db.Column( db.Text )
+    # URL as a text field
+    url = db.Column( db.Text )
+    # Archived flag as a boolean, cannot be null (default False)
+    archived = db.Column( db.Boolean, nullable=False)
+    # Tab preference as a number, cannot be null (default four)
+    tabpreference = db.Column( db.Float, nullable=False )
+
+    # Setup the foreign key relationship
+    sites = db.relationship("Site")
+
+    # Function to return the primary key
+    def get_id(self): return self.user_id
+
+  # Site class to store the User's sites in the database
+  class Site(db.Model):
+    # Set the name of the table in the database to "site"
+    __tablename__="site"
+
+    # Define the columns of the table
+    # Primary Key site_id as an integer
+    site_id = db.Column( db.Integer, primary_key=True)
+    # Foreign Key user_id as a string, referring to user_id in the User table
+    user_id = db.Column( db.String, db.ForeignKey("user.user_id"))
+    # Name as a string, cannot be null
+    name = db.Column( db.String, nullable=False)
+    # Datecreated as a datetime format
+    datecreated = db.Column( db.DateTime )
+    # Private flag as a boolean, cannot be null
+    private = db.Column( db.Boolean, nullable=False)
+    # Deleted flag as a boolean, cannot be null (default False)
+    deleted = db.Column( db.Boolean, nullable=False)
+    # Sitepath as a text field
+    sitePath = db.Column( db.Text )
+
+    # Function to return the primary key
+    def get_id(self): return self.site_id
+  ```
 
 ### Features
   To assemble the web pages, the users can drag and drop pre-designed elements categorised into groups such as headlines, quotes, forms, footers, and more. The elements can be previewed in a sidebar next to the main canvas of the page, displayed with the correct styles of the website, from which they can be placed on the webpage. The website would be divided into sections. The user can drag and drop whole sections into the page or add individual elements into an existing section, such as text elements or images. After placing the elements into the canvas, the user can select the element to be able to interact with them by moving them around, changing their styling (such as padding, size, colouring, transparency, position, font size, and many more) in a panel called the inspector panel, adding children to the element, or writing custom element-specific HTML, CSS, or JavaScript code that can be translated into the preview in real-time. These custom elements/pieces of code will then be saved in the user's account so that they can be used in other projects or published so that other users can use them. The canvas will highlight elements with a border when hovered over so that the user can easily see the different elements and how they interact with them. The overall aim of the editor is for someone with very minimal knowledge, even none at all, about web design or programming to be able to interact with it, hence the WYSIWYG intuitiveness.
