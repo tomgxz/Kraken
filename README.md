@@ -2366,7 +2366,7 @@
       }
   ```
 
-  The database is managed by the `flask_sqlalchemy.SQLAlchemy` object. In `__init.py`, the object is created (with the variable name `databaseObject`) when the file is run so that `models.py`, the new file that I created which contains the entity classes, can import it. After adding the `databaseObject` object to the class, it imports the two classes from `models.py`, so that the database can interact with them.
+  The database is managed by the `flask_sqlalchemy.SQLAlchemy` object. In `__init.py`, the object is created (with the variable name `databaseObject`) when the file is run so that `models.py`, the new file that I created which contains the entity classes, can import it. After adding the `databaseObject` object to the class, it imports the two classes from `models.py`, so that the database can interact with them. I also moved all of the flask setup into the function `initFlask` to make the code clearer.
 
 ##### changes to __init__.py
   ```python
@@ -2383,12 +2383,28 @@
     def __init__(self,host,port):
       # Assign the database object to the local db reference
       self.db=databaseObject
-  ```
-  ```python
+
+      # Initialise the flask application
+      self.initFlask()
+
+      # Initialise the SQL database
+      self.db.init_app(self.app)
+
       # Import the User and Site entities from models.py
       from models import User, Site
       self.User=User
       self.Site=Site
+  ```
+  ```python
+    def initFlask(self):
+      # Create the Flask application and set a secret key
+      self.app = Flask(__name__)
+      self.app.config["SECRET_KEY"]="secret-key-goes-here"
+      # Set the database file URL to /db.sqlite in the root directory
+      self.app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///db.sqlite"
+      self.app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+      # Initialise the website pages
+      self.initPages()
   ```
 
 ##### models.py
