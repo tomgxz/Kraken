@@ -2405,19 +2405,19 @@
 
     # Define the columns in the table
     # Primary Key user_id as a string
-    user_id = db.Column( db.String, primary_key=True)
+    user_id = db.Column( db.String, primary_key=True )
     # Name as a string
     name = db.Column( db.String )
     # Email as a string, cannot be null and must be unique
-    email = db.Column( db.String, nullable=False, unique=True)
+    email = db.Column( db.String, nullable=False, unique=True )
     # Password as a string, cannot be null
-    password = db.Column( db.String, nullable=False)
+    password = db.Column( db.String, nullable=False )
     # Bio as a text field
     bio = db.Column( db.Text )
     # URL as a text field
     url = db.Column( db.Text )
     # Archived flag as a boolean, cannot be null (default False)
-    archived = db.Column( db.Boolean, nullable=False)
+    archived = db.Column( db.Boolean, nullable=False )
     # Tab preference as a number, cannot be null (default four)
     tabpreference = db.Column( db.Float, nullable=False )
 
@@ -2434,17 +2434,17 @@
 
     # Define the columns of the table
     # Primary Key site_id as an integer
-    site_id = db.Column( db.Integer, primary_key=True)
+    site_id = db.Column( db.Integer, primary_key=True )
     # Foreign Key user_id as a string, referring to user_id in the User table
-    user_id = db.Column( db.String, db.ForeignKey("user.user_id"))
+    user_id = db.Column( db.String, db.ForeignKey("user.user_id") )
     # Name as a string, cannot be null
-    name = db.Column( db.String, nullable=False)
+    name = db.Column( db.String, nullable=False )
     # Datecreated as a datetime format
     datecreated = db.Column( db.DateTime )
     # Private flag as a boolean, cannot be null
-    private = db.Column( db.Boolean, nullable=False)
+    private = db.Column( db.Boolean, nullable=False )
     # Deleted flag as a boolean, cannot be null (default False)
-    deleted = db.Column( db.Boolean, nullable=False)
+    deleted = db.Column( db.Boolean, nullable=False )
     # Sitepath as a text field
     sitePath = db.Column( db.Text )
 
