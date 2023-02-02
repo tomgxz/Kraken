@@ -46,6 +46,9 @@
 
   - [Development and Testing](#development-and-testing)
     - [Stage 1 - Setting up the website](#stage-1---setting-up-the-website)
+    - [Stage 2 - Creating and implementing the database](#stage-2---creating-and-implementing-the-database)
+
+
 
 ## Mark Scheme
   3.1. Analysis of the problem (10 marks)||
