@@ -2581,6 +2581,11 @@
 
 ##### changes to __init__.py
   ```python
+  def __init__(host,port):
+     import os
+     self.os=os
+  ```
+  ```python
   def auth_signup_post():
   ```
   ```python
