@@ -1226,6 +1226,8 @@
   ```python
   from flask import Flask
 
+  # Flask is the application object
+
   # The main class of the application
   class Kraken():
     def __init__(self,host,port):
@@ -1267,6 +1269,11 @@
 ##### changes to __init__.py
   ```python
   from flask import Flask, render_template, redirect, flash
+
+  # Flask is the application object
+  # render_template converts a Jinja file to html
+  # redirect redirects the website to another root function
+  # flash sends messages to the client
   ```
   ```python
   def initPages(self):
@@ -2071,6 +2078,12 @@
 ##### changes to __init__.py
   ```python
   from flask import Flask, render_template, redirect, flash, request
+
+  # Flask is the application object
+  # render_template converts a Jinja file to html
+  # redirect redirects the website to another root function
+  # flash sends messages to the client
+  # request allows the code to handle form inputs
   ```
   ```python
   # Login post route
@@ -2372,6 +2385,8 @@
   ```python
   from flask_sqlalchemy import SQLAlchemy
 
+  # SQLAlchemy manages the SQL database
+
   # Create the database object
   databaseObject = SQLAlchemy()
 
@@ -2498,6 +2513,69 @@
   )
   ```
 
+  I now added the authentication code to `auth_login_post` and `auth_signup_post` so that they could query the new database. This also included importing the `werkzeug.security` module to implement the hashing of passwords, and the `flask_login` module to implement the logging in system
+
+<!-- Login auth -->
+
+##### Changes to __init__.py
+  ```python
+  from flask_login import LoginManager, login_user
+
+  # LoginManager is the object that manages signed in users
+  # login_user logs in a give user
+
+  from werkzeug.security import generate_password_hash, check_password_hash
+
+  # generate_password_hash and check_password_hash are used when generating and authenticating users
+  ```
+  ```python
+    def __init__(self,host,port):
+  ```
+  ```python
+      # Initialise the login manager
+      self.loginManager=LoginManager()
+      self.loginManager.login_view="auth_login" # set which function routes to the login page
+      self.loginManager.init_app(self.app)
+
+      # Fetches a row from the User table in the database
+      @self.loginManager.user_loader
+      def loadUser(user_id): return self.User.query.get(user_id)
+  ```
+  ```python
+    def auth_login_post():
+  ```
+  ```python
+      # Fetch the user from the database. if there's no user it returns none
+      user = self.User.query.filter_by(user_id=username).first()
+
+      if user is None:
+        # Flashes true to signify an error, the error message, the username given, and the remember flag given
+        flash([True,'Please check your login details and try again.',username,remember])
+        return redirect(url_for('auth_login'))
+
+      # TODO: check for correct password
+      if not check_password_hash(user.password,password):
+        flash([True,'Please check your login details and try again.',username,remember])
+        return redirect(url_for('auth_login'))
+
+      # Log in the user and redirect them to the homepage
+      login_user(user,remember=remember)
+      return redirect(url_for("main_home"))
+  ```
+  ```python
+    def auth_signup_post():
+  ```
+  ```python
+      # Check whether this email already has an account
+      if self.User.query.filter_by(email=email).first():
+        flash([True,"That email is already in use",name,"",username])
+        return redirect(url_for("auth_signup"))
+
+      # Check whether this username already exists
+      if self.User.query.filter_by(user_id=username).first():
+        flash([True,"That username is already in use",name,email,""])
+        return redirect(url_for("auth_signup"))
+  ```
 ### Features
   To assemble the web pages, the users can drag and drop pre-designed elements categorised into groups such as headlines, quotes, forms, footers, and more. The elements can be previewed in a sidebar next to the main canvas of the page, displayed with the correct styles of the website, from which they can be placed on the webpage. The website would be divided into sections. The user can drag and drop whole sections into the page or add individual elements into an existing section, such as text elements or images. After placing the elements into the canvas, the user can select the element to be able to interact with them by moving them around, changing their styling (such as padding, size, colouring, transparency, position, font size, and many more) in a panel called the inspector panel, adding children to the element, or writing custom element-specific HTML, CSS, or JavaScript code that can be translated into the preview in real-time. These custom elements/pieces of code will then be saved in the user's account so that they can be used in other projects or published so that other users can use them. The canvas will highlight elements with a border when hovered over so that the user can easily see the different elements and how they interact with them. The overall aim of the editor is for someone with very minimal knowledge, even none at all, about web design or programming to be able to interact with it, hence the WYSIWYG intuitiveness.
 
