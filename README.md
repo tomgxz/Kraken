@@ -48,8 +48,6 @@
     - [Stage 1 - Setting up the website](#stage-1---setting-up-the-website)
     - [Stage 2 - Creating and implementing the database](#stage-2---creating-and-implementing-the-database)
 
-
-
 ## Mark Scheme
   3.1. Analysis of the problem (10 marks)||
   :-|-
@@ -2576,6 +2574,60 @@
         flash([True,"That username is already in use",name,email,""])
         return redirect(url_for("auth_signup"))
   ```
+
+  Next, I created the function `createUser`, that would be called when all of the validation in `auth_signup_post` is complete. It takes the variables `username`,`email`,`name`, and `password`. The function creates a new entry in the database, and creates the users file structure in the server-side storage, making use of the `generateFolderStructure` function.
+
+<!-- createUser fn -->
+
+##### changes to __init__.py
+  ```python
+  def auth_signup_post():
+  ```
+  ```python
+    # create a new user in the database and send to the login page
+    self.createUser(username,email,name,password1)
+    return redirect(url_for("auth_login"))
+  ```
+  ```python
+  def createUser(self,u,e,n,p):
+
+    # Create a new User object using the varaibles given
+    newUser = self.User(
+      user_id=u,
+      name=n,
+      email=e,
+      password=generate_password_hash(p,method='sha256'),
+      bio="",
+      url="",
+      archived=False,
+      tabpreference=4,
+    )
+
+    # Server-side folder generation
+
+    prefix="static/data/userData/"
+
+    # List of all folders to create
+    folderStructure=[self.os.path.abspath(f"{prefix}{u}"),self.os.path.abspath(f"{prefix}{u}/sites/")]
+
+    self.generateFolderStructure(folderStructure)
+
+    # Create new user and commit to database
+    self.db.session.add(newUser)
+    self.db.session.commit()
+
+  def generateFolderStructure(self,folders):
+    # Iterate through given list of folders
+    for folder in folders:
+      # Ignore if folder already exists
+      if self.os.path.isdir(folder): continue
+      # Create folder, and catch any errors
+      try: self.os.makedirs(folder)
+      except OSError as e:
+        raise OSError(
+              e)
+  ```
+
 ### Features
   To assemble the web pages, the users can drag and drop pre-designed elements categorised into groups such as headlines, quotes, forms, footers, and more. The elements can be previewed in a sidebar next to the main canvas of the page, displayed with the correct styles of the website, from which they can be placed on the webpage. The website would be divided into sections. The user can drag and drop whole sections into the page or add individual elements into an existing section, such as text elements or images. After placing the elements into the canvas, the user can select the element to be able to interact with them by moving them around, changing their styling (such as padding, size, colouring, transparency, position, font size, and many more) in a panel called the inspector panel, adding children to the element, or writing custom element-specific HTML, CSS, or JavaScript code that can be translated into the preview in real-time. These custom elements/pieces of code will then be saved in the user's account so that they can be used in other projects or published so that other users can use them. The canvas will highlight elements with a border when hovered over so that the user can easily see the different elements and how they interact with them. The overall aim of the editor is for someone with very minimal knowledge, even none at all, about web design or programming to be able to interact with it, hence the WYSIWYG intuitiveness.
 
