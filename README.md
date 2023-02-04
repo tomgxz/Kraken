@@ -2596,7 +2596,7 @@
   ```python
   def createUser(self,u,e,n,p):
 
-    # Create a new User object using the varaibles given
+    # Create a new User object using the variables given
     newUser = self.User(
       user_id=u,
       name=n,
@@ -2631,6 +2631,21 @@
       except OSError as e:
         raise OSError(
               e)
+  ```
+
+  I then modified the `auth_signup_post` function so that it logs you in as soon as the user creates their account.
+
+##### changes to __init__.py
+  ```python
+  def auth_signup_post():
+  ```
+  ```python
+    # create a new user in the database and server-side storage
+    self.createUser(username,email,name,password1)
+
+    # Log in the new user and redirect them to the homepage
+    login_user(self.User.query.filter_by(user_id=username).first(),remember=False)
+    return redirect(url_for("auth_login"))
   ```
 
 ### Features
