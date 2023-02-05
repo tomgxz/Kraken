@@ -2071,6 +2071,8 @@
   document.querySelectorAll(".field-input").forEach(field=>{console.log(field);field.addEventListener("change",verifyAllFields)})
   ```
 
+  This is an image of the all-seeing eye in action:
+
   <img alt="A screenshot of the all-seeing eye doing its magic" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.4_loginfrontend_allseeingeye.png?raw=true" width="360"/>
 
   <!-- TODO: testing table -->
