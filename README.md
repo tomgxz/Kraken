@@ -1935,10 +1935,7 @@
 
   After running the website, the floating navigation options looked like this:
 
-  <img alt="A screenshot of the floating navigation options when opened" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_floatingnavopen.png?raw=true" width="360"/>
-  <img alt="A screenshot of the floating navigation options when closed" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_floatingnavclosed.png?raw=true" width="360"/>
-
-  <!-- TODO: combine these screenshots -->
+  <img alt="A screenshot of the floating navigation options when closed" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_floatingnav.png?raw=true" width="360"/>
 
   There is validation of the inputs both client-side and server-side, so I needed to implement that into the JavaScript for the login and signup pages. I also need to add code so that when the all-seeing eye is pressed, the password field is miraculously revealed. For the validation, I will use the `verifyField` function that I have written in pseudocode (which will also be used in the Python backend). Because of this, there will be three files, `auth.js`, `login.js` and `signup.js` so that there is less duplicated code. There will also be a function `isEmail`, which uses a regex validation check to make sure that the email given is in a valid format.
 
@@ -2173,9 +2170,9 @@
     }
   ```
 
-  <!-- TODO: testing table -->
-
   I then implemented the server-side validation, which re-checks all of the validation performed client-side (using the same `verifyField` function), to ensure that the inputs are valid and weren't tampered with client-side. Flask retrieves the values of the form via the `requests` import. The database checking has not yet been implemented at this point, as I wanted to get the login and signup pages fully completed before creating the database. This also involved adding code to the templates to interpret the flashed error message.
+
+<!-- Implemented server-side validation -->
 
 ##### changes to \_\_init\_\_.py
   ```python
