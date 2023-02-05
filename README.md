@@ -1220,7 +1220,7 @@
 
   Before creating the database system, I decided to get the website backend up and running, and design the login and signup pages, to make it easier to test certain elements of the database. This includes setting up the template design for the front-end, creating a form system with verification in JavaScript, and performing validation server-side. The first thing I did was get the flask backend running. For this, I modified some code that I have used before when using Flask as a backend.
 
-##### __init__.py
+##### \_\_init\_\_.py
   ```python
   from flask import Flask
 
@@ -1264,7 +1264,7 @@
 
 <!-- Having got the framework in place... -->
 
-##### changes to __init__.py
+##### changes to \_\_init\_\_.py
   ```python
   from flask import Flask, render_template, redirect, flash
 
@@ -1336,7 +1336,7 @@
 
 <!-- Before creating the database structure... -->
 
-##### changes to __init__.py
+##### changes to \_\_init\_\_.py
   ```python
   def initPages(self):
 
@@ -1354,7 +1354,6 @@
      @self.app.route("/signup/")
      def auth_signup():
        return render_template("signup.html")
-
   ```
 
 ##### /templates/base.html
@@ -1939,7 +1938,7 @@
 
   <!-- TODO: combine these screenshots -->
 
-  There is validation of the inputs both client-side and server-side, so I needed to implement that into the JavaScript for the login and signup pages. I also need to add code so that when the all-seeing eye is pressed, the password field is miraculously revealed. For the validation, I will use the `verifyField` function that I have written in pseudocode (which will also be used in the Python backend). Because of this, there will be three files, `auth.js`, `login.js` and `signup.js` so that there is less duplicated code.
+  There is validation of the inputs both client-side and server-side, so I needed to implement that into the JavaScript for the login and signup pages. I also need to add code so that when the all-seeing eye is pressed, the password field is miraculously revealed. For the validation, I will use the `verifyField` function that I have written in pseudocode (which will also be used in the Python backend). Because of this, there will be three files, `auth.js`, `login.js` and `signup.js` so that there is less duplicated code. There will also be a function `isEmail`, which uses a regex validation check to make sure that the email given is in a valid format.
 
 ##### /static/js/auth.js
   ```js
@@ -1972,6 +1971,11 @@
       reveal.setAttribute('type',reveal.getAttribute('type') === 'password' ? 'text' : 'password');
       element.classList.toggle('fa-eye-slash');
     })
+  }
+
+  // Function takes a string and returns a boolean determining whether it is in a valid email format, using regex
+  function isEmail(email) {
+    return email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
   }
 
   // fetch warning element and disable submit bottom
@@ -2029,6 +2033,13 @@
       return
     }
 
+    // check for email in the correct format
+    if (!isEmail(fields["Email"].value)) {
+      warningSpan.innerText = "Email is not a valid email address"
+      document.querySelector(".field-submit").disabled = true
+      return
+    }
+
     verifyOutput=self.verifyField(fields["Username"].value,"Username",canHaveSpecialChar=false)
 
     if (verifyOutput.length > 0) {
@@ -2079,7 +2090,7 @@
 
   I then implemented the server-side validation, which re-checks all of the validation performed client-side (using the same `verifyField` function), to ensure that the inputs are valid and weren't tampered with client-side. Flask retrieves the values of the form via the `requests` import. The database checking has not yet been implemented at this point, as I wanted to get the login and signup pages fully completed before creating the database. This also involved adding code to the templates to interpret the flashed error message.
 
-##### changes to __init__.py
+##### changes to \_\_init\_\_.py
   ```python
   from flask import Flask, render_template, redirect, flash, request
 
@@ -2218,7 +2229,7 @@
 
 <!-- Carrying inputs over -->
 
-##### changes to __init__.py
+##### changes to \_\_init\_\_.py
   ```python
   # Login page route
   def auth_login():
@@ -2385,7 +2396,7 @@
 
   The database is managed by the `flask_sqlalchemy.SQLAlchemy` object. In `__init.py`, the object is created (with the variable name `databaseObject`) when the file is run so that `models.py`, the new file that I created which contains the entity classes, can import it. After adding the `databaseObject` object to the class, it imports the two classes from `models.py`, so that the database can interact with them. I also moved all of the flask setup into the function `initFlask` to make the code clearer.
 
-##### changes to __init__.py
+##### changes to \_\_init\_\_.py
   ```python
   from flask_sqlalchemy import SQLAlchemy
 
@@ -2521,7 +2532,7 @@
 
 <!-- Login auth -->
 
-##### Changes to __init__.py
+##### changes to \_\_init\_\_.py
   ```python
   from flask_login import LoginManager, login_user
 
@@ -2585,7 +2596,7 @@
 
 <!-- createUser fn -->
 
-##### changes to __init__.py
+##### changes to \_\_init\_\_.py
   ```python
   def __init__(host,port):
      import os
@@ -2641,7 +2652,7 @@
 
   I then modified the `auth_signup_post` function so that it logs you in as soon as the user creates their account.
 
-##### changes to __init__.py
+##### changes to \_\_init\_\_.py
   ```python
   def auth_signup_post():
   ```
