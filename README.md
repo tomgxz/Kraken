@@ -2071,6 +2071,10 @@
   document.querySelectorAll(".field-input").forEach(field=>{console.log(field);field.addEventListener("change",verifyAllFields)})
   ```
 
+  <img alt="A screenshot of the all-seeing eye doing its magic" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.4_loginfrontend_allseeingeye.png?raw=true" width="360"/>
+
+  <!-- TODO: testing table -->
+
   I then implemented the server-side validation, which re-checks all of the validation performed client-side (using the same `verifyField` function), to ensure that the inputs are valid and weren't tampered with client-side. Flask retrieves the values of the form via the `requests` import. The database checking has not yet been implemented at this point, as I wanted to get the login and signup pages fully completed before creating the database. This also involved adding code to the templates to interpret the flashed error message.
 
 ##### changes to __init__.py
