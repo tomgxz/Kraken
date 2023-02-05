@@ -1898,6 +1898,8 @@
   .application-content .field-container .field-warning {
       color:#e63832;
       margin-bottom:8px;
+      max-width: 360px;
+      text-align: center;
   }
   ```
 
@@ -1943,7 +1945,7 @@
 ##### /static/js/auth.js
   ```js
   // Function called for each field to make sure it is in the correct format, takes a few arguments as flags for what makes it valid
-  function verifyField(field,fieldName,mustHaveChar=true,minLen=3,canHaveSpace=false,canHaveSpecialChar=true) {
+  function verifyField(field,fieldName,mustHaveChar=true,minLen=3,canHaveSpace=false,canHaveSpecialChar=true,isPassword=false) {
     // List of special characters for the canHaveSpecialChar flag
     specialChar="%&{}\\<>*?/$!'\":@+`|="
 
@@ -1955,10 +1957,18 @@
     if (field.length < minLen) {return `${fieldName} must be greater than ${minLen-1} characters.`}
     if (!canHaveSpace && field.includes(" ")) {return `${fieldName} cannot contain spaces.`}
     if (!canHaveSpecialChar) {
-      for (var char in specialChar) {
+      var char;
+      for (var i=0;i<specialChar.length;i++) {
+        char=specialChar[i]
         if (field.includes(char)) {
           return `${fieldName} cannot contain '${char}'`
         }
+      }
+    }
+    if (isPassword) {
+      console.log(field)
+      if (!field.match(/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-_%&{}\\<>*?\/$!'\":@+`|=]).{8,}/)) {
+        return `${fieldName} must contain at least 1 of each: uppercase character, lowercase character, number, and special character`
       }
     }
 
@@ -2017,7 +2027,7 @@
   ```js
   // function called when an input is changed, to check whether all inputs are valid
   function verifyAllFields() {
-    verifyOutput=self.verifyField(fields["Name"].value,"Name",canHaveSpace=true)
+    verifyOutput=verifyField(fields["Name"].value,"Name",true,3,true,false)
 
     if (verifyOutput.length > 0) {
       warningSpan.innerText = verifyOutput
@@ -2025,7 +2035,7 @@
       return
     }
 
-    verifyOutput=self.verifyField(fields["Email"].value,"Email",minLen=0,canHaveSpace=false)
+    verifyOutput=verifyField(fields["Email"].value,"Email",true,0)
 
     if (verifyOutput.length > 0) {
       warningSpan.innerText = verifyOutput
@@ -2040,7 +2050,7 @@
       return
     }
 
-    verifyOutput=self.verifyField(fields["Username"].value,"Username",canHaveSpecialChar=false)
+    verifyOutput=verifyField(fields["Username"].value,"Username",true,3,false,false)
 
     if (verifyOutput.length > 0) {
       warningSpan.innerText = verifyOutput
@@ -2048,7 +2058,8 @@
       return
     }
 
-    verifyOutput=self.verifyField(fields["Password"].value,"Password",minLen=8)
+    console.log("Password")
+    verifyOutput=verifyField(fields["Password"].value,"Password",true,8,false,true,true)
 
     if (verifyOutput.length > 0) {
       warningSpan.innerText = verifyOutput
@@ -2085,6 +2096,67 @@
   This is an image of the all-seeing eye in action:
 
   <img alt="A screenshot of the all-seeing eye doing its magic" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.4_loginfrontend_allseeingeye.png?raw=true" width="360"/>
+
+  After implementing the client-side validation, I then tested each field with a variety of different inputs to make sure the validation code was functioning properly
+
+  |Test Type|Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
+  |-|-|-|-|-|-|-|
+  |Valid|Name|`Aaaaa`|Check it says valid|Valid|Valid|Pass
+  |Valid|Name|`Aaa Bbb`|Check it allows spaces|Valid|Valid|Pass
+  |Invalid|Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Valid|Fail
+  |Invalid|Name|null|Check that it requires name|Invalid|Invalid|Pass
+  |Valid|Email|`a@b.cc`|Check it says valid|Valid|Valid|Pass
+  |Valid|Email|`ab12@f42.x7`|Check it says valid|Valid|Valid|Pass
+  |Invalid|Email|`@b.cc`|Check it recognises the area before `@`|Invalid|Invalid|Pass
+  |Invalid|Email|`a@.cc`|Check it recognises the area after `@`|Invalid|Invalid|Pass
+  |Invalid|Email|`a@b.c`|Check it requires a top level domain longer than 1|Invalid|Invalid|Pass
+  |Invalid|Email|`a@b.cdef`|Check it requires a top level domain shorter than 4|Invalid|Invalid|Pass
+  |Invalid|Email|`a b@ccc.uk`|Check it doesn't allow spaces|Invalid|Invalid|Pass
+  |Invalid|Email|null|Check that it requires email|Invalid|Invalid|Pass
+  |Valid|Username|`Aaa`|Check it says valid|Valid|Valid|Pass
+  |Invalid|Username|`Aaa bbb`|Check it doesn't allow spaces|Invalid|Invalid|Pass
+  |Valid|Username|`A-._+c`|Check it allows special characters not given in the list|Valid|Valid|Pass
+  |Invalid|Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Valid|Fail
+  |Invalid|Username|null|Check it requires username|Invalid|Invalid|Pass
+  |Invalid|Password|`aaa`|Check it has a minimum length of 8|Invalid|Invalid|Pass
+  |Valid|Password|`Aaaaaa_1`|Data to work off for next tests|Valid|Valid|Pass
+  |Invalid|Password|`aaaaaa_1`|Check it requires an uppercase character|Invalid|Invalid|Pass
+  |Invalid|Password|`AAAAAA_1`|Check it requires a lowercase character|Invalid|Invalid|Pass
+  |Invalid|Password|`Aaaaaa_a`|Check it requires a number|Invalid|Invalid|Pass
+  |Invalid|Password|`Aaaaaaa1`|Check it requires a special character|Invalid|Invalid|Pass
+  |Invalid|Password|null|Check it requires password|Invalid|Invalid|Pass
+  |Valid|Passwords|`Aaaaaa_1` in both fields|Check both fields have to match|Valid|Valid|Pass
+  |Invalid|Passwords|`Aaaaaa_1` in one field, `ABCDEF` in the second|Check both fields have to match|Invalid|Invalid|Pass
+
+  As you can see from the table, two of the validation checks failed. These are listed here:
+
+  |Test Type|Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
+  |-|-|-|-|-|-|-|
+  |Invalid|Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Valid|Fail
+  |Invalid|Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Valid|Fail
+
+  These were both to do with verifying special characters, and, when I revisited the code, I saw that the error was when I tried to iterate through the characters in a string like you do can do in python. Hence, I modified the line `for (var char in specialChar)` to function properly, and both tests came out as invalid.
+
+  |Test Type|Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
+  |-|-|-|-|-|-|-|
+  |Invalid|Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Invalid|Pass
+  |Invalid|Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Invalid|Pass
+
+##### changes to /static/js/auth.js
+  ```js
+  function verifyField(...)
+  ```
+  ```js
+    if (!canHaveSpecialChar) {
+      var char;
+      for (var i=0;i<specialChar.length;i++) {
+        char=specialChar[i]
+        if (field.includes(char)) {
+          return `${fieldName} cannot contain '${char}'`
+        }
+      }
+    }
+  ```
 
   <!-- TODO: testing table -->
 
