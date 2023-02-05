@@ -1957,6 +1957,8 @@
     if (field.length < minLen) {return `${fieldName} must be greater than ${minLen-1} characters.`}
     if (!canHaveSpace && field.includes(" ")) {return `${fieldName} cannot contain spaces.`}
     if (!canHaveSpecialChar) {
+      // Iterate through each character in specialChar to see if its in the input
+      // I didn't use regex for this as I wanted to be able to tell the user which character wasn't allowed
       var char;
       for (var i=0;i<specialChar.length;i++) {
         char=specialChar[i]
@@ -1965,20 +1967,33 @@
         }
       }
     }
+    // If the given input is a password
     if (isPassword) {
-      console.log(field)
+      // If it doesnt match the given regular expression for password checks
       if (!field.match(/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-_%&{}\\<>*?\/$!'\":@+`|=]).{8,}/)) {
         return `${fieldName} must contain at least 1 of each: uppercase character, lowercase character, number, and special character`
       }
     }
+
+    /*
+    Regex pattern breakdown
+      (?=.*?[A-Z]) = contains an uppercase character
+      (?=.*?[a-z]) = contains a lowercase character
+      (?=.*?[0-9]) = contains a digit
+      (?=.*?[#?!@$%^&*-_%&{}\\<>*?\/$!'\":@+`|=]) = contains a special character
+      .{8,} = has a minimum length of 8 and no upper limit
+    */
 
     return ""
   }
 
   // Initialise the code for the all seeing eyes to enable viewing the password
   function initAllSeeingEye(element,reveal) {
+    // Add onclick event to given element (the eye element)
     element.addEventListener("click", e=> {
+      // toggle input type of given input between password and text
       reveal.setAttribute('type',reveal.getAttribute('type') === 'password' ? 'text' : 'password');
+      // toggle the fa-eye-slash class for the eye (this sets the icon displayed)
       element.classList.toggle('fa-eye-slash');
     })
   }
