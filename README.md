@@ -920,7 +920,7 @@
   The Flask backend will call this subroutine when the user submits the login form. The subroutine can fetch input data from the form using the `flask` `request` import. The password it receives will already have been hashed on the client's side so that it is being sent over the internet encrypted.
 
   ```python
-  @self.app.route("login",method=post)
+  flask.route("login",method=post)
   def auth_login_post(): # run when the user submits the login form
 
     # fetch inputs from the form using the ids of the inputs
@@ -934,8 +934,10 @@
     # if the list of users is empty
     # or the user's hashed password doesn't match the inputted hashed password
     if user.length = 0 || user[0].password == password:
-      flash("Please check your login details and try again") # flash() passes a message to the next request (next page the user will see)
-      return flask.redirect(flask.url_for("auth_login")) # redirect the user to the login page and ask them to try again
+      # flash() passes a message to the next request (next page the user will see)
+      flash("Please check your login details and try again")
+      # redirect the user to the login page and ask them to try again
+      return flask.redirect(flask.url_for("auth_login"))
 
     flask.login_user(user,remember=remember) # login the user
     return flask.redirect(flask.url_for("main_home"))
@@ -945,7 +947,7 @@
   The Flask backend will call this subroutine when the user submits the signup form. It uses similar functionality to the `auth_login_post` function, including the passwords being hashed client-side. It uses the `verifyField` and `isEmailFormat` subroutines to check that fields are valid and the `createUser` subroutine to insert a new user into the database and add them to the server storage. Both subroutines are shown later.
 
   ```python
-  @self.app.route("signup",method=post)
+  flask.route("signup",method=post)
   def auth_signup_post(): # run when the user submits the signup form
 
     # fetch inputs from the form using the ids of the inputs
@@ -955,14 +957,16 @@
     password1 = flask.request.form.get("password")
     password2 = flask.request.form.get("password-repeat")
 
-    # Use the verifyField function to check the inputs are valid. It returns an empty string if valid or an error message if not.
+    # Use the verifyField function to check the inputs are valid.
+    #It returns an empty string if valid or an error message if not.
     out = verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
 
     if out.length > 0:
       flash([True,out,"",email,username])
       return flask.redirect(flask.url_for("auth_signup"))
 
-    out = verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
+    out = verifyField(email,"Email",minLen=0,canHaveSpace=False,
+    canHaveSpecialChar=True)
 
     if out.length > 0:
       flash([True,out,name,"",username])
@@ -1011,19 +1015,25 @@
   This subroutine will be called from `auth_signup_post` to ensure that all of the fields the user inputted are valid. It takes four variables, the requirements that the field has to meet, along with the field's content and name for any error messages. It will return an empty string if the field meets all the requirements and an error message if it does not.
 
   ```python
-  def verifyField(field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,canHaveSpecialChar=True):
+  def verifyField(field,fieldName,mustHaveChar=True,minLen=3,
+    canHaveSpace=False,canHaveSpecialChar=True):
     # field, required, string, the content of the field
     # fieldName, required, string, the name of the field inputted
-    # mustHaveChar, optional (default=true), boolean, whether or not field must contain characters
+    # mustHaveChar, optional (default=true), boolean, whether or not field must
+    # contain characters
     # minLen, optional (default=3), integer, the minimum length of field
-    # canHaveSpace, optional (default=false), boolean, whether or not field can contain whitespace
-    # canHaveSpecialChar, optional (default=true), boolean, whether or not field can contain any of a list of special characters
+    # canHaveSpace, optional (default=false), boolean, whether or not field can
+    # contain whitespace
+    # canHaveSpecialChar, optional (default=true), boolean, whether or not field
+    # can contain any of a list of special characters
 
-    specialChar = "%&{}\\<>*?/$!'\":@+`|=" # the list of special characters that canHaveSpecialChar refers to
+    # the list of special characters that canHaveSpecialChar refers to
+    specialChar = "%&{}\\<>*?/$!'\":@+`|="
 
     # Make sure that field is the correct datatype
     if field.type is not str:
-      raise Exception(f"Invalid data type for field. Expected string, received {field.type}")
+      raise Exception(
+      f"Invalid data type for field. Expected string, received {field.type}")
 
     # If field is empty and mustHaveChar is true
     if field.length == 0 and mustHaveChar:
@@ -1053,7 +1063,7 @@
   ```python
   def createUser(username,email,name,password):
     # generate the model for a new user
-    newUser = self.User(
+    newUser = db.User(
       user_id=username,
       name=name,
       email=email,
@@ -1064,10 +1074,12 @@
       tabpreference=4,
     )
 
-    prefix="static/data/userData/" # the base path for where the folders should be created
+    # the base path for where the folders should be created
+    prefix="static/data/userData/"
 
-    # using the os.path module, get the absolute paths of all of the required folders
-    folderStructure=[os.path.abspath(f"{prefix}{u}"),os.path.abspath(f"{prefix}{u}/sites/")]
+    # using the os.path module, get the absolute paths of the required folders
+    folderStructure=[os.path.abspath(f"{prefix}{u}"),
+                     os.path.abspath(f"{prefix}{u}/sites/")]
 
     # create all the required folders
     generateFolderStructure(folderStructure)
@@ -1281,7 +1293,8 @@
     def main_index():
       # flash sends a message to the next site that flask renders
       flash(["Apples","Oranges","Pears",1,2,3])
-      # render_template takes the Jinja template file given in the templates folder and turns it into true HTML
+      # render_template takes the Jinja template file given in the templates folder
+      # and turns it into true HTML
       return render_template("test.html")
 
   ```
@@ -1293,13 +1306,15 @@
     <head>
       <title>Kraken Test :)</title>
 
-      <link href="{{url_for('static', filename='css/test.css')}}" rel="stylesheet" type="text/css" />
+      <link href="{{url_for('static', filename='css/test.css')}}" rel="stylesheet"
+      type="text/css" />
     </head>
 
     <body>
       <ol>
 
-        {# Iterate through the list in the first flashed message, and create a list element for each one #}
+        {# Iterate through the list in the first flashed message, and create a
+           list element for each one #}
 
         {% for element in get_flashed_messages()[0] %}
           <li>{{element}}</li>
@@ -1360,104 +1375,126 @@
   ```jinja
   <!DOCTYPE html>
   <html>
-      <head>
-          <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-          <meta http-equiv="Content-type" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+      <meta http-equiv="Content-type" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-          <title>Kraken</title>
+      <title>Kraken</title>
 
-  		<!-- Site Meta -->
-          <meta name="title" content="Kraken">
-          <meta name="robots" content="index, follow">
-          <meta name="language" content="English">
+      <!-- Site Meta -->
+      <meta name="title" content="Kraken">
+      <meta name="robots" content="index, follow">
+      <meta name="language" content="English">
 
-  		<!-- Site Icons -->
-          <link rel="apple-touch-icon" sizes="512x512" href="{{url_for('static', filename='img/icon/apple-touch-icon/apple-touch-icon-512-512.png')}}">
-          <link rel="icon" type="image/png" sizes="512x512" href="{{url_for('static', filename='img/icon/tab-icon/tab-icon-512-512.png')}}">
-          <link rel="mask-icon" href="{{url_for('static', filename='img/icon/mask-icon/mask-icon.svg')}}">
+      <!-- Site Icons -->
+      <link rel="apple-touch-icon" sizes="512x512" href="{{url_for('static',
+        filename='img/icon/apple-touch-icon/apple-touch-icon-512-512.png')}}">
+      <link rel="icon" type="image/png" sizes="512x512" href="{{url_for('static',
+        filename='img/icon/tab-icon/tab-icon-512-512.png')}}">
+      <link rel="mask-icon" href="{{url_for('static', filename='
+        img/icon/mask-icon/mask-icon.svg')}}">
 
-          <link rel="canonical" href="CanonicalUrl">
+      <link rel="canonical" href="CanonicalUrl">
 
-  		<!-- Font Awesome Imports -->
-      <!-- fa is a large icon database where you can import them into your website -->
-          <script src="https://kit.fontawesome.com/73a2cc1270.js"></script>
-          <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+      <!-- Font Awesome Imports -->
+      <!-- fa is a large icon database which you can import into a site -->
+      <script src="https://kit.fontawesome.com/73a2cc1270.js"></script>
+      <link rel="stylesheet" href="
+        https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
 
-  		<!-- Internal Stylesheet Imports -->
-          <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css" />
-          <link href="{{url_for('static', filename='css/build.css')}}" rel="stylesheet" type="text/css" />
+      <!-- Internal Stylesheet Imports -->
+      <link href="{{url_for('static', filename='css/main.css')}}"
+        rel="stylesheet" type="text/css" />
+      <link href="{{url_for('static', filename='css/build.css')}}"
+        rel="stylesheet" type="text/css" />
 
-      </head>
-      <body>
+    </head>
+    <body>
 
-          <div class="page">
-              <div class="application-container">
+      <div class="page">
+        <div class="application-container">
 
-                  <!-- Navigation bar, docked on the left hand side -->
-                  <!-- Contains the logo as a link to the homepage at the top, and a hamburger at the bottom -->
+          <!-- Navigation bar, docked on the left hand side -->
+          <!-- Contains the logo as a link to the homepage at the top, and a
+          hamburger at the bottom -->
 
-                  <nav class="globalnav globalnav-vertical">
-                      <div class="globalnav-content">
-                          <div class="globalnav-list">
-                              <div class="globalnav-logo">
-                                  <a class="globalnav-link globalnav-link-home link unformatted" href="{{ url_for('main_home') }}">
-                                      <img class="globalnav-logo-image" alt="Kraken" src="{{url_for('static', filename='img/icon/512-512/kraken-icon-png-primary-512-512.png')}}" preserveAspectRatio>
-                                      <span class="globalnav-link-hidden-text visibly-hidden">Kraken</span>
-                                  </a>
-                              </div>
-                                <ul class="globalnav-list">
-                                    <li class="globalnav-item one fake" role="button"></li>
-                                    <li class="globalnav-item two" role="button">
-                                        <div class="hamburger hamburger--collapse js-hamburger" id="globalnav-hamburger">
-                                            <div class="hamburger-box">
-                                                <div class="hamburger-inner"></div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                          </div>
+          <nav class="globalnav globalnav-vertical">
+            <div class="globalnav-content">
+              <div class="globalnav-list">
+                <div class="globalnav-logo">
+                  <a class="globalnav-link globalnav-link-home link unformatted"
+                    href="{{ url_for('main_home') }}">
+                    <img class="globalnav-logo-image" alt="Kraken" src="{{url_for(
+                      'static', filename='img/icon/512-512/kraken-icon-png-primary-
+                      512-512.png')}}" preserveAspectRatio>
+                    <span class="globalnav-link-hidden-text visibly-hidden">
+                      Kraken
+                    </span>
+                  </a>
+                </div>
+                  <ul class="globalnav-list">
+                    <li class="globalnav-item one fake" role="button"></li>
+                    <li class="globalnav-item two" role="button">
+                      <div class="hamburger hamburger--collapse js-hamburger"
+                        id="globalnav-hamburger">
+                        <div class="hamburger-box">
+                          <div class="hamburger-inner"></div>
+                        </div>
                       </div>
-                  </nav>
-
-                  <!-- Floating option modal for the navbar, which is opened and closed via the hamburger in the navigation bar -->
-
-                  <div class="globalnav-floating-options">
-                      <!-- URL links are left blank for now as the pages have not yet been created -->
-
-                      <a class="globalnav-floating-option one" href="">
-                          <span class="globalnav-floating-option-content text header small dark">My Sites</span>
-                      </a>
-
-                      <a class="globalnav-floating-option two" href="">
-                          <span class="globalnav-floating-option-content text header small dark">Settings</span>
-                      </a>
-
-                      <a class="globalnav-floating-option three" href="">
-                          <span class="globalnav-floating-option-content text header small dark">Logout</span>
-                      </a>
-                  </div>
-
-                  <!-- Backdrop behind nav bar modal to apply a darkness filter behind the modal -->
-
-                  <div class="globalnav-floating-options-backdrop"></div>
-
-
-                  <!-- External Script Imports -->
-                      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                      <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-
-              		<!-- Internal Script Imports -->
-                      <script src="{{url_for('static', filename='js/main.js')}}"></script>
-                      <script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}"></script>
-
-                  {% block content %}
-                  {% endblock %}
-
+                    </li>
+                  </ul>
               </div>
+            </div>
+          </nav>
+
+          <!-- Floating option modal for the navbar, which is opened and closed
+          via the hamburger in the navigation bar -->
+
+          <div class="globalnav-floating-options">
+            <!-- URL links are left blank for now as the pages have not yet
+            been created -->
+
+            <a class="globalnav-floating-option one" href="">
+              <span class="globalnav-floating-option-content text header small">
+              My Sites</span>
+            </a>
+
+            <a class="globalnav-floating-option two" href="">
+              <span class="globalnav-floating-option-content text header small">
+              Settings</span>
+            </a>
+
+            <a class="globalnav-floating-option three" href="">
+              <span class="globalnav-floating-option-content text header small">
+              Logout</span>
+            </a>
           </div>
 
-      </body>
+          <!-- Backdrop behind nav bar modal to apply a darkness filter behind
+          the modal -->
+
+          <div class="globalnav-floating-options-backdrop"></div>
+
+
+          <!-- External Script Imports -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/
+          jquery.min.js"></script>
+          <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+          crossorigin="anonymous"></script>
+
+          <!-- Internal Script Imports -->
+          <script src="{{url_for('static', filename='js/main.js')}}"></script>
+          <script src="{{url_for('static', filename='js/globalnav-floating-options.
+          js')}}"></script>
+
+          {% block content %}
+          {% endblock %}
+
+        </div>
+      </div>
+
+    </body>
   </html>
   ```
 
@@ -1469,61 +1506,65 @@
 
   {% block content %}
 
-  <link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet"
+  type="text/css" />
 
   <div class="application-content">
-      <div class="text-header-container">
-          <h2 class="text header xl dark one">Kraken - Login</h2>
-          <ul class="header-options">
-              <li class="header-option header-option-login active notextselect">
-                  <h4 class="text header bold">Login</h4>
-              </li>
-              <li class="header-option header-option-signup notextselect" onclick="window.location.href=`{{ url_for('auth_signup') }}`">
-                  <h4 class="text header bold">Signup</h4>
-              </li>
-          </ul>
-      </div>
-      <div class="field-container active">
+    <div class="text-header-container">
+      <h2 class="text header xl dark one">Kraken - Login</h2>
+      <ul class="header-options">
+        <li class="header-option header-option-login active notextselect">
+          <h4 class="text header bold">Login</h4>
+        </li>
+        <li class="header-option header-option-signup notextselect"
+        onclick="window.location.href=`{{ url_for('auth_signup') }}`">
+          <h4 class="text header bold">Signup</h4>
+        </li>
+      </ul>
+    </div>
+    <div class="field-container active">
 
-          <!-- Warning area for the form that uses the flashed warning message -->
+      <!-- Warning area for the form that uses the flashed warning message -->
 
-          <span class="field-warning text italic">
-            <!-- TODO: add code for flashed warning msg -->
-          </span>
+      <span class="field-warning text italic">
+        <!-- TODO: add code for flashed warning msg -->
+      </span>
 
-          <form class="field-options" method="post" action="/login/">
+      <form class="field-options" method="post" action="/login/">
 
-              <div class="field-option field-option-username">
-                  <h4 class="text italic">Username</h4>
-                  <div class="field-input-container">
-                      <input class="field-input" placeholder="Username" type="text" name="username">
-                      <span class="eye-spacer"></span>
-                  </div>
-              </div>
-              <div class="field-option field-option-password">
-                  <h4 class="text italic">Password</h4>
-                  <div class="field-input-container">
-                      <input class="field-input" placeholder="Password" type="password" name="password">
-                      <span class="eye-reveal">
-                      <i class="fa-solid fa-eye"></i>
-                      </span>
-                  </div>
-              </div>
-              <div class="field-option field-option-remember">
-                  <h4 class="text italic">Remember Me</h4>
-                  <div class="field-input-container">
-                      <input class="field-input" type="checkbox" name="remember">
-                      <span class="eye-spacer"></span>
-                  </div>
-              </div>
+        <div class="field-option field-option-username">
+          <h4 class="text italic">Username</h4>
+          <div class="field-input-container">
+            <input class="field-input" placeholder="Username" type="text"
+            name="username">
+            <span class="eye-spacer"></span>
+          </div>
+        </div>
+        <div class="field-option field-option-password">
+          <h4 class="text italic">Password</h4>
+          <div class="field-input-container">
+            <input class="field-input" placeholder="Password" type="password"
+            name="password">
+            <span class="eye-reveal">
+              <i class="fa-solid fa-eye"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field-option field-option-remember">
+          <h4 class="text italic">Remember Me</h4>
+          <div class="field-input-container">
+            <input class="field-input" type="checkbox" name="remember">
+            <span class="eye-spacer"></span>
+          </div>
+        </div>
 
-              <button class="field-submit btn secondary rounded slide" type="submit">
-                <span class="btn-content text uppercase secondary">Submit</span>
-              </button>
+        <button class="field-submit btn secondary rounded slide" type="submit">
+          <span class="btn-content text uppercase secondary">Submit</span>
+        </button>
 
-          </form>
+      </form>
 
-      </div>
+    </div>
   </div>
 
   {% endblock %}
@@ -1535,78 +1576,86 @@
 
   {% block content %}
 
-  <link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet"
+  type="text/css" />
   <div class="application-content">
-      <div class="text-header-container">
-          <h2 class="text header xl dark one">Kraken - Signup</h2>
-          <ul class="header-options">
-              <div class="header-option header-option-login notextselect" onclick="window.location.href=`{{ url_for('auth_login') }}`">
-                  <h4 class="text header bold">Login</h4>
-              </div>
-              <div class="header-option header-option-signup active notextselect">
-                  <h4 class="text header bold">Signup</h4>
-              </div>
-          </ul>
+    <div class="text-header-container">
+      <h2 class="text header xl dark one">Kraken - Signup</h2>
+        <ul class="header-options">
+          <div class="header-option header-option-login notextselect"
+          onclick="window.location.href=`{{ url_for('auth_login') }}`">
+            <h4 class="text header bold">Login</h4>
+          </div>
+          <div class="header-option header-option-signup active notextselect">
+            <h4 class="text header bold">Signup</h4>
+          </div>
+        </ul>
       </div>
+
       <div class="field-container active">
 
-          <!-- Warning area for the form that uses the flashed warning message -->
+        <!-- Warning area for the form that uses the flashed warning message -->
 
-          <span class="field-warning text italic">
-            <!-- TODO: add code for flashed warning msg -->
-          </span>
+        <span class="field-warning text italic">
+          <!-- TODO: add code for flashed warning msg -->
+        </span>
 
-          <form class="field-options" method="post" action="/signup/">
+        <form class="field-options" method="post" action="/signup/">
 
-            <div class="field-option field-option-name">
-                <h4 class="text italic">Name</h4>
-                <div class="field-input-container">
-                    <input class="field-input" placeholder="Name" type="name" name="name" autofocus>
-                    <span class="eye-spacer"></span>
-                </div>
+          <div class="field-option field-option-name">
+            <h4 class="text italic">Name</h4>
+            <div class="field-input-container">
+              <input class="field-input" placeholder="Name" type="name"
+              name="name" autofocus>
+              <span class="eye-spacer"></span>
             </div>
+          </div>
 
-            <div class="field-option field-option-email">
-                <h4 class="text italic">Email</h4>
-                <div class="field-input-container">
-                    <input class="field-input" placeholder="name@domain.com" type="email" name="email" autofocus>
-                    <span class="eye-spacer"></span>
-                </div>
+          <div class="field-option field-option-email">
+            <h4 class="text italic">Email</h4>
+            <div class="field-input-container">
+              <input class="field-input" placeholder="name@domain.com"
+              type="email" name="email" autofocus>
+              <span class="eye-spacer"></span>
             </div>
+          </div>
 
-            <div class="field-option field-option-username">
-                <h4 class="text italic">Username</h4>
-                <div class="field-input-container">
-                    <input class="field-input" placeholder="Username" type="text" name="username" autofocus>
-                    <span class="eye-spacer"></span>
-                </div>
+          <div class="field-option field-option-username">
+            <h4 class="text italic">Username</h4>
+            <div class="field-input-container">
+              <input class="field-input" placeholder="Username" type="text"
+              name="username" autofocus>
+              <span class="eye-spacer"></span>
             </div>
+          </div>
 
-            <div class="field-option field-option-password">
-                <h4 class="text italic">Password</h4>
-                <div class="field-input-container">
-                    <input class="field-input" placeholder="Password" type="password" name="password">
-                    <span class="eye-reveal">
-                    <i class="fa-solid fa-eye"></i>
-                    </span>
-                </div>
+          <div class="field-option field-option-password">
+            <h4 class="text italic">Password</h4>
+            <div class="field-input-container">
+              <input class="field-input" placeholder="Password" type="password"
+              name="password">
+              <span class="eye-reveal">
+                <i class="fa-solid fa-eye"></i>
+              </span>
             </div>
+          </div>
 
-            <div class="field-option field-option-password-repeat">
-                <h4 class="text italic">Repeat Password</h4>
-                <div class="field-input-container">
-                    <input class="field-input" placeholder="Again :/" type="password" name="password-repeat">
-                    <span class="eye-reveal">
-                    <i class="fa-solid fa-eye"></i>
-                    </span>
-                </div>
+          <div class="field-option field-option-password-repeat">
+            <h4 class="text italic">Repeat Password</h4>
+            <div class="field-input-container">
+              <input class="field-input" placeholder="Again :/" type="password"
+              name="password-repeat">
+              <span class="eye-reveal">
+                <i class="fa-solid fa-eye"></i>
+              </span>
             </div>
+          </div>
 
-            <button class="field-submit btn secondary rounded slide" type="submit">
-              <span class="btn-content text uppercase secondary">Submit</span>
-            </button>
+          <button class="field-submit btn secondary rounded slide" type="submit">
+            <span class="btn-content text uppercase secondary">Submit</span>
+          </button>
 
-          </form>
+        </form>
 
       </div>
   </div>
