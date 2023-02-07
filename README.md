@@ -1532,28 +1532,34 @@
 
       <form class="field-options" method="post" action="/login/">
 
-        <div class="field-option field-option-username">
-          <h4 class="text italic">Username</h4>
+        {% set formItems = [
+          ["Username","Username","text","username",false,messages[2]],
+          ["Password","Password","password","password",true,""]
+        ]
+        %}
+
+        {% for item in formItems %}
+        <div class="field-option field-option-name">
+          <h4 class="text italic">{{item[0]}}</h4>
           <div class="field-input-container">
-            <input class="field-input" placeholder="Username" type="text"
-            name="username">
-            <span class="eye-spacer"></span>
-          </div>
-        </div>
-        <div class="field-option field-option-password">
-          <h4 class="text italic">Password</h4>
-          <div class="field-input-container">
-            <input class="field-input" placeholder="Password" type="password"
-            name="password">
+            <input class="field-input" placeholder="{{item[1]}}" type="{{item[2]}}"
+            name="{{item[3]}}" value="{{item[5]}}">
+            {% if item[4] %}
             <span class="eye-reveal">
               <i class="fa-solid fa-eye"></i>
             </span>
+            {% else %}
+            <span class="eye-spacer"></span>
+            {% endif %}
           </div>
         </div>
+        {% endfor %}
+
         <div class="field-option field-option-remember">
           <h4 class="text italic">Remember Me</h4>
           <div class="field-input-container">
-            <input class="field-input" type="checkbox" name="remember">
+            <input class="field-input" type="checkbox" name="remember"
+            value={{messages[3]}}>
             <span class="eye-spacer"></span>
           </div>
         </div>
@@ -1568,6 +1574,7 @@
   </div>
 
   {% endblock %}
+
   ```
 
 ##### /templates/signup.html
@@ -1602,54 +1609,31 @@
 
         <form class="field-options" method="post" action="/signup/">
 
+          {% set formItems = [
+          ["Name","Name","text","name",false,
+          ["Email","name@domain.com","email","email",false,
+          ["Username","Username","text","username",false,
+          ["Password","Password","password","password",true],
+          ["Repeat Password","Again :/","password","password","password-repeat"]
+          ]
+          %}
+
+          {% for item in formItems %}
           <div class="field-option field-option-name">
-            <h4 class="text italic">Name</h4>
+            <h4 class="text italic">{{item[0]}}</h4>
             <div class="field-input-container">
-              <input class="field-input" placeholder="Name" type="name"
-              name="name" autofocus>
-              <span class="eye-spacer"></span>
-            </div>
-          </div>
-
-          <div class="field-option field-option-email">
-            <h4 class="text italic">Email</h4>
-            <div class="field-input-container">
-              <input class="field-input" placeholder="name@domain.com"
-              type="email" name="email" autofocus>
-              <span class="eye-spacer"></span>
-            </div>
-          </div>
-
-          <div class="field-option field-option-username">
-            <h4 class="text italic">Username</h4>
-            <div class="field-input-container">
-              <input class="field-input" placeholder="Username" type="text"
-              name="username" autofocus>
-              <span class="eye-spacer"></span>
-            </div>
-          </div>
-
-          <div class="field-option field-option-password">
-            <h4 class="text italic">Password</h4>
-            <div class="field-input-container">
-              <input class="field-input" placeholder="Password" type="password"
-              name="password">
+              <input class="field-input" placeholder="{{item[1]}}"
+              type="{{item[2]}}" name="{{item[3]}}">
+              {% if item[4] %}
               <span class="eye-reveal">
                 <i class="fa-solid fa-eye"></i>
               </span>
+              {% else %}
+              <span class="eye-spacer"></span>
+              {% endif %}
             </div>
           </div>
-
-          <div class="field-option field-option-password-repeat">
-            <h4 class="text italic">Repeat Password</h4>
-            <div class="field-input-container">
-              <input class="field-input" placeholder="Again :/" type="password"
-              name="password-repeat">
-              <span class="eye-reveal">
-                <i class="fa-solid fa-eye"></i>
-              </span>
-            </div>
-          </div>
+          {% endfor %}
 
           <button class="field-submit btn secondary rounded slide" type="submit">
             <span class="btn-content text uppercase secondary">Submit</span>
@@ -1695,7 +1679,9 @@
       .static
 
   Text classes:
-      .text <light|dark|primary|secondary|accent|grey-100 => grey-800> [italic] [bold|thin] [ellipsis] [xl|large|default-size|small] [header|jumbo] [lowercase|uppercase] [notextselect] [left|center|right|justify]
+      .text <light|dark|primary|secondary|accent|grey-100 => grey-800> [italic]
+      [bold|thin] [ellipsis] [xl|large|default-size|small] [header|jumbo]
+      [lowercase|uppercase] [notextselect] [left|center|right|justify]
 
   Link classes:
       .text .link [classes for text] [disabled] [link-slide] [notformatted]
@@ -1709,12 +1695,14 @@
           span .btn-content .text (all text classes apply here)
       which contains the text of the button
 
-      A span like this is recommended even if the .slide class is not present so you can format the text inside separately
+      A span like this is recommended even if the .slide class is not present so
+      you can format the text inside separately
 
   em classes:
       [classes for text]
 
-  /* .section-content.fixed-width will set the width to 1440px, and will set the width to 100% when the viewport width is less than 1440px */
+  /* .section-content.fixed-width will set the width to 1440px, and will set the
+  width to 100% when the viewport width is less than 1440px */
   ```
 
 ##### /static/css/build.css
@@ -1767,7 +1755,8 @@
       top:0;
       right:0;
       opacity:0;
-      transition: opacity 260ms 130ms ease-in-out, visibility 260ms 130ms ease-in-out;
+      transition: opacity 260ms 130ms ease-in-out, visibility 260ms 130ms
+      ease-in-out;
       visibility: hidden;
   }
 
@@ -1852,7 +1841,9 @@
       bottom: -5px;
       right: -8px;
       opacity:1;
-      transition:background-color 200ms ease-in-out,width 200ms ease-in-out,height 200ms ease-in-out,bottom 200ms ease-in-out,right 200ms ease-in-out,opacity 200ms ease-in-out;
+      transition-duration:200ms;
+      transition-timing-function:ease-in-out;
+      transition-property: background-color,width,height,bottom,rigt,opacity;
   }
 
   .application-content .header-option.active::after {
@@ -1930,8 +1921,10 @@
       font-family: var(--font-body);
   }
 
-  .application-content .field-container .field-option .field-input-container .eye-reveal,
-  .application-content .field-container .field-option .field-input-container .eye-spacer {
+  .application-content .field-container .field-option .field-input-container
+  .eye-reveal,
+  .application-content .field-container .field-option .field-input-container
+  .eye-spacer {
       width:19px;
       height:19px;
       display:flex;
@@ -1940,7 +1933,8 @@
       margin-left:8px;
   }
 
-  .application-content .field-container .field-option .field-input-container .eye-reveal:active {
+  .application-content .field-container .field-option .field-input-container
+  .eye-reveal:active {
       color:var(--colors-secondary);
   }
 
@@ -1968,17 +1962,22 @@
 ##### /static/js/globalnav-floating-options.js
   ```js
   document.getElementById("globalnav-hamburger").addEventListener("click",()=>{
-      document.getElementById("globalnav-hamburger").classList.toggle('is-active');
-      document.querySelectorAll(".globalnav-floating-options").forEach((e)=>{e.classList.toggle("is-active")});
-      document.querySelectorAll(".globalnav-floating-options-backdrop").forEach((e)=>{e.classList.toggle("is-active")});
+    document.getElementById("globalnav-hamburger").classList.toggle('is-active');
+    document.querySelectorAll(".globalnav-floating-options").forEach((e)=>{
+      e.classList.toggle("is-active")});
+    document.querySelectorAll(".globalnav-floating-options-backdrop").forEach((e)=>{
+      e.classList.toggle("is-active")});
   });
 
   document.querySelectorAll(".globalnav-floating-options-backdrop").forEach((e)=>{
-      e.addEventListener("click",()=>{
-          document.getElementById("globalnav-hamburger").classList.remove('is-active');
-          document.querySelectorAll(".globalnav-floating-options").forEach((e)=>{e.classList.remove("is-active")});
-          document.querySelectorAll(".globalnav-floating-options-backdrop").forEach((e)=>{e.classList.remove("is-active")});
-      })
+    e.addEventListener("click",()=>{
+      document.getElementById("globalnav-hamburger").classList.remove(
+        'is-active');
+      document.querySelectorAll(".globalnav-floating-options").forEach(
+        (e)=>{e.classList.remove("is-active")});
+      document.querySelectorAll(".globalnav-floating-options-backdrop").forEach(
+        (e)=>{e.classList.remove("is-active")});
+    })
   });
   ```
 
@@ -1990,21 +1989,28 @@
 
 ##### /static/js/auth.js
   ```js
-  // Function called for each field to make sure it is in the correct format, takes a few arguments as flags for what makes it valid
-  function verifyField(field,fieldName,mustHaveChar=true,minLen=3,canHaveSpace=false,canHaveSpecialChar=true,isPassword=false) {
+  // Function called for each field to make sure it is in the correct format, takes
+  // a few arguments as flags for what makes it valid
+  function verifyField(field,fieldName,mustHaveChar=true,minLen=3,
+    canHaveSpace=false,canHaveSpecialChar=true,isPassword=false) {
     // List of special characters for the canHaveSpecialChar flag
     specialChar="%&{}\\<>*?/$!'\":@+`|="
 
     // Make sure that the input given is a string
     if (typeof field != "string") {throw new Error("HEY! that's not a string?")}
 
-    // Check through all the flags given and throw an appropriate error message if input is invalid
-    if (field.length == 0 && mustHaveChar) {return `${fieldName} is not filled out.`}
-    if (field.length < minLen) {return `${fieldName} must be greater than ${minLen-1} characters.`}
-    if (!canHaveSpace && field.includes(" ")) {return `${fieldName} cannot contain spaces.`}
+    // Check through all the flags given and throw an appropriate error message
+    // if input is invalid
+    if (field.length==0 && mustHaveChar) {return `${fieldName} is not filled out.`}
+    if (field.length<minLen) {
+      return `${fieldName} must be greater than ${minLen-1} characters.`
+    }
+    if (!canHaveSpace && field.includes(" "))
+      {return `${fieldName} cannot contain spaces.`}
     if (!canHaveSpecialChar) {
       // Iterate through each character in specialChar to see if its in the input
-      // I didn't use regex for this as I wanted to be able to tell the user which character wasn't allowed
+      // I didn't use regex for this as I wanted to be able to tell the user which
+      // character wasn't allowed
       var char;
       for (var i=0;i<specialChar.length;i++) {
         char=specialChar[i]
@@ -2016,8 +2022,10 @@
     // If the given input is a password
     if (isPassword) {
       // If it doesnt match the given regular expression for password checks
-      if (!field.match(/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-_%&{}\\<>*?\/$!'\":@+`|=]).{8,}/)) {
-        return `${fieldName} must contain at least 1 of each: uppercase character, lowercase character, number, and special character`
+      if (!field.match(/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])/
+        /(?=.*?[#?!@$%^&*-_%&{}\\<>*?\/$!'\":@+`|=]).{8,}/)/) {
+        return `${fieldName} must contain at least 1 of each: uppercase character,
+        lowercase character, number, and special character`
       }
     }
 
@@ -2038,13 +2046,15 @@
     // Add onclick event to given element (the eye element)
     element.addEventListener("click", e=> {
       // toggle input type of given input between password and text
-      reveal.setAttribute('type',reveal.getAttribute('type') === 'password' ? 'text' : 'password');
+      reveal.setAttribute('type',reveal.getAttribute('type') === 'password' ?
+      'text' : 'password');
       // toggle the fa-eye-slash class for the eye (this sets the icon displayed)
       element.classList.toggle('fa-eye-slash');
     })
   }
 
-  // Function takes a string and returns a boolean determining whether it is in a valid email format, using regex
+  // Function takes a string and returns a boolean determining whether it is in a
+  // valid email format, using regex
   function isEmail(email) {
     return email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
   }
@@ -2080,8 +2090,10 @@
     "Password":document.querySelector(".field-option-password .field-input")
   }
 
-  initAllSeeingEye(document.querySelector(".field-option-password .eye-reveal i"),document.querySelector(".field-option-password .field-input"))
-  document.querySelectorAll(".field-input").forEach(field=>{console.log(field);field.addEventListener("change",verifyAllFields)})
+  initAllSeeingEye(document.querySelector(".field-option-password .eye-reveal i"),
+  document.querySelector(".field-option-password .field-input"))
+  document.querySelectorAll(".field-input").forEach(field=>
+    {field.addEventListener("change",verifyAllFields)})
   ```
 
 ##### /static/js/signup.js
@@ -2119,8 +2131,8 @@
       return
     }
 
-    console.log("Password")
-    verifyOutput=verifyField(fields["Password"].value,"Password",true,8,false,true,true)
+    verifyOutput=verifyField(fields["Password"].value,"Password",true,8,false,true,
+    true)
 
     if (verifyOutput.length > 0) {
       warningSpan.innerText = verifyOutput
@@ -2146,12 +2158,20 @@
     "Email":document.querySelector(".field-option-email .field-input"),
     "Username":document.querySelector(".field-option-username .field-input"),
     "Password":document.querySelector(".field-option-password .field-input"),
-    "Repeat Password":document.querySelector(".field-option-password-repeat .field-input")
+    "Repeat Password":document.querySelector(
+      ".field-option-password-repeat .field-input")
   }
 
-  initAllSeeingEye(document.querySelector(".field-option-password .eye-reveal i"),document.querySelector(".field-option-password .field-input"))
-  initAllSeeingEye(document.querySelector(".field-option-password-repeat .eye-reveal i"),document.querySelector(".field-option-password-repeat .field-input"))
-  document.querySelectorAll(".field-input").forEach(field=>{console.log(field);field.addEventListener("change",verifyAllFields)})
+  initAllSeeingEye(
+    document.querySelector(".field-option-password .eye-reveal i"),
+    document.querySelector(".field-option-password .field-input"))
+
+  initAllSeeingEye(
+    document.querySelector(".field-option-password-repeat .eye-reveal i"),
+    document.querySelector(".field-option-password-repeat .field-input"))
+
+  document.querySelectorAll(".field-input").forEach(field=>
+    {field.addEventListener("change",verifyAllFields)})
   ```
 
   This is an image of the all-seeing eye in action:
@@ -2244,7 +2264,8 @@
 
     # TODO: get the user from the database. if there's no user it returns none
     if False:
-      # Flashes true to signify an error, the error message, the username given, and the remember flag given
+      # Flashes true to signify an error, the error message, the username given,
+      # and the remember flag given
       flash([True,'Please check your login details and try again.'])
       return redirect(url_for('auth_login'))
 
@@ -2268,12 +2289,13 @@
     password1=request.form.get("password")
     password2=request.form.get("password-repeat")
 
-    # the verifyField function returns either an empty string if the field meets the requirements
-    # defined by the arguments, or an error message. So, if len(verifyOutput) > 0, that
-    # means that the field is invalid
+    # the verifyField function returns either an empty string if the field meets the
+    # requirements defined by the arguments, or an error message. So, if
+    # len(verifyOutput) > 0, that means that the field is invalid
 
     # Verify the name input and return an error message if invalid
-    verifyOutput=self.verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
+    verifyOutput=self.verifyField(name,"Name",canHaveSpace=True,
+    canHaveSpecialChar=True)
 
     if len(verifyOutput) > 0:
       # Flashes true to signify an error, and the error message
@@ -2281,7 +2303,8 @@
       return redirect(url_for("auth_signup"))
 
     # Verify the email input and return an error message if invalid
-    verifyOutput=self.verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
+    verifyOutput=self.verifyField(email,"Email",minLen=0,canHaveSpace=False,
+    canHaveSpecialChar=True)
 
     if len(verifyOutput) > 0:
       # Flash an error message
@@ -2327,23 +2350,28 @@
     return redirect(url_for("auth_login"))
   ```
   ```python
-  def verifyField(self,field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,canHaveSpecialChar=True):
-      # List of special characters for the canHaveSpecialChar flag
-      specialChar="%&{}\\<>*?/$!'\":@+`|="
+  def verifyField(self,field,fieldName,mustHaveChar=True,minLen=3,
+    canHaveSpace=False,canHaveSpecialChar=True):
+    # List of special characters for the canHaveSpecialChar flag
+    specialChar="%&{}\\<>*?/$!'\":@+`|="
 
-      # Make sure that the input given is a string, raise an exception if its not
-      if type(field) != str: Exception("HEY! that's not a string?")
+    # Make sure that the input given is a string, raise an exception if its not
+    if type(field) != str: Exception("HEY! that's not a string?")
 
-      # Check through all the flags given and throw an appropriate error message if input is invalid
-      if len(field) == 0 and mustHaveChar: return f"{fieldName} is not filled out."
-      if len(field) < minLen: return f"{fieldName} must be greater than {minLen-1} characters."
-      if not canHaveSpace and " " in field: return f"{fieldName} cannot contain spaces."
-      if not canHaveSpecialChar:
-        for char in specialChar:
-          if char in field:
-            return f"{fieldName} cannot contain '{char}'"
+    # Check through all the flags given and throw an appropriate error message if
+    # input is invalid
+    if len(field) == 0 and mustHaveChar:
+      return f"{fieldName} is not filled out."
+    if len(field) < minLen:
+      return f"{fieldName} must be greater than {minLen-1} characters."
+    if not canHaveSpace and " " in field:
+      return f"{fieldName} cannot contain spaces."
+    if not canHaveSpecialChar:
+      for char in specialChar:
+        if char in field:
+          return f"{fieldName} cannot contain '{char}'"
 
-      return "" # Return an empty string if the input is valid
+    return "" # Return an empty string if the input is valid
   ```
 
 ##### changes to /templates/login.html and /templates/signup.html
@@ -2358,7 +2386,7 @@
   </span>
   ```
 
-  At the suggestion of one of the stakeholders, I also added a feature so that when you submit the form, and it throws an error, the form values are carried over so that the user doesn't have to fill them out again. I implemented this using the `flash` function, flashing a list containing the inputs that they had given. To make sure that this didn't cause any issues when opening the page for the first time, the `auth_login` and `auth_signup` functions also flash a list (`[False,"","","",""]`) to prevent any index errors.
+  At the suggestion of one of the stakeholders, I also added a feature so that when you submit the form, and it throws an error, the form values are carried over so that the user doesn't have to fill them out again. I implemented this using the `flash` function, flashing a list containing the inputs that they had given. To make sure that this didn't cause any issues when opening the page for the first time, the `auth_login` and `auth_signup` functions also flash a list (`[False,"","","",""]`) to prevent any index errors. In the HTML files, an extra variable is added to the Jinja list of field items, to define what value the input should default to.
 
 <!-- Carrying inputs over -->
 
@@ -2382,7 +2410,8 @@
   def auth_login_post():
   ```
   ```python
-    # Flashes true to signify an error, the error message, the username given, and the remember flag given
+    # Flashes true to signify an error, the error message, the username given, and
+    # the remember flag given
     flash([True,'Please check your login details and try again.',username,remember])
     return redirect(url_for('auth_login'))
   ```
@@ -2392,7 +2421,8 @@
   ```
   ```python
     if len(verifyOutput) > 0:
-      # Flashes true to signify an error, the error message, the name given (removed due to error), the email given, and the username given
+      # Flashes true to signify an error, the error message, the name given
+      # (removed due to error), the email given, and the username given
       flash([True,verifyOutput,"",email,username])
       return redirect(url_for("auth_signup"))
   ```
@@ -2416,21 +2446,31 @@
 
 ##### changes to /templates/login.html
   ```jinja
-  <input class="field-input" placeholder="Username" type="text" name="username" value="{{messages[2]}}">
+  {% set formItems = [
+  ["Username","Username","text","username",false,messages[2]],
+  ["Password","Password","password","password",true,""]
+  ]
+  %}
   ```
   ```jinja
-  <input class="field-input" type="checkbox" name="remember"  value={{messages[3]}}>
+  <input class="field-input" placeholder="{{item[1]}}" type="{{item[2]}}"
+  name="{{item[3]}}">
   ```
 
 ##### changes to /templates/signup.html
   ```jinja
-  <input class="field-input" placeholder="Name" type="name" name="name" autofocus value="{{ messages[2]}}">
+  {% set formItems = [
+  ["Name","Name","text","name",false,messages[2]],
+  ["Email","name@domain.com","email","email",false,messages[3]],
+  ["Username","Username","text","username",false,messages[4]],
+  ["Password","Password","password","password",true,""],
+  ["Repeat Password","Again :/","password","password","password-repeat",""]
+  ]
+  %}
   ```
   ```jinja
-  <input class="field-input" placeholder="name@domain.com" type="email" name="email" autofocus value="{{ messages[3]}}">
-  ```
-  ```jinja
-  <input class="field-input" placeholder="Username" type="text" name="username" autofocus value="{{ messages[4]}}">
+  <input class="field-input" placeholder="{{item[1]}}" type="{{item[2]}}"
+  name="{{item[3]}}" value="{{item[5]}}">
   ```
 
   To finish the design of the login and signup pages, I added a jinja variable that defines the colour of the logo in the sidebar, and added another variable that defines whether or not the hamburger and subsequent option modal is visible or not. This is because, although it will be required for other sites (such as the homepage), the navigation bar is not necessary here as all of the links in the navigation bar will redirect to `/login` as the user is not signed in.
@@ -2439,19 +2479,26 @@
 
 ##### changes to /templates/base.html
   ```jinja
-  <!-- navbarLogoColor is a jinja variable that is defined in files that extend from this one. It defines what colour the logo should be - primary, secondary, or gradient -->
-  <link rel="apple-touch-icon" sizes="512x512" href="{{url_for('static', filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-128-128.png')}}">
-  <link rel="icon" type="image/png" sizes="128x128" href="{{url_for('static', filename='img/icon/128-128/kraken-icon-png-'+navbarLogoColor+'-128-128.png')}}">
+  <!-- navbarLogoColor is a jinja variable that is defined in files that extend
+  from this one. It defines what colour the logo should be - primary, secondary,
+  or gradient -->
+  <link rel="apple-touch-icon" sizes="512x512" href="{{url_for('static',
+  filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-128-128.png')}}">
+  <link rel="icon" type="image/png" sizes="128x128" href="{{url_for('static',
+  filename='img/icon/128-128/kraken-icon-png-'+navbarLogoColor+'-128-128.png')}}">
   ```
   ```jinja
-  <img class="globalnav-logo-image" alt="Kraken" src="{{url_for('static', filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-512-512.png')}}" preserveAspectRatio>
+  <img class="globalnav-logo-image" alt="Kraken" src="{{url_for('static',
+  filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-512-512.png')}}"
+  preserveAspectRatio>
   ```
   ```jinja
   {% if navbarOptionsEnabled %}
     <ul class="globalnav-list">
       <li class="globalnav-item one fake" role="button"></li>
       <li class="globalnav-item two" role="button">
-        <div class="hamburger hamburger--collapse js-hamburger" id="globalnav-hamburger">
+        <div class="hamburger hamburger--collapse js-hamburger"
+        id="globalnav-hamburger">
           <div class="hamburger-box">
             <div class="hamburger-inner"></div>
           </div>
@@ -2463,19 +2510,26 @@
   ```jinja
   {% if navbarOptionsEnabled %}
 
-  <!-- Floating option modal for the navbar, which is opened and closed via the hamburger in the navigation bar -->
+  <!-- Floating option modal for the navbar, which is opened and closed via the
+  hamburger in the navigation bar -->
 
   <div class="globalnav-floating-options">
       <a class="globalnav-floating-option one" href="">
-          <span class="globalnav-floating-option-content text header small dark">My Sites</span>
+          <span class="globalnav-floating-option-content text header small dark">
+          My Sites
+          </span>
       </a>
 
       <a class="globalnav-floating-option two" href="">
-          <span class="globalnav-floating-option-content text header small dark">Settings</span>
+          <span class="globalnav-floating-option-content text header small dark">
+          Settings
+          </span>
       </a>
 
       <a class="globalnav-floating-option three" href="">
-          <span class="globalnav-floating-option-content text header small dark">Logout</span>
+          <span class="globalnav-floating-option-content text header small dark">
+          Logout
+          </span>
       </a>
   </div>
 
@@ -2483,7 +2537,8 @@
 
   <div class="globalnav-floating-options-backdrop"></div>
 
-  <script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}"></script>
+  <script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}">
+  </script>
 
   {% endif %}
   ```
@@ -2674,7 +2729,8 @@
 
   from werkzeug.security import generate_password_hash, check_password_hash
 
-  # generate_password_hash and check_password_hash are used when generating and authenticating users
+  # generate_password_hash and check_password_hash are used when generating
+  # and authenticating users
   ```
   ```python
     def __init__(self,host,port):
@@ -2682,7 +2738,8 @@
   ```python
       # Initialise the login manager
       self.loginManager=LoginManager()
-      self.loginManager.login_view="auth_login" # set which function routes to the login page
+      # set which function routes to the login page
+      self.loginManager.login_view="auth_login"
       self.loginManager.init_app(self.app)
 
       # Fetches a row from the User table in the database
@@ -2697,13 +2754,16 @@
       user = self.User.query.filter_by(user_id=username).first()
 
       if user is None:
-        # Flashes true to signify an error, the error message, the username given, and the remember flag given
-        flash([True,'Please check your login details and try again.',username,remember])
+        # Flashes true to signify an error, the error message, the username
+        # given, and the remember flag given
+        flash([True,'Please check your login details and try again.',
+        username,remember])
         return redirect(url_for('auth_login'))
 
       # TODO: check for correct password
       if not check_password_hash(user.password,password):
-        flash([True,'Please check your login details and try again.',username,remember])
+        flash([True,'Please check your login details and try again.',
+        username,remember])
         return redirect(url_for('auth_login'))
 
       # Log in the user and redirect them to the homepage
@@ -2763,7 +2823,9 @@
     prefix="static/data/userData/"
 
     # List of all folders to create
-    folderStructure=[self.os.path.abspath(f"{prefix}{u}"),self.os.path.abspath(f"{prefix}{u}/sites/")]
+    folderStructure=[
+      self.os.path.abspath(f"{prefix}{u}"),
+      self.os.path.abspath(f"{prefix}{u}/sites/")]
 
     self.generateFolderStructure(folderStructure)
 
@@ -2794,7 +2856,8 @@
     self.createUser(username,email,name,password1)
 
     # Log in the new user and redirect them to the homepage
-    login_user(self.User.query.filter_by(user_id=username).first(),remember=False)
+    login_user(self.User.query.filter_by(user_id=username).first(),
+    remember=False)
     return redirect(url_for("auth_login"))
   ```
 
