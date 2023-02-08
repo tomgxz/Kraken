@@ -525,12 +525,12 @@
 
   It contains three entities, `USER`, `SITE`, and `LINK`. It is similar to the previous one, with a linking table added between the two original entities, allowing multiple users to edit multiple sites. Each `LINK` also contains information about the `USER`'s permissions for the `SITE`.
 
-  ![SQL Database Diagram, Permission Variant](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-sqldiagram2.svg?raw=true)
+  <img alt="SQL Database Diagram, Permission Variant" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-sqldiagram2.svg?raw=true" height="512"/>
 
 #### Server-side file storage
   For the actual user website files, server-side storage will be used as it cannot be easily stored in SQL. It is all stored server-side so the user can access their files from any computer with an internet connection. The way I intend to store the site information is shown below:
 
-  ![Server-side File Storage Structure Diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-serverstoragediagram.svg?raw=true)
+  <img alt="Server-side File Storage Structure Diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-serverstoragediagram.svg?raw=true" height="512"/>
 
   The `username` and `sitename` folders will be named by the primary keys of the data in the SQL database to avoid duplicate folder names.
 
@@ -574,21 +574,22 @@
   - `data-kraken-selected-drag`
 
 ##### Resize box
-  ![Resize Box Algorithm Flowchart 1](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox1.svg?raw=true)
-  ![Resize Box Algorithm Flowchart 2](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox2.svg?raw=true)
-  ![Resize Box Algorithm Flowchart 3](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox3.svg?raw=true)
+  <img alt="Resize Box Algorithm Flowchart 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox1.svg?raw=true" height="512"/>
+  <img alt="Resize Box Algorithm Flowchart 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox2.svg?raw=true" height="512"/>
+  <img alt="Resize Box Algorithm Flowchart 3" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox3.svg?raw=true" height="512"/>
+
 
 ##### Dragging and dropping elements
-  ![Drag and Drop Element Algorithm Flowchart](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-dndelement.svg?raw=true)
+  <img alt="Drag and Drop Element Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-dndelement.svg?raw=true" height="512"/>
 
 ##### Dragging and dropping sections
-  ![Drag and Drop Section Algorithm Flowchart](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-dndsection.svg?raw=true)
+  <img alt="Drag and Drop Section Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-dndsection.svg?raw=true" height="512"/>
 
 ##### Displaying element and section options
-  ![Element and Section Options Algorithm Flowchart](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-styleoptions.svg?raw=true)
+  <img alt="Element and Section Options Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-styleoptions.svg?raw=true" height="512"/>
 
 ##### Displaying text editors
-  ![Text Editor Algorithm Flowchart](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-textedit.svg?raw=true)
+  <img alt="Text Editor Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-textedit.svg?raw=true" height="512"/>
 
 #### Multi-user system algorithms
   A lot of the SQL and multi-user algorithms are handled by libraries that are being used, which means that function calls can be used, such as `login_user(user)` from the `flask_login` library or `user = self.User.query.filter_by(user_id=username).first()` that uses an inherited class in the `models.py` file to perform an SQL query. As such, it will reduce a lot of the programming work required, as I can call a function from a different module to do it for me.
@@ -604,25 +605,22 @@
   - Import and export sites that are stored in the database and on the server
 
 ##### Login page
-  ![Login Page Algorithm Flowchart](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-login.svg?raw=true)
+  <img alt="Login Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-login.svg?raw=true" height="512"/>
 
 ##### Signup page
-  ![Signup Page Algorithm Flowchart](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-signup.svg?raw=true)
+  <img alt="Signup Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-signup.svg?raw=true" height="512"/>
 
 ##### Field verification
-  ![verifyField Algorithm Flowchart](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-verifyfield.svg?raw=true)
+  <img alt="verifyField Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-verifyfield.svg?raw=true" height="512"/>
 
 ##### Creating a new user
-  ![createUser Algorithm Flowchart](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createuser.svg?raw=true)
+  <img alt="createUser Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createuser.svg?raw=true" height="512"/>
 
 ##### Creating a new site
-  ![Site Create Page Algorithm Flowchart](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite1.svg?raw=true)
-
-  ![Site Create Option Page 1 Algorithm Flowchart](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite2.svg?raw=true)
-
-  ![Site Create Option Page 2 Algorithm Flowchart](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite3.svg?raw=true)
-
-  ![Site Create Option Page 3 Algorithm Flowchart](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite4.svg?raw=true)
+  <img alt="Site Create Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite1.svg?raw=true" height="512"/>
+  <img alt="Site Create Option Page 1 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite2.svg?raw=true" height="512"/>
+  <img alt="Site Create Option Page 2 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite3.svg?raw=true" height="512"/>
+  <img alt="Site Create Option Page 3 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite4.svg?raw=true" height="512"/>
 
 ##### User Settings algorithms
 
@@ -2355,7 +2353,7 @@
 
   After completing the login and signup pages, I created the dabase, referring to the entity relationship diagram that I had outlined when planning. The two entities are `User` and `Site`, where `user_id` is a foregin key in `Site` to allow them to link together via a one to many relationship. The `User` entity contains some settings information, such as `bio`, `url`, and `tabpreference`, which will be able to be changed in the settings page, that are implemented now to make development down the line easier.
 
-  ![SQL Database Diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-sqldiagram1.svg?raw=true)
+  <img alt="SQL Database Diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-sqldiagram1.svg?raw=true" height="512"/>
 
   The database is managed by the `flask_sqlalchemy.SQLAlchemy` object. In `__init.py`, the object is created (with the variable name `databaseObject`) when the file is run so that `models.py`, the new file that I created which contains the entity classes, can import it. After adding the `databaseObject` object to the class, it imports the two classes from `models.py`, so that the database can interact with them. I also moved all of the flask setup into the function `initFlask` to make the code clearer.
 
