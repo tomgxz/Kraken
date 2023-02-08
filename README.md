@@ -2861,6 +2861,9 @@
     return redirect(url_for("auth_login"))
   ```
 
+
+<!--
+
 ### Features
   To assemble the web pages, the users can drag and drop pre-designed elements categorised into groups such as headlines, quotes, forms, footers, and more. The elements can be previewed in a sidebar next to the main canvas of the page, displayed with the correct styles of the website, from which they can be placed on the webpage. The website would be divided into sections. The user can drag and drop whole sections into the page or add individual elements into an existing section, such as text elements or images. After placing the elements into the canvas, the user can select the element to be able to interact with them by moving them around, changing their styling (such as padding, size, colouring, transparency, position, font size, and many more) in a panel called the inspector panel, adding children to the element, or writing custom element-specific HTML, CSS, or JavaScript code that can be translated into the preview in real-time. These custom elements/pieces of code will then be saved in the user's account so that they can be used in other projects or published so that other users can use them. The canvas will highlight elements with a border when hovered over so that the user can easily see the different elements and how they interact with them. The overall aim of the editor is for someone with very minimal knowledge, even none at all, about web design or programming to be able to interact with it, hence the WYSIWYG intuitiveness.
 
@@ -2910,3 +2913,4 @@
   The user could share the website with other users, giving them viewing permissions (if the website is private) and the ability to download and edit the site. The user could also transfer the site's ownership to someone else.
 
   To access the website builder, the URL functions like this: `/<username>/<sitename>/`, where the backend interprets the URL to send the correct information to the user to load the site. It will check for permissions for the user to send the appropriate site to them.
+-->
