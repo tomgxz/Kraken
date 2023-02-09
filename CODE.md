@@ -1,11 +1,64 @@
 ## Table of Contents
   - [File Structure Diagram](#file-structure-diagram)
   - [Code](#code)
-    - [Root Directory]
-      - [/static/css]
-      - [/static/html/sections]
-      - [/static/js]
-      - [/templates]
+    - [Root Directory](#root-directory)
+      - [\_\_init\_\_.py](#__init__py)
+      - [dbCommands.txt](#dbcommandstxt)
+      - [models.py](#modelspy)
+      >
+
+      - [/static](#staticcss)
+        - [/css](#staticcss)
+          - [auth.css](#staticcssauthcss)
+          - [blank.css](#staticcssblankcss)
+          - [build.css](#staticcssbuildcss)
+          - [default_content_style.css](#staticcssdefault_content_stylescss)
+          - [home.css](#staticcsshomecss)
+          - [index.css](#staticcssindexcss)
+          - [main.css](#maincss)
+          - [settings.css](#settingscss)
+          - [site-create.css](#site-createcss)
+          - [site-edit.css](#site-editcss)
+        - [/html/sections](#statichtmlsections)
+          - [classes](#statichtmlsectionsclasses)
+          - [/headline](#statichtmlsectionsheadline)
+            - [css.css](#statichtmlsectionsheadlinecsscss)
+            - [files](#statichtmlsectionsheadlinefiles)
+            - [html_element_headline_1.html](#statichtmlsectionsheadlinehtom_element_headline_1html)
+        - [/js](#staticjs)
+          - [auth.js](#staticjsauth)
+          - [colorConversion.js](#)
+          - [globalnav-floating-options.js](#)
+          - [login.js](#)
+          - [main.js](#)
+          - [signup.js](#)
+          - [site-create-options-1.js](#)
+          - [site-create-options-2.js](#)
+          - [site-create-options-3.js](#)
+          - [site-create.js](#)
+          - [site-edit.js](#)
+        >
+
+      - [/templates](#)
+        - [base.html](#)
+        - [home-nosite.html](#)
+        - [home-sites.html](#)
+        - [login.html](#)
+        - [settings-admin.html](#)
+        - [settings-base.html](#)
+        - [settings-code.html](#)
+        - [settings-dev.html](#)
+        - [settings-looks.html](#)
+        - [settings-profile.html](#)
+        - [settings-sites.html](#)
+        - [signup.html](#)
+        - [site-create-base.html](#)
+        - [site-create-options-1.html](#)
+        - [site-create-options-2.html](#)
+        - [site-create-options-3.html](#)
+        - [site-create.html](#)
+        - [site-edit-home.html](#)
+        - [site-edit.html](#)
 
 ## File Structure Diagram
   For clarity, directories which contain large amounts of files, such as `/templates` or `/static/css` do not contain those files in the diagram. Files are tinted slightly darker than directories.
