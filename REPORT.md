@@ -134,6 +134,8 @@
 
   <img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace15.png?raw=true" height="360"/>
 
+  <br><br><br><br>
+
   When first editing the site, Squarespace offers an assistant with some basic first steps to creating the website, making it easier for the client to understand how the editor works and how to use it effectively.
 
   <img alt="Squarespace research image: assistant" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace3.png?raw=true" height="360"/>
@@ -144,13 +146,14 @@
 
   Their editor works in the conventional way of a grid-based system, where the user can place elements anywhere on the grid. It will then assign the item the style property `grid-area:row-start/col-start/row-end/col-end` or `grid-area:y/x/height/width` to define the position of the element. They have different attributes for different screen sizes, and the user can edit both styles separately by switching between laptop and phone modes.
 
-  <img alt="Squarespace research image: element drag and drop" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace6.png?raw=true" width="640"/>
-
-  <img alt="Squarespace research image: grid positioning CSS" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace7.png?raw=true" height="360"/>
+  <img alt="Squarespace research image: element drag and drop" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace16.png?raw=true" width="100%"/>
 
   The website is split into sections, where each section contains a content wrapper with the grid positioning system inside.
 
   <img alt="Squarespace research image: construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace14.png?raw=true"/>
+
+  <br><br><br><br>
+  <br><br>
 
   Selecting text gives the user a popup that displays the text formatting options. Whenever the user clicks on an element, they get a different popup that displays the design options for said element.
 
@@ -161,33 +164,35 @@
 
   Squarespace also offers a variety of features such as e-commerce integration, SEO tools, analytics, 24/7 customer support, and a Content Management System (CMS) that allows users to update and manage their website's content easily. Although these features are useful in a website builder, I intend not to include them in the solution's first release due to the timeframe for it and how long these features would take to make. This solution would have a CMS, but not at the scale or capability of Squarespace.
 
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+
 #### Existing solution - Zyro
   Zyro also uses an assistant to help the user understand how to use their editor.
 
-  <img alt="Zyro research image: assistant image 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro1.png?raw=true" height="360"/>
-
-  <img alt="Zyro research image: assistant image 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro2.png?raw=true" height="360"/>
+  <img alt="Zyro research image: assistant images" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro11.png?raw=true" width="50%"/>
 
   Zyro has two ways of positioning objects; one is very similar to the way Squarespace does, with a grid positioning system, and the second is a smart layout. It instead uses only columns to position, and the elements can be moved up and down said columns freely and snap to other elements, like how many editors like photoshop might do. The user can toggle the snapping to other elements in section settings.
 
-  <img alt="Zyro research image: grid positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro3.png?raw=true" width="360"/>
-
-  <img alt="Zyro research image: smart layout positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro4.png?raw=true" width="360"/>
-  <img alt="Zyro research image: snap to guides setting" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro5.png?raw=true" width="360"/>
-
-  Their image resizing system is good. It uses the `object-fit: cover` property in the style of the image and changes the width and height attributes when being dragged, as explained later.
-
-  <img alt="Zyro research image: image resize animation" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro6.gif?raw=true" width="360"/>
+  <img alt="Zyro research image: grid positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro12.png?raw=true" width="60%"/>
 
   Something else Zyro does is have all of their style attributes defined in one class, which relies on variables such as `--grid-row`,`--m-grid-column`, and `--element-width` that are defined in `element.style` (the style attribute of the HTML object), which have presumably been put there by JavaScript.
 
+  <br><br><br><br>
+  <br><br><br><br>
+
   The CSS class with all of the variable references:
 
-  <img alt="Zyro research image: css: positioning variable usage" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro7.png?raw=true" width="360"/>
+  <img alt="Zyro research image: css: positioning variable usage" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro7.png?raw=true" width="240"/>
 
   The HTML style attribute with all of the variable declarations in it:
 
-  <img alt="Zyro research image: positioning variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro8.png?raw=true" width="360"/>
+  <img alt="Zyro research image: positioning variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro8.png?raw=true" width="240"/>
+
+  Their image resizing system is good. It uses the `object-fit: cover` property in the style of the image and changes the width and height attributes when being dragged, as explained later.
+
+  <img alt="Zyro research image: image resize animation" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro6.gif?raw=true" height="480"/>
 
   When moving elements around the layout, Zyro adds four variables to the element, `top`, `left`, `width`, and `height`, which they use to render the element positioning while you are moving it. When the user releases the element, these values are removed. This positioning will be done in JavaScript by taking the position of the cursor when the user clicks on the element, getting the element's position when they click on it, and then offsetting the element's position by the amount they move the cursor. Then, when the user releases the cursor, it runs the code to calculate the new grid positioning of the element. They also have a max width for desktop mode, where the element cannot be moved further.
 
@@ -204,6 +209,8 @@
   This solution will be a web-based, multi-user program where the user uses a grid-based, drag-and-drop system using pre-defined template elements that they can customise. There will be a tutorial for creating a site to help new users understand the system. The user will be able to customise styles for their site, organise pages, access a library of pre-defined templates for widgets such as text, buttons, or links, and control the styling of each element in their pages.
 
   The aim is to have an easy learning curve and a low entry bar for understanding so that anybody can use it. Ease of use is also key - the cognitive load on the user should be low enough that it allows them to focus on designing the website due to
+
+<br><br>
 
 ### Limitations of the solution
   The main limitation is that, as a server-side application, the user will always need an active internet connection to access it, and if the server goes down, there will be no way of using the program.
@@ -301,6 +308,10 @@
   - They can export the site, which will download a different zip file that contains all of the internal files that Kraken uses to run the editor for the page. This means the user can download backups and send their websites to others.
   >
 
+<br><br><br><br>
+<br><br><br><br>
+<br>
+
 ## Design
 
 ### URL Navigation
@@ -311,6 +322,9 @@
   - Green: Any user can access this page, and they do not need to be signed in; it is public.
   - Orange: You need to be logged in to access this page. This mostly relates to account-based pages such as the settings menu or creating a new site.
   - Red: You need to be the owner of this website, or have sufficient permissions granted by the owner. This only applies to the user websites that are set to private.
+
+<br><br><br><br>
+<br>
 
 ### User Interface Design
 
@@ -327,6 +341,8 @@
   Main Content
   >This area is where most of the interactive elements will be. These can be seen in the following diagrams.
 
+<br><br><br><br>
+
 #### Login and Signup Pages
 
   ![Login/Signup page diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/LoginFormTemplate.png?raw=true)
@@ -338,6 +354,8 @@
   - The form area, which is populated by inputs with labels next to them
   - The submit button at the bottom
 
+<br><br><br><br><br>
+
 #### Homepage
 
   ![Homepage diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/HomepageTemplate.png?raw=true)
@@ -348,6 +366,11 @@
   > The grid will programmatically change the number of columns based on the display size. It contains square `div`s, each showing the title of the website, an icon informing the user as to whether it is public or private, and is coloured based on the primary colour of said website. The text colour redefines itself based on what the background colour of the `div` is, to make sure it is easy to read
 
   - A create new site button with the same dimensions as the site `div`s, at the end of the grid layout.
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
 
 #### Site Home
 
@@ -362,6 +385,8 @@
   >- Site preferences, site styles, and site settings all open setting menus in the content window.
 
   - The main content window will display content based on what is selected in the navigation options. By default, it will display a preview of the website but can also display setting menus as well.
+
+<br><br><br><br>
 
 #### Site Edit
 
@@ -420,7 +445,11 @@
 #### ARIA
   ARIA (Accessible Rich Internet Applications) attributes will be used throughout the website to allow screen readers to navigate the website. These attributes can be used by assistive technologies, such as screen readers, to provide a more detailed and customised user experience. It is particularly useful for improving the accessibility of dynamic content and advanced user interface controls, such as those used in rich internet applications.
 
-### Stakeholder input :D  
+### Stakeholder input
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
 
 ### Website structure and backend
 
@@ -448,6 +477,10 @@
     </body>
   </html>
   ```
+
+  <br><br><br><br>
+  <br><br><br><br>
+
   ##### itemlist.html
   ```jinja
   {% extends "base.html" %}
@@ -499,6 +532,10 @@
 
   <img alt="SQL Database Diagram, Permission Variant" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-sqldiagram2.svg?raw=true" height="512"/>
 
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+
 #### Server-side file storage
   For the actual user website files, server-side storage will be used as it cannot be easily stored in SQL. It is all stored server-side so the user can access their files from any computer with an internet connection. The way I intend to store the site information is shown below:
 
@@ -545,23 +582,28 @@
   - `data-kraken-selected-resize`
   - `data-kraken-selected-drag`
 
-##### Resize box
-  <img alt="Resize Box Algorithm Flowchart 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox1.svg?raw=true" height="361"/>
-  <img alt="Resize Box Algorithm Flowchart 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox2.svg?raw=true" height="336"/>
-  <img alt="Resize Box Algorithm Flowchart 3" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox3.svg?raw=true" height="526"/>
+<br>
 
+##### Resize box
+  <img alt="Resize Box Algorithm Flowchart 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox1.svg?raw=true" height="250"/>
+  <img alt="Resize Box Algorithm Flowchart 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox2.svg?raw=true" height="250"/>
+  <img alt="Resize Box Algorithm Flowchart 3" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox3.svg?raw=true" height="380"/>
+
+<br><br>
 
 ##### Dragging and dropping elements
-  <img alt="Drag and Drop Element Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-dndelement.svg?raw=true" height="696"/>
+  <img alt="Drag and Drop Element Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-dndelement.svg?raw=true" height="525"/>
 
 ##### Dragging and dropping sections
-  <img alt="Drag and Drop Section Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-dndsection.svg?raw=true" height="526"/>
+  <img alt="Drag and Drop Section Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-dndsection.svg?raw=true" height="340"/>
+
+<br><br>
 
 ##### Displaying element and section options
-  <img alt="Element and Section Options Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-styleoptions.svg?raw=true" height="651"/>
+  <img alt="Element and Section Options Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-styleoptions.svg?raw=true" height="470"/>
 
 ##### Displaying text editors
-  <img alt="Text Editor Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-textedit.svg?raw=true" height="546"/>
+  <img alt="Text Editor Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-textedit.svg?raw=true" height="450"/>
 
 #### Multi-user system algorithms
   A lot of the SQL and multi-user algorithms are handled by libraries that are being used, which means that function calls can be used, such as `login_user(user)` from the `flask_login` library or `user = self.User.query.filter_by(user_id=username).first()` that uses an inherited class in the `models.py` file to perform an SQL query. As such, it will reduce a lot of the programming work required, as I can call a function from a different module to do it for me.
@@ -577,22 +619,27 @@
   - Import and export sites that are stored in the database and on the server
 
 ##### Login page
-  <img alt="Login Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-login.svg?raw=true" height="776"/>
+  <img alt="Login Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-login.svg?raw=true" height="500"/>
 
 ##### Signup page
-  <img alt="Signup Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-signup.svg?raw=true" height="1171"/>
+  <img alt="Signup Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-signup.svg?raw=true" height="1000"/>
 
 ##### Field verification
-  <img alt="verifyField Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-verifyfield.svg?raw=true" height="481"/>
+  <img alt="verifyField Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-verifyfield.svg?raw=true" height="280"/>
 
 ##### Creating a new user
-  <img alt="createUser Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createuser.svg?raw=true" height="381"/>
+  <img alt="createUser Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createuser.svg?raw=true" height="300"/>
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br>
 
 ##### Creating a new site
-  <img alt="Site Create Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite1.svg?raw=true" height="831"/>
-  <img alt="Site Create Option Page 1 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite2.svg?raw=true" height="771"/>
-  <img alt="Site Create Option Page 2 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite3.svg?raw=true" height="546"/>
-  <img alt="Site Create Option Page 3 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite4.svg?raw=true" height="631"/>
+  <img alt="Site Create Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite1.svg?raw=true" height="475"/>
+  <img alt="Site Create Option Page 1 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite2.svg?raw=true" height="450"/>
+  <img alt="Site Create Option Page 2 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite3.svg?raw=true" height="450"/>
+  <img alt="Site Create Option Page 3 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite4.svg?raw=true" height="550"/>
 
 ##### User Settings algorithms
 
@@ -615,69 +662,77 @@
   }}
 
   mindmap
-    root((MAIN))
+root((MAIN))
 
-      (Editor Opened)
-          (Check for user permissions)
-              (If editor, run as normal)
-              (If viewer, direct to the preview page)
-              (If private, display an error screen)
-          (Load files from the server)
-              (Necessary files will be listed in the siteDat JSON file)
-              (HTML will be populated with kraken data attributes)
-              (Apply all of the necessary CSS and JavaScript)
-                  (Use dedicated style and script tags instead of importing them)
+    (Editor Opened)
+        (Check for user permissions)
+            (If editor, run as normal)
+            (If viewer, direct to the preview page)
+            (If private, display an error screen)
+        (Load files from the server)
+            (Necessary files will be listed in the siteDat JSON file)
+            (HTML will be populated with kraken data attributes)
+            (Apply all of the necessary CSS and JavaScript)
+                (Use dedicated style and script tags instead of importing them)
 
-      (Action taken)
-          (Store action in action log)
-              (This can be accessed for undos, redos and saves)
+    (Action taken)
+        (Store action in action log)
+            (This can be accessed for undos, redos and saves)
 
-      (Editor Saved)
-          (If an element is selected, prompt to deselect to save)
-          (Fetch HTML from the editor)
-              (Remove imported CSS and JavaScript from HTML block)
-              (Remove any current selected tags)
-              (Update any changed HTML files in the server storage)
-          (Look at the action log for any changes to imported files)
-              (If changes, update sideDat JSON file as necessary)
+    (Editor Saved)
+        (If an element is selected, prompt to deselect to save)
+        (Fetch HTML from the editor)
+            (Remove imported CSS and JavaScript from HTML block)
+            (Remove any current selected tags)
+            (Update any changed HTML files in the server storage)
+        (Look at the action log for any changes to imported files)
+            (If changes, update sideDat JSON file as necessary)
 
-      (Display settings changed)
-          (If the aspect ratio has been altered)
-              (Append necessary data attributes to container element)
-              (Resize container as necessary)
-              (Update JavaScript display size variables)
-                  (So that it knows what CSS and HTML to update, if necessary, and which subroutines to call on event listeners)
+    (Display settings changed)
+        (If the aspect ratio has been altered)
+            (Append necessary data attributes to container element)
+            (Resize container as necessary)
+            (Update JavaScript display size variables)
+                (So that it knows what CSS and HTML to update, if necessary, and which subroutines to call on event listeners)
 
 
-      (Element Selected)
-          (If locked, pass)
-              (Display unlock button)
-          (Check for attributes to determine functionality)
-              (If styleable, populate the style area with relevant options)
-                  (Listen for hovers and selects to add styling)
-                  (Listen for deselection of the element to update styles)
-              (If draggable, draw a bounding box)
-                  (Listen for click and hold)
-              (If resizable, draw a bounding box with resize points)
-                  (Listen for click and hold)
-          (Append necessary selected tags)
+    (Element Selected)
+        (If locked, pass)
+            (Display unlock button)
+        (Check for attributes to determine functionality)
+            (If styleable, populate the style area with relevant options)
+                (Listen for hovers and selects to add styling)
+                (Listen for deselection of the element to update styles)
+            (If draggable, draw a bounding box)
+                (Listen for click and hold)
+            (If resizable, draw a bounding box with resize points)
+                (Listen for click and hold)
+        (Append necessary selected tags)
 
-      (Section Selected)
-          (If locked, pass)
-              (Display unlock button)
-          (Check for attributes to determine functionality)
-              (If styleable, populate the style area with relevant options)
-                  (Listen for hovers and selects to add styling)
-                  (Listen for deselection of element to update styles)
-              (If draggable, listen for click and hold)
-              (If resizable, listen for hover over the bottom border)
-                  (Display a resize toggle and listen for click and hold)
-              (Append necessary selected tags)
+    (Section Selected)
+        (If locked, pass)
+            (Display unlock button)
+        (Check for attributes to determine functionality)
+            (If styleable, populate the style area with relevant options)
+                (Listen for hovers and selects to add styling)
+                (Listen for deselection of element to update styles)
+            (If draggable, listen for click and hold)
+            (If resizable, listen for hover over the bottom border)
+                (Display a resize toggle and listen for click and hold)
+            (Append necessary selected tags)
   ```
 
   -->
 
   ![Diagram showing how the subroutines link](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-mindmap-subroutines.svg?raw=true)
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br>
 
 ### Subroutines
   Now that I have a rough idea of what the subroutines will do and how they will fit together, I can start planning them in pseudocode. The multi-user subroutines will be written in Python, as it is used for the backend, whereas the subroutines for the website builder will be written in JavaScript and imported into the HTML.
@@ -715,6 +770,8 @@
 
 ##### auth_signup_post
   The Flask backend will call this subroutine when the user submits the signup form. It uses similar functionality to the `auth_login_post` function, including the passwords being hashed client-side. It uses the `verifyField` and `isEmailFormat` subroutines to check that fields are valid and the `createUser` subroutine to insert a new user into the database and add them to the server storage. Both subroutines are shown later.
+
+  <br><br>
 
   ```python
   flask.route("signup",method=post)
@@ -766,6 +823,10 @@
       flash([True,out,name,email,username])
       return flask.redirect(flask.url_for("auth_signup"))
 
+
+
+
+
     # Make sure the passwords match
     if password1 != password2:
       flash([True,"Passwords do not match",name,email,username])
@@ -812,6 +873,9 @@
     # If field is shorter than minLen
     if field.length < minLen:
       return f"{fieldName} must be greater than {minLen-1} characters."
+
+
+
 
     # If field contains spaces and canHaveSpace is false
     if not canHaveSpace and " " in field:
@@ -908,6 +972,8 @@
 
   <!--TODO: JavaScript pseudocode for drag and drop editor-->
 
+<br><br><br>
+
 ### Explanation and justification of this process
   The initial concept seems large and complicated, but the way it is broken down above into separate parts will make the development easier and faster, and will aid the testing and maintaining of the code due to it's modularity.
 
@@ -943,7 +1009,7 @@
   |---|---|---|
   |`host`| string, in the format `x.x.x.x`| Defines the host the server uses|
   |`port`| integer| Defines the port the server uses
-  |`db`| `flask_sqlalchemy.SQLAlchemy` object| Access the SQL database|
+  |`databaseObject`| `flask_sqlalchemy.SQLAlchemy` object| Access the SQL database|
   |`loginManager`| `flask_login.LoginManager` object| Manage the user login system|
   |`app`| `flask.Flask` object| Manage the site routing|
 
@@ -963,6 +1029,11 @@
   |`selectedElement`| element| The currently selected element.|
   |`fonts`| list of dicts| A list of all of the fonts that the style settings use.|
   |`fontDropdownItem`| string| Template for a font dropdown element for the font family dropdown in the style modal.|
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
 
 ### Validation
   To make sure that the program is robust and will not throw critical errors, validation will be used throughout the code to ensure that the data entered by users is accurate, complete, and conforms to specific rules and constraints. Due to the usage of `<input>`s in the HTML code as the vast majority of the input methods, HTML can make sure that the correct data type is being inputted. However, some text that the user input needs to be validated to make sure that it meets certain requirements. Instances of this include:
@@ -995,6 +1066,8 @@
   Usability testing will be done both white-box and black-box - the UI design will be tested during and after development and will be tested with some of the stakeholders to make sure that it is easy to understand and navigate, and that it functions as intended on a variety of devices, resolutions, and browsers. Feedback, criticisms, and suggestions from the stakeholders will be taken after these sessions to ensure that the final product is easy to use and meets their requirements.
 
   Any testing will be recorded during the development process, such as different platforms used in the UI design, or invalid inputs entered when checking user input.
+
+<br><br><br><br>
 
 ## Development and Testing
 
@@ -1034,6 +1107,9 @@
     Kraken("0.0.0.0",1380)
   ```
 
+  <br><br><br><br>
+  <br>
+
   When run, it would output this to the console:
 
   <img alt="The console after running this code" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.1_creatingthebackend_console.png?raw=true" width="750"/>
@@ -1063,6 +1139,7 @@
     def main_index():
       # flash sends a message to the next site that flask renders
       flash(["Apples","Oranges","Pears",1,2,3])
+
       # render_template takes the Jinja template file given in the templates folder
       # and turns it into true HTML
       return render_template("test.html")
@@ -1109,6 +1186,8 @@
   }
   ```
 
+  <br><br><br><br>
+
   When run, the website looked like this:
 
   <img alt="A screenshot of the test page that I programmed" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.2_testingflaskandjinja_browser.png?raw=true" width="750"/>
@@ -1141,6 +1220,8 @@
        return render_template("signup.html")
   ```
 
+  <br>
+
 ##### /templates/base.html
   ```jinja
   <!DOCTYPE html>
@@ -1159,11 +1240,11 @@
 
       <!-- Site Icons -->
       <link rel="apple-touch-icon" sizes="512x512" href="{{url_for('static',
-        filename='img/icon/apple-touch-icon/apple-touch-icon-512-512.png')}}">
+      filename='img/icon/apple-touch-icon/apple-touch-icon-512-512.png')}}">
       <link rel="icon" type="image/png" sizes="512x512" href="{{url_for('static',
-        filename='img/icon/tab-icon/tab-icon-512-512.png')}}">
+      filename='img/icon/tab-icon/tab-icon-512-512.png')}}">
       <link rel="mask-icon" href="{{url_for('static', filename='
-        img/icon/mask-icon/mask-icon.svg')}}">
+      img/icon/mask-icon/mask-icon.svg')}}">
 
       <link rel="canonical" href="CanonicalUrl">
 
@@ -1171,13 +1252,13 @@
       <!-- fa is a large icon database which you can import into a site -->
       <script src="https://kit.fontawesome.com/73a2cc1270.js"></script>
       <link rel="stylesheet" href="
-        https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+      https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
 
       <!-- Internal Stylesheet Imports -->
       <link href="{{url_for('static', filename='css/main.css')}}"
-        rel="stylesheet" type="text/css" />
+      rel="stylesheet" type="text/css" />
       <link href="{{url_for('static', filename='css/build.css')}}"
-        rel="stylesheet" type="text/css" />
+      rel="stylesheet" type="text/css" />
 
     </head>
     <body>
@@ -1293,9 +1374,7 @@
       </ul>
     </div>
     <div class="field-container active">
-
       <!-- Warning area for the form that uses the flashed warning message -->
-
       <span class="field-warning text italic">
         <!-- TODO: add code for flashed warning msg -->
       </span>
@@ -1347,6 +1426,8 @@
 
   ```
 
+<br><br><br><br>
+
 ##### /templates/signup.html
   ```jinja
   {% extends "base.html" %}
@@ -1394,10 +1475,12 @@
             <div class="field-input-container">
               <input class="field-input" placeholder="{{item[1]}}"
               type="{{item[2]}}" name="{{item[3]}}">
+
               {% if item[4] %}
               <span class="eye-reveal">
                 <i class="fa-solid fa-eye"></i>
               </span>
+
               {% else %}
               <span class="eye-spacer"></span>
               {% endif %}
@@ -1570,6 +1653,8 @@
   }
   ```
 
+<br><br><br>
+
 ##### /static/css/auth.css
   ```css
   .application-container {
@@ -1619,6 +1704,9 @@
   .application-content .header-option.active::after {
       background-color: var(--colors-secondary-dark);
   }
+
+
+
 
   .application-content .header-option:hover::after {
       background-color: var(--colors-grey-300);
@@ -1672,6 +1760,7 @@
       flex-direction:column;
   }
 
+
   .application-content .field-container .field-option:not(:last-child) {
       margin-bottom:8px
   }
@@ -1716,12 +1805,12 @@
   }
   ```
 
+  <br><br><br><br>
+  <br><br>
+
   After running the website, the login and signup pages looked like this:
 
-  <img alt="A screenshot of the login page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_logincssdesign.png?raw=true" width="750"/>
-  <img alt="A screenshot of the signup page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_signupcssdesign.png?raw=true" width="750"/>
-
-  <!-- TODO: redo these screenshots -->
+  <img alt="Screenshots of the login and signup pages" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_forms.png?raw=true" width="100%"/>
 
   Currently, when you click the submit button, it redirects to a page saying "Method not allowed", as the post functions have not been added to `__init__.py` yet.
 
@@ -1799,14 +1888,12 @@
       }
     }
 
-    /*
-    Regex pattern breakdown
-      (?=.*?[A-Z]) = contains an uppercase character
-      (?=.*?[a-z]) = contains a lowercase character
-      (?=.*?[0-9]) = contains a digit
-      (?=.*?[#?!@$%^&*-_%&{}\\<>*?\/$!'\":@+`|=]) = contains a special character
-      .{8,} = has a minimum length of 8 and no upper limit
-    */
+    // Regex pattern breakdown
+    //   (?=.*?[A-Z]) = contains an uppercase character
+    //   (?=.*?[a-z]) = contains a lowercase character
+    //   (?=.*?[0-9]) = contains a digit
+    //   (?=.*?[#?!@$%^&*-_%&{}\\<>*?\/$!'\":@+`|=]) = contains a special character
+    //   .{8,} = has a minimum length of 8 and no upper limit
 
     return ""
   }
@@ -1849,6 +1936,9 @@
       document.querySelector(".field-submit").disabled = true
       return
     }
+
+
+
 
     warningSpan.innerText = ""
     document.querySelector(".field-submit").disabled = false
@@ -1901,6 +1991,7 @@
       return
     }
 
+
     verifyOutput=verifyField(fields["Password"].value,"Password",true,8,false,true,
     true)
 
@@ -1944,54 +2035,59 @@
     {field.addEventListener("change",verifyAllFields)})
   ```
 
+  <br><br><br><br>
+  <br><br><br>
+
   This is an image of the all-seeing eye in action:
 
   <img alt="A screenshot of the all-seeing eye doing its magic" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.4_loginfrontend_allseeingeye.png?raw=true" width="360"/>
 
   After implementing the client-side validation, I then tested each field with a variety of different inputs to make sure the validation code was functioning properly
 
-  |Test Type|Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
-  |-|-|-|-|-|-|-|
-  |Valid|Name|`Aaaaa`|Check it says valid|Valid|Valid|Pass
-  |Valid|Name|`Aaa Bbb`|Check it allows spaces|Valid|Valid|Pass
-  |Invalid|Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Valid|Fail
-  |Invalid|Name|null|Check that it requires name|Invalid|Invalid|Pass
-  |Valid|Email|`a@b.cc`|Check it says valid|Valid|Valid|Pass
-  |Valid|Email|`ab12@f42.x7`|Check it says valid|Valid|Valid|Pass
-  |Invalid|Email|`@b.cc`|Check it recognises the area before `@`|Invalid|Invalid|Pass
-  |Invalid|Email|`a@.cc`|Check it recognises the area after `@`|Invalid|Invalid|Pass
-  |Invalid|Email|`a@b.c`|Check it requires a top level domain longer than 1|Invalid|Invalid|Pass
-  |Invalid|Email|`a@b.cdef`|Check it requires a top level domain shorter than 4|Invalid|Invalid|Pass
-  |Invalid|Email|`a b@ccc.uk`|Check it doesn't allow spaces|Invalid|Invalid|Pass
-  |Invalid|Email|null|Check that it requires email|Invalid|Invalid|Pass
-  |Valid|Username|`Aaa`|Check it says valid|Valid|Valid|Pass
-  |Invalid|Username|`Aaa bbb`|Check it doesn't allow spaces|Invalid|Invalid|Pass
-  |Valid|Username|`A-._+c`|Check it allows special characters not given in the list|Valid|Valid|Pass
-  |Invalid|Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Valid|Fail
-  |Invalid|Username|null|Check it requires username|Invalid|Invalid|Pass
-  |Invalid|Password|`aaa`|Check it has a minimum length of 8|Invalid|Invalid|Pass
-  |Valid|Password|`Aaaaaa_1`|Data to work off for next tests|Valid|Valid|Pass
-  |Invalid|Password|`aaaaaa_1`|Check it requires an uppercase character|Invalid|Invalid|Pass
-  |Invalid|Password|`AAAAAA_1`|Check it requires a lowercase character|Invalid|Invalid|Pass
-  |Invalid|Password|`Aaaaaa_a`|Check it requires a number|Invalid|Invalid|Pass
-  |Invalid|Password|`Aaaaaaa1`|Check it requires a special character|Invalid|Invalid|Pass
-  |Invalid|Password|null|Check it requires password|Invalid|Invalid|Pass
-  |Valid|Passwords|`Aaaaaa_1` in both fields|Check both fields have to match|Valid|Valid|Pass
-  |Invalid|Passwords|`Aaaaaa_1` in one field, `ABCDEF` in the second|Check both fields have to match|Invalid|Invalid|Pass
+  |Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
+  |-|-|-|-|-|-|
+  |Name|`Aaaaa`|Check it says valid|Valid|Valid|Pass
+  |Name|`Aaa Bbb`|Check it allows spaces|Valid|Valid|Pass
+  |Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Valid|Fail
+  |Name|null|Check that it requires name|Invalid|Invalid|Pass
+  |Email|`a@b.cc`|Check it says valid|Valid|Valid|Pass
+  |Email|`ab12@f42.x7`|Check it says valid|Valid|Valid|Pass
+  |Email|`@b.cc`|Check it recognises the area before `@`|Invalid|Invalid|Pass
+  |Email|`a@.cc`|Check it recognises the area after `@`|Invalid|Invalid|Pass
+  |Email|`a@b.c`|Check it requires a top level domain longer than 1|Invalid|Invalid|Pass
+  |Email|`a@b.cdef`|Check it requires a top level domain shorter than 4|Invalid|Invalid|Pass
+  |Email|`a b@ccc.uk`|Check it doesn't allow spaces|Invalid|Invalid|Pass
+  |Email|null|Check that it requires email|Invalid|Invalid|Pass
+  |Username|`Aaa`|Check it says valid|Valid|Valid|Pass
+  |Username|`Aaa bbb`|Check it doesn't allow spaces|Invalid|Invalid|Pass
+  |Username|`A-._+c`|Check it allows special characters not given in the list|Valid|Valid|Pass
+  |Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Valid|Fail
+  |Username|null|Check it requires username|Invalid|Invalid|Pass
+  |Password|`aaa`|Check it has a minimum length of 8|Invalid|Invalid|Pass
+  |Password|`Aaaaaa_1`|Data to work off for next tests|Valid|Valid|Pass
+  |Password|`aaaaaa_1`|Check it requires an uppercase character|Invalid|Invalid|Pass
+  |Password|`AAAAAA_1`|Check it requires a lowercase character|Invalid|Invalid|Pass
+  |Password|`Aaaaaa_a`|Check it requires a number|Invalid|Invalid|Pass
+  |Password|`Aaaaaaa1`|Check it requires a special character|Invalid|Invalid|Pass
+  |Password|null|Check it requires password|Invalid|Invalid|Pass
+  |Passwords|`Aaaaaa_1` in both fields|Check both fields have to match|Valid|Valid|Pass
+  |Passwords|`Aaaaaa_1` in one field, `ABCDEF` in the second|Check both fields have to match|Invalid|Invalid|Pass
+
+  <br><br><br>
 
   As you can see from the table, two of the validation checks failed. These are listed here:
 
-  |Test Type|Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
-  |-|-|-|-|-|-|-|
-  |Invalid|Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Valid|Fail
-  |Invalid|Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Valid|Fail
+  |Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
+  |-|-|-|-|-|-|
+  |Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Valid|Fail
+  |Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Valid|Fail
 
   These were both to do with verifying special characters, and, when I revisited the code, I saw that the error was when I tried to iterate through the characters in a string like you do can do in python. Hence, I modified the line `for (var char in specialChar)` to function properly, and both tests came out as invalid.
 
-  |Test Type|Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
-  |-|-|-|-|-|-|-|
-  |Invalid|Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Invalid|Pass
-  |Invalid|Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Invalid|Pass
+  |Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
+  |-|-|-|-|-|-|
+  |Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Invalid|Pass
+  |Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Invalid|Pass
 
 ##### changes to /static/js/auth.js
   ```js
@@ -2057,6 +2153,7 @@
     email=request.form.get("email")
     username=request.form.get("username")
     password1=request.form.get("password")
+
     password2=request.form.get("password-repeat")
 
     # the verifyField function returns either an empty string if the field meets the
@@ -2108,6 +2205,7 @@
     if False:
       flash([True,"That email is already in use"])
       return redirect(url_for("auth_signup"))
+
 
     # TODO: check whether this username already exists
 
@@ -2321,6 +2419,10 @@
 
   All of the logo images now have the `navbarLogoColor` variable to define which image to fetch. The hamburger and navigation options are now surrounded in `{% if navbarOptionsEnabled %}`. Both of these variables will be defined in files that extend from this file, such as `login.html`. The script import for `/js/globalnav-floating-options.js` has also been moved into the if block to remove unnecessary imports.
 
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+
 ### Stage 2 - Creating and implementing the database
 
   After completing the login and signup pages, I created the dabase, referring to the entity relationship diagram that I had outlined when planning. The two entities are `User` and `Site`, where `user_id` is a foregin key in `Site` to allow them to link together via a one to many relationship. The `User` entity contains some settings information, such as `bio`, `url`, and `tabpreference`, which will be able to be changed in the settings page, that are implemented now to make development down the line easier.
@@ -2328,6 +2430,8 @@
   <img alt="SQL Database Diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-sqldiagram1.svg?raw=true" height="535"/>
 
   The database is managed by the `flask_sqlalchemy.SQLAlchemy` object. In `__init.py`, the object is created (with the variable name `databaseObject`) when the file is run so that `models.py`, the new file that I created which contains the entity classes, can import it. After adding the `databaseObject` object to the class, it imports the two classes from `models.py`, so that the database can interact with them. I also moved all of the flask setup into the function `initFlask` to make the code clearer.
+
+<br><br><br><br>
 
 ##### changes to \_\_init\_\_.py
   ```python
@@ -2379,6 +2483,8 @@
 
   # User class to store the user's information in the database
   class User(UserMixin,db.Model):
+
+
     # Set the name of the table in the database to "user"
     __tablename__="user"
 
@@ -2477,6 +2583,7 @@
   # generate_password_hash and check_password_hash are used when generating
   # and authenticating users
   ```
+  <br><br>
   ```python
     def __init__(self,host,port):
   ```
@@ -2524,8 +2631,11 @@
         flash([True,"That email is already in use",name,"",username])
         return redirect(url_for("auth_signup"))
 
+
       # Check whether this username already exists
       if self.User.query.filter_by(user_id=username).first():
+
+
         flash([True,"That username is already in use",name,email,""])
         return redirect(url_for("auth_signup"))
   ```
@@ -2573,6 +2683,7 @@
       self.os.path.abspath(f"{prefix}{u}/sites/")]
 
     self.generateFolderStructure(folderStructure)
+
 
     # Create new user and commit to database
     self.db.session.add(newUser)
