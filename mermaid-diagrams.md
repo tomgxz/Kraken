@@ -1,3 +1,5 @@
+# REPORT.md
+
 ### URL Navigation
 
   ```mermaid
@@ -383,4 +385,42 @@
           bool deleted
           text sitepath
       }
+  ```
+
+# CODE.md
+
+## File Structure Diagram
+
+  ```mermaid
+  %%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
+  graph LR
+    A((Root)) --> F(Static) & G(templates)
+    A --> B(__init__.py):::file
+    A --> C(db.sqlite):::file
+    A --> D(dbCommands.txt):::file
+    A --> E(models.py):::file
+    F --> H(css) & I(data) & J(html) & K(img) & L(js)
+    I --> M(defaultIcons) & N(userData)
+    M --> O(default-1.png):::file
+
+    N(userData) --> b("&lt;username&gt;") --> c(sites) --> d("&lt;sitename&gt;") --> e(files)
+    d -->f(site.ini):::file
+    d --> g(siteDat.json):::file
+    e --> h(1.html):::file
+    e --> i(2.html):::file
+    e --> j(3.html):::file
+
+    K --> m(icon) & n(stock)
+    K --> o(error_1.png):::file
+    K --> p(kraken_tentacles_1.png):::file
+    m --> 1(64x64) & 2(128x128) & 3(256x256) & 4(512x512) & 5(svg)
+
+    J --> q(sections) --> r("&lt;template&gt;")
+    r --> s("html_element_&lt;template&gt;_&lt;i&gt;"):::file
+    r --> 6(css.css):::file
+    r --> 7(files):::file
+    q --> 8(classes):::file
+
+    classDef file fill:#ccc
   ```
