@@ -172,9 +172,7 @@
 
   Their editor works in the conventional way of a grid-based system, where the user can place elements anywhere on the grid. It will then assign the item the style property `grid-area:row-start/col-start/row-end/col-end` or `grid-area:y/x/height/width` to define the position of the element. They have different attributes for different screen sizes, and the user can edit both styles separately by switching between laptop and phone modes.
 
-  <img alt="Squarespace research image: element drag and drop" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace6.png?raw=true" width="640"/>
-
-  <img alt="Squarespace research image: grid positioning CSS" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace7.png?raw=true" height="360"/>
+  <img alt="Squarespace research image: element drag and drop" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace16.png?raw=true" width="100%"/>
 
   The website is split into sections, where each section contains a content wrapper with the grid positioning system inside.
 
@@ -971,7 +969,7 @@
   |---|---|---|
   |`host`| string, in the format `x.x.x.x`| Defines the host the server uses|
   |`port`| integer| Defines the port the server uses
-  |`db`| `flask_sqlalchemy.SQLAlchemy` object| Access the SQL database|
+  |`databaseObject`| `flask_sqlalchemy.SQLAlchemy` object| Access the SQL database|
   |`loginManager`| `flask_login.LoginManager` object| Manage the user login system|
   |`app`| `flask.Flask` object| Manage the site routing|
 
@@ -1187,11 +1185,11 @@
 
       <!-- Site Icons -->
       <link rel="apple-touch-icon" sizes="512x512" href="{{url_for('static',
-        filename='img/icon/apple-touch-icon/apple-touch-icon-512-512.png')}}">
+      filename='img/icon/apple-touch-icon/apple-touch-icon-512-512.png')}}">
       <link rel="icon" type="image/png" sizes="512x512" href="{{url_for('static',
-        filename='img/icon/tab-icon/tab-icon-512-512.png')}}">
+      filename='img/icon/tab-icon/tab-icon-512-512.png')}}">
       <link rel="mask-icon" href="{{url_for('static', filename='
-        img/icon/mask-icon/mask-icon.svg')}}">
+      img/icon/mask-icon/mask-icon.svg')}}">
 
       <link rel="canonical" href="CanonicalUrl">
 
@@ -1199,13 +1197,13 @@
       <!-- fa is a large icon database which you can import into a site -->
       <script src="https://kit.fontawesome.com/73a2cc1270.js"></script>
       <link rel="stylesheet" href="
-        https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+      https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
 
       <!-- Internal Stylesheet Imports -->
       <link href="{{url_for('static', filename='css/main.css')}}"
-        rel="stylesheet" type="text/css" />
+      rel="stylesheet" type="text/css" />
       <link href="{{url_for('static', filename='css/build.css')}}"
-        rel="stylesheet" type="text/css" />
+      rel="stylesheet" type="text/css" />
 
     </head>
     <body>
@@ -1746,10 +1744,7 @@
 
   After running the website, the login and signup pages looked like this:
 
-  <img alt="A screenshot of the login page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_logincssdesign.png?raw=true" width="750"/>
-  <img alt="A screenshot of the signup page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_signupcssdesign.png?raw=true" width="750"/>
-
-  <!-- TODO: redo these screenshots -->
+  <img alt="Screenshots of the login and signup pages" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_forms.png?raw=true" width="100%"/>
 
   Currently, when you click the submit button, it redirects to a page saying "Method not allowed", as the post functions have not been added to `__init__.py` yet.
 
