@@ -1,69 +1,77 @@
 ## Table of Contents
-  - [File Structure Diagram](#file-structure-diagram)
-  - [Code](#code)
-    - [Root Directory](#root-directory)
-      - [\_\_init\_\_.py](#__init__py)
-      - [dbCommands.txt](#dbcommandstxt)
-      - [models.py](#modelspy)
+  - [File Structure Diagram](#file-structure-diagram) 3
+  - [Code](#code) 4
+    - [Root Directory](#root-directory) 4
+      - [\_\_init\_\_.py](#__init__py) 4
+      - [dbCommands.txt](#dbcommandstxt) 15
+      - [models.py](#modelspy) 16
       >
 
-      - [/static](#staticcss)
-        - [/css](#staticcss)
-          - [auth.css](#staticcssauthcss)
-          - [blank.css](#staticcssblankcss)
-          - [build.css](#staticcssbuildcss)
-          - [default_content_style.css](#staticcssdefault_content_stylescss)
-          - [home.css](#staticcsshomecss)
-          - [index.css](#staticcssindexcss)
-          - [main.css](#maincss)
-          - [settings.css](#settingscss)
-          - [site-create.css](#site-createcss)
-          - [site-edit.css](#site-editcss)
-        - [/html/sections](#statichtmlsections)
-          - [classes](#statichtmlsectionsclasses)
-          - [/headline](#statichtmlsectionsheadline)
-            - [css.css](#statichtmlsectionsheadlinecsscss)
-            - [files](#statichtmlsectionsheadlinefiles)
-            - [html_element_headline_1.html](#statichtmlsectionsheadlinehtom_element_headline_1html)
-        - [/js](#staticjs)
-          - [auth.js](#staticjsauthjs)
-          - [colorConversion.js](#staticjscolorconversionjs)
-          - [globalnav-floating-options.js](#staticjsglobalnav-floating-optionsjs)
-          - [login.js](#staticjsloginjs)
-          - [main.js](#staticjsmainjs)
-          - [signup.js](#staticjssignupjs)
-          - [site-create-options-1.js](#staticjssite-create-options-1js)
-          - [site-create-options-2.js](#staticjssite-create-options-2js)
-          - [site-create-options-3.js](#staticjssite-create-options-2js)
-          - [site-create.js](#staticjssite-createjs)
-          - [site-edit.js](#staticjssite-editjs)
+      - [/static](#staticcss) 17
+        - [/css](#staticcss) 17
+          - [auth.css](#staticcssauthcss) 17
+          - [blank.css](#staticcssblankcss) 20
+          - [build.css](#staticcssbuildcss) 22
+          - [default_content_style.css](#staticcssdefault_content_stylescss) 24
+          - [home.css](#staticcsshomecss) 24
+          - [index.css](#staticcssindexcss) 26
+          - [main.css](#maincss) 28
+          - [settings.css](#settingscss) 29
+          - [site-create.css](#site-createcss) 33
+          - [site-edit.css](#site-editcss) 39
+        - [/html/sections](#statichtmlsections) 43
+          - [classes](#statichtmlsectionsclasses) 43
+          - [/headline](#statichtmlsectionsheadline) 43
+            - [css.css](#statichtmlsectionsheadlinecsscss) 43
+            - [files](#statichtmlsectionsheadlinefiles) 46
+            - [html_element_headline_1.html](#statichtmlsectionsheadlinehtom_element_headline_1html) 46
+        - [/js](#staticjs) 46
+          - [auth.js](#staticjsauthjs) 46
+          - [colorConversion.js](#staticjscolorconversionjs) 48
+          - [globalnav-floating-options.js](#staticjsglobalnav-floating-optionsjs) 50
+          - [login.js](#staticjsloginjs) 51
+          - [main.js](#staticjsmainjs) 51
+          - [signup.js](#staticjssignupjs) 52
+          - [site-create-options-1.js](#staticjssite-create-options-1js) 53
+          - [site-create-options-2.js](#staticjssite-create-options-2js) 59
+          - [site-create-options-3.js](#staticjssite-create-options-2js) 60
+          - [site-create.js](#staticjssite-createjs) 62
+          - [site-edit.js](#staticjssite-editjs) 65
         >
 
-      - [/templates](#templates)
-        - [base.html](#templatesbasehtml)
-        - [home-nosite.html](#templateshome-nositehtml)
-        - [home-sites.html](#templateshome-siteshtml)
-        - [login.html](#templatesloginhtml)
-        - [settings-admin.html](#templatessettings-adminhtml)
-        - [settings-base.html](#templatessettings-basehtml)
-        - [settings-code.html](#templatessettings-codehtml)
-        - [settings-dev.html](#templatessettings-devhtml)
-        - [settings-looks.html](#templatessettings-lookshtml)
-        - [settings-profile.html](#templatessettings-profilehtml)
-        - [settings-sites.html](#templatessettings-siteshtml)
-        - [signup.html](#templatessignup)
-        - [site-create-base.html](#templatessite-create-basehtml)
-        - [site-create-options-1.html](#templatessite-create-options-1html)
-        - [site-create-options-2.html](#templatessite-create-options-2html)
-        - [site-create-options-3.html](#templatessite-create-options-3html)
-        - [site-create.html](#templatessite-createhtml)
-        - [site-edit-home.html](#templatessite-edit-homehtml)
-        - [site-edit.html](#templatessite-edithtml)
+      - [/templates](#templates) 70
+        - [base.html](#templatesbasehtml) 70
+        - [home-nosite.html](#templateshome-nositehtml) 73
+        - [home-sites.html](#templateshome-siteshtml) 74
+        - [login.html](#templatesloginhtml) 75
+        - [settings-admin.html](#templatessettings-adminhtml) 76
+        - [settings-base.html](#templatessettings-basehtml) 79
+        - [settings-code.html](#templatessettings-codehtml) 81
+        - [settings-dev.html](#templatessettings-devhtml) 82
+        - [settings-looks.html](#templatessettings-lookshtml) 82
+        - [settings-profile.html](#templatessettings-profilehtml) 83
+        - [settings-sites.html](#templatessettings-siteshtml) 84
+        - [signup.html](#templatessignup) 86
+        - [site-create-base.html](#templatessite-create-basehtml) 87
+        - [site-create-options-1.html](#templatessite-create-options-1html) 88
+        - [site-create-options-2.html](#templatessite-create-options-2html) 91
+        - [site-create-options-3.html](#templatessite-create-options-3html) 93
+        - [site-create.html](#templatessite-createhtml) 95
+        - [site-edit-home.html](#templatessite-edit-homehtml) 97
+        - [site-edit.html](#templatessite-edithtml) 98
+
+<br><br><br><br>
+<br><br><br><br>
 
 ## File Structure Diagram
   For clarity, directories which contain large amounts of files, such as `/templates` or `/static/css` do not contain those files in the diagram. Files are tinted slightly darker than directories.
 
   <img alt="Flowchart showing the file structure of the code" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-filestructure.svg?raw=true" width="100%"/>
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
 
 ## Code
 
@@ -3570,10 +3578,20 @@
       <meta name="keywords" content="keywords">
 
       <!-- Site Icons -->
-      <!-- navbarLogoColor is a jinja variable that is defined in files that extend from this one. It defines what colour the logo should be - primary, secondary, or gradient -->
-      <link rel="apple-touch-icon" sizes="512x512" href="{{url_for('static', filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-128-128.png')}}">
-      <link rel="icon" type="image/png" sizes="128x128" href="{{url_for('static', filename='img/icon/128-128/kraken-icon-png-'+navbarLogoColor+'-128-128.png')}}">
-      <link rel="mask-icon" href="{{url_for('static', filename='img/icon/mask-icon/mask-icon.svg')}}">
+      <!-- navbarLogoColor is a jinja variable that is defined in files that
+      extend from this one. It defines what colour the logo should be -
+      primary, secondary, or gradient -->
+
+      <link rel="apple-touch-icon" sizes="512x512" href="{{url_for('static',
+      filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-128-128.png'
+      )}}">
+
+      <link rel="icon" type="image/png" sizes="128x128" href="{{url_for('static',
+      filename='img/icon/128-128/kraken-icon-png-'+navbarLogoColor+'-128-128.png'
+      )}}">
+
+      <link rel="mask-icon" href="{{url_for('static',
+      filename='img/icon/mask-icon/mask-icon.svg')}}">
 
       <meta name="apple-mobile-web-app-title" content="Kraken">
       <meta name="application-name" content="SiteName">
@@ -3588,7 +3606,8 @@
       <meta property="og:image:type" content="image/png">
       <meta property="og:image:width" content="512">
       <meta property="og:image:height" content="512">
-      <meta property="og:image" content="{{url_for('static', filename='img/icon/tab-icon/tab-icon-512-512.png')}}">
+      <meta property="og:image" content="{{url_for('static',
+      filename='img/icon/tab-icon/tab-icon-512-512.png')}}">
       <meta property="og:type" content="website">
       <meta property="og:url" content="PageUrl">
 
@@ -3597,17 +3616,22 @@
       <meta property="twitter:site" content="@TwitterHandle">
       <meta property="twitter:title" content="Kraken">
       <meta property="twitter:description" content="SiteDescription">
-      <meta property="twitter:image" content="{{url_for('static', filename='img/icon/tab-icon/tab-icon-512-512.png')}}">
+      <meta property="twitter:image" content="{{url_for('static',
+      filename='img/icon/tab-icon/tab-icon-512-512.png')}}">
       <meta property="twitter:url" content="PageUrl">
 
 
       <!-- Font Awesome Imports -->
       <script src="https://kit.fontawesome.com/73a2cc1270.js"></script>
-      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+      <link rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
 
       <!-- Internal Stylesheet Imports -->
-      <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css" />
-      <link href="{{url_for('static', filename='css/build.css')}}" rel="stylesheet" type="text/css" />
+      <link href="{{url_for('static', filename='css/main.css')}}"
+      rel="stylesheet" type="text/css" />
+
+      <link href="{{url_for('static', filename='css/build.css')}}" r
+      el="stylesheet" type="text/css" />
 
     </head>
     <body>
@@ -3615,65 +3639,85 @@
       <div class="page">
         <div class="application-container">
 
+          <!-- Navigation bar, docked on the left hand side -->
+          <!-- Contains the logo as a link to the homepage at the top, and a
+          hamburger at the bottom -->
+
           <nav class="globalnav globalnav-vertical">
             <div class="globalnav-content">
-                <div class="globalnav-list">
-                  <div class="globalnav-logo">
-                    <a class="globalnav-link globalnav-link-home link unformatted" href="{{ url_for('main_home') }}">
-                      <img class="globalnav-logo-image" alt="Kraken" src="{{url_for('static', filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-512-512.png')}}" preserveAspectRatio>
-                      <span class="globalnav-link-hidden-text visibly-hidden">Kraken</span>
-                    </a>
-                  </div>
-                  {% if navbarOptionsEnabled %}
-                    <ul class="globalnav-list">
-                      <li class="globalnav-item one fake" role="button"></li>
-                      <li class="globalnav-item two" role="button">
-                        <div class="hamburger hamburger--collapse js-hamburger" id="globalnav-hamburger">
-                          <div class="hamburger-box">
-                            <div class="hamburger-inner"></div>
-                          </div>
+              <div class="globalnav-list">
+                <div class="globalnav-logo">
+                  <a class="globalnav-link globalnav-link-home link unformatted"
+                    href="{{ url_for('main_home') }}">
+                    <img class="globalnav-logo-image" alt="Kraken" src="{{url_for(
+                      'static', filename='img/icon/512-512/kraken-icon-png-primary-
+                      512-512.png')}}" preserveAspectRatio>
+                    <span class="globalnav-link-hidden-text visibly-hidden">
+                      Kraken
+                    </span>
+                  </a>
+                </div>
+                  <ul class="globalnav-list">
+                    <li class="globalnav-item one fake" role="button"></li>
+                    <li class="globalnav-item two" role="button">
+                      <div class="hamburger hamburger--collapse js-hamburger"
+                        id="globalnav-hamburger">
+                        <div class="hamburger-box">
+                          <div class="hamburger-inner"></div>
                         </div>
-                      </li>
-                    </ul>
-                  {% endif %}
+                      </div>
+                    </li>
+                  </ul>
               </div>
             </div>
           </nav>
 
-          {% if navbarOptionsEnabled %}
+          <!-- Floating option modal for the navbar, which is opened and closed
+          via the hamburger in the navigation bar -->
 
           <div class="globalnav-floating-options">
-            <a class="globalnav-floating-option one" href="{{ url_for('main_home') }}">
-              <span class="globalnav-floating-option-content text header small dark">My Sites</span>
+            <!-- URL links are left blank for now as the pages have not yet
+            been created -->
+
+            <a class="globalnav-floating-option one" href="">
+              <span class="globalnav-floating-option-content text header small">
+              My Sites</span>
             </a>
 
-            <a class="globalnav-floating-option two" href="{{ url_for('settings') }}">
-              <span class="globalnav-floating-option-content text header small dark">Settings</span>
+            <a class="globalnav-floating-option two" href="">
+              <span class="globalnav-floating-option-content text header small">
+              Settings</span>
             </a>
 
-            <a class="globalnav-floating-option three" href="{{ url_for('auth_logout') }}">
-              <span class="globalnav-floating-option-content text header small dark">Logout</span>
+            <a class="globalnav-floating-option three" href="">
+              <span class="globalnav-floating-option-content text header small">
+              Logout</span>
             </a>
           </div>
 
+          <!-- Backdrop behind nav bar modal to apply a darkness filter behind
+          the modal -->
+
           <div class="globalnav-floating-options-backdrop"></div>
 
-          <script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}"></script>
-
-          {% endif %}
 
           <!-- External Script Imports -->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-          <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/
+          jquery.min.js"></script>
+          <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+          crossorigin="anonymous"></script>
 
           <!-- Internal Script Imports -->
           <script src="{{url_for('static', filename='js/main.js')}}"></script>
+          <script src="{{url_for('static', filename='js/globalnav-floating-options.
+          js')}}"></script>
 
           {% block content %}
           {% endblock %}
 
         </div>
       </div>
+
     </body>
   </html>
   ```
@@ -3687,7 +3731,8 @@
 
   {% block content %}
 
-  <link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet"
+  type="text/css" />
   <div class="application-content">
     <div class="text-header-container">
       <h2 class="text header large dark one">Welcome, {{current_user.name}}</h2>
@@ -3696,7 +3741,8 @@
       <div class="empty-image"></div>
       <div class="empty-text-container">
         <h4 class="text header dark one">Looks Pretty Empty Here...</h4>
-        <a class="text header two link primary" href="{{url_for('site_create')}}">Maybe you should create a new site?</a>
+        <a class="text header two link primary" href="{{url_for('site_create')}}">
+          Maybe you should create a new site?</a>
       </div>
     </div>
   </div>
@@ -3715,7 +3761,8 @@
 
   {% block content %}
 
-  <link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet"
+  type="text/css" />
   <div class="application-content">
 
     <div class="text-header-container">
@@ -3726,14 +3773,18 @@
 
       {% for site in sites %}
 
-      <a class="site-div link notformatted" href="{{url_for('site_edit_home',name=site[0],site=site[1])}}" style="background-color:{%if site[3]%}{{site[3]+'bb'}}{%else%}var(--colors-primary){%endif%}">
+      <a class="site-div link notformatted" href="{{url_for('site_edit_home',
+      name=site[0],site=site[1])}}" style="background-color:
+      {%if site[3]%}{{site[3]+'bb'}}{%else%}var(--colors-primary){%endif%}">
 
         {% if site[2] %}
-          <div class="site-div-private-watermark" style="position: absolute;opacity: 0.5;font-size: 136px;right: 16px;top: 16px;">
+          <div class="site-div-private-watermark" style="
+          position:absolute;opacity:0.5;font-size:136px;right:16px;top:16px;">
             <i class="faicon fa-regular fa-lock"></i>
           </div>
         {% else %}
-          <div class="site-div-public-watermark" style="position: absolute;opacity: 0.5;font-size: 136px;right: 16px;top: 16px;">
+          <div class="site-div-public-watermark" style="
+          position:absolute;opacity:0.5;font-size:136px;right:16px;top:16px;">
             <i class="faicon fa-regular fa-book-bookmark"></i>
           </div>
         {% endif %}
@@ -3743,16 +3794,14 @@
 
       {% endfor %}
 
-      <a class="site-div link notformatted" style="background-color:var(--colors-primary-light);display:flex;align-items:center;justify-content:center" href="{{url_for('site_create')}}">
-          <h5 class="site-div-title text header jumbo small one center">Create New Site</h5>
+      <a class="site-div link notformatted" style="
+      background-color:var(--colors-primary-light);display:flex;
+      align-items:center;justify-content:center" href="{{url_for('site_create')}}">
+          <h5 class="site-div-title text header jumbo small one center">
+            Create New Site
+          </h5>
       </a>
 
-      <!--
-      <div class="empty-text-container">
-        <h4 class="text header dark one">It Doesn't Look Pretty Empty Here...</h4>
-        <a class="text header two link primary" href="{{url_for('site_create')}}">I just forgot to load the sites</a>
-      </div>
-      -->
     </div>
 
   </div>
@@ -3770,7 +3819,9 @@
 
   {% block content %}
 
-  <link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet"
+  type="text/css" />
+
   <div class="application-content">
     <div class="text-header-container">
       <h2 class="text header xl dark one">Kraken - Login</h2>
@@ -3778,7 +3829,8 @@
         <li class="header-option header-option-login active notextselect">
           <h4 class="text header bold">Login</h4>
         </li>
-        <li class="header-option header-option-signup notextselect" onclick="window.location.href=`{{ url_for('auth_signup') }}`">
+        <li class="header-option header-option-signup notextselect"
+        onclick="window.location.href=`{{ url_for('auth_signup') }}`">
           <h4 class="text header bold">Signup</h4>
         </li>
       </ul>
@@ -3802,7 +3854,8 @@
         <div class="field-option field-option-name">
           <h4 class="text italic">{{item[0]}}</h4>
           <div class="field-input-container">
-            <input class="field-input" placeholder="{{item[1]}}" type="{{item[2]}}" name="{{item[3]}}" value="{{item[5]}}">
+            <input class="field-input" placeholder="{{item[1]}}"
+            type="{{item[2]}}" name="{{item[3]}}" value="{{item[5]}}">
             {% if item[4] %}
             <span class="eye-reveal">
               <i class="fa-solid fa-eye"></i>
@@ -3817,7 +3870,8 @@
         <div class="field-option field-option-remember">
           <h4 class="text italic">Remember Me</h4>
           <div class="field-input-container">
-            <input class="field-input" type="checkbox" name="remember" value={{messages[3]}}>
+            <input class="field-input" type="checkbox" name="remember"
+            value={{messages[3]}}>
             <span class="eye-spacer"></span>
           </div>
         </div>
@@ -3854,8 +3908,16 @@
   <form class="settings-content-options">
 
     <div class="settings-content-option one">
-      <h4 class="settings-content-option-title text dark bold">Change Username</h4>
-      <p class="settings-content-option-caption text small danger dark"><span class="text small danger bold">WARNING</span>. Changing your username can <a class="text small link danger bold">create issues</a>.</p>
+      <h4 class="settings-content-option-title text dark bold">
+        Change Username
+      </h4>
+
+      <p class="settings-content-option-caption text small danger dark">
+        <span class="text small danger bold">WARNING</span>.
+        Changing your username can
+        <a class="text small link danger bold">create issues</a>.
+      </p>
+
       <div class="btn primary thin rounded slide m-xs-t">
         <span class="btn-content text uppercase primary">Dew it</span>
       </div>
@@ -3863,54 +3925,101 @@
 
     <div class="settings-content-option one">
       <h4 class="settings-content-option-title text dark bold">Change Email</h4>
-      <input class="settings-content-option-input" type="text" name="settings_admin_email" placeholder="New Email"><br>
-      <input class="settings-content-option-input m-xs-t" type="password" name="settings_admin_email_password" placeholder="Password">
-      <p class="settings-content-option-caption text small dark">Your old and new email addresses will be sent confirmation codes in order to change them.</p>
+      <input class="settings-content-option-input" type="text"
+      name="settings_admin_email" placeholder="New Email">
+      <br>
+
+      <input class="settings-content-option-input m-xs-t" type="password"
+      name="settings_admin_email_password" placeholder="Password">
+
+      <p class="settings-content-option-caption text small dark">
+        Your old and new email addresses will be sent confirmation codes
+        in order to change them.
+      </p>
+
       <div class="btn primary thin rounded slide m-xs-t">
         <span class="btn-content text uppercase primary">Dew it</span>
       </div>
+
     </div>
 
     <div class="settings-content-separator one"></div>
 
     <div class="settings-content-option three">
-      <h4 class="settings-content-option-title text dark bold">Export Account Data</h4>
-      <p class="settings-content-option-caption text small dark">Export all metadata, websites, and other stored information for your account. They will be available to download here.</p>
+      <h4 class="settings-content-option-title text dark bold">
+        Export Account Data
+      </h4>
+
+      <p class="settings-content-option-caption text small dark">
+        Export all metadata, websites, and other stored information for your
+        account. They will be available to download here.
+      </p>
+
       <div class="btn primary thin rounded slide m-xs-t">
         <span class="btn-content text uppercase primary">Export Metadata</span>
       </div>
+
       <div class="btn primary thin rounded slide m-xs-t">
         <span class="btn-content text uppercase primary">Export Websites</span>
       </div>
+
       <div class="btn primary thin rounded slide m-xs-t">
         <span class="btn-content text uppercase primary">Download All</span>
       </div>
+
     </div>
 
     <div class="settings-content-separator two"></div>
 
     <div class="settings-content-option four">
-      <h4 class="settings-content-option-title text dark bold danger">Archive Account</h4>
-      <p class="settings-content-option-caption text small dark">This will disable your account until you wish to unlock it.</p>
+      <h4 class="settings-content-option-title text dark bold danger">
+        Archive Account
+      </h4>
+
+      <p class="settings-content-option-caption text small dark">
+        This will disable your account until you wish to unlock it.
+      </p>
+
       <div class="btn danger thin rounded slide m-xs-t">
-        <span class="btn-content text uppercase danger">Archive your account</span>
+        <span class="btn-content text uppercase danger">
+          Archive your account
+        </span>
       </div>
     </div>
 
     <div class="settings-content-option five">
-      <h4 class="settings-content-option-title text dark bold danger">Reset Account</h4>
-      <p class="settings-content-option-caption text small dark">This will remove all of your websites, custom code, and non-essential settings. The only remaining settings will be your username, name, email, and password. It is recommended that you export your account data before doing this.</p>
+      <h4 class="settings-content-option-title text dark bold danger">
+        Reset Account
+      </h4>
+
+      <p class="settings-content-option-caption text small dark">
+        This will remove all of your websites, custom code, and non-essential
+        settings. The only remaining settings will be your username, name,
+        email, and password. It is recommended that you export your account
+        data before doing this.
+      </p>
+
       <div class="btn danger thin rounded slide m-xs-t">
         <span class="btn-content text uppercase danger">Reset your account</span>
       </div>
+
     </div>
 
     <div class="settings-content-option six">
-      <h4 class="settings-content-option-title text dark bold danger">Delete Account</h4>
-      <p class="settings-content-option-caption text small dark">This will remove all trace of your account from our servers, and is an irreversable actions. It is recommended that you export your account data before doing this.</p>
+      <h4 class="settings-content-option-title text dark bold danger">
+        Delete Account
+      </h4>
+
+      <p class="settings-content-option-caption text small dark">
+        This will remove all trace of your account from our servers, and is an
+        irreversable action. It is recommended that you export your account data
+        before doing this.
+      </p>
+
       <div class="btn danger thin rounded slide m-xs-t">
         <span class="btn-content text uppercase danger">Delete your account</span>
       </div>
+
     </div>
 
   </form>
@@ -3929,7 +4038,9 @@
 
   {% block content %}
 
-  <link href="{{url_for('static', filename='css/settings.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{url_for('static', filename='css/settings.css')}}" rel="stylesheet"
+  type="text/css" />
+
   <div class="application-content">
     <div class="text-header-container">
       <h2 class="text header large dark one">Settings</h2>
@@ -3938,43 +4049,87 @@
     <div class="settings-container">
       <div class="settings-sidebar">
 
-        <a class="settings-sidebar-item one{% if settingsSidebarActivated==1 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==1 %}href="{{ url_for('settings_profile') }}"{% endif %}>
+        <a class="settings-sidebar-item one
+        {%if settingsSidebarActivated==1%} is-active{%endif%} link notformatted"
+        {% if not settingsSidebarActivated==1 %}
+        href="{{ url_for('settings_profile') }}"{% endif %}>
+
           <i class="settings-sidebar-item-icon fa-regular fa-user"></i>
-          <span class="settings-sidebar-item-title text large">Public Profile</span>
+          <span class="settings-sidebar-item-title text large">
+            Public Profile
+          </span>
         </a>
 
-        <a class="settings-sidebar-item two{% if settingsSidebarActivated==2 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==2 %}href="{{ url_for('settings_admin') }}"{% endif %}>
+        <a class="settings-sidebar-item two
+        {%if settingsSidebarActivated==2%} is-active{%endif%} link notformatted"
+        {% if not settingsSidebarActivated==2 %}
+        href="{{ url_for('settings_admin') }}"{% endif %}>
+
           <i class="settings-sidebar-item-icon fa-regular fa-gear"></i>
-          <span class="settings-sidebar-item-title text large">Account</span>
+          <span class="settings-sidebar-item-title text large">
+            Account
+          </span>
         </a>
 
-        <a class="settings-sidebar-item three{% if settingsSidebarActivated==3 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==3 %}href="{{ url_for('settings_looks') }}"{% endif %}>
+        <a class="settings-sidebar-item three
+        {%if settingsSidebarActivated==3%} is-active{%endif%} link notformatted"
+         {% if not settingsSidebarActivated==3 %}
+         href="{{ url_for('settings_looks') }}"{% endif %}>
+
           <i class="settings-sidebar-item-icon fa-regular fa-paintbrush"></i>
-          <span class="settings-sidebar-item-title text large">Appearance & Accessibility</span>
+          <span class="settings-sidebar-item-title text large">
+            Appearance & Accessibility
+          </span>
         </a>           
 
-        <div class="settings-sidebar-separator text one">Code and websites</div>
+        <div class="settings-sidebar-separator text one">
+          Code and websites
+        </div>
 
-        <a class="settings-sidebar-item four{% if settingsSidebarActivated==4 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==4 %}href="{{ url_for('settings_sites') }}"{% endif %}>
+        <a class="settings-sidebar-item four
+        {%if settingsSidebarActivated==4%} is-active{%endif%} link notformatted"
+        {% if not settingsSidebarActivated==4 %}
+        href="{{ url_for('settings_sites') }}"{% endif %}>
+
           <i class="settings-sidebar-item-icon fa-regular fa-browser"></i>
-          <span class="settings-sidebar-item-title text large">My Websites</span>
+          <span class="settings-sidebar-item-title text large">
+            My Websites
+          </span>
         </a>
 
-        <a class="settings-sidebar-item five{% if settingsSidebarActivated==5 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==5 %}href="{{ url_for('settings_code') }}"{% endif %}>
+        <a class="settings-sidebar-item five
+        {%if settingsSidebarActivated==5%} is-active{%endif%} link notformatted"
+        {%if not settingsSidebarActivated==5%}
+        href="{{ url_for('settings_code') }}"{% endif %}>
+
           <i class="settings-sidebar-item-icon fa-regular fa-list-timeline"></i>
-          <span class="settings-sidebar-item-title text large">Custom Code & Elements</span>
+          <span class="settings-sidebar-item-title text large">
+            Custom Code & Elements
+          </span>
         </a>
 
         <div class="settings-sidebar-separator text two"> </div>
 
-        <a class="settings-sidebar-item six{% if settingsSidebarActivated==6 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==6 %}href="{{ url_for('main_help') }}"{% endif %}>
+        <a class="settings-sidebar-item six
+        {%if settingsSidebarActivated==6%} is-active{%endif%} link notformatted"
+         {% if not settingsSidebarActivated==6 %}
+         href="{{ url_for('main_help') }}"{% endif %}>
+
           <i class="settings-sidebar-item-icon fa-regular fa-book-blank"></i>
-          <span class="settings-sidebar-item-title text large">Help & Documentation</span>
+          <span class="settings-sidebar-item-title text large">
+            Help & Documentation
+          </span>
         </a>
 
-        <a class="settings-sidebar-item seven{% if settingsSidebarActivated==7 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==7 %}href="{{ url_for('settings_dev') }}"{% endif %}>
+        <a class="settings-sidebar-item seven
+        {%if settingsSidebarActivated==7%} is-active{%endif%} link notformatted"
+        {%if not settingsSidebarActivated==7%}
+        href="{{ url_for('settings_dev') }}"{% endif %}>
+
           <i class="settings-sidebar-item-icon fa-regular fa-code-simple"></i>
-          <span class="settings-sidebar-item-title text large">Developer settings</span>
+          <span class="settings-sidebar-item-title text large">
+            Developer settings
+          </span>
         </a>
 
       </div>
@@ -4043,14 +4198,19 @@
 
   {% block settings_content %}
 
-  <h3 class="settings-content-header text header dark">Appearance and Accessibility</h3>
+  <h3 class="settings-content-header text header dark">
+    Appearance and Accessibility
+  </h3>
 
   <form class="settings-content-options">
 
     <div class="settings-content-option one">
-      <h4 class="settings-content-option-title text dark bold">Tab Preference</h4>
+      <h4 class="settings-content-option-title text dark bold">
+        Tab Preference
+      </h4>
 
-      <select class="settings-content-option-input" name="settings_looks_tab_preference">
+      <select class="settings-content-option-input"
+      name="settings_looks_tab_preference">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -4062,7 +4222,11 @@
         <option value="12">12</option>
       </select>
 
-      <p class="settings-content-option-caption text small dark">When editing and rendering code, this determines how many spaces represent one tab. (Doesn't do anything yet lmao)</p>
+      <p class="settings-content-option-caption text small dark">
+        When editing and rendering code, this determines how many spaces
+        represent one tab. (Doesn't do anything yet)
+      </p>
+
     </div>
 
   </form>
@@ -4088,35 +4252,54 @@
 
     <div class="settings-content-option one">
       <h4 class="settings-content-option-title text dark bold">Name</h4>
-      <input class="settings-content-option-input" type="text" name="settings_profile_name" placeholder="{{current_user.name}}">
-      <p class="settings-content-option-caption text small dark">Your name probably isn't used much yet, but may appear in reference to websites that you have created. Your current name is set to "{{current_user.name}}".</p>
+      <input class="settings-content-option-input" type="text"
+      name="settings_profile_name" placeholder="{{current_user.name}}">
+      <p class="settings-content-option-caption text small dark">
+        Your name probably isn't used much yet, but may appear in reference to
+        websites that you have created. Your current name is set to
+        "{{current_user.name}}".
+      </p>
     </div>
 
     <div class="settings-content-option two">
       <h4 class="settings-content-option-title text dark bold">Profile Picture</h4>
       <div class="settings-content-option-image-upload">
-        <figure class="settings-content-option-image-upload-figure" style="background-image:url({{ url_for('static',filename='data/userIcons/'+current_user.user_id+'.png') }})"></figure>
+        <figure class="settings-content-option-image-upload-figure"
+        style="background-image:url({{ url_for('static',
+        filename='data/userIcons/'+current_user.user_id+'.png') }})"></figure>
       </div>
-      <p class="settings-content-option-caption text small dark">The image must be a minimum of 200x200 pixels, and in a 1:1 ratio. This is not operational yet, and probably won't be for a while.</p>
+
+      <p class="settings-content-option-caption text small dark">
+        The image must be a minimum of 200x200 pixels, and in a 1:1 ratio.
+        This is not operational yet, and probably won't be for a while.
+      </p>
     </div>
 
     <div class="settings-content-separator one"></div>
 
     <div class="settings-content-option three">
       <h4 class="settings-content-option-title text dark bold">Bio</h4>
-      <textarea class="settings-content-option-input" type="text" name="settings_profile_bio" maxlength=240 placeholder="Tell us about yourself"></textarea>
+      <textarea class="settings-content-option-input" type="text"
+      name="settings_profile_bio" maxlength=240
+      placeholder="Tell us about yourself"></textarea>
     </div>
 
     <div class="settings-content-option four">
       <h4 class="settings-content-option-title text dark bold">Url</h4>
-      <input class="settings-content-option-input" type="text" name="settings_profile_url">
+      <input class="settings-content-option-input" type="text"
+      name="settings_profile_url">
     </div>
 
     <div class="settings-content-separator two"></div>
 
     <div class="settings-content-option settings-content-update">
 
-      <p class="settings-content-option-caption text small dark">All of the above fields are optional and can be left blank. By filling them out, you agree that this information can be displayed publically and stored in our servers. We don't have a privacy statement, but we probably should.</p>
+      <p class="settings-content-option-caption text small dark">
+        All of the above fields are optional and can be left blank.
+        By filling them out, you agree that this information can be displayed
+        publicly and stored in our servers. We don't have a privacy statement,
+        but we probably should.
+      </p>
 
       <button class="field-submit btn primary thin rounded slide" type="submit">
         <span class="btn-content text uppercase primary">Update Profile</span>
@@ -4147,19 +4330,38 @@
 
     <div class="settings-content-table">
       <div class="settings-content-table-header">
-        <div class="settings-content-table-row"><span class="text header dark">Websites</span></div>
-        <div class="settings-content-table-row"><span class="text header small dark">@{{current_user.user_id}}</span></div>
+        <div class="settings-content-table-row">
+          <span class="text header dark">Websites</span>
+        </div>
+        <div class="settings-content-table-row">
+          <span class="text header small dark">@{{current_user.user_id}}</span>
+        </div>
       </div>
 
       <div class="settings-content-table-content">
 
         {% for site in flashedSiteNames %}
 
-        <div class="settings-content-table-row {% if site==flashedSiteNames[-1] %}last-row{% endif %}">
-          <span class="settings-content-table-row-icon text dark"><i class="fa-regular {% if site[2] %}fa-lock{% else %}fa-book-bookmark{%endif%}"></i></span>
-          <span class="settings-content-table-row-title text dark"><a href='{{url_for("site_edit_home",name=site[0],site=site[1])}}' class="text link dark notformatted">@{{site[0]}}/{{site[1]}}</a></span>
-          <span class="settings-content-table-row-size text dark">{{site[3]}}</span>
-          <span class="settings-content-table-row-settings text dark"><a href='{{url_for("site_edit_home",name=site[0],site=site[1])}}' class="text link primary notformatted">Website Settings</a></span>
+        <div class="settings-content-table-row
+        {% if site==flashedSiteNames[-1] %}last-row{% endif %}">
+          <span class="settings-content-table-row-icon text dark">
+            <i class="fa-regular {% if site[2] %}fa-lock{% else %}
+            fa-book-bookmark{%endif%}"></i>
+          </span>
+
+          <span class="settings-content-table-row-title text dark">
+            <a href='{{url_for("site_edit_home",name=site[0],site=site[1])}}'
+            class="text link dark notformatted">@{{site[0]}}/{{site[1]}}</a>
+          </span>
+
+          <span class="settings-content-table-row-size text dark">
+            {{site[3]}}
+          </span>
+
+          <span class="settings-content-table-row-settings text dark">
+            <a href='{{url_for("site_edit_home",name=site[0],site=site[1])}}'
+            class="text link primary notformatted">Website Settings</a>
+          </span>
         </div>
 
 
@@ -4183,12 +4385,14 @@
 
   {% block content %}
 
-  <link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet"
+  type="text/css" />
   <div class="application-content">
     <div class="text-header-container">
       <h2 class="text header xl dark one">Kraken - Signup</h2>
       <ul class="header-options">
-        <div class="header-option header-option-login notextselect" onclick="window.location.href=`{{ url_for('auth_login') }}`">
+        <div class="header-option header-option-login notextselect"
+        onclick="window.location.href=`{{ url_for('auth_login') }}`">
           <h4 class="text header bold">Login</h4>
         </div>
         <div class="header-option header-option-signup active notextselect">
@@ -4218,7 +4422,8 @@
         <div class="field-option field-option-name">
           <h4 class="text italic">{{item[0]}}</h4>
           <div class="field-input-container">
-            <input class="field-input" placeholder="{{item[1]}}" type="{{item[2]}}" name="{{item[3]}}" value="{{item[5]}}">
+            <input class="field-input" placeholder="{{item[1]}}"
+            type="{{item[2]}}" name="{{item[3]}}" value="{{item[5]}}">
             {% if item[4] %}
             <span class="eye-reveal">
               <i class="fa-solid fa-eye"></i>
@@ -4254,7 +4459,9 @@
 
   {% block content %}
 
-  <link href="{{url_for('static', filename='css/site-create.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{url_for('static', filename='css/site-create.css')}}"
+  rel="stylesheet" type="text/css" />
+
   <div class="application-content">
     <div class="text-header-container">
       <h2 class="text header large dark one">Create a new site</h2>
@@ -4279,68 +4486,194 @@
   {% set navbarLogoColor = "primary" %}
   {% set navbarOptionsEnabled = True %}
 
-  {% set fontsList = [
-
-  ["Lexend","Roboto",True,True],
-  ["Prata","Lato",True,True],
-  ["DM Sans","Catamaran",True,True],
-  ["Titillium Web","Raleway",True,True],
-  ["Caudex","PT Mono",True,True],
-  ["Noto Serif Display","Lora",True,True],
-  ["Staatliches","Syne Mono",True,True],
-
-  ]
-  %}
-
   {% block site_create_base %}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <p class="text dark">Choose a color scheme!</p>
+    <div class="horizontal-separator one m-s-v"></div>
 
-  <p class="text dark">Choose font family - individual elements can be customised</p>
-  <div class="horizontal-separator one m-s-v"></div>
+    <form class="new-site-form two" method="post">
 
-  <form class="new-site-form three" method="post">
+      <div class="light-dark-selector-container">
+        <div class="light-dark-selector">
+          <h2 class="text large center one">Light or dark mode?</h2>
+          <div class="button-container">
 
-    <div class="text-options">
-      {%for fontList in fontsList%}
+            <div class="btn primary thin rounded slide from-left m-xs-t"
+            id="new_site_lightModeToggle">
+              <span class="btn-content text uppercase primary notextselect">
+                Light
+              </span>
+            </div>
 
-      {%set counter=fontsList.index(fontList)+1%}
+            <div class="btn secondary thin rounded slide from-right m-xs-t"
+            id="new_site_darkModeToggle">
+              <span class="btn-content text uppercase secondary notextselect">
+                Dark
+              </span>
+            </div>
 
-      {%set headerFont=fontList[0]%}
-      {%set paraFont=fontList[1]%}
+          </div>
+        </div>
+      </div>
 
-      <div class="text-option {{counter}}{%if counter==1%} active{%endif%}">
+      <div class="horizontal-separator one m-s-v"></div>
 
-        {%if fontList[2]%}
-        <link href="https://fonts.googleapis.com/css2?family={{headerFont}}&display=swap" rel="stylesheet">
-        {%endif%}
+      <div class="horizontal-separator two m-s-v"></div>
 
-        {%if fontList[3]%}
-        <link href="https://fonts.googleapis.com/css2?family={{paraFont}}&display=swap" rel="stylesheet">
-        {%endif%}
+      <div class="color-options">
+        <div class="input-slider-option one">
+          <span class="text dark bold">Light & Dark Bounds</span>
+          <div class="input-slider-and-number">
+            <input class="input sliding-input" type="range" min="0" max="100"
+            value="100" name="new_site_colors_light_dark_bounds"
+            id="new_site_colors_light_dark_bounds_slider">
+            <input class="input small-number-input" type="text"
+            pattern="[-+]?d*" min="-100" max="100"
+            id="new_site_colors_light_dark_bounds_number">
+          </div>
+        </div>
+        <div class="input-slider-option two">
+          <span class="text dark bold">Monochromatic Temperature</span>
+          <div class="input-slider-and-number">
+            <input class="input sliding-input" type="range" min="-100"
+            max="100" value="0" name="new_site_colors_monochromatic_tint"
+            id="new_site_colors_monochromatic_temperature_slider">
+            <input class="input small-number-input" type="text"
+            pattern="[-+]?d*" min="-100" max="100"
+            id="new_site_colors_monochromatic_temperature_number">
+          </div>
+        </div>
+      </div>
 
-        <div class="text-option-header text header dark one" style="font-family:'{{headerFont}}'">{{headerFont}}</div>
-        <div class="text-option-paragraph text two" style="font-family:'{{paraFont}}'">Paragraph text - {{paraFont}}</div>
+      <div class="horizontal-separator three m-s-v"></div>
 
-        <input class="visibly-hidden text-option-list" value="{{headerFont}},{{paraFont}}" name="new_site_font_face_list_{%if counter==1%}active{%else%}inactive{%endif%}">
+      <div class="color-display-container">
+
+        <div class="color-display light-dark-display">
+          <div class="color-single-card light-color"
+          style="background-color:#ffffff;color:#000000">
+            <span class="color-code text uppercase center">#ffffff</span>
+          </div>
+          <div class="color-single-card dark-color"
+          style="background-color:#000000;color:#ffffff">
+            <span class="color-code text uppercase center">#000000</span>
+          </div>
         </div>
 
-      {%endfor%}
-    </div>
+        <div class="color-display main-color-display">
 
-    <div class="submit-container">
-      <button class="field-submit btn primary thin rounded slide" type="submit">
-        <span class="btn-content text uppercase primary">Continue</span>
-      </button>
-    </div>
+          <div class="color-triple-card primary-color">
+            <input type="color" class="color-card-picker-input"
+            id="new_site_colors_primary_picker" value="#e63946">
 
-  </form>
+            <div class="color-triple-card-main"
+            style="background-color:#e63946;color:#000000">
+              <span class="color-code text uppercase center">#e63946</span>
+            </div>
 
-  <script src="{{url_for('static', filename='js/colorConversion.js')}}"></script>
-  <script src="{{url_for('static', filename='js/site-create-options-2.js')}}"></script>
+            <div class="color-triple-card-sub-container">
+              <div class="color-triple-card-sub one"
+              style="background-color:#ba2b36;color:#000000"></div>
+              <div class="color-triple-card-sub two"
+              style="background-color:#f2414f;color:#000000"></div>
+            </div>
+          </div>
+
+          <div class="color-triple-card secondary-color">
+            <input type="color" class="color-card-picker-input"
+            id="new_site_colors_secondary_picker" value="#457b9d">
+            <div class="color-triple-card-main"
+            style="background-color:#457b9d;color:#000000">
+              <span class="color-code text uppercase center">#457b9d</span>
+            </div>
+            <div class="color-triple-card-sub-container">
+              <div class="color-triple-card-sub one"
+              style="background-color:#3f708f;color:#000000"></div>
+              <div class="color-triple-card-sub two"
+              style="background-color:#508eb5;color:#000000"></div>
+            </div>
+          </div>
+
+          <div class="color-triple-card accent-color">
+            <input type="color" class="color-card-picker-input"
+            id="new_site_colors_accent_picker" value="#a8dadc">
+            <div class="color-triple-card-main"
+            style="background-color:#a8dadc;color:#000000">
+              <span class="color-code text uppercase center">#a8dadc</span>
+            </div>
+            <div class="color-triple-card-sub-container">
+              <div class="color-triple-card-sub one"
+              style="background-color:#93c5c7;color:#000000"></div>
+              <div class="color-triple-card-sub two"
+              style="background-color:#b4ebed;color:#000000"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="color-display grey-display">
+          <div class="color-columns grey-colors expanding-columns-container">
+
+            <div class="color-column expanding-column g900"
+            style="background-color:#303030;color:#ffffff">
+            <span class="color-code expanding-text text uppercase center">
+              #303030</span></div>
+            <div class="color-column expanding-column g800"
+            style="background-color:#474747;color:#ffffff">
+            <span class="color-code expanding-text text uppercase center">
+              #474747</span></div>
+            <div class="color-column expanding-column g700"
+            style="background-color:#5e5e5e;color:#ffffff">
+            <span class="color-code expanding-text text uppercase center">
+              #5e5e5e</span></div>
+            <div class="color-column expanding-column g600"
+            style="background-color:#757575;color:#ffffff">
+            <span class="color-code expanding-text text uppercase center">
+              #757575</span></div>
+            <div class="color-column expanding-column g500"
+            style="background-color:#8c8c8c;color:#000000">
+            <span class="color-code expanding-text text uppercase center">
+              #8c8c8c</span></div>
+            <div class="color-column expanding-column g400"
+            style="background-color:#a3a3a3;color:#000000">
+            <span class="color-code expanding-text text uppercase center">
+              #a3a3a3</span></div>
+            <div class="color-column expanding-column g300"
+            style="background-color:#bababa;color:#000000">
+            <span class="color-code expanding-text text uppercase center">
+              #bababa</span></div>
+            <div class="color-column expanding-column g200"
+            style="background-color:#d1d1d1;color:#000000">
+            <span class="color-code expanding-text text uppercase center">
+              #d1d1d1</span></div>
+            <div class="color-column expanding-column g100"
+            style="background-color:#e8e8e8;color:#000000">
+            <span class="color-code expanding-text text uppercase center">
+              #e8e8e8</span></div>
+
+            </div>
+          </div>
+
+      </div>
+
+      <div class="submit-container">
+        <button class="field-submit btn primary thin rounded slide" type="submit">
+          <span class="btn-content text uppercase primary">Continue</span>
+        </button>
+      </div>
+
+      <input id="color-output" class="visibly-hidden" type="text" value="."
+      name="new_site_color_options_dict">
+
+    </form>
+
+    <script src="{{url_for('static', filename='js/colorConversion.js')}}">
+    </script>
+    <script src="{{url_for('static', filename='js/site-create-options-1.js')}}">
+    </script>
 
   {% endblock %}
+
   ```
 
 ### /templates/site-create-options-2.html
@@ -4368,7 +4701,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <p class="text dark">Choose font family - individual elements can be customised</p>
+  <p class="text dark">
+    Choose font family - individual elements can be customised
+  </p>
+
   <div class="horizontal-separator one m-s-v"></div>
 
   <form class="new-site-form three" method="post">
@@ -4384,17 +4720,25 @@
       <div class="text-option {{counter}}{%if counter==1%} active{%endif%}">
 
         {%if fontList[2]%}
-        <link href="https://fonts.googleapis.com/css2?family={{headerFont}}&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family={{headerFont}}
+        &display=swap" rel="stylesheet">
         {%endif%}
 
         {%if fontList[3]%}
-        <link href="https://fonts.googleapis.com/css2?family={{paraFont}}&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family={{paraFont}}
+        &display=swap" rel="stylesheet">
         {%endif%}
 
-        <div class="text-option-header text header dark one" style="font-family:'{{headerFont}}'">{{headerFont}}</div>
-        <div class="text-option-paragraph text two" style="font-family:'{{paraFont}}'">Paragraph text - {{paraFont}}</div>
+        <div class="text-option-header text header dark one"
+        style="font-family:'{{headerFont}}'">{{headerFont}}</div>
 
-        <input class="visibly-hidden text-option-list" value="{{headerFont}},{{paraFont}}" name="new_site_font_face_list_{%if counter==1%}active{%else%}inactive{%endif%}">
+        <div class="text-option-paragraph text two"
+        style="font-family:'{{paraFont}}'">Paragraph text - {{paraFont}}</div>
+
+        <input class="visibly-hidden text-option-list"
+        value="{{headerFont}},{{paraFont}}" name="new_site_font_face_list_
+        {%if counter==1%}active{%else%}inactive{%endif%}">
+
       </div>
 
       {%endfor%}
@@ -4408,8 +4752,11 @@
 
   </form>
 
-  <script src="{{url_for('static', filename='js/colorConversion.js')}}"></script>
-  <script src="{{url_for('static', filename='js/site-create-options-2.js')}}"></script>
+  <script src="{{url_for('static', filename='js/colorConversion.js')}}">
+  </script>
+
+  <script src="{{url_for('static', filename='js/site-create-options-2.js')}}">
+  </script>
 
   {% endblock %}
   ```
@@ -4442,7 +4789,8 @@
       </div>
 
       <div class="button-option-container">
-        <div class="button-option corner-options" style="opacity:0;visibility:hidden;">
+        <div class="button-option corner-options"
+        style="opacity:0;visibility:hidden;">
           <div class="btn secondary thin square slide option-true">
             <span class="btn-content text uppercase">Squared</span>
           </div>
@@ -4458,7 +4806,8 @@
       </div>
 
       <div class="button-option-container">
-        <div class="button-option thin-or-large" style="opacity:0;visibility:hidden;">
+        <div class="button-option thin-or-large"
+        style="opacity:0;visibility:hidden;">
         <div class="btn secondary thin rounded slide option-true">
           <span class="btn-content text uppercase">Thin</span>
         </div>
@@ -4470,7 +4819,8 @@
       </div>
 
       <div class="button-option-container">
-        <div class="button-option left-or-right" style="opacity:0;visibility:hidden;">
+        <div class="button-option left-or-right"
+        style="opacity:0;visibility:hidden;">
         <div class="btn secondary thin rounded slide from-left option-true">
           <span class="btn-content text uppercase">From Left</span>
         </div>
@@ -4485,17 +4835,21 @@
     <div class="horizontal-separator two m-s-v"></div>
 
     <div class="submit-container">
-      <button class="field-submit btn primary thin rounded slide" type="submit" disabled>
+      <button class="field-submit btn primary thin rounded slide"
+      type="submit" disabled>
         <span class="btn-content text uppercase primary">Continue</span>
       </button>
     </div>
 
-    <input id="style-option-output" class="visibly-hidden" type="text" value="." name="new_site_style_options_list">
+    <input id="style-option-output" class="visibly-hidden" type="text"
+    value="." name="new_site_style_options_list">
 
   </form>
 
-  <script src="{{url_for('static', filename='js/colorConversion.js')}}"></script>
-  <script src="{{url_for('static', filename='js/site-create-options-3.js')}}"></script>
+  <script src="{{url_for('static', filename='js/colorConversion.js')}}">
+  </script>
+  <script src="{{url_for('static', filename='js/site-create-options-3.js')}}">
+  </script>
 
   {% endblock %}
   ```
@@ -4509,7 +4863,10 @@
 
   {% block site_create_base %}
 
-    <p class="text dark">Want to import an exported site? <a class="link text primary">Import a website.</a></p>
+    <p class="text dark">
+      Want to import an exported site?
+      <a class="link text primary">Import a website.</a>
+    </p>
     <div class="horizontal-separator one m-s-v"></div>
 
     <form class="new-site-form one" method="post">
@@ -4517,47 +4874,79 @@
       <div class="form-input-container one">
         <div class="form-input-content-column">
           <span class="text large dark one">Owner</span>
-          <span class="text large dark two"><span>@{{current_user.user_id}}</span><span class="m-m-l m-s-r">/</span></span>
+          <span class="text large dark two">
+            <span>@{{current_user.user_id}}</span>
+            <span class="m-m-l m-s-r">/</span>
+          </span>
         </div>
         <div class="form-input-content-column">
-          <span class="text large dark one">Website Name <sup class="text large danger">*</sup></span>
-          <input id="new_site_name" class="new-site-input text dark two input small-text-input" data-form-input-display="inactive" type="text" name="new_site_name">
+
+          <span class="text large dark one">
+            Website Name
+            <sup class="text large danger">*</sup>
+          </span>
+
+          <input id="new_site_name" class="new-site-input text dark two input
+          small-text-input" data-form-input-display="inactive" type="text"
+          name="new_site_name">
+
         </div>
-        <div class="message-container m-s-t text small one visibly-hidden">Your site name will look like: <span class="message-container-jsedit"></span></div>
-        <p class="text dark m-s-t two">The name must be at least 4 characters long, and contain only lowercase alphanumeric characters, dashes, underscores and periods. Any illegal characters will be converted into dashes. It must also be unique! If you need inspiration for a name, you ain't gonna get any from me :)</p>
+
+        <div class="message-container m-s-t text small one visibly-hidden">
+          Your site name will look like: <span class="message-container-jsedit">
+          </span>
+        </div>
+
+        <p class="text dark m-s-t two">
+          The name must be at least 4 characters long, and contain only
+          lowercase alphanumeric characters, dashes, underscores and periods.
+          Any illegal characters will be converted into dashes.
+          It must also be unique! If you need inspiration for a name,
+          you ain't gonna get any from me :)</p>
       </div>
 
       <div class="horizontal-separator two m-s-v"></div>
 
       <div class="form-input-container three">
         <span class="text large dark one">Description (Optional)</span>
-        <input id="new_site_desc" class="new-site-input text dark two input small-text-input" type="text" name="new_site_desc">
+        <input id="new_site_desc" class="new-site-input text dark two input
+        small-text-input" type="text" name="new_site_desc">
       </div>
 
       <div class="horizontal-separator three m-s-v"></div>
 
       <div class="form-input-container two">
         <div class="input-checkbox">
-          <input class="input-checkbox-input" name="new_site_privacy" id="new_site_privacy_visible" type="radio" value="public">
-          <span class="input-checkbox-icon"><i class="faicon fa-regular fa-book-bookmark"></i></span>
+          <input class="input-checkbox-input" name="new_site_privacy"
+          id="new_site_privacy_visible" type="radio" value="public">
+          <span class="input-checkbox-icon">
+            <i class="faicon fa-regular fa-book-bookmark"></i>
+          </span>
           <div class="input-checkbox-text-container">
             <span class="input-checkbox-title text bold one">Public</span>
-            <span class="input-checkbox-caption text small two">Anyone online can see this website. Only you can edit it.</span>
+            <span class="input-checkbox-caption text small two">
+              Anyone online can see this website. Only you can edit it.
+            </span>
           </div>
         </div>
 
         <div class="input-checkbox">
-          <input class="input-checkbox-input" name="new_site_privacy" id="new_site_privacy_hidden" type="radio" value="private">
-          <span class="input-checkbox-icon"><i class="faicon fa-regular fa-lock" style="color: var(--colors-warning)"></i></span>
+          <input class="input-checkbox-input" name="new_site_privacy"
+          id="new_site_privacy_hidden" type="radio" value="private">
+          <span class="input-checkbox-icon"><i class="faicon fa-regular fa-lock"
+            style="color: var(--colors-warning)"></i></span>
           <div class="input-checkbox-text-container">
             <span class="input-checkbox-title text bold one">Private</span>
-            <span class="input-checkbox-caption text small two">Only people who you give the link can view the website.</span>
+            <span class="input-checkbox-caption text small two">
+              Only people who you allow can view the website.
+            </span>
           </div>
         </div>
 
         <div class="horizontal-separator three m-s-v"></div>
 
-        <button class="field-submit btn primary thin rounded slide" type="submit" disabled=true id="new_site_form_submit">
+        <button class="field-submit btn primary thin rounded slide" type="submit"
+        disabled=true id="new_site_form_submit">
           <span class="btn-content text uppercase primary">Create Site</span>
         </button>
       </div>
@@ -4586,7 +4975,9 @@
 
   {% block content %}
 
-  <link href="{{url_for('static', filename='css/settings.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{url_for('static', filename='css/settings.css')}}"
+  rel="stylesheet" type="text/css" />
+
   <div class="application-content">
     <div class="text-header-container">
         <h2 class="text header large dark one">{{currentSite}}</h2>
@@ -4595,12 +4986,18 @@
     <div class="settings-container">
       <div class="settings-sidebar">
 
-        <a class="settings-sidebar-item one{% if settingsSidebarActivated==1 %} is-active{% endif %} link notformatted" {% if not settingsSidebarActivated==1 %}href="{{ url_for('site_edit_home',name=currentName,site=currentSite) }}"{% endif %}>
+        <a class="settings-sidebar-item one
+        {%if settingsSidebarActivated==1%} is-active{%endif%} link notformatted"
+        {% if not settingsSidebarActivated==1 %}
+        href="{{ url_for('site_edit_home',name=currentName,site=currentSite) }}"
+        {% endif %}>
+
           <i class="settings-sidebar-item-icon fa-regular fa-browser"></i>
           <span class="settings-sidebar-item-title text large">Home</span>
         </a>
 
-        <a class="settings-sidebar-item two link notformatted" href="{{ url_for('site_edit_app',name=currentName,site=currentSite) }}">
+        <a class="settings-sidebar-item two link notformatted"
+        href="{{ url_for('site_edit_app',name=currentName,site=currentSite) }}">
           <i class="settings-sidebar-item-icon fa-regular fa-pen-to-square"></i>
           <span class="settings-sidebar-item-title text large">Edit Site</span>
         </a>
@@ -4632,15 +5029,19 @@
 
   {% block content %}
 
-  <link href="{{url_for('static', filename='css/site-edit.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{url_for('static', filename='css/site-edit.css')}}"
+  rel="stylesheet" type="text/css" />
+
   <script>
-    fetch("{{url_for('static', filename='data/userData/'+currentName+'/sites/'+currentSite+'/siteDat.json')}}").then(response => {
+    fetch("{{url_for('static', filename='data/userData/'+currentName+'/sites/'
+    +currentSite+'/siteDat.json')}}").then(response => {
      return response.json();
     })
   .then(jsondata => console.log(jsondata));
   </script>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+  </script>
 
   <div class="lightbox-mask"></div>
 
@@ -4652,30 +5053,46 @@
           <ul class="localnav-list" style="height:30%">
             <li class="localnav-item one">
               <a class="link unformatted">
-                <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-layer-group"></i></div>
-                <div class="localnav-item-collapsible-text text bold primary">Website Pages</div>
+                <div class="localnav-item-collapsible-icon">
+                  <i class="faicon fa-solid fa-layer-group"></i>
+                </div>
+                <div class="localnav-item-collapsible-text text bold primary">
+                  Website Pages
+                </div>
               </a>
             </li>
 
             <li class="localnav-item two">
               <a class="link unformatted" id="localnav_add_section_btn">
-                <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-circle-plus"></i></div>
-                <div class="localnav-item-collapsible-text text bold primary">Add Section</div>
+                <div class="localnav-item-collapsible-icon">
+                  <i class="faicon fa-solid fa-circle-plus"></i>
+                </div>
+                <div class="localnav-item-collapsible-text text bold primary">
+                  Add Section
+                </div>
               </a>
             </li>
 
             <li class="localnav-item three">
               <a class="link unformatted">
-                <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-paintbrush"></i></div>
-                <div class="localnav-item-collapsible-text text bold primary">Website Styles</div>
+                <div class="localnav-item-collapsible-icon">
+                  <i class="faicon fa-solid fa-paintbrush"></i>
+                </div>
+                <div class="localnav-item-collapsible-text text bold primary">
+                  Website Styles
+                </div>
               </a>
             </li>
             </ul>
 
             <li class="localnav-item four">
               <a class="link unformatted">
-                <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-gear"></i></div>
-                <div class="localnav-item-collapsible-text text bold primary">Website Settings</div>
+                <div class="localnav-item-collapsible-icon">
+                  <i class="faicon fa-solid fa-gear"></i>
+                </div>
+                <div class="localnav-item-collapsible-text text bold primary">
+                  Website Settings
+                </div>
               </a>
             </li>
 
@@ -4687,13 +5104,16 @@
 
     <div class="section-selector-container">
         <div class="section-selector">
-            <div class="section-selector-exit-btn"><i class="faicon fa-solid fa-xmark"></i></div>
+            <div class="section-selector-exit-btn">
+              <i class="faicon fa-solid fa-xmark"></i>
+            </div>
 
             <div class="section-selector-sidebar">
                 <div class="section-selector-nav" id="section_selector_nav">
                   <div class="section-selector-nav-content">
                       <ul class="section-selector-nav-list">
-                        <ul class="section-selector-nav-list two" style="height:30%">
+                        <ul class="section-selector-nav-list two"
+                        style="height:30%">
 
                       </ul>
                       </ul>
@@ -4712,7 +5132,8 @@
     </div>
 
     <div class="site-builder">
-      <link href="{{url_for('static', filename='css/default_content_style.css')}}" rel="stylesheet" type="text/css" />
+      <link href="{{url_for('static', filename='css/default_content_style.css')}}"
+      rel="stylesheet" type="text/css" />
       <div class="site-builder-preview" id="contains_site">
 
       </div>
