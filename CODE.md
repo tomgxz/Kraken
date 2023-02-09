@@ -825,7 +825,13 @@
     bottom: -5px;
     right: -8px;
     opacity:1;
-    transition:background-color 200ms ease-in-out,width 200ms ease-in-out,height 200ms ease-in-out,bottom 200ms ease-in-out,right 200ms ease-in-out,opacity 200ms ease-in-out;
+    transition:
+      background-color 200ms ease-in-out,
+      width 200ms ease-in-out,
+      height 200ms ease-in-out,
+      bottom 200ms ease-in-out,
+      right 200ms ease-in-out,
+      opacity 200ms ease-in-out;
   }
 
   .application-content .header-option.active::after {
@@ -903,8 +909,10 @@
     font-family: var(--font-body);
   }
 
-  .application-content .field-container .field-option .field-input-container .eye-reveal,
-  .application-content .field-container .field-option .field-input-container .eye-spacer {
+  .application-content .field-container .field-option .field-input-container
+  .eye-reveal,
+  .application-content .field-container .field-option .field-input-container
+  .eye-spacer {
     width:19px;
     height:19px;
     display:flex;
@@ -913,7 +921,8 @@
     margin-left:8px;
   }
 
-  .application-content .field-container .field-option .field-input-container .eye-reveal:active {
+  .application-content .field-container .field-option .field-input-container
+  .eye-reveal:active {
     color:var(--colors-secondary);
   }
 
@@ -926,7 +935,8 @@
 
 #### /static/css/blank.css
   ```css
-  /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+  /* Remove all animations, transitions and smooth scroll for people that prefer
+  not to see them */
   @media (prefers-reduced-motion: reduce) {
     html:focus-within {
       scroll-behavior: auto !important;
@@ -1160,12 +1170,14 @@
     overflow:visible
   }
 
-  .application-content .empty-container .empty-text-container .text.two:hover {
+  .application-content .empty-container .empty-text-container
+  .text.two:hover {
     background-position:right;
     cursor:pointer;
   }
 
-  .application-content .empty-container .empty-text-container .text.two::after {
+  .application-content .empty-container .empty-text-container
+  .text.two::after {
     content: "";
     background-color: var(--colors-primary-dark);
     width: 70%;
@@ -1185,7 +1197,8 @@
       opacity 200ms ease-in-out;
   }
 
-  .application-content .empty-container .empty-text-container .text.two:hover::after {
+  .application-content .empty-container .empty-text-container
+  .text.two:hover::after {
     background-color: var(--colors-primary);
     width: 100%;
     height: 100%;
@@ -1257,7 +1270,13 @@
     bottom: -5px;
     right: -8px;
     opacity:1;
-    transition:background-color 200ms ease-in-out,width 200ms ease-in-out,height 200ms ease-in-out,bottom 200ms ease-in-out,right 200ms ease-in-out,opacity 200ms ease-in-out;
+    transition:
+      background-color 200ms ease-in-out,
+      width 200ms ease-in-out,
+      height 200ms ease-in-out,
+      bottom 200ms ease-in-out,
+      right 200ms ease-in-out,
+      opacity 200ms ease-in-out;
   }
 
   .application-content .header-option.active::after {
@@ -1335,8 +1354,10 @@
     font-family: var(--font-body);
   }
 
-  .application-content .field-container .field-option .field-input-container .eye-reveal,
-  .application-content .field-container .field-option .field-input-container .eye-spacer {
+  .application-content .field-container .field-option .field-input-container
+  .eye-reveal,
+  .application-content .field-container .field-option .field-input-container
+  .eye-spacer {
     width:19px;
     height:19px;
     display:flex;
@@ -1345,7 +1366,8 @@
     margin-left:8px;
   }
 
-  .application-content .field-container .field-option .field-input-container .eye-reveal:active {
+  .application-content .field-container .field-option .field-input-container
+  .eye-reveal:active {
     color:var(--colors-secondary);
   }
 
@@ -1617,7 +1639,8 @@
     justify-content:space-between;
   }
 
-  .new-site-form.one .form-input-container.one .form-input-content-column .text.one {
+  .new-site-form.one .form-input-container.one .form-input-content-column
+  .text.one {
     padding-top: 8px;
   }
 
@@ -1625,22 +1648,26 @@
     height:32px
   }
 
-  .new-site-form.one .form-input-container.one [data-form-input-display="inactive"].new-site-input {
+  .new-site-form.one .form-input-container.one
+  [data-form-input-display="inactive"].new-site-input {
     border-color:var(--colors-grey-400);
     box-shadow: none;
   }
 
-  .new-site-form.one .form-input-container.one [data-form-input-display="success"].new-site-input {
+  .new-site-form.one .form-input-container.one
+  [data-form-input-display="success"].new-site-input {
     border-color:var(--colors-success);
     box-shadow: 0px 0px 22px -8px var(--colors-success);
   }
 
-  .new-site-form.one .form-input-container.one [data-form-input-display="warning"].new-site-input {
+  .new-site-form.one .form-input-container.one
+  [data-form-input-display="warning"].new-site-input {
     border-color:var(--colors-warning);
     box-shadow: 0px 0px 22px -8px var(--colors-warning);
   }
 
-  .new-site-form.one .form-input-container.one [data-form-input-display="danger"].new-site-input {
+  .new-site-form.one .form-input-container.one
+  [data-form-input-display="danger"].new-site-input {
     border-color:var(--colors-danger);
     box-shadow: 0px 0px 22px -8px var(--colors-danger);
   }
@@ -1835,12 +1862,14 @@
     margin-bottom:var(--margin-xs)
   }
 
-  .input-slider-option #new_site_colors_light_dark_bounds_slider.sliding-input::-webkit-slider-runnable-track {
+  .input-slider-option #new_site_colors_light_dark_bounds_slider
+  .sliding-input::-webkit-slider-runnable-track {
     background:linear-gradient(to right, #333333, #000000);
     border-radius:3px;
   }
 
-  .input-slider-option #new_site_colors_monochromatic_temperature_slider.sliding-input::-webkit-slider-runnable-track {
+  .input-slider-option #new_site_colors_monochromatic_temperature_slider
+  .sliding-input::-webkit-slider-runnable-track {
     background:linear-gradient(to right, #3962D2, #ffffff, #F19C38);
     border-radius:3px;
   }
@@ -1978,7 +2007,11 @@
     opacity:0;
     transform:scale(0.9);
     visibility:hidden;
-    transition: right 200ms ease-out, opacity 200ms ease-out, transform 200ms ease-out, visibility 200ms ease-out;
+    transition:
+      right 200ms ease-out,
+      opacity 200ms ease-out,
+      transform 200ms ease-out,
+      visibility 200ms ease-out;
     z-index: 300;
   }
   .section-selector-container.shown {
@@ -2409,11 +2442,15 @@
   // Assumes r, g, and b are contained in the set [0, 255]
   // Returns a 3 or 6 character hex
   function rgbToHex(r, g, b) {
-    var hex = [ pad2(Math.round(r).toString(16)),pad2(Math.round(g).toString(16)),pad2(Math.round(b).toString(16)) ];
+    var hex = [
+      pad2(Math.round(r).toString(16)),
+      pad2(Math.round(g).toString(16)),
+      pad2(Math.round(b).toString(16)) ];
     return hex.join("");
   }
 
-  // Assumes hex is a string of six alphanumeric characters. It can have a hashtag at the start as well
+  // Assumes hex is a string of six alphanumeric characters.
+  // It can have a hashtag at the start as well
   // Returns: { r, g, b } in the set [0, 255]
   function hexToRgb(hex) {
     if (hex[0]=="#") { hex=hex.slice(1) }
@@ -2423,14 +2460,16 @@
     return { r: r, g: g, b: b };
   }
 
-  // Assumes color is in a { h, s, l } format. Amount is a percentage for how much you decrease it from it's current value
+  // Assumes color is in a { h, s, l } format.
+  // Amount is a percentage for how much you decrease it from it's current value
   function desaturate(color, amount) {
     amount = (amount === 0) ? 0 : (amount || 10);
     color.s -= ((amount)/100)*color.s;
     return color
   }
 
-  // Assumes color is in a { h, s, l } format. Amount is a percentage for how much you increase it from it's current value
+  // Assumes color is in a { h, s, l } format.
+  // Amount is a percentage for how much you increase it from it's current value
   function saturate(color, amount) {
     amount = (amount === 0) ? 0 : (amount || 10);
     color.s += (amount/100)*(100-color.s);
@@ -2440,21 +2479,24 @@
   // Assumes color is in a { h, s, l } format.
   function greyscale(color) { return desaturate(color,100) }
 
-  // Assumes color is in a { h, s, l } format. Amount is a percentage for how much you increase it from it's current value
+  // Assumes color is in a { h, s, l } format.
+  // Amount is a percentage for how much you increase it from it's current value
   function lighten(color, amount) {
     amount = (amount === 0) ? 0 : (amount || 10);
     color.l += (amount/100)*(100-color.l);
     return color;
   }
 
-  // Assumes color is in a { h, s, l } format. Amount is a percentage for how much you decrease it from it's current value
+  // Assumes color is in a { h, s, l } format.
+  // Amount is a percentage for how much you decrease it from it's current value
   function darken(color, amount) {
     amount = (amount === 0) ? 0 : (amount || 10);
     color.l -= ((amount)/100)*color.l;
     return color
   }
 
-  // r, g, and b are contained in [0, 255], amount is a percentage for how much you decrease it from it's current value
+  // r, g, and b are contained in [0, 255],
+  // amount is a percentage for how much you decrease it from it's current value
   function brighten(r,g,b, amount) {
     amount = (amount === 0) ? 0 : (amount || 10);
     r = Math.max(0, Math.min(255, r - Math.round(255 * - (amount / 100))));
@@ -2521,7 +2563,8 @@
 #### /static/js/main.js
   ```js
   function jsE(el) {
-  	// takes a html element object and appends the class "js" to it. Used to recognise which elements have been edited by javascript
+  	// takes a html element object and appends the class "js" to it.
+    // Used to recognise which elements have been edited by javascript
     try {
       el.classList.add("js");
     } catch(e) {
@@ -2536,7 +2579,8 @@
   function addClasses(e,a) { a.forEach((x)=>{ e.classList.add(x) }) }
 
   $(document).ready(function () {
-    document.body.classList.remove("visibly-hidden");jsE(document.body); // reveal the page when it has been loaded
+    // reveal the page when it has been loaded
+    document.body.classList.remove("visibly-hidden");jsE(document.body);
   });
   ```
 
@@ -2623,43 +2667,71 @@
   ```js
   function toggleOptions() {
     return
-    lightOptions.classList.add("visibly-hidden");darkOptions.classList.add("visibly-hidden");
+    lightOptions.classList.add("visibly-hidden");
+    darkOptions.classList.add("visibly-hidden");
     if (lightModeSelected) { lightOptions.classList.remove("visibly-hidden") }
     else { darkOptions.classList.remove("visibly-hidden") }
   }
 
   function setColor(k,v) { colors[k]=v }
 
-  function setDarkMode() { setColor["default-background", colors["dark"]]; setColor["default-text", colors["light"]] }
-  function setLightMode() { setColor["default-background", colors["light"]]; setColor["default-text", colors["dark"]] }
+  function setDarkMode() {
+    setColor["default-background", colors["dark"]];
+    setColor["default-text", colors["light"]]
+  }
+
+  function setLightMode() {
+    setColor["default-background", colors["light"]];
+    setColor["default-text", colors["dark"]]
+  }
 
   var btnLight=document.getElementById("new_site_lightModeToggle");
   var btnDark=document.getElementById("new_site_darkModeToggle");
   var lightModeSelected=true;
-  var lightOptions=document.querySelector(".new-site-form.two .light-color-options");
-  var darkOptions=document.querySelector(".new-site-form.two .dark-color-options");
+
+  var lightOptions=document.querySelector(
+    ".new-site-form.two .light-color-options");
+
+  var darkOptions=document.querySelector(
+    ".new-site-form.two .dark-color-options");
+
   var stored=document.getElementById("color-output")
 
-  var primaryColorPicker=document.getElementById("new_site_colors_primary_picker");
-  var secondaryColorPicker=document.getElementById("new_site_colors_secondary_picker");
-  var accentColorPicker=document.getElementById("new_site_colors_accent_picker");
+  var primaryColorPicker=document.getElementById(
+    "new_site_colors_primary_picker");
 
-  // the primary color should be quite visible against the selected theme. Dark against light etc
-  // the secondary color should be slightly less so, and a rotation around the color wheel. Red against purple etc
-  // the accent color shpuld be lighter than both the primary and secondary colors, but not very overpowering
+  var secondaryColorPicker=document.getElementById(
+    "new_site_colors_secondary_picker");
 
-  // there will be an option to change the starting and ending lightness of the grey colors
-  // and also to tint them warm or cold slightly
+  var accentColorPicker=document.getElementById(
+    "new_site_colors_accent_picker");
+
+  // the primary color should be quite visible against the selected theme.
+  // Dark against light etc
+
+  // the secondary color should be slightly less so, and a rotation around
+  // the color wheel. Red against purple etc
+
+  // the accent color shpuld be lighter than both the primary and secondary
+  // colors, but not very overpowering
+
+  // there will be an option to change the starting and ending lightness of
+  // the grey colors, and also to tint them warm or cold slightly
   // you wont be able to edit the specific colors of the greys though
 
-  // the main colors will have light and dark versions that are generated by the code
-  // their lightness can be editied but the dark one cant be lighter than 10% darker than the original etc
+  // the main colors will have light and dark versions that are generated
+  // by the code
+  // their lightness can be editied but the dark one cant be lighter than 10%
+  // darker than the original etc
   // ie there will be bounds on how light and dark the colors can go
 
-  // the default background and text colors are defined by whether the document is set to light or dark mode
-  // in the ui design, the defaults can change based on a parent element having .style-light or .style-dark
+  // the default background and text colors are defined by whether the document
+  // is set to light or dark mode
+  // in the ui design, the defaults can change based on a parent element having
+  // .style-light or .style-dark
 
-  // the light and dark colors can be changed, but must be kept within bounds (eg #303030 and # f0f0f0) which havent been set
+  // the light and dark colors can be changed, but must be kept within bounds
+  // (eg #303030 and # f0f0f0) which havent been set
   // the darkest and lightest greys cannot go darker or lighter than these colors
 
   function updateStored() {
@@ -2717,14 +2789,32 @@
   }
 
   function updateColorDisplays() {
-    colorDisplay["primary"][0].style.backgroundColor=colors["primary"];colorDisplay["primary"][1].innerHTML=colors["primary"]
-    colorDisplay["primary-dark"][0].style.backgroundColor=colors["primary-dark"];colorDisplay["primary-light"][0].style.backgroundColor=colors["primary-light"];
+    colorDisplay["primary"][0].style.backgroundColor=colors["primary"];
+    colorDisplay["primary"][1].innerHTML=colors["primary"]
 
-    colorDisplay["secondary"][0].style.backgroundColor=colors["secondary"];colorDisplay["secondary"][1].innerHTML=colors["secondary"]
-    colorDisplay["secondary-dark"][0].style.backgroundColor=colors["secondary-dark"];colorDisplay["secondary-light"][0].style.backgroundColor=colors["secondary-light"];
+    colorDisplay["primary-dark"][0].style.backgroundColor
+    =colors["primary-dark"];
 
-    colorDisplay["accent"][0].style.backgroundColor=colors["accent"];colorDisplay["accent"][1].innerHTML=colors["accent"]
-    colorDisplay["accent-dark"][0].style.backgroundColor=colors["accent-dark"];colorDisplay["accent-light"][0].style.backgroundColor=colors["accent-light"];
+    colorDisplay["primary-light"][0].style.backgroundColor
+    =colors["primary-light"];
+
+    colorDisplay["secondary"][0].style.backgroundColor=colors["secondary"];
+    colorDisplay["secondary"][1].innerHTML=colors["secondary"]
+
+    colorDisplay["secondary-dark"][0].style.backgroundColor
+    =colors["secondary-dark"];
+
+    colorDisplay["secondary-light"][0].style.backgroundColor
+    =colors["secondary-light"];
+
+    colorDisplay["accent"][0].style.backgroundColor=colors["accent"];
+    colorDisplay["accent"][1].innerHTML=colors["accent"]
+
+    colorDisplay["accent-dark"][0].style.backgroundColor
+    =colors["accent-dark"];
+
+    colorDisplay["accent-light"][0].style.backgroundColor
+    =colors["accent-light"];
 
     updateStored()
   }
@@ -2741,41 +2831,161 @@
     updateColorDisplays()
   }
 
-  var options = ["light","dark","primary","primary-dark","primary-light","secondary","secondary-dark","secondary-light","accent","accent-dark",
-  "accent-light","grey-100","grey-200","grey-300","grey-400","grey-500","grey-600","grey-700","grey-800","grey-900"]
-  var defaultColors = { "light":"#ffffff", "dark":"#000000", "primary":"#e63946", "primary-dark":"", "primary-light":"", "secondary":"#457b9d",
-  "secondary-dark":"","secondary-light":"", "accent":"#a8dadc","accent-dark":"","accent-light":"","grey-100":"#303030", "grey-200":"#474747", "grey-300":"#5e5e5e", "grey-400":"#757575",
-  "grey-500":"#8c8c8c", "grey-600":"#a3a3a3", "grey-700":"#bababa", "grey-800":"#d1d1d1", "grey-900":"#e8e8e8" }
-  var colors = { "light":"#ffffff", "dark":"#000000", "primary":"#e63946", "primary-dark":"", "primary-light":"", "secondary":"#457b9d",
-  "secondary-dark":"","secondary-light":"", "accent":"#a8dadc","accent-dark":"","accent-light":"","grey-100":"#303030", "grey-200":"#474747", "grey-300":"#5e5e5e", "grey-400":"#757575",
-  "grey-500":"#8c8c8c", "grey-600":"#a3a3a3", "grey-700":"#bababa", "grey-800":"#d1d1d1", "grey-900":"#e8e8e8" }
+  var options = ["light","dark","primary","primary-dark","primary-light",
+  "secondary","secondary-dark","secondary-light","accent","accent-dark",
+  "accent-light","grey-100","grey-200","grey-300","grey-400","grey-500",
+  "grey-600","grey-700","grey-800","grey-900"]
+
+  var defaultColors = {"light":"#ffffff","dark":"#000000","primary":"#e63946",
+  "primary-dark":"","primary-light":"","secondary":"#457b9d","secondary-dark":"",
+  "secondary-light":"","accent":"#a8dadc","accent-dark":"","accent-light":"",
+  "grey-100":"#303030","grey-200":"#474747","grey-300":"#5e5e5e",
+  "grey-400":"#757575","grey-500":"#8c8c8c","grey-600":"#a3a3a3",
+  "grey-700":"#bababa","grey-800":"#d1d1d1","grey-900":"#e8e8e8"}
+
+  var colors = defaultColors
+
+  var queryPrefix = ".new-site-form.two .color-display-container"
+
   var colorDisplay = {
-    "light":[document.querySelector(".new-site-form.two .color-display-container .light-dark-display .light-color"),document.querySelector(".new-site-form.two .color-display-container .light-dark-display .light-color .color-code")],
-    "dark":[document.querySelector(".new-site-form.two .color-display-container .light-dark-display .dark-color"),document.querySelector(".new-site-form.two .color-display-container .light-dark-display .dark-color .color-code")],
-    "primary":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .primary-color .color-triple-card-main"),document.querySelector(".new-site-form.two .color-display-container .main-color-display .primary-color .color-triple-card-main .color-code")],
-    "primary-dark":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .primary-color .color-triple-card-sub.one")],
-    "primary-light":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .primary-color .color-triple-card-sub.two")],
-    "secondary":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .secondary-color .color-triple-card-main"),document.querySelector(".new-site-form.two .color-display-container .main-color-display .secondary-color .color-triple-card-main .color-code")],
-    "secondary-dark":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .secondary-color .color-triple-card-sub.one")],
-    "secondary-light":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .secondary-color .color-triple-card-sub.two")],
-    "accent":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .accent-color .color-triple-card-main"),document.querySelector(".new-site-form.two .color-display-container .main-color-display .accent-color .color-triple-card-main .color-code")],
-    "accent-dark":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .accent-color .color-triple-card-sub.one")],
-    "accent-light":[document.querySelector(".new-site-form.two .color-display-container .main-color-display .accent-color .color-triple-card-sub.two")],
-    "grey-100":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g100"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g100 .color-code")],
-    "grey-200":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g200"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g200 .color-code")],
-    "grey-300":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g300"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g300 .color-code")],
-    "grey-400":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g400"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g400 .color-code")],
-    "grey-500":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g500"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g500 .color-code")],
-    "grey-600":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g600"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g600 .color-code")],
-    "grey-700":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g700"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g700 .color-code")],
-    "grey-800":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g800"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g800 .color-code")],
-    "grey-900":[document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g900"),document.querySelector(".new-site-form.two .color-display-container .grey-display .color-column.g900 .color-code")],
+    "light":[
+      document.querySelector(
+        `${queryPrefix} .light-dark-display .light-color`),
+      document.querySelector(
+        `${queryPrefix} .light-dark-display .light-color .color-code`)
+    ],
+    "dark":[
+      document.querySelector(
+        `${queryPrefix} .light-dark-display .dark-color`),
+      document.querySelector(
+        `${queryPrefix} .light-dark-display .dark-color .color-code`)
+    ],
+
+    "primary":[
+      document.querySelector(
+        `${queryPrefix} .main-color-display .primary-color
+        .color-triple-card-main`),
+      document.querySelector(
+        `${queryPrefix} .main-color-display .primary-color
+        .color-triple-card-main .color-code`)
+    ],
+    "primary-dark":[
+      document.querySelector(
+        `${queryPrefix} .main-color-display .primary-color
+        .color-triple-card-sub.one`)
+    ],
+    "primary-light":[
+      document.querySelector(
+        `${queryPrefix} .main-color-display .primary-color
+        .color-triple-card-sub.two`)
+    ],
+
+    "secondary":[
+      document.querySelector(
+        `${queryPrefix} .main-color-display .secondary-color
+        .color-triple-card-main`),
+      document.querySelector(
+        `${queryPrefix} .main-color-display .secondary-color
+        .color-triple-card-main .color-code`)
+    ],
+
+    "secondary-dark":[
+      document.querySelector(
+        `${queryPrefix} .main-color-display .secondary-color
+        .color-triple-card-sub.one`)
+    ],
+    "secondary-light":[
+      document.querySelector(
+        `${queryPrefix} .main-color-display .secondary-color
+        .color-triple-card-sub.two`)
+    ],
+
+    "accent":[
+      document.querySelector(
+        `${queryPrefix} .main-color-display .accent-color
+        .color-triple-card-main`),
+      document.querySelector(
+        `${queryPrefix} .main-color-display .accent-color
+        .color-triple-card-main .color-code`)
+    ],
+    "accent-dark":[
+      document.querySelector(
+        `${queryPrefix} .main-color-display .accent-color
+        .color-triple-card-sub.one`)
+    ],
+    "accent-light":[
+      document.querySelector(
+        `${queryPrefix} .main-color-display .accent-color
+        .color-triple-card-sub.two`)
+    ],
+
+    "grey-100":[
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g100`),
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g100 .color-code`)
+    ],
+    "grey-200":[
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g200`),
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g200 .color-code`)
+    ],
+    "grey-300":[
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g300`),
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g300 .color-code`)
+    ],
+    "grey-400":[
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g400`),
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g400 .color-code`)
+    ],
+    "grey-500":[
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g500`),
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g500 .color-code`)
+    ],
+    "grey-600":[
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g600`),
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g600 .color-code`)
+    ],
+    "grey-700":[
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g700`),
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g700 .color-code`)
+    ],
+    "grey-800":[
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g800`),
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g800 .color-code`)
+    ],
+    "grey-900":[
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g900`),
+      document.querySelector(
+        `${queryPrefix} .grey-display .color-column.g900 .color-code`)
+    ],
   }
 
-  var lightDarkBoundsSlider = document.getElementById("new_site_colors_light_dark_bounds_slider");
+  var lightDarkBoundsSlider = document.getElementById(
+    "new_site_colors_light_dark_bounds_slider");
 
-  lightDarkBoundsSlider.addEventListener("mouseup",()=>{updateLightDarkVariables();updateDisplays()})
-  primaryColorPicker.addEventListener("change",()=>{updatePrimaryColorDiv();updateStored()})
+  lightDarkBoundsSlider.addEventListener("mouseup",()=>{
+    updateLightDarkVariables();
+    updateDisplays()
+  })
+  primaryColorPicker.addEventListener("change",()=>{
+    updatePrimaryColorDiv();
+    updateStored()
+  })
 
   updateStored()
 
@@ -2801,23 +3011,61 @@
 #### /static/js/site-create-options-3.js
   ```js
   function revealOption(e) { e.style.opacity=1;e.style.visibility="visible" }
-  function hideFromLeft() { fromLeftOptions.style.opacity=0;fromLeftOptions.style.visibility="hidden" }
 
-  function makeSlide() { document.querySelectorAll(buttonsPrefix+":not(.slide-or-static) .btn").forEach((e)=>{ e.classList.add("slide") }) }
-  function makeStatic() { document.querySelectorAll(buttonsPrefix+":not(.slide-or-static) .btn").forEach((e)=>{ e.classList.remove("slide") }) }
+  function hideFromLeft() {
+    fromLeftOptions.style.opacity=0;
+    fromLeftOptions.style.visibility="hidden"
+  }
 
-  function makeSquare() { document.querySelectorAll(buttonsPrefix+":not(.corner-options) .btn").forEach((e)=>{ removeClasses(e,["rounded","pill"]);addClass(e,"square") }) }
-  function makeRounded() { document.querySelectorAll(buttonsPrefix+":not(.corner-options) .btn").forEach((e)=>{ removeClasses(e,["square","pill"]);addClass(e,"rounded") }) }
-  function makePill() { document.querySelectorAll(buttonsPrefix+":not(.corner-options) .btn").forEach((e)=>{ removeClasses(e,["rounded","square"]);addClass(e,"pill") }) }
+  function makeSlide() {
+    document.querySelectorAll(buttonsPrefix+":not(.slide-or-static) .btn")
+    .forEach((e)=>{ e.classList.add("slide") })
+  }
 
-  function makeThin() { document.querySelectorAll(buttonsPrefix+".left-or-right .btn").forEach((e)=>{ e.classList.add("thin") }) }
-  function makeThick() { document.querySelectorAll(buttonsPrefix+".left-or-right .btn").forEach((e)=>{ e.classList.remove("thin") }) }
+  function makeStatic() {
+    document.querySelectorAll(buttonsPrefix+":not(.slide-or-static) .btn")
+    .forEach((e)=>{ e.classList.remove("slide") })
+  }
 
-  function enableSubmit() { document.querySelector(".new-site-form.four .field-submit").removeAttribute("disabled") }
-  function disableSubmit() { document.querySelector(".new-site-form.four .field-submit").setAttribute("disabled","") }
+  function makeSquare() {
+     document.querySelectorAll(buttonsPrefix+":not(.corner-options) .btn")
+     .forEach((e)=>{ removeClasses(e,["rounded","pill"]);addClass(e,"square") })
+   }
+
+  function makeRounded() {
+    document.querySelectorAll(buttonsPrefix+":not(.corner-options) .btn")
+    .forEach((e)=>{ removeClasses(e,["square","pill"]);addClass(e,"rounded") })
+  }
+
+  function makePill() {
+    document.querySelectorAll(buttonsPrefix+":not(.corner-options) .btn")
+    .forEach((e)=>{ removeClasses(e,["rounded","square"]);addClass(e,"pill") })
+  }
+
+  function makeThin() {
+    document.querySelectorAll(buttonsPrefix+".left-or-right .btn")
+    .forEach((e)=>{ e.classList.add("thin") })
+  }
+
+  function makeThick() {
+    document.querySelectorAll(buttonsPrefix+".left-or-right .btn")
+    .forEach((e)=>{ e.classList.remove("thin") })
+  }
+
+  function enableSubmit() {
+    document.querySelector(".new-site-form.four .field-submit")
+    .removeAttribute("disabled")
+  }
+
+  function disableSubmit() {
+    document.querySelector(".new-site-form.four .field-submit")
+    .setAttribute("disabled","")
+  }
 
   function updateStored() {
-    var out="sliding:"+slidingPreference+",cornerType:"+squaredPreference+",thin:"+thinPreference+",fromLeft:"+fromLeftPreference
+    var out="sliding:"+slidingPreference+",cornerType:"+squaredPreference
+    +",thin:"+thinPreference+",fromLeft:"+fromLeftPreference
+
     stored.value=out
   }
 
@@ -2828,10 +3076,18 @@
   var canOpenFromLeft = false;
   var hasOpenFromLeft = false;
 
-  var slidingOptions = document.querySelector(".new-site-form.four .button-option.slide-or-static")
-  var squaredOptions = document.querySelector(".new-site-form.four .button-option.corner-options")
-  var thinOptions = document.querySelector(".new-site-form.four .button-option.thin-or-large")
-  var fromLeftOptions = document.querySelector(".new-site-form.four .button-option.left-or-right")
+  var slidingOptions = document.querySelector(
+    ".new-site-form.four .button-option.slide-or-static")
+
+  var squaredOptions = document.querySelector(
+    ".new-site-form.four .button-option.corner-options")
+
+  var thinOptions = document.querySelector(
+    ".new-site-form.four .button-option.thin-or-large")
+
+  var fromLeftOptions = document.querySelector(
+    ".new-site-form.four .button-option.left-or-right")
+
   var buttonsPrefix = ".new-site-form.four .button-option"
   var stored=document.getElementById("style-option-output")
 
@@ -2903,13 +3159,24 @@
 #### /static/js/site-create.js
   ```js
   String.prototype.replaceAt = function(index, replacement) {
-    return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+    return this.substr(0, index) + replacement
+    + this.substr(index + replacement.length);
   }
 
   function checkFormSubmitButton() {
-    if (!(formName.getAttribute("data-form-input-display") == "success" || formName.getAttribute("data-form-input-display") == "warning")){formSubmit.setAttribute("disabled","");return}
-    if (!(formPrivacy1.checked) && !(formPrivacy2.checked)){formSubmit.setAttribute("disabled","");return}
-    formSubmit.removeAttribute("disabled"); return;
+    if (!(formName.getAttribute("data-form-input-display") == "success" ||
+    formName.getAttribute("data-form-input-display") == "warning")) {
+      formSubmit.setAttribute("disabled","");
+      return
+    }
+
+    if (!(formPrivacy1.checked) && !(formPrivacy2.checked)) {
+      formSubmit.setAttribute("disabled","");
+      return
+    }
+
+    formSubmit.removeAttribute("disabled");
+    return;
   }
 
   function editFormMessageSiteNameWarning(val) {
@@ -2981,13 +3248,23 @@
 
     var sitenames = ["helloworld"]
 
-    if (flashedSiteNames.includes(val)) { editFormMessage("A site with this name already exists!");return "danger" }
-    for (var i=0;i<val.length;i++) {
-      var letter = val[i]
-      if (!(allowedChars.includes(letter))) { editFormMessageSiteNameWarning(val);return "warning" }
+    if (flashedSiteNames.includes(val)) {
+      editFormMessage("A site with this name already exists!");
+      return "danger"
     }
 
-    if (hasRepeatedDashes(val)) { editFormMessageSiteNameWarning(replaceRepeatedDashes(val));return "warning" }
+    for (var i=0;i<val.length;i++) {
+      var letter = val[i]
+      if (!(allowedChars.includes(letter))) {
+        editFormMessageSiteNameWarning(val);
+        return "warning"
+      }
+    }
+
+    if (hasRepeatedDashes(val)) {
+      editFormMessageSiteNameWarning(replaceRepeatedDashes(val));
+      return "warning"
+    }
 
     hideFormMessage()
     return "success"
@@ -3000,8 +3277,13 @@
   var formDesc = document.getElementById("new_site_desc");
   var formPrivacy1 = document.getElementById("new_site_privacy_visible");
   var formPrivacy2 = document.getElementById("new_site_privacy_hidden");
-  var messageContainer = document.querySelector(".new-site-form .form-input-container.one .message-container");
-  var messageSpan = document.querySelector(".new-site-form .form-input-container.one .message-container .message-container-jsedit");
+
+  var messageContainer = document.querySelector(
+    ".new-site-form .form-input-container.one .message-container");
+
+  var messageSpan = document.querySelector(
+    ".new-site-form .form-input-container.one .message-container
+    .message-container-jsedit");
 
   formName.addEventListener("keyup",(event) => {
     formName.setAttribute("data-form-input-display",verifyNameField())
@@ -3021,37 +3303,67 @@
 
 #### /static/js/site-edit.js
   ```js
-  // source https://stackoverflow.com/questions/14766951/transform-numbers-to-words-in-lakh-crore-system Juan Gaitan
+  // source https://stackoverflow.com/questions/14766951/
+  // transform-numbers-to-words-in-lakh-crore-system Juan Gaitan
 
-  var num = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split(" ");
+  var num = "zero one two three four five six seven eight nine ten eleven twelve
+  thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split(" ");
   var tens = "twenty thirty forty fifty sixty seventy eighty ninety".split(" ");
 
   function number2words(n){
     if (n < 20) return num[n];
     var digit = n%10;
-    if (n < 100) return tens[~~(n/10)-2] + (digit? "-" + num[digit]: "");
-    if (n < 1000) return num[~~(n/100)] +" hundred" + (n%100 == 0? "": " and " + number2words(n%100));
-    return number2words(~~(n/1000)) + " thousand" + (n%1000 != 0? " " + number2words(n%1000): "");
+
+    if (n < 100) {
+      return tens[~~(n/10)-2] + (digit? "-" + num[digit]: "");
+    }
+
+    if (n < 1000) {
+      return num[~~(n/100)]+" hundred"+(n%100 == 0? "":" and "
+      + number2words(n%100));
+    }
+    return number2words(~~(n/1000))+" thousand"+(n%1000 != 0? " "
+    + number2words(n%1000):"");
   }
 
   // source https://www.codegrepper.com/profile/code-grepper
 
-  function capitalizeWords(string) { return string.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase() }) };
+  function capitalizeWords(string) {
+    return string.replace(/(?:^|\s)\S/g,
+    function(a) { return a.toUpperCase() })
+  }
 
   // endsource
 
   function addElement(parent,name,src,css,js,type,order) {
-    // (int) parent refers to the id of the element that contains this one. If set to none, the code assumes it is in the top level (ie it is a section div).
-    // (str) name is used to refer to this element in the gui. It does not have to be unique
-    // (str) src refers to the html code of this element, in the form of a url starting in /static/data/
-    // (str) css refers to the css code of this element, in the form of a url starting in /static/data/
-    // (str) js refers to the js code of this element, in the form of a url starting in /static/data/
-    // (str) type refers to the class of element that this is (eg section, headline, table, quote, image)
-    // (int) order is an integer defining how far down in the parent element this element is. Used in conjunction with the other children elements in the parent. If two have the same order, it will then refer to their element id. 0 will mean it is at the top.
+    // (int) parent refers to the id of the element that contains this one.
+    // If set to none, the code assumes it is in the top level
+    // (ie it is a section div).
+
+    // (str) name is used to refer to this element in the gui.
+    // It does not have to be unique
+
+    // (str) src refers to the html code of this element,
+    // in the form of a url starting in /static/data/
+
+    // (str) css refers to the css code of this element,
+    // in the form of a url starting in /static/data/
+
+    // (str) js refers to the js code of this element,
+    // in the form of a url starting in /static/data/
+
+    // (str) type refers to the class of element that this is
+    // (eg section, headline, table, quote, image)
+
+    // (int) order is an integer defining how far down in the parent
+    // element this element is. Used in conjunction with the other children
+    // elements in the parent. If two have the same order, it will then refer to
+    // their element id. 0 will mean it is at the top.
 
     var toplevel=false;
     if (parent == null) { toplevel=true }
-    else { if (parent >= siteDat.length) { console.log("Parent ID larger than list of elements");return false; } }
+    else { if (parent >= siteDat.length) {
+      console.log("Parent ID larger than list of elements");return false; } }
 
     var id=0;
     if (siteDat.length > 0) { siteDat[siteDat.length-1]["id"]+1;  }
@@ -3085,20 +3397,28 @@
   }
 
   function sectionNavbarSetSelected() {
-    sectionSelectorNav.querySelector(`ul.section-selector-nav-list li a.link`).style.opacity=0.75;
-    sectionSelectorNav.querySelector(`ul.section-selector-nav-list li.${sectionSelectorNavSelected} a.link`).style.opacity=1;
+    sectionSelectorNav.querySelector(
+      `ul.section-selector-nav-list li a.link`)
+      .style.opacity=0.75;
+
+    sectionSelectorNav.querySelector(
+      `ul.section-selector-nav-list li.${sectionSelectorNavSelected} a.link`)
+      .style.opacity=1;
+
     sectionSelectorDisplayPreview();
   }
 
   function sectionSelectorDisplayPreview() {
     function layer1(text) {
-      path=`../../../static/html/sections/${text.split(/[\r\n]+/g)[sectionSelectorNavSelectedInt-1]}`;
+      path=`../../../static/html/sections/
+      ${text.split(/[\r\n]+/g)[sectionSelectorNavSelectedInt-1]}`;
 
       fetch(path+"/css.css")
         .then( response => {
           if (!response.ok) { throw new Error(`HTTP error: ${response.status}`) }
           return response.text();})
-        .then( text0 => sectionSelectorList.innerHTML = sectionSelectorList.innerHTML + `<style>${text0}</style>`  )
+        .then( text0 =>sectionSelectorList.innerHTML=sectionSelectorList.innerHTML
+          + `<style>${text0}</style>`  )
 
       fetch(path+"/files")
         .then( response => {
@@ -3108,14 +3428,15 @@
     }
 
     function layer2(path,text) {
-        text=text.split(/[\r\n]+/g).filter(function(value, index, arr){ return value != "" });
+        text=text.split(/[\r\n]+/g).filter(
+          function(value, index, arr){ return value != "" });
         for (var i=0; i<text.length; i++) {
           layer3(`${path}/${text[i]}`)
           //fetch(`${path}/${text[i]}`)
-          //    .then( response => {
-          //        if (!response.ok) { throw new Error(`HTTP error: ${response.status}`) }
-          //        return response.text();})
-          //    .then( text1 => layer3(text1) )
+          // .then( response => {
+          //   if (!response.ok){throw new Error(`HTTP error: ${response.status}`)}
+          //    return response.text();})
+          // .then( text1 => layer3(text1) )
         }
     }
 
@@ -3165,10 +3486,15 @@
   var addSectionBtn = document.getElementById("localnav_add_section_btn");
   var sectionSelectorNavSelected="one";
   var sectionSelectorNavSelectedInt=1;
-  var sectionSelectorContainer=document.querySelector(".application-content .section-selector-container");
+  var sectionSelectorContainer=document.querySelector(
+    ".application-content .section-selector-container");
   var sectionSelectorList=document.getElementById("section_selector_list");
   var sectionSelectorNav=document.getElementById("section_selector_nav");
-  var sectionSelectorNavItem=`<li class="section-selector-nav-item [i]"><a class="link unformatted" id="section_sele  ctor_nav_[n1]"><span class="text bold">[n2]</span></a></li>`;
+
+  var sectionSelectorNavItem=`<li class="section-selector-nav-item [i]">
+  <a class="link unformatted" id="section_sele  ctor_nav_[n1]"><
+  span class="text bold">[n2]</span></a></li>`;
+
   var sectionClassList="";
   var previewSections;
 
@@ -3181,15 +3507,25 @@
     }
   });
 
-  document.querySelector(".application-content .section-selector-exit-btn").addEventListener("click",() => {
-    document.querySelector(".application-content .section-selector-container").classList.remove("shown")
-    document.querySelector(".lightbox-mask").classList.remove("shown")
+  document.querySelector(".application-content .section-selector-exit-btn")
+  .addEventListener("click",() => {
+
+    document.querySelector(".application-content .section-selector-container")
+    .classList.remove("shown")
+
+    document.querySelector(".lightbox-mask")
+    .classList.remove("shown")
+
   });
 
   document.querySelector(".lightbox-mask").addEventListener("click",() => {
     console.log(1);
-    document.querySelector(".application-content .section-selector-container").classList.remove("shown")
-    document.querySelector(".lightbox-mask").classList.remove("shown")
+
+    document.querySelector(".application-content .section-selector-container")
+    .classList.remove("shown")
+
+    document.querySelector(".lightbox-mask")
+    .classList.remove("shown")
   });
 
   // section selector navbar content
