@@ -1,49 +1,74 @@
+
+<!--
+<style>
+del {
+  text-decoration:none;
+  float:right;
+  display:inline-block;
+}
+</style>
+-->
+
+<!--
+
+H446 A Level Programming Project - Kraken
+H446 A Level Programming Project - Kraken - Code Appendix
+
+-->
+
+<!--
+height:225px
+-->
+
 ## Table of Contents
-  - [Analysis](#analysis)
-    - [Problem identification](#problem-identification)
-    - [Stakeholders](#stakeholders)
-    - [Why it is suited to a computational approach](#why-it-is-suited-to-a-computational-approach)
-    - [Research](#research)
-      - [Existing solution - Squarespace](#existing-solution---squarespace)
-      - [Existing solution - Zyro](#existing-solution---zyro)
-    - [Key features of the solution](#key-features-of-the-solution)
-    - [Limitations of the solution](#limitations-of-the-solution)
-    - [Meeting with the stakeholders](#meeting-with-the-stakeholders)
-    - [Hardware and Software Requirements](#hardware-and-software-requirements)
-      - [Hardware Requirements](#hardware-requirements)
-      - [Software Requirements](#software-requirements)
-    - [Stakeholder requirements](#stakeholder-requirements)
-    - [Success Criteria](#success-criteria)
+  - [Analysis](#analysis) ~~3~~
+    - [Problem identification](#problem-identification) ~~3~~
+    - [Stakeholders](#stakeholders) ~~4~~
+    - [Why it is suited to a computational approach](#why-it-is-suited-to-a-computational-approach) ~~5~~
+    - [Research](#research) ~~7~~
+      - [Existing solution - Squarespace](#existing-solution---squarespace) ~~7~~
+      - [Existing solution - Zyro](#existing-solution---zyro) ~~11~~
+    - [Key features of the solution](#key-features-of-the-solution) ~~13~~
+    - [Limitations of the solution](#limitations-of-the-solution) ~~14~~
+    - [Meeting with the stakeholders](#meeting-with-the-stakeholders) ~~14~~
+    - [Hardware and Software Requirements](#hardware-and-software-requirements) ~~14~~
+      - [Hardware Requirements](#hardware-requirements) ~~14~~
+      - [Software Requirements](#software-requirements) ~~14~~
+    - [Stakeholder requirements](#stakeholder-requirements) ~~15~~
+    - [Success Criteria](#success-criteria) ~~15~~
   >
 
-  - [Design](#design)
-    - [URL Navigation](#url-navigation)
-    - [User Interface Design](#user-interface-design)
-    - [Usability](#usability)
-      - [Accessibility](#accessibility)
-      - [ARIA](#aria)
-    - [Stakeholder input :D](#stakeholder-input-d)
-    - [Website structure and backend](#website-structure-and-backend)
-    - [Data storage](#data-storage)
-    - [Algorithms](#algorithms)
-      - [Drag-and-drop editor algorithms](#drag-and-drop-editor-algorithms)
-      - [Multi-user system algorithms](#multi-user-system-algorithms)
-    - [Diagram showing how the subroutines link](#diagram-showing-how-the-subroutines-link)
-    - [Subroutines](#subroutines)
-      - [Multi-user system - login system](#multi-user-system---login-system)
-      - [Multi-user system - creating a new site](#multi-user-system---creating-a-new-site)
-      - [Multi-user system - user settings](#multi-user-system---user-settings)
-      - [Utility subroutines](#utility-subroutines)
-    - [Explanation and justification of this process](#explanation-and-justification-of-this-process)
-    - [Inputs and Outputs](#inputs-and-outputs)
-    - [Key variables](#key-variables)
-    - [Validation](#validation)
-    - [Testing method](#testing-method)
+  - [Design](#design) ~~18~~
+    - [URL Navigation](#url-navigation) ~~18~~
+    - [User Interface Design](#user-interface-design) ~~19~~
+    - [Usability](#usability) ~~25~~
+      - [Accessibility](#accessibility) ~~25~~
+      - [ARIA](#aria) ~~26~~
+    - [Stakeholder input](#stakeholder-input-d) ~~26~~
+    - [Website structure and backend](#website-structure-and-backend) ~~27~~
+    - [Data storage](#data-storage) ~~29~~
+    - [Algorithms](#algorithms) ~~32~~
+      - [Drag-and-drop editor algorithms](#drag-and-drop-editor-algorithms) ~~32~~
+      - [Multi-user system algorithms](#multi-user-system-algorithms) ~~36~~
+      - [Diagram showing how the subroutines link](#diagram-showing-how-the-subroutines-link) ~~41~~
+    - [Subroutines](#subroutines) ~~42~~
+      - [Multi-user system - login system](#multi-user-system---login-system) ~~42~~
+      - [Multi-user system - creating a new site](#multi-user-system---creating-a-new-site) ~~46~~
+      - [Multi-user system - user settings](#multi-user-system---user-settings) ~~46~~
+      - [Utility subroutines](#utility-subroutines) ~~46~~
+    - [Explanation and justification of this process](#explanation-and-justification-of-this-process) ~~47~~
+    - [Inputs and Outputs](#inputs-and-outputs) ~~47~~
+    - [Key variables](#key-variables) ~~49~~
+    - [Validation](#validation) ~~51~~
+    - [Testing method](#testing-method) ~~52~~
   >
 
-  - [Development and Testing](#development-and-testing)
-    - [Stage 1 - Setting up the website](#stage-1---setting-up-the-website)
-    - [Stage 2 - Creating and implementing the database](#stage-2---creating-and-implementing-the-database)
+  - [Development and Testing](#development-and-testing) ~~53~~
+    - [Stage 1 - Setting up the website](#stage-1---setting-up-the-website) ~~53~~
+    - [Stage 2 - Creating and implementing the database](#stage-2---creating-and-implementing-the-database) ~~86~~
+  >
+
+  - [Code Appendix](#) ~~93~~
 
 <br><br><br><br>
 <br><br><br><br>

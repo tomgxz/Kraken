@@ -1,64 +1,86 @@
-## Table of Contents
-  - [File Structure Diagram](#file-structure-diagram) 3
-  - [Code](#code) 4
-    - [Root Directory](#root-directory) 4
-      - [\_\_init\_\_.py](#__init__py) 4
-      - [dbCommands.txt](#dbcommandstxt) 15
-      - [models.py](#modelspy) 16
+
+<!--
+<style>
+del {
+  text-decoration:none;
+  float:right;
+  display:inline-block;
+}
+</style>
+-->
+
+<!--
+
+H446 A Level Programming Project - Kraken
+H446 A Level Programming Project - Kraken - Code Appendix
+
+-->
+
+<!--
++92
+-->
+
+## Table of Contents - Code Appendix
+  - [File Structure Diagram](#file-structure-diagram) ~~95~~
+  - [Code](#code) ~~96~~
+    - [Root Directory](#root-directory) ~~96~~
+      - [\_\_init\_\_.py](#__init__py) ~~96~~
+      - [dbCommands.txt](#dbcommandstxt) ~~107~~
+      - [models.py](#modelspy) ~~108~~
       >
 
-      - [/static](#staticcss) 17
-        - [/css](#staticcss) 17
-          - [auth.css](#staticcssauthcss) 17
-          - [blank.css](#staticcssblankcss) 20
-          - [build.css](#staticcssbuildcss) 22
-          - [default_content_style.css](#staticcssdefault_content_stylescss) 24
-          - [home.css](#staticcsshomecss) 24
-          - [index.css](#staticcssindexcss) 26
-          - [main.css](#maincss) 28
-          - [settings.css](#settingscss) 29
-          - [site-create.css](#site-createcss) 33
-          - [site-edit.css](#site-editcss) 39
-        - [/html/sections](#statichtmlsections) 43
-          - [classes](#statichtmlsectionsclasses) 43
-          - [/headline](#statichtmlsectionsheadline) 43
-            - [css.css](#statichtmlsectionsheadlinecsscss) 43
-            - [files](#statichtmlsectionsheadlinefiles) 46
-            - [html_element_headline_1.html](#statichtmlsectionsheadlinehtom_element_headline_1html) 46
-        - [/js](#staticjs) 46
-          - [auth.js](#staticjsauthjs) 46
-          - [colorConversion.js](#staticjscolorconversionjs) 48
-          - [globalnav-floating-options.js](#staticjsglobalnav-floating-optionsjs) 50
-          - [login.js](#staticjsloginjs) 51
-          - [main.js](#staticjsmainjs) 51
-          - [signup.js](#staticjssignupjs) 52
-          - [site-create-options-1.js](#staticjssite-create-options-1js) 53
-          - [site-create-options-2.js](#staticjssite-create-options-2js) 59
-          - [site-create-options-3.js](#staticjssite-create-options-2js) 60
-          - [site-create.js](#staticjssite-createjs) 62
-          - [site-edit.js](#staticjssite-editjs) 65
+      - [/static](#staticcss) ~~109~~
+        - [/css](#staticcss) ~~109~~
+          - [auth.css](#staticcssauthcss) ~~109~~
+          - [blank.css](#staticcssblankcss) ~~112~~
+          - [build.css](#staticcssbuildcss) ~~114~~
+          - [default_content_style.css](#staticcssdefault_content_stylescss) ~~116~~
+          - [home.css](#staticcsshomecss) ~~116~~
+          - [index.css](#staticcssindexcss) ~~118~~
+          - [main.css](#maincss) ~~120~~
+          - [settings.css](#settingscss) ~~121~~
+          - [site-create.css](#site-createcss) ~~125~~
+          - [site-edit.css](#site-editcss) ~~131~~
+        - [/html/sections](#statichtmlsections) ~~135~~
+          - [classes](#statichtmlsectionsclasses) ~~135~~
+          - [/headline](#statichtmlsectionsheadline) ~~135~~
+            - [css.css](#statichtmlsectionsheadlinecsscss) ~~135~~
+            - [files](#statichtmlsectionsheadlinefiles) ~~138~~
+            - [html_element_headline_1.html](#statichtmlsectionsheadlinehtom_element_headline_1html) ~~138~~
+        - [/js](#staticjs) ~~138~~
+          - [auth.js](#staticjsauthjs) ~~138~~
+          - [colorConversion.js](#staticjscolorconversionjs) ~~140~~
+          - [globalnav-floating-options.js](#staticjsglobalnav-floating-optionsjs) ~~142~~
+          - [login.js](#staticjsloginjs) ~~143~~
+          - [main.js](#staticjsmainjs) ~~143~~
+          - [signup.js](#staticjssignupjs) ~~144~~
+          - [site-create-options-1.js](#staticjssite-create-options-1js) ~~145~~
+          - [site-create-options-2.js](#staticjssite-create-options-2js) ~~151~~
+          - [site-create-options-3.js](#staticjssite-create-options-2js) ~~152~~
+          - [site-create.js](#staticjssite-createjs) ~~154~~
+          - [site-edit.js](#staticjssite-editjs) ~~157~~
         >
 
-      - [/templates](#templates) 70
-        - [base.html](#templatesbasehtml) 70
-        - [home-nosite.html](#templateshome-nositehtml) 73
-        - [home-sites.html](#templateshome-siteshtml) 74
-        - [login.html](#templatesloginhtml) 75
-        - [settings-admin.html](#templatessettings-adminhtml) 76
-        - [settings-base.html](#templatessettings-basehtml) 79
-        - [settings-code.html](#templatessettings-codehtml) 81
-        - [settings-dev.html](#templatessettings-devhtml) 82
-        - [settings-looks.html](#templatessettings-lookshtml) 82
-        - [settings-profile.html](#templatessettings-profilehtml) 83
-        - [settings-sites.html](#templatessettings-siteshtml) 84
-        - [signup.html](#templatessignup) 86
-        - [site-create-base.html](#templatessite-create-basehtml) 87
-        - [site-create-options-1.html](#templatessite-create-options-1html) 88
-        - [site-create-options-2.html](#templatessite-create-options-2html) 91
-        - [site-create-options-3.html](#templatessite-create-options-3html) 93
-        - [site-create.html](#templatessite-createhtml) 95
-        - [site-edit-home.html](#templatessite-edit-homehtml) 97
-        - [site-edit.html](#templatessite-edithtml) 98
+      - [/templates](#templates) ~~162~~
+        - [base.html](#templatesbasehtml) ~~162~~
+        - [home-nosite.html](#templateshome-nositehtml) ~~165~~
+        - [home-sites.html](#templateshome-siteshtml) ~~166~~
+        - [login.html](#templatesloginhtml) ~~167~~
+        - [settings-admin.html](#templatessettings-adminhtml) ~~168~~
+        - [settings-base.html](#templatessettings-basehtml) ~~171~~
+        - [settings-code.html](#templatessettings-codehtml) ~~173~~
+        - [settings-dev.html](#templatessettings-devhtml) ~~174~~
+        - [settings-looks.html](#templatessettings-lookshtml) ~~174~~
+        - [settings-profile.html](#templatessettings-profilehtml) ~~175~~
+        - [settings-sites.html](#templatessettings-siteshtml) ~~176~~
+        - [signup.html](#templatessignup) ~~178~~
+        - [site-create-base.html](#templatessite-create-basehtml) ~~179~~
+        - [site-create-options-1.html](#templatessite-create-options-1html) ~~180~~
+        - [site-create-options-2.html](#templatessite-create-options-2html) ~~183~~
+        - [site-create-options-3.html](#templatessite-create-options-3html) ~~185~~
+        - [site-create.html](#templatessite-createhtml) ~~187~~
+        - [site-edit-home.html](#templatessite-edit-homehtml) ~~189~~
+        - [site-edit.html](#templatessite-edithtml) ~~190~~
 
 <br><br><br><br>
 <br><br><br><br>
