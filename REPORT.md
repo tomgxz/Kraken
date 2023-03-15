@@ -325,7 +325,7 @@ height:225px
   - When creating the site, the user can select options that allow them to change the default styling properties of the site.
   > These will be the options for colour palettes and font families.
 
-  - The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously. (This is because it would be more complicated to program)
+  - The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously. (This is because it would be more complicated to program). This would be achieved by modifying the database structure to have a linking table between the User and Site tables. This is explained later in the design section.
   >
 
   - To export the site, the user will have two options that will be clearly defined in the UI
@@ -1219,9 +1219,11 @@ root((MAIN))
 
   As you can see by the image, using the `flash` function, flask successfully sends the list `["Apples","Oranges","Pears",1,2,3]` to the webpage for it to be recieved by the `get_flashed_messages` function. It also successfully managed to iterate through the list using `{% for element in get_flashed_messages()[0] %}`, and used the `url_for` function to import the stylesheet.
 
-  Before creating the database structure, I decided to create the frontend for the login and signup pages, so that it would be easier to test. Due to the above code working successfully, I started off by making a `base.html` template, that all of the other Jinja files would build on top of. I then created the `login.html` and `signup.html` files as well. This was made easier by my previous experience in web design, as I could use a library of CSS code that I have collected to speed up the design process. To be able to view the templates, I added some `app.route` functions to `__init__.py` using the `render_template` function.
+  Before creating the database structure, I decided to create the frontend for the login and signup pages, so that it would be easier to test. Due to the above code working successfully, I started off by making a `base.html` template, that all of the other Jinja files would build on top of. I then created the `login.html` and `signup.html` files as well. This was made easier by my previous experience in web design, as I could use a library of CSS code that I have created from previous projects to speed up the design process. To be able to view the templates, I added some `app.route` functions to `__init__.py` using the `render_template` function.
 
 <!-- TODO: add icon code -->
+
+<!-- TODO reference previous css projects -->
 
 <!-- Before creating the database structure... -->
 
