@@ -103,11 +103,148 @@ height:225px
   - Non-profit organisations: Non-profit organisations that want to create a website to promote their mission and raise awareness.
   - Freelancers: Freelancers and independent contractors who want to create a website to showcase their work and promote their services.
 
+  The stakeholders are divided in two main groups: those who have some technical knowledge and can help with alpha-testing and feedback, and those who are not very technically literate, as that is the target audience of this solution. Having two groups will mean I get a variety of useful feedback when developing and beta-testing.
+
+<br><br><br><br><br><br><br><br><br>
+
+  |Stakeholder |Role |Technical Knowledge |Notes
+  |-|-|-|-|
+  |Archie |Student |Medium |Will be able to help me with testing. Has some experience using website builders
+  |Luke |Student |Medium |Will be able to help me with testing. Enjoys creating websites in his free time, well versed in usability and accessibility
+  |Sarah |Member of local Scout group |Little |Looking for a way to create a website without hiring a professional developer
+  |Jake |Small business owner |Little |Interested in integration with social media
+  |Kevin |Professional web hosting provider |High |Can provide insights into platform's compatibility with different hosting environments. Has insight into SEO
+  |David |Barber shop owner and tech enthusiast |High |Excited to test features and provide feedback on capabilities and limitations
+
+
 #### Initial talks with stakeholders
 
-  <img alt="404 no stakeholders" src="https://lh5.googleusercontent.com/4uvZ_jq6raFf03ail16FfgqLPm9JP5gdU8V-y3wZAfbUpKUVSNls_AyQkpSCeZ10CrUPHeXBtRubFjCSOWe2scR_DFF6y7YcZc2VesnJbeRY-9vynC5GyrSNOOH4g_Px8H1jbhP-i_bE8n_1Z6K6Rg"/>
+  After meeting with each of the stakeholders and proposing the solution to them, I asked them each for feedback on what they would want the project to include, how they would want it to function, and, if they had technical knowledge, how I could implement the functionality. The questions I asked each person were:
 
-<br><br><br><br><br><br>
+  1. "How much technical experience do you have?"
+  2. If they have technical experience: "Do you have any experience creating websites yourself, and if so how much?"
+  3. "Do you have any experience using existing website builders, and if so, what are your thoughts on them?"
+  4. "What are the ideal features that you would look for in a website builder?"
+  5. If they have a lot of technical knowledge: "What methods would you suggest when creating this project?"
+  6. "Do you have any other comments, ideas or requests about my proposed project?"
+
+<br>
+
+##### Archie, Student
+  1. Technical experience
+  > I study [A level] Computer Science and have used Python for a long time. The course teaches many various aspects of building applications and programming paradigms, which will be useful in the creation of a website builder.
+
+  2. Creating your own websites
+  > I haven't really used HTML, CSS, and JavaScript outside of small things here and there
+
+  3. Existing website builders
+  > A lot of website builders that I have seen before are very feature heavy and convoluted, which can often obscure the creation of a website. The paywall against many of their features often annoys me
+
+  4. Ideal features
+  > If I were looking for a website builder, I would want it to be easy to pick up how to use, and have it so that I could edit an existing site quickly - very user friendly. The ability to invite other people to help with the creation would be good, and the ability to import and export sites. I'd also want it to have a lot of customisability so that I can make the website look how I want.
+
+  6. Other comments
+  > Make sure to use VS code as its 100% better than everything else.
+
+<br>
+
+##### Luke, Student
+  1. Technical experience
+  > I mainly program in C (and sometimes Java), having learnt them while doing computer science. I've used web languages quite a lot.
+
+  2. Creating your own websites
+  > I find it fun to create websites with crazy premises in my free time. It helps me expand my knowledge and skills. Each one is better than the last. Recently I've been trying to implement more usability and accessibility requirements into the websites that I create, such as contrast ratios and ARIA tags.
+
+<br><br>
+
+  3. Existing website builders
+  > I haven't really looked into website builders that much as I get more enjoyment from building them myself - its more of a hobby than a serious thing, and you have to pay for most builders. I have taken a look at bootstrap before, which is quite powerful.
+
+  4. Ideal features
+  > Well, you start with the drag-and-drop, and build from there. You want an easy way to position and reposition elements throughout the site - the ability to reorganise everything is really important. Styling customisability, so global styles and then the ability to change individual elements as well. Custom CSS and JS could also be a cool idea, but you'd need to look out for people putting in malicious code. Various templates that people can choose from is always a good idea, along with tags and filters for them. And accessibility: automatically assigning ARIA tags so that the user doesn't have to do it, checks to make sure the colors are high contrast enough, screen reader support. I'd be happy to help you with getting that stuff correct.
+
+  5. Programming methods
+
+  6. Other comments
+  > When I took a look at android studio, the way they do their positioning system is with constraints and XML formatted elements. That could be a cool way to do the positioning system, but it might also be a lot harder to program.
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br>
+
+##### Sarah, Scout Leader
+  1. Technical experience
+  > No
+
+  3. Existing website builders
+  > The scout group is beginning to look into creating a website, so you've come along at the perfect time. In terms of what we've seen already, a couple of ideas have been put backwards and forward but we haven't come to a decision yet.
+
+  4. Ideal features
+  > I mean, as a scout group, we would want to be able to put up photos and videos of what we've been doing so that people are encouraged to join - we need to be able to change it quickly, and have multiple people be able to change it. We'd need to be able to change the color scheme so that it matches with the official scout branding. Sign up forms would be a feature we'd need so that people can sign up straight from the website. And the ability to add a privacy policy, so that it's compliant with our GDPR regulations. If I'm honest, a lot of us aren't very technically savvy, so it would need to be pretty basic.
+
+<br>
+
+##### Jake, Business Owner
+  1. Technical experience
+  > I did do some stuff at school, but it was only a little and quite a while ago
+
+  3. Existing website builders
+  > I've not really considered having a website for [the business], as it's quite small, and I've found that social media is good enough at the moment
+
+  4. Ideal features
+  > Well, the biggest thing that comes to mind is having my social media feeds on the front page so that people can easily get up-to-date information and see the latest posts quickly. I'd want a lot of styles to choose from so that I can make it look how I want it too - but not so many that I can't choose.
+
+<br><br><br><br>
+<br>
+
+##### Kevin, Web Hosting Provider
+  1. Technical experience
+  > I work as a professional web hosting provider, making sure that clients have the best hosting plan based on requirements such as ease of use, security requirements, or expected lifetime
+
+  2. Creating your own websites
+  > My job doesn't really require me to, but I do often have to look through clients' code to ensure certain requirements are met, such as accessibility guidelines or creating suitable SEO information for the site. I do have knowledge of how the web languages work.
+
+  3. Existing website builders
+  > The company that I work for provide a website builder as part of one of the pricing plans, but I'm not involved in its programming. It functions fine, but there are a lot of things that I would change about it.
+
+  4. Ideal features
+  > The visual aspect of any program is key - if it doesn't look good, is too cluttered, or doesn't look easy to understand, it will put people off using it. Nailing the design is an important aspect of any project, and you should make sure to prioritise it. Another thing to consider is site speed - if it takes forever to update the website, or it lags when you move things around, it will make people not want to use it. Other than that, you've got the other customisation features, organising objects, styles, content management, SEO customisability, and so on.
+
+  5. Programming methods
+  > I'd suggest using Flask for this project, as you are already quite used to python, and it is easy to set up. The go to front-end languages would be HTML, CSS and JS. Testing isolated features throughout will make the development faster, and make it easier to link components together.
+
+  6. Other comments
+  > Make sure you talk to your other stakeholders throughout to ensure that the final project will be something they'll want to use - their input can be vital.
+
+<br><br><br><br>
+
+##### David, Barber Shop Owner, Tech Enthusiast
+
+  1. Technical experience
+  > I've done a lot in terms of technical stuff - I program a lot in my spare time to help with tasks, I have a pretty nice computer setup, a couple of raspberry pies setup around my house to run automated processes, and I'm big into collecting older tech.
+
+  2. Creating your own websites
+  > I've used HTML before. I wouldn't say I'm the best at it, but I know how it works. As for creating websites, I've not gone that far.
+
+  3. Existing website builders
+  > I tend to stay away from automated solutions to technical programming, especially online ones, where subscriptions and paywalls are a massive component of the industry. I'm beginning to look into creating a website for my shop, but I'm cautious about using website builders and may go down other avenues.
+
+  4. Ideal features
+  > The design is the most important bit for me - I should be able to create the entire site to look exactly how I want it, and then be able to release it to the public. Making sure that everything looks how it should, that precision is a big importance to me.
+
+  5. Programming methods
+  > You should definitely look at how other services have created their versions before, as it can give you inspiration and help you work out how you want to approach the construction of it. Make sure to be constantly testing and looking for feedback - I'd be happy to help with that.
+
+<!--
+  <img alt="404 no stakeholders" src="https://lh5.googleusercontent.com/4uvZ_jq6raFf03ail16FfgqLPm9JP5gdU8V-y3wZAfbUpKUVSNls_AyQkpSCeZ10CrUPHeXBtRubFjCSOWe2scR_DFF6y7YcZc2VesnJbeRY-9vynC5GyrSNOOH4g_Px8H1jbhP-i_bE8n_1Z6K6Rg"/>
+-->
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br>
 
 ### Why it is suited to a computational approach
   This problem is suitable for a computational approach because it automates many technical and design tasks typically associated with creating a website. This is achieved by breaking down the website-building process into smaller, more manageable tasks that a computer program can easily handle.
