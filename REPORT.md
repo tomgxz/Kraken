@@ -279,6 +279,24 @@ height:225px
   <img alt="404 no stakeholders" src="https://lh5.googleusercontent.com/4uvZ_jq6raFf03ail16FfgqLPm9JP5gdU8V-y3wZAfbUpKUVSNls_AyQkpSCeZ10CrUPHeXBtRubFjCSOWe2scR_DFF6y7YcZc2VesnJbeRY-9vynC5GyrSNOOH4g_Px8H1jbhP-i_bE8n_1Z6K6Rg"/>
 -->
 
+#### Analysis from stakeholders
+  After gathering feedback from the stakeholders, it became clear that there are several key features that they wanted from a website builder:
+
+  - Easy to use and user-friendly interface
+  - Ability to edit an existing site quickly
+  - Ability to invite others to collaborate on the site
+  - Import and export sites
+  - Enough customizability to make the website look as desired
+  - Styling customizability with global and individual element options
+  - Custom CSS and JS options
+  - Various templates with tags and filters
+  - Accessibility features, including automatic ARIA tags and contrast ratio checks for color
+  - Support for screen readers
+  - Ability to change color schemes to match brand identity
+  - Sign-up forms and privacy policy options
+  - Integration with social media feeds
+
+  It's also worth noting that some stakeholders expressed a willingness to help with the implementation of certain features, so it may be beneficial to involve them in the development process. Additionally, the website builder should aim to be basic enough for those with minimal technical experience to use, while also providing enough features and customizability for those with more technical experience to make use of.
 
 ### Research
 
