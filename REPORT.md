@@ -202,7 +202,7 @@ height:225px
   > I haven't really looked into website builders that much as I get more enjoyment from building them myself - its more of a hobby than a serious thing, and you have to pay for most builders. I have taken a look at bootstrap before, which is quite powerful.
 
   4. Ideal features
-  > Well, you start with the drag-and-drop, and build from there. You want an easy way to position and reposition elements throughout the site - the ability to reorganise everything is really important. Styling customisability, so global styles and then the ability to change individual elements as well. Custom CSS and JS could also be a cool idea, but you'd need to look out for people putting in malicious code. Various templates that people can choose from is always a good idea, along with tags and filters for them. And accessibility: automatically assigning ARIA tags so that the user doesn't have to do it, checks to make sure the colors are high contrast enough, screen reader support. I'd be happy to help you with getting that stuff correct.
+  > Well, you start with the drag-and-drop, and build from there. You want an easy way to position and reposition elements throughout the site - the ability to reorganise everything is really important. Styling customisability, so global styles and then the ability to change individual elements as well. Custom CSS and JS could also be a cool idea, but you'd need to look out for people putting in malicious code. Various templates that people can choose from is always a good idea, along with tags and filters for them. And accessibility: automatically assigning ARIA tags so that the user doesn't have to do it, checks to make sure the colours are high contrast enough, screen reader support. I'd be happy to help you with getting that stuff correct.
 
   5. Programming methods
 
@@ -220,7 +220,7 @@ height:225px
   > The scout group is beginning to look into creating a website, so you've come along at the perfect time. In terms of what we've seen already, a couple of ideas have been put backwards and forward but we haven't come to a decision yet.
 
   4. Ideal features
-  > I mean, as a scout group, we would want to be able to put up photos and videos of what we've been doing so that people are encouraged to join - we need to be able to change it quickly, and have multiple people be able to change it. We'd need to be able to change the color scheme so that it matches with the official scout branding. Sign up forms would be a feature we'd need so that people can sign up straight from the website. And the ability to add a privacy policy, so that it's compliant with our GDPR regulations. If I'm honest, a lot of us aren't very technically savvy, so it would need to be pretty basic.
+  > I mean, as a scout group, we would want to be able to put up photos and videos of what we've been doing so that people are encouraged to join - we need to be able to change it quickly, and have multiple people be able to change it. We'd need to be able to change the colour scheme so that it matches with the official scout branding. Sign up forms would be a feature we'd need so that people can sign up straight from the website. And the ability to add a privacy policy, so that it's compliant with our GDPR regulations. If I'm honest, a lot of us aren't very technically savvy, so it would need to be pretty basic.
 
 <br>
 
@@ -292,9 +292,9 @@ height:225px
   - Styling customizability with global and individual element options
   - Custom CSS and JS options
   - Various templates with tags and filters
-  - Accessibility features, including automatic ARIA tags and contrast ratio checks for color
+  - Accessibility features, including automatic ARIA tags and contrast ratio checks for colour
   - Support for screen readers
-  - Ability to change color schemes to match brand identity
+  - Ability to change colour schemes to match brand identity
   - Sign-up forms and privacy policy options
   - Integration with social media feeds
 
@@ -472,12 +472,12 @@ height:225px
   >
 
   - When creating the site, the user can select options that allow them to change the default styling properties of the site.
-  > These will be the options for color palettes and font families.
+  > These will be the options for colour palettes and font families.
 
   - The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously.
   > This would be achieved by modifying the database structure to have a linking table between the User and Site tables. This is explained later in the design section.
 
-  - Accessibility and support: Automatic ARIA tag assignment inside website builder, accessibility analysis tools to ensure that the current color palette is acceptable, and adequate support for screen readers in created websites.
+  - Accessibility and support: Automatic ARIA tag assignment inside website builder, accessibility analysis tools to ensure that the current colour palette is acceptable, and adequate support for screen readers in created websites.
   >
 
   - Audience interaction features such as forms, social media feeds, and article posts.
