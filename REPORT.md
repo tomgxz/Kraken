@@ -32,7 +32,6 @@ height:225px
       - [Existing solution - Zyro](#existing-solution---zyro) ~~17~~
     - [Key features of the solution](#key-features-of-the-solution) ~~19~~
     - [Limitations of the solution](#limitations-of-the-solution) ~~20~~
-    - [Meeting with the stakeholders](#meeting-with-the-stakeholders) ~~20~~
     - [Hardware and Software Requirements](#hardware-and-software-requirements) ~~20~~
       - [Hardware Requirements](#hardware-requirements) ~~20~~
       - [Software Requirements](#software-requirements) ~~20~~
@@ -393,9 +392,6 @@ height:225px
 ### Limitations of the solution
   The main limitation is that, as a server-side application, the user will always need an active internet connection to access it, and if the server goes down, there will be no way of using the program.
 
-#### Meeting with the stakeholders
-  I should probably contact the "stakeholders" at this point as I'm developing ideas on how the website builder would function.
-
 ### Hardware and Software Requirements
 
 #### Hardware Requirements
@@ -481,8 +477,8 @@ height:225px
   - When creating the site, the user can select options that allow them to change the default styling properties of the site.
   > These will be the options for color palettes and font families.
 
-  - The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously. (This is because it would be more complicated to program). This would be achieved by modifying the database structure to have a linking table between the User and Site tables. This is explained later in the design section.
-  >
+  - The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously.
+  > This would be achieved by modifying the database structure to have a linking table between the User and Site tables. This is explained later in the design section.
 
   - Accessibility and support: Automatic ARIA tag assignment inside website builder, accessibility analysis tools to ensure that the current color palette is acceptable, and adequate support for screen readers in created websites.
   >
