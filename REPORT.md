@@ -25,7 +25,7 @@ height:225px
     - [Problem identification](#problem-identification) ~~3~~
     - [Stakeholders](#stakeholders) ~~4~~
     - [Why it is suited to a computational approach](#why-it-is-suited-to-a-computational-approach) ~~5~~
-    - [Inital talks with stakeholders](#initial-talks-with-stakeholdlers) ~~8~~
+    - [Initial talks with stakeholders](#initial-talks-with-stakeholdlers) ~~8~~
       - [Analysis from stakeholders](#analysis-from-stakeholders) ~~12~~
     - [Research](#research) ~~13~~
       - [Existing solution - Squarespace](#existing-solution---squarespace) ~~13~~
