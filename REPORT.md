@@ -307,7 +307,9 @@ height:225px
 #### Existing solution - Squarespace
   Their template list gives the option to preview the website, with all its functionality on a separate page. They allow their users to view it in different sizes as well.
 
-  <img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace15.png?raw=true" height="360"/>
+  <img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace15.png?raw=true"/>
+
+  <br><br><br>
 
   When first editing the site, Squarespace offers an assistant with some basic first steps to creating the website, making it easier for the client to understand how the editor works and how to use it effectively.
 
