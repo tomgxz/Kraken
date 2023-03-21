@@ -105,7 +105,7 @@ height:225px
 
   The stakeholders are divided in two main groups: those who have some technical knowledge and can help with alpha-testing and feedback, and those who are not very technically literate, as that is the target audience of this solution. Having two groups will mean I get a variety of useful feedback when developing and beta-testing.
 
-<br><br><br><br><br><br><br><br><br>
+  <br>
 
   |Stakeholder |Role |Technical Knowledge |Notes
   |-|-|-|-|
@@ -116,8 +116,55 @@ height:225px
   |Kevin |Professional web hosting provider |High |Can provide insights into platform's compatibility with different hosting environments. Has insight into SEO
   |David |Barber shop owner and tech enthusiast |High |Excited to test features and provide feedback on capabilities and limitations
 
+<br>
 
-#### Initial talks with stakeholders
+### Why it is suited to a computational approach
+  This problem is suitable for a computational approach because it automates many technical and design tasks typically associated with creating a website. This is achieved by breaking down the website-building process into smaller, more manageable tasks that a computer program can easily handle.
+
+  For example, it can implement a drag-and-drop interface to allow users to easily add and arrange elements on a webpage, such as text, images, and videos, without coding. The website builder can also include a visual editor that allows users to easily customise the design and layout of their website, such as selecting from a variety of pre-designed templates or themes. The website builder can also apply pre-defined styles and formatting to the website and organise and link the pages together.
+
+  In addition, the solution can also use computational algorithms to optimise the website for different devices and screen sizes, ensuring that the website is responsive and easy to navigate on any device. This can be done by using CSS media queries, which can change the website's layout based on the screen's width, and JavaScript libraries that can detect the device and size of the screen and adjust the layout accordingly.
+
+  Using a computational approach can also ensure that the website is secure, fast, and reliable. It can use techniques like minifying, compression, and caching to make the website load faster and use authentication and authorisation mechanisms to ensure the website is secure.
+
+  The solution will be accessible through a server that hosts a website, which requires a computer to use. No alternative would not require a computer to be able to create a website, as at some point, the user will need to write and host the code that they have produced. This solution would act as a bridge between the client and the code, making it easy for users to create a website without needing to understand the technical details of coding.
+
+#### Computational methods that the solution lends itself to:
+
+##### Problem recognition
+  This solution is suitable for problem recognition because it addresses a specific problem that many individuals and small businesses face: the difficulty of creating a professional and functional website without technical expertise or resources. By providing a user-friendly, drag-and-drop interface, a website builder allows users to quickly create and edit their website without the need for coding or technical expertise. This addresses the problem of users not having the technical skills or resources to create a website themselves.
+
+  Furthermore, a website builder can also use computational algorithms to optimise the website for different devices and screen sizes, ensuring that the website is responsive and easy to navigate on any device. This addresses the problem of the rise of mobile devices and the increasing importance of responsive design in today's digital age.
+
+##### Problem decomposition
+  The problem can be broken down into smaller tasks that must be programmed for the program to operate effectively.
+  - Creating an account system and a database to store the user's data.
+  > The account system would allow many users to access the server and edit their sites. The data would be stored in a server-side SQL database. The sites would be stored separately on the server.
+  - Creating a menu system for users to navigate to access different sites.
+
+  - Storing a list of template elements the user can preview and use in their sites.
+  > I need to decide how to store the template elements, display them to the user, and then implement them into a user's site while still allowing them to edit them.
+  - Creating a simple drag-and-drop interface that is easy to use and understand.
+  > This will probably be based on the grid-based positioning system that many existing website builders use or the constraint system that applications such as android studio use; however, the constraint system may not work with how HTML is created.
+  - Creating an effective way of storing the users' sites on the server.
+  > They would either be stored in HTM, CSS, and JS files, which would remove the need to convert them, or they could be stored all in XML files, which would make accessing the files easier: the program could convert the XML elements into HTML, CSS, and JS to allow it to be shown. This would allow for the storage of more information about the site and elements and would mean it could all be in one file, including all the separate pages.
+  - Converting the user's site into runnable HTML, CSS, and JavaScript so they can download and use it.
+  > There would need to be a way for JavaScript to do it so that the user can edit the site in the editor and a way for the server (written in Python) to do it as well
+
+##### Divide and conquer
+  These smaller steps are all doable on their own, and combining them would make a divide-and-conquer approach. The advantage of it being coded in a modular way is that each part can be tested and built on its own without relying on other parts of the project.
+
+##### Abstraction
+  The program uses abstraction as it removes the complex process of programming code by transferring it into a more straightforward, graphical interface - it provides a high-level interface for users to create a website while hiding the underlying implementation details. This removes the need for the client to have knowledge and experience in programming, opening the market to a much larger audience.
+
+  For example, the proposed drag-and-drop interface abstracts the implementation details of adding and arranging elements on a webpage using HTML and CSS code.
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br>
+
+### Initial talks with stakeholders
 
   After meeting with each of the stakeholders and proposing the solution to them, I asked them each for feedback on what they would want the project to include, how they would want it to function, and, if they had technical knowledge, how I could implement the functionality. The questions I asked each person were:
 
@@ -127,8 +174,6 @@ height:225px
   4. "What are the ideal features that you would look for in a website builder?"
   5. If they have a lot of technical knowledge: "What methods would you suggest when creating this project?"
   6. "Do you have any other comments, ideas or requests about my proposed project?"
-
-<br>
 
 ##### Archie, Student
   1. Technical experience
@@ -146,16 +191,12 @@ height:225px
   6. Other comments
   > Make sure to use VS code as its 100% better than everything else.
 
-<br>
-
 ##### Luke, Student
   1. Technical experience
   > I mainly program in C (and sometimes Java), having learnt them while doing computer science. I've used web languages quite a lot.
 
   2. Creating your own websites
   > I find it fun to create websites with crazy premises in my free time. It helps me expand my knowledge and skills. Each one is better than the last. Recently I've been trying to implement more usability and accessibility requirements into the websites that I create, such as contrast ratios and ARIA tags.
-
-<br><br>
 
   3. Existing website builders
   > I haven't really looked into website builders that much as I get more enjoyment from building them myself - its more of a hobby than a serious thing, and you have to pay for most builders. I have taken a look at bootstrap before, which is quite powerful.
@@ -168,9 +209,6 @@ height:225px
   6. Other comments
   > When I took a look at android studio, the way they do their positioning system is with constraints and XML formatted elements. That could be a cool way to do the positioning system, but it might also be a lot harder to program.
 
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
 <br><br><br><br>
 <br><br><br>
 
@@ -241,53 +279,6 @@ height:225px
   <img alt="404 no stakeholders" src="https://lh5.googleusercontent.com/4uvZ_jq6raFf03ail16FfgqLPm9JP5gdU8V-y3wZAfbUpKUVSNls_AyQkpSCeZ10CrUPHeXBtRubFjCSOWe2scR_DFF6y7YcZc2VesnJbeRY-9vynC5GyrSNOOH4g_Px8H1jbhP-i_bE8n_1Z6K6Rg"/>
 -->
 
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
-<br><br>
-
-### Why it is suited to a computational approach
-  This problem is suitable for a computational approach because it automates many technical and design tasks typically associated with creating a website. This is achieved by breaking down the website-building process into smaller, more manageable tasks that a computer program can easily handle.
-
-  For example, it can implement a drag-and-drop interface to allow users to easily add and arrange elements on a webpage, such as text, images, and videos, without coding. The website builder can also include a visual editor that allows users to easily customise the design and layout of their website, such as selecting from a variety of pre-designed templates or themes. The website builder can also apply pre-defined styles and formatting to the website and organise and link the pages together.
-
-  In addition, the solution can also use computational algorithms to optimise the website for different devices and screen sizes, ensuring that the website is responsive and easy to navigate on any device. This can be done by using CSS media queries, which can change the website's layout based on the screen's width, and JavaScript libraries that can detect the device and size of the screen and adjust the layout accordingly.
-
-  Using a computational approach can also ensure that the website is secure, fast, and reliable. It can use techniques like minifying, compression, and caching to make the website load faster and use authentication and authorisation mechanisms to ensure the website is secure.
-
-  The solution will be accessible through a server that hosts a website, which requires a computer to use. No alternative would not require a computer to be able to create a website, as at some point, the user will need to write and host the code that they have produced. This solution would act as a bridge between the client and the code, making it easy for users to create a website without needing to understand the technical details of coding.
-
-#### Computational methods that the solution lends itself to:
-
-##### Problem recognition
-  This solution is suitable for problem recognition because it addresses a specific problem that many individuals and small businesses face: the difficulty of creating a professional and functional website without technical expertise or resources. By providing a user-friendly, drag-and-drop interface, a website builder allows users to quickly create and edit their website without the need for coding or technical expertise. This addresses the problem of users not having the technical skills or resources to create a website themselves.
-
-  Furthermore, a website builder can also use computational algorithms to optimise the website for different devices and screen sizes, ensuring that the website is responsive and easy to navigate on any device. This addresses the problem of the rise of mobile devices and the increasing importance of responsive design in today's digital age.
-
-##### Problem decomposition
-  The problem can be broken down into smaller tasks that must be programmed for the program to operate effectively.
-  - Creating an account system and a database to store the user's data.
-  > The account system would allow many users to access the server and edit their sites. The data would be stored in a server-side SQL database. The sites would be stored separately on the server.
-  - Creating a menu system for users to navigate to access different sites.
-
-  - Storing a list of template elements the user can preview and use in their sites.
-  > I need to decide how to store the template elements, display them to the user, and then implement them into a user's site while still allowing them to edit them.
-  - Creating a simple drag-and-drop interface that is easy to use and understand.
-  > This will probably be based on the grid-based positioning system that many existing website builders use or the constraint system that applications such as android studio use; however, the constraint system may not work with how HTML is created.
-  - Creating an effective way of storing the users' sites on the server.
-  > They would either be stored in HTM, CSS, and JS files, which would remove the need to convert them, or they could be stored all in XML files, which would make accessing the files easier: the program could convert the XML elements into HTML, CSS, and JS to allow it to be shown. This would allow for the storage of more information about the site and elements and would mean it could all be in one file, including all the separate pages.
-  - Converting the user's site into runnable HTML, CSS, and JavaScript so they can download and use it.
-  > There would need to be a way for JavaScript to do it so that the user can edit the site in the editor and a way for the server (written in Python) to do it as well
-
-<br><br><br><br>
-
-##### Divide and conquer
-  These smaller steps are all doable on their own, and combining them would make a divide-and-conquer approach. The advantage of it being coded in a modular way is that each part can be tested and built on its own without relying on other parts of the project.
-
-##### Abstraction
-  The program uses abstraction as it removes the complex process of programming code by transferring it into a more straightforward, graphical interface - it provides a high-level interface for users to create a website while hiding the underlying implementation details. This removes the need for the client to have knowledge and experience in programming, opening the market to a much larger audience.
-
-  For example, the proposed drag-and-drop interface abstracts the implementation details of adding and arranging elements on a webpage using HTML and CSS code.
 
 ### Research
 
