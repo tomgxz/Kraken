@@ -279,6 +279,8 @@ height:225px
   <img alt="404 no stakeholders" src="https://lh5.googleusercontent.com/4uvZ_jq6raFf03ail16FfgqLPm9JP5gdU8V-y3wZAfbUpKUVSNls_AyQkpSCeZ10CrUPHeXBtRubFjCSOWe2scR_DFF6y7YcZc2VesnJbeRY-9vynC5GyrSNOOH4g_Px8H1jbhP-i_bE8n_1Z6K6Rg"/>
 -->
 
+<br>
+
 #### Analysis from stakeholders
   After gathering feedback from the stakeholders, it became clear that there are several key features that they wanted from a website builder:
 
@@ -298,14 +300,14 @@ height:225px
 
   It's also worth noting that some stakeholders expressed a willingness to help with the implementation of certain features, so it may be beneficial to involve them in the development process. Additionally, the website builder should aim to be basic enough for those with minimal technical experience to use, while also providing enough features and customizability for those with more technical experience to make use of.
 
+<br><br><br><br><br><br>
+
 ### Research
 
 #### Existing solution - Squarespace
   Their template list gives the option to preview the website, with all its functionality on a separate page. They allow their users to view it in different sizes as well.
 
   <img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace15.png?raw=true" height="360"/>
-
-  <br><br><br><br>
 
   When first editing the site, Squarespace offers an assistant with some basic first steps to creating the website, making it easier for the client to understand how the editor works and how to use it effectively.
 
@@ -318,6 +320,8 @@ height:225px
   Their editor works in the conventional way of a grid-based system, where the user can place elements anywhere on the grid. It will then assign the item the style property `grid-area:row-start/col-start/row-end/col-end` or `grid-area:y/x/height/width` to define the position of the element. They have different attributes for different screen sizes, and the user can edit both styles separately by switching between laptop and phone modes.
 
   <img alt="Squarespace research image: element drag and drop" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace16.png?raw=true" width="100%"/>
+
+  <br>
 
   The website is split into sections, where each section contains a content wrapper with the grid positioning system inside.
 
@@ -338,6 +342,7 @@ height:225px
 <br><br><br><br>
 <br><br><br><br>
 <br><br><br><br>
+<br>
 
 #### Existing solution - Zyro
   Zyro also uses an assistant to help users understand how to use their editor.
@@ -468,20 +473,26 @@ height:225px
   - Ability to (export and) import sites in a zip file so you can transfer them between sites, which is different to downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
   >
 
+  - A list of predefined templates for sites when creating a site, that can be organised and filtered via relevant tags.
+  >
+
   - When creating the site, the user can select options that allow them to change the default styling properties of the site.
-  > These will be the options for colour palettes and font families.
+  > These will be the options for color palettes and font families.
 
   - The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously. (This is because it would be more complicated to program). This would be achieved by modifying the database structure to have a linking table between the User and Site tables. This is explained later in the design section.
   >
+
+  - Accessibility and support: Automatic ARIA tag assignment inside website builder, accessibility analysis tools to ensure that the current color palette is acceptable, and adequate support for screen readers in created websites.
+  >
+
+  - Audience interaction features such as forms, social media feeds, and article posts.
 
   - To export the site, the user will have two options that will be clearly defined in the UI
   - They can download the site, which will download a zip file containing all the required HTML, CSS, and JavaScript code, so that they can unpack the archive and run the webpage by simply opening the HTML file.
   - They can export the site, which will download a different zip file that contains all of the internal files that Kraken uses to run the editor for the page. This means the user can download backups and send their websites to others.
   >
 
-<br><br><br><br>
-<br><br><br><br>
-<br>
+<br><br>
 
 ## Design
 
