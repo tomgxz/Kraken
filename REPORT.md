@@ -35,7 +35,6 @@ height:225px
     - [Hardware and Software Requirements](#hardware-and-software-requirements) ~~20~~
       - [Hardware Requirements](#hardware-requirements) ~~20~~
       - [Software Requirements](#software-requirements) ~~20~~
-    - [Stakeholder requirements](#stakeholder-requirements) ~~21~~
     - [Success Criteria](#success-criteria) ~~21~~
   >
 
@@ -417,8 +416,6 @@ height:225px
   - Firewall software to monitor incoming and outgoing traffic and stop potential threats from corrupting the system.
   - Load balancer software may be required when the user base increases to manage server resources and route traffic to available servers.
 
-### Stakeholder requirements
-
 ### Success Criteria
 
 #### Essential Features
@@ -490,7 +487,8 @@ height:225px
   - They can export the site, which will download a different zip file that contains all of the internal files that Kraken uses to run the editor for the page. This means the user can download backups and send their websites to others.
   >
 
-<br><br>
+<br><br><br><br>
+<br><br><br><br>
 
 ## Design
 
