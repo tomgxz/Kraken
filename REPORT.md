@@ -25,17 +25,19 @@ height:225px
     - [Problem identification](#problem-identification) ~~3~~
     - [Stakeholders](#stakeholders) ~~4~~
     - [Why it is suited to a computational approach](#why-it-is-suited-to-a-computational-approach) ~~5~~
-    - [Research](#research) ~~7~~
-      - [Existing solution - Squarespace](#existing-solution---squarespace) ~~7~~
-      - [Existing solution - Zyro](#existing-solution---zyro) ~~11~~
-    - [Key features of the solution](#key-features-of-the-solution) ~~13~~
-    - [Limitations of the solution](#limitations-of-the-solution) ~~14~~
-    - [Meeting with the stakeholders](#meeting-with-the-stakeholders) ~~14~~
-    - [Hardware and Software Requirements](#hardware-and-software-requirements) ~~14~~
-      - [Hardware Requirements](#hardware-requirements) ~~14~~
-      - [Software Requirements](#software-requirements) ~~14~~
-    - [Stakeholder requirements](#stakeholder-requirements) ~~15~~
-    - [Success Criteria](#success-criteria) ~~15~~
+    - [Inital talks with stakeholders](#initial-talks-with-stakeholdlers) ~~8~~
+      - [Analysis from stakeholders](#analysis-from-stakeholders) ~~12~~
+    - [Research](#research) ~~13~~
+      - [Existing solution - Squarespace](#existing-solution---squarespace) ~~13~~
+      - [Existing solution - Zyro](#existing-solution---zyro) ~~17~~
+    - [Key features of the solution](#key-features-of-the-solution) ~~19~~
+    - [Limitations of the solution](#limitations-of-the-solution) ~~20~~
+    - [Meeting with the stakeholders](#meeting-with-the-stakeholders) ~~20~~
+    - [Hardware and Software Requirements](#hardware-and-software-requirements) ~~20~~
+      - [Hardware Requirements](#hardware-requirements) ~~20~~
+      - [Software Requirements](#software-requirements) ~~20~~
+    - [Stakeholder requirements](#stakeholder-requirements) ~~21~~
+    - [Success Criteria](#success-criteria) ~~21~~
   >
 
   - [Design](#design) ~~18~~
