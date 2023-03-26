@@ -382,11 +382,18 @@ height:225px
     Zyro also includes a built-in AI-based website creation tool called Zyro AI Writer, which can help users easily create website content. Similar to the Squarespace e-commerce system, this will not fit into the timeframe of the initial release of this solution, so it will not be implemented.
 
   ### Key features of the solution
-    <!--TODO: rewrite-->
+  
+  The proposed solution is a multi-user, web-based program that is designed to make website creation easier for a diverse range of users, including individuals, small businesses, freelancers, and non-profit organizations. The key features of the solution are outlined below:
 
-    This solution will be a web-based, multi-user program where the user uses a grid-based, drag-and-drop system using pre-defined template elements that they can customise. There will be a tutorial for creating a site to help new users understand the system. The user will be able to customise styles for their site, organise pages, access a library of pre-defined templates for widgets such as text, buttons, or links, and control the styling of each element in their pages.
+  - Grid-based, drag-and-drop system: The system is based on a grid layout that makes it easy for users to place and arrange various elements on their pages. The drag-and-drop feature allows users to add elements to their pages and reposition them as desired.
+  - Pre-defined template elements: The solution comes with a wide range of pre-defined template elements that users can use to create their websites quickly. These elements can be customised to match the user's needs.
+  - Tutorial for creating a site: To help new users understand the system, the solution provides a comprehensive tutorial that guides them through the website creation process step-by-step. This tutorial is designed to make it easy for anyone to get started, regardless of their level of technical knowledge.
+  - Customisable styles: Users can customise the style of their website by changing the font, colours, background, and other design elements. This feature allows users to create unique designs that match their brand or personal preferences.
+  - Organised pages: The solution provides users with tools to organise their pages in a way that makes sense to them. This feature enables users to create a clear, logical structure for their websites, which makes it easy for visitors to navigate.
+  - Library of pre-defined templates: The solution comes with a library of pre-defined templates for widgets such as text, buttons, or links. These templates are designed to save users time and effort by providing them with ready-made elements that they can use on their pages.
+  - Control of styling for each element: Users have complete control over the styling of each element on their pages. This feature allows users to create visually appealing designs that match their brand or personal preferences.
 
-    The aim is to have an easy learning curve and a low entry bar for understanding so that anybody can use it. Ease of use is also crucial - the cognitive load on the user should be low enough that it allows them to focus on designing the website due to <!-- TODO: finish sentence -->
+  The overall aim of the solution is to provide an easy-to-use, intuitive system that has a low learning curve, making it accessible to anyone who wants to create a website. The user interface is designed to be visually appealing and straightforward, with a minimal cognitive load, enabling users to focus on designing their websites rather than struggling with technical details. The solution is designed to be flexible and adaptable to suit a wide range of needs, from simple personal sites to more complex business sites.
 
   <br><br>
 
