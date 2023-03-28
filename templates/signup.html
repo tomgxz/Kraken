@@ -21,56 +21,37 @@
     </div>
     <div class="field-container active">
         <span class="field-warning text italic">
-            {% if messages[0] %}
-              {{ messages[1] }}
-            {% endif %}
+          {% if messages[0] %}
+            {{ messages[1] }}
+          {% endif %}
         </span>
 
         <form class="field-options" method="post" action="/signup/">
 
-          <div class="field-option field-option-name">
-              <h4 class="text italic">Name</h4>
-              <div class="field-input-container">
-                  <input class="field-input" placeholder="Name" type="name" name="name" autofocus value="{{ messages[2]}}">
-                  <span class="eye-spacer"></span>
-              </div>
-          </div>
+          {% set formItems = [
+          ["Name","Name","text","name",false,messages[2]],
+          ["Email","name@domain.com","email","email",false,messages[3]],
+          ["Username","Username","text","username",false,messages[4]],
+          ["Password","Password","password","password",true,""],
+          ["Repeat Password","Again :/","password","password-repeat",""]
+          ]
+          %}
 
-          <div class="field-option field-option-email">
-              <h4 class="text italic">Email</h4>
+          {% for item in formItems %}
+          <div class="field-option field-option-{{item[3]}}">
+              <h4 class="text italic">{{item[0]}}</h4>
               <div class="field-input-container">
-                  <input class="field-input" placeholder="name@domain.com" type="email" name="email" autofocus value="{{ messages[3]}}">
-                  <span class="eye-spacer"></span>
-              </div>
-          </div>
-
-          <div class="field-option field-option-username">
-              <h4 class="text italic">Username</h4>
-              <div class="field-input-container">
-                  <input class="field-input" placeholder="Username" type="text" name="username" autofocus value="{{ messages[4]}}">
-                  <span class="eye-spacer"></span>
-              </div>
-          </div>
-
-          <div class="field-option field-option-password">
-              <h4 class="text italic">Password</h4>
-              <div class="field-input-container">
-                  <input class="field-input" placeholder="Password" type="password" name="password">
+                  <input class="field-input" placeholder="{{item[1]}}" type="{{item[2]}}" name="{{item[3]}}" value="{{item[5]}}">
+                  {% if item[4] %}
                   <span class="eye-reveal">
-                  <i class="fa-solid fa-eye"></i>
+                    <i class="fa-solid fa-eye"></i>
                   </span>
+                  {% else %}
+                  <span class="eye-spacer"></span>
+                  {% endif %}
               </div>
           </div>
-
-          <div class="field-option field-option-password-repeat">
-              <h4 class="text italic">Repeat Password</h4>
-              <div class="field-input-container">
-                  <input class="field-input" placeholder="Again :/" type="password" name="password-repeat">
-                  <span class="eye-reveal">
-                  <i class="fa-solid fa-eye"></i>
-                  </span>
-              </div>
-          </div>
+          {% endfor %}
 
           <button class="field-submit btn secondary rounded slide" type="submit">
             <span class="btn-content text uppercase secondary">Submit</span>
@@ -81,6 +62,7 @@
     </div>
 </div>
 
+<script src="../static/js/auth.js"></script>
 <script src="../static/js/signup.js"></script>
 
 {% endblock %}
