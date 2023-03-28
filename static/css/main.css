@@ -2859,7 +2859,7 @@ em classes:
         padding: 0 12px;
         position: relative;
         height: inherit;
-        z-index: 2;
+        z-index: 9995;
         display: flex;
         justify-content: center;
     }
