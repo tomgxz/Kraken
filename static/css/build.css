@@ -16,7 +16,7 @@
     position:fixed;
     bottom:0;
     left:96px;
-    z-index:8;
+    z-index:9998;
     padding:16px 8px;
     display:flex;
     flex-direction: column;
@@ -42,7 +42,7 @@
 }
 
 .globalnav-floating-options-backdrop {
-    z-index:7;
+    z-index:9997;
     position:fixed;
     width:calc(100vw - 96px);
     height:100vh;
