@@ -1,0 +1,89 @@
+.grid-item {
+/*    position: relative;
+    z-index: var(--element-z-index);
+    display: flex;
+    flex-direction: column;
+    grid-area: var(--position);
+    align-items: var(--align);
+    justify-content: var(--justify);
+    padding: var(--grid-item-padding);
+    text-align: var(--text)
+*/
+    position: relative;
+    left: var(--left);
+    z-index: var(--hidden-element-z-index, var(--z-index));
+    display: grid;
+    grid-area: var(--position);
+    width: var(--element-width, 100%);
+    height: var(--element-height, 100%);
+    text-align: var(--text);
+    grid-template-columns: 100%;
+}
+
+.grid-item-content {
+    grid-area: 1/1/-1/-1;
+    align-self: start;
+}
+
+.text-box {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-wrap: break-word;
+    white-space: var(--whiteSpace, break-spaces);
+    background-color: var(--backgroundColor);
+    outline: none;
+}
+
+@media screen and (max-width: 920px) {
+    .grid-item {
+        grid-area:auto;
+        grid-column: 3/-3;
+        align-items: var(--m-align, var(--align));
+        align-self: var(--m-align-self);
+        justify-content: var(--m-justify, var(--justify));
+        max-width: 100%;
+        text-align: var(--m-text, var(--text))
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .grid-item {
+        width:var(--m-width, 100%)
+    }
+}
+
+.section-grid {
+    position: relative;
+    z-index: 14;
+    display: grid;
+    grid-area: 1/1/-1/-1;
+    grid-template-rows: repeat(var(--rows),var(--row-size));
+    grid-template-columns: calc((var(--container-width) - var(--content-width)) / 2) 1fr repeat(var(--column-count),minmax(0,var(--column-width))) 1fr calc((var(--container-width) - var(--content-width)) / 2);
+    grid-auto-rows: var(--row-size);
+    row-gap: var(--row-gap);
+    -moz-column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
+    width: 100%;
+    padding: var(--block-padding);
+    margin: 0 auto;
+    --column-gap-count: calc(var(--column-count) - 1);
+    --column-width: calc( (var(--grid-width) - (var(--column-gap-count) * var(--column-gap))) / var(--column-count) );
+    --container-width: 100vw
+}
+
+@media screen and (max-width: 920px) {
+    .section-grid {
+        display:flex;
+        flex-direction: column;
+        grid-gap: 0;
+        padding: var(--m-block-padding)
+    }
+
+}
+
+.section-grid {
+    grid-template-rows: repeat(var(--rows),minmax(var(--row-size),auto))
+}
+
+
