@@ -3,7 +3,6 @@ Dependencies:
     flask
     flask-login
     flask-sqlalchemy
-    sqlite3
     pillow
     configparser
     datetime
@@ -17,53 +16,80 @@ Dependencies:
 # TODO: make sure you dont render a random site that doesnt exist (line 83)
 
 from flask import Flask, render_template, Blueprint, redirect, url_for, request, flash, session
-from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, login_user, login_required, current_user, logout_user
-from random import choice
-from PIL import Image
+
+# Flask is the application object
+# render_template converts a Jinja file to html
+# redirect redirects the website to another route function
+# flash sends messages to the client
+# request allows the code to handle form inputs
+# url_for fetches the url of a server resource
+# SQLAlchemy manages the SQL database
+# LoginManager is the object that manages signed in users
+# login_user logs in a give user
+# login_required makes sure that you have to be logged in to visit said site
+# logout_user logs out a user
+
+from werkzeug.security import generate_password_hash, check_password_hash
+
+# generate_password_hash and check_password_hash are used when generating and authenticating users
+
 from configparser import ConfigParser
 import math
 
-db=SQLAlchemy()
+# ConfigParser is used when read/writing the user .ini files
+# math.floor is used for calculating file size
 
+# Create the database object
+databaseObject=SQLAlchemy()
+
+# The main class of the application
 class Kraken():
 
-    global db
+    # Global reference to database object
+    global databaseObject
 
     def __init__(self,host,port):
 
-        # import modules and add them to the function
-        import os,sqlite3,datetime
-        self.os=os;self.sqlite3=sqlite3;self.datetime=datetime;self.db=db
+        # Assign the database object to the local db reference
+        self.db=databaseObject
 
-        # initialise the flask server
+        # import modules and add them to the object
+        import os,datetime
+        self.os=os;self.datetime=datetime;
+
+        # Initialise the flask application
         self.initFlask()
 
-        # start the sql database
+        # Initialise the SQL database
         self.db.init_app(self.app)
 
-        # start the sql database
+        # Initialise the login manager
         self.loginManager=LoginManager()
-        self.loginManager.login_view="auth_login"
+        self.loginManager.login_view="auth_login" # set which function routes to the login page
         self.loginManager.init_app(self.app)
 
+        # Import the User and Site entities from models.py
         from models import User, Site
         self.User=User
         self.Site=Site
 
+        # Fetches a row from the User table in the database
         @self.loginManager.user_loader
         def loadUser(user_id): return self.User.query.get(user_id)
 
-        # start the flask server
+        # Run the Flask application
         self.app.run(host=host,port=port)
 
     def initFlask(self):
-        # setup the flask application
+      # Create the Flask application and set a secret key
         self.app = Flask(__name__)
         self.app.config["SECRET_KEY"]="secret-key-goes-here"
+        # Set the database file URL to /db.sqlite in the root directory
         self.app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///db.sqlite"
         self.app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+        # Initialise the website pages
         self.initPages()
 
     def initPages(self):
@@ -85,6 +111,7 @@ class Kraken():
             return render_template("site-edit-home.html")
 
         @self.app.route("/<name>/<site>/edit/")
+        @login_required
         def site_edit_app(name=None,site=None):
             flash(2)
             flash(name)
@@ -92,13 +119,16 @@ class Kraken():
             return render_template("site-edit.html")
 
     def initPages_main(self):
+        # Index route, redirects to auth_login, which will redirect to main_home if logged in
         @self.app.route("/")
         def main_index(): return redirect(url_for("auth_login"))
 
+        # Home Page Route
         @self.app.route("/home/")
-        @login_required
+        @login_required # User must be logged in to access this page
         def main_home():
             if len(self.Site.query.filter_by(user_id=current_user.user_id).all()) > 0: # check to see if user has any sites
+                # For each site, flash its userid, name, and privacy flag
                 flash([[x.user_id,x.name,x.private] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])
                 return render_template("home-sites.html")
             return render_template("home-nosite.html")
@@ -115,14 +145,19 @@ class Kraken():
         def main_help(): return "This page dont exist yet :("
 
     def initPages_auth(self):
+
+        # Login page route
         @self.app.route("/login/")
         def auth_login():
+            # Flash an empty list of values to stop errors in the Jinja code
+            flash([False,"","","",""])
             if current_user.is_authenticated: return redirect(url_for("main_home"))
             return render_template("login.html")
 
+        # Login post route
         @self.app.route("/login/", methods=["post"])
         def auth_login_post():
-            # get the filled in items from the login form
+            # Get the filled-in items from the login form
             username = request.form.get("username")
             password = request.form.get("password")
             remember = True if request.form.get('remember') else False
@@ -132,63 +167,76 @@ class Kraken():
 
             #  check for correct password
             if not user or not check_password_hash(user.password, password):
-                flash('Please check your login details and try again.')
+                # Flashes true to signify an error, the error message, the username given, and the remember flag given
+                flash(['Please check your login details and try again.',username,remember])
                 return redirect(url_for('auth_login'))
 
             login_user(user,remember=remember)
             return redirect(url_for("main_home"))
 
+        # Signup page route
         @self.app.route("/signup/")
         def auth_signup():
             if current_user.is_authenticated:
                 return redirect(url_for("main_home"))
-            flash([False])
+            # Flash an empty list of values to stop errors in the Jinja code
+            flash([False,"","","",""])
             return render_template("signup.html")
 
+        # Signup post route
         @self.app.route("/signup/", methods=["post"])
         def auth_signup_post():
-            # get the filled in items from the signup form
+            # Get the filled-in items from the signup form
             name=request.form.get("name")
             email=request.form.get("email")
             username=request.form.get("username")
             password1=request.form.get("password")
             password2=request.form.get("password-repeat")
 
-            # this function returns either an empty string if the field meets the requirements
+            # the verifyField function returns either an empty string if the field meets the requirements
             # defined by the arguments, or an error message. So, if len(verifyOutput) > 0, that
             # means that the field is invalid
+
+            # Verify the name input and return an error message if invalid
             verifyOutput=self.verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
 
             if len(verifyOutput) > 0:
+                # Flashes true to signify an error, the error message, the name given (removed due to error), the email given, and the username given
                 flash([True,verifyOutput,"",email,username])
                 return redirect(url_for("auth_signup"))
 
+            # Verify the email input and return an error message if invalid
             verifyOutput=self.verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
 
             if len(verifyOutput) > 0:
+                # Flash an error message and the filled in values
                 flash([True,verifyOutput,name,"",username])
                 return redirect(url_for("auth_signup"))
 
             verifyOutput=self.verifyField(username,"Username",canHaveSpecialChar=False)
 
+            # Verify the username input and return an error message if invalid
             if len(verifyOutput) > 0:
+                # Flash an error message and the filled in values
                 flash([True,verifyOutput,name,email,""])
                 return redirect(url_for("auth_signup"))
 
+            # Verify the password input and return an error message if invalid
             verifyOutput=self.verifyField(password1,"Password",minLen=8)
 
             if len(verifyOutput) > 0:
+                # Flash an error message and the filled in values
                 flash([True,verifyOutput,name,email,username])
                 return redirect(url_for("auth_signup"))
 
+            # Return an error message if the passwords do not match
             if password1!=password2:
+                # Flash an error message and the filled in values
                 flash([True,"Passwords do not match",name,email,username])
                 return redirect(url_for("auth_signup"))
 
             # check whether this email already has an account
-            user = self.User.query.filter_by(email=email).first()
-
-            if user:
+            if self.User.query.filter_by(email=email).first():
                 flash([True,"That email is already in use",name,"",username])
                 return redirect(url_for("auth_signup"))
 
@@ -199,9 +247,11 @@ class Kraken():
                 flash([True,"That username is already in use",name,email,""])
                 return redirect(url_for("auth_signup"))
 
-            # create a new user in the database and send to the login page
+            # create a new user in the database and server-side storage
             self.createUser(username,email,name,password1)
 
+            # Log in the new user and redirect them to the homepage
+            login_user(self.User.query.filter_by(user_id=username).first(),remember=False)
             return redirect(url_for("auth_login"))
 
         @self.app.route("/logout/")
@@ -379,18 +429,20 @@ class Kraken():
             return render_template("settings-dev.html")
 
     def createUser(self,u,e,n,p):
+
+        # Create a new User object using the varaibles given
         newUser = self.User(
             user_id=u,
             name=n,
             email=e,
-            password=generate_password_hash(p, method='sha256'),
+            password=generate_password_hash(p,method='sha256'),
             bio="",
             url="",
             archived=False,
             tabpreference=4,
         )
 
-        # FILE AND FOLDER GENERATION
+        # Server-side folder generation
 
         prefix="static/data/userData/"
 
@@ -482,10 +534,13 @@ class Kraken():
     def getUserImage(self,u): return f"/data/userIcons/{u}.png"
 
     def verifyField(self,field,fieldName,mustHaveChar=True,minLen=3,canHaveSpace=False,canHaveSpecialChar=True):
+        # List of special characters for the canHaveSpecialChar flag
         specialChar="%&{}\\<>*?/$!'\":@+`|="
 
+        # Make sure that the input given is a string, raise an exception if its not
         if type(field) != str: Exception("HEY! that's not a string?")
 
+        # Check through all the flags given and throw an appropriate error message if input is invalid
         if len(field) == 0 and mustHaveChar: return f"{fieldName} is not filled out."
         if len(field) < minLen: return f"{fieldName} must be greater than {minLen-1} characters."
         if not canHaveSpace and " " in field: return f"{fieldName} cannot contain spaces."
@@ -494,7 +549,7 @@ class Kraken():
                 if char in field:
                     return f"{fieldName} cannot contain '{char}'"
 
-        return ""
+        return "" # Return an empty string if the input is valid
 
     def getFolderSize(self,path):
         size=self.os.path.getsize(path)
