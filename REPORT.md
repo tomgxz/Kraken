@@ -402,6 +402,8 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 ### Limitations of the solution
   The main limitation is that, as a server-side application, the user will always need an active internet connection to access it, and if the server goes down, there will be no way of using the program.
 
+  <!-- TODO write more about limitations -->
+
 <br><br>
 
 ### Hardware and Software Requirements
@@ -838,10 +840,6 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   <img alt="Site Create Option Page 2 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite3.svg?raw=true" height="450"/>
   <img alt="Site Create Option Page 3 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite4.svg?raw=true" height="550"/>
 
-##### User Settings algorithms
-
-  <!--TODO: user settings algorithms-->
-
 ### Diagram showing how the subroutines link
 
   <!--
@@ -921,7 +919,8 @@ root((MAIN))
 
   -->
 
-  ![Diagram showing how the subroutines link](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-mindmap-subroutines.svg?raw=true)
+  <!--![Diagram showing how the subroutines link](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-mindmap-subroutines.svg?raw=true)-->
+  <!-- TODO redo -->
 
 <br><br><br><br>
 <br><br><br><br>
