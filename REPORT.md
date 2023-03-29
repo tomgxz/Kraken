@@ -1091,7 +1091,7 @@ root((MAIN))
 #### Multi-user system - creating a new site
   <!--TODO: add the algorithms for creating the sites-->
 
-#### First page submit button
+##### First page submit button
   On the first page for creating a new site, the `checkFormSubmitButton` subroutine is called to see whether all inputs have been filled out and are valid. If everything is acceptable, it will remove the `disabled` tag from the button element, defined as `formSubmit` in the JavaScript.
 
   ```js
