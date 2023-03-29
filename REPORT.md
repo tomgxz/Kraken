@@ -1196,14 +1196,13 @@ root((MAIN))
 
     sitenames = request.db.query(f"SELECT sitename from SITE where userid={session.user.id}")
 
-    if (sitenames.includes(val)) { 
+    if (val in sitenames) { 
       messageSpan.innerHTML= "A site with this name already exists!"
       return "danger" 
     }
     
-    for (i in range(val.length)) {
-        letter = val[i]
-        if (!(allowedChars.includes(letter))) { 
+    for (letter of val) {
+        if (letter not in "qwertyuiopasdfghjklzxcvbnm-._1234567890") { 
           editFormMessage(val)
           return "warning"
         }
