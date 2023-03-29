@@ -1,6 +1,6 @@
 # REPORT.md
 
-### URL Navigation
+### Site URL navigation diagram
 
   ```mermaid
   %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
@@ -38,15 +38,7 @@
       %%classDef r fill:#600
   ```
 
-
-  ![URL Navigation diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-urlnavigation.svg?raw=true)
-
-  The different nodes are colour coded based on the permission required to access those pages. If a user does not have the required permission, the user will be redirected to the nearest parent node that the user has access to. If they are signed out, most of the pages will redirect the user to the Login page. The colour coding is as such:
-  - Green: Any user can access this page, and they do not need to be signed in; it is public.
-  - Orange: You need to be logged in to access this page. This mostly relates to account-based pages such as the settings menu or creating a new site.
-  - Red: You need to be the owner of this website, or have sufficient permissions granted by the owner. This only applies to the user websites that are set to private.
-
-#### SQL database storage
+### User-Class entitiy relationship diagram
 
   ```mermaid
   %%{init: {'theme':'dark', 'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
@@ -75,6 +67,8 @@
           text sitepath
       }
   ```
+
+### User-Link-Class entitiy relationship diagram
 
   ```mermaid
   %%{init: {'theme':'dark', 'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
@@ -115,7 +109,7 @@
       }
   ```
 
-#### Server-side file storage
+### Server-side user data file storage structure diagram
 
   ```mermaid
   %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
@@ -126,7 +120,7 @@
       e --> h(1.html) & i(2.html) & j(3.html)
   ```
 
-##### Resize box
+### Resize box algorithm flowcharts
   ```mermaid
   %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
   %%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
@@ -152,7 +146,7 @@
     K --> L("Take the temporary variables\n and store them as the new\n width, height, and position\n for the element")
   ```
 
-##### Dragging and dropping elements
+### Dragging and dropping elements algorithm flowchart
   ```mermaid
   %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
   %%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
@@ -163,7 +157,7 @@
     M --> S("When the cursor is released") --> T("Set the element's position\n to the closest grid box to\n the cursor, and re-render\n the resize box to match")
   ```
 
-##### Dragging and dropping sections
+### Dragging and dropping sections algorithm flowchart
   ```mermaid
   %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
   %%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
@@ -177,7 +171,7 @@
     G --> K("Remove any temporary\n styling applied by the\n drag-and-drop feature")
   ```
 
-##### Displaying element and section options
+### Displaying element and section options algorithm flowchart
   ```mermaid
   %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
   %%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
@@ -282,7 +276,7 @@
     A("Option Page 3 - Font Family") --> C("The user will be displayed a\n list of font groups") --> D("Each group will have a main,\n large font, and a smaller font\n (with the label paragraph text)") --> E("The font names will be\n displayed in their\n respective fonts") --> F("The user can click on a\n font pair to select it,\n and then click continue\n to finish")
   ```
 
-### Diagram showing how the subroutines link
+### Diagram showing how all subroutines link
 
   ```mermaid
   %%{init:{
@@ -357,7 +351,20 @@
 
   ![Diagram showing how the subroutines link](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-mindmap-subroutines.svg?raw=true)
 
-### Stage 2 - Creating and implementing the database
+### creating a new site subroutine link diagram
+
+```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+  %%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
+  graph TB
+    A(Website name input is changed) --> 
+    B(Call verifyNameField subroutine\nand set input class to the\nreturned value) --> 
+    C(Call hideFormMessage to\nclear any previous messages) & E(After formatting the string,\ncall hasRepeatedDashes) & D("If required, call\neditFormMessage to set\nan error messsage") & G(Call checkFormSubmitButton)
+    E --> F("If required, call\nreplaceRepeatedDashes\nto format the string")
+```
+
+### development database diagram
 
   ```mermaid
   %%{init: {'theme':'dark', 'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
@@ -389,7 +396,7 @@
 
 # CODE.md
 
-## File Structure Diagram
+### Server-side File Structure Diagram
 
   ```mermaid
   %%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
