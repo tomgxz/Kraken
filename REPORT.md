@@ -1220,7 +1220,7 @@ root((MAIN))
 
 ##### Diagrams showing how these subroutines link
 
-  <img alt="Diagram showing how the first layer of site creation subroutines link together" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-subroutines-createsite-websitename-link.svg?raw=true" height="535"/>
+  <img alt="Diagram showing how the first layer of site creation subroutines link together" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-subroutines-createsite-websitename-link.svg?raw=true" height="380"/>
 
 #### Utility subroutines
   These subroutines are called in different parts of the Python files to perform specific actions. This means that it removes duplicate code for procedures that may need to be used many times throughout
