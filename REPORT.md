@@ -1091,12 +1091,137 @@ root((MAIN))
 #### Multi-user system - creating a new site
   <!--TODO: add the algorithms for creating the sites-->
 
+#### First page submit button
+  On the first page for creating a new site, the `checkFormSubmitButton` subroutine is called to see whether all inputs have been filled out and are valid. If everything is acceptable, it will remove the `disabled` tag from the button element, defined as `formSubmit` in the JavaScript.
+
+  ```js
+  function checkFormSubmitButton() {
+    // if the website name is either marked as success or warning
+    // AND one of the form privacy options is checked, remove the attribute
+    // else set the button to disabled
+
+    if  (formName.getAttribute("data-form-input-display") == "success" || 
+         formName.getAttribute("data-form-input-display") == "warning")  && 
+        (formPrivacy1.checked || formPrivacy2.checked) {
+          formSubmit.removeAttribute("disabled","")
+    } else formSubmit.setAttribute("disabled","")
+  }
+  ```
+
+##### Website name formatting subroutines
+  There are certain requirements for a site name that need to be fulfilled, including limiting it to only certain characters and no spaces (the specific requirements are listed elsewhere in the document). To ensure that the user knows what their final site name looks like, the JavaScript converts the input into a valid name, that will be used when it is created server-side. As such, some of these functions will exist both client-side and server-side.
+
+  Whenever there is a change in input to the website name input, defined by `forminput_websiteName`, it will call the `verifyNameField` function to validate the input. The function will return a class name based on the result of the validation process, that will change the styling of the input to match.
+
+  `verifyNameField` uses functions such as `replaceRepeatedDashes`, which uses recursion to replace any substrings of dashes in a given string, in this case the input given by the user. 
+
+  Variables such as `messageSpan` and `messageContainer` are defined earlier using `document.querySelector` calls to fetch HTML elements from the DOM (document object manager).
+
+  ```js
+  forminput_websiteName = document.getElementById("input_websitename");
+
+  forminput_websiteName.addEventListener("keyup",(event) => {
+    // set the color of the input
+    forminput_websiteName.classList.append(verifyNameField())
+    checkFormSubmitButton();
+  })
+  ```
+
+  ```js
+  function hideFormMessage() {
+    // clears the current contents of the warning dialog. used in the verifyNameField function.
+    messageContainer.classList.add("visibly-hidden")
+    messageSpan.innerHTML=""
+  }
+  ```
+  
+  ```js
+  function hasRepeatedDashes(val) {
+    // checks whether a string has repeated dashes in it
+    for (i in range(val.length)) { if (val[i] == "-" && val[i+1] == "-") return true }
+    return false
+  }
+  ```
+
+  ```js
+  function replaceRepeatedDashes(val) {
+    // replaces all sets of repeated dashes with a single dash by implementing recursion
+    for (i in range(val.length)) {
+      if (val[i] == "-" && val[i+1] == "-") {
+        val.remove(i+1)
+        val=replaceRepeatedDashes(val)
+      }
+    }
+    return val
+  }
+  ```
+
+  ```js
+  function editFormMessage() {
+    messageContainer.classList.remove("visibly-hidden")
+    val=val.toLowerCase()
+
+    for (i in range(val.length)) {
+      letter=val[i];
+      if !(allowedChars.includes(letter)) val=val.replaceAt(i,"-")
+    }
+
+    if (hasRepeatedDashes(val)) { val=replaceRepeatedDashes(val) }
+
+    messageSpan.innerHTML=val
+  }
+  ```
+
+  ```js
+  function verifyNameField() {
+    // Adds content to the warning dialog (if required), and returns a class name that will color the
+    // name input box
+
+    val = forminput_websiteName.value;
+
+    hideFormMessage()
+
+    if (val.length < 1) return "inactive"
+    if (val.length < 4) return "danger"
+
+    // must include at least one of the given characters
+
+    check=true
+    for (i in range(val.length)) {
+        letter = val[i]
+        if ("qwertyuiopasdfghjklzxcvbnm1234567890".includes(letter)) { check=false }
+    }
+
+    if check return "danger"
+
+    sitenames = request.db.query(f"SELECT sitename from SITE where userid={session.user.id}")
+
+    if (sitenames.includes(val)) { 
+      messageSpan.innerHTML= "A site with this name already exists!"
+      return "danger" 
+    }
+    
+    for (i in range(val.length)) {
+        letter = val[i]
+        if (!(allowedChars.includes(letter))) { 
+          editFormMessage(val)
+          return "warning"
+        }
+    }
+
+    if hasRepeatedDashes(val) { 
+      editFormMessage(replaceRepeatedDashes(val))
+      return "warning" 
+    }
+
+    hideFormMessage()
+    return "success"
+  }
+  ```
+
 ##### Diagrams showing how these subroutines link
 
-#### Multi-user system - user settings
-  <!--TODO: add the subroutines for user settings-->
-
-##### Diagrams showing how these subroutines link
+  <img alt="Diagram showing how the first layer of site creation subroutines link together" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-subroutines-createsite-websitename-link.svg?raw=true" height="535"/>
 
 #### Utility subroutines
   These subroutines are called in different parts of the Python files to perform specific actions. This means that it removes duplicate code for procedures that may need to be used many times throughout
