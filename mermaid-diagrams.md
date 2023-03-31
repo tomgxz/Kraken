@@ -370,7 +370,7 @@
 %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 %%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
 
-graph TB
+graph LR
     A(A colour input is changed) --> 
     B(Call updateColorVariables\nto generate lightness variants) -->
     C(Call updateStored to save\nthe new values)
