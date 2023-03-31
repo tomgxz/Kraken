@@ -1091,7 +1091,7 @@ root((MAIN))
 #### Multi-user system - creating a new site
   <!--TODO: add the algorithms for creating the sites-->
 
-##### First page submit button
+##### First page submit button subroutine
   On the first page for creating a new site, the `checkFormSubmitButton` subroutine is called to see whether all inputs have been filled out and are valid. If everything is acceptable, it will remove the `disabled` tag from the button element, defined as `formSubmit` in the JavaScript.
 
   ```js
@@ -1218,14 +1218,58 @@ root((MAIN))
   }
   ```
 
-##### Diagrams showing how these subroutines link
+##### Diagram showing how these subroutines link
 
   <img alt="Diagram showing how the first layer of site creation subroutines link together" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-subroutines-createsite-websitename-link.svg?raw=true" height="380"/>
+
+
+##### Website colour palette selection subroutines
+
+  There will be data structures (such as `userSelectedColors` and `defaultColors`) storing the different colours that the user selects, and their corresponding generated colours. 
+  
+  The `updateStored` subroutine will take the content of the `userSelectedColors` data and append it to a HTML element (`colorOutputSpan` in the JS code) inside a `<form>`, so that it can be sent to the server. This is the only way I've been able to send JavaScript-generated information to the server, after doing some testing. The `updateStored` function is called every time the user changes an input, or when a new set of colours is generated.
+
+  ```js
+  function updateStored() {
+    keys=userSelectedColors.keys()
+    for (key in keys) out+=key+":"+colors[key]+","
+    colorOutputSpan.innerText = out
+  }
+  ```
+
+  The `updateColorVariables` subroutine is called each time any of the colour pickers are changed, to generate lighter and darker versions of the given colour.
+
+  ```js
+  function updateColorVariables() {
+    for (color in colorPickers) {
+
+      newColor = rgbToHsl(color.r,color.g,color.g)
+      newColor = darken(newColor,CHANGEPERCENT)
+      newColor = hslToRgb(newColor.h,newColor.s,newColor.l)
+      newColor = rgbToHex(newColor.r/255,newColor.b/255,newColor.g/255)
+      userSelectedColors[f"{color}-dark"]=newColor
+
+      newColor = rgbToHsl(color.r,color.g,color.g)
+      newColor = lighten(newColor,CHANGEPERCENT)
+      newColor = hslToRgb(newColor.h,newColor.s,newColor.l)
+      newColor = rgbToHex(newColor.r,newColor.b,newColor.g)
+      userSelectedColors[f"{color}-light"]=newColor
+
+    }
+
+    updateStored()
+  }
+  ```
+
+##### Diagram showing how these subroutines link
+
+  <img alt="Diagram showing how the colour palette site creation subroutines link together" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-subroutines-colors-websitename-link.svg?raw=true" height="380"/>
 
 #### Utility subroutines
   These subroutines are called in different parts of the Python files to perform specific actions. This means that it removes duplicate code for procedures that may need to be used many times throughout
 
   <!--TODO: add subroutines relating to user settings-->
+  
 
 ##### generateFolderStructure
   This subroutine is called whenever the code needs to generate a list of folders. It makes use of the in-built `os` library in Python. It is called when a new user is created or when a user creates a new site.

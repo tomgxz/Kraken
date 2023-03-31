@@ -351,7 +351,7 @@
 
   ![Diagram showing how the subroutines link](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-mindmap-subroutines.svg?raw=true)
 
-### creating a new site subroutine link diagram
+### Diagram showing how the top level site creation system works
 
 ```mermaid
 %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
@@ -362,6 +362,18 @@
     B(Call verifyNameField subroutine\nand set input class to the\nreturned value) --> 
     C(Call hideFormMessage to\nclear any previous messages) & E(After formatting the string,\ncall hasRepeatedDashes) & D("If required, call\neditFormMessage to set\nan error messsage") & G(Call checkFormSubmitButton)
     E --> F("If required, call\nreplaceRepeatedDashes\nto format the string")
+```
+
+### Diagram showing how the color selection system works
+
+```mermaid
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+%%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
+graph TB
+    A(A colour input is changed) --> 
+    B(Call updateColorVariables\nto generate lightness variants) -->
+    C(Call updateStored to save\nthe new values)
 ```
 
 ### development database diagram
