@@ -928,7 +928,10 @@ root((MAIN))
 <br><br><br><br>
 <br><br><br><br>
 <br><br><br><br>
-<br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
 
 ### Subroutines
   Now that I have a rough idea of what the subroutines will do and how they will fit together, I can start planning them in pseudocode. The multi-user subroutines will be written in Python, as it is used for the backend, whereas the subroutines for the website builder will be written in JavaScript and imported into the HTML.
@@ -985,7 +988,8 @@ root((MAIN))
     if (out) return flask.redirect(flask.url_for("auth_signup"))
 
     // Check to see whether the email is in a valid format
-    if (not isEmailFormat(email)) return flask.redirect(flask.url_for("auth_signup"))
+    if (not isEmailFormat(email)) 
+      return flask.redirect(flask.url_for("auth_signup"))
 
     // Run an SQL query to check whether this email already has an account
     user = db.query(f"SELECT * from USER where email={username}").fetchall()
@@ -1042,10 +1046,12 @@ root((MAIN))
     if (field.length == 0 and mustHaveChar) return f"{fieldName} is not filled out."
 
     // If field is shorter than minLen
-    if (field.length < minLen) return f"{fieldName} must be greater than {minLen-1} characters."
+    if (field.length < minLen) 
+      return f"{fieldName} must be greater than {minLen-1} characters."
 
     // If field contains spaces and canHaveSpace is false
-    if (not canHaveSpace and " " in field) return f"{fieldName} cannot contain spaces."
+    if (not canHaveSpace and " " in field) 
+      return f"{fieldName} cannot contain spaces."
 
     // If the field contains any of the specialChars and canHaveSpecialChar is false
     if (not canHaveSpecialChar) {
@@ -1086,8 +1092,6 @@ root((MAIN))
   }
   ```
 
-##### Diagram showing how these subroutines link
-
 #### Multi-user system - creating a new site
   <!--TODO: add the algorithms for creating the sites-->
 
@@ -1107,6 +1111,8 @@ root((MAIN))
     } else formSubmit.setAttribute("disabled","")
   }
   ```
+
+<br><br><br><br>
 
 ##### Website name formatting subroutines
   There are certain requirements for a site name that need to be fulfilled, including limiting it to only certain characters and no spaces (the specific requirements are listed elsewhere in the document). To ensure that the user knows what their final site name looks like, the JavaScript converts the input into a valid name, that will be used when it is created server-side. As such, some of these functions will exist both client-side and server-side.
@@ -1129,7 +1135,8 @@ root((MAIN))
 
   ```js
   function hideFormMessage() {
-    // clears the current contents of the warning dialog. used in the verifyNameField function.
+    // clears the current contents of the warning dialog
+    // used in the verifyNameField function.
     messageContainer.classList.add("visibly-hidden")
     messageSpan.innerHTML=""
   }
@@ -1138,14 +1145,19 @@ root((MAIN))
   ```js
   function hasRepeatedDashes(val) {
     // checks whether a string has repeated dashes in it
-    for (i in range(val.length)) { if (val[i] == "-" && val[i+1] == "-") return true }
+    for (i in range(val.length)) 
+      if (val[i] == "-" && val[i+1] == "-") 
+        return true
     return false
   }
   ```
 
+  <br><br>
+
   ```js
   function replaceRepeatedDashes(val) {
-    // replaces all sets of repeated dashes with a single dash by implementing recursion
+    // replaces all sets of repeated dashes with a single dash
+    // by implementing recursion
     for (i in range(val.length)) {
       if (val[i] == "-" && val[i+1] == "-") {
         val.remove(i+1)
@@ -1174,8 +1186,8 @@ root((MAIN))
 
   ```js
   function verifyNameField() {
-    // Adds content to the warning dialog (if required), and returns a class name that will color the
-    // name input box
+    // Adds content to the warning dialog (if required), and returns a class name
+    // that will color the name input box
 
     val = forminput_websiteName.value;
 
@@ -1194,7 +1206,8 @@ root((MAIN))
 
     if check return "danger"
 
-    sitenames = request.db.query(f"SELECT sitename from SITE where userid={session.user.id}")
+    sitenames = request.db.query(
+      f"SELECT sitename from SITE where userid={session.user.id}")
 
     if (val in sitenames) { 
       messageSpan.innerHTML= "A site with this name already exists!"
@@ -1222,6 +1235,8 @@ root((MAIN))
 
   <img alt="Diagram showing how the first layer of site creation subroutines link together" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-subroutines-createsite-websitename-link.svg?raw=true" height="380"/>
 
+<br><br><br><br>
+<br><br>
 
 ##### Website colour palette selection subroutines
 
@@ -1263,7 +1278,9 @@ root((MAIN))
 
 ##### Diagram showing how these subroutines link
 
-  <img alt="Diagram showing how the colour palette site creation subroutines link together" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-subroutines-createsite-colors-link.svg?raw=true" height="380"/>
+  <img alt="Diagram showing how the colour palette site creation subroutines link together" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-subroutines-createsite-colors-link.svg?raw=true" height="65"/>
+
+<br><br>
 
 #### Utility subroutines
   These subroutines are called in different parts of the Python files to perform specific actions. This means that it removes duplicate code for procedures that may need to be used many times throughout
@@ -1303,7 +1320,9 @@ root((MAIN))
 
   <!--TODO: JavaScript pseudocode for drag and drop editor-->
 
-<br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br>
 
 ### Explanation and justification of this process
   The initial concept seems large and complicated, but the way it is broken down above into separate parts will make the development easier and faster, and will aid the testing and maintaining of the code due to it's modularity.
