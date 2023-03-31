@@ -621,6 +621,9 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   - The options content window will display content based on what is selected in the settings navigation options.
 
 ### Usability
+
+  <!-- TODO: rewrite with mentions of stakeholders and success criteria -->
+
   The usability features I have considered ensure that the program is easy to use for as many users as possible, including those with accessibility issues. All of the buttons in the designs are large and easy to notice. When font selection or styling is used, previews for what the font looks like are shown so the user can clearly see what it will look like. This functionality is borrowed by other styling and positioning functions in the editor.
 
   To make it easier for users to navigate and reduce cognitive load on users, the site will have a deliberately simple structure, with many features hidden behind modals or popup boxes. Elements such as the home button will be placed in conventional positions to make it easier for the user to find.
