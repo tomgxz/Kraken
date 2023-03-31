@@ -1369,9 +1369,9 @@ root((MAIN))
   |`requiredChars`| string| A set of characters of which at least one must be in a site name for it to be valid.|
   |`allowedChars`| string| A set of characters that are allowed in the site name when creating a new site.|
   |`defaultColors`| dictionary of strings| The default colour scheme when generating a new site.|
-  |`colors`| dictionary of strings| The selected colour options when generating a new site.|
-  |`colorDisplay`| dictionary of lists of elements| The colour preview elements when generating a new site - the first one is the element that changes colour, the second one is the text element that displays the current hex colour.|
-  |`colors`| dictionary of strings| The selected colour options when generating a new site.|
+  |`userSelectedColors`| dictionary of strings| The selected colour options when generating a new site.|
+  |`colorPickers`| dictionary of lists of elements| The colour preview elements when generating a new site - the first one is the element that changes colour, the second one is the text element that displays the current hex colour.|
+  |`CHANGEPERCENT`| integer| The amount to lighten or darken colors when generating.|
   |`textOptions`| list of elements| A list of the text options when generating a new site - they get given event listeners for when they are selected.|
   |`sectionSelectorNavSelected`| string| A written number referring to the selected section category in the `Add Section` modal.|
   |`sectionSelectorNavSelectedInt`| integer| An integer version of the previous variable. A written number is used to insert it into classes, as integers are not allowed.|
