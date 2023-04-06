@@ -3708,6 +3708,8 @@ root((MAIN))
   - Call the `getFolderSize` subroutine and pass the absolute path - this will return a value, in bytes, of the directory
   - Call the `convertByteSize` subroutine and pass the size of the directory, in bytes - this will return a human readable string showing how large the directory is.
 
+##### changes to \_\_init\_\_.py
+
   ```python
   def getFolderSize(self,path):
     size=self.os.path.getsize(path)
