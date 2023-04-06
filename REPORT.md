@@ -3250,10 +3250,8 @@ root((MAIN))
   The settings page, which is accessed from the navigation hamburger, consists of 7 sections, as outlined in the design section. 6 of them open in the same page, whereas the seventh, `Help & Documentation`, loads the help page. Similar to how the `base.html` Jinja architecture works, there is a `settings-base.html` template that the settings pages are built off of. I did not write the templates for `Custom Code & Elements` or `Developer Settings` as they are not yet implemented into the database. The template `My Websites` will need to be revisited when the website creation system is in place - for now, I used test data such as <!-- TODO ADD TEST DATA --> to simulate the user having sites.
 
   To set the hilighted element in the local navigation bar, the Jinja variable `settingsSidebarActivated` is declared in child files so that, during rendering, the navigation bar knows which element to give the `is-active` class. It uses the if statement `{% if settingsSidebarActivated==<i> %} is-active{% endif %}` to assign the class, and the if statement `{% if not settingsSidebarActivated==<i> %} href="{{ url_for('main_help') }}"{% endif %}` to assign the link if it is not selected.
-  
-  The result creates this navigation bar:
 
-  <img alt="Settings - local navigation bar" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_base.png?raw=true" width="300"/>
+  <img alt="Settings - local navigation bar" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_base.png?raw=true" width="225"/>
   
 ##### /templates/settings-base.html
   ```jinja
@@ -3459,6 +3457,8 @@ root((MAIN))
   The `Account` page contains functionalities such as deleting account and changing username. Like with the previous page, there is currently no functionality to these processes. There will be more information added to the change username prompt as, if a user does, it will change all of the URLs for their webpages, which could create issues for the user.
 
   <img alt="Settings Account page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_admin.png?raw=true" width="400"/>
+
+<br><br><br>
 
 ##### /templates/settings-admin.html
   ```jinja
@@ -3702,7 +3702,9 @@ root((MAIN))
   The changes to `__init__.py` are outlined below. This includes the `app.route` functions for each page
   The number flashed is interpereted as `settingsSidebarActivated` in the Jinja template rendering.
 
-  The `My Websites` `app.route` function includes the line `self.convertByteSize(self.getFolderSize(self.os.path.abspath(site.sitePath)))`. This will:
+  The `My Websites` `app.route` function includes the line `self.convertByteSize(self.getFolderSize(self.os.path.abspath(site.sitePath)))`. 
+  
+  This will:
   - Fetch the file path of the current selected site (`site.sitePath`), which may look like `<username>\sites\<sitename>`
   - Get the absolute path of the directory (`os.path.abspath()`)
   - Call the `getFolderSize` subroutine and pass the absolute path - this will return a value, in bytes, of the directory
@@ -3747,9 +3749,10 @@ root((MAIN))
       flash(1,self.getUserImage(current_user.user_id))
       return render_template("settings-profile.html")
 
+
     @self.app.route("/account/settings/admin")
     @login_required
-  def settings_admin():
+    def settings_admin():
       flash(2)
       return render_template("settings-admin.html")
 
