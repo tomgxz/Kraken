@@ -406,6 +406,81 @@ graph LR
       }
   ```
 
+### Development diagram showing organisation of app.route functions
+
+  ```mermaid
+  %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+  %%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
+  graph LR
+      A(initPages):::fn 
+      --> B(initPages_main):::fn 
+      A --> C(initPages_auth):::fn
+      A --> D(initPages_sitecreate):::fn
+      A --> E(initPages_settings):::fn
+
+      A --> Aa(site_edit):::ab
+
+      classDef fn fill:#ccc
+      classDef rt fill:#aca
+      classDef ab fill:#faa
+  ```
+
+  ```mermaid
+  %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+  %%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
+  graph LR
+      B(initPages_main):::fn 
+
+      B --> Ba(main_index):::rt
+      B --> Bb(main_home):::rt
+      B --> Bc(main_404):::ab
+      B --> Bd(main_500):::ab
+      B --> Be(main_help):::ab
+
+      classDef fn fill:#ccc
+      classDef rt fill:#aca
+      classDef ab fill:#faa
+  ```
+
+  ```mermaid
+  %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+  %%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
+  graph LR
+      C(initPages_auth):::fn
+      
+      C --> Ca(auth_login):::rt
+      C --> Cb(auth_login_post):::rt
+      C --> Cc(auth_signup):::rt
+      C --> Cd(auth_signup_post):::rt
+      C --> Ce(auth_logout):::rt
+
+      classDef fn fill:#ccc
+      classDef rt fill:#aca
+      classDef ab fill:#faa
+  ```
+  
+  ```mermaid
+  %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+  %%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
+  graph LR
+      D(initPages_sitecreate):::fn
+      E(initPages_settings):::fn
+      
+      D --> Da(site_create):::ab
+      D --> Db(site_create_post):::ab
+      D --> Dc(site_generate):::ab
+
+      E --> Ea(settings):::ab
+
+      classDef fn fill:#ccc
+      classDef rt fill:#aca
+      classDef ab fill:#faa
+  ```
+
 # CODE.md
 
 ### Server-side File Structure Diagram
