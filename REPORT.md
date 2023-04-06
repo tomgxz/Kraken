@@ -1,11 +1,17 @@
 
 <!--
 <style>
+
 del {
   text-decoration:none;
   float:right;
   display:inline-block;
 }
+
+.margin-left-32 {
+  margin-left:32px
+}
+
 </style>
 -->
 
