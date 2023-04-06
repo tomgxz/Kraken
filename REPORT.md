@@ -493,6 +493,9 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   - Ability to (export and) import sites in a zip file so you can transfer them between sites, which is different to downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
   >
 
+  - An easy-to-use settings interface where the user can customise things such as public profile appearance and account settings.
+  >
+
   - A list of predefined templates for sites when creating a site, that can be organised and filtered via relevant tags.
   >
 
@@ -518,6 +521,8 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 <br><br><br><br>
 
 ## Design
+
+<!-- TODO: add settings pages to design -->
 
 ### URL Navigation
 
@@ -1430,6 +1435,8 @@ root((MAIN))
 
 ## Development and Testing
 
+  For the sake of conciseness and clarity, when the document outlines certain HTML and CSS files, such as `/templates/login.html`, it will not show all of the different iterations of the page. Major changes, such as reogranisations of the page, would be displayed in later sections, but the actual process of orignally designing the website is not documented to make the document easier to read. A lot of the design process involved tweaking classes, re-ordering HTML elements, and adding new or modifying existing CSS blocks.
+
 ### Stage 1 - Setting up the website
 
   Before creating the database system, I decided to get the website backend up and running, and design the login and signup pages, to make it easier to test certain elements of the database. This includes setting up the template design for the front-end, creating a form system with verification in JavaScript, and performing validation server-side. The first thing I did was get the flask backend running. For this, I modified some code that I have used before when using Flask as a backend.
@@ -1437,8 +1444,6 @@ root((MAIN))
 ##### \_\_init\_\_.py
   ```python
   from flask import Flask
-
-  # Flask is the application object
 
   # The main class of the application
   class Kraken():
@@ -1454,7 +1459,6 @@ root((MAIN))
       self.app.run(host=host,port=port)
 
     def initPages(self):
-
       # Home page route
       @self.app.route("/")
       def main_index():
@@ -1466,7 +1470,6 @@ root((MAIN))
     Kraken("0.0.0.0",1380)
   ```
 
-  <br><br><br><br>
   <br>
 
   When run, it would output this to the console:
@@ -1580,8 +1583,6 @@ root((MAIN))
     def auth_signup():
       return render_template("signup.html")
   ```
-
-  <br>
 
 ##### /templates/base.html
   ```jinja
@@ -3096,11 +3097,16 @@ root((MAIN))
 ### Stage 3 - Homepage and Settings
   This stage consisted of creating the front-end HTML for the user, including the settings pages. Although they lack much tangible functionality, they create the basis for future developers to implement. I decided not to complete all of the functionality due to time constraints, and lack of the features being required in the brief.
 
-  First up, I created the home page. There are two template files `home-nosite.html` and `home-sites.html`, which are called by Flask based on whether the user has any sites stored in the database. For testing and design purposes, due to there not being a way of creating sites, `flash([["user1","Site 1",True],["user1","Epic Webpage",False]])` is used instead of  `flash([[x.user_id,x.name,x.private] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])`.
+  First, I created the home page. There are two template files `home-nosite.html` and `home-sites.html`, which are called by Flask based on whether the user has any sites stored in the database. 
+
+  Due to there not yet being a way of creating sites, the line `flash([[x.user_id,x.name,x.private] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])` would never work.
+
+  Instead, for testing and design purposes, I used the test data `flash([["user1","Site 1",True],["user1","Epic Webpage",False]])` to see how the code handles a user's sites, and I used `and False` in the if block to simulate the user having no sites.
 
 ##### changes to \_\_init\_\_.py
   ```python
-  # Index route, redirects to auth_login, which will redirect to main_home if logged in
+  # Index route, redirects to auth_login, which will redirect to main_home if 
+  # logged in
   @self.app.route("/")
   def main_index(): return redirect(url_for("auth_login"))
 
@@ -3108,25 +3114,678 @@ root((MAIN))
   @self.app.route("/home/")
   @login_required # User must be logged in to access this page
   def main_home():
-    if len(self.Site.query.filter_by(user_id=current_user.user_id).all()) > 0: # check to see if user has any sites
+    # check to see if user has any sites
+    if len(self.Site.query.filter_by(user_id=current_user.user_id).all()) > 0: 
+      # and False:
+
       # For each site, flash its userid, name, and privacy flag
       # This will not yet do anything as there are no sites in the server
-      # flash([[x.user_id,x.name,x.private] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])
-      # For testing and design purposes, the flash command above was commented out and replaced with this command
+      
+      # flash([[x.user_id,x.name,x.private] for x in self.Site.query.filter_by(
+      # user_id=current_user.user_id).all()])
+
+      # For testing and design purposes, the flash command above was commented out 
+      # and replaced with this command
       flash([["user1","Site 1",True],["user1","Epic Webpage",False]])
+
       return render_template("home-sites.html")
     return render_template("home-nosite.html")
   ```
 
-##### /templates/home-nosite.py
+<br>
+
+##### /templates/home-nosite.html
+  This file uses `current_user.name` to display the username of the logged-in user. The object `current_user` is a Flask variable that is read from and inserted into the page during the `render_template` function. It is also used in `__init__.py` for commands such as `filter_by(user_id=current_user.user_id)`.
+
   ```jinja
+  {% extends "base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% block content %}
+
+  <link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet" 
+  type="text/css" />
+
+  <div class="application-content">
+
+    <div class="text-header-container">
+      <h2 class="text header large dark one">Welcome, {{current_user.name}}</h2>
+    </div>
+
+    <div class="empty-container">
+      <div class="empty-image"></div>
+      <div class="empty-text-container">
+
+        <h4 class="text header dark one">Looks Pretty Empty Here...</h4>
+
+        <a class="text header two link primary" href="{{url_for('site_create')}}">
+          Maybe you should create a new site?
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  {% endblock %}
   ```
 
-##### /templates/home-sites.py
+##### /templates/home-sites.html
+  ```jinja
+  {% extends "base.html" %}
 
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
 
-  I also decided to reorganise the `app.route` functions into separate functions in the class, such as `initPages_auth` and `initPages_main`, to make the file easier to interperet
+  {% set sites = get_flashed_messages()[0] %}
 
+  {% block content %}
+
+  <link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet" 
+  type="text/css" />
+
+  <div class="application-content">
+
+    <div class="text-header-container">
+      <h2 class="text header large dark one">Welcome, {{current_user.name}}</h2>
+    </div>
+
+    <div class="site-divs-container" style="display:flex;flex-wrap:wrap">
+
+      {% for site in sites %}
+
+      <a class="site-div link notformatted" href="{{url_for('site_edit_home',
+        name=site[0],site=site[1])}}" style="background-color:
+        {%if site[3]%} {{site[3]+'bb'}} {%else%} var(--colors-primary) {%endif%}">
+
+        {% if site[2] %}
+          <div class="site-div-private-watermark" style="position: absolute;
+          opacity: 0.5;font-size: 136px;right: 16px;top: 16px;">
+
+            <i class="faicon fa-regular fa-lock"></i>
+          </div>
+        {% else %}
+          <div class="site-div-public-watermark" style="position: absolute;
+          opacity: 0.5;font-size: 136px;right: 16px;top: 16px;">
+
+            <i class="faicon fa-regular fa-book-bookmark"></i>
+          </div>
+        {% endif %}
+
+        <h5 class="site-div-title text large one">{{ site[1] }}</h5>
+      </a>
+
+      {% endfor %}
+
+      <a class="site-div link notformatted" style="background-color:
+        var(--colors-primary-light);display:flex;align-items:center;
+        justify-content:center" href="{{url_for('site_create')}}">
+
+        <h5 class="site-div-title text header jumbo small one center">
+          Create New Site
+        </h5>
+      </a>
+
+    </div>
+
+  </div>
+
+  {% endblock %}
+  ```
+
+  The homepage looked like this:
+
+  <img alt="Screenshot of the Kraken homepage when the user has sites" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.1_homepage_sites.png?raw=true" width="544"/><img alt="Screenshot of the Kraken homepage when the user has no sites" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.1_homepage_nosites.png?raw=true" width="499"/>
+
+  I also decided to reorganise the `app.route` functions in `__init__.py` into separate functions in the class, such as `initPages_auth` and `initPages_main`, to make the file easier to interperet. The diagram below shows the new organisation. Coloured boxes demonstrate routing functions: green means it has a use, and red means it is currently either abstract or simply outputs text on screen.
+
+  <img alt="app.route function diagram - part 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-1.svg?raw=true" width="250"/><img alt="app.route function diagram - part 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-2.svg?raw=true" width="240" style="margin-left:32px" class="margin-left-32"/>
+
+  <img alt="app.route function diagram - part 3" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-3.svg?raw=true" width="250"/><img alt="app.route function diagram - part 4" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-4.svg?raw=true" width="300" class="margin-left-32"/>
+
+  At this point in development, I was able to quickly build the front-end versions of the settings pages for the account system (they are listed in the desirable features section of the success criteria). I didn't add in database functionality to them yet as I knew it would take significantly longer.
+
+  The settings page, which is accessed from the navigation hamburger, consists of 7 sections, as outlined in the design section. 6 of them open in the same page, whereas the seventh, `Help & Documentation`, loads the help page. Similar to how the `base.html` Jinja architecture works, there is a `settings-base.html` template that the settings pages are built off of. I did not write the templates for `Custom Code & Elements` or `Developer Settings` as they are not yet implemented into the database. The template `My Websites` will need to be revisited when the website creation system is in place - for now, I used test data such as <!-- TODO ADD TEST DATA --> to simulate the user having sites.
+
+  To set the hilighted element in the local navigation bar, the Jinja variable `settingsSidebarActivated` is declared in child files so that, during rendering, the navigation bar knows which element to give the `is-active` class. It uses the if statement `{% if settingsSidebarActivated==<i> %} is-active{% endif %}` to assign the class, and the if statement `{% if not settingsSidebarActivated==<i> %} href="{{ url_for('main_help') }}"{% endif %}` to assign the link if it is not selected.
+  
+  The result creates this navigation bar:
+
+  <img alt="Settings - local navigation bar" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_base.png?raw=true" width="300"/>
+  
+##### /templates/settings-base.html
+  ```jinja
+  {% extends "base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% set settingsSidebarActivated = get_flashed_messages()[0] %}
+
+  {% block content %}
+
+  <link href="{{url_for('static', filename='css/settings.css')}}" rel="stylesheet" 
+  type="text/css" />
+
+  <div class="application-content">
+    <div class="text-header-container">
+        <h2 class="text header large dark one">Settings</h2>
+    </div>
+    
+    <div class="settings-container">
+      <div class="settings-sidebar">
+
+        <a class="settings-sidebar-item one {% if settingsSidebarActivated==1 %} 
+        is-active {% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=1 %} href="{{url_for('settings_profile')}}" 
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-user"></i>
+          <span class="settings-sidebar-item-title text large">Public Profile</span>
+        </a>
+        
+        <a class="settings-sidebar-item two {% if settingsSidebarActivated==2 %} 
+        is-active {% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=2 %} href="{{ url_for('settings_admin') }}"
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-gear"></i>
+          <span class="settings-sidebar-item-title text large">Account</span>
+        </a>
+        
+        <a class="settings-sidebar-item three {% if settingsSidebarActivated==3 %} 
+        is-active{% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=3 %} href="{{ url_for('settings_looks') }}"
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-paintbrush"></i>
+          <span class="settings-sidebar-item-title text large">
+            Appearance & Accessibility</span>
+
+        </a>           
+        
+        <div class="settings-sidebar-separator text one">Code and websites</div>
+        
+        <a class="settings-sidebar-item four {% if settingsSidebarActivated==4 %} 
+        is-active{% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=4 %} href="{{ url_for('settings_sites') }}"
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-browser"></i>
+          <span class="settings-sidebar-item-title text large">My Websites</span>
+        </a>
+        
+        <a class="settings-sidebar-item five {% if settingsSidebarActivated==5 %} 
+        is-active{% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=5 %} href="{{ url_for('settings_code') }}"
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-list-timeline"></i>
+          <span class="settings-sidebar-item-title text large">
+            Custom Code & Elements</span>
+
+        </a>
+        
+        <div class="settings-sidebar-separator text two"> </div>
+        
+        <a class="settings-sidebar-item six {% if settingsSidebarActivated==6 %} 
+        is-active{% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=6 %} href="{{ url_for('main_help') }}"
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-book-blank"></i>
+          <span class="settings-sidebar-item-title text large">
+            Help & Documentation</span>
+
+        </a>
+        
+        <a class="settings-sidebar-item seven {% if settingsSidebarActivated==7 %} 
+        is-active{% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=7 %} href="{{ url_for('settings_dev') }}"
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-code-simple"></i>
+          <span class="settings-sidebar-item-title text large">
+            Developer settings</span>
+
+        </a>
+        
+
+      </div>
+      
+      <div class="settings-content">
+        
+        {% block settings_content %}
+        {% endblock %}
+        
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+  ```
+
+  The `Public Profile` page contains inputs such as display name, bio, and URL, that will all appear on a user's profile page. As of yet, there is no post route function so the data does not get stored. after updating it.
+
+  <img alt="Settings - Public Profile page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_profile.png?raw=true" width="450"/>
+
+##### /templates/settings-profile.html
+  ```jinja
+  {% extends "settings-base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% set settingsSidebarActivated = 1 %}
+  {% set avatarImagePath = get_flashed_messages()[1] %}
+
+  {% block settings_content %}
+
+  <h3 class="settings-content-header text header dark">Profile</h3>
+
+  <form class="settings-content-options">
+
+    <div class="settings-content-option one">
+      <h4 class="settings-content-option-title text dark bold">Name</h4>
+
+      <input class="settings-content-option-input" type="text" 
+      name="settings_profile_name" placeholder="{{current_user.name}}">
+
+      <p class="settings-content-option-caption text small dark">
+        Your name probably isn't used much yet, but may appear in reference to 
+        websites that you have created. Your current name is set to 
+        "{{current_user.name}}".
+      </p>
+
+    </div>
+
+    <div class="settings-content-option two">
+      <h4 class="settings-content-option-title text dark bold">Profile Picture</h4>
+      <div class="settings-content-option-image-upload">
+        <figure class="settings-content-option-image-upload-figure" 
+        style="background-image:url( {{ url_for('static',filename='data/userIcons/'+
+        current_user.user_id+'.png') }})"></figure>
+
+      </div>
+
+      <p class="settings-content-option-caption text small dark">
+        The image must be a minimum of 200x200 pixels, and in a 1:1 ratio. 
+        This is not operational yet, and probably won't be for a while.
+      </p>
+
+    </div>
+
+    <div class="settings-content-separator one"></div>
+
+    <div class="settings-content-option three">
+      <h4 class="settings-content-option-title text dark bold">Bio</h4>
+
+      <textarea class="settings-content-option-input" type="text" 
+      name="settings_profile_bio" maxlength=240 
+      placeholder="Tell us about yourself"></textarea>
+
+    </div>
+
+    <div class="settings-content-option four">
+      <h4 class="settings-content-option-title text dark bold">Url</h4>
+      <input class="settings-content-option-input" type="text" 
+      name="settings_profile_url">
+
+    </div>
+
+    <div class="settings-content-separator two"></div>
+
+    <div class="settings-content-option settings-content-update">
+
+      <p class="settings-content-option-caption text small dark">
+        All of the above fields are optional and can be left blank. By filling them 
+        out, you agree that this information can be displayed publically and stored 
+        in our servers. We don't have a privacy statement, but we probably should.
+      </p>
+
+      <button class="field-submit btn primary thin rounded slide" type="submit">
+        <span class="btn-content text uppercase primary">Update Profile</span>
+      </button>
+
+    </div>
+
+  </form>
+
+  {% endblock %}
+  ```
+
+  The `Account` page contains functionalities such as deleting account and changing username. Like with the previous page, there is currently no functionality to these processes. There will be more information added to the change username prompt as, if a user does, it will change all of the URLs for their webpages, which could create issues for the user.
+
+  <img alt="Settings Account page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_admin.png?raw=true" width="400"/>
+
+##### /templates/settings-admin.html
+  ```jinja
+  {% extends "settings-base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% set settingsSidebarActivated = 2 %}
+
+  {% block settings_content %}
+
+  <h3 class="settings-content-header text header dark">Account</h3>
+
+  <form class="settings-content-options">
+
+    <div class="settings-content-option one">
+      <h4 class="settings-content-option-title text dark bold">Change Username</h4>
+
+      <p class="settings-content-option-caption text small danger dark">
+        <span class="text small danger bold">WARNING</span>. Changing your username 
+        can <a class="text small link danger bold">create issues</a>.
+      </p>
+
+      <div class="btn primary thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase primary">Dew it</span>
+      </div>
+    </div>
+
+    <div class="settings-content-option one">
+      <h4 class="settings-content-option-title text dark bold">Change Email</h4>
+
+      <input class="settings-content-option-input" type="text" 
+      name="settings_admin_email" placeholder="New Email"><br>
+
+      <input class="settings-content-option-input m-xs-t" type="password" 
+      name="settings_admin_email_password" placeholder="Password">
+
+      <p class="settings-content-option-caption text small dark">
+        Your old and new email addresses will be sent confirmation codes in order 
+        to change them.
+      </p>
+      
+      <div class="btn primary thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase primary">Dew it</span>
+      </div>
+    </div>
+
+    <div class="settings-content-separator one"></div>
+
+    <div class="settings-content-option three">
+      <h4 class="settings-content-option-title text dark bold">
+        Export Account Data</h4>
+
+      <p class="settings-content-option-caption text small dark">
+        Export all metadata, websites, and other stored information for your 
+        account. They will be available to download here.
+      </p>
+
+      <div class="btn primary thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase primary">Export Metadata</span>
+      </div>
+      <div class="btn primary thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase primary">Export Websites</span>
+      </div>
+      <div class="btn primary thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase primary">Download All</span>
+      </div>
+
+    </div>
+
+    <div class="settings-content-separator two"></div>
+
+    <div class="settings-content-option four">
+      <h4 class="settings-content-option-title text dark bold danger">
+        Archive Account</h4>
+
+      <p class="settings-content-option-caption text small dark">
+        This will disable your account until you wish to unlock it.
+      </p>
+
+      <div class="btn danger thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase danger">Archive your account</span>
+      </div>
+    </div>
+
+    <div class="settings-content-option five">
+      <h4 class="settings-content-option-title text dark bold danger">
+        Reset Account</h4>
+
+      <p class="settings-content-option-caption text small dark">
+        This will remove all of your websites, custom code, and non-essential 
+        settings. The only remaining settings will be your username, name, email, 
+        and password. It is recommended that you export your account data before 
+        doing this.
+      </p>
+
+      <div class="btn danger thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase danger">Reset your account</span>
+      </div>
+    </div>
+
+    <div class="settings-content-option six">
+      <h4 class="settings-content-option-title text dark bold danger">
+        Delete Account</h4>
+
+      <p class="settings-content-option-caption text small dark">
+        This will remove all trace of your account from our servers, and is an 
+        irreversable actions. It is recommended that you export your account data 
+        before doing this.
+      </p>
+
+      <div class="btn danger thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase danger">Delete your account</span>
+      </div>
+    </div>
+
+  </form>
+
+  {% endblock %}
+
+  ```
+
+  The `Appearance and Accessibility` page doesn't do much at the moment, but will be added to as and when features are required.
+
+  <img alt="Settings - Appearance and Accessibility page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_looks.png?raw=true" width="500"/>
+
+##### /templates/settings-looks.html
+  ```jinja
+  {% extends "settings-base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% set settingsSidebarActivated = 3 %}
+
+  {% block settings_content %}
+
+  <h3 class="settings-content-header text header dark">
+    Appearance and Accessibility</h3>
+
+  <form class="settings-content-options">
+
+    <div class="settings-content-option one">
+      <h4 class="settings-content-option-title text dark bold">Tab Preference</h4>
+      
+      <select class="settings-content-option-input" 
+      name="settings_looks_tab_preference">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4" selected="selected">4 (Default)</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12">12</option> 
+      </select>
+      
+      <p class="settings-content-option-caption text small dark">
+        When editing and rendering code, this determines how many spaces represent 
+        one tab. (Doesn't do anything yet)
+      </p>
+    </div>
+    
+  </form>
+
+  {% endblock %}
+  ```
+
+  The `My Websites` page is the most useful of the settings pages, as of now. It contains a table of all of the user's current sites, with links to their respective pages. It also calculates and displays how large the pages are. As such, it requires a Python subroutine to work it out, displayed below.
+
+  <img alt="Settings - My Websites page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_sites.png?raw=true" width="600"/>
+
+##### /templates/settings-sites.html
+
+  ```jinja
+  {% extends "settings-base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% set settingsSidebarActivated = 4 %}
+  {% set flashedSiteNames = get_flashed_messages()[1] %}
+
+  {% block settings_content %}
+
+  <h3 class="settings-content-header text header dark">My Websites</h3>
+
+  <form class="settings-content-options">
+
+    <div class="settings-content-table">
+      <div class="settings-content-table-header">
+        <div class="settings-content-table-row"><span class="text header dark">
+          Websites</span></div>
+
+        <div class="settings-content-table-row">
+          <span class="text header small dark">@{{current_user.user_id}}</span>
+        </div>
+      </div>
+
+      <div class="settings-content-table-content">
+
+        {% for site in flashedSiteNames %}
+
+        <div class="settings-content-table-row {% if site==flashedSiteNames[-1] %}
+          last-row{% endif %}">
+          
+          <span class="settings-content-table-row-icon text dark">
+            <i class="fa-regular {% if site[2] %}fa-lock{% else %}fa-book-bookmark
+            {%endif%}"></i>
+          </span>
+
+          <span class="settings-content-table-row-title text dark">
+            <a href='{{url_for("site_edit_home",name=site[0],site=site[1])}}' 
+            class="text link dark notformatted">@{{site[0]}}/{{site[1]}}</a>
+          </span>
+          
+          <span class="settings-content-table-row-size text dark">
+            {{site[3]}}
+          </span>
+          
+          <span class="settings-content-table-row-settings text dark">
+            <a href='{{url_for("site_edit_home",name=site[0],site=site[1])}}' 
+            class="text link primary notformatted">Website Settings</a>
+          </span>
+
+        </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+
+  </form>
+
+  {% endblock %}
+
+  ```
+
+  The changes to `__init__.py` are outlined below. This includes the `app.route` functions for each page
+  The number flashed is interpereted as `settingsSidebarActivated` in the Jinja template rendering.
+
+  The `My Websites` `app.route` function includes the line `self.convertByteSize(self.getFolderSize(self.os.path.abspath(site.sitePath)))`. This will:
+  - Fetch the file path of the current selected site (`site.sitePath`), which may look like `<username>\sites\<sitename>`
+  - Get the absolute path of the directory (`os.path.abspath()`)
+  - Call the `getFolderSize` subroutine and pass the absolute path - this will return a value, in bytes, of the directory
+  - Call the `convertByteSize` subroutine and pass the size of the directory, in bytes - this will return a human readable string showing how large the directory is.
+
+  ```python
+  def getFolderSize(self,path):
+    size=self.os.path.getsize(path)
+    for sub in self.os.listdir(path):
+      subPath=self.os.path.join(path,sub)
+      if self.os.path.isfile(subPath): size+=self.os.path.getsize(subPath)
+      elif self.os.path.isdir(subPath): size+=self.getFolderSize(subPath)
+    return size
+  ```
+
+  ```python
+  def convertByteSize(self,bytes):
+    if bytes==0: return "0B"
+    sizes=("B","KB","MB","GB","TB","PB","EB","ZB","YB")
+    i=int(math.floor(math.log(bytes,1024)))
+    p=math.pow(1024,i)
+    s=round(bytes/p,2)
+    if i==0: s=int(s)
+    return f"{s}{sizes[i]}"
+  ```
+
+  ```python
+  def initPages_settings(self):
+  
+    @self.app.route("/account/settings/")
+    @login_required
+    def settings():
+      # redirect to the first settings page
+      return redirect(url_for("settings_profile"))
+
+    @self.app.route("/account/settings/profile")
+    @login_required
+    def settings_profile():
+      # get the user icon for displaying
+      flash(1,self.getUserImage(current_user.user_id))
+      return render_template("settings-profile.html")
+
+    @self.app.route("/account/settings/admin")
+    @login_required
+  def settings_admin():
+      flash(2)
+      return render_template("settings-admin.html")
+
+    @self.app.route("/account/settings/looks")
+    @login_required
+    def settings_looks():
+      flash(3)
+      return render_template("settings-looks.html")
+
+    @self.app.route("/account/settings/sites")
+    @login_required
+    def settings_sites():
+      flash(4)
+
+      # Get all of the selected user's websites as lists containing certain info
+      flash([
+        [
+          x.user_id,
+          x.name,
+          x.private,
+          self.convertByteSize(self.getFolderSize(self.os.path.abspath(x.sitePath)))
+        ] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])
+
+      return render_template("settings-sites.html")
+
+    @self.app.route("/account/settings/code")
+    @login_required
+    def settings_code():
+      flash(5)
+      return render_template("settings-code.html")
+
+    @self.app.route("/account/settings/dev")
+    @login_required
+    def settings_dev():
+      flash(7)
+      return render_template("settings-dev.html")
+
+  ```
 
 <!--
 
