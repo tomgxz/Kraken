@@ -3792,6 +3792,9 @@ root((MAIN))
 
   ```
 
+<br><br><br><br>
+<br><br><br><br>
+
 ### Stage 4 - Creating a New Site
 
   In this stage, I created the system for when a user creates a new site. This includes various subroutines outlined in the design section of the report, such as the website name formatting and storage of colour palettes. Some functionality has not yet been included yet, such as the ability to import a website. This is because there is not a way to export sites yet, and it would be quite time consuming to create a validation algorithm to make sure that the imported files are not malicious: I want to finish the essential success criteria before moving on to the desirable features.
@@ -3827,6 +3830,8 @@ root((MAIN))
 
   {% endblock %}
   ```
+
+  <br><br><br><br>
 
   The next step is to start creating the form for the first page. It consists of the website name, description, and whether the user wants the site to be public or private. Without any JavaScript, the page looked like this:
 
@@ -3864,6 +3869,9 @@ root((MAIN))
             Website Name <sup class="text large danger">*</sup>
           </span>
 
+
+
+
           <input id="new_site_name" class="new-site-input text dark two input 
           small-text-input" data-form-input-display="inactive" type="text" 
           name="new_site_name">
@@ -3898,6 +3906,8 @@ root((MAIN))
         <div class="input-checkbox">
           <input class="input-checkbox-input" name="new_site_privacy" 
           id="new_site_privacy_visible" type="radio" value="public">
+
+
 
           <span class="input-checkbox-icon">
             <i class="faicon fa-regular fa-book-bookmark"></i>
@@ -4009,13 +4019,13 @@ root((MAIN))
     if (val.length < 4) { return "danger" }
 
     var check=true
-    for (var i=0;i<val.length;i++) {
-      var letter = val[i]
+
+
+    for (var letter of val) {
       if (requiredChars.includes(letter)) { check=false }
     }
 
     if (check) { return "danger" }
-
     var sitenames = ["helloworld"]
 
     if (flashedSiteNames.includes(val)) { 
@@ -4023,8 +4033,7 @@ root((MAIN))
       return "danger" 
     }
 
-    for (var i=0;i<val.length;i++) {
-      var letter = val[i]
+    for (var letter of val) {
       if (!(allowedChars.includes(letter))) { 
         editFormMessageSiteNameWarning(val)
         return "warning" 
@@ -4147,6 +4156,10 @@ root((MAIN))
     ".new-site-form .form-input-container.one .message-container 
     .message-container-jsedit");
 
+
+
+
+
   formName.addEventListener("keyup",(event) => {
       formName.setAttribute("data-form-input-display",verifyNameField())
       checkFormSubmitButton();
@@ -4208,6 +4221,445 @@ root((MAIN))
 
     return redirect(url_for("site_create_options_1"))
   ```
+
+  The next page is the colour palette selection system. This involves functions for colour temperature adjustment, generation of lighter and darker variants, and storing the variables in a way that the backend can read them. The page would consist of a light or dark mode toggle, faders for certain parameters, and colour pickers for the primary, secondary, and accent colours. Without any JavaScript, the page looked like this:
+
+  <img alt="Create A New Site - Page 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_nojs.png?raw=true" width="600"/>
+
+  The row of 9 mono-chromatic colours at the bottom will be set as the variables `--colors-grey-<100-900>`. To display them, it uses an "expanding column" system that I have used previously. When a column is hovered, it will "expand open" to reveal text inside. When a column is hovered, it looks like this:
+
+  <img alt="Create A New Site - Page 2 - Expanding column demonstration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_excmerge.png?raw=true" width="600"/>
+
+  For the colour pickers, I have used the native input colour picker option:
+
+  <img alt="Create A New Site - Page 2 - Colour picker input" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_colorpicker.png?raw=true" width="225"/>
+
+##### /templates/site-create-options-1.html
+  ```jinja
+  {% extends "site_create_base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% block site_create_base %}
+
+    <p class="text dark">Choose a color scheme!</p>
+    <div class="horizontal-separator one m-s-v"></div>
+
+    <form class="new-site-form two" method="post">
+
+      <div class="light-dark-selector-container">
+        <div class="light-dark-selector">
+          <h2 class="text large center one">Light or dark mode?</h2>
+          <div class="button-container">
+
+            <div class="btn primary thin rounded slide from-left m-xs-t" 
+            id="new_site_lightModeToggle">
+              <span class="btn-content text uppercase primary notextselect">
+                Light
+              </span>
+            </div>
+
+            <div class="btn secondary thin rounded slide from-right m-xs-t" 
+            id="new_site_darkModeToggle">
+
+              <span class="btn-content text uppercase secondary notextselect">
+                Dark
+              </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="horizontal-separator one m-s-v"></div>
+
+      <div class="color-options">
+        <div class="input-slider-option one">
+
+          <span class="text dark bold">Light & Dark Bounds</span>
+
+          <div class="input-slider-and-number">
+
+            <input class="input sliding-input" type="range" min="0" max="100" 
+            value="100" name="new_site_colors_light_dark_bounds" 
+            id="new_site_colors_light_dark_bounds_slider">
+
+            <input class="input small-number-input" type="text" pattern="[-+]?d*" 
+            min="-100" max="100" id="new_site_colors_light_dark_bounds_number">
+
+          </div>
+        </div>
+
+        <div class="input-slider-option two">
+
+          <span class="text dark bold">Monochromatic Temperature</span>
+
+          <div class="input-slider-and-number">
+
+            <input class="input sliding-input" type="range" min="-100" max="100" 
+            value="0" name="new_site_colors_monochromatic_tint" 
+            id="new_site_colors_monochromatic_temperature_slider">
+
+            <input class="input small-number-input" type="text" pattern="[-+]?d*"
+            id="new_site_colors_monochromatic_temperature_number" min="-100" 
+            max="100">
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="horizontal-separator three m-s-v"></div>
+
+
+      <div class="color-display-container">
+
+        <div class="color-display light-dark-display">
+
+          <div class="color-single-card light-color">
+            <span class="color-code text uppercase center">#ffffff</span>
+          </div>
+
+          <div class="color-single-card dark-color">
+            <span class="color-code text uppercase center">#000000</span>
+          </div>
+
+        </div>
+
+        <div class="color-display main-color-display">
+
+          <div class="color-triple-card primary-color">
+            <input type="color" class="color-card-picker-input" 
+            id="new_site_colors_primary_picker" value="#e63946">
+
+            <div class="color-triple-card-main">
+              <span class="color-code text uppercase center">#e63946</span>
+            </div>
+
+            <div class="color-triple-card-sub-container">
+              <div class="color-triple-card-sub one"></div>
+              <div class="color-triple-card-sub two"></div>
+            </div>
+          </div>
+
+          <div class="color-triple-card secondary-color">
+            <input type="color" class="color-card-picker-input" 
+            id="new_site_colors_secondary_picker" value="#457b9d">
+
+            <div class="color-triple-card-main">
+              <span class="color-code text uppercase center">#457b9d</span>
+            </div>
+
+            <div class="color-triple-card-sub-container">
+              <div class="color-triple-card-sub one"></div>
+              <div class="color-triple-card-sub two"></div>
+            </div>
+          </div>
+
+          <div class="color-triple-card accent-color">
+            <input type="color" class="color-card-picker-input" 
+            id="new_site_colors_accent_picker" value="#a8dadc">
+
+            <div class="color-triple-card-main">
+              <span class="color-code text uppercase center">#a8dadc</span>
+            </div>
+
+
+            <div class="color-triple-card-sub-container">
+              <div class="color-triple-card-sub one"></div>
+              <div class="color-triple-card-sub two"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="color-display grey-display">
+            <div class="color-columns grey-colors expanding-columns-container">
+
+              <div class="color-column expanding-column g900">
+                <span class="color-code expanding-text text uppercase center">
+                #303030</span>
+              </div>
+
+              <div class="color-column expanding-column g800">
+                <span class="color-code expanding-text text uppercase center">
+                #474747</span>
+              </div>
+
+              <div class="color-column expanding-column g700">
+                <span class="color-code expanding-text text uppercase center">
+                #5e5e5e</span>
+              </div>
+
+              <div class="color-column expanding-column g600">
+                <span class="color-code expanding-text text uppercase center">
+                #757575</span>
+              </div>
+
+              <div class="color-column expanding-column g500">
+                <span class="color-code expanding-text text uppercase center">
+                #8c8c8c</span>
+              </div>
+
+              <div class="color-column expanding-column g400">
+                <span class="color-code expanding-text text uppercase center">
+                #a3a3a3</span>
+              </div>
+
+              <div class="color-column expanding-column g300">
+                <span class="color-code expanding-text text uppercase center">
+                #bababa</span>
+              </div>
+
+              <div class="color-column expanding-column g200">
+                <span class="color-code expanding-text text uppercase center">
+                #d1d1d1</span>
+              </div>
+
+
+
+              <div class="color-column expanding-column g100">
+                <span class="color-code expanding-text text uppercase center">
+                #e8e8e8</span>
+              </div>
+
+            </div>
+        </div>
+
+      </div>
+
+      <div class="submit-container">
+        <button class="field-submit btn primary thin rounded slide" type="submit">
+          <span class="btn-content text uppercase primary">Continue</span>
+        </button>
+      </div>
+
+    </form>
+    
+  {% endblock %}
+
+  ```
+
+##### /static/site-create-options-1.js
+
+  The first JavaScript I wrote was the definitions for the colour storage. For clarity, any long strings, such as queries, have been replaced with `...` The `defaultColors` dictionary defines what the default colours are (the defaults are also defined in CSS for when the page loads) so that the page knows what to first render. The `colors` dictionary defines the user-selected colours.
+
+  ```js
+  var defaultColors = { 
+    "light":"#ffffff", "dark":"#000000", 
+    "primary":"#e63946", "primary-dark":"", "primary-light":"", 
+    "secondary":"#457b9d", "secondary-dark":"","secondary-light":"", 
+    "accent":"#a8dadc","accent-dark":"","accent-light":"",
+    "grey-100":"#303030", ... ,"grey-900":"#e8e8e8" 
+  }
+  
+  var colors = defaultColors
+
+  var colorDisplay = {
+    "light":[document.querySelector("..."),document.querySelector("...")],
+    "dark":[document.querySelector("..."),document.querySelector("...")],
+
+    "primary":[document.querySelector("..."),document.querySelector("...")],
+    "primary-dark":[document.querySelector("...")],
+    "primary-light":[document.querySelector("...")],
+
+    "secondary":[document.querySelector("..."),document.querySelector("...")],
+    "secondary-dark":[document.querySelector("...")],
+    "secondary-light":[document.querySelector("...")],
+
+    "accent":[document.querySelector("..."),document.querySelector("...")],
+    "accent-dark":[document.querySelector("...")],
+    "accent-light":[document.querySelector("...")],
+
+    "grey-100":[document.querySelector("..."),document.querySelector("...")],
+    ...
+    "grey-900":[document.querySelector("..."),document.querySelector("...")],
+  }
+  ```
+
+  The way the JavaScript manages to send the data to the server is by an input element in the form. This means it can be retrieved via the `flask.requests` module. I appeneded this element to the end of the form and then wrote the `updateStored` function, which sets the content of the input to the contnet of the `colors` dictionary. The definition for the element (referred to as `stored`), along with the other HTML elements are defined via the DOM.
+
+  ```html
+  <input id="color-output" class="visibly-hidden" type="text" value="." 
+  name="new_site_color_options_dict">
+  ```
+
+  ```js
+  function updateStored() {
+    var out="";var keys=Object.keys(colors);
+    for (var i=0; i<keys.length; i++) { out=out+keys[i]+":"+colors[keys[i]]+"," }
+    out=out.slice(0,out.length-1)
+    stored.value=out
+  }
+
+  var btnLight=document.getElementById("new_site_lightModeToggle");
+  var btnDark=document.getElementById("new_site_darkModeToggle");
+  var lightModeSelected=true;
+  var stored=document.getElementById("color-output")
+
+  var primaryColorPicker=
+    document.getElementById("new_site_colors_primary_picker");
+
+  var secondaryColorPicker=
+    document.getElementById("new_site_colors_secondary_picker");
+
+  var accentColorPicker=
+    document.getElementById("new_site_colors_accent_picker");
+  ```
+
+  I also added the utility function `setColor` to change a value in the dictionary, so that the code looked cleaner.
+
+  ```js
+  function setColor(k,v) { colors[k]=v }
+  ```
+
+  Every time either the light or dark toggle is pressed, they call either the `setLightMode` or `setDarkMode` functions:
+
+  ```js
+  function setLightMode() {
+    document.body.removeAttribute("data-kraken-darkmode")
+    updateStored()
+    updateLightDarkDisplay()
+  }
+
+  function setDarkMode() {
+    document.body.setAttribute("data-kraken-darkmode","")
+    updateStored()
+    updateLightDarkDisplay()
+  }
+  ```
+
+  The `updateLightDarkDisplay` and `updateColorDisplays` functions are called to update the HTML element colours and texts whenever something is changed:
+
+  ```js
+  function updateColorDisplays() {
+    colorDisplay["primary"][0].style.backgroundColor=colors["primary"]
+    colorDisplay["primary"][1].innerHTML=colors["primary"]
+    colorDisplay["primary-dark"][0].style.backgroundColor=colors["primary-dark"]
+    colorDisplay["primary-light"][0].style.backgroundColor=colors["primary-light"]
+
+    colorDisplay["secondary"][0].style.backgroundColor=colors["secondary"]
+    colorDisplay["secondary"][1].innerHTML=colors["secondary"]
+    colorDisplay["secondary-dark"][0].style.backgroundColor=
+          colors["secondary-dark"]
+    colorDisplay["secondary-light"][0].style.backgroundColor=
+          colors["secondary-light"]
+
+    colorDisplay["accent"][0].style.backgroundColor=colors["accent"]
+    colorDisplay["accent"][1].innerHTML=colors["accent"]
+    colorDisplay["accent-dark"][0].style.backgroundColor=colors["accent-dark"]
+    colorDisplay["accent-light"][0].style.backgroundColor=colors["accent-light"]
+
+    updateStored()
+  }
+
+  function updateLightDarkDisplay() {
+    colorDisplay["light"][0].style.backgroundColor=colors["light"]
+    colorDisplay["light"][1].innerHTML=colors["light"]
+    colorDisplay["dark"][0].style.backgroundColor=colors["dark"]
+    colorDisplay["dark"][1].innerHTML=colors["dark"]
+
+    updateStored()
+  }
+  ```
+
+  The `updateLightDarkVariables` is called whenever the "light & dark bounds" fader is changed:
+
+  ```js
+  function updateLightDarkVariables() {
+    var val = 100-lightDarkBoundsSlider.value;
+
+    var newColor = darken({h:0,s:0,l:100},val/12);
+    newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+    newColor = rgbToHex(newColor.r,newColor.b,newColor.g);
+    setColor("light","#"+newColor);
+
+    var newColor = lighten({h:0,s:0,l:0},val/8);
+    newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+    newColor = rgbToHex(newColor.r,newColor.b,newColor.g);
+    setColor("dark","#"+newColor);
+
+    updateStored()
+  }
+  ```
+
+  The `updateColorVariables` is callede whenever a colour picker is changed, to generate light and dark variants of that colour. This meant that the user could select any of the colour inputs, and when they submitted it, it would immediately show a darker and lighter version underneath.
+
+  <img alt="Create A New Site - Page 2 - Colour picker input demonstration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_cp_2.png?raw=true" height="150"/><img alt="Create A New Site - Page 2 - Colour picker input demonstration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_cp_1.png?raw=true" height="150"/>
+
+
+  ```js
+  function updateColorVariables() {
+    var changePercent = 20
+
+    for (var color of ["primary","secondary","accent"]) {
+      console.log(color)
+
+      var newColor = hexToRgb(colors[color])
+
+      // console.log("Color as RGB:")
+      // console.log(newColor)
+
+      newColor = rgbToHsl(newColor.r,newColor.g,newColor.g)
+
+      // console.log("Color as HSL:")
+      // console.log(newColor)
+
+
+
+      newColor = darken(newColor,changePercent)
+
+      // console.log("Darker Color as HSL:")
+      // console.log(newColor)
+
+      newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+
+      // console.log("Darker Color as RGB:")
+      // console.log(newColor)
+
+      newColor = rgbToHex(newColor[0],newColor[1],newColor[2]);
+
+      // console.log("Darker Color as Hex:")
+      // console.log(newColor)
+
+      setColor(color+"-dark","#"+newColor)
+
+      newColor = hexToRgb(colors[color])
+      newColor = rgbToHsl(newColor.r,newColor.g,newColor.g)
+
+      // console.log("Color as HSL:")
+      // console.log(newColor)
+
+      newColor = lighten(newColor,changePercent)
+
+      // console.log("Lighter Color as HSL:")
+      // console.log(newColor)
+
+      newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+
+      // console.log("Lighter Color as RGB:")
+      // console.log(newColor)
+
+      newColor = rgbToHex(newColor[0]/255,newColor[1]/255,newColor[2]/255);
+
+      // console.log("Lighter Color as Hex:")
+      // console.log(newColor)
+      
+
+      setColor(color+"-light","#"+newColor)
+      
+      console.log(colors[color+"-dark"])
+      console.log(colors[color+"-light"])
+
+    }
+
+    updateStored()
+    
+  }
+  ```
+
+
 
 <!--
 
