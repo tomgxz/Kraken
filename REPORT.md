@@ -256,7 +256,7 @@ height:225px
   > The visual aspect of any program is key - if it doesn't look good, is too cluttered, or doesn't look easy to understand, it will put people off using it. Nailing the design is an important aspect of any project, and you should make sure to prioritise it. Another thing to consider is site speed - if it takes forever to update the website, or it lags when you move things around, it will make people not want to use it. Other than that, you've got the other customisation features, organising objects, styles, content management, SEO customisability, and so on.
 
   5. Programming methods
-  > I'd suggest using Flask for this project, as you are already quite used to python, and it is easy to set up. The go to front-end languages would be HTML, CSS and JS. Testing isolated features throughout will make the development faster, and make it easier to link components together.
+  > I'd suggest using Flask for this project, as you are already quite used to python, and it is easy to set up. The go to frontend languages would be HTML, CSS and JS. Testing isolated features throughout will make the development faster, and make it easier to link components together.
 
   6. Other comments
   > Make sure you talk to your other stakeholders throughout to ensure that the final project will be something they'll want to use - their input can be vital.
@@ -1423,7 +1423,7 @@ root((MAIN))
   Throughout the code, the user input will be checked and cleaned to remove the risk of potentially dangerous or malicious data before being stored in the database. For example, to negate the possibility of an SQL injection attack, the library used to manage the database removes any usage of SQL queries in the code, meaning the data inputted cannot be used to execute a query. Other attack methods that will be looked into include XSS (cross-site scripting), DDoS (distributed denial of service), and MitM (man in the middle) attacks.
 
 ### Testing method
-  When developing the project, a lot of the alpha testing done will be white box testing, done by the developers. Unit testing will be used to ensure that all of the subroutines function as expected and intended. By testing each module of the program individually, this means that when they are all combined together, the program will function correctly. Integration testing will be performed to make sure the program functions as a whole. This will include checking how different modules interact with each other, and how the front-end interacts with the back-end of the website.
+  When developing the project, a lot of the alpha testing done will be white box testing, done by the developers. Unit testing will be used to ensure that all of the subroutines function as expected and intended. By testing each module of the program individually, this means that when they are all combined together, the program will function correctly. Integration testing will be performed to make sure the program functions as a whole. This will include checking how different modules interact with each other, and how the frontend interacts with the backend of the website.
 
   Different areas of testing when programming will include the input data of the program (for example, the user input on the login form), how the program handles said data, and what the result will be. To ensure that it has suitable error catching throughout, each module should go through destructive testing. For user input, this means using a variety of incorrect entries to see how it handles them. For the editor, this means attempting to perform styling that is invalid, dragging elements outside their boundary region, or making them too large. This will also include security testing; making sure that SQL injection or XSS attacks do not work.
 
@@ -1439,7 +1439,7 @@ root((MAIN))
 
 ### Stage 1 - Setting up the website
 
-  Before creating the database system, I decided to get the website backend up and running, and design the login and signup pages, to make it easier to test certain elements of the database. This includes setting up the template design for the front-end, creating a form system with verification in JavaScript, and performing validation server-side. The first thing I did was get the flask backend running. For this, I modified some code that I have used before when using Flask as a backend.
+  Before creating the database system, I decided to get the website backend up and running, and design the login and signup pages, to make it easier to test certain elements of the database. This includes setting up the template design for the frontend, creating a form system with verification in JavaScript, and performing validation server-side. The first thing I did was get the flask backend running. For this, I modified some code that I have used before when using Flask as a backend.
 
 ##### \_\_init\_\_.py
   ```python
@@ -2176,7 +2176,7 @@ root((MAIN))
 
   Currently, when you click the submit button, it redirects to a page saying "Method not allowed", as the post functions have not been added to `__init__.py` yet.
 
-  The next step was to set up the front-end programming for the login and signup pages, and the navigation bar. Starting with the navigation bar, I needed to set event listeners for the hamburger and background darkener `div`. These listeners would add or remove the `is-active` class to the hamburger, options list, and background, so that the website renders correctly. The file is already imported into `base.html` via `<script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}">`.
+  The next step was to set up the frontend programming for the login and signup pages, and the navigation bar. Starting with the navigation bar, I needed to set event listeners for the hamburger and background darkener `div`. These listeners would add or remove the `is-active` class to the hamburger, options list, and background, so that the website renders correctly. The file is already imported into `base.html` via `<script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}">`.
 
 <!-- Front end prog - globalnav hide -->
 
@@ -3095,7 +3095,7 @@ root((MAIN))
   ```
 
 ### Stage 3 - Homepage and Settings
-  This stage consisted of creating the front-end HTML for the user, including the settings pages. Although they lack much tangible functionality, they create the basis for future developers to implement. I decided not to complete all of the functionality due to time constraints, and lack of the features being required in the brief.
+  This stage consisted of creating the frontend HTML for the user, including the settings pages. Although they lack much tangible functionality, they create the basis for future developers to implement. I decided not to complete all of the functionality due to time constraints, and lack of the features being required in the brief.
 
   First, I created the home page. There are two template files `home-nosite.html` and `home-sites.html`, which are called by Flask based on whether the user has any sites stored in the database. 
 
@@ -3245,7 +3245,7 @@ root((MAIN))
 
   <img alt="app.route function diagram - part 3" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-3.svg?raw=true" width="250"/><img alt="app.route function diagram - part 4" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-4.svg?raw=true" width="300" class="margin-left-32"/>
 
-  At this point in development, I was able to quickly build the front-end versions of the settings pages for the account system (they are listed in the desirable features section of the success criteria). I didn't add in database functionality to them yet as I knew it would take significantly longer.
+  At this point in development, I was able to quickly build the frontend versions of the settings pages for the account system (they are listed in the desirable features section of the success criteria). I didn't add in database functionality to them yet as I knew it would take significantly longer.
 
   The settings page, which is accessed from the navigation hamburger, consists of 7 sections, as outlined in the design section. 6 of them open in the same page, whereas the seventh, `Help & Documentation`, loads the help page. Similar to how the `base.html` Jinja architecture works, there is a `settings-base.html` template that the settings pages are built off of. I did not write the templates for `Custom Code & Elements` or `Developer Settings` as they are not yet implemented into the database. The template `My Websites` will need to be revisited when the website creation system is in place - for now, I used test data such as <!-- TODO ADD TEST DATA --> to simulate the user having sites.
 
