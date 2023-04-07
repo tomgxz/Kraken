@@ -3792,6 +3792,423 @@ root((MAIN))
 
   ```
 
+### Stage 4 - Creating a New Site
+
+  In this stage, I created the system for when a user creates a new site. This includes various subroutines outlined in the design section of the report, such as the website name formatting and storage of colour palettes. Some functionality has not yet been included yet, such as the ability to import a website. This is because there is not a way to export sites yet, and it would be quite time consuming to create a validation algorithm to make sure that the imported files are not malicious: I want to finish the essential success criteria before moving on to the desirable features.
+
+  Similar to the settings pages, I first created a base template to build the rest of the pages from. 
+
+##### /templates/site-create-base.html
+  ```jinja
+  {% extends "base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% block content %}
+
+  <link href="{{url_for('static', filename='css/site-create.css')}}" 
+  rel="stylesheet" type="text/css" />
+
+  <div class="application-content">
+    <div class="text-header-container">
+      <h2 class="text header large dark one">Create a new site</h2>
+        
+    </div>
+    
+    <div class="main">
+      <div class="main-content thin">
+        {%block site_create_base%}
+        {%endblock%}
+      </div>
+    </div>
+  </div>
+
+
+  {% endblock %}
+  ```
+
+  The next step is to start creating the form for the first page. It consists of the website name, description, and whether the user wants the site to be public or private. Without any JavaScript, the page looked like this:
+
+  <img alt="Create A New Site - Page 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.2_newsite_page1_nojs.png?raw=true" width="600"/>
+
+##### /templates/site-create.html
+  ```jinja
+  {% extends "site_create_base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% block site_create_base %}
+
+    <p class="text dark">
+      Want to import an exported site? 
+      <a class="link text primary">Import a website.</a>
+    </p>
+
+    <div class="horizontal-separator one m-s-v"></div>
+
+    <form class="new-site-form one" method="post">
+
+      <div class="form-input-container one">
+
+        <div class="form-input-content-column">
+          <span class="text large dark one">Owner</span>
+          <span class="text large dark two">
+            <span>@{{current_user.user_id}}</span><span class="m-m-l m-s-r">/</span>
+          </span>
+        </div>
+
+        <div class="form-input-content-column">
+          <span class="text large dark one">
+            Website Name <sup class="text large danger">*</sup>
+          </span>
+
+          <input id="new_site_name" class="new-site-input text dark two input 
+          small-text-input" data-form-input-display="inactive" type="text" 
+          name="new_site_name">
+
+        </div>
+        <div class="message-container m-s-t text small one visibly-hidden">
+          Your site name will look like: 
+          <span class="message-container-jsedit"></span>
+        </div>
+
+        <p class="text dark m-s-t two">
+          The name must be at least 4 characters long, and contain only lowercase 
+          alphanumeric characters, dashes, underscores and periods. Any illegal 
+          characters will be converted into dashes. It must also be unique! 
+          If you need inspiration for a name, you ain't gonna get any from me :)
+        </p>
+      </div>
+
+      <div class="horizontal-separator two m-s-v"></div>
+
+      <div class="form-input-container three">
+          <span class="text large dark one">Description (Optional)</span>
+
+          <input id="new_site_desc" class="new-site-input text dark two input 
+          small-text-input" type="text" name="new_site_desc">
+      </div>
+
+      <div class="horizontal-separator three m-s-v"></div>
+
+      <div class="form-input-container two">
+
+        <div class="input-checkbox">
+          <input class="input-checkbox-input" name="new_site_privacy" 
+          id="new_site_privacy_visible" type="radio" value="public">
+
+          <span class="input-checkbox-icon">
+            <i class="faicon fa-regular fa-book-bookmark"></i>
+          </span>
+
+          <div class="input-checkbox-text-container">
+            <span class="input-checkbox-title text bold one">Public</span>
+            <span class="input-checkbox-caption text small two">
+              Anyone online can see this website. Only you can edit it.
+            </span>
+          </div>
+        </div>
+
+        <div class="input-checkbox">
+          <input class="input-checkbox-input" name="new_site_privacy" 
+          id="new_site_privacy_hidden" type="radio" value="private">
+
+          <span class="input-checkbox-icon">
+            <i class="faicon fa-regular fa-lock" 
+            style="color:var(--colors-warning)"></i>
+          </span>
+
+          <div class="input-checkbox-text-container">
+            <span class="input-checkbox-title text bold one">Private</span>
+            <span class="input-checkbox-caption text small two">
+              Only people who you give the link can view the website.
+            </span>
+          </div>
+        </div>
+
+        <div class="horizontal-separator three m-s-v"></div>
+
+        <button class="field-submit btn primary thin rounded slide" type="submit" 
+        disabled=true id="new_site_form_submit">
+
+          <span class="btn-content text uppercase primary">Create Site</span>
+        </button>
+      </div>
+
+    </form>
+
+  {% endblock %}
+
+  ```
+
+  I had a basic outline of the JavaScript I needed to write, based on the algorithms in the Design section:
+
+  - Fetch all of this user's site names from the server
+  - Validation for the website name, including a function to remove all repeated dashes
+  - A way of styling the website name input to show whether it is valid
+  - A way of programatically enabling and disabling the submit button
+
+  To get all of the user's site names, I added a SQL query to the `app.route` function for this page, and flashed the results so that it could be used by the JavaScript.
+
+##### changes to \_\_init\_\_.py
+  ```python
+  @self.app.route("/home/new/")
+    @login_required
+    def site_create():
+      out=""
+      
+      # get all current site names for the logged in user, then flash (send) it to 
+      # the site, where it is processed by the javascript
+      names = [x.name for x in self.Site.query.filter_by(
+              user_id=current_user.user_id).all()]
+
+      for name in names: out+=name+","
+      flash(out[:-1])
+      
+      return render_template("site-create.html")
+  ```
+
+###### changes to /templates/site-create.html
+  ```jinja
+  <script> var flashedSiteNames="{{get_flashed_messages()[0]}}".split(",") </script>
+  ```
+
+##### /static/site-create.js
+  The `checkFormSubmitButton` function is called whenever an input is changed, to see wether all inputs are valid. If so, it sets the submit button (`formSubmit`) to enabled, and if not, sets it to disabled. This system can be hijacked via DevTools, so the same validation system will be implemented in Python as well.
+
+  ```js
+  function checkFormSubmitButton() {
+    if (!(formName.getAttribute("data-form-input-display") == "success" || 
+          formName.getAttribute("data-form-input-display") == "warning")) {
+            formSubmit.setAttribute("disabled","")
+            return
+    }
+
+    if (!(formPrivacy1.checked) && !(formPrivacy2.checked)) {
+      formSubmit.setAttribute("disabled","")
+      return
+    }
+
+    formSubmit.removeAttribute("disabled")
+    return
+  }
+  ```
+
+  The `verifyNameField` is called when the website name input (`formName`) is changed. It returns a data attribute that is used in the CSS to style the form.
+
+  ```js
+  function verifyNameField() {
+    var nameInput = document.getElementById("new_site_name");
+    var val = nameInput.value;
+
+    hideFormMessage()
+
+    if (val.length < 1) { return "inactive" }
+    if (val.length < 4) { return "danger" }
+
+    var check=true
+    for (var i=0;i<val.length;i++) {
+      var letter = val[i]
+      if (requiredChars.includes(letter)) { check=false }
+    }
+
+    if (check) { return "danger" }
+
+    var sitenames = ["helloworld"]
+
+    if (flashedSiteNames.includes(val)) { 
+      editFormMessage("A site with this name already exists!")
+      return "danger" 
+    }
+
+    for (var i=0;i<val.length;i++) {
+      var letter = val[i]
+      if (!(allowedChars.includes(letter))) { 
+        editFormMessageSiteNameWarning(val)
+        return "warning" 
+      }
+    }
+
+    if (hasRepeatedDashes(val)) { 
+      editFormMessageSiteNameWarning(replaceRepeatedDashes(val));
+      return "warning" 
+    }
+
+    hideFormMessage()
+    return "success"
+  }
+  ```
+
+  This is the CSS that styles the website name input, to demonstrate how it interacts with the JavaScript.
+
+  ```css
+  .new-site-form.one .form-input-container.one 
+  [data-form-input-display="success"].new-site-input {
+    border-color:var(--colors-success);
+    box-shadow: 0px 0px 22px -8px var(--colors-success);
+  }
+
+  .new-site-form.one .form-input-container.one 
+  [data-form-input-display="warning"].new-site-input {
+    border-color:var(--colors-warning);
+    box-shadow: 0px 0px 22px -8px var(--colors-warning);
+  }
+
+  .new-site-form.one .form-input-container.one 
+  [data-form-input-display="danger"].new-site-input {
+    border-color:var(--colors-danger);
+    box-shadow: 0px 0px 22px -8px var(--colors-danger);
+  }
+  ```
+
+  This is what the input looks like when the `data-form-input-display` tag is changed. The four options are `inactive`, `danger`, `success`, `warning`.
+
+  <img alt="Create A New Site - Website name input styling" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.3_newsite_page1_namemerge.png?raw=true" width="600"/>
+
+  The `verifyNameField` function makes use of 4 other functions, `hideFormMessage`, `editFormMessage`, `hasRepeatedDashes`, and `replaceRepeatedDashes`. 
+  
+  The first two are used to interact with the warning message that is displayed underneath the input. 
+
+  ```js
+  function hideFormMessage() {
+    messageContainer.classList.add("visibly-hidden")
+    messageSpan.innerHTML=""
+  }
+  ```
+
+  ```js
+  function editFormMessage(val) {
+    messageContainer.classList.remove("visibly-hidden")
+    newInner=val.toLowerCase()
+
+    for (var i=0; i<newInner.length; i++) {
+      var letter=newInner[i];
+      if (!(allowedChars.includes(letter))) {
+        newInner=newInner.replaceAt(i,"-")
+      }
+    }
+
+    if (hasRepeatedDashes(newInner)) { newInner=replaceRepeatedDashes(newInner) }
+    messageSpan.innerHTML=newInner
+  }
+  ```
+
+  The second two handle the formatting of the input. When the validated name is being created, if it has any invalid characters in it, they will all be replaced with dashes (invalid characters are any characters not in `allowedChars`). This means that if you have a string such as `abc&& bcgf`, it will be turned into `abc---bcgf`. The function `hasRepeatedDashes` uses Regex to identify any adjacent dashes in the string, and the function `replaceRepeatedDashes` implements recursion to remove them all, changing `abc&& bcgf` to `abc-bcgf`.
+
+  These functions, in combination with `verifyField`, went through extensive testing to ensure that they worked properly. The data and results can be found in the appendix. <!-- TODO: add data and name appendix -->
+
+  ```js
+  function hasRepeatedDashes(val) {
+    for (var i=0;i<val.length;i++) {
+      if (val[i] == "-" && val[i+1] == "-") {
+        return true
+      }
+    }
+    return false
+  }
+  ```
+
+  ```js
+  function replaceRepeatedDashesRecursion(val) {
+    for (var i=0;i<val.length;i++) {
+      if (val[i] == "-" && val[i+1] == "-") {
+        val.splice(i+1,1)
+        val=replaceRepeatedDashesRecursion(val)
+      }
+    }
+    return val
+  }
+    
+  function replaceRepeatedDashes(val) {
+    return listToStr(replaceRepeatedDashesRecursion(val.split("")))
+  }
+  ``` 
+
+  The rest of the JavaScript contains variable allocation and event listeners:
+
+  ```js
+  var requiredChars = "qwertyuiopasdfghjklzxcvbnm1234567890"
+  var allowedChars = "qwertyuiopasdfghjklzxcvbnm-._1234567890";
+  
+  var formSubmit = document.getElementById("new_site_form_submit");
+
+  var formName = document.getElementById("new_site_name");
+  var formDesc = document.getElementById("new_site_desc");
+
+  var formPrivacy1 = document.getElementById("new_site_privacy_visible");
+  var formPrivacy2 = document.getElementById("new_site_privacy_hidden");
+
+  var messageContainer = document.querySelector(
+    ".new-site-form .form-input-container.one .message-container");
+
+  var messageSpan = document.querySelector(
+    ".new-site-form .form-input-container.one .message-container 
+    .message-container-jsedit");
+
+  formName.addEventListener("keyup",(event) => {
+      formName.setAttribute("data-form-input-display",verifyNameField())
+      checkFormSubmitButton();
+  })
+
+  formPrivacy1.addEventListener("click",checkFormSubmitButton)
+  formPrivacy2.addEventListener("click",checkFormSubmitButton)
+
+  formSubmit.addEventListener("click",(event)=>{
+      if (!(formSubmit.getAttribute("disabled"))) {
+          formSubmit.children[0].innerHTML = "CREATING SITE..."
+      }
+  })
+  ```
+
+  After completing the JavaScript validation, I then rewrote the code in Python and used it in the `app.route` post function, so that if the client-side validation was bypassed, it would still be validated server-side.
+
+##### changes to \_\_init\_\_.py
+  ```python
+  @self.app.route("/home/new/", methods=["post"])
+  @login_required
+  def site_create_post():
+
+    def listToStr(var):
+      out=""
+      for char in var: out+=char
+      return out
+
+    def replaceToDash(var):
+      # replaces any invalid characters in the string var with a dash, used to 
+      # format the site name correctly so that there arent any errors
+      var=list(var)
+      for i in range(len(var)):
+        if var[i] not in "qwertyuiopasdfghjklzxcvbnm-._1234567890": var[i]="-"
+      return listToStr(var)
+
+    def replaceRepeatedDashes(var):
+      # recursive function to remove adjacent dashes from a string
+      var=list(var)
+      for i in range(len(var)):
+        if i+1 >= len(var): return listToStr(var)
+        if var[i] == "-" and var[i+1] == "-":
+          del var[i]
+          var = list(replaceRepeatedDashes(var))
+          return listToStr(var)
+
+    # get the user inputs
+    sitename = request.form.get("new_site_name")
+    sitedesc = request.form.get("new_site_desc")
+    isPublic = request.form.get("new_site_privacy")=="public"
+
+    # remove adjacent dashes
+    sitename=replaceRepeatedDashes(replaceToDash(sitename.lower()))
+
+    # session can carry over variables between functions
+    session["new_site_sitename"]=sitename
+    session["new_site_sitedesc"]=sitedesc
+    session["new_site_isPublic"]=isPublic
+
+    return redirect(url_for("site_create_options_1"))
+  ```
+
 <!--
 
 ### Features
