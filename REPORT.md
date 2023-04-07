@@ -733,6 +733,9 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   - The server will store the users' sites, including the HTML, CSS, and JavaScript code.
 
 #### SQL database storage
+
+  <!-- TODO: More in depth, Normalisation, CRUD, etc -->
+
   This project will use SQL to store the multi-user information as I have previous experience using SQL, so it will be easy to set up and use. It is also useful due to its entity-relationship capability, meaning it will be well-suited for storing information about users' sites. It also has a Python library that integrates into the current backend library that is being used, Flask. This means there will be less work, as most of the functionality needed is already built-in and tested.
 
   This is the planned entity relationship diagram for the SQL database. It contains two entities, `USER` and `SITE`, connected with a one-to-many relationship with `user_id` being the foreign key in `SITE`.
