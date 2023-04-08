@@ -88,11 +88,11 @@
 ## Analysis
 
 ### Problem identification
-  With the internet constantly growing and more and more people relying on it, the demand for websites is constantly increasing. They can range in style from business portfolios and online stores to games. Regardless of who you are or what you do, a website is often expected of you, especially for businesses. However, the problem of creating a professional and functional website can be a daunting task for many individuals and small businesses, especially those who need more technical expertise or resources. Existing website builders may be difficult to navigate, require extensive coding knowledge, or lack the necessary design flexibility to create a unique and effective online presence. Furthermore, many website builders are geared toward certain industries or types of websites, making it difficult for users to find a platform that meets their specific needs. The task of manually programming it can seem very daunting.
+  With the internet constantly growing and more and more people relying on it, the demand for websites is continuously increasing. They can range in style from business portfolios and online stores to games. Regardless of who you are or what you do, a website is often expected of you, especially for businesses. However, the problem of creating a professional and functional website can be a daunting task for many individuals and small businesses, especially those who need more technical expertise or resources. Existing website builders may be challenging to navigate, require extensive coding knowledge, or lack the necessary design flexibility to create a unique and effective online presence. Furthermore, many website builders are geared toward specific industries or types of websites, making it difficult for users to find a platform that meets their specific needs. The task of manually programming it can seem very daunting.
 
-  The main aim of this project is to develop a website that allows clients to produce their website via a simple user interface, which alleviates the technical intricacies of HTML, CSS, and JavaScript and allows them to focus on creating a website that reflects their brand and meets their business goals. Clients can select from various styles and themes (or create their own), upload media such as images and videos, and then interact with a drag-and-drop interface to organise a webpage. Each website they create would have a page dedicated to it, with options to customise the styles of the site, the ability to create, organise, and link together pages of the website, preview the website in a variety of display sizes, and add pre-made elements and edit the parameters of the elements in the site.
+  The main aim of this project is to develop a website that allows clients to produce their website via a simple user interface, which alleviates the technical intricacies of HTML, CSS, and JavaScript and will enable them to focus on creating a website that reflects their brand and meets their business goals. Clients can select from various styles and themes (or create their own), upload media such as images and videos, and then interact with a drag-and-drop interface to organise a webpage. Each website they create would have a page dedicated to it, with options to customise the styles of the site, the ability to create, organise, and link together pages of the website, preview the website in a variety of display sizes, and add pre-made elements and edit the parameters of the elements in the site.
 
-  A drag-and-drop website builder that is easy to use is increasingly important in today's digital age, where having an online presence is crucial for businesses, organisations, and individuals. A user-friendly website builder that offers a wide range of customisable design options would greatly benefit users who may not have the technical know-how to create a website on their own.
+  A drag-and-drop website builder that is easy to use is increasingly important in today's digital age, where having an online presence is crucial for businesses, organisations, and individuals. A user-friendly website builder that offers a wide range of customisable design options would greatly benefit users who may not have the technical know-how to create a website independently
 
   Moreover, the rise of mobile devices and the increasing importance of responsive design have made it crucial for websites to be optimised for different screen sizes and devices. As such, this project would also be geared towards easily creating mobile-friendly websites to ensure optimal user experience.
 
@@ -110,9 +110,17 @@
   - Non-profit organisations: Non-profit organisations that want to create a website to promote their mission and raise awareness.
   - Freelancers: Freelancers and independent contractors who want to create a website to showcase their work and promote their services.
 
-#### Initial talks with stakeholders
+  The stakeholders are divided in two main groups: those who have some technical knowledge and can help with alpha-testing and feedback, and those who are not very technically literate, as that is the target audience of this solution. Having two groups will mean I get a variety of useful feedback when developing and beta-testing.
 
-  <img alt="404 no stakeholders" src="https://lh5.googleusercontent.com/4uvZ_jq6raFf03ail16FfgqLPm9JP5gdU8V-y3wZAfbUpKUVSNls_AyQkpSCeZ10CrUPHeXBtRubFjCSOWe2scR_DFF6y7YcZc2VesnJbeRY-9vynC5GyrSNOOH4g_Px8H1jbhP-i_bE8n_1Z6K6Rg"/>
+  |Stakeholder |Role |Technical Knowledge |Notes
+  |-|-|-|-|
+  |Archie |Student |Medium |Will be able to help me with testing. Has some experience using website builders
+  |Luke |Student |Medium |Will be able to help me with testing. Enjoys creating websites in his free time, well versed in usability and accessibility
+  |Sarah |Member of local Scout group |Little |Looking for a way to create a website without hiring a professional developer
+  |Jake |Small business owner |Little |Interested in integration with social media
+  |Kevin |Professional web hosting provider |High |Can provide insights into platform's compatibility with different hosting environments. Has insight into Site Engine Optimisation (referred to as SEO throughout)
+  |David |Barber shop owner and tech enthusiast |High |Excited to test features and provide feedback on capabilities and limitations
+
 
 ### Why it is suited to a computational approach
   This problem is suitable for a computational approach because it automates many technical and design tasks typically associated with creating a website. This is achieved by breaking down the website-building process into smaller, more manageable tasks that a computer program can easily handle.
@@ -128,7 +136,7 @@
 #### Computational methods that the solution lends itself to:
 
 ##### Problem recognition
-  This solution is suitable for problem recognition because it addresses a specific problem that many individuals and small businesses face: the difficulty of creating a professional and functional website without technical expertise or resources. By providing a user-friendly, drag-and-drop interface, a website builder allows users to easily create and edit their website without the need for coding or technical expertise. This addresses the problem of users not having the technical skills or resources to create a website themselves.
+  This solution is suitable for problem recognition because it addresses a specific problem that many individuals and small businesses face: the difficulty of creating a professional and functional website without technical expertise or resources. By providing a user-friendly, drag-and-drop interface, a website builder allows users to quickly create and edit their website without the need for coding or technical expertise. This addresses the problem of users not having the technical skills or resources to create a website themselves.
 
   Furthermore, a website builder can also use computational algorithms to optimise the website for different devices and screen sizes, ensuring that the website is responsive and easy to navigate on any device. This addresses the problem of the rise of mobile devices and the increasing importance of responsive design in today's digital age.
 
@@ -138,8 +146,8 @@
   > The account system would allow many users to access the server and edit their sites. The data would be stored in a server-side SQL database. The sites would be stored separately on the server.
   - Creating a menu system for users to navigate to access different sites.
 
-  - Storing a list of template elements the user can preview and use in their site.
-  > I need to decide on how to store the template elements, display them to the user, and then implement them into a user's site while still allowing them to edit them.
+  - Storing a list of template elements the user can preview and use in their sites.
+  > I need to decide how to store the template elements, display them to the user, and then implement them into a user's site while still allowing them to edit them.
   - Creating a simple drag-and-drop interface that is easy to use and understand.
   > This will probably be based on the grid-based positioning system that many existing website builders use or the constraint system that applications such as android studio use; however, the constraint system may not work with how HTML is created.
   - Creating an effective way of storing the users' sites on the server.
@@ -151,16 +159,140 @@
   These smaller steps are all doable on their own, and combining them would make a divide-and-conquer approach. The advantage of it being coded in a modular way is that each part can be tested and built on its own without relying on other parts of the project.
 
 ##### Abstraction
-  The program uses abstraction as it removes the complex process of programming code by transferring it into a simpler, graphical interface - it provides a high-level interface for users to create a website while hiding the underlying implementation details. This removes the need for the client to have knowledge and experience in programming, opening the market to a much larger audience.
+  The program uses abstraction as it removes the complex process of programming code by transferring it into a more straightforward, graphical interface - it provides a high-level interface for users to create a website while hiding the underlying implementation details. This removes the need for the client to have knowledge and experience in programming, opening the market to a much larger audience.
 
   For example, the proposed drag-and-drop interface abstracts the implementation details of adding and arranging elements on a webpage using HTML and CSS code.
+
+### Initial talks with stakeholders
+
+  After meeting with each of the stakeholders and proposing the solution to them, I asked them each for feedback on what they would want the project to include, how they would want it to function, and, if they had technical knowledge, how I could implement the functionality. The questions I asked each person were:
+
+  1. "How much technical experience do you have?"
+  2. If they have technical experience: "Do you have any experience creating websites yourself, and if so how much?"
+  3. "Do you have any experience using existing website builders, and if so, what are your thoughts on them?"
+  4. "What are the ideal features that you would look for in a website builder?"
+  5. If they have a lot of technical knowledge: "What methods would you suggest when creating this project?"
+  6. "Do you have any other comments, ideas or requests about my proposed project?"
+
+##### Archie, Student
+  1. Technical experience
+  > I study [A level] Computer Science and have used Python for a long time. The course teaches many various aspects of building applications and programming paradigms, which will be useful in the creation of a website builder.
+
+  2. Creating your own websites
+  > I haven't really used HTML, CSS, and JavaScript outside of small things here and there
+
+  3. Existing website builders
+  > A lot of website builders that I have seen before are very feature heavy and convoluted, which can often obscure the creation of a website. The paywall against many of their features often annoys me
+
+  4. Ideal features
+  > If I were looking for a website builder, I would want it to be easy to pick up how to use, and have it so that I could edit an existing site quickly - very user friendly. The ability to invite other people to help with the creation would be good, and the ability to import and export sites. I'd also want it to have a lot of customisability so that I can make the website look how I want.
+
+  6. Other comments
+  > Make sure to use VS code as its 100% better than everything else.
+
+##### Luke, Student
+  1. Technical experience
+  > I mainly program in C (and sometimes Java), having learnt them while doing computer science. I've used web languages quite a lot.
+
+  2. Creating your own websites
+  > I find it fun to create websites with crazy premises in my free time. It helps me expand my knowledge and skills. Each one is better than the last. Recently I've been trying to implement more usability and accessibility requirements into the websites that I create, such as contrast ratios and ARIA tags.
+
+  3. Existing website builders
+  > I haven't really looked into website builders that much as I get more enjoyment from building them myself - its more of a hobby than a serious thing, and you have to pay for most builders. I have taken a look at bootstrap before, which is quite powerful.
+
+  4. Ideal features
+  > Well, you start with the drag-and-drop, and build from there. You want an easy way to position and reposition elements throughout the site - the ability to reorganise everything is really important. Styling customisability, so global styles and then the ability to change individual elements as well. Custom CSS and JS could also be a cool idea, but you'd need to look out for people putting in malicious code. Various templates that people can choose from is always a good idea, along with tags and filters for them. And accessibility: automatically assigning ARIA tags so that the user doesn't have to do it, checks to make sure the colours are high contrast enough, screen reader support. I'd be happy to help you with getting that stuff correct.
+
+  5. Programming methods
+
+  6. Other comments
+  > When I took a look at android studio, the way they do their positioning system is with constraints and XML formatted elements. That could be a cool way to do the positioning system, but it might also be a lot harder to program.
+
+##### Sarah, Scout Leader
+  1. Technical experience
+  > No
+
+  3. Existing website builders
+  > The scout group is beginning to look into creating a website, so you've come along at the perfect time. In terms of what we've seen already, a couple of ideas have been put backwards and forward but we haven't come to a decision yet.
+
+  4. Ideal features
+  > I mean, as a scout group, we would want to be able to put up photos and videos of what we've been doing so that people are encouraged to join - we need to be able to change it quickly, and have multiple people be able to change it. We'd need to be able to change the colour scheme so that it matches with the official scout branding. Sign up forms would be a feature we'd need so that people can sign up straight from the website. And the ability to add a privacy policy, so that it's compliant with our GDPR regulations. If I'm honest, a lot of us aren't very technically savvy, so it would need to be pretty basic.
+
+##### Jake, Business Owner
+  1. Technical experience
+  > I did do some stuff at school, but it was only a little and quite a while ago
+
+  3. Existing website builders
+  > I've not really considered having a website for [the business], as it's quite small, and I've found that social media is good enough at the moment
+
+  4. Ideal features
+  > Well, the biggest thing that comes to mind is having my social media feeds on the front page so that people can easily get up-to-date information and see the latest posts quickly. I'd want a lot of styles to choose from so that I can make it look how I want it too - but not so many that I can't choose.
+
+##### Kevin, Web Hosting Provider
+  1. Technical experience
+  > I work as a professional web hosting provider, making sure that clients have the best hosting plan based on requirements such as ease of use, security requirements, or expected lifetime
+
+  2. Creating your own websites
+  > My job doesn't really require me to, but I do often have to look through clients' code to ensure certain requirements are met, such as accessibility guidelines or creating suitable SEO information for the site. I do have knowledge of how the web languages work.
+
+  3. Existing website builders
+  > The company that I work for provide a website builder as part of one of the pricing plans, but I'm not involved in its programming. It functions fine, but there are a lot of things that I would change about it.
+
+  4. Ideal features
+  > The visual aspect of any program is key - if it doesn't look good, is too cluttered, or doesn't look easy to understand, it will put people off using it. Nailing the design is an important aspect of any project, and you should make sure to prioritise it. Another thing to consider is site speed - if it takes forever to update the website, or it lags when you move things around, it will make people not want to use it. Other than that, you've got the other customisation features, organising objects, styles, content management, SEO customisability, and so on.
+
+  5. Programming methods
+  > I'd suggest using Flask for this project, as you are already quite used to python, and it is easy to set up. The go to frontend languages would be HTML, CSS and JS. Testing isolated features throughout will make the development faster, and make it easier to link components together.
+
+  6. Other comments
+  > Make sure you talk to your other stakeholders throughout to ensure that the final project will be something they'll want to use - their input can be vital.
+
+##### David, Barber Shop Owner, Tech Enthusiast
+
+  1. Technical experience
+  > I've done a lot in terms of technical stuff - I program a lot in my spare time to help with tasks, I have a pretty nice computer setup, a couple of raspberry pies setup around my house to run automated processes, and I'm big into collecting older tech.
+
+  2. Creating your own websites
+  > I've used HTML before. I wouldn't say I'm the best at it, but I know how it works. As for creating websites, I've not gone that far.
+
+  3. Existing website builders
+  > I tend to stay away from automated solutions to technical programming, especially online ones, where subscriptions and paywalls are a massive component of the industry. I'm beginning to look into creating a website for my shop, but I'm cautious about using website builders and may go down other avenues.
+
+  4. Ideal features
+  > The design is the most important bit for me - I should be able to create the entire site to look exactly how I want it, and then be able to release it to the public. Making sure that everything looks how it should, that precision is a big importance to me.
+
+  5. Programming methods
+  > You should definitely look at how other services have created their versions before, as it can give you inspiration and help you work out how you want to approach the construction of it. Make sure to be constantly testing and looking for feedback - I'd be happy to help with that.
+
+<!--
+  <img alt="404 no stakeholders" src="https://lh5.googleusercontent.com/4uvZ_jq6raFf03ail16FfgqLPm9JP5gdU8V-y3wZAfbUpKUVSNls_AyQkpSCeZ10CrUPHeXBtRubFjCSOWe2scR_DFF6y7YcZc2VesnJbeRY-9vynC5GyrSNOOH4g_Px8H1jbhP-i_bE8n_1Z6K6Rg"/>
+-->
+
+#### Analysis from stakeholders
+  After gathering feedback from the stakeholders, it became clear that there are several key features that they wanted from a website builder:
+
+  - Easy to use and user-friendly interface
+  - Ability to edit an existing site quickly
+  - Ability to invite others to collaborate on the site
+  - Import and export sites
+  - Enough customizability to make the website look as desired
+  - Styling customizability with global and individual element options
+  - Custom CSS and JS options
+  - Various templates with tags and filters
+  - Accessibility features, including automatic ARIA tags and contrast ratio checks for colour
+  - Support for screen readers
+  - Ability to change colour schemes to match brand identity
+  - Sign-up forms and privacy policy options
+  - Integration with social media feeds
+
+  It's also worth noting that some stakeholders expressed a willingness to help with the implementation of certain features, so it may be beneficial to involve them in the development process. Additionally, the website builder should aim to be basic enough for those with minimal technical experience to use, while also providing enough features and customizability for those with more technical experience to make use of.
 
 ### Research
 
 #### Existing solution - Squarespace
-  Their template list gives the option to preview the website, with all of its functionality in a separate page. They allow their users to view it in different sizes as well.
+  Their template list gives the option to preview the website, with all its functionality on a separate page. They allow their users to view it in different sizes as well.
 
-  <img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace15.png?raw=true" height="360"/>
+  <img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace15.png?raw=true"/>
 
   When first editing the site, Squarespace offers an assistant with some basic first steps to creating the website, making it easier for the client to understand how the editor works and how to use it effectively.
 
@@ -178,42 +310,40 @@
 
   <img alt="Squarespace research image: construction diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace14.png?raw=true"/>
 
-  Selecting text gives the user a popup that displays the text formatting options. Whenever the user clicks on an element, they get a different popup that displays the design options for said element.
+  
+  
+
+  Selecting text gives the user a popup that displays the text formatting options. Whenever the user clicks on an element, they get a different popup that displays its design options.
 
   <img alt="Squarespace research image: text edit and style popup" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace11.png?raw=true" width="640"/>
 
 ##### Parts I can apply to my project
   This solution will have the option to preview and use templates similarly to how Squarespace does it, along with their grid positioning system, which is, for lack of a better phrase, an "industry standard." There will also be a similar formatting option setup, but it will be docked on the right-hand side with all the formatting settings in the same place.
 
-  Squarespace also offers a variety of features such as e-commerce integration, SEO tools, analytics, 24/7 customer support, and a Content Management System (CMS) that allows users to update and manage their website's content easily. Although these features are useful in a website builder, I intend not to include them in the solution's first release due to the timeframe for it and how long these features would take to make. This solution would have a CMS, but not at the scale or capability of Squarespace.
+  Squarespace also offers a variety of features such as e-commerce integration, SEO tools, analytics, 24/7 customer support, and a Content Management System (CMS) that allows users to update and manage their website's content easily. Although these features are helpful in a website builder, I intend leave them out of the solution's first release due to the timeframe for it and how long these features would take to make. This solution would have a CMS, but not at the scale or capability of Squarespace.
 
 #### Existing solution - Zyro
-  Zyro also uses an assistant to help the user understand how to use their editor.
+  Zyro also uses an assistant to help users understand how to use their editor.
 
-  <img alt="Zyro research image: assistant image 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro1.png?raw=true" height="360"/>
-
-  <img alt="Zyro research image: assistant image 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro2.png?raw=true" height="360"/>
+  <img alt="Zyro research image: assistant images" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro11.png?raw=true" width="50%"/>
 
   Zyro has two ways of positioning objects; one is very similar to the way Squarespace does, with a grid positioning system, and the second is a smart layout. It instead uses only columns to position, and the elements can be moved up and down said columns freely and snap to other elements, like how many editors like photoshop might do. The user can toggle the snapping to other elements in section settings.
 
-  <img alt="Zyro research image: grid positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro3.png?raw=true" width="360"/>
+  <img alt="Zyro research image: grid positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro12.png?raw=true" width="60%"/>
 
-  <img alt="Zyro research image: smart layout positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro4.png?raw=true" width="360"/>
-  <img alt="Zyro research image: snap to guides setting" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro5.png?raw=true" width="360"/>
-
-  Their image resizing system is good. It uses the `object-fit: cover` property in the style of the image and changes the width and height attributes when being dragged, as explained later.
-
-  <img alt="Zyro research image: image resize animation" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro6.gif?raw=true" width="360"/>
-
-  Something else Zyro does is have all of their style attributes defined in one class, which relies on variables such as `--grid-row`,`--m-grid-column`, and `--element-width` that are defined in `element.style` (the style attribute of the HTML object), which have presumably been put there by JavaScript.
+  Something else Zyro does is have all of their style attributes defined in one class, which relies on variables such as `--grid-row`,`--m-grid-column`, and `--element-width` that are defined in `element.style` (the style attribute of the HTML object), which have been inserted with JavaScript.
 
   The CSS class with all of the variable references:
 
-  <img alt="Zyro research image: css: positioning variable usage" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro7.png?raw=true" width="360"/>
+  <img alt="Zyro research image: css: positioning variable usage" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro7.png?raw=true" width="240"/>
 
   The HTML style attribute with all of the variable declarations in it:
 
-  <img alt="Zyro research image: positioning variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro8.png?raw=true" width="360"/>
+  <img alt="Zyro research image: positioning variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro8.png?raw=true" width="240"/>
+
+  Their image resizing system is good. It uses the `object-fit: cover` property in the style of the image and changes the width and height attributes when being dragged, as explained later.
+
+  <img alt="Zyro research image: image resize animation" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro6.gif?raw=true" height="480"/>
 
   When moving elements around the layout, Zyro adds four variables to the element, `top`, `left`, `width`, and `height`, which they use to render the element positioning while you are moving it. When the user releases the element, these values are removed. This positioning will be done in JavaScript by taking the position of the cursor when the user clicks on the element, getting the element's position when they click on it, and then offsetting the element's position by the amount they move the cursor. Then, when the user releases the cursor, it runs the code to calculate the new grid positioning of the element. They also have a max width for desktop mode, where the element cannot be moved further.
 
@@ -225,17 +355,24 @@
   Zyro also includes a built-in AI-based website creation tool called Zyro AI Writer, which can help users easily create website content. Similar to the Squarespace e-commerce system, this will not fit into the timeframe of the initial release of this solution, so it will not be implemented.
 
 ### Key features of the solution
-  <!--TODO: rewrite-->
 
-  This solution will be a web-based, multi-user program where the user uses a grid-based, drag-and-drop system using pre-defined template elements that they can customise. There will be a tutorial for creating a site to help new users understand the system. The user will be able to customise styles for their site, organise pages, access a library of pre-defined templates for widgets such as text, buttons, or links, and control the styling of each element in their pages.
+The proposed solution is a multi-user, web-based program that is designed to make website creation easier for a diverse range of users, including individuals, small businesses, freelancers, and non-profit organizations. The key features of the solution are outlined below:
 
-  The aim is to have an easy learning curve and a low entry bar for understanding so that anybody can use it. Ease of use is also key - the cognitive load on the user should be low enough that it allows them to focus on designing the website due to
+- Grid-based, drag-and-drop system: The system is based on a grid layout that makes it easy for users to place and arrange various elements on their pages. The drag-and-drop feature allows users to add elements to their pages and reposition them as desired.
+- Pre-defined template elements: The solution comes with a wide range of pre-defined template elements that users can use to create their websites quickly. These elements can be customised to match the user's needs.
+- Customisable styles: Users can customise the style of their website by changing the font, colours, background, and other design elements. This feature allows users to create unique designs that match their brand or personal preferences.
+- Organised pages: The solution provides users with tools to organise their pages in a way that makes sense to them. This feature enables users to create a clear, logical structure for their websites, which makes it easy for visitors to navigate.
+- Library of pre-defined templates: The solution comes with a library of pre-defined templates for widgets such as text, buttons, or links. These templates are designed to save users time and effort by providing them with ready-made elements that they can use on their pages.
+- Control of styling for each element: Users have complete control over the styling of each element on their pages. This feature allows users to create visually appealing designs that match their brand or personal preferences.
+
+The overall aim of the solution is to provide an easy-to-use, intuitive system that has a low learning curve, making it accessible to anyone who wants to create a website. The user interface is designed to be visually appealing and straightforward, with a minimal cognitive load, enabling users to focus on designing their websites rather than struggling with technical details. The solution is designed to be flexible and adaptable to suit a wide range of needs, from simple personal sites to more complex business sites.
 
 ### Limitations of the solution
   The main limitation is that, as a server-side application, the user will always need an active internet connection to access it, and if the server goes down, there will be no way of using the program.
 
-#### Meeting with the stakeholders
-  I should probably contact the "stakeholders" at this point as I'm developing ideas on how the website builder would function.
+  <!-- TODO write more about limitations -->
+
+
 
 ### Hardware and Software Requirements
 
@@ -246,7 +383,7 @@
   - A server to host the website builder application and handle user requests. This server could be physical or virtual and run on any operating system that can also run Python (as it is the language I will be using to program the backend).
   - The server will require a CPU with enough processing power: it may need a high number of cores and a fast clock speed to handle high traffic and many concurrent users.
   - The server will need enough memory (RAM) to handle the requests and processes of the application.
-  - The server will require a sufficient amount of storage to store the website builder application and the images and files uploaded by the users to the CMS.
+  - The server will require sufficient storage to store the website builder application and the images and files uploaded by the users to the CMS.
   - The server will need a high-speed network connection to handle incoming and outgoing traffic between itself and the users. The faster the connection, the better the user's experience will be.
 
   In addition to the above hardware requirements, it should be designed with scalability in mind so it can be adjusted if the application size or the number of users increases.
@@ -262,7 +399,7 @@
   - Firewall software to monitor incoming and outgoing traffic and stop potential threats from corrupting the system.
   - Load balancer software may be required when the user base increases to manage server resources and route traffic to available servers.
 
-### Stakeholder requirements
+
 
 ### Success Criteria
 
@@ -271,7 +408,7 @@
   - the ability to view the password with the all-seeing eye
   - Signup fields to be name, email, username, and two passwords to make sure they get it correct
   - SQL database that stores user and site information
-  - fully functional error checking on all fields as follows
+  - Fully functional error checking on all fields as follows
   >- All fields must not be empty
   >- Name can have spaces and non-alphanumeric characters and must be longer than 2.
   >- Email must be in an email format.
@@ -301,14 +438,14 @@
   - When editing the site, the organisation will look like this
   >- A navigation bar on the left that contains the options: "website pages", where you can navigate to a different page, "add section", where you can add another template section to the current page, "website styles", where you can change global settings such as fonts and colours, and "add element", where you can drag and drop individual elements into the canvas to edit.
   >- A central canvas where the actual web page can be previewed
-  >- A popup modal for the centre which appears when the user needs to select a section or element to add to the page
+  >- A popup modal that appears when the user needs to add an element or section
   >- A styling section on the right-hand side where the user can edit all of the styling properties for a selected element
 
 
   - The central canvas will import the raw HTML and CSS files from the server and rely on data tags in the HTML element to understand what does what and how to edit it.
   - Whenever a widget is selected, a box will be drawn around it, with the ability to resize it. The style menu on the right will also populate with style options for the selected element that can be changed in real-time and previewed when hovered over so that the user can easily understand what certain buttons will do.
   - Whenever a widget is selected and held, an outline of the parent section's grid system is previewed, and the element can be moved around. It does this by tracking the cursor's position and relating that to the start position of the cursor on the widget (the anchor point) to render it in the correct place using left, right, top, and bottom CSS tags. When released, the widget will snap into the nearest grid space to where it was released. A similar thing happens when the user selects and holds one of the resize elements on the outline, where it tracks the cursor and then snaps into the closest grid space to resize it.
-  - The position parameters, that are changed as described above, are separate for the desktop and mobile views of the web page. Changing the position when the page is in desktop mode will not affect the position in mobile mode and vice versa.
+  - The position parameters that are changed, as described above, are separate for the desktop and mobile views of the web page. Changing the position when the page is in desktop mode will not affect the position in mobile mode and vice versa.
   - When a widget is right-clicked, it will show useful commands such as copy, paste, delete and duplicate.
   >
 
@@ -316,27 +453,42 @@
   - Ability to (export and) import sites in a zip file so you can transfer them between sites, which is different to downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
   >
 
+  - An easy-to-use settings interface where the user can customise things such as public profile appearance and account settings.
+  >
+
+  - A list of predefined templates for sites when creating a site, that can be organised and filtered via relevant tags.
+  >
+
   - When creating the site, the user can select options that allow them to change the default styling properties of the site.
   > These will be the options for colour palettes and font families.
 
-  - The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously. (This is because it would be more complicated to program)
+  - The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously.
+  > This would be achieved by modifying the database structure to have a linking table between the User and Site tables. This is explained later in the design section.
+
+  - Accessibility and support: Automatic ARIA tag assignment inside website builder, accessibility analysis tools to ensure that the current colour palette is acceptable, and adequate support for screen readers in created websites.
   >
+
+  - Audience interaction features such as forms, social media feeds, and article posts.
 
   - To export the site, the user will have two options that will be clearly defined in the UI
   - They can download the site, which will download a zip file containing all the required HTML, CSS, and JavaScript code, so that they can unpack the archive and run the webpage by simply opening the HTML file.
   - They can export the site, which will download a different zip file that contains all of the internal files that Kraken uses to run the editor for the page. This means the user can download backups and send their websites to others.
   >
 
+  <!-- TODO: explain it's called Kraken -->
+
 ## Design
+
+<!-- TODO: add settings pages to design -->
 
 ### URL Navigation
 
   <img alt="URL Navigation diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-urlnavigation.svg?raw=true" height="512"/>
 
-  The different nodes are colour coded based on the permission required to access those pages. If a user does not have the required permission, the user will be redirected to the nearest parent node that the user has access to. If they are signed out, most of the pages will redirect the user to the Login page. The colour coding is as such:
-  - Green: Any user can access this page, and they do not need to be signed in; it is public.
-  - Orange: You need to be logged in to access this page. This mostly relates to account-based pages such as the settings menu or creating a new site.
-  - Red: You need to be the owner of this website, or have sufficient permissions granted by the owner. This only applies to the user websites that are set to private.
+  The different nodes are colour coded based on the permission required to access those pages. If a user does not have the required permission, the user will be redirected to the nearest parent node that the user has access to. Most pages will redirect the user to the Login page if they are signed out. The colour coding is as such:
+  - Green: Any user can access this page and does not need to be signed in; it is public.
+  - Orange: The user needs to be logged in to access this page. This mainly relates to account-based pages such as the settings menu or creating a new site.
+  - Red: You need to be the owner of this website or have sufficient permissions granted by the owner. This only applies to the user websites that are set to private.
 
 ### User Interface Design
 
@@ -348,7 +500,7 @@
   >The Home button is placed in the top left-hand corner so that it is easy to find and matches how other websites do it; it conforms to the established design patterns and standardised expectations that the user will be familiar with.
 
   Hamburger
-  >The navigation menu has been hidden behind a hamburger at the bottom of the sidebar. This is because, due to the navbar being docked on the side, having lots of links on it would look messy and be hard to read. Therefore, the user can click the hamburger, and a modal will appear with all those links. Clicking the hamburger again, or anywhere else on the screen, will close the modal. The reason why the navbar is on the side of the screen is not only a design choice, but it means that the website builder has more space vertically.
+  >The navigation menu has been hidden behind a hamburger at the bottom of the sidebar. This is because, due to the navbar being docked on the side, having lots of links on it would look messy and be hard to read. Therefore, the user can click the hamburger, and a modal will appear with all those links. Clicking the hamburger again, or anywhere else on the screen, will close the modal. The reason the navbar is on the side of the screen is not only a design choice, but it means that the website builder has more space vertically.
 
   Main Content
   >This area is where most of the interactive elements will be. These can be seen in the following diagrams.
@@ -423,6 +575,9 @@
   - The options content window will display content based on what is selected in the settings navigation options.
 
 ### Usability
+
+  <!-- TODO: rewrite with mentions of stakeholders and success criteria -->
+
   The usability features I have considered ensure that the program is easy to use for as many users as possible, including those with accessibility issues. All of the buttons in the designs are large and easy to notice. When font selection or styling is used, previews for what the font looks like are shown so the user can clearly see what it will look like. This functionality is borrowed by other styling and positioning functions in the editor.
 
   To make it easier for users to navigate and reduce cognitive load on users, the site will have a deliberately simple structure, with many features hidden behind modals or popup boxes. Elements such as the home button will be placed in conventional positions to make it easier for the user to find.
@@ -446,7 +601,7 @@
 #### ARIA
   ARIA (Accessible Rich Internet Applications) attributes will be used throughout the website to allow screen readers to navigate the website. These attributes can be used by assistive technologies, such as screen readers, to provide a more detailed and customised user experience. It is particularly useful for improving the accessibility of dynamic content and advanced user interface controls, such as those used in rich internet applications.
 
-### Stakeholder input :D  
+### Stakeholder input
 
 ### Website structure and backend
 
@@ -474,6 +629,7 @@
     </body>
   </html>
   ```
+
   ##### itemlist.html
   ```jinja
   {% extends "base.html" %}
@@ -513,6 +669,9 @@
   - The server will store the users' sites, including the HTML, CSS, and JavaScript code.
 
 #### SQL database storage
+
+  <!-- TODO: More in depth, Normalisation, CRUD, etc -->
+
   This project will use SQL to store the multi-user information as I have previous experience using SQL, so it will be easy to set up and use. It is also useful due to its entity-relationship capability, meaning it will be well-suited for storing information about users' sites. It also has a Python library that integrates into the current backend library that is being used, Flask. This means there will be less work, as most of the functionality needed is already built-in and tested.
 
   This is the planned entity relationship diagram for the SQL database. It contains two entities, `USER` and `SITE`, connected with a one-to-many relationship with `user_id` being the foreign key in `SITE`.
@@ -572,22 +731,25 @@
   - `data-kraken-selected-drag`
 
 ##### Resize box
-  <img alt="Resize Box Algorithm Flowchart 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox1.svg?raw=true" height="361"/>
-  <img alt="Resize Box Algorithm Flowchart 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox2.svg?raw=true" height="336"/>
-  <img alt="Resize Box Algorithm Flowchart 3" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox3.svg?raw=true" height="526"/>
+  <img alt="Resize Box Algorithm Flowchart 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox1.svg?raw=true" height="250"/>
+  <img alt="Resize Box Algorithm Flowchart 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox2.svg?raw=true" height="250"/>
+  <img alt="Resize Box Algorithm Flowchart 3" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox3.svg?raw=true" height="380"/>
+
 
 
 ##### Dragging and dropping elements
-  <img alt="Drag and Drop Element Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-dndelement.svg?raw=true" height="696"/>
+  <img alt="Drag and Drop Element Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-dndelement.svg?raw=true" height="525"/>
 
 ##### Dragging and dropping sections
-  <img alt="Drag and Drop Section Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-dndsection.svg?raw=true" height="526"/>
+  <img alt="Drag and Drop Section Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-dndsection.svg?raw=true" height="340"/>
+
+
 
 ##### Displaying element and section options
-  <img alt="Element and Section Options Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-styleoptions.svg?raw=true" height="651"/>
+  <img alt="Element and Section Options Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-styleoptions.svg?raw=true" height="470"/>
 
 ##### Displaying text editors
-  <img alt="Text Editor Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-textedit.svg?raw=true" height="546"/>
+  <img alt="Text Editor Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-textedit.svg?raw=true" height="450"/>
 
 #### Multi-user system algorithms
   A lot of the SQL and multi-user algorithms are handled by libraries that are being used, which means that function calls can be used, such as `login_user(user)` from the `flask_login` library or `user = self.User.query.filter_by(user_id=username).first()` that uses an inherited class in the `models.py` file to perform an SQL query. As such, it will reduce a lot of the programming work required, as I can call a function from a different module to do it for me.
@@ -603,26 +765,22 @@
   - Import and export sites that are stored in the database and on the server
 
 ##### Login page
-  <img alt="Login Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-login.svg?raw=true" height="776"/>
+  <img alt="Login Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-login.svg?raw=true" height="500"/>
 
 ##### Signup page
-  <img alt="Signup Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-signup.svg?raw=true" height="1171"/>
+  <img alt="Signup Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-signup.svg?raw=true" height="1000"/>
 
 ##### Field verification
-  <img alt="verifyField Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-verifyfield.svg?raw=true" height="481"/>
+  <img alt="verifyField Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-verifyfield.svg?raw=true" height="280"/>
 
 ##### Creating a new user
-  <img alt="createUser Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createuser.svg?raw=true" height="381"/>
+  <img alt="createUser Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createuser.svg?raw=true" height="300"/>
 
 ##### Creating a new site
-  <img alt="Site Create Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite1.svg?raw=true" height="831"/>
-  <img alt="Site Create Option Page 1 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite2.svg?raw=true" height="771"/>
-  <img alt="Site Create Option Page 2 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite3.svg?raw=true" height="546"/>
-  <img alt="Site Create Option Page 3 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite4.svg?raw=true" height="631"/>
-
-##### User Settings algorithms
-
-  <!--TODO: user settings algorithms-->
+  <img alt="Site Create Page Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite1.svg?raw=true" height="475"/>
+  <img alt="Site Create Option Page 1 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite2.svg?raw=true" height="450"/>
+  <img alt="Site Create Option Page 2 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite3.svg?raw=true" height="450"/>
+  <img alt="Site Create Option Page 3 Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-createsite4.svg?raw=true" height="550"/>
 
 ### Diagram showing how the subroutines link
 
@@ -641,69 +799,70 @@
   }}
 
   mindmap
-    root((MAIN))
+root((MAIN))
 
-      (Editor Opened)
-          (Check for user permissions)
-              (If editor, run as normal)
-              (If viewer, direct to the preview page)
-              (If private, display an error screen)
-          (Load files from the server)
-              (Necessary files will be listed in the siteDat JSON file)
-              (HTML will be populated with kraken data attributes)
-              (Apply all of the necessary CSS and JavaScript)
-                  (Use dedicated style and script tags instead of importing them)
+    (Editor Opened)
+        (Check for user permissions)
+            (If editor, run as normal)
+            (If viewer, direct to the preview page)
+            (If private, display an error screen)
+        (Load files from the server)
+            (Necessary files will be listed in the siteDat JSON file)
+            (HTML will be populated with kraken data attributes)
+            (Apply all of the necessary CSS and JavaScript)
+                (Use dedicated style and script tags instead of importing them)
 
-      (Action taken)
-          (Store action in action log)
-              (This can be accessed for undos, redos and saves)
+    (Action taken)
+        (Store action in action log)
+            (This can be accessed for undos, redos and saves)
 
-      (Editor Saved)
-          (If an element is selected, prompt to deselect to save)
-          (Fetch HTML from the editor)
-              (Remove imported CSS and JavaScript from HTML block)
-              (Remove any current selected tags)
-              (Update any changed HTML files in the server storage)
-          (Look at the action log for any changes to imported files)
-              (If changes, update sideDat JSON file as necessary)
+    (Editor Saved)
+        (If an element is selected, prompt to deselect to save)
+        (Fetch HTML from the editor)
+            (Remove imported CSS and JavaScript from HTML block)
+            (Remove any current selected tags)
+            (Update any changed HTML files in the server storage)
+        (Look at the action log for any changes to imported files)
+            (If changes, update sideDat JSON file as necessary)
 
-      (Display settings changed)
-          (If the aspect ratio has been altered)
-              (Append necessary data attributes to container element)
-              (Resize container as necessary)
-              (Update JavaScript display size variables)
-                  (So that it knows what CSS and HTML to update, if necessary, and which subroutines to call on event listeners)
+    (Display settings changed)
+        (If the aspect ratio has been altered)
+            (Append necessary data attributes to container element)
+            (Resize container as necessary)
+            (Update JavaScript display size variables)
+                (So that it knows what CSS and HTML to update, if necessary, and which subroutines to call on event listeners)
 
 
-      (Element Selected)
-          (If locked, pass)
-              (Display unlock button)
-          (Check for attributes to determine functionality)
-              (If styleable, populate the style area with relevant options)
-                  (Listen for hovers and selects to add styling)
-                  (Listen for deselection of the element to update styles)
-              (If draggable, draw a bounding box)
-                  (Listen for click and hold)
-              (If resizable, draw a bounding box with resize points)
-                  (Listen for click and hold)
-          (Append necessary selected tags)
+    (Element Selected)
+        (If locked, pass)
+            (Display unlock button)
+        (Check for attributes to determine functionality)
+            (If styleable, populate the style area with relevant options)
+                (Listen for hovers and selects to add styling)
+                (Listen for deselection of the element to update styles)
+            (If draggable, draw a bounding box)
+                (Listen for click and hold)
+            (If resizable, draw a bounding box with resize points)
+                (Listen for click and hold)
+        (Append necessary selected tags)
 
-      (Section Selected)
-          (If locked, pass)
-              (Display unlock button)
-          (Check for attributes to determine functionality)
-              (If styleable, populate the style area with relevant options)
-                  (Listen for hovers and selects to add styling)
-                  (Listen for deselection of element to update styles)
-              (If draggable, listen for click and hold)
-              (If resizable, listen for hover over the bottom border)
-                  (Display a resize toggle and listen for click and hold)
-              (Append necessary selected tags)
+    (Section Selected)
+        (If locked, pass)
+            (Display unlock button)
+        (Check for attributes to determine functionality)
+            (If styleable, populate the style area with relevant options)
+                (Listen for hovers and selects to add styling)
+                (Listen for deselection of element to update styles)
+            (If draggable, listen for click and hold)
+            (If resizable, listen for hover over the bottom border)
+                (Display a resize toggle and listen for click and hold)
+            (Append necessary selected tags)
   ```
 
   -->
 
-  ![Diagram showing how the subroutines link](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-mindmap-subroutines.svg?raw=true)
+  <!--![Diagram showing how the subroutines link](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-mindmap-subroutines.svg?raw=true)-->
+  <!-- TODO redo -->
 
 ### Subroutines
   Now that I have a rough idea of what the subroutines will do and how they will fit together, I can start planning them in pseudocode. The multi-user subroutines will be written in Python, as it is used for the backend, whereas the subroutines for the website builder will be written in JavaScript and imported into the HTML.
@@ -715,94 +874,74 @@
 ##### auth_login_post
   The Flask backend will call this subroutine when the user submits the login form. The subroutine can fetch input data from the form using the `flask` `request` import. The password it receives will already have been hashed on the client's side so that it is being sent over the internet encrypted.
 
-  ```python
-  flask.route("login",method=post)
-  def auth_login_post(): # run when the user submits the login form
+  ```js
+  function auth_login_post() { // run when the user submits the login form
+    flask.route("login",method=post)
 
-    # fetch inputs from the form using the ids of the inputs
-    username = flask.request.form.get("username")
-    password = flask.request.form.get("password")
-    remember = flask.request.form.get("remember")
+    // fetch inputs from the form using the ids of the inputs
+    username,password,remember = flask.request.form.get()
 
-    # fetch a list of users that match the username from the database
+    // fetch a list of users that match the username from the database
     user = db.query(f"SELECT * from USER where user_id={username}").fetchall()
 
-    # if the list of users is empty
-    # or the user's hashed password doesn't match the inputted hashed password
-    if user.length = 0 || user[0].password == password:
-      # flash() passes a message to the next request (next page the user will see)
+    // if the list of users is empty or the password doesn't match
+    if user.length = 0 || user[0].password == password {
       flash("Please check your login details and try again")
-      # redirect the user to the login page and ask them to try again
       return flask.redirect(flask.url_for("auth_login"))
+    }
 
     flask.login_user(user,remember=remember) # login the user
     return flask.redirect(flask.url_for("main_home"))
+  }
   ```
 
 ##### auth_signup_post
   The Flask backend will call this subroutine when the user submits the signup form. It uses similar functionality to the `auth_login_post` function, including the passwords being hashed client-side. It uses the `verifyField` and `isEmailFormat` subroutines to check that fields are valid and the `createUser` subroutine to insert a new user into the database and add them to the server storage. Both subroutines are shown later.
 
-  ```python
-  flask.route("signup",method=post)
-  def auth_signup_post(): # run when the user submits the signup form
+  ```js
+  
+  function auth_signup_post() { // run when the user submits the signup form
+    flask.route("signup",method=post)
 
-    # fetch inputs from the form using the ids of the inputs
-    name = flask.request.form.get("name")
-    email = flask.request.form.get("email")
-    username = flask.request.form.get("username")
-    password1 = flask.request.form.get("password")
-    password2 = flask.request.form.get("password-repeat")
+    // fetch inputs from the form using the ids of the inputs
+    name,email,username,password1,password2 = flask.request.form.get()
 
-    # Use the verifyField function to check the inputs are valid.
-    #It returns an empty string if valid or an error message if not.
+    // Use the verifyField function to check the inputs are valid.
     out = verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
 
-    if out.length > 0:
-      flash([True,out,"",email,username])
-      return flask.redirect(flask.url_for("auth_signup"))
+    if (out) return flask.redirect(flask.url_for("auth_signup"))
 
     out = verifyField(email,"Email",minLen=0,canHaveSpace=False,
     canHaveSpecialChar=True)
 
-    if out.length > 0:
-      flash([True,out,name,"",username])
+    if (out) return flask.redirect(flask.url_for("auth_signup"))
+
+    // Check to see whether the email is in a valid format
+    if (not isEmailFormat(email)) 
       return flask.redirect(flask.url_for("auth_signup"))
 
-    # Check to see whether the email is in a valid format
-    if not isEmailFormat(email):
-      flash([True,"Email is not in a recognised format",name,"",username])
-      return flask.redirect(flask.url_for("auth_signup"))
-
-    # Run an SQL query to check whether this email already has an account
+    // Run an SQL query to check whether this email already has an account
     user = db.query(f"SELECT * from USER where email={username}").fetchall()
 
-    if user:
-        flash([True,"That email is already in use",name,"",username])
-        return flask.redirect(flask.url_for("auth_signup"))
+    if user return flask.redirect(flask.url_for("auth_signup"))
 
     out = verifyField(username,"Username",canHaveSpecialChar=False)
 
-    if out.length > 0:
-      flash([True,out,name,email,""])
-      return flask.redirect(flask.url_for("auth_signup"))
+    if (out) return flask.redirect(flask.url_for("auth_signup"))
 
     out = verifyField(password1,"Password",minLen=8)
 
-    if out.length > 0:
-      flash([True,out,name,email,username])
-      return flask.redirect(flask.url_for("auth_signup"))
+    if (out) return flask.redirect(flask.url_for("auth_signup"))
 
-    # Make sure the passwords match
-    if password1 != password2:
-      flash([True,"Passwords do not match",name,email,username])
-      return flask.redirect(flask.url_for("auth_signup"))
+    // Make sure the passwords match
+    if (password1 != password2) return flask.redirect(flask.url_for("auth_signup"))
 
-
-    # run the createUser function to insert a user into the database
+    // run the createUser function to insert a user into the database
     createUser(username,email,name,password)
 
-    # redirect to the home page
+    // redirect to the home page
     return flask.redirect(flask.url_for("main_home"))
+}
   ```
 
   <!--TODO: talk about how the flashes for the error messages work-->
@@ -810,92 +949,260 @@
 ##### verifyField
   This subroutine will be called from `auth_signup_post` to ensure that all of the fields the user inputted are valid. It takes four variables, the requirements that the field has to meet, along with the field's content and name for any error messages. It will return an empty string if the field meets all the requirements and an error message if it does not.
 
-  ```python
-  def verifyField(field,fieldName,mustHaveChar=True,minLen=3,
-    canHaveSpace=False,canHaveSpecialChar=True):
-    # field, required, string, the content of the field
-    # fieldName, required, string, the name of the field inputted
-    # mustHaveChar, optional (default=true), boolean, whether or not field must
-    # contain characters
-    # minLen, optional (default=3), integer, the minimum length of field
-    # canHaveSpace, optional (default=false), boolean, whether or not field can
-    # contain whitespace
-    # canHaveSpecialChar, optional (default=true), boolean, whether or not field
-    # can contain any of a list of special characters
+  ```js
+  function verifyField(field,fieldName,mustHaveChar=True,minLen=3,
+    canHaveSpace=False,canHaveSpecialChar=True) {
+    // field, required, string, the content of the field
+    // fieldName, required, string, the name of the field inputted
+    // mustHaveChar, optional (default=true), boolean, whether or not field must
+    // contain characters
+    // minLen, optional (default=3), integer, the minimum length of field
+    // canHaveSpace, optional (default=false), boolean, whether or not field can
+    // contain whitespace
+    // canHaveSpecialChar, optional (default=true), boolean, whether or not field
+    // can contain any of a list of special characters
 
-    # the list of special characters that canHaveSpecialChar refers to
+    // the list of special characters that canHaveSpecialChar refers to
     specialChar = "%&{}\\<>*?/$!'\":@+`|="
 
-    # Make sure that field is the correct datatype
-    if field.type is not str:
+    // Make sure that field is the correct datatype
+    if field.type is not str {
       raise Exception(
       f"Invalid data type for field. Expected string, received {field.type}")
+    }
 
-    # If field is empty and mustHaveChar is true
-    if field.length == 0 and mustHaveChar:
-      return f"{fieldName} is not filled out."
+    // If field is empty and mustHaveChar is true
+    if (field.length == 0 and mustHaveChar) return f"{fieldName} is not filled out."
 
-    # If field is shorter than minLen
-    if field.length < minLen:
+    // If field is shorter than minLen
+    if (field.length < minLen) 
       return f"{fieldName} must be greater than {minLen-1} characters."
 
-    # If field contains spaces and canHaveSpace is false
-    if not canHaveSpace and " " in field:
+    // If field contains spaces and canHaveSpace is false
+    if (not canHaveSpace and " " in field) 
       return f"{fieldName} cannot contain spaces."
 
-    # If the field contains any of the specialChars and canHaveSpecialChar is false
-    if not canHaveSpecialChar:
-      for char in specialChar:
-        if char in field:
-          return f"{fieldName} cannot contain '{char}'"
+    // If the field contains any of the specialChars and canHaveSpecialChar is false
+    if (not canHaveSpecialChar) {
+      for (char of specialChar) {
+        if (char in field) return f"{fieldName} cannot contain '{char}'"
+      }
+    }
 
-    # Everything's good; return an empty string
     return ""
+  }
   ```
 
 ##### createUser
   This subroutine will be called from `auth_signup_post` when it wants to add a new user to the system. Using the arguments given, it will insert a new user into the database and generate the required folder structure for the user using the subroutine `generateFolderStructure`. It is a procedure, so it will not return anything.
 
-  ```python
-  def createUser(username,email,name,password):
-    # generate the model for a new user
+  ```js
+  function createUser(username,email,name,password) {
+    // generate the model for a new user
     newUser = db.User(
       user_id=username,
       name=name,
       email=email,
       password=password,
-      bio="",
-      url="",
       archived=False,
-      tabpreference=4,
     )
 
-    # the base path for where the folders should be created
+    // the base path for where the folders should be created
     prefix="static/data/userData/"
 
-    # using the os.path module, get the absolute paths of the required folders
+    // using the os.path module, get the absolute paths of the required folders
     folderStructure=[os.path.abspath(f"{prefix}{u}"),
-                     os.path.abspath(f"{prefix}{u}/sites/")]
+                    os.path.abspath(f"{prefix}{u}/sites/")]
 
-    # create all the required folders
+    // create all the required folders
     generateFolderStructure(folderStructure)
 
-    # using the generated model, commit it to the database
     db.session.add(newUser)
-    db.session.commit()
+  }
   ```
-
-##### Diagram showing how these subroutines link
 
 #### Multi-user system - creating a new site
   <!--TODO: add the algorithms for creating the sites-->
 
-##### Diagrams showing how these subroutines link
+##### First page submit button subroutine
+  On the first page for creating a new site, the `checkFormSubmitButton` subroutine is called to see whether all inputs have been filled out and are valid. If everything is acceptable, it will remove the `disabled` tag from the button element, defined as `formSubmit` in the JavaScript.
 
-#### Multi-user system - user settings
-  <!--TODO: add the subroutines for user settings-->
+  ```js
+  function checkFormSubmitButton() {
+    // if the website name is either marked as success or warning
+    // AND one of the form privacy options is checked, remove the attribute
+    // else set the button to disabled
 
-##### Diagrams showing how these subroutines link
+    if  (formName.getAttribute("data-form-input-display") == "success" || 
+         formName.getAttribute("data-form-input-display") == "warning")  && 
+        (formPrivacy1.checked || formPrivacy2.checked) {
+          formSubmit.removeAttribute("disabled","")
+    } else formSubmit.setAttribute("disabled","")
+  }
+  ```
+
+##### Website name formatting subroutines
+  There are certain requirements for a site name that need to be fulfilled, including limiting it to only certain characters and no spaces (the specific requirements are listed elsewhere in the document). To ensure that the user knows what their final site name looks like, the JavaScript converts the input into a valid name, that will be used when it is created server-side. As such, some of these functions will exist both client-side and server-side.
+
+  Whenever there is a change in input to the website name input, defined by `forminput_websiteName`, it will call the `verifyNameField` function to validate the input. The function will return a class name based on the result of the validation process, that will change the styling of the input to match.
+
+  `verifyNameField` uses functions such as `replaceRepeatedDashes`, which uses recursion to replace any substrings of dashes in a given string, in this case the input given by the user. 
+
+  Variables such as `messageSpan` and `messageContainer` are defined earlier using `document.querySelector` calls to fetch HTML elements from the DOM (document object manager).
+
+  ```js
+  forminput_websiteName = document.getElementById("input_websitename");
+
+  forminput_websiteName.addEventListener("keyup",(event) => {
+    // set the color of the input
+    forminput_websiteName.classList.append(verifyNameField())
+    checkFormSubmitButton();
+  })
+  ```
+
+  ```js
+  function hideFormMessage() {
+    // clears the current contents of the warning dialog
+    // used in the verifyNameField function.
+    messageContainer.classList.add("visibly-hidden")
+    messageSpan.innerHTML=""
+  }
+  ```
+  
+  ```js
+  function hasRepeatedDashes(val) {
+    // checks whether a string has repeated dashes in it
+    for (i in range(val.length)) 
+      if (val[i] == "-" && val[i+1] == "-") 
+        return true
+    return false
+  }
+  ```
+
+  ```js
+  function replaceRepeatedDashes(val) {
+    // replaces all sets of repeated dashes with a single dash
+    // by implementing recursion
+    for (i in range(val.length)) {
+      if (val[i] == "-" && val[i+1] == "-") {
+        val.remove(i+1)
+        val=replaceRepeatedDashes(val)
+      }
+    }
+    return val
+  }
+  ```
+
+  ```js
+  function editFormMessage() {
+    messageContainer.classList.remove("visibly-hidden")
+    val=val.toLowerCase()
+
+    for (i in range(val.length)) {
+      letter=val[i];
+      if !(allowedChars.includes(letter)) val=val.replaceAt(i,"-")
+    }
+
+    if (hasRepeatedDashes(val)) { val=replaceRepeatedDashes(val) }
+
+    messageSpan.innerHTML=val
+  }
+  ```
+
+  ```js
+  function verifyNameField() {
+    // Adds content to the warning dialog (if required), and returns a class name
+    // that will color the name input box
+
+    val = forminput_websiteName.value;
+
+    hideFormMessage()
+
+    if (val.length < 1) return "inactive"
+    if (val.length < 4) return "danger"
+
+    // must include at least one of the given characters
+
+    check=true
+    for (i in range(val.length)) {
+        letter = val[i]
+        if ("qwertyuiopasdfghjklzxcvbnm1234567890".includes(letter)) { check=false }
+    }
+
+    if check return "danger"
+
+    sitenames = request.db.query(
+      f"SELECT sitename from SITE where userid={session.user.id}")
+
+    if (val in sitenames) { 
+      messageSpan.innerHTML= "A site with this name already exists!"
+      return "danger" 
+    }
+    
+    for (letter of val) {
+        if (letter not in "qwertyuiopasdfghjklzxcvbnm-._1234567890") { 
+          editFormMessage(val)
+          return "warning"
+        }
+    }
+
+    if hasRepeatedDashes(val) { 
+      editFormMessage(replaceRepeatedDashes(val))
+      return "warning" 
+    }
+
+    hideFormMessage()
+    return "success"
+  }
+  ```
+
+##### Diagram showing how these subroutines link
+
+  <img alt="Diagram showing how the first layer of site creation subroutines link together" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-subroutines-createsite-websitename-link.svg?raw=true" height="380"/>
+
+##### Website colour palette selection subroutines
+
+  There will be data structures (such as `userSelectedColors` and `defaultColors`) storing the different colours that the user selects, and their corresponding generated colours. 
+  
+  The `updateStored` subroutine will take the content of the `userSelectedColors` data and append it to a HTML element (`colorOutputSpan` in the JS code) inside a `<form>`, so that it can be sent to the server. This is the only way I've been able to send JavaScript-generated information to the server, after doing some testing. The `updateStored` function is called every time the user changes an input, or when a new set of colours is generated.
+
+  ```js
+  function updateStored() {
+    keys=userSelectedColors.keys()
+    for (key in keys) out+=key+":"+colors[key]+","
+    colorOutputSpan.innerText = out
+  }
+  ```
+
+  The `updateColorVariables` subroutine is called each time any of the colour pickers are changed, to generate lighter and darker versions of the given colour.
+
+  ```js
+  function updateColorVariables() {
+    for (color in colorPickers) {
+
+      newColor = rgbToHsl(color.r,color.g,color.g)
+      newColor = darken(newColor,CHANGEPERCENT)
+      newColor = hslToRgb(newColor.h,newColor.s,newColor.l)
+      newColor = rgbToHex(newColor.r/255,newColor.b/255,newColor.g/255)
+      userSelectedColors[f"{color}-dark"]=newColor
+
+      newColor = rgbToHsl(color.r,color.g,color.g)
+      newColor = lighten(newColor,CHANGEPERCENT)
+      newColor = hslToRgb(newColor.h,newColor.s,newColor.l)
+      newColor = rgbToHex(newColor.r,newColor.b,newColor.g)
+      userSelectedColors[f"{color}-light"]=newColor
+
+    }
+
+    updateStored()
+  }
+  ```
+
+##### Diagram showing how these subroutines link
+
+  <img alt="Diagram showing how the colour palette site creation subroutines link together" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-subroutines-createsite-colors-link.svg?raw=true" height="65"/>
+
+
 
 #### Utility subroutines
   These subroutines are called in different parts of the Python files to perform specific actions. This means that it removes duplicate code for procedures that may need to be used many times throughout
@@ -945,12 +1252,12 @@
 
   Breaking it down like this ensures that the program is modularised in such a way that all of the subroutines can interact with each other. If there is a bug that needs fixing, or a change that needs implementing, it is easy to find the code that needs editing and change it without breaking the rest of the program.
 
-  The code will be very modular, which will help with development and any changes that will be made later. This will be achieved by following this design and separating the multi-user system, editing system, and user interface. If another developer were to take over the programming, this design would make it easier to understand and make ammendments. The two different programming languages, Python and JavaScript, will communicate via Flask's `session` and `flash` features to make sure that the two languages can interact with each other. The functions will be containied in a class, that will be initialised when ran, to make use of the `self` variable communication so that all of the subroutines can use the same variables. It will also use variables and `return` statements for some subroutines where necessary.
+  The code will be very modular, which will help with development and any changes that will be made later. This will be achieved by following this design and separating the multi-user system, editing system, and user interface. If another developer were to take over the programming, this design would make it easier to understand and make amendments. The two different programming languages, Python and JavaScript, will communicate via Flask's `session` and `flash` features to make sure that the two languages can interact with each other. The functions will be contained in a class, that will be initialised when ran, to make use of the `self` variable communication so that all of the subroutines can use the same variables. It will also use variables and `return` statements for some subroutines where necessary.
 
 ### Inputs and Outputs
   |Input|Process|Output|
   |---|---|---|
-  |Login submit button| `auth_login_post` to verify user input.| Log in the user to the session, or providing a suitable error message.|
+  |Login submit button| `auth_login_post` to verify user input.| Log in the user to the session, or provide a suitable error message.|
   |Signup submit button| `auth_login_signup` to verify user input, insert the new user into the database and generating the new folder structure for the user.| Log in the user to the session, or provide a suitable error message.|
   |Create site inputs (when the user goes through the new site creation pages)|Store the inputs in the session, and generate a new site in the database & file structure from the inputs given.| Redirect the user to the site page.|
   |Home button| Redirect the user to the homepage.| Redirect the user to the homepage.|
@@ -979,9 +1286,9 @@
   |`requiredChars`| string| A set of characters of which at least one must be in a site name for it to be valid.|
   |`allowedChars`| string| A set of characters that are allowed in the site name when creating a new site.|
   |`defaultColors`| dictionary of strings| The default colour scheme when generating a new site.|
-  |`colors`| dictionary of strings| The selected colour options when generating a new site.|
-  |`colorDisplay`| dictionary of lists of elements| The colour preview elements when generating a new site - the first one is the element that changes colour, the second one is the text element that displays the current hex colour.|
-  |`colors`| dictionary of strings| The selected colour options when generating a new site.|
+  |`userSelectedColors`| dictionary of strings| The selected colour options when generating a new site.|
+  |`colorPickers`| dictionary of lists of elements| The colour preview elements when generating a new site - the first one is the element that changes colour, the second one is the text element that displays the current hex colour.|
+  |`CHANGEPERCENT`| integer| The amount to lighten or darken colors when generating.|
   |`textOptions`| list of elements| A list of the text options when generating a new site - they get given event listeners for when they are selected.|
   |`sectionSelectorNavSelected`| string| A written number referring to the selected section category in the `Add Section` modal.|
   |`sectionSelectorNavSelectedInt`| integer| An integer version of the previous variable. A written number is used to insert it into classes, as integers are not allowed.|
@@ -1014,7 +1321,7 @@
   Throughout the code, the user input will be checked and cleaned to remove the risk of potentially dangerous or malicious data before being stored in the database. For example, to negate the possibility of an SQL injection attack, the library used to manage the database removes any usage of SQL queries in the code, meaning the data inputted cannot be used to execute a query. Other attack methods that will be looked into include XSS (cross-site scripting), DDoS (distributed denial of service), and MitM (man in the middle) attacks.
 
 ### Testing method
-  When developing the project, a lot of the alpha testing done will be white box testing, done by the developers. Unit testing will be used to ensure that all of the subroutines function as expected and intended. By testing each module of the program individually, this means that when they are all combined together, the program will function correct. Integration testing will be performed to make sure the program functions as a whole. This will include checking how different modules interact with each other, and how the front-end interacts with the back-end of the website.
+  When developing the project, a lot of the alpha testing done will be white box testing, done by the developers. Unit testing will be used to ensure that all of the subroutines function as expected and intended. By testing each module of the program individually, this means that when they are all combined together, the program will function correctly. Integration testing will be performed to make sure the program functions as a whole. This will include checking how different modules interact with each other, and how the frontend interacts with the backend of the website.
 
   Different areas of testing when programming will include the input data of the program (for example, the user input on the login form), how the program handles said data, and what the result will be. To ensure that it has suitable error catching throughout, each module should go through destructive testing. For user input, this means using a variety of incorrect entries to see how it handles them. For the editor, this means attempting to perform styling that is invalid, dragging elements outside their boundary region, or making them too large. This will also include security testing; making sure that SQL injection or XSS attacks do not work.
 
@@ -1024,15 +1331,15 @@
 
 ## Development and Testing
 
+  For the sake of conciseness and clarity, when the document outlines certain HTML and CSS files, such as `/templates/login.html`, it will not show all of the different iterations of the page. Major changes, such as reogranisations of the page, would be displayed in later sections, but the actual process of orignally designing the website is not documented to make the document easier to read. A lot of the design process involved tweaking classes, re-ordering HTML elements, and adding new or modifying existing CSS blocks.
+
 ### Stage 1 - Setting up the website
 
-  Before creating the database system, I decided to get the website backend up and running, and design the login and signup pages, to make it easier to test certain elements of the database. This includes setting up the template design for the front-end, creating a form system with verification in JavaScript, and performing validation server-side. The first thing I did was get the flask backend running. For this, I modified some code that I have used before when using Flask as a backend.
+  Before creating the database system, I decided to get the website backend up and running, and design the login and signup pages, to make it easier to test certain elements of the database. This includes setting up the template design for the frontend, creating a form system with verification in JavaScript, and performing validation server-side. The first thing I did was get the flask backend running. For this, I modified some code that I have used before when using Flask as a backend.
 
 ##### \_\_init\_\_.py
   ```python
   from flask import Flask
-
-  # Flask is the application object
 
   # The main class of the application
   class Kraken():
@@ -1048,7 +1355,6 @@
       self.app.run(host=host,port=port)
 
     def initPages(self):
-
       # Home page route
       @self.app.route("/")
       def main_index():
@@ -1089,6 +1395,7 @@
     def main_index():
       # flash sends a message to the next site that flask renders
       flash(["Apples","Oranges","Pears",1,2,3])
+
       # render_template takes the Jinja template file given in the templates folder
       # and turns it into true HTML
       return render_template("test.html")
@@ -1110,7 +1417,7 @@
       <ol>
 
         {# Iterate through the list in the first flashed message, and create a
-           list element for each one #}
+          list element for each one #}
 
         {% for element in get_flashed_messages()[0] %}
           <li>{{element}}</li>
@@ -1141,9 +1448,11 @@
 
   As you can see by the image, using the `flash` function, flask successfully sends the list `["Apples","Oranges","Pears",1,2,3]` to the webpage for it to be recieved by the `get_flashed_messages` function. It also successfully managed to iterate through the list using `{% for element in get_flashed_messages()[0] %}`, and used the `url_for` function to import the stylesheet.
 
-  Before creating the database structure, I decided to create the frontend for the login and signup pages, so that it would be easier to test. Due to the above code working successfully, I started off by making a `base.html` template, that all of the other Jinja files would build on top of. I then created the `login.html` and `signup.html` files as well. This was made easier by my previous experience in web design, as I could use a library of CSS code that I have collected to speed up the design process. To be able to view the templates, I added some `app.route` functions to `__init__.py` using the `render_template` function.
+  Before creating the database structure, I decided to create the frontend for the login and signup pages, so that it would be easier to test. Due to the above code working successfully, I started off by making a `base.html` template, that all of the other Jinja files would build on top of. I then created the `login.html` and `signup.html` files as well. This was made easier by my previous experience in web design, as I could use a library of CSS code that I have created from previous projects to speed up the design process. To be able to view the templates, I added some `app.route` functions to `__init__.py` using the `render_template` function.
 
 <!-- TODO: add icon code -->
+
+<!-- TODO reference previous css projects -->
 
 <!-- Before creating the database structure... -->
 
@@ -1151,20 +1460,20 @@
   ```python
   def initPages(self):
 
-     # Home page route
-     @self.app.route("/")
-     def main_home():
-       return "Hi o/"
+    # Home page route
+    @self.app.route("/")
+    def main_home():
+      return "Hi o/"
 
-     # Login page route
-     @self.app.route("/login/")
-     def auth_login():
-       return render_template("login.html")
+    # Login page route
+    @self.app.route("/login/")
+    def auth_login():
+      return render_template("login.html")
 
-     # Signup page route
-     @self.app.route("/signup/")
-     def auth_signup():
-       return render_template("signup.html")
+    # Signup page route
+    @self.app.route("/signup/")
+    def auth_signup():
+      return render_template("signup.html")
   ```
 
 ##### /templates/base.html
@@ -1319,9 +1628,7 @@
       </ul>
     </div>
     <div class="field-container active">
-
       <!-- Warning area for the form that uses the flashed warning message -->
-
       <span class="field-warning text italic">
         <!-- TODO: add code for flashed warning msg -->
       </span>
@@ -1420,10 +1727,12 @@
             <div class="field-input-container">
               <input class="field-input" placeholder="{{item[1]}}"
               type="{{item[2]}}" name="{{item[3]}}">
+
               {% if item[4] %}
               <span class="eye-reveal">
                 <i class="fa-solid fa-eye"></i>
               </span>
+
               {% else %}
               <span class="eye-spacer"></span>
               {% endif %}
@@ -1447,7 +1756,7 @@
 
   For example, the URL for the home button image in `base.html` is defined by `{{url_for('static', filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-512-512.png')}}`. The variable `navbarLogoColor` is declared in child templates to define which colour should be used.
 
-   I also added some icons to be used as the logo for the website. They are located in `/static/img/icon/<resolution>/` where there are different folders for each resolution of the icon. These were generated by me using a bit of Python code that I have written previously. To add some variation to the site, there are three colours of logo: primary (blue), secondary (magenta) and gradient (a gradient of the two going from top left to bottom right). These colours match up with the primary and secondary colours of the website, defined in the CSS code.
+  I also added some icons to be used as the logo for the website. They are located in `/static/img/icon/<resolution>/` where there are different folders for each resolution of the icon. These were generated by me using a bit of Python code that I have written previously. To add some variation to the site, there are three colours of logo: primary (blue), secondary (magenta) and gradient (a gradient of the two going from top left to bottom right). These colours match up with the primary and secondary colours of the website, defined in the CSS code.
 
   The inheriting system is displayed here in these files, where you can see `{% block content %} {% endblock %}` in `base.html`, to define where the code block `content` will be inserted into the file, and then `{% extends "base.html" %}` and `{% block content %} {% endblock %}` in `login.html` and `signup.html`, which define what file will be extended, and which block to insert into.
 
@@ -1748,7 +2057,7 @@
 
   Currently, when you click the submit button, it redirects to a page saying "Method not allowed", as the post functions have not been added to `__init__.py` yet.
 
-  The next step was to set up the front-end programming for the login and signup pages, and the navigation bar. Starting with the navigation bar, I needed to set event listeners for the hamburger and background darkener `div`. These listeners would add or remove the `is-active` class to the hamburger, options list, and background, so that the website renders correctly. The file is already imported into `base.html` via `<script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}">`.
+  The next step was to set up the frontend programming for the login and signup pages, and the navigation bar. Starting with the navigation bar, I needed to set event listeners for the hamburger and background darkener `div`. These listeners would add or remove the `is-active` class to the hamburger, options list, and background, so that the website renders correctly. The file is already imported into `base.html` via `<script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}">`.
 
 <!-- Front end prog - globalnav hide -->
 
@@ -1822,14 +2131,12 @@
       }
     }
 
-    /*
-    Regex pattern breakdown
-      (?=.*?[A-Z]) = contains an uppercase character
-      (?=.*?[a-z]) = contains a lowercase character
-      (?=.*?[0-9]) = contains a digit
-      (?=.*?[#?!@$%^&*-_%&{}\\<>*?\/$!'\":@+`|=]) = contains a special character
-      .{8,} = has a minimum length of 8 and no upper limit
-    */
+    // Regex pattern breakdown
+    //   (?=.*?[A-Z]) = contains an uppercase character
+    //   (?=.*?[a-z]) = contains a lowercase character
+    //   (?=.*?[0-9]) = contains a digit
+    //   (?=.*?[#?!@$%^&*-_%&{}\\<>*?\/$!'\":@+`|=]) = contains a special character
+    //   .{8,} = has a minimum length of 8 and no upper limit
 
     return ""
   }
@@ -1973,48 +2280,50 @@
 
   After implementing the client-side validation, I then tested each field with a variety of different inputs to make sure the validation code was functioning properly
 
-  |Test Type|Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
-  |-|-|-|-|-|-|-|
-  |Valid|Name|`Aaaaa`|Check it says valid|Valid|Valid|Pass
-  |Valid|Name|`Aaa Bbb`|Check it allows spaces|Valid|Valid|Pass
-  |Invalid|Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Valid|Fail
-  |Invalid|Name|null|Check that it requires name|Invalid|Invalid|Pass
-  |Valid|Email|`a@b.cc`|Check it says valid|Valid|Valid|Pass
-  |Valid|Email|`ab12@f42.x7`|Check it says valid|Valid|Valid|Pass
-  |Invalid|Email|`@b.cc`|Check it recognises the area before `@`|Invalid|Invalid|Pass
-  |Invalid|Email|`a@.cc`|Check it recognises the area after `@`|Invalid|Invalid|Pass
-  |Invalid|Email|`a@b.c`|Check it requires a top level domain longer than 1|Invalid|Invalid|Pass
-  |Invalid|Email|`a@b.cdef`|Check it requires a top level domain shorter than 4|Invalid|Invalid|Pass
-  |Invalid|Email|`a b@ccc.uk`|Check it doesn't allow spaces|Invalid|Invalid|Pass
-  |Invalid|Email|null|Check that it requires email|Invalid|Invalid|Pass
-  |Valid|Username|`Aaa`|Check it says valid|Valid|Valid|Pass
-  |Invalid|Username|`Aaa bbb`|Check it doesn't allow spaces|Invalid|Invalid|Pass
-  |Valid|Username|`A-._+c`|Check it allows special characters not given in the list|Valid|Valid|Pass
-  |Invalid|Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Valid|Fail
-  |Invalid|Username|null|Check it requires username|Invalid|Invalid|Pass
-  |Invalid|Password|`aaa`|Check it has a minimum length of 8|Invalid|Invalid|Pass
-  |Valid|Password|`Aaaaaa_1`|Data to work off for next tests|Valid|Valid|Pass
-  |Invalid|Password|`aaaaaa_1`|Check it requires an uppercase character|Invalid|Invalid|Pass
-  |Invalid|Password|`AAAAAA_1`|Check it requires a lowercase character|Invalid|Invalid|Pass
-  |Invalid|Password|`Aaaaaa_a`|Check it requires a number|Invalid|Invalid|Pass
-  |Invalid|Password|`Aaaaaaa1`|Check it requires a special character|Invalid|Invalid|Pass
-  |Invalid|Password|null|Check it requires password|Invalid|Invalid|Pass
-  |Valid|Passwords|`Aaaaaa_1` in both fields|Check both fields have to match|Valid|Valid|Pass
-  |Invalid|Passwords|`Aaaaaa_1` in one field, `ABCDEF` in the second|Check both fields have to match|Invalid|Invalid|Pass
+  |Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
+  |-|-|-|-|-|-|
+  |Name|`Aaaaa`|Check it says valid|Valid|Valid|Pass
+  |Name|`Aaa Bbb`|Check it allows spaces|Valid|Valid|Pass
+  |Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Valid|Fail
+  |Name|null|Check that it requires name|Invalid|Invalid|Pass
+  |Email|`a@b.cc`|Check it says valid|Valid|Valid|Pass
+  |Email|`ab12@f42.x7`|Check it says valid|Valid|Valid|Pass
+  |Email|`@b.cc`|Check it recognises the area before `@`|Invalid|Invalid|Pass
+  |Email|`a@.cc`|Check it recognises the area after `@`|Invalid|Invalid|Pass
+  |Email|`a@b.c`|Check it requires a top level domain longer than 1|Invalid|Invalid|Pass
+  |Email|`a@b.cdef`|Check it requires a top level domain shorter than 4|Invalid|Invalid|Pass
+  |Email|`a b@ccc.uk`|Check it doesn't allow spaces|Invalid|Invalid|Pass
+  |Email|null|Check that it requires email|Invalid|Invalid|Pass
+  |Username|`Aaa`|Check it says valid|Valid|Valid|Pass
+  |Username|`Aaa bbb`|Check it doesn't allow spaces|Invalid|Invalid|Pass
+  |Username|`A-._+c`|Check it allows special characters not given in the list|Valid|Valid|Pass
+  |Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Valid|Fail
+  |Username|null|Check it requires username|Invalid|Invalid|Pass
+  |Password|`aaa`|Check it has a minimum length of 8|Invalid|Invalid|Pass
+  |Password|`Aaaaaa_1`|Data to work off for next tests|Valid|Valid|Pass
+  |Password|`aaaaaa_1`|Check it requires an uppercase character|Invalid|Invalid|Pass
+  |Password|`AAAAAA_1`|Check it requires a lowercase character|Invalid|Invalid|Pass
+  |Password|`Aaaaaa_a`|Check it requires a number|Invalid|Invalid|Pass
+  |Password|`Aaaaaaa1`|Check it requires a special character|Invalid|Invalid|Pass
+  |Password|null|Check it requires password|Invalid|Invalid|Pass
+  |Passwords|`Aaaaaa_1` in both fields|Check both fields have to match|Valid|Valid|Pass
+  |Passwords|`Aaaaaa_1` in one field, `ABCDEF` in the second|Check both fields have to match|Invalid|Invalid|Pass
+
+  
 
   As you can see from the table, two of the validation checks failed. These are listed here:
 
-  |Test Type|Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
-  |-|-|-|-|-|-|-|
-  |Invalid|Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Valid|Fail
-  |Invalid|Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Valid|Fail
+  |Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
+  |-|-|-|-|-|-|
+  |Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Valid|Fail
+  |Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Valid|Fail
 
   These were both to do with verifying special characters, and, when I revisited the code, I saw that the error was when I tried to iterate through the characters in a string like you do can do in python. Hence, I modified the line `for (var char in specialChar)` to function properly, and both tests came out as invalid.
 
-  |Test Type|Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
-  |-|-|-|-|-|-|-|
-  |Invalid|Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Invalid|Pass
-  |Invalid|Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Invalid|Pass
+  |Field|Test Data|Reason|Expected Outcome|Actual Outcome|Pass/Fail|
+  |-|-|-|-|-|-|
+  |Name|`Aaa%bbb`|Check that it doesn't allow special chars|Invalid|Invalid|Pass
+  |Username|`%&{}\\<>*?/$!'\":@+`|Check it doesn't allow these special characters|Invalid|Invalid|Pass
 
 ##### changes to /static/js/auth.js
   ```js
@@ -2549,6 +2858,7 @@
 
       # Check whether this username already exists
       if self.User.query.filter_by(user_id=username).first():
+
         flash([True,"That username is already in use",name,email,""])
         return redirect(url_for("auth_signup"))
   ```
@@ -2560,8 +2870,8 @@
 ##### changes to \_\_init\_\_.py
   ```python
   def __init__(host,port):
-     import os
-     self.os=os
+    import os
+    self.os=os
   ```
   ```python
   def auth_signup_post():
@@ -2628,6 +2938,1566 @@
     remember=False)
     return redirect(url_for("auth_login"))
   ```
+
+  Finally, I created the `auth_logout` function that logs out a user, and added it to the navigation bar URL for later iterations. It also has the `login_required` decorator, that will be used more later
+
+##### changes to \_\_init\_\_.py
+  ```python
+  from flask_login import LoginManager, login_user, login_required, logout_user
+  ```
+  ```python
+  @self.app.route("/logout/")
+  @self.app.route("/account/logout/")
+  @login_required
+  def auth_logout():
+      logout_user()
+      return redirect(url_for("auth_login"))
+  ```
+
+### Stage 3 - Homepage and Settings
+  This stage consisted of creating the frontend HTML for the user, including the settings pages. Although they lack much tangible functionality, they create the basis for future developers to implement. I decided not to complete all of the functionality due to time constraints, and lack of the features being required in the brief.
+
+  First, I created the home page. There are two template files `home-nosite.html` and `home-sites.html`, which are called by Flask based on whether the user has any sites stored in the database. 
+
+  Due to there not yet being a way of creating sites, the line `flash([[x.user_id,x.name,x.private] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])` would never work.
+
+  Instead, for testing and design purposes, I used the test data `flash([["user1","Site 1",True],["user1","Epic Webpage",False]])` to see how the code handles a user's sites, and I used `and False` in the if block to simulate the user having no sites.
+
+##### changes to \_\_init\_\_.py
+  ```python
+  # Index route, redirects to auth_login, which will redirect to main_home if 
+  # logged in
+  @self.app.route("/")
+  def main_index(): return redirect(url_for("auth_login"))
+
+  # Home Page Route
+  @self.app.route("/home/")
+  @login_required # User must be logged in to access this page
+  def main_home():
+    # check to see if user has any sites
+    if len(self.Site.query.filter_by(user_id=current_user.user_id).all()) > 0: 
+      # and False:
+
+      # For each site, flash its userid, name, and privacy flag
+      # This will not yet do anything as there are no sites in the server
+      
+      # flash([[x.user_id,x.name,x.private] for x in self.Site.query.filter_by(
+      # user_id=current_user.user_id).all()])
+
+      # For testing and design purposes, the flash command above was commented out 
+      # and replaced with this command
+      flash([["user1","Site 1",True],["user1","Epic Webpage",False]])
+
+      return render_template("home-sites.html")
+    return render_template("home-nosite.html")
+  ```
+
+
+
+##### /templates/home-nosite.html
+  This file uses `current_user.name` to display the username of the logged-in user. The object `current_user` is a Flask variable that is read from and inserted into the page during the `render_template` function. It is also used in `__init__.py` for commands such as `filter_by(user_id=current_user.user_id)`.
+
+  ```jinja
+  {% extends "base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% block content %}
+
+  <link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet" 
+  type="text/css" />
+
+  <div class="application-content">
+
+    <div class="text-header-container">
+      <h2 class="text header large dark one">Welcome, {{current_user.name}}</h2>
+    </div>
+
+    <div class="empty-container">
+      <div class="empty-image"></div>
+      <div class="empty-text-container">
+
+        <h4 class="text header dark one">Looks Pretty Empty Here...</h4>
+
+        <a class="text header two link primary" href="{{url_for('site_create')}}">
+          Maybe you should create a new site?
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  {% endblock %}
+  ```
+
+##### /templates/home-sites.html
+  ```jinja
+  {% extends "base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% set sites = get_flashed_messages()[0] %}
+
+  {% block content %}
+
+  <link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet" 
+  type="text/css" />
+
+  <div class="application-content">
+
+    <div class="text-header-container">
+      <h2 class="text header large dark one">Welcome, {{current_user.name}}</h2>
+    </div>
+
+    <div class="site-divs-container" style="display:flex;flex-wrap:wrap">
+
+      {% for site in sites %}
+
+      <a class="site-div link notformatted" href="{{url_for('site_edit_home',
+        name=site[0],site=site[1])}}" style="background-color:
+        {%if site[3]%} {{site[3]+'bb'}} {%else%} var(--colors-primary) {%endif%}">
+
+        {% if site[2] %}
+          <div class="site-div-private-watermark" style="position: absolute;
+          opacity: 0.5;font-size: 136px;right: 16px;top: 16px;">
+
+            <i class="faicon fa-regular fa-lock"></i>
+          </div>
+        {% else %}
+          <div class="site-div-public-watermark" style="position: absolute;
+          opacity: 0.5;font-size: 136px;right: 16px;top: 16px;">
+
+            <i class="faicon fa-regular fa-book-bookmark"></i>
+          </div>
+        {% endif %}
+
+        <h5 class="site-div-title text large one">{{ site[1] }}</h5>
+      </a>
+
+      {% endfor %}
+
+      <a class="site-div link notformatted" style="background-color:
+        var(--colors-primary-light);display:flex;align-items:center;
+        justify-content:center" href="{{url_for('site_create')}}">
+
+        <h5 class="site-div-title text header jumbo small one center">
+          Create New Site
+        </h5>
+      </a>
+
+    </div>
+
+  </div>
+
+  {% endblock %}
+  ```
+
+  The homepage looked like this:
+
+  <img alt="Screenshot of the Kraken homepage when the user has sites" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.1_homepage_sites.png?raw=true" width="544"/><img alt="Screenshot of the Kraken homepage when the user has no sites" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.1_homepage_nosites.png?raw=true" width="499"/>
+
+  I also decided to reorganise the `app.route` functions in `__init__.py` into separate functions in the class, such as `initPages_auth` and `initPages_main`, to make the file easier to interperet. The diagram below shows the new organisation. Coloured boxes demonstrate routing functions: green means it has a use, and red means it is currently either abstract or simply outputs text on screen.
+
+  <img alt="app.route function diagram - part 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-1.svg?raw=true" width="250"/><img alt="app.route function diagram - part 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-2.svg?raw=true" width="240" style="margin-left:32px" class="margin-left-32"/>
+
+  <img alt="app.route function diagram - part 3" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-3.svg?raw=true" width="250"/><img alt="app.route function diagram - part 4" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-4.svg?raw=true" width="300" class="margin-left-32"/>
+
+  At this point in development, I was able to quickly build the frontend versions of the settings pages for the account system (they are listed in the desirable features section of the success criteria). I didn't add in database functionality to them yet as I knew it would take significantly longer.
+
+  The settings page, which is accessed from the navigation hamburger, consists of 7 sections, as outlined in the design section. 6 of them open in the same page, whereas the seventh, `Help & Documentation`, loads the help page. Similar to how the `base.html` Jinja architecture works, there is a `settings-base.html` template that the settings pages are built off of. I did not write the templates for `Custom Code & Elements` or `Developer Settings` as they are not yet implemented into the database. The template `My Websites` will need to be revisited when the website creation system is in place - for now, I used test data such as <!-- TODO ADD TEST DATA --> to simulate the user having sites.
+
+  To set the hilighted element in the local navigation bar, the Jinja variable `settingsSidebarActivated` is declared in child files so that, during rendering, the navigation bar knows which element to give the `is-active` class. It uses the if statement `{% if settingsSidebarActivated==<i> %} is-active{% endif %}` to assign the class, and the if statement `{% if not settingsSidebarActivated==<i> %} href="{{ url_for('main_help') }}"{% endif %}` to assign the link if it is not selected.
+
+  <img alt="Settings - local navigation bar" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_base.png?raw=true" width="225"/>
+  
+##### /templates/settings-base.html
+  ```jinja
+  {% extends "base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% set settingsSidebarActivated = get_flashed_messages()[0] %}
+
+  {% block content %}
+
+  <link href="{{url_for('static', filename='css/settings.css')}}" rel="stylesheet" 
+  type="text/css" />
+
+  <div class="application-content">
+    <div class="text-header-container">
+        <h2 class="text header large dark one">Settings</h2>
+    </div>
+    
+    <div class="settings-container">
+      <div class="settings-sidebar">
+
+        <a class="settings-sidebar-item one {% if settingsSidebarActivated==1 %} 
+        is-active {% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=1 %} href="{{url_for('settings_profile')}}" 
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-user"></i>
+          <span class="settings-sidebar-item-title text large">Public Profile</span>
+        </a>
+        
+        <a class="settings-sidebar-item two {% if settingsSidebarActivated==2 %} 
+        is-active {% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=2 %} href="{{ url_for('settings_admin') }}"
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-gear"></i>
+          <span class="settings-sidebar-item-title text large">Account</span>
+        </a>
+        
+        <a class="settings-sidebar-item three {% if settingsSidebarActivated==3 %} 
+        is-active{% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=3 %} href="{{ url_for('settings_looks') }}"
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-paintbrush"></i>
+          <span class="settings-sidebar-item-title text large">
+            Appearance & Accessibility</span>
+
+        </a>           
+        
+        <div class="settings-sidebar-separator text one">Code and websites</div>
+        
+        <a class="settings-sidebar-item four {% if settingsSidebarActivated==4 %} 
+        is-active{% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=4 %} href="{{ url_for('settings_sites') }}"
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-browser"></i>
+          <span class="settings-sidebar-item-title text large">My Websites</span>
+        </a>
+        
+        <a class="settings-sidebar-item five {% if settingsSidebarActivated==5 %} 
+        is-active{% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=5 %} href="{{ url_for('settings_code') }}"
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-list-timeline"></i>
+          <span class="settings-sidebar-item-title text large">
+            Custom Code & Elements</span>
+
+        </a>
+        
+        <div class="settings-sidebar-separator text two"> </div>
+        
+        <a class="settings-sidebar-item six {% if settingsSidebarActivated==6 %} 
+        is-active{% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=6 %} href="{{ url_for('main_help') }}"
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-book-blank"></i>
+          <span class="settings-sidebar-item-title text large">
+            Help & Documentation</span>
+
+        </a>
+        
+        <a class="settings-sidebar-item seven {% if settingsSidebarActivated==7 %} 
+        is-active{% endif %} link notformatted" 
+        {% if settingsSidebarActivated!=7 %} href="{{ url_for('settings_dev') }}"
+        {% endif %}>
+
+          <i class="settings-sidebar-item-icon fa-regular fa-code-simple"></i>
+          <span class="settings-sidebar-item-title text large">
+            Developer settings</span>
+
+        </a>
+
+      </div>
+      
+      <div class="settings-content">
+        
+        {% block settings_content %}
+        {% endblock %}
+        
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+  ```
+
+  The `Public Profile` page contains inputs such as display name, bio, and URL, that will all appear on a user's profile page. As of yet, there is no post route function so the data does not get stored. after updating it.
+
+  <img alt="Settings - Public Profile page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_profile.png?raw=true" width="450"/>
+
+##### /templates/settings-profile.html
+  ```jinja
+  {% extends "settings-base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% set settingsSidebarActivated = 1 %}
+  {% set avatarImagePath = get_flashed_messages()[1] %}
+
+  {% block settings_content %}
+
+  <h3 class="settings-content-header text header dark">Profile</h3>
+
+  <form class="settings-content-options">
+
+    <div class="settings-content-option one">
+      <h4 class="settings-content-option-title text dark bold">Name</h4>
+
+      <input class="settings-content-option-input" type="text" 
+      name="settings_profile_name" placeholder="{{current_user.name}}">
+
+      <p class="settings-content-option-caption text small dark">
+        Your name probably isn't used much yet, but may appear in reference to 
+        websites that you have created. Your current name is set to 
+        "{{current_user.name}}".
+      </p>
+
+    </div>
+
+    <div class="settings-content-option two">
+      <h4 class="settings-content-option-title text dark bold">Profile Picture</h4>
+      <div class="settings-content-option-image-upload">
+        <figure class="settings-content-option-image-upload-figure" 
+        style="background-image:url( {{ url_for('static',filename='data/userIcons/'+
+        current_user.user_id+'.png') }})"></figure>
+
+      </div>
+
+      <p class="settings-content-option-caption text small dark">
+        The image must be a minimum of 200x200 pixels, and in a 1:1 ratio. 
+        This is not operational yet, and probably won't be for a while.
+      </p>
+
+    </div>
+
+    <div class="settings-content-separator one"></div>
+
+    <div class="settings-content-option three">
+      <h4 class="settings-content-option-title text dark bold">Bio</h4>
+
+      <textarea class="settings-content-option-input" type="text" 
+      name="settings_profile_bio" maxlength=240 
+      placeholder="Tell us about yourself"></textarea>
+    </div>
+
+    <div class="settings-content-option four">
+      <h4 class="settings-content-option-title text dark bold">Url</h4>
+      <input class="settings-content-option-input" type="text" 
+      name="settings_profile_url">
+
+    </div>
+
+    <div class="settings-content-separator two"></div>
+
+    <div class="settings-content-option settings-content-update">
+
+      <p class="settings-content-option-caption text small dark">
+        All of the above fields are optional and can be left blank. By filling them 
+        out, you agree that this information can be displayed publically and stored 
+        in our servers. We don't have a privacy statement, but we probably should.
+      </p>
+
+      <button class="field-submit btn primary thin rounded slide" type="submit">
+        <span class="btn-content text uppercase primary">Update Profile</span>
+      </button>
+
+    </div>
+
+  </form>
+
+  {% endblock %}
+  ```
+
+  The `Account` page contains functionalities such as deleting account and changing username. Like with the previous page, there is currently no functionality to these processes. There will be more information added to the change username prompt as, if a user does, it will change all of the URLs for their webpages, which could create issues for the user.
+
+  <img alt="Settings Account page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_admin.png?raw=true" width="400"/>
+
+
+
+##### /templates/settings-admin.html
+  ```jinja
+  {% extends "settings-base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% set settingsSidebarActivated = 2 %}
+
+  {% block settings_content %}
+
+  <h3 class="settings-content-header text header dark">Account</h3>
+
+  <form class="settings-content-options">
+
+    <div class="settings-content-option one">
+      <h4 class="settings-content-option-title text dark bold">Change Username</h4>
+
+      <p class="settings-content-option-caption text small danger dark">
+        <span class="text small danger bold">WARNING</span>. Changing your username 
+        can <a class="text small link danger bold">create issues</a>.
+      </p>
+
+      <div class="btn primary thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase primary">Dew it</span>
+      </div>
+    </div>
+
+    <div class="settings-content-option one">
+      <h4 class="settings-content-option-title text dark bold">Change Email</h4>
+
+      <input class="settings-content-option-input" type="text" 
+      name="settings_admin_email" placeholder="New Email">
+
+      <input class="settings-content-option-input m-xs-t" type="password" 
+      name="settings_admin_email_password" placeholder="Password">
+
+      <p class="settings-content-option-caption text small dark">
+        Your old and new email addresses will be sent confirmation codes in order 
+        to change them.
+      </p>
+      
+      <div class="btn primary thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase primary">Dew it</span>
+      </div>
+    </div>
+
+    <div class="settings-content-separator one"></div>
+
+    <div class="settings-content-option three">
+      <h4 class="settings-content-option-title text dark bold">
+        Export Account Data</h4>
+
+      <p class="settings-content-option-caption text small dark">
+        Export all metadata, websites, and other stored information for your 
+        account. They will be available to download here.
+      </p>
+
+      <div class="btn primary thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase primary">Export Metadata</span>
+      </div>
+      <div class="btn primary thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase primary">Export Websites</span>
+      </div>
+      <div class="btn primary thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase primary">Download All</span>
+      </div>
+
+    </div>
+
+    <div class="settings-content-separator two"></div>
+
+    <div class="settings-content-option four">
+      <h4 class="settings-content-option-title text dark bold danger">
+        Archive Account</h4>
+
+      <p class="settings-content-option-caption text small dark">
+        This will disable your account until you wish to unlock it.
+      </p>
+
+      <div class="btn danger thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase danger">Archive your account</span>
+      </div>
+    </div>
+
+    <div class="settings-content-option five">
+      <h4 class="settings-content-option-title text dark bold danger">
+        Reset Account</h4>
+
+      <p class="settings-content-option-caption text small dark">
+        This will remove all of your websites, custom code, and non-essential 
+        settings. The only remaining settings will be your username, name, email, 
+        and password. It is recommended that you export your account data before 
+        doing this.
+      </p>
+
+      <div class="btn danger thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase danger">Reset your account</span>
+      </div>
+    </div>
+
+    <div class="settings-content-option six">
+      <h4 class="settings-content-option-title text dark bold danger">
+        Delete Account</h4>
+
+      <p class="settings-content-option-caption text small dark">
+        This will remove all trace of your account from our servers, and is an 
+        irreversable actions. It is recommended that you export your account data 
+        before doing this.
+      </p>
+
+      <div class="btn danger thin rounded slide m-xs-t">
+        <span class="btn-content text uppercase danger">Delete your account</span>
+      </div>
+    </div>
+
+  </form>
+
+  {% endblock %}
+
+  ```
+
+  The `Appearance and Accessibility` page doesn't do much at the moment, but will be added to as and when features are required.
+
+  <img alt="Settings - Appearance and Accessibility page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_looks.png?raw=true" width="500"/>
+
+##### /templates/settings-looks.html
+  ```jinja
+  {% extends "settings-base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% set settingsSidebarActivated = 3 %}
+
+  {% block settings_content %}
+
+  <h3 class="settings-content-header text header dark">
+    Appearance and Accessibility</h3>
+
+  <form class="settings-content-options">
+
+    <div class="settings-content-option one">
+      <h4 class="settings-content-option-title text dark bold">Tab Preference</h4>
+      
+      <select class="settings-content-option-input" 
+      name="settings_looks_tab_preference">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4" selected="selected">4 (Default)</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12">12</option> 
+      </select>
+      
+      <p class="settings-content-option-caption text small dark">
+        When editing and rendering code, this determines how many spaces represent 
+        one tab. (Doesn't do anything yet)
+      </p>
+    </div>
+    
+  </form>
+
+  {% endblock %}
+  ```
+
+  The `My Websites` page is the most useful of the settings pages, as of now. It contains a table of all of the user's current sites, with links to their respective pages. It also calculates and displays how large the pages are. As such, it requires a Python subroutine to work it out, displayed below.
+
+  <img alt="Settings - My Websites page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_sites.png?raw=true" width="600"/>
+
+##### /templates/settings-sites.html
+
+  ```jinja
+  {% extends "settings-base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% set settingsSidebarActivated = 4 %}
+  {% set flashedSiteNames = get_flashed_messages()[1] %}
+
+  {% block settings_content %}
+
+  <h3 class="settings-content-header text header dark">My Websites</h3>
+
+  <form class="settings-content-options">
+
+    <div class="settings-content-table">
+      <div class="settings-content-table-header">
+        <div class="settings-content-table-row"><span class="text header dark">
+          Websites</span></div>
+
+        <div class="settings-content-table-row">
+          <span class="text header small dark">@{{current_user.user_id}}</span>
+        </div>
+      </div>
+
+      <div class="settings-content-table-content">
+
+        {% for site in flashedSiteNames %}
+
+        <div class="settings-content-table-row {% if site==flashedSiteNames[-1] %}
+          last-row{% endif %}">
+          
+          <span class="settings-content-table-row-icon text dark">
+            <i class="fa-regular {% if site[2] %}fa-lock{% else %}fa-book-bookmark
+            {%endif%}"></i>
+          </span>
+
+          <span class="settings-content-table-row-title text dark">
+            <a href='{{url_for("site_edit_home",name=site[0],site=site[1])}}' 
+            class="text link dark notformatted">@{{site[0]}}/{{site[1]}}</a>
+          </span>
+          
+          <span class="settings-content-table-row-size text dark">
+            {{site[3]}}
+          </span>
+          
+          <span class="settings-content-table-row-settings text dark">
+            <a href='{{url_for("site_edit_home",name=site[0],site=site[1])}}' 
+            class="text link primary notformatted">Website Settings</a>
+          </span>
+
+        </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+
+  </form>
+
+  {% endblock %}
+
+  ```
+
+  The changes to `__init__.py` are outlined below. This includes the `app.route` functions for each page
+  The number flashed is interpereted as `settingsSidebarActivated` in the Jinja template rendering.
+
+  The `My Websites` `app.route` function includes the line `self.convertByteSize(self.getFolderSize(self.os.path.abspath(site.sitePath)))`. 
+  
+  This will:
+  - Fetch the file path of the current selected site (`site.sitePath`), which may look like `<username>\sites\<sitename>`
+  - Get the absolute path of the directory (`os.path.abspath()`)
+  - Call the `getFolderSize` subroutine and pass the absolute path - this will return a value, in bytes, of the directory
+  - Call the `convertByteSize` subroutine and pass the size of the directory, in bytes - this will return a human readable string showing how large the directory is.
+
+##### changes to \_\_init\_\_.py
+
+  ```python
+  def getFolderSize(self,path):
+    size=self.os.path.getsize(path)
+    for sub in self.os.listdir(path):
+      subPath=self.os.path.join(path,sub)
+      if self.os.path.isfile(subPath): size+=self.os.path.getsize(subPath)
+      elif self.os.path.isdir(subPath): size+=self.getFolderSize(subPath)
+    return size
+  ```
+
+  ```python
+  def convertByteSize(self,bytes):
+    if bytes==0: return "0B"
+    sizes=("B","KB","MB","GB","TB","PB","EB","ZB","YB")
+    i=int(math.floor(math.log(bytes,1024)))
+    p=math.pow(1024,i)
+    s=round(bytes/p,2)
+    if i==0: s=int(s)
+    return f"{s}{sizes[i]}"
+  ```
+
+  ```python
+  def initPages_settings(self):
+  
+    @self.app.route("/account/settings/")
+    @login_required
+    def settings():
+      # redirect to the first settings page
+      return redirect(url_for("settings_profile"))
+
+    @self.app.route("/account/settings/profile")
+    @login_required
+    def settings_profile():
+      # get the user icon for displaying
+      flash(1,self.getUserImage(current_user.user_id))
+      return render_template("settings-profile.html")
+
+    @self.app.route("/account/settings/admin")
+    @login_required
+    def settings_admin():
+      flash(2)
+      return render_template("settings-admin.html")
+
+    @self.app.route("/account/settings/looks")
+    @login_required
+    def settings_looks():
+      flash(3)
+      return render_template("settings-looks.html")
+
+    @self.app.route("/account/settings/sites")
+    @login_required
+    def settings_sites():
+      flash(4)
+
+      # Get all of the selected user's websites as lists containing certain info
+      flash([
+        [
+          x.user_id,
+          x.name,
+          x.private,
+          self.convertByteSize(self.getFolderSize(self.os.path.abspath(x.sitePath)))
+        ] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])
+
+      return render_template("settings-sites.html")
+
+    @self.app.route("/account/settings/code")
+    @login_required
+    def settings_code():
+      flash(5)
+      return render_template("settings-code.html")
+
+    @self.app.route("/account/settings/dev")
+    @login_required
+    def settings_dev():
+      flash(7)
+      return render_template("settings-dev.html")
+
+  ```
+
+
+
+
+### Stage 4 - Creating a New Site
+
+  In this stage, I created the system for when a user creates a new site. This includes various subroutines outlined in the design section of the report, such as the website name formatting and storage of colour palettes. Some functionality has not yet been included yet, such as the ability to import a website. This is because there is not a way to export sites yet, and it would be quite time consuming to create a validation algorithm to make sure that the imported files are not malicious: I want to finish the essential success criteria before moving on to the desirable features.
+
+  Similar to the settings pages, I first created a base template to build the rest of the pages from. 
+
+##### /templates/site-create-base.html
+  ```jinja
+  {% extends "base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% block content %}
+
+  <link href="{{url_for('static', filename='css/site-create.css')}}" 
+  rel="stylesheet" type="text/css" />
+
+  <div class="application-content">
+    <div class="text-header-container">
+      <h2 class="text header large dark one">Create a new site</h2>
+        
+    </div>
+    
+    <div class="main">
+      <div class="main-content thin">
+        {%block site_create_base%}
+        {%endblock%}
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+  ```
+
+  
+
+  The next step is to start creating the form for the first page. It consists of the website name, description, and whether the user wants the site to be public or private. Without any JavaScript, the page looked like this:
+
+  <img alt="Create A New Site - Page 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.2_newsite_page1_nojs.png?raw=true" width="600"/>
+
+##### /templates/site-create.html
+  ```jinja
+  {% extends "site_create_base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% block site_create_base %}
+
+    <p class="text dark">
+      Want to import an exported site? 
+      <a class="link text primary">Import a website.</a>
+    </p>
+
+    <div class="horizontal-separator one m-s-v"></div>
+
+    <form class="new-site-form one" method="post">
+
+      <div class="form-input-container one">
+
+        <div class="form-input-content-column">
+          <span class="text large dark one">Owner</span>
+          <span class="text large dark two">
+            <span>@{{current_user.user_id}}</span><span class="m-m-l m-s-r">/</span>
+          </span>
+        </div>
+
+        <div class="form-input-content-column">
+          <span class="text large dark one">
+            Website Name <sup class="text large danger">*</sup>
+          </span>
+
+          <input id="new_site_name" class="new-site-input text dark two input 
+          small-text-input" data-form-input-display="inactive" type="text" 
+          name="new_site_name">
+
+        </div>
+        <div class="message-container m-s-t text small one visibly-hidden">
+          Your site name will look like: 
+          <span class="message-container-jsedit"></span>
+        </div>
+
+        <p class="text dark m-s-t two">
+          The name must be at least 4 characters long, and contain only lowercase 
+          alphanumeric characters, dashes, underscores and periods. Any illegal 
+          characters will be converted into dashes. It must also be unique! 
+          If you need inspiration for a name, you ain't gonna get any from me :)
+        </p>
+      </div>
+
+      <div class="horizontal-separator two m-s-v"></div>
+
+      <div class="form-input-container three">
+          <span class="text large dark one">Description (Optional)</span>
+
+          <input id="new_site_desc" class="new-site-input text dark two input 
+          small-text-input" type="text" name="new_site_desc">
+      </div>
+
+      <div class="horizontal-separator three m-s-v"></div>
+
+      <div class="form-input-container two">
+
+        <div class="input-checkbox">
+          <input class="input-checkbox-input" name="new_site_privacy" 
+          id="new_site_privacy_visible" type="radio" value="public">
+
+          <span class="input-checkbox-icon">
+            <i class="faicon fa-regular fa-book-bookmark"></i>
+          </span>
+
+          <div class="input-checkbox-text-container">
+            <span class="input-checkbox-title text bold one">Public</span>
+            <span class="input-checkbox-caption text small two">
+              Anyone online can see this website. Only you can edit it.
+            </span>
+          </div>
+        </div>
+
+        <div class="input-checkbox">
+          <input class="input-checkbox-input" name="new_site_privacy" 
+          id="new_site_privacy_hidden" type="radio" value="private">
+
+          <span class="input-checkbox-icon">
+            <i class="faicon fa-regular fa-lock" 
+            style="color:var(--colors-warning)"></i>
+          </span>
+
+          <div class="input-checkbox-text-container">
+            <span class="input-checkbox-title text bold one">Private</span>
+            <span class="input-checkbox-caption text small two">
+              Only people who you give the link can view the website.
+            </span>
+          </div>
+        </div>
+
+        <div class="horizontal-separator three m-s-v"></div>
+
+        <button class="field-submit btn primary thin rounded slide" type="submit" 
+        disabled=true id="new_site_form_submit">
+
+          <span class="btn-content text uppercase primary">Create Site</span>
+        </button>
+      </div>
+
+    </form>
+
+  {% endblock %}
+
+  ```
+
+  I had a basic outline of the JavaScript I needed to write, based on the algorithms in the Design section:
+
+  - Fetch all of this user's site names from the server
+  - Validation for the website name, including a function to remove all repeated dashes
+  - A way of styling the website name input to show whether it is valid
+  - A way of programatically enabling and disabling the submit button
+
+  To get all of the user's site names, I added a SQL query to the `app.route` function for this page, and flashed the results so that it could be used by the JavaScript.
+
+##### changes to \_\_init\_\_.py
+  ```python
+  @self.app.route("/home/new/")
+    @login_required
+    def site_create():
+      out=""
+      
+      # get all current site names for the logged in user, then flash (send) it to 
+      # the site, where it is processed by the javascript
+      names = [x.name for x in self.Site.query.filter_by(
+              user_id=current_user.user_id).all()]
+
+      for name in names: out+=name+","
+      flash(out[:-1])
+      
+      return render_template("site-create.html")
+  ```
+
+###### changes to /templates/site-create.html
+  ```jinja
+  <script> var flashedSiteNames="{{get_flashed_messages()[0]}}".split(",") </script>
+  ```
+
+##### /static/site-create.js
+  The `checkFormSubmitButton` function is called whenever an input is changed, to see wether all inputs are valid. If so, it sets the submit button (`formSubmit`) to enabled, and if not, sets it to disabled. This system can be hijacked via DevTools, so the same validation system will be implemented in Python as well.
+
+  ```js
+  function checkFormSubmitButton() {
+    if (!(formName.getAttribute("data-form-input-display") == "success" || 
+          formName.getAttribute("data-form-input-display") == "warning")) {
+            formSubmit.setAttribute("disabled","")
+            return
+    }
+
+    if (!(formPrivacy1.checked) && !(formPrivacy2.checked)) {
+      formSubmit.setAttribute("disabled","")
+      return
+    }
+
+    formSubmit.removeAttribute("disabled")
+    return
+  }
+  ```
+
+  The `verifyNameField` is called when the website name input (`formName`) is changed. It returns a data attribute that is used in the CSS to style the form.
+
+  ```js
+  function verifyNameField() {
+    var nameInput = document.getElementById("new_site_name");
+    var val = nameInput.value;
+
+    hideFormMessage()
+
+    if (val.length < 1) { return "inactive" }
+    if (val.length < 4) { return "danger" }
+
+    var check=true
+
+    for (var letter of val) {
+      if (requiredChars.includes(letter)) { check=false }
+    }
+
+    if (check) { return "danger" }
+    var sitenames = ["helloworld"]
+
+    if (flashedSiteNames.includes(val)) { 
+      editFormMessage("A site with this name already exists!")
+      return "danger" 
+    }
+
+    for (var letter of val) {
+      if (!(allowedChars.includes(letter))) { 
+        editFormMessageSiteNameWarning(val)
+        return "warning" 
+      }
+    }
+
+    if (hasRepeatedDashes(val)) { 
+      editFormMessageSiteNameWarning(replaceRepeatedDashes(val));
+      return "warning" 
+    }
+
+    hideFormMessage()
+    return "success"
+  }
+  ```
+
+  This is the CSS that styles the website name input, to demonstrate how it interacts with the JavaScript.
+
+  ```css
+  .new-site-form.one .form-input-container.one 
+  [data-form-input-display="success"].new-site-input {
+    border-color:var(--colors-success);
+    box-shadow: 0px 0px 22px -8px var(--colors-success);
+  }
+
+  .new-site-form.one .form-input-container.one 
+  [data-form-input-display="warning"].new-site-input {
+    border-color:var(--colors-warning);
+    box-shadow: 0px 0px 22px -8px var(--colors-warning);
+  }
+
+  .new-site-form.one .form-input-container.one 
+  [data-form-input-display="danger"].new-site-input {
+    border-color:var(--colors-danger);
+    box-shadow: 0px 0px 22px -8px var(--colors-danger);
+  }
+  ```
+
+  This is what the input looks like when the `data-form-input-display` tag is changed. The four options are `inactive`, `danger`, `success`, `warning`.
+
+  <img alt="Create A New Site - Website name input styling" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.3_newsite_page1_namemerge.png?raw=true" width="600"/>
+
+  The `verifyNameField` function makes use of 4 other functions, `hideFormMessage`, `editFormMessage`, `hasRepeatedDashes`, and `replaceRepeatedDashes`. 
+  
+  The first two are used to interact with the warning message that is displayed underneath the input. 
+
+  ```js
+  function hideFormMessage() {
+    messageContainer.classList.add("visibly-hidden")
+    messageSpan.innerHTML=""
+  }
+  ```
+
+  ```js
+  function editFormMessage(val) {
+    messageContainer.classList.remove("visibly-hidden")
+    newInner=val.toLowerCase()
+
+    for (var i=0; i<newInner.length; i++) {
+      var letter=newInner[i];
+      if (!(allowedChars.includes(letter))) {
+        newInner=newInner.replaceAt(i,"-")
+      }
+    }
+
+    if (hasRepeatedDashes(newInner)) { newInner=replaceRepeatedDashes(newInner) }
+    messageSpan.innerHTML=newInner
+  }
+  ```
+
+  The second two handle the formatting of the input. When the validated name is being created, if it has any invalid characters in it, they will all be replaced with dashes (invalid characters are any characters not in `allowedChars`). This means that if you have a string such as `abc&& bcgf`, it will be turned into `abc---bcgf`. The function `hasRepeatedDashes` uses Regex to identify any adjacent dashes in the string, and the function `replaceRepeatedDashes` implements recursion to remove them all, changing `abc&& bcgf` to `abc-bcgf`.
+
+  These functions, in combination with `verifyField`, went through extensive testing to ensure that they worked properly. The data and results can be found in the appendix. <!-- TODO: add data and name appendix -->
+
+  ```js
+  function hasRepeatedDashes(val) {
+    for (var i=0;i<val.length;i++) {
+      if (val[i] == "-" && val[i+1] == "-") {
+        return true
+      }
+    }
+    return false
+  }
+  ```
+
+  ```js
+  function replaceRepeatedDashesRecursion(val) {
+    for (var i=0;i<val.length;i++) {
+      if (val[i] == "-" && val[i+1] == "-") {
+        val.splice(i+1,1)
+        val=replaceRepeatedDashesRecursion(val)
+      }
+    }
+    return val
+  }
+    
+  function replaceRepeatedDashes(val) {
+    return listToStr(replaceRepeatedDashesRecursion(val.split("")))
+  }
+  ``` 
+
+  The rest of the JavaScript contains variable allocation and event listeners:
+
+  ```js
+  var requiredChars = "qwertyuiopasdfghjklzxcvbnm1234567890"
+  var allowedChars = "qwertyuiopasdfghjklzxcvbnm-._1234567890";
+  
+  var formSubmit = document.getElementById("new_site_form_submit");
+
+  var formName = document.getElementById("new_site_name");
+  var formDesc = document.getElementById("new_site_desc");
+
+  var formPrivacy1 = document.getElementById("new_site_privacy_visible");
+  var formPrivacy2 = document.getElementById("new_site_privacy_hidden");
+
+  var messageContainer = document.querySelector(
+    ".new-site-form .form-input-container.one .message-container");
+
+  var messageSpan = document.querySelector(
+    ".new-site-form .form-input-container.one .message-container 
+    .message-container-jsedit");
+
+  formName.addEventListener("keyup",(event) => {
+      formName.setAttribute("data-form-input-display",verifyNameField())
+      checkFormSubmitButton();
+  })
+
+  formPrivacy1.addEventListener("click",checkFormSubmitButton)
+  formPrivacy2.addEventListener("click",checkFormSubmitButton)
+
+  formSubmit.addEventListener("click",(event)=>{
+      if (!(formSubmit.getAttribute("disabled"))) {
+          formSubmit.children[0].innerHTML = "CREATING SITE..."
+      }
+  })
+  ```
+
+  After completing the JavaScript validation, I then rewrote the code in Python and used it in the `app.route` post function, so that if the client-side validation was bypassed, it would still be validated server-side.
+
+##### changes to \_\_init\_\_.py
+  ```python
+  @self.app.route("/home/new/", methods=["post"])
+  @login_required
+  def site_create_post():
+
+    def listToStr(var):
+      out=""
+      for char in var: out+=char
+      return out
+
+    def replaceToDash(var):
+      # replaces any invalid characters in the string var with a dash, used to 
+      # format the site name correctly so that there arent any errors
+      var=list(var)
+      for i in range(len(var)):
+        if var[i] not in "qwertyuiopasdfghjklzxcvbnm-._1234567890": var[i]="-"
+      return listToStr(var)
+
+    def replaceRepeatedDashes(var):
+      # recursive function to remove adjacent dashes from a string
+      var=list(var)
+      for i in range(len(var)):
+        if i+1 >= len(var): return listToStr(var)
+        if var[i] == "-" and var[i+1] == "-":
+          del var[i]
+          var = list(replaceRepeatedDashes(var))
+          return listToStr(var)
+
+    # get the user inputs
+    sitename = request.form.get("new_site_name")
+    sitedesc = request.form.get("new_site_desc")
+    isPublic = request.form.get("new_site_privacy")=="public"
+
+    # remove adjacent dashes
+    sitename=replaceRepeatedDashes(replaceToDash(sitename.lower()))
+
+    # session can carry over variables between functions
+    session["new_site_sitename"]=sitename
+    session["new_site_sitedesc"]=sitedesc
+    session["new_site_isPublic"]=isPublic
+
+    return redirect(url_for("site_create_options_1"))
+  ```
+
+  The next page is the colour palette selection system. This involves functions for colour temperature adjustment, generation of lighter and darker variants, and storing the variables in a way that the backend can read them. The page would consist of a light or dark mode toggle, faders for certain parameters, and colour pickers for the primary, secondary, and accent colours. Without any JavaScript, the page looked like this:
+
+  <img alt="Create A New Site - Page 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_nojs.png?raw=true" width="600"/>
+
+  The row of 9 mono-chromatic colours at the bottom will be set as the variables `--colors-grey-<100-900>`. To display them, it uses an "expanding column" system that I have used previously. When a column is hovered, it will "expand open" to reveal text inside. When a column is hovered, it looks like this:
+
+  <img alt="Create A New Site - Page 2 - Expanding column demonstration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_excmerge.png?raw=true" width="600"/>
+
+  For the colour pickers, I have used the native input colour picker option:
+
+  <img alt="Create A New Site - Page 2 - Colour picker input" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_colorpicker.png?raw=true" width="225"/>
+
+##### /templates/site-create-options-1.html
+  ```jinja
+  {% extends "site_create_base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% block site_create_base %}
+
+    <p class="text dark">Choose a color scheme!</p>
+    <div class="horizontal-separator one m-s-v"></div>
+
+    <form class="new-site-form two" method="post">
+
+      <div class="light-dark-selector-container">
+        <div class="light-dark-selector">
+          <h2 class="text large center one">Light or dark mode?</h2>
+          <div class="button-container">
+
+            <div class="btn primary thin rounded slide from-left m-xs-t" 
+            id="new_site_lightModeToggle">
+              <span class="btn-content text uppercase primary notextselect">
+                Light
+              </span>
+            </div>
+
+            <div class="btn secondary thin rounded slide from-right m-xs-t" 
+            id="new_site_darkModeToggle">
+
+              <span class="btn-content text uppercase secondary notextselect">
+                Dark
+              </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="horizontal-separator one m-s-v"></div>
+
+      <div class="color-options">
+        <div class="input-slider-option one">
+
+          <span class="text dark bold">Light & Dark Bounds</span>
+
+          <div class="input-slider-and-number">
+
+            <input class="input sliding-input" type="range" min="0" max="100" 
+            value="100" name="new_site_colors_light_dark_bounds" 
+            id="new_site_colors_light_dark_bounds_slider">
+
+            <input class="input small-number-input" type="text" pattern="[-+]?d*" 
+            min="-100" max="100" id="new_site_colors_light_dark_bounds_number">
+
+          </div>
+        </div>
+
+        <div class="input-slider-option two">
+
+          <span class="text dark bold">Monochromatic Temperature</span>
+
+          <div class="input-slider-and-number">
+
+            <input class="input sliding-input" type="range" min="-100" max="100" 
+            value="0" name="new_site_colors_monochromatic_tint" 
+            id="new_site_colors_monochromatic_temperature_slider">
+
+            <input class="input small-number-input" type="text" pattern="[-+]?d*"
+            id="new_site_colors_monochromatic_temperature_number" min="-100" 
+            max="100">
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="horizontal-separator three m-s-v"></div>
+
+      <div class="color-display-container">
+
+        <div class="color-display light-dark-display">
+
+          <div class="color-single-card light-color">
+            <span class="color-code text uppercase center">#ffffff</span>
+          </div>
+
+          <div class="color-single-card dark-color">
+            <span class="color-code text uppercase center">#000000</span>
+          </div>
+
+        </div>
+
+        <div class="color-display main-color-display">
+
+          <div class="color-triple-card primary-color">
+            <input type="color" class="color-card-picker-input" 
+            id="new_site_colors_primary_picker" value="#e63946">
+
+            <div class="color-triple-card-main">
+              <span class="color-code text uppercase center">#e63946</span>
+            </div>
+
+            <div class="color-triple-card-sub-container">
+              <div class="color-triple-card-sub one"></div>
+              <div class="color-triple-card-sub two"></div>
+            </div>
+          </div>
+
+          <div class="color-triple-card secondary-color">
+            <input type="color" class="color-card-picker-input" 
+            id="new_site_colors_secondary_picker" value="#457b9d">
+
+            <div class="color-triple-card-main">
+              <span class="color-code text uppercase center">#457b9d</span>
+            </div>
+
+            <div class="color-triple-card-sub-container">
+              <div class="color-triple-card-sub one"></div>
+              <div class="color-triple-card-sub two"></div>
+            </div>
+          </div>
+
+          <div class="color-triple-card accent-color">
+            <input type="color" class="color-card-picker-input" 
+            id="new_site_colors_accent_picker" value="#a8dadc">
+
+            <div class="color-triple-card-main">
+              <span class="color-code text uppercase center">#a8dadc</span>
+            </div>
+
+
+            <div class="color-triple-card-sub-container">
+              <div class="color-triple-card-sub one"></div>
+              <div class="color-triple-card-sub two"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="color-display grey-display">
+            <div class="color-columns grey-colors expanding-columns-container">
+
+              <div class="color-column expanding-column g900">
+                <span class="color-code expanding-text text uppercase center">
+                #303030</span>
+              </div>
+
+              <div class="color-column expanding-column g800">
+                <span class="color-code expanding-text text uppercase center">
+                #474747</span>
+              </div>
+
+              <div class="color-column expanding-column g700">
+                <span class="color-code expanding-text text uppercase center">
+                #5e5e5e</span>
+              </div>
+
+              <div class="color-column expanding-column g600">
+                <span class="color-code expanding-text text uppercase center">
+                #757575</span>
+              </div>
+
+              <div class="color-column expanding-column g500">
+                <span class="color-code expanding-text text uppercase center">
+                #8c8c8c</span>
+              </div>
+
+              <div class="color-column expanding-column g400">
+                <span class="color-code expanding-text text uppercase center">
+                #a3a3a3</span>
+              </div>
+
+              <div class="color-column expanding-column g300">
+                <span class="color-code expanding-text text uppercase center">
+                #bababa</span>
+              </div>
+
+              <div class="color-column expanding-column g200">
+                <span class="color-code expanding-text text uppercase center">
+                #d1d1d1</span>
+              </div>
+
+              <div class="color-column expanding-column g100">
+                <span class="color-code expanding-text text uppercase center">
+                #e8e8e8</span>
+              </div>
+
+            </div>
+        </div>
+
+      </div>
+
+      <div class="submit-container">
+        <button class="field-submit btn primary thin rounded slide" type="submit">
+          <span class="btn-content text uppercase primary">Continue</span>
+        </button>
+      </div>
+
+    </form>
+    
+  {% endblock %}
+
+  ```
+
+##### /static/site-create-options-1.js
+
+  The first JavaScript I wrote was the definitions for the colour storage. For clarity, any long strings, such as queries, have been replaced with `...` The `defaultColors` dictionary defines what the default colours are (the defaults are also defined in CSS for when the page loads) so that the page knows what to first render. The `colors` dictionary defines the user-selected colours.
+
+  ```js
+  var defaultColors = { 
+    "light":"#ffffff", "dark":"#000000", 
+    "primary":"#e63946", "primary-dark":"", "primary-light":"", 
+    "secondary":"#457b9d", "secondary-dark":"","secondary-light":"", 
+    "accent":"#a8dadc","accent-dark":"","accent-light":"",
+    "grey-100":"#303030", ... ,"grey-900":"#e8e8e8" 
+  }
+  
+  var colors = defaultColors
+
+  var colorDisplay = {
+    "light":[document.querySelector("..."),document.querySelector("...")],
+    "dark":[document.querySelector("..."),document.querySelector("...")],
+
+    "primary":[document.querySelector("..."),document.querySelector("...")],
+    "primary-dark":[document.querySelector("...")],
+    "primary-light":[document.querySelector("...")],
+
+    "secondary":[document.querySelector("..."),document.querySelector("...")],
+    "secondary-dark":[document.querySelector("...")],
+    "secondary-light":[document.querySelector("...")],
+
+    "accent":[document.querySelector("..."),document.querySelector("...")],
+    "accent-dark":[document.querySelector("...")],
+    "accent-light":[document.querySelector("...")],
+
+    "grey-100":[document.querySelector("..."),document.querySelector("...")],
+    ...
+    "grey-900":[document.querySelector("..."),document.querySelector("...")],
+  }
+  ```
+
+  The way the JavaScript manages to send the data to the server is by an input element in the form. This means it can be retrieved via the `flask.requests` module. I appeneded this element to the end of the form and then wrote the `updateStored` function, which sets the content of the input to the contnet of the `colors` dictionary. The definition for the element (referred to as `stored`), along with the other HTML elements are defined via the DOM.
+
+  ```html
+  <input id="color-output" class="visibly-hidden" type="text" value="." 
+  name="new_site_color_options_dict">
+  ```
+
+  ```js
+  function updateStored() {
+    var out="";var keys=Object.keys(colors);
+    for (var i=0; i<keys.length; i++) { out=out+keys[i]+":"+colors[keys[i]]+"," }
+    out=out.slice(0,out.length-1)
+    stored.value=out
+  }
+
+  var btnLight=document.getElementById("new_site_lightModeToggle");
+  var btnDark=document.getElementById("new_site_darkModeToggle");
+  var lightModeSelected=true;
+  var stored=document.getElementById("color-output")
+
+  var primaryColorPicker=
+    document.getElementById("new_site_colors_primary_picker");
+
+  var secondaryColorPicker=
+    document.getElementById("new_site_colors_secondary_picker");
+
+  var accentColorPicker=
+    document.getElementById("new_site_colors_accent_picker");
+  ```
+
+  I also added the utility function `setColor` to change a value in the dictionary, so that the code looked cleaner.
+
+  ```js
+  function setColor(k,v) { colors[k]=v }
+  ```
+
+  Every time either the light or dark toggle is pressed, they call either the `setLightMode` or `setDarkMode` functions:
+
+  ```js
+  function setLightMode() {
+    document.body.removeAttribute("data-kraken-darkmode")
+    updateStored()
+    updateLightDarkDisplay()
+  }
+
+  function setDarkMode() {
+    document.body.setAttribute("data-kraken-darkmode","")
+    updateStored()
+    updateLightDarkDisplay()
+  }
+  ```
+
+  The `updateLightDarkDisplay` and `updateColorDisplays` functions are called to update the HTML element colours and texts whenever something is changed:
+
+  ```js
+  function updateColorDisplays() {
+    colorDisplay["primary"][0].style.backgroundColor=colors["primary"]
+    colorDisplay["primary"][1].innerHTML=colors["primary"]
+    colorDisplay["primary-dark"][0].style.backgroundColor=colors["primary-dark"]
+    colorDisplay["primary-light"][0].style.backgroundColor=colors["primary-light"]
+
+    colorDisplay["secondary"][0].style.backgroundColor=colors["secondary"]
+    colorDisplay["secondary"][1].innerHTML=colors["secondary"]
+    colorDisplay["secondary-dark"][0].style.backgroundColor=colors["secondary-dark"]
+    colorDisplay["secondary-light"][0].style.backgroundColor=colors["secondary-light"]
+
+    colorDisplay["accent"][0].style.backgroundColor=colors["accent"]
+    colorDisplay["accent"][1].innerHTML=colors["accent"]
+    colorDisplay["accent-dark"][0].style.backgroundColor=colors["accent-dark"]
+    colorDisplay["accent-light"][0].style.backgroundColor=colors["accent-light"]
+
+    updateStored()
+  }
+
+  function updateLightDarkDisplay() {
+    colorDisplay["light"][0].style.backgroundColor=colors["light"]
+    colorDisplay["light"][1].innerHTML=colors["light"]
+    colorDisplay["dark"][0].style.backgroundColor=colors["dark"]
+    colorDisplay["dark"][1].innerHTML=colors["dark"]
+
+    updateStored()
+  }
+  ```
+
+  The `updateLightDarkVariables` is called whenever the "light & dark bounds" fader is changed:
+
+  ```js
+  function updateLightDarkVariables() {
+    var val = 100-lightDarkBoundsSlider.value;
+
+    var newColor = darken({h:0,s:0,l:100},val/12);
+    newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+    newColor = rgbToHex(newColor.r,newColor.b,newColor.g);
+    setColor("light","#"+newColor);
+
+    var newColor = lighten({h:0,s:0,l:0},val/8);
+    newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+    newColor = rgbToHex(newColor.r,newColor.b,newColor.g);
+    setColor("dark","#"+newColor);
+
+    updateStored()
+  }
+  ```
+
+  The `updateColorVariables` is callede whenever a colour picker is changed, to generate light and dark variants of that colour. This meant that the user could select any of the colour inputs, and when they submitted it, it would immediately show a darker and lighter version underneath.
+
+  <img alt="Create A New Site - Page 2 - Colour picker input demonstration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_cp_2.png?raw=true" height="150"/><img alt="Create A New Site - Page 2 - Colour picker input demonstration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_cp_1.png?raw=true" height="150"/>
+
+
+  ```js
+  function updateColorVariables() {
+    var changePercent = 20
+
+    for (var color of ["primary","secondary","accent"]) {
+      console.log(color)
+
+      var newColor = hexToRgb(colors[color])
+
+      // console.log("Color as RGB:")
+      // console.log(newColor)
+
+      newColor = rgbToHsl(newColor.r,newColor.g,newColor.g)
+
+      // console.log("Color as HSL:")
+      // console.log(newColor)
+
+      newColor = darken(newColor,changePercent)
+
+      // console.log("Darker Color as HSL:")
+      // console.log(newColor)
+
+      newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+
+      // console.log("Darker Color as RGB:")
+      // console.log(newColor)
+
+      newColor = rgbToHex(newColor[0],newColor[1],newColor[2]);
+
+      // console.log("Darker Color as Hex:")
+      // console.log(newColor)
+
+      setColor(color+"-dark","#"+newColor)
+
+      newColor = hexToRgb(colors[color])
+      newColor = rgbToHsl(newColor.r,newColor.g,newColor.g)
+
+      // console.log("Color as HSL:")
+      // console.log(newColor)
+
+      newColor = lighten(newColor,changePercent)
+
+      // console.log("Lighter Color as HSL:")
+      // console.log(newColor)
+
+      newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+
+      // console.log("Lighter Color as RGB:")
+      // console.log(newColor)
+
+      newColor = rgbToHex(newColor[0]/255,newColor[1]/255,newColor[2]/255);
+
+      // console.log("Lighter Color as Hex:")
+      // console.log(newColor)
+      
+
+      setColor(color+"-light","#"+newColor)
+      
+      console.log(colors[color+"-dark"])
+      console.log(colors[color+"-light"])
+
+    }
+
+    updateStored()
+    
+  }
+  ```
+
 
 
 <!--
