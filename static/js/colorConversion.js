@@ -13,8 +13,6 @@ function rgbToHsl(r, g, b){
     var max = Math.max(r, g, b), min = Math.min(r, g, b);
     var h, s, l = (max + min) / 2;
 
-    console.log(h,s,l)
-
     if(max == min){
         h = s = 0; // achromatic
     }else{
@@ -31,23 +29,23 @@ function rgbToHsl(r, g, b){
     return { h: h, s: s, l: l };
 }
 
-// Assumes: h is contained in [0, 360] and s and l are contained in [0, 100]
-// Returns: { r, g, b } in the set [0, 255]
-function hslToRgb(h, s, l) {
-
+// Assumes: h, s, and l are contained in the set [0, 1]
+// Returns: { r, g, b } in the set [0, 1]
+function hslToRgb(h, s, l){
     var r, g, b;
 
-    function hue2rgb(p, q, t) {
-        if(t < 0) t += 1;
-        if(t > 1) t -= 1;
-        if(t < 1/6) return p + (q - p) * 6 * t;
-        if(t < 1/2) return q;
-        if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
-        return p;
-    }
+    if(s == 0){
+        r = g = b = l; // achromatic
+    }else{
+        var hue2rgb = function hue2rgb(p, q, t){
+            if(t < 0) t += 1;
+            if(t > 1) t -= 1;
+            if(t < 1/6) return p + (q - p) * 6 * t;
+            if(t < 1/2) return q;
+            if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+            return p;
+        }
 
-    if(s === 0) { r = g = b = l }
-    else {
         var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
         var p = 2 * l - q;
         r = hue2rgb(p, q, h + 1/3);
@@ -55,7 +53,7 @@ function hslToRgb(h, s, l) {
         b = hue2rgb(p, q, h - 1/3);
     }
 
-    return { r: (r/100)*255, g: (g/100)*255, b: (b/100)*255 };
+    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 }
 
 // Assumes r, g, and b are contained in the set [0, 255]

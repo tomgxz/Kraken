@@ -13,7 +13,8 @@ tkinter/
 .grip.py
 .grip
 .ignore
-
+.commentary
+.grip.bat
 
 
 # Byte-compiled / optimized / DLL files

@@ -23,7 +23,7 @@ var accentColorPicker=document.getElementById("new_site_colors_accent_picker");
 
 // the primary color should be quite visible against the selected theme. Dark against light etc
 // the secondary color should be slightly less so, and a rotation around the color wheel. Red against purple etc
-// the accent color shpuld be lighter than both the primary and secondary colors, but not very overpowering
+// the accent color should be lighter than both the primary and secondary colors, but not very overpowering
 
 // there will be an option to change the starting and ending lightness of the grey colors
 // and also to tint them warm or cold slightly
@@ -74,23 +74,67 @@ function updateLightDarkDisplay() {
 function updateColorVariables() {
     var changePercent = 20
 
-    var newColor = hexToRgb(colors["primary"])
-    // color is correct
-    newColor = rgbToHsl(newColor.r,newColor.g,newColor.g)
-    // color is incorrect
-    newColor = darken(newColor,changePercent)
-    console.log(newColor)
-    newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
-    newColor = rgbToHex(newColor.r/255,newColor.b/255,newColor.g/255);
-    setColor("primary-dark",newColor)
+    for (var color of ["primary","secondary","accent"]) {
+        console.log(color)
 
-    newColor = hexToRgb(colors["primary"])
-    newColor = lighten(rgbToHsl(newColor.r,newColor.g,newColor.g),changePercent)
-    newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
-    newColor = rgbToHex(newColor.r,newColor.b,newColor.g);
-    setColor("primary-light",newColor)
+        var newColor = hexToRgb(colors[color])
+
+        // console.log("Color as RGB:")
+        // console.log(newColor)
+
+        newColor = rgbToHsl(newColor.r,newColor.g,newColor.g)
+
+        // console.log("Color as HSL:")
+        // console.log(newColor)
+
+        newColor = darken(newColor,changePercent)
+
+        // console.log("Darker Color as HSL:")
+        // console.log(newColor)
+
+        newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+
+        // console.log("Darker Color as RGB:")
+        // console.log(newColor)
+
+        newColor = rgbToHex(newColor[0],newColor[1],newColor[2]);
+
+        // console.log("Darker Color as Hex:")
+        // console.log(newColor)
+
+        setColor(color+"-dark","#"+newColor)
+
+        newColor = hexToRgb(colors[color])
+        newColor = rgbToHsl(newColor.r,newColor.g,newColor.g)
+
+        // console.log("Color as HSL:")
+        // console.log(newColor)
+
+        newColor = lighten(newColor,changePercent)
+
+        // console.log("Lighter Color as HSL:")
+        // console.log(newColor)
+
+        newColor = hslToRgb(newColor.h,newColor.s,newColor.l);
+
+        // console.log("Lighter Color as RGB:")
+        // console.log(newColor)
+
+        newColor = rgbToHex(newColor[0]/255,newColor[1]/255,newColor[2]/255);
+
+        // console.log("Lighter Color as Hex:")
+        // console.log(newColor)
+        
+
+        setColor(color+"-light","#"+newColor)
+        
+        console.log(colors[color+"-dark"])
+        console.log(colors[color+"-light"])
+
+    }
 
     updateStored()
+    
 }
 
 function updateColorDisplays() {
@@ -108,6 +152,7 @@ function updateColorDisplays() {
 
 function updateDisplays() {
     updateStored()
+    updateColorDisplays()
     updateLightDarkDisplay()
 }
 
@@ -118,14 +163,23 @@ function updatePrimaryColorDiv() {
     updateColorDisplays()
 }
 
+function setLightMode() {
+    document.body.removeAttribute("data-kraken-darkmode")
+    updateLightDarkDisplay()
+}
+
+function setDarkMode() {
+    document.body.setAttribute("data-kraken-darkmode","")
+    updateLightDarkDisplay()
+}
+
 var options = ["light","dark","primary","primary-dark","primary-light","secondary","secondary-dark","secondary-light","accent","accent-dark",
 "accent-light","grey-100","grey-200","grey-300","grey-400","grey-500","grey-600","grey-700","grey-800","grey-900"]
 var defaultColors = { "light":"#ffffff", "dark":"#000000", "primary":"#e63946", "primary-dark":"", "primary-light":"", "secondary":"#457b9d",
 "secondary-dark":"","secondary-light":"", "accent":"#a8dadc","accent-dark":"","accent-light":"","grey-100":"#303030", "grey-200":"#474747", "grey-300":"#5e5e5e", "grey-400":"#757575",
 "grey-500":"#8c8c8c", "grey-600":"#a3a3a3", "grey-700":"#bababa", "grey-800":"#d1d1d1", "grey-900":"#e8e8e8" }
-var colors = { "light":"#ffffff", "dark":"#000000", "primary":"#e63946", "primary-dark":"", "primary-light":"", "secondary":"#457b9d",
-"secondary-dark":"","secondary-light":"", "accent":"#a8dadc","accent-dark":"","accent-light":"","grey-100":"#303030", "grey-200":"#474747", "grey-300":"#5e5e5e", "grey-400":"#757575",
-"grey-500":"#8c8c8c", "grey-600":"#a3a3a3", "grey-700":"#bababa", "grey-800":"#d1d1d1", "grey-900":"#e8e8e8" }
+var colors = defaultColors
+
 var colorDisplay = {
     "light":[document.querySelector(".new-site-form.two .color-display-container .light-dark-display .light-color"),document.querySelector(".new-site-form.two .color-display-container .light-dark-display .light-color .color-code")],
     "dark":[document.querySelector(".new-site-form.two .color-display-container .light-dark-display .dark-color"),document.querySelector(".new-site-form.two .color-display-container .light-dark-display .dark-color .color-code")],

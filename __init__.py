@@ -127,9 +127,14 @@ class Kraken():
         @self.app.route("/home/")
         @login_required # User must be logged in to access this page
         def main_home():
-            if len(self.Site.query.filter_by(user_id=current_user.user_id).all()) > 0: # check to see if user has any sites
-                # For each site, flash its userid, name, and privacy flag
+            # check to see if user has any sites
+            if len(self.Site.query.filter_by(user_id=current_user.user_id).all()) > 0: # and False: 
                 flash([[x.user_id,x.name,x.private] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])
+
+                # For testing and design purposes, the flash command above was commented out 
+                # and replaced with this command
+                # flash([["user1","Site 1",True],["user1","Epic Webpage",False]])
+
                 return render_template("home-sites.html")
             return render_template("home-nosite.html")
 

@@ -21,7 +21,6 @@ function editFormMessageSiteNameWarning(val) {
   messageSpan.innerHTML=newInner
 }
 
-
 function hideFormMessage() {
   messageContainer.classList.add("visibly-hidden")
   messageSpan.innerHTML=""
