@@ -4225,6 +4225,21 @@ root((MAIN))
     return redirect(url_for("site_create_options_1"))
   ```
 
+  To ensure that all pages in the site creation process can only be accessed in order, all `app.route` functions have a piece of code referencing `flask.request.referrer` to ensure that the user is following the steps chronologically
+
+##### changes to \_\_init\_\_.py
+  ```python
+  @self.app.route("/home/new/1")
+  @login_required
+  def site_create_options_1():
+    # stop people from starting halfway through the form i.e. if they didnt come 
+    # from the previous site_create page, send them to the start
+    if not request.referrer == url_for("site_create",_external=True): 
+      return redirect(url_for("site_create"))
+      
+    return render_template("site-create-options-1.html")
+  ```
+
   The next page is the colour palette selection system. This involves functions for colour temperature adjustment, generation of lighter and darker variants, and storing the variables in a way that the backend can read them. The page would consist of a light or dark mode toggle, faders for certain parameters, and colour pickers for the primary, secondary, and accent colours. Without any JavaScript, the page looked like this:
 
   <img alt="Create A New Site - Page 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_nojs.png?raw=true" width="600"/>
@@ -4662,6 +4677,320 @@ root((MAIN))
   }
   ```
 
+  In the backend, the form retrieves the inputted colour variables via the form element `new_site_color_options_dict`. It then interperets the given input into a dictionary, and stores it in the `flask.session` object, meaning it can be accessed at a later date.
+
+##### changes to \_\_init\_\_.py
+  ```python
+  @self.app.route("/home/new/1", methods=["post"])
+  @login_required
+  def site_create_options_1_post():
+    formOutput = request.form.get("new_site_color_options_dict").split(",")
+    colorOptions = {}
+    for pair in formOutput:
+      x=pair.split(":")
+      colorOptions[x[0]]=x[1]
+
+    session["new_site_colorOptions"]=colorOptions
+
+    return redirect(url_for("site_create_options_2"))
+  ```
+
+  The next page is the typeface selection system. This one is much simpler, and only requires event listeners for each typeface to set the active group. Inside each group, there is a hidden input element that will be assigned the `new_site_font_face_list_active` name if active, or the `new_site_font_face_list_inactive` name if inactive. This means that the backend only has to query the active name to find the selected group. The JavaScript ensures that only one input can have the active name.
+
+  <img alt="Create A New Site - Page 3 - Typeface selection" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.5_newsite_page3_nojs.png?raw=true" width="500"/>
+
+  The template makes use of a Jinja list of all fonts, where the two trailing booleans state whether the font has a googlefonts api link. The code iterates through each element, creating a new form entry for each, which has the header font, paragraph font, and google api imports for each font, if required (`<link href="https://fonts.googleapis.com/css2?family={{headerFont}}&display=swap" rel="stylesheet">`). It also sets the first entry as the active one.
+
+##### /templates/site-create-options-2.html
+  ```jinja
+  {% extends "site_create_base.html" %}
+
+  {% set navbarLogoColor = "primary" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% set fontsList = [
+
+  ["Lexend","Roboto",True,True],
+  ["Prata","Lato",True,True],
+  ["DM Sans","Catamaran",True,True],
+  ["Titillium Web","Raleway",True,True],
+  ["Caudex","PT Mono",True,True],
+  ["Noto Serif Display","Lora",True,True],
+  ["Staatliches","Syne Mono",True,True],
+
+  ]
+  %}
+
+  {% block site_create_base %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <p class="text dark">
+      Choose font family - individual elements can be customised
+    </p>
+
+    <div class="horizontal-separator one m-s-v"></div>
+
+    <form class="new-site-form three" method="post">
+
+      <div class="text-options">
+        {%for fontList in fontsList%}
+        
+        {%set counter=fontsList.index(fontList)+1%}
+        
+        {%set headerFont=fontList[0]%}
+        {%set paraFont=fontList[1]%}
+        
+        <div class="text-option {{counter}}{%if counter==1%} active{%endif%}">
+          
+          {%if fontList[2]%}
+            <link href="https://fonts.googleapis.com/css2?family={{headerFont}}
+            &display=swap" rel="stylesheet">
+          {%endif%}
+
+          {%if fontList[3]%}
+            <link href="https://fonts.googleapis.com/css2?family={{paraFont}}
+            &display=swap" rel="stylesheet">
+          {%endif%}
+          
+          <div class="text-option-header text header dark one" 
+          style="font-family:'{{headerFont}}'">{{headerFont}}</div>
+
+          <div class="text-option-paragraph text two" 
+          style="font-family:'{{paraFont}}'">Paragraph text - {{paraFont}}</div>
+          
+          <input class="visibly-hidden text-option-list" 
+          value="{{headerFont}},{{paraFont}}" name="new_site_font_face_list_
+          {%if counter==1%}active{%else%}inactive{%endif%}">
+
+        </div>
+        
+        {%endfor%}
+      </div>
+
+      <div class="submit-container">
+        <button class="field-submit btn primary thin rounded slide" type="submit">
+          <span class="btn-content text uppercase primary">Continue</span>
+        </button>
+      </div>
+
+    </form>
+
+    <script src="{{url_for('static', filename='js/site-create-options-2.js')}}">
+
+  {% endblock %}
+
+  ```
+
+  The JavaScript consists of event listeners for each typeface group, which will remove all other active tags and set the selected one to active.
+
+##### /scripts/site-create-options-2.js
+  ```js
+  var textOptions = document.querySelectorAll(".new-site-form.three .text-option")
+
+  textOptions.forEach((e)=>{
+    e.addEventListener("click",()=>{
+      
+      textOptions.forEach((f)=>{
+        f.classList.remove("active")
+        f.querySelector(".text-option-list").name=
+          "new_site_font_face_list_inactive"
+      })
+
+      e.classList.add("active")
+      e.querySelector(".text-option-list").name=
+        "new_site_font_face_list_active"
+
+    })
+  })
+  ```
+
+  The back end queries `new_site_font_face_list_active` to get the selected font, gets the name of said fonts, and stores them as a list in the `flask.session`.
+
+##### changes to \_\_init\_\_.py
+  ```python
+  @self.app.route("/home/new/2")
+  @login_required
+  def site_create_options_2():
+    # stop people from starting halfway through the form i.e. if they didnt come 
+    # from the previous site_create page, send them to the start
+    if not request.referrer == url_for("site_create_options_1",_external=True): 
+      return redirect(url_for("site_create"))
+
+    return render_template("site-create-options-2.html")
+
+  @self.app.route("/home/new/2", methods=["post"])
+  @login_required
+  def site_create_options_2_post():
+    formOutput = request.form.get("new_site_font_face_list_active").split(",")
+    session["new_site_fontOptions"]=formOutput
+    return redirect(url_for("site_create_options_generate"))
+  ```
+
+  After this, it redirects to `site_create_options_generate`. This will collect all of the `flask.session` data and store it in the dictionary `siteSettings` (and then clear the session data). It then calls the function `createSiteStructure` and passes said dictionary, and redirects the user to the site they just generated.
+
+  The `createSiteStructure` takes the `siteSettings` dictionary and converts it into a database object, along with generating the required server-side files and directories. The data was originally going to be stored in a JSON or XML file, however I opted to use config files (`.ini`) as the `ConfigParser` python library allows for easier editing and creation of data storage. The storage of site pages and code files is stored in a `.json` file. An example `site.ini` file may look like this:
+
+  ```ini
+  [settings]
+  name = Epic-Webpage
+  user = test
+  desc = This is a description!
+
+  [color]
+  accent = #878acf
+  accent-dark = #696ec3
+  accent-light = #abaede
+  dark = #0f0f0f
+  grey-100 = #303030
+  grey-200 = #474747
+  grey-300 = #5e5e5e
+  grey-400 = #757575
+  grey-500 = #8c8c8c
+  grey-600 = #a3a3a3
+  grey-700 = #bababa
+  grey-800 = #d1d1d1
+  grey-900 = #e8e8e8
+  light = #f5f5f5
+  primary = #1cb566
+  primary-dark = #15894d
+  primary-light = #22d87a
+  secondary = #d9ca20
+  secondary-dark = #ada11a
+  secondary-light = #e6da56
+
+  [font]
+  header = DM Sans
+  body = Catamaran
+  ```
+
+  The `generateFolderStructure` and `generateFileStructure` functions are called to create the files and directories. They take a list of paths and iterate through them, creating new files or directories if they don't already exist.
+
+  The `defaultHTMLPage` function returns a string of HTML content to set as the default content when a new site is created.
+
+##### changes to \_\_init\_\_.py
+  ```python
+  @self.app.route("/home/new/generate")
+  @login_required
+  def site_create_generate():
+    if not request.referrer == url_for("site_create_options_2",_external=True):
+      return redirect(url_for("site_create"))
+
+    siteSettings={
+      "name":session["new_site_sitename"],
+      "user":str(current_user.user_id),
+      "desc":session["new_site_sitedesc"] if session["new_site_sitedesc"]!="" 
+             else "No Description Set",
+
+      "created":self.datetime.datetime.utcnow(),
+      "isPublic":session["new_site_isPublic"],
+      "colorOptions":session["new_site_colorOptions"],
+      "fontOptions":session["new_site_fontOptions"],
+    }
+
+    self.createSiteStructure(siteSettings)
+
+    # Clear the used session varaibles
+    session["new_site_sitename"]=""
+    session["new_site_sitedesc"]=""
+    session["new_site_isPublic"]=""
+    session["new_site_colorOptions"]={}
+    session["new_site_fontOptions"]=[]
+
+    return redirect(url_for("site_edit_home",
+                            name=siteSettings["user"],
+                            site=siteSettings["name"]))
+  ```
+
+  ```python
+  def createSiteStructure(self,siteSettings):
+      sitePath=self.os.path.abspath(
+      f"static/data/userData/{siteSettings['user']}/sites/{siteSettings['name']}")
+
+      siteConfigFile=f"{sitePath}/site.ini"
+
+      folderStructure=[
+        f"{sitePath}",
+        f"{sitePath}/output",
+        f"{sitePath}/files"
+      ]
+
+      fileStructure=[
+        siteConfigFile,
+        f"{sitePath}/siteDat.json",
+        f"{sitePath}/files/1.html"
+      ]
+
+      self.generateFolderStructure(folderStructure)
+      self.generateFileStructure(fileStructure)
+
+      with open(f"{sitePath}/siteDat.json","w") as f: 
+        f.write("{\"pages\":{\"Home\":\"1.html\"},\"css\":{},\"js\":{}}")
+
+      with open(f"{sitePath}/files/1.html","w") as f: 
+        f.write(self.defaultHtmlPage(siteSettings["name"],
+                                     siteSettings["desc"],
+                                     siteSettings["user"]))
+        
+
+      cfgContent=ConfigParser()
+      cfgContent.read(siteConfigFile)
+
+      section="settings"
+      try: cfgContent.add_section(section)
+      except: pass
+
+      cfgContent.set(section,"name",siteSettings["name"])
+      cfgContent.set(section,"user",siteSettings["user"])
+      cfgContent.set(section,"desc",siteSettings["desc"])
+
+      section="color"
+      try: cfgContent.add_section(section)
+      except: pass
+
+      for key in siteSettings["colorOptions"]: 
+        cfgContent.set(section,key,siteSettings["colorOptions"][key])
+
+      section="font"
+      try: cfgContent.add_section(section)
+      except: pass
+
+      cfgContent.set(section,"header",siteSettings["fontOptions"][0])
+      cfgContent.set(section,"body",siteSettings["fontOptions"][1])
+
+      with open(siteConfigFile,"w") as f:
+        cfgContent.write(f)
+        f.close()
+
+      newSite = self.Site(
+        name=siteSettings["name"],
+        datecreated=siteSettings["created"],
+        private=not siteSettings["isPublic"],
+        deleted=False,
+        user_id=siteSettings["user"],
+        sitePath=sitePath,
+      )
+
+      self.db.session.add(newSite)
+      self.db.session.commit()
+  ```
+
+  ```python
+  def generateFolderStructure(self,folders):
+    for folder in folders:
+      if self.os.path.isdir(folder): continue
+      try: self.os.makedirs(folder)
+      except OSError as e: raise e
+  ```
+
+  ```python
+  def generateFileStructure(self,files):
+    for file in files:
+      if self.os.path.exists(file): continue
+      try: with open(file,"w") as f: f.close()
+      except OSError as e: raise e
+  ```
 
 
 <!--
