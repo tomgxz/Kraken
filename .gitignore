@@ -15,8 +15,7 @@ tkinter/
 .ignore
 .commentary
 .grip.bat
-
-
+db.sqlite
 
 
 # Byte-compiled / optimized / DLL files
