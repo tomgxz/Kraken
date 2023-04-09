@@ -1419,7 +1419,9 @@ root((MAIN))
 
   Usability testing will be done both white-box and black-box - the UI design will be tested during and after development and will be tested with some of the stakeholders to make sure that it is easy to understand and navigate, and that it functions as intended on a variety of devices, resolutions, and browsers. Feedback, criticisms, and suggestions from the stakeholders will be taken after these sessions to ensure that the final product is easy to use and meets their requirements.
 
-  Any testing will be recorded during the development process, such as different platforms used in the UI design, or invalid inputs entered when checking user input.
+  Any testing will either be recorded during the development process or recorded in Appendix B, such as different platforms used in the UI design, or invalid inputs entered when checking user input.
+
+  <!-- TODO: consider specific test data for specific aspects of the process -->
 
 <br><br><br><br>
 
@@ -4964,7 +4966,7 @@ root((MAIN))
   ```
 
   ```python
-  def createSiteStructure(self,siteSettings:dict) -> None:
+  def createSiteStructure(self,siteSettings:dict[str,str | any]) -> None:
 
     # get the prefix for the site path
     sitePath=self.os.path.abspath(
