@@ -19,19 +19,21 @@
   left:0;
   right:0;
   bottom:0;
-  z-index:299;
+  z-index:9995;
   width:100%;
   height:100%;
   background-color:rgba(0,0,0,.5);
   visibility:hidden;
   opacity:0;
   transition: opacity 200ms ease-out, visibility 200ms ease-out;
+  display: none;
 }
 
 .lightbox-mask.shown {
   visibility:visible;
   opacity:1;
   cursor:pointer;
+  display: block;
 }
 
 .section-selector {
@@ -43,7 +45,7 @@
     display:flex;
     flex-direction: row;
     align-items: center;
-    z-index: 300;
+    z-index: 9996;
 }
 .section-selector-container {
     position:absolute;
@@ -56,18 +58,19 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    right:200px;
+    right: 16px;
     opacity:0;
     transform:scale(0.9);
+    transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
     visibility:hidden;
-    transition: right 200ms ease-out, opacity 200ms ease-out, transform 200ms ease-out, visibility 200ms ease-out;
-    z-index: 300;
+    z-index: 9996;
+    display:none;
 }
 .section-selector-container.shown {
-    right: 16px;
     opacity:1;
     transform:scale(1);
     visibility:visible;
+    display: flex;
 }
 .section-selector-exit-btn {
     position: absolute;
@@ -172,13 +175,207 @@
     border: 2px solid var(--colors-grey-200);
     border-radius: 1em;
     --scrollbar-display: none;
+    position: relative;
 }
 
-.site-builder-preview, {
+.site-builder-preview {
   width:100%;
   height:100%;
+  position: relative;
 }
 
 .site-builder-preview .page {
   width:100%;
+}
+
+[data-kraken-section] {
+    position: relative;
+    display: grid;
+    cursor: pointer;
+}
+
+[data-kraken-section][data-kraken-section-selected]:not([data-preview]) .controls-ghost-overlay {
+    border: 3px solid var(--selected-border-color, #053ea0);
+}
+
+[data-kraken-section]:not([data-preview]):hover .controls .controls-ghost-overlay {
+    border: 3px solid var(--hover-border-color);
+}
+
+.controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 210;
+    display: none;  
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: grid;
+}
+
+.controls .controls-ghost-overlay {
+    position: relative;
+    z-index: 201;
+    grid-area: var(--position);
+    pointer-events: none;
+    outline-color: initial;
+    border: 0px solid transparent;
+    --position: 0/0/0/0;
+    --outline-color: var(--accent-two);
+    --hover-border-color: var(--colors-primary-light);
+    --selected-border-color: var(--colors-primary);
+}
+
+.controls .controls-resize-handle-container {
+    position: absolute;
+    z-index: 203;
+    align-self: end;
+    justify-self: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+[data-kraken-section][data-kraken-section-selected]:not([data-preview]) .controls .resize-handle,.section-wrapper:hover:not([data-preview]) .controls .resize-handle {
+    display:flex
+}
+
+.controls .resize-handle {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 20px;
+    color: #fff;
+    cursor: row-resize;
+    background: #357df9;
+    border-radius: 3px;
+    transition: background .2s cubic-bezier(.4,0,.2,1),transform .1s ease-out;
+    transform: translateY(var(--resize-movement-length));
+    position: absolute;
+    right: 0;
+    z-index: 203;
+    display: none;
+}
+
+.controls .controls-resize-handle-container .trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.grid-item .grid-item-content,
+.grid-item .grid-item-content * {
+    width:100%;
+    height:100%;
+}
+
+.section-edit-actions {
+    position: absolute;
+    inset: 0px auto auto 0px;
+    margin: 0px;
+    top:0;
+    left:100%;
+    transform:translateX(calc(-100% - 8px));
+    z-index: 104;
+    opacity: 1;
+    transition: opacity .15s cubic-bezier(.4,0,.2,1);
+    margin-top:16px;
+    margin-right:8px;
+}
+
+.section-edit-actions .actions-list {
+    display: none;
+    justify-content: center;
+}
+
+.section-edit-actions.shown .actions-list {
+    display:flex;
+}
+
+.section-edit-actions .edit-action {
+    border-radius: 1em;
+    background: var(--colors-light);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    box-shadow: 0 4px 9px 0 rgba(0,0,0,.15);
+    cursor:pointer;
+    margin-right:8px;
+}
+
+.element-resize-container {
+    display:none;
+    grid-area:1/1/-1/-1;
+    visibility:hidden;
+}
+
+.grid-item[data-kraken-element-selected] .element-resize-container,
+.grid-item:hover .element-resize-container {
+    display:grid;
+    visibility:visible;
+}
+
+.element-resize-container .resize-corners {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    pointer-events: none;
+}
+
+.element-resize-container .resize-corner {
+    position: absolute;
+    grid-area: 1/1/-1/-1;
+    padding: 4px;
+    pointer-events: all;
+}
+
+.element-resize-container .resize-corner-visual-element{
+    width: 10px;
+    height: 10px;
+    background: white;
+    outline: 2px solid var(--colors-secondary);
+}
+
+.element-resize-container .resize-corner-top-left {
+    align-self: start;
+    justify-self: start;
+    cursor: nwse-resize;
+    transform: translate(-50%,-50%);
+}
+
+.element-resize-container .resize-corner-top-right {
+    align-self: start;
+    justify-self: end;
+    cursor: nesw-resize;
+    transform: translate(50%,-50%);
+}
+
+.element-resize-container .resize-corner-bottom-left {
+    align-self: end;
+    justify-self: start;
+    cursor: nesw-resize;
+    transform: translate(-50%,50%);
+}
+
+.element-resize-container .resize-corner-bottom-right {
+    align-self: end;
+    justify-self: end;
+    cursor: nwse-resize;
+    transform: translate(50%,50%);
+}
+
+.element-resize-container .element-outline {
+    --outline-style: solid;
+    --outline-color: var(--colors-secondary);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    outline: 2px var(--outline-style) var(--outline-color);
 }

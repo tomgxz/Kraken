@@ -2,6 +2,7 @@
 
 {% set navbarLogoColor = "secondary" %}
 {% set navbarOptionsEnabled = False %}
+{% set messages = get_flashed_messages()[0] %}
 
 {% block content %}
 
@@ -20,31 +21,40 @@
     </div>
     <div class="field-container active">
         <span class="field-warning text italic">
-            {% with messages = get_flashed_messages() %}
-
-            {% if messages %}
-              {{ messages[0] }}
-            {% endif %}
-
-            {% endwith %}
+          {% if messages[0] %}
+            {{ messages[1] }}
+          {% endif %}
         </span>
 
         <form class="field-options" method="post" action="/login/">
 
-            <div class="field-option field-option-username">
-                <h4 class="text italic">Username</h4>
+            {% set formItems = [
+              ["Username","Username","text","username",false,messages[2]],
+              ["Password","Password","password","password",true,""]
+            ]
+            %}
+
+            {% for item in formItems %}
+            <div class="field-option field-option-{{item[3]}}">
+                <h4 class="text italic">{{item[0]}}</h4>
                 <div class="field-input-container">
-                    <input class="field-input" placeholder="Username" type="text" name="username">
+                    <input class="field-input" placeholder="{{item[1]}}" type="{{item[2]}}" name="{{item[3]}}" value="{{item[5]}}">
+                    {% if item[4] %}
+                    <span class="eye-reveal">
+                      <i class="fa-solid fa-eye"></i>
+                    </span>
+                    {% else %}
                     <span class="eye-spacer"></span>
+                    {% endif %}
                 </div>
             </div>
-            <div class="field-option field-option-password">
-                <h4 class="text italic">Password</h4>
+            {% endfor %}
+
+            <div class="field-option field-option-remember">
+                <h4 class="text italic">Remember Me</h4>
                 <div class="field-input-container">
-                    <input class="field-input" placeholder="Password" type="password" name="password">
-                    <span class="eye-reveal">
-                    <i class="fa-solid fa-eye"></i>
-                    </span>
+                    <input class="field-input" type="checkbox" name="remember" value={{messages[3]}}>
+                    <span class="eye-spacer"></span>
                 </div>
             </div>
 
@@ -57,6 +67,7 @@
     </div>
 </div>
 
+<script src="../static/js/auth.js"></script>
 <script src="../static/js/login.js"></script>
 
 {% endblock %}

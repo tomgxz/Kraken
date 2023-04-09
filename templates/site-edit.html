@@ -10,12 +10,6 @@
 {% block content %}
 
 <link href="{{url_for('static', filename='css/site-edit.css')}}" rel="stylesheet" type="text/css" />
-<script>
-  fetch("{{url_for('static', filename='data/userData/'+currentName+'/sites/'+currentSite+'/siteDat.json')}}").then(response => {
-   return response.json();
-  })
-.then(jsondata => console.log(jsondata));
-</script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
@@ -83,16 +77,27 @@
 
             <div class="section-selector-content">
                 <div class="section-selector-list" id="section_selector_list">
+                    <style id="section_selector_style"></style>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="site-builder">
-        <link href="{{url_for('static', filename='css/default_content_style.css')}}" rel="stylesheet" type="text/css" />
+        <!--<link href="{{url_for('static', filename='css/default_content_style.css')}}" rel="stylesheet" type="text/css" />-->
+        <link href="{{url_for('static', filename='css/edit.css')}}" rel="stylesheet" type="text/css" />
         <div class="site-builder-preview" id="contains_site">
-
         </div>
+
+        <div class="section-edit-actions">
+            <div class="actions-list">
+                <div class="edit-action" id="section_edit_action_settings"><i class="fa-regular fa-gear"></i></div>
+                <div class="edit-action" id="section_edit_action_duplicate"><i class="fa-regular fa-clone"></i></div>
+                <div class="edit-action" id="section_edit_action_lock"><i class="fa-regular fa-lock"></i></div>
+                <div class="edit-action" id="section_edit_action_delete"><i class="fa-regular fa-trash"></i></div>
+            </div>
+        </div>
+
     </div>
 
 </div>

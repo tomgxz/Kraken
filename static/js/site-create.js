@@ -18,9 +18,8 @@ function editFormMessageSiteNameWarning(val) {
     }
   }
   if (hasRepeatedDashes(newInner)) { newInner=replaceRepeatedDashes(newInner) }
-  messageSpan.innerHTML=val
+  messageSpan.innerHTML=newInner
 }
-
 
 function hideFormMessage() {
   messageContainer.classList.add("visibly-hidden")
