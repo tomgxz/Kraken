@@ -1450,7 +1450,7 @@ root((MAIN))
 
   # The main class of the application
   class Kraken():
-    def __init__(self,host,port):
+    def __init__(self,host:str,port:int) -> None:
       # Create the Flask application and set a secret key
       self.app = Flask("Kraken")
       self.app.config["SECRET_KEY"]="secret-key-goes-here"
@@ -1461,10 +1461,10 @@ root((MAIN))
       # Run the Flask application
       self.app.run(host=host,port=port)
 
-    def initPages(self):
+    def initPages(self) -> None:
       # Home page route
       @self.app.route("/")
-      def main_index():
+      def main_index() -> str:
         # Display the returned text
         return "This is the homepage!"
 
@@ -1497,11 +1497,11 @@ root((MAIN))
   # flash sends messages to the client
   ```
   ```python
-  def initPages(self):
+  def initPages(self) -> None:
 
     # Home page route
     @self.app.route("/")
-    def main_index():
+    def main_index() -> str:
       # flash sends a message to the next site that flask renders
       flash(["Apples","Oranges","Pears",1,2,3])
 
@@ -1569,21 +1569,21 @@ root((MAIN))
 
 ##### changes to \_\_init\_\_.py
   ```python
-  def initPages(self):
+  def initPages(self) -> None:
 
     # Home page route
     @self.app.route("/")
-    def main_home():
+    def main_home() -> str:
       return "Hi o/"
 
     # Login page route
     @self.app.route("/login/")
-    def auth_login():
+    def auth_login() -> str:
       return render_template("login.html")
 
     # Signup page route
     @self.app.route("/signup/")
-    def auth_signup():
+    def auth_signup() -> str:
       return render_template("signup.html")
   ```
 
@@ -2487,7 +2487,7 @@ root((MAIN))
   ```python
   # Login post route
   @self.app.route("/login/", methods=["post"])
-  def auth_login_post():
+  def auth_login_post() -> Response:
     # Get the filled-in items from the login form
     username = request.form.get("username")
     password = request.form.get("password")
@@ -2508,11 +2508,12 @@ root((MAIN))
     # TODO: login user
     return redirect(url_for("main_home"))
 
+
   ```
   ```python
   # Signup post route
   @self.app.route("/signup/", methods=["post"])
-  def auth_signup_post():
+  def auth_signup_post() -> Response:
     # Get the filled-in items from the signup form
     name=request.form.get("name")
     email=request.form.get("email")
@@ -2583,8 +2584,8 @@ root((MAIN))
     return redirect(url_for("auth_login"))
   ```
   ```python
-  def verifyField(self,field,fieldName,mustHaveChar=True,minLen=3,
-    canHaveSpace=False,canHaveSpecialChar=True):
+  def verifyField(self,field:str,fieldName:str,mustHaveChar:bool=True,minLen:int=3,
+    canHaveSpace:bool=False,canHaveSpecialChar:bool=True) -> str:
     # List of special characters for the canHaveSpecialChar flag
     specialChar="%&{}\\<>*?/$!'\":@+`|="
 
@@ -2626,21 +2627,21 @@ root((MAIN))
 ##### changes to \_\_init\_\_.py
   ```python
   # Login page route
-  def auth_login():
+  def auth_login() -> str:
     # Flash an empty list of values to stop errors in the Jinja code
     flash([False,"","","",""])
     return render_template("login.html")
   ```
   ```python
   # Signup page route
-  def auth_signup():
+  def auth_signup() -> str:
     # Flash an empty list of values to stop errors in the Jinja code
     flash([False,"","","",""])
     return render_template("signup.html")
   ```
   ```python
   # Login post route
-  def auth_login_post():
+  def auth_login_post() -> Response:
   ```
   ```python
     # Flashes true to signify an error, the error message, the username given, and
@@ -2650,7 +2651,7 @@ root((MAIN))
   ```
   ```python
   # Signup post route
-  def auth_signup_post():
+  def auth_signup_post() -> Response:
   ```
   ```python
     if len(verifyOutput) > 0:
@@ -2812,7 +2813,7 @@ root((MAIN))
     # Global reference to database object
     global databaseObject
 
-    def __init__(self,host,port):
+    def __init__(self,host:str,port:int) -> None:
       # Assign the database object to the local db reference
       self.db=databaseObject
 
@@ -2828,7 +2829,7 @@ root((MAIN))
       self.Site=Site
   ```
   ```python
-    def initFlask(self):
+    def initFlask(self) -> None:
       # Create the Flask application and set a secret key
       self.app = Flask(__name__)
       self.app.config["SECRET_KEY"]="secret-key-goes-here"
@@ -2875,7 +2876,7 @@ root((MAIN))
     sites = db.relationship("Site")
 
     # Function to return the primary key
-    def get_id(self): return self.user_id
+    def get_id(self) -> str: return self.user_id
 
   # Site class to store the User's sites in the database
   class Site(db.Model):
@@ -2899,7 +2900,7 @@ root((MAIN))
     sitePath = db.Column( db.Text )
 
     # Function to return the primary key
-    def get_id(self): return self.site_id
+    def get_id(self) -> int: return self.site_id
   ```
 
   I then ran the following commands in an online SQL editor to create the database, and saved it as `db.sqlite` in the root directory, so that SQLAlchemy could use it.
@@ -2950,7 +2951,7 @@ root((MAIN))
   ```
   <br><br>
   ```python
-    def __init__(self,host,port):
+    def __init__(self,host:str,port:int) -> None:
   ```
   ```python
       # Initialise the login manager
@@ -2964,7 +2965,7 @@ root((MAIN))
       def loadUser(user_id): return self.User.query.get(user_id)
   ```
   ```python
-    def auth_login_post():
+    def auth_login_post() -> Response:
   ```
   ```python
       # Fetch the user from the database. if there's no user it returns none
@@ -2988,7 +2989,7 @@ root((MAIN))
       return redirect(url_for("main_home"))
   ```
   ```python
-    def auth_signup_post():
+    def auth_signup_post() -> Response:
   ```
   ```python
       # Check whether this email already has an account
@@ -3011,12 +3012,12 @@ root((MAIN))
 
 ##### changes to \_\_init\_\_.py
   ```python
-  def __init__(host,port):
+  def __init__(host:str,port:int) -> None:
     import os
     self.os=os
   ```
   ```python
-  def auth_signup_post():
+  def auth_signup_post() -> Response:
   ```
   ```python
     # create a new user in the database and send to the login page
@@ -3024,7 +3025,7 @@ root((MAIN))
     return redirect(url_for("auth_login"))
   ```
   ```python
-  def createUser(self,u,e,n,p):
+  def createUser(self,u:str,e:str,n:str,p:str) -> None:
 
     # Create a new User object using the variables given
     newUser = self.User(
@@ -3054,23 +3055,21 @@ root((MAIN))
     self.db.session.add(newUser)
     self.db.session.commit()
 
-  def generateFolderStructure(self,folders):
-    # Iterate through given list of folders
+  def generateFolderStructure(self,folders:list) -> None:
+    # Iterate through given list of directories
     for folder in folders:
-      # Ignore if folder already exists
+      # Ignore if directory already exists
       if self.os.path.isdir(folder): continue
-      # Create folder, and catch any errors
+      # Create the directory
       try: self.os.makedirs(folder)
-      except OSError as e:
-        raise OSError(
-              e)
+      except OSError as e: raise e
   ```
 
   I then modified the `auth_signup_post` function so that it logs you in as soon as the user creates their account.
 
 ##### changes to \_\_init\_\_.py
   ```python
-  def auth_signup_post():
+  def auth_signup_post() -> Response:
   ```
   ```python
     # create a new user in the database and server-side storage
@@ -3092,7 +3091,7 @@ root((MAIN))
   @self.app.route("/logout/")
   @self.app.route("/account/logout/")
   @login_required
-  def auth_logout():
+  def auth_logout() -> Response:
       logout_user()
       return redirect(url_for("auth_login"))
   ```
@@ -3111,12 +3110,12 @@ root((MAIN))
   # Index route, redirects to auth_login, which will redirect to main_home if 
   # logged in
   @self.app.route("/")
-  def main_index(): return redirect(url_for("auth_login"))
+  def main_index() -> Response: return redirect(url_for("auth_login"))
 
   # Home Page Route
   @self.app.route("/home/")
   @login_required # User must be logged in to access this page
-  def main_home():
+  def main_home() -> str:
     # check to see if user has any sites
     if len(self.Site.query.filter_by(user_id=current_user.user_id).all()) > 0: 
       # and False:
@@ -3713,41 +3712,58 @@ root((MAIN))
   - Call the `getFolderSize` subroutine and pass the absolute path - this will return a value, in bytes, of the directory
   - Call the `convertByteSize` subroutine and pass the size of the directory, in bytes - this will return a human readable string showing how large the directory is.
 
+  The `getFolderSize` function is recursive, meaning it will call itself each time it finds another subfolder. It will go through each branch in a depth-first manner, before collapsing back up when there are no more subfolders.
+
 ##### changes to \_\_init\_\_.py
 
   ```python
-  def getFolderSize(self,path):
+  def getFolderSize(self,path:str) -> int:
+    # Get the size of the base directory, should return 0
     size=self.os.path.getsize(path)
+
+    # for all directories and files under the path
     for sub in self.os.listdir(path):
-      subPath=self.os.path.join(path,sub)
+      subPath=self.os.path.join(path,sub) # get the path of the directory / file
+
+      # get the size if it is a file
       if self.os.path.isfile(subPath): size+=self.os.path.getsize(subPath)
+
+      # get the size if it is a directory by calling this function
       elif self.os.path.isdir(subPath): size+=self.getFolderSize(subPath)
+
+    # return the size, in bytes
     return size
   ```
 
   ```python
-  def convertByteSize(self,bytes):
+  def convertByteSize(self,bytes:int) -> str:
+    # Zero check
     if bytes==0: return "0B"
+
+    # All possible sizes
     sizes=("B","KB","MB","GB","TB","PB","EB","ZB","YB")
+
     i=int(math.floor(math.log(bytes,1024)))
     p=math.pow(1024,i)
     s=round(bytes/p,2)
+
     if i==0: s=int(s)
+
     return f"{s}{sizes[i]}"
   ```
 
   ```python
-  def initPages_settings(self):
+  def initPages_settings(self) -> None:
   
     @self.app.route("/account/settings/")
     @login_required
-    def settings():
+    def settings() -> Response:
       # redirect to the first settings page
       return redirect(url_for("settings_profile"))
 
     @self.app.route("/account/settings/profile")
     @login_required
-    def settings_profile():
+    def settings_profile() -> str:
       # get the user icon for displaying
       flash(1,self.getUserImage(current_user.user_id))
       return render_template("settings-profile.html")
@@ -3755,22 +3771,23 @@ root((MAIN))
 
     @self.app.route("/account/settings/admin")
     @login_required
-    def settings_admin():
+    def settings_admin() -> str:
       flash(2)
       return render_template("settings-admin.html")
 
     @self.app.route("/account/settings/looks")
     @login_required
-    def settings_looks():
+    def settings_looks() -> str:
       flash(3)
       return render_template("settings-looks.html")
 
     @self.app.route("/account/settings/sites")
     @login_required
-    def settings_sites():
+    def settings_sites() -> str:
       flash(4)
 
-      # Get all of the selected user's websites as lists containing certain info
+      # Flash a list of information about the user's sites 
+      # to be used in the site table.
       flash([
         [
           x.user_id,
@@ -3783,13 +3800,13 @@ root((MAIN))
 
     @self.app.route("/account/settings/code")
     @login_required
-    def settings_code():
+    def settings_code() -> str:
       flash(5)
       return render_template("settings-code.html")
 
     @self.app.route("/account/settings/dev")
     @login_required
-    def settings_dev():
+    def settings_dev() -> str:
       flash(7)
       return render_template("settings-dev.html")
 
@@ -3969,15 +3986,17 @@ root((MAIN))
   ```python
   @self.app.route("/home/new/")
     @login_required
-    def site_create():
+    def site_create() -> str:
       out=""
       
       # get all current site names for the logged in user, then flash (send) it to 
       # the site, where it is processed by the javascript
-      names = [x.name for x in self.Site.query.filter_by(
-              user_id=current_user.user_id).all()]
+      allusernames = [x.name for x in self.Site.query.filter_by(
+                      user_id=current_user.user_id).all()]
 
-      for name in names: out+=name+","
+      for name in allusernames: 
+        out+=name+","
+
       flash(out[:-1])
       
       return render_template("site-create.html")
@@ -4184,14 +4203,14 @@ root((MAIN))
   ```python
   @self.app.route("/home/new/", methods=["post"])
   @login_required
-  def site_create_post():
+  def site_create_post() -> Response:
 
-    def listToStr(var):
+    def listToStr(var:list) -> str:
       out=""
       for char in var: out+=char
       return out
 
-    def replaceToDash(var):
+    def replaceToDash(var:str) -> str:
       # replaces any invalid characters in the string var with a dash, used to 
       # format the site name correctly so that there arent any errors
       var=list(var)
@@ -4199,12 +4218,17 @@ root((MAIN))
         if var[i] not in "qwertyuiopasdfghjklzxcvbnm-._1234567890": var[i]="-"
       return listToStr(var)
 
-    def replaceRepeatedDashes(var):
+    def replaceRepeatedDashes(var:str) -> str:
       # recursive function to remove adjacent dashes from a string
       var=list(var)
       for i in range(len(var)):
+
+        # if this is the last character, return
         if i+1 >= len(var): return listToStr(var)
+
+        # if this and the next character are dashes
         if var[i] == "-" and var[i+1] == "-":
+          # remove this character
           del var[i]
           var = list(replaceRepeatedDashes(var))
           return listToStr(var)
@@ -4231,7 +4255,7 @@ root((MAIN))
   ```python
   @self.app.route("/home/new/1")
   @login_required
-  def site_create_options_1():
+  def site_create_options_1() -> str | Response:
     # stop people from starting halfway through the form i.e. if they didnt come 
     # from the previous site_create page, send them to the start
     if not request.referrer == url_for("site_create",_external=True): 
@@ -4683,15 +4707,28 @@ root((MAIN))
   ```python
   @self.app.route("/home/new/1", methods=["post"])
   @login_required
-  def site_create_options_1_post():
+  def site_create_options_1_post() -> Response:
+    # new_site_color_options_dict is in the format
+    # "key1:value,key2:value,key3:value"
+    # so splitting by comma gives ["key1:value","key2:value","key3:value"]
+    # then iterate through the list, split by colon, and add parts to dictionary
+    
+    # split into "k:v" list items
     formOutput = request.form.get("new_site_color_options_dict").split(",")
-    colorOptions = {}
-    for pair in formOutput:
-      x=pair.split(":")
-      colorOptions[x[0]]=x[1]
 
+    # create output dictionary
+    colorOptions = {}
+    for pair in formOutput: # where pair is in the format "<key>:<value>"
+      # split into ["<key>","<value>"]
+      colonsplit=pair.split(":")
+
+      # append to dictionary - result = {... , "<key>":"<value>"}
+      colorOptions[colonsplit[0]]=colonsplit[1]
+
+    # add color options dictionary to session
     session["new_site_colorOptions"]=colorOptions
 
+    # proceed to next page
     return redirect(url_for("site_create_options_2"))
   ```
 
@@ -4812,7 +4849,7 @@ root((MAIN))
   ```python
   @self.app.route("/home/new/2")
   @login_required
-  def site_create_options_2():
+  def site_create_options_2() -> str | Response:
     # stop people from starting halfway through the form i.e. if they didnt come 
     # from the previous site_create page, send them to the start
     if not request.referrer == url_for("site_create_options_1",_external=True): 
@@ -4822,9 +4859,17 @@ root((MAIN))
 
   @self.app.route("/home/new/2", methods=["post"])
   @login_required
-  def site_create_options_2_post():
+  def site_create_options_2_post() -> Response:
+    # new_site_font_face_list_active is in the format "<headerfontname>,<paragraphfontname>"
+    # so split by comma to get ["<headerfontname>","<paragraphfontname>"]
+
+    # get value from the active form element and split into list
     formOutput = request.form.get("new_site_font_face_list_active").split(",")
+
+    # store font selection in session
     session["new_site_fontOptions"]=formOutput
+
+    # proceed to next page
     return redirect(url_for("site_create_options_generate"))
   ```
 
@@ -4873,10 +4918,13 @@ root((MAIN))
   ```python
   @self.app.route("/home/new/generate")
   @login_required
-  def site_create_generate():
+  def site_create_generate() -> Response:
+    # stop people from starting halfway through the form i.e. if they didnt come 
+    # from the previous site_create page, send them to the start
     if not request.referrer == url_for("site_create_options_2",_external=True):
       return redirect(url_for("site_create"))
 
+    # Store session data into a dictionary, along with extra paramaters such as when the site was created and the user id
     siteSettings={
       "name":session["new_site_sitename"],
       "user":str(current_user.user_id),
@@ -4889,105 +4937,108 @@ root((MAIN))
       "fontOptions":session["new_site_fontOptions"],
     }
 
+    # Create the site database object and local storage
     self.createSiteStructure(siteSettings)
 
-    # Clear the used session varaibles
+    # Clear any used session varaibles
     session["new_site_sitename"]=""
     session["new_site_sitedesc"]=""
     session["new_site_isPublic"]=""
     session["new_site_colorOptions"]={}
     session["new_site_fontOptions"]=[]
 
+    # Redirect to the site homepage
     return redirect(url_for("site_edit_home",
                             name=siteSettings["user"],
                             site=siteSettings["name"]))
   ```
 
   ```python
-  def createSiteStructure(self,siteSettings):
-      sitePath=self.os.path.abspath(
-      f"static/data/userData/{siteSettings['user']}/sites/{siteSettings['name']}")
+  def createSiteStructure(self,siteSettings:dict) -> None:
 
-      siteConfigFile=f"{sitePath}/site.ini"
+    # get the prefix for the site path
+    sitePath=self.os.path.abspath(f"static/data/userData/{siteSettings['user']}/sites/{siteSettings['name']}")
 
-      folderStructure=[
-        f"{sitePath}",
-        f"{sitePath}/output",
-        f"{sitePath}/files"
-      ]
+    # get the path for the site config file
+    siteConfigFile=f"{sitePath}/site.ini"
 
-      fileStructure=[
-        siteConfigFile,
-        f"{sitePath}/siteDat.json",
-        f"{sitePath}/files/1.html"
-      ]
+    # create a list of required directories
+    folderStructure = [
+      f"{sitePath}",
+      f"{sitePath}/output",
+      f"{sitePath}/files"
+    ]
 
-      self.generateFolderStructure(folderStructure)
-      self.generateFileStructure(fileStructure)
+    # create a list of required files
+    fileStructure = [
+      siteConfigFile,
+      f"{sitePath}/siteDat.json",
+      f"{sitePath}/files/1.html"
+    ]
 
-      with open(f"{sitePath}/siteDat.json","w") as f: 
+    # create the required directories and files in the local storage
+    self.generateFolderStructure(folderStructure)
+    self.generateFileStructure(fileStructure)
+
+    # create the JSON file for the site, which contains code locations
+    with open(f"{sitePath}/siteDat.json","w") as f: 
         f.write("{\"pages\":{\"Home\":\"1.html\"},\"css\":{},\"js\":{}}")
 
-      with open(f"{sitePath}/files/1.html","w") as f: 
-        f.write(self.defaultHtmlPage(siteSettings["name"],
-                                     siteSettings["desc"],
-                                     siteSettings["user"]))
-        
+    # create the default webpage for the site
+    with open(f"{sitePath}/files/1.html","w") as f: 
+        f.write(self.defaultHtmlPage(siteSettings["name"],siteSettings["desc"],siteSettings["user"]))
 
-      cfgContent=ConfigParser()
+    # Create the config parser for the site.ini file
+    with ConfigParser() as cfgContent:
+
       cfgContent.read(siteConfigFile)
 
-      section="settings"
-      try: cfgContent.add_section(section)
-      except: pass
+      # create the required sections
+      for section in ["settings","color","font"]:
+        try: cfgContent.add_section(section)
+        except: pass
 
-      cfgContent.set(section,"name",siteSettings["name"])
-      cfgContent.set(section,"user",siteSettings["user"])
-      cfgContent.set(section,"desc",siteSettings["desc"])
+      # Add basic information to the settings section
+      cfgContent.set("settings","name",siteSettings["name"])
+      cfgContent.set("settings","user",siteSettings["user"])
+      cfgContent.set("settings","desc",siteSettings["desc"])
 
-      section="color"
-      try: cfgContent.add_section(section)
-      except: pass
-
+      # Add the color palette
       for key in siteSettings["colorOptions"]: 
-        cfgContent.set(section,key,siteSettings["colorOptions"][key])
+        cfgContent.set("color",key,siteSettings["colorOptions"][key])
 
-      section="font"
-      try: cfgContent.add_section(section)
-      except: pass
+      # Add the typeface
+      cfgContent.set("font","header",siteSettings["fontOptions"][0])
+      cfgContent.set("font","body",siteSettings["fontOptions"][1])
 
-      cfgContent.set(section,"header",siteSettings["fontOptions"][0])
-      cfgContent.set(section,"body",siteSettings["fontOptions"][1])
-
+      # write to the site.ini file
       with open(siteConfigFile,"w") as f:
         cfgContent.write(f)
         f.close()
 
-      newSite = self.Site(
+    # Create a new Site object using the varaibles given
+    newSite=self.Site(
         name=siteSettings["name"],
         datecreated=siteSettings["created"],
         private=not siteSettings["isPublic"],
         deleted=False,
         user_id=siteSettings["user"],
         sitePath=sitePath,
-      )
+    )
 
-      self.db.session.add(newSite)
-      self.db.session.commit()
+    # Add and commit the new site to the database
+    self.db.session.add(newSite)
+    self.db.session.commit()
   ```
 
   ```python
-  def generateFolderStructure(self,folders):
-    for folder in folders:
-      if self.os.path.isdir(folder): continue
-      try: self.os.makedirs(folder)
-      except OSError as e: raise e
-  ```
+  def generateFileStructure(self,files:list) -> None:
+    for file in files: # Iterate through given list of files
 
-  ```python
-  def generateFileStructure(self,files):
-    for file in files:
+      # Ignore if file already exists
       if self.os.path.exists(file): continue
+
+      # Create the empty file
       try: with open(file,"w") as f: f.close()
       except OSError as e: raise e
   ```
