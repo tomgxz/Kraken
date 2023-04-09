@@ -30,7 +30,7 @@ class User(UserMixin,db.Model):
   sites = db.relationship("Site")
 
   # Function to return the primary key
-  def get_id(self): return self.user_id
+  def get_id(self) -> str: return self.user_id
 
 # Site class to store the User's sites in the database
 class Site(db.Model):
@@ -54,4 +54,4 @@ class Site(db.Model):
   sitePath = db.Column( db.Text )
 
   # Function to return the primary key
-  def get_id(self): return self.site_id
+  def get_id(self) -> int: return self.site_id
