@@ -1,26 +1,3 @@
-
-<!--
-<style>
-
-del {
-  text-decoration:none;
-  float:right;
-  display:inline-block;
-}
-
-.margin-left-32 {
-  margin-left:32px
-}
-
-.preview-page {
-    margin-top:0
-}
-
-a[href="#analysis"],a[href="#problem-identification"],a[href="#stakeholders"],a[href="#why-it-is-suited-to-a-computational-approach"],a[href="#initial-talks-with-stakeholdlers"],a[href="#analysis-from-stakeholders"],a[href="#research"],a[href="#existing-solution---squarespace"],a[href="#existing-solution---zyro"],a[href="#key-features-of-the-solution"],a[href="#limitations-of-the-solution"],a[href="#hardware-and-software-requirements"],a[href="#hardware-requirements"],a[href="#software-requirements"],a[href="#success-criteria"],a[href="#essential-features"],a[href="#desirable-features"],a[href="#design"],a[href="#url-navigation"],a[href="#user-interface-design"],a[href="#usability"],a[href="#accessibility"],a[href="#aria"],a[href="#stakeholder-input-d"],a[href="#website-structure-and-backend"],a[href="#data-storage"],a[href="#algorithms"],a[href="#drag-and-drop-editor-algorithms"],a[href="#multi-user-system-algorithms"],a[href="#diagram-showing-how-the-subroutines-link"],a[href="#subroutines"],a[href="#multi-user-system---login-system"],a[href="#multi-user-system---creating-a-new-site"],a[href="#utility-subroutines"],a[href="#explanation-and-justification-of-this-process"],a[href="#inputs-and-outputs"],a[href="#key-variables"],a[href="#validation"],a[href="#testing-method"],a[href="#development"],a[href="#stage-1---setting-up-the-website"],a[href="#stage-2---creating-and-implementing-the-database"],a[href="#stage-3---homepage-and-settings"],a[href="#stage-4---creating-a-new-site"],a[href="#appendix-a---code"],a[href="#appendix-b---testing"]{color:black}a[href="#analysis"],a[href="#design"],a[href="#development"],a[href="#appendix-a---code"],a[href="#appendix-b---testing"]{font-weight:600}
-
-</style>
--->
-
 <!--
 
 H446 A Level Programming Project - Kraken
