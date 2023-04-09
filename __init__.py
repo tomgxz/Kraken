@@ -338,7 +338,7 @@ class Kraken():
             # Verify the name input and return an error message if invalid
             verifyOutput:str = self.verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
 
-            if len(verifyOutput) > 0:
+            if verifyOutput:
                 # Flashes true to signify an error, the error message, the name given (removed due to error), the email given, and the username given
                 flash([True,verifyOutput,"",email,username])
                 return redirect(url_for("auth_signup"))
@@ -346,7 +346,7 @@ class Kraken():
             # Verify the email input and return an error message if invalid
             verifyOutput:str = self.verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
 
-            if len(verifyOutput) > 0:
+            if verifyOutput:
                 # Flash an error message and the filled in values
                 flash([True,verifyOutput,name,"",username])
                 return redirect(url_for("auth_signup"))
@@ -354,7 +354,7 @@ class Kraken():
             verifyOutput:str = self.verifyField(username,"Username",canHaveSpecialChar=False)
 
             # Verify the username input and return an error message if invalid
-            if len(verifyOutput) > 0:
+            if verifyOutput:
                 # Flash an error message and the filled in values
                 flash([True,verifyOutput,name,email,""])
                 return redirect(url_for("auth_signup"))
@@ -362,7 +362,7 @@ class Kraken():
             # Verify the password input and return an error message if invalid
             verifyOutput:str = self.verifyField(password1,"Password",minLen=8)
 
-            if len(verifyOutput) > 0:
+            if verifyOutput:
                 # Flash an error message and the filled in values
                 flash([True,verifyOutput,name,email,username])
                 return redirect(url_for("auth_signup"))
@@ -802,7 +802,7 @@ class Kraken():
 
             flash(4)
 
-            # flash a list of the user's sites to be used in the site table.
+            # Flash a list of information about the user's sites to be used in the site table.
             flash([[x.user_id,x.name,x.private,self.convertByteSize(self.getFolderSize(self.os.path.abspath(x.sitePath)))] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])
             
             return render_template("settings-sites.html")
@@ -1075,7 +1075,7 @@ class Kraken():
         return "" # Return an empty string if the input is valid
 
     def getFolderSize(self,path:str) -> int:
-        """Gets the size of a given folder path.
+        """Gets the size of a given folder path via recursively searching through every directory in a depth-first manner.
 
         :param path: The path of the root folder
         :type path: str
@@ -1092,10 +1092,10 @@ class Kraken():
             subPath=self.os.path.join(path,sub) # get the path of the directory / file
             
             # get the size if it is a file
-            if self.os.path.isfile(subPath): size+=self.os.path.getsize(subPath)
+            if self.os.path.isfile(subPath): size += self.os.path.getsize(subPath)
             
-            # get the size if it is a directory
-            elif self.os.path.isdir(subPath): size+=self.getFolderSize(subPath)
+            # get the size if it is a directory by calling this function
+            elif self.os.path.isdir(subPath): size += self.getFolderSize(subPath)
 
         # return the size, in bytes
         return size
@@ -1157,7 +1157,7 @@ class Kraken():
         :returns: The default HTML content for a new page
         :rtype: str
         """
-        
+
         return f"""<div class=\"page\" data-content-parentview></div>"""
 
 if __name__ == "__main__": 
