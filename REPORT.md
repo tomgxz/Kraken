@@ -58,6 +58,7 @@ height:225px
     - [Stage 2 - Creating and implementing the database](#stage-2---creating-and-implementing-the-database) ~~97~~
     - [Stage 3 - Homepage and Settings](#stage-3---homepage-and-settings) ~~104~~
     - [Stage 4 - Creating a New Site](#stage-4---creating-a-new-site) ~~122~~
+    - [Stage 5 - Code Documentation](#stage-5---code-documentation) ~~150~~
   >
 
   - [Appendix A - Code](#appendix-a---code) 
@@ -5114,3 +5115,254 @@ root((MAIN))
 
   To access the website builder, the URL functions like this: `/<username>/<sitename>/`, where the backend interprets the URL to send the correct information to the user to load the site. It will check for permissions for the user to send the appropriate site to them.
 -->
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+
+### Stage 5 - Code Documentation
+
+  To ensure that the code is easy to interperet by any other developers, and also allow it to integrate better into IDEs, I went through each function in `__init__.py` to add more detailed comments, variable type declarations, and Sphinx docstrings to the start of each function.
+
+#### Sphinx Docstring Format
+
+  The `Sphinx` docstring format is a standard used to automatically generate documentation for code. It describes the purpose of the function, the parameters and their types, and the return value. The following is taken from [Sphinx Docstring Documentation](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html).
+  
+  >In general, a typical `Sphinx` docstring has the following format:
+
+  >```
+  >[Summary]
+  >
+  >:param [ParamName]: [ParamDescription], defaults to [DefaultParamVal]
+  >type [ParamName]: [ParamType](, optional)
+  >...
+  >:raises [ErrorType]: [ErrorDescription]
+  >...
+  >:return: [ReturnDescription]
+  >:rtype: [ReturnType]
+  >```
+
+  >A pair of `:param:` and `:type:` directive options must be used for each parameter we wish to document. The `:raises:` option is used to describe any errors that are raised by the code, while the `:return:` and `:rtype:` options are used to describe any values returned by our code.
+
+  >Note that the `...` notation has been used above to indicate repetition and should not be used when generating actual docstrings, as can be seen by the example presented below.
+
+  Every function in `__init__.py` has been documented in this format. The full results of this can be seen in Appendix A. Here are some examples, with example screenshots of when the functions are being used.
+
+  <br><br><br><br>
+  <br><br><br><br>
+
+  ```python
+  class Kraken():
+    """Initializes the Kraken application and runs it on the given host and port
+
+    :param host: The host of the application, given in the format 
+                 ``"<i>.<i>.<i>.<i>"``
+    :type host: str
+    :param port: The port of the application
+    :type port: int
+
+    :returns: Void
+    :rtype: None
+    """
+  ```
+
+  <img alt="Sphinx Screenshot - Kraken" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/sphinx/kraken.png?raw=true" width=441/>
+
+  <br><br><br><br>
+  <br><br>
+
+  ```python
+  def initFlask(self) -> None:
+    """Initializes the Flask application by setting up the ``Flask`` object, 
+    configuring certain attributes, and creating the website pages via the 
+    function ``self.initPages()``.
+
+    :returns: Void
+    :rtype: None
+    """
+  ```
+
+  <img alt="Sphinx Screenshot - initFlask" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/sphinx/initFlask.png?raw=true" width=454/>
+
+  ```python
+  def main_home() -> str:
+    """Page for ``/home/``.
+
+    This page is the homepage, containing links to all of the current user's sites.
+
+    Requires a user to be logged in.
+    
+    Flashes a list of the users sites, in the format 
+    ``[<userid>,<sitename>,<isprivate>]``, if the user has any sites.
+
+    :returns: The HTML content of the page, generated from the Jinja template syntax
+    :rtype: str
+    """
+  ```
+
+  <img alt="Sphinx Screenshot - main_home" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/sphinx/main_home.png?raw=true" width=442/>
+
+  ```python
+  def auth_login() -> str | Response:
+    """Page for ``/login/``.
+
+    This page is the login page. It contains the login form.
+    Will redirect to ``main_home`` if a user is logged in.
+
+    Flashes an empty list of values (``[False,"","","",""]``) to stop errors when 
+    generating the Jinja template.
+
+    :returns: The HTML content of the page, generated from the Jinja template 
+              syntax OR a redirect to the ``main_home`` page if a user is logged in
+    :rtype: str | Response
+    """
+  ```
+
+  <img alt="Sphinx Screenshot - auth_login" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/sphinx/auth_login.png?raw=true" width=447/>
+
+  ```python
+  def auth_login_post() -> Response:
+    """POST method of ``/login/``.
+
+    Fetches the given user information from the form via ``flask.request``, and 
+    validates it. The user is logged in if the data is valid,
+    and shown an error message if it is not.
+
+    Flashes an appropriate error message, if required.
+
+    :returns: A redirect to the ``main_home`` or ``auth_login`` depending on the 
+              success of the login attempt
+    :rtype: Response
+    """
+  ```
+
+  <img alt="Sphinx Screenshot - auth_login_post" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/sphinx/auth_login_post.png?raw=true" width=447/>
+
+  ```python
+  def site_create_generate() -> Response:
+    """Method for ``/home/new/generate``.
+
+    This page is the second third creation page. It contains the button styling 
+    selection system.
+    Requires a user to be logged in.
+    Requires the referrer to be ``site_create_options_2``
+
+    :returns: A redirect to the new site homepage (``site_edit_home``) if 
+              successful OR a redirect to ``site_create`` if 
+              ``site_create_options_2`` was not the referrer.
+    :rtype: Response
+    """
+  ```
+
+  <img alt="Sphinx Screenshot - site_create_generate" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/sphinx/site_create_generate.png?raw=true" width=447/>
+
+  
+  ```python
+  def verifyField(self,field:str,fieldName:str,mustHaveChar:bool=True,minLen:int=3,
+    canHaveSpace:bool=False,canHaveSpecialChar:bool=True) -> str:
+    """The validataion system for user inputs implemented in the signup page.
+
+    :param field: The content of the field that is being validated.
+    :type field: str
+    :param fieldName: The name of the field that is being validated.
+    :type fieldName: str
+    :param mustHaveChar: Boolean flag determining whether the field must not be 
+                         empty, defaults to ``True``
+    :type mustHaveChar: bool, optional
+    :param minLen: The minimum length of the field content, defaults to ``3``
+    :type minLen: int, optional
+    :param canHaveSpace: Boolean flag determining whether the field can have spaces 
+                         defaults to ``False``
+    :type canHaveSpace: bool, optional
+    :param canHaveSpecialChar: Boolean flag determining whether the field is 
+                               allowed to contain any of ``%&{}\\<>*?/$!'\":@+|=``, 
+                               defaults to ``True``
+    :type canHaveSpecialChar: bool, optional
+
+    :returns: An empty string if the field is valid OR an error message if the 
+              field is invalid
+    :rtype: str
+    """
+  ```
+
+  <img alt="Sphinx Screenshot - verifyField1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/sphinx/verifyField1.png?raw=true" width=402/><img alt="Sphinx Screenshot - verifyField2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/sphinx/verifyField2.png?raw=true" width=402/><img alt="Sphinx Screenshot - verifyField3" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/sphinx/verifyField3.png?raw=true" width=402/>
+
+
+
+  ```python
+  def createSiteStructure(self,siteSettings:dict[str,str | any]) -> None:
+    """Creates a new site in the database and in local storage.
+
+    :param siteSettings: a dictionary containing the information about the site, 
+                         with the keys: ``name`` ``user`` ``desc`` ``created`` 
+                         ``isPublic`` ``colorOptions`` ``fontOptions`` 
+                         ``buttonOptions``
+    :type siteSettings: dict
+
+    :returns: Void
+    :rtype: None
+    """
+  ```
+
+  <img alt="Sphinx Screenshot - createSiteStructure" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/sphinx/createSiteStructure.png?raw=true" width=457/>
+
+  <br><br>
+
+  ```python
+  def convertByteSize(self,bytes:int) -> str:
+    """Converts a given byte value into a human readable version
+
+    :param bytes: The amount of bytes to convert
+    :type bytes: int
+
+    :returns: A human readable version of the value
+    :rtype: str
+    """
+  ```
+
+  <img alt="Sphinx Screenshot - convertByteSize" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/sphinx/convertByteSize.png?raw=true" width=336/>
+
+<br>
+
+#### Variable Type Declarations
+
+  Despite their non-functionality in Python, I decided to include variable type declarations for most variables so that IDEs can identify what a variable is intended for, speeding up testing and development, especially that done by other people, and because it makes reading the code easier and more informative by making it clear which variables are which type. This also goes for declaring input-output types in function declarations, which I was already doing.
+
+  Variable type declaration in Python is done with the syntax: 
+
+  ```python
+  <variablename>:[type] = <content>
+  ```
+
+  This can also be done in functions: 
+
+  ```python
+  def <functionname>(<variablename:[type]=[defaultvalue]) -> [returntype]:
+    pass
+  ```
+
+  For example, the function `getSiteCfg` uses this form of declaration, which is especially useful considering that you can't look at the content of the function to identify what data type is being returned. However, the function declaration ends in `-> list[str]`, showing that the function will return a list of strings. This makes development workflow that bit faster due to clearly displaying variable types.
+
+  ```python
+  def getSiteCfg(self,siteName:str) -> list[str]:
+
+        ...
+
+        # This doesn't tell you what data type it is
+        cfgContent=ConfigParser()
+        cfgContent.read(cfgPath)
+
+        # You cannot identify what data type cfgContent is, so the list[str] line 
+        # in the function declaration is useful in that sense
+        return cfgContent
+  ```
+
+  Another example of variable type declaration is when the post methods are retrieving data from HTML forms:
+
+  ```python
+  # The declaration :str or :bool shows what the form element will return
+  username:str = request.form.get("username")
+  password:str = request.form.get("password")
+  remember:bool = request.form.get('remember')
+  ```
