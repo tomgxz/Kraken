@@ -93,7 +93,8 @@ class Kraken():
 
         # Fetches a row from the User table in the database
         @self.loginManager.user_loader
-        def loadUser(user_id): return self.User.query.get(user_id)
+        def loadUser(user_id:str): 
+            return self.User.query.get(user_id)
 
         # Run the Flask application
         self.app.run(host=host,port=port)
@@ -175,6 +176,7 @@ class Kraken():
             flash(2)
             flash(name)
             flash(site)
+            if current_user.user_id!=name: return redirect(url_for("site_edit_home"))
             return render_template("site-edit.html")
 
     def initPages_main(self):
@@ -895,9 +897,7 @@ class Kraken():
         for folder in folders:
             if self.os.path.isdir(folder): continue
             try: self.os.makedirs(folder)
-            except OSError as e:
-                raise OSError(
-                      e)
+            except OSError as e: raise e
 
     def generateFileStructure(self,files:list) -> None:
         """Creates empty files in the local storage from the given list, if any of the files do not already exist
