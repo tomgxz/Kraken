@@ -12,6 +12,12 @@ del {
   margin-left:32px
 }
 
+.preview-page {
+    margin-top:0
+}
+
+a[href="#analysis"],a[href="#problem-identification"],a[href="#stakeholders"],a[href="#why-it-is-suited-to-a-computational-approach"],a[href="#initial-talks-with-stakeholdlers"],a[href="#analysis-from-stakeholders"],a[href="#research"],a[href="#existing-solution---squarespace"],a[href="#existing-solution---zyro"],a[href="#key-features-of-the-solution"],a[href="#limitations-of-the-solution"],a[href="#hardware-and-software-requirements"],a[href="#hardware-requirements"],a[href="#software-requirements"],a[href="#success-criteria"],a[href="#essential-features"],a[href="#desirable-features"],a[href="#design"],a[href="#url-navigation"],a[href="#user-interface-design"],a[href="#usability"],a[href="#accessibility"],a[href="#aria"],a[href="#stakeholder-input-d"],a[href="#website-structure-and-backend"],a[href="#data-storage"],a[href="#algorithms"],a[href="#drag-and-drop-editor-algorithms"],a[href="#multi-user-system-algorithms"],a[href="#diagram-showing-how-the-subroutines-link"],a[href="#subroutines"],a[href="#multi-user-system---login-system"],a[href="#multi-user-system---creating-a-new-site"],a[href="#utility-subroutines"],a[href="#explanation-and-justification-of-this-process"],a[href="#inputs-and-outputs"],a[href="#key-variables"],a[href="#validation"],a[href="#testing-method"],a[href="#development"],a[href="#stage-1---setting-up-the-website"],a[href="#stage-2---creating-and-implementing-the-database"],a[href="#stage-3---homepage-and-settings"],a[href="#stage-4---creating-a-new-site"],a[href="#appendix-a---code"],a[href="#appendix-b---testing"]{color:black}a[href="#analysis"],a[href="#design"],a[href="#development"],a[href="#appendix-a---code"],a[href="#appendix-b---testing"]{font-weight:600}
+
 </style>
 -->
 
@@ -42,41 +48,44 @@ height:225px
       - [Hardware Requirements](#hardware-requirements) ~~21~~
       - [Software Requirements](#software-requirements) ~~21~~
     - [Success Criteria](#success-criteria) ~~22~~
+      - [Essential Features](#essential-features) ~~22~~
+      - [Desirable Features](#desirable-features) ~~24~~
   >
 
-  - [Design](#design) ~~18~~ <!-- 25 -->
-    - [URL Navigation](#url-navigation) ~~18~~
-    - [User Interface Design](#user-interface-design) ~~19~~
-    - [Usability](#usability) ~~25~~
-      - [Accessibility](#accessibility) ~~25~~
-      - [ARIA](#aria) ~~26~~
-    - [Stakeholder input](#stakeholder-input-d) ~~26~~
-    - [Website structure and backend](#website-structure-and-backend) ~~27~~
-    - [Data storage](#data-storage) ~~29~~
-    - [Algorithms](#algorithms) ~~32~~
-      - [Drag-and-drop editor algorithms](#drag-and-drop-editor-algorithms) ~~32~~
-      - [Multi-user system algorithms](#multi-user-system-algorithms) ~~36~~
-      - [Diagram showing how the subroutines link](#diagram-showing-how-the-subroutines-link) ~~41~~
-    - [Subroutines](#subroutines) ~~42~~
-      - [Multi-user system - login system](#multi-user-system---login-system) ~~42~~
-      - [Multi-user system - creating a new site](#multi-user-system---creating-a-new-site) ~~46~~
-      - [Multi-user system - user settings](#multi-user-system---user-settings) ~~46~~
-      - [Utility subroutines](#utility-subroutines) ~~46~~
-    - [Explanation and justification of this process](#explanation-and-justification-of-this-process) ~~47~~
-    - [Inputs and Outputs](#inputs-and-outputs) ~~47~~
-    - [Key variables](#key-variables) ~~49~~
-    - [Validation](#validation) ~~51~~
-    - [Testing method](#testing-method) ~~52~~
+  - [Design](#design) ~~25~~ <!-- +7 -->
+    - [URL Navigation](#url-navigation) ~~25~~
+    - [User Interface Design](#user-interface-design) ~~26~~
+    - [Usability](#usability) ~~32~~
+      - [Accessibility](#accessibility) ~~32~~
+      - [ARIA](#aria) ~~33~~
+    - [Stakeholder input](#stakeholder-input-d) ~~33~~
+    - [Website structure and backend](#website-structure-and-backend) ~~34~~
+    - [Data storage](#data-storage) ~~36~~
+    - [Algorithms](#algorithms) ~~39~~
+      - [Drag-and-drop editor algorithms](#drag-and-drop-editor-algorithms) ~~39~~
+      - [Multi-user system algorithms](#multi-user-system-algorithms) ~~43~~
+      - [Diagram showing how the subroutines link](#diagram-showing-how-the-subroutines-link) ~~48~~
+    - [Subroutines](#subroutines) ~~49~~
+      - [Multi-user system - login system](#multi-user-system---login-system) ~~49~~
+      - [Multi-user system - creating a new site](#multi-user-system---creating-a-new-site) ~~52~~
+      - [Utility subroutines](#utility-subroutines) ~~57~~
+    - [Explanation and justification of this process](#explanation-and-justification-of-this-process) ~~58~~
+    - [Inputs and Outputs](#inputs-and-outputs) ~~58~~
+    - [Key variables](#key-variables) ~~60~~
+    - [Validation](#validation) ~~62~~
+    - [Testing method](#testing-method) ~~63~~
   >
 
-  - [Development and Testing](#development-and-testing) ~~53~~
-    - [Stage 1 - Setting up the website](#stage-1---setting-up-the-website) ~~53~~
-    - [Stage 2 - Creating and implementing the database](#stage-2---creating-and-implementing-the-database) ~~86~~
+  - [Development](#development) ~~64~~
+    - [Stage 1 - Setting up the website](#stage-1---setting-up-the-website) ~~64~~
+    - [Stage 2 - Creating and implementing the database](#stage-2---creating-and-implementing-the-database) ~~97~~
+    - [Stage 3 - Homepage and Settings](#stage-3---homepage-and-settings) ~~104~~
+    - [Stage 4 - Creating a New Site](#stage-4---creating-a-new-site) ~~122~~
   >
 
-  - [Code Appendix](#) ~~93~~
+  - [Appendix A - Code](#appendix-a---code) 
+  - [Appendix B - Testing](#appendix-b---testing) 
 
-<br><br><br><br>
 <br><br><br><br>
 <br><br><br><br>
 <br><br><br><br>
@@ -1436,7 +1445,7 @@ root((MAIN))
 
 <br><br><br><br>
 
-## Development and Testing
+## Development
 
   For the sake of conciseness and clarity, when the document outlines certain HTML and CSS files, such as `/templates/login.html`, it will not show all of the different iterations of the page. Major changes, such as reogranisations of the page, would be displayed in later sections, but the actual process of orignally designing the website is not documented to make the document easier to read. A lot of the design process involved tweaking classes, re-ordering HTML elements, and adding new or modifying existing CSS blocks.
 
@@ -2212,6 +2221,8 @@ root((MAIN))
   There is validation of the inputs both client-side and server-side, so I needed to implement that into the JavaScript for the login and signup pages. I also need to add code so that when the all-seeing eye is pressed, the password field is miraculously revealed. For the validation, I will use the `verifyField` function that I have written in pseudocode (which will also be used in the Python backend). Because of this, there will be three files, `auth.js`, `login.js` and `signup.js` so that there is less duplicated code. There will also be a function `isEmail`, which uses a regex validation check to make sure that the email given is in a valid format.
 
 ##### /static/js/auth.js
+  <!-- TODO: fix regex pattern breakdown breaking following formatting -->
+
   ```js
   // Function called for each field to make sure it is in the correct format, takes
   // a few arguments as flags for what makes it valid
@@ -2903,7 +2914,7 @@ root((MAIN))
     def get_id(self) -> int: return self.site_id
   ```
 
-  I then ran the following commands in an online SQL editor to create the database, and saved it as `db.sqlite` in the root directory, so that SQLAlchemy could use it.
+  I then ran the following commands in an online SQL editor to create the database, and saved it as `db.sqlite` in the root directory, so that SQLAlchemy could use it. I also created `db.sqlite.bak`, so I could have an empty version of the database to use throughout development and testing.
 
 <!-- I ran the following commands -->
 
@@ -2949,7 +2960,7 @@ root((MAIN))
   # generate_password_hash and check_password_hash are used when generating
   # and authenticating users
   ```
-  <br><br>
+
   ```python
     def __init__(self,host:str,port:int) -> None:
   ```
@@ -3095,6 +3106,8 @@ root((MAIN))
       logout_user()
       return redirect(url_for("auth_login"))
   ```
+
+<br>
 
 ### Stage 3 - Homepage and Settings
   This stage consisted of creating the frontend HTML for the user, including the settings pages. Although they lack much tangible functionality, they create the basis for future developers to implement. I decided not to complete all of the functionality due to time constraints, and lack of the features being required in the brief.
@@ -3360,6 +3373,7 @@ root((MAIN))
         {% block settings_content %}
         {% endblock %}
         
+
       </div>
     </div>
   </div>
@@ -3439,6 +3453,7 @@ root((MAIN))
 
     <div class="settings-content-option settings-content-update">
 
+
       <p class="settings-content-option-caption text small dark">
         All of the above fields are optional and can be left blank. By filling them 
         out, you agree that this information can be displayed publically and stored 
@@ -3460,7 +3475,7 @@ root((MAIN))
 
   <img alt="Settings Account page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_admin.png?raw=true" width="400"/>
 
-<br><br><br>
+<br><br>
 
 ##### /templates/settings-admin.html
   ```jinja
@@ -3567,9 +3582,10 @@ root((MAIN))
       <h4 class="settings-content-option-title text dark bold danger">
         Delete Account</h4>
 
+
       <p class="settings-content-option-caption text small dark">
         This will remove all trace of your account from our servers, and is an 
-        irreversable actions. It is recommended that you export your account data 
+        irreversable action. It is recommended that you export your account data 
         before doing this.
       </p>
 
@@ -3601,6 +3617,7 @@ root((MAIN))
 
   <h3 class="settings-content-header text header dark">
     Appearance and Accessibility</h3>
+
 
   <form class="settings-content-options">
 
@@ -3743,6 +3760,7 @@ root((MAIN))
     # All possible sizes
     sizes=("B","KB","MB","GB","TB","PB","EB","ZB","YB")
 
+
     i=int(math.floor(math.log(bytes,1024)))
     p=math.pow(1024,i)
     s=round(bytes/p,2)
@@ -3814,6 +3832,12 @@ root((MAIN))
 
 <br><br><br><br>
 <br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br>
 
 ### Stage 4 - Creating a New Site
 
@@ -3927,8 +3951,6 @@ root((MAIN))
           <input class="input-checkbox-input" name="new_site_privacy" 
           id="new_site_privacy_visible" type="radio" value="public">
 
-
-
           <span class="input-checkbox-icon">
             <i class="faicon fa-regular fa-book-bookmark"></i>
           </span>
@@ -3944,6 +3966,7 @@ root((MAIN))
         <div class="input-checkbox">
           <input class="input-checkbox-input" name="new_site_privacy" 
           id="new_site_privacy_hidden" type="radio" value="private">
+
 
           <span class="input-checkbox-icon">
             <i class="faicon fa-regular fa-lock" 
@@ -3994,6 +4017,7 @@ root((MAIN))
       allusernames = [x.name for x in self.Site.query.filter_by(
                       user_id=current_user.user_id).all()]
 
+
       for name in allusernames: 
         out+=name+","
 
@@ -4040,9 +4064,8 @@ root((MAIN))
     if (val.length < 1) { return "inactive" }
     if (val.length < 4) { return "danger" }
 
+
     var check=true
-
-
     for (var letter of val) {
       if (requiredChars.includes(letter)) { check=false }
     }
@@ -4264,6 +4287,10 @@ root((MAIN))
     return render_template("site-create-options-1.html")
   ```
 
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+
   The next page is the colour palette selection system. This involves functions for colour temperature adjustment, generation of lighter and darker variants, and storing the variables in a way that the backend can read them. The page would consist of a light or dark mode toggle, faders for certain parameters, and colour pickers for the primary, secondary, and accent colours. Without any JavaScript, the page looked like this:
 
   <img alt="Create A New Site - Page 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_nojs.png?raw=true" width="600"/>
@@ -4271,6 +4298,8 @@ root((MAIN))
   The row of 9 mono-chromatic colours at the bottom will be set as the variables `--colors-grey-<100-900>`. To display them, it uses an "expanding column" system that I have used previously. When a column is hovered, it will "expand open" to reveal text inside. When a column is hovered, it looks like this:
 
   <img alt="Create A New Site - Page 2 - Expanding column demonstration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_excmerge.png?raw=true" width="600"/>
+
+<br><br><br>
 
   For the colour pickers, I have used the native input colour picker option:
 
@@ -4495,7 +4524,6 @@ root((MAIN))
     "accent":"#a8dadc","accent-dark":"","accent-light":"",
     "grey-100":"#303030", ... ,"grey-900":"#e8e8e8" 
   }
-  
   var colors = defaultColors
 
   var colorDisplay = {
@@ -4564,6 +4592,7 @@ root((MAIN))
     updateStored()
     updateLightDarkDisplay()
   }
+
 
   function setDarkMode() {
     document.body.setAttribute("data-kraken-darkmode","")
@@ -4648,8 +4677,6 @@ root((MAIN))
       // console.log("Color as HSL:")
       // console.log(newColor)
 
-
-
       newColor = darken(newColor,changePercent)
 
       // console.log("Darker Color as HSL:")
@@ -4661,6 +4688,7 @@ root((MAIN))
       // console.log(newColor)
 
       newColor = rgbToHex(newColor[0],newColor[1],newColor[2]);
+
 
       // console.log("Darker Color as Hex:")
       // console.log(newColor)
@@ -4860,7 +4888,8 @@ root((MAIN))
   @self.app.route("/home/new/2", methods=["post"])
   @login_required
   def site_create_options_2_post() -> Response:
-    # new_site_font_face_list_active is in the format "<headerfontname>,<paragraphfontname>"
+    # new_site_font_face_list_active is in the format 
+    # "<headerfontname>,<paragraphfontname>"
     # so split by comma to get ["<headerfontname>","<paragraphfontname>"]
 
     # get value from the active form element and split into list
@@ -4914,6 +4943,8 @@ root((MAIN))
 
   The `defaultHTMLPage` function returns a string of HTML content to set as the default content when a new site is created.
 
+<br><br><br>
+
 ##### changes to \_\_init\_\_.py
   ```python
   @self.app.route("/home/new/generate")
@@ -4924,7 +4955,8 @@ root((MAIN))
     if not request.referrer == url_for("site_create_options_2",_external=True):
       return redirect(url_for("site_create"))
 
-    # Store session data into a dictionary, along with extra paramaters such as when the site was created and the user id
+    # Store session data into a dictionary, along with extra paramaters such as 
+    # when the site was created and the user id
     siteSettings={
       "name":session["new_site_sitename"],
       "user":str(current_user.user_id),
@@ -4957,10 +4989,15 @@ root((MAIN))
   def createSiteStructure(self,siteSettings:dict) -> None:
 
     # get the prefix for the site path
-    sitePath=self.os.path.abspath(f"static/data/userData/{siteSettings['user']}/sites/{siteSettings['name']}")
+    sitePath=self.os.path.abspath(
+    f"static/data/userData/{siteSettings['user']}/sites/{siteSettings['name']}")
 
     # get the path for the site config file
     siteConfigFile=f"{sitePath}/site.ini"
+
+
+
+
 
     # create a list of required directories
     folderStructure = [
@@ -4986,7 +5023,9 @@ root((MAIN))
 
     # create the default webpage for the site
     with open(f"{sitePath}/files/1.html","w") as f: 
-        f.write(self.defaultHtmlPage(siteSettings["name"],siteSettings["desc"],siteSettings["user"]))
+        f.write(self.defaultHtmlPage(siteSettings["name"],
+                                     siteSettings["desc"],
+                                     siteSettings["user"]))
 
     # Create the config parser for the site.ini file
     with ConfigParser() as cfgContent:
@@ -5010,6 +5049,8 @@ root((MAIN))
       # Add the typeface
       cfgContent.set("font","header",siteSettings["fontOptions"][0])
       cfgContent.set("font","body",siteSettings["fontOptions"][1])
+
+
 
       # write to the site.ini file
       with open(siteConfigFile,"w") as f:
