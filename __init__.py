@@ -51,7 +51,7 @@ databaseObject=SQLAlchemy()
 
 # The main class of the application
 class Kraken():
-    """ Initializes the Kraken application and runs it on the given host and port
+    """Initializes the Kraken application and runs it on the given host and port
 
     :param host: The host of the application, given in the format ``"<i>.<i>.<i>.<i>"``
     :type host: str
@@ -198,7 +198,6 @@ class Kraken():
             """
 
             return redirect(url_for("auth_login"))
-
 
         @self.app.route("/home/")
         @login_required # User must be logged in to access this page, or it will redirect to the auth_login page (as setup in the constructor)
@@ -899,10 +898,10 @@ class Kraken():
         """
 
         # get the prefix for the site path
-        sitePath:str = self.os.path.abspath(f"static/data/userData/{siteSettings['user']}/sites/{siteSettings['name']}")#
+        sitePath:str = self.os.path.abspath(f"static/data/userData/{siteSettings['user']}/sites/{siteSettings['name']}")
 
         # get the path for the site config file
-        siteConfigFile:str = f"{sitePath}/site.ini"#
+        siteConfigFile:str = f"{sitePath}/site.ini"
 
         # create a list of required directories
         folderStructure:list[str] = [
@@ -1124,14 +1123,14 @@ class Kraken():
 
         return f"{s}{sizes[i]}"
 
-    def getSiteCfg(self,siteName:str) -> list[str]:
+    def getSiteCfg(self,siteName:str) -> ConfigParser:
         """Gets the content of the current user's given site's config file.
 
         :param siteName: the name of the site to check
         :type siteName: str
 
         :returns: The content of the config file
-        :rtype: list[str]
+        :rtype: ConfigParser
         """
         
         # Get path of the config file
