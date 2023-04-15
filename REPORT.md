@@ -59,6 +59,7 @@ height:225px
     - [Stage 3 - Homepage and Settings](#stage-3---homepage-and-settings) ~~104~~
     - [Stage 4 - Creating a New Site](#stage-4---creating-a-new-site) ~~122~~
     - [Stage 5 - Code Documentation](#stage-5---code-documentation) ~~150~~
+    - [Stage 6 - Drag-and-Drop Editor](#stage-6---drag-and-drop-editor) ~~158~~
   >
 
   - [Appendix A - Code](#appendix-a---code) 
@@ -5368,3 +5369,510 @@ root((MAIN))
   password:str = request.form.get("password")
   remember:bool = request.form.get('remember')
   ```
+
+### Stage 6 - Drag-and-Drop Editor
+
+  The first part of creating the drag-and-drop editor was creating the syntax used for the sections. I created a basic headline section to use as a template when testing. It includes the `section-wrapper`, which has the relevant data tags. The section element inside contains all of the required css variables for the section parameters, and then the `grid-item`s with their own individual parameters. 
+
+  The `position` paramater is used in the grid positioning system, with the syntax `<start-row>/<start-column>/<end-row>/<end-column>`. This is what will be changed when the element is being moved or resized by JavaScript.
+  
+  Each `grid-item` has an `element-resize-container`, which contains the `resize-corner`s for resizing, and the `element-outline` to show that the element is selected. These will not be included in the final product, and instead will be added by the JavaScript so that it doesn't appear in the final site. They are included at the moment for design purposes.
+
+  This is what the example section looked like when I opened the HTML file on it's own:
+
+  <img alt="Element resize boxes" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_elements_resizecontainer.png?raw=true"/>
+
+##### /static/data/html/headline/html_section_headline_1.html
+  ```html
+  <div class="section-wrapper" data-kraken-section>
+
+    <section class="--headline --type-1"
+      style="--content-width: 1600px;
+      --grid-width: 1224px;
+      --column-count: 12;
+      --content-padding: 16px;
+      --cols: 12;
+      --rows: 6;
+      --width: 1224px;
+      --m-rows: 1;
+      --col-gap: 24px;
+      --row-gap: 16px;
+      --row-size: 48px;
+      --column-gap: 24px;
+      --block-padding-top: 16px;
+
+      --block-padding: 16px 0 16px 0;
+      --block-padding-right: 0;
+      --block-padding-bottom: 16px;
+      --block-padding-left: 0;">
+      <div class="section-background"></div>
+      
+      <div class="section-grid">
+
+        <div class="grid-item" data-kraken-element data-kraken-resizable 
+        data-kraken-draggable data-kraken-editable-style data-kraken-editable-text
+          style="--text: center;
+          --align: flex-start;
+          --justify: center;
+          --position: 2/5/2/13;
+          --element-z-index: 1;
+          --element-height: 0px;">
+          
+            <div class="text-box grid-item-content">
+              <h1 style class="text-content text dark bold large header center">
+                Headline Title
+              </h1>
+            </div>
+
+            <div class="element-resize-container">
+
+              <div class="resize-corners">
+                <div class="resize-corner resize-corner-horizontal-left">
+                  <div class="resize-corner-visual-element"></div>
+                </div>
+                <div class="resize-corner resize-corner-horizontal-right">
+                  <div class="resize-corner-visual-element"></div>
+                </div>
+              </div>
+              <div class="element-outline" style="height: 40px;"></div>
+            </div>
+        </div>
+
+        <div class="grid-item" data-kraken-element data-kraken-resizable 
+        data-kraken-draggable data-kraken-editable-style data-kraken-editable-text
+          style="--text: center;
+          --align: flex-start;
+          --justify: center;
+          --position: 4/5/4/13;
+          --element-z-index: 1;
+          --element-height: 0px;">
+          
+            <div class="text-box grid-item-content">
+              <h2 style class="text-content text primary header">
+                Subtitle text that says things
+              </h2>
+            </div>
+
+
+            <div class="element-resize-container">
+              <div class="resize-corners">
+                <div class="resize-corner resize-corner-horizontal-left">
+                  <div class="resize-corner-visual-element"></div>
+                </div>
+                <div class="resize-corner resize-corner-horizontal-right">
+                  <div class="resize-corner-visual-element"></div>
+                </div>
+              </div>
+              <div class="element-outline" style="height: 40px;"></div>
+            </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  ```
+
+  I next created the HTML for the editor. This includes a local navigation bar containing links for the website page organisation modal, section selection modal, style editor, and settings page, which, when hovered, will display a label showing what they do. I also created the website styles modal with the associated JavaScript to open it. It also includes the section options buttons, which will be rendered when a section is selected.
+
+  <img alt="Elements in the drag-and-drop editor" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_empty.png?raw=true" width=370/>
+  
+  <img alt="Elements in the drag-and-drop editor" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_sectionmodal_empty.png?raw=true" width=370/>
+
+##### /templates/site-edit.html
+  ```html
+  {% extends "base.html" %}
+
+  {% set navbarLogoColor = "gradient" %}
+  {% set navbarOptionsEnabled = True %}
+
+  {% set settingsSidebarActivated = get_flashed_messages()[0] %}
+  {% set currentName = get_flashed_messages()[1] %}
+  {% set currentSite = get_flashed_messages()[2] %}
+
+  {% block content %}
+
+  <link href="{{url_for('static', filename='css/site-edit.css')}}" rel="stylesheet" 
+  type="text/css" />
+
+  <div class="lightbox-mask"></div>
+
+  <div class="application-content">
+
+  <div class="localnav one localnav-vertical localnav-collapsible">
+    <div class="localnav-content">
+
+      <ul class="localnav-list">
+
+        <ul class="localnav-list" style="height:30%">
+
+          <li class="localnav-item one">
+            <a class="link unformatted">
+              <div class="localnav-item-collapsible-icon">
+                <i class="faicon fa-solid fa-layer-group"></i>
+              </div>
+              <div class="localnav-item-collapsible-text text bold primary">
+                Website Pages
+              </div>
+            </a>
+          </li>
+
+          <li class="localnav-item two">
+            <a class="link unformatted" id="localnav_add_section_btn">
+              <div class="localnav-item-collapsible-icon">
+                <i class="faicon fa-solid fa-circle-plus"></i>
+              </div>
+              <div class="localnav-item-collapsible-text text bold primary">
+                Add Section
+              </div>
+            </a>
+          </li>
+  
+          <li class="localnav-item three">
+            <a class="link unformatted">
+              <div class="localnav-item-collapsible-icon">
+
+                <i class="faicon fa-solid fa-paintbrush"></i>
+              </div>
+              <div class="localnav-item-collapsible-text text bold primary">
+                Website Styles
+              </div>
+            </a>
+          </li>
+
+        </ul>
+
+        <li class="localnav-item four">
+          <a class="link unformatted">
+            <div class="localnav-item-collapsible-icon">
+              <i class="faicon fa-solid fa-gear"></i>
+            </div>
+            <div class="localnav-item-collapsible-text text bold primary">
+              Website Settings
+            </div>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="section-selector-container">
+    <div class="section-selector">
+      <div class="section-selector-exit-btn">
+        <i class="faicon fa-solid fa-xmark"></i>
+      </div>
+
+      <div class="section-selector-sidebar">
+        <div class="section-selector-nav" id="section_selector_nav">
+        <div class="section-selector-nav-content">
+            <ul class="section-selector-nav-list">
+              <ul class="section-selector-nav-list two" style="height:30%">
+                <!-- Template header - will be replaced by JS -->
+                <li class="section-selector-nav-item one">
+                  <a class="link unformatted" id="section_selector_nav_headline" 
+                  style="opacity:1">
+                    <span class="text bold">Example type</span>
+                  </a>
+                </li>
+              </ul>
+            </ul>
+        </div>
+
+        </div>
+      </div>
+
+
+
+      <div class="vertical-separator" style="height:85%"></div>
+
+      <div class="section-selector-content">
+        <div class="section-selector-list" id="section_selector_list">
+          <style id="section_selector_style"></style>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-builder">
+
+    <link href="{{url_for('static', filename='css/edit.css')}}" rel="stylesheet" 
+    type="text/css" />
+
+    <div class="site-builder-preview" id="contains_site">
+    </div>
+
+    <!-- will be set to hidden by js code -->
+    <div class="section-edit-actions shown">
+      <div class="actions-list">
+        <div class="edit-action" id="section_edit_action_settings">
+          <i class="fa-regular fa-gear"></i>
+        </div>
+        
+        <div class="edit-action" id="section_edit_action_duplicate">
+          <i class="fa-regular fa-clone"></i>
+        </div>
+
+        <div class="edit-action" id="section_edit_action_lock">
+          <i class="fa-regular fa-lock"></i>
+        </div>
+
+        <div class="edit-action hilight-danger" id="section_edit_action_delete">
+          <i class="fa-regular fa-trash"></i>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+
+  {% endblock %}
+  ```
+
+  The JavaScript for the add section modal included adding event listeners to the local navigation bar button, the background of the modal that darkens the rest of the page, and the "X" in the top right of the modal.
+
+<br>
+
+##### /static/js/site_edit.js
+  ```js
+  var addSectionBtn = document.getElementById("localnav_add_section_btn")
+  var addSectionModal_container = document.querySelector(
+    ".application-content .section-selector-container")
+
+  function addSectionModal_show() {
+    addSectionModal_container.classList.add("shown");
+    document.querySelector(".lightbox-mask").classList.add("shown")
+  }
+
+  function addSectionModal_hide() {
+    document.querySelector(".application-content .section-selector-container")
+      .classList.remove("shown")
+    document.querySelector(".lightbox-mask").classList.remove("shown")
+  }
+
+  // event listener for the add section button
+  addSectionBtn.addEventListener("click",() => {
+    // if the add section modal is not already shown
+    if (!(addSectionModal_container.classList.contains("shown"))) {
+      addSectionModal_show()
+    }
+  })
+
+  // event listener for the close x in the add section modal
+  document.querySelector(".application-content .section-selector-exit-btn")
+  .addEventListener("click",addSectionModal_hide)
+
+  // event listener for the dark backround of the modals
+  document.querySelector(".lightbox-mask")
+  .addEventListener("click",addSectionModal_hide)
+  ```
+
+  The next step was to be able to import the template sections into the site so that they can be shown in the add section modal. The format of the directories for the template directories looks like this (where file nodes are a darker shade): 
+
+  <img alt="Diagram showing the sections directory syntax" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-sections-directory-syntax.svg?raw=true" width="100%"/>
+
+<br>
+
+  The `classes` file will contain all of the section type names (in effect, every folder in the directory).
+
+##### /static/html/classes example
+  ```
+  headline
+  about
+  gallery
+  header
+  footer
+  image
+  ```
+
+  The `files` file will contain all of the section templates in the given directory.
+
+##### /static/html/\<template\>/files example
+  ```
+  html_section_headline_1.html
+  html_section_headline_2.html
+  html_section_headline_3.html
+  html_section_headline_4.html
+  html_section_headline_5.html
+  html_section_headline_6.html
+  html_section_headline_7.html
+  html_section_headline_8.html
+  html_section_headline_9.html
+  html_section_headline_10.html
+  html_section_headline_11.html
+  html_section_headline_12.html
+  ```
+
+  The `css.css` file will contain any and all CSS code that the templates contained in the directory will require.
+
+  Given that the syntax for the `/static/html/` folder is now down, I can write the code that imports the templates to be previewed. This involved using the `fetch()` function in JavaScript, which is a function that needs to be `await`ed to get the required response. `async` and `await` are untilities that I have used before, but not very much. Essentially, calling an `async` function without `await`ing it will return a `Promise` object that is updated when the function is finished. If, instead, you call the function and `await` it, it will hold the program on that line until its finished, and it will return the expected value. However, JavaScript doesn't allow you to `await` functions at the top-level, so I had to create an `async` function (in this case, `loadsections()`) that used `await`, and called said function at top-level without `await`ing it.
+
+  <br><br>
+
+##### changes to /static/js/site-edit.js
+  
+  The `loadsections` function goes through every template and adds it to the `addSectionModal_data` dictionary to make sure that all of the files are loaded. This is done when the webpage has finished loading to ensure that the user can access all of the section templates immediatly, without having to wait for them to load. Due to the nature of this being an `async` function that isn't `await`ed, it also means that this can happen in "parallel" to the rest of the JavaScript, meaning that it can load the files in the background without affecting the usability of the interface.
+
+  ```js
+  // loads all section templates from the /static/html/ directory and stores them 
+  // to the dictionary addSectionModal_data, along with the types of templates 
+  // being stored in the list addSectionModal_headers
+  // The function is asynced to allow the use of await functions to fetch the 
+  // content of the file
+  async function loadsections() {
+
+    // load the classes file, which contains all of the template types, and store 
+    // them in the headers list
+    await fetch("../../../static/html/sections/classes")
+      .then( response => { // throw an error if there is an issue with the response
+        if (!response.ok) throw new Error(`HTTP error: ${response.status}`) 
+        return response.text()
+      })
+      .then( text => {
+        // add each line to the DOM and headers list
+        for (line of text.split("\n")) {
+          addSectionModal_setNavbar(line)
+          addSectionModal_headers.push(line)
+        }
+      })
+
+    var path
+    var files
+
+    // iterate through all the section types
+    for (var header of addSectionModal_headers) {
+
+      // add the section type to the data
+      addSectionModal_data[header] = {css:"",sections:[]}
+      
+      // set the root URL for the section type
+      path=`../../../static/html/sections/${header}`
+
+      // fetch the custom CSS file for this type of headers
+      await fetch(path+"/css.css")
+        // throw an error if there is an issue with the response
+        .then( response => {
+          if (!response.ok) throw new Error(`HTTP error: ${response.status}`) 
+          return response.text()
+        })
+
+        // add to the data dictionary
+        .then( text => addSectionModal_data[header].css=text )
+
+      // fetch the file list
+      await fetch(path+"/files")
+        // throw an error if there is an issue with the response
+        .then( response => {
+          if (!response.ok) throw new Error(`HTTP error: ${response.status}`) 
+          return response.text()
+        })
+        .then( text => {
+          // split the file into lines and filter out any empty lines
+          files=text.split(/[\r\n]+/g).filter(
+            function(value, index, arr) { return value != "" }
+          ) 
+        })
+
+      // iterate through all given files
+      for (var file of files) {
+
+        // fetch the template HTML
+        await fetch(path+"/"+file)
+          // throw an error if there is an issue with the response
+          .then( response => {
+            if (!response.ok) throw new Error(`HTTP error: ${response.status}`) 
+            return response.text()
+          })
+          // add the template to the sections list
+          .then( text => addSectionModal_data[header].sections.push(text))
+
+      }
+    }
+  }
+  ```
+
+  The `addSectionModal_setNavbar` function is called by the `loadsections` function to append a given title to the local navigation bar of the modal. It uses the `addSectionModal_navItem` variable, which is essentially a template string defined later in the project. The string includes `[i]`, `[n1]`, and `[n2]`, which indicate areas that will be replaced in this function, before appending it to the `section-selector-nav-list` DOM element.
+
+  ```js
+  function addSectionModal_setNavbar(text) {
+    // format the string based on the content of the string
+    out=addSectionModal_navItem
+      .replace("[i]",number2words(1)) // TODO work out the correct number
+      .replace("[n1]",text.replace(" ",""))
+      .replace("[n2]",capitalizeWords(text))
+
+
+
+    // append to the local navbar
+    addSectionModal_nav.querySelector("ul.section-selector-nav-list").innerHTML=out
+  }
+  ```
+
+  The `addSectionModal_clearCurrentPreviews` function is called whenever a new navigation item is selected - i.e. a different set of templates needs to be displayed. It iterates through all currently visible templates (fetched by the `addSectionModal_getAllTemplates` function defined later) and removes them from the DOM.
+
+  ```js
+  function addSectionModal_clearCurrentPreviews() {
+    addSectionModal_getAllTemplates().forEach((e) => { 
+      // remove the section if it is not the style element
+      if (!(e == addSectionModal_styleElement)) e.remove() 
+    })
+  }
+  ```
+
+  The `addSectionModal_populate` function is also called when a new navigation item is selected. It calles the `addSectionModal_clearCurrentPreviews` to clear the current sections, iterates through all of the sections in the passed `data` argument, and adds each one to the section. It will also add the event listeners to add the section to the content once the functionality has been built. I had to experiment with different ways of adding the section to the modal, as `innerHTML += section` wasn't able to do it correctly in this instance.
+
+  ```js
+  function addSectionModal_populate(data) {
+    addSectionModal_styleElement.innerHTML = data.css
+
+    addSectionModal_clearCurrentPreviews()
+
+    var i=1
+
+    for (var section of data.sections) {
+      //addSectionModal_list.innerHTML += section
+      addSectionModal_list.insertAdjacentHTML("beforeend",section)
+
+      var e = document.querySelector(".--headline.--type-"+i)
+      e.addEventListener("click",function() {}) // TODO add section to content
+
+      i++
+    }
+  }
+  ```
+
+  The top-level of `site_edit.js` defines all of the variables used for the modal, which can be easily identified by the `addSectionModal_` prefix. It also includes simple functions such as `addSectionModal_getAllTemplates`.
+  
+  ```js
+  var addSectionModal_selectedNavItem="one"
+  var addSectionModal_selectedNavItemInt=1
+  var addSectionModal_container=document.querySelector(
+    ".application-content .section-selector-container")
+  var addSectionModal_list=document.getElementById("section_selector_list")
+  var addSectionModal_styleElement=document.getElementById("section_selector_style")
+  var addSectionModal_nav=document.getElementById("section_selector_nav")
+  var addSectionModal_data = {}
+  var addSectionModal_headers = []
+  
+  var addSectionModal_navItem=`<li class="section-selector-nav-item [i]">
+  <a class="link unformatted" id="section_selector_nav_[n1]">
+  <span class="text bold">[n2]</span></a></li>`
+
+  var addSectionModal_getAllTemplates = function() { 
+    return addSectionModal_list.childNodes }
+
+  loadsections()
+  ```
+
+  Having tested the functionality to ensure that it successfully imports all of the required sections, this is what the modal looks like when it is asked to import, using the test data outlined earlier.
+
+  <img alt="Template sections being displayed not very well" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_sectionmodal_sections_toolarge.png?raw=true" width="50%"/>
+
+  The important thing that I had forgotten was to consider that the sections would not be scaled down from their original sizes, so, with use of the `data-preview` tag, I created the `preview_override.css` file and went through every style that could affect an element in the section from both `main.css` and `edit.css`, and copied them over. I then wrapped any variables in `calc(<value> * 2 / 3)` or simply put in the calculated value for explicit values. This was only necessary for measurements using the `px` units. The full contents of `preview_override.css` can be found in Appendix A.
+
+  To make a clearer distinction between sections, I also added a light border (that gets more noticeable when hovered) to each section.
+
+  After doing that, the preview now looked much better.
+
+  <img alt="Template sections being displayed much better" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_sectionmodal_sections_resized.png?raw=true" width="50%"/>
