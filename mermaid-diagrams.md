@@ -481,6 +481,24 @@ graph LR
       classDef ab fill:#faa
   ```
 
+### Development diagram showing the /static/html directory syntax
+  ```mermaid
+  %%{init: {'theme':'dark', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+  %%{init: {'theme':'neutral', 'flowchart': {'curve': 'linear'},'themeVariables':{'fontFamily':'Lexend,Noto Sans,Helvetica,Arial'}}}%%
+
+  graph LR
+    F(Static)
+    F -->  J(html)
+
+    J --> q(sections) --> r("&lt;template&gt;")
+    r --> s("html_element_&lt;template&gt;_&lt;i&gt;"):::file
+    r --> 6(css.css):::file
+    r --> 7(files):::file
+    q --> 8(classes):::file
+
+    classDef file fill:#ccc
+```
+
 # CODE.md
 
 ### Server-side File Structure Diagram
