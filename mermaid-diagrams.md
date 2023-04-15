@@ -491,7 +491,7 @@ graph LR
     F -->  J(html)
 
     J --> q(sections) --> r("&lt;template&gt;")
-    r --> s("html_element_&lt;template&gt;_&lt;i&gt;"):::file
+    r --> s("html_section_&lt;template&gt;_&lt;i&gt;"):::file
     r --> 6(css.css):::file
     r --> 7(files):::file
     q --> 8(classes):::file
