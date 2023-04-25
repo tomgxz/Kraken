@@ -11,7 +11,7 @@ tkinter
 tkinter/
 *.psd
 .grip.py
-.grip
+.grip*
 .ignore
 .commentary
 .grip.bat
