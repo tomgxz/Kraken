@@ -60,6 +60,10 @@ height:225px
     - [Stage 4 - Creating a New Site](#stage-4---creating-a-new-site) ~~122~~
     - [Stage 5 - Code Documentation](#stage-5---code-documentation) ~~150~~
     - [Stage 6 - Drag-and-Drop Editor](#stage-6---drag-and-drop-editor) ~~158~~
+      - [HTML Syntax](#html-syntax)
+      - [Importing Sections](#importing-sections)
+      - [Adding Sections to the Editor](#adding-sections-to-the-editor)
+      - [Resizing Text Elements](#resizing-text-elements)
   >
 
   - [Appendix A - Code](#appendix-a---code) 
