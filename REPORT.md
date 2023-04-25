@@ -5876,3 +5876,134 @@ root((MAIN))
   After doing that, the preview now looked much better.
 
   <img alt="Template sections being displayed much better" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_sectionmodal_sections_resized.png?raw=true" width="50%"/>
+
+  The next step was to be able to add a selected section to the editor. When the modal is being populated with elements, they are each given click event listeners. These will use the functions `stripPreviewTags` and `addSection`, along with the `addSectionModal_hide` function to close the modal.
+
+  After completing this, I added the event listener functionality to sections and elements in the editor.
+
+##### changes to /static/js/site_edit.js
+  ```js
+  function addSectionModal_populate(data)
+  ```
+  ```js
+    e.parentElement.addEventListener("click",(e) => { 
+      addSection(stripPreviewTags(e.currentTarget.outerHTML))
+      addSectionModal_hide() 
+    })
+  ```
+
+  The `stripPreviewTags` function removes all `data-preview` tags from the element so that it renders normally in the editor. To do this, the event listener gets the `currentTarget` (the element that was assigned the event listener) and fetches its `outerHTML`, which returns a string containing the HTML the element and its contents.
+
+  ```js
+  function stripPreviewTags(html) {
+    return html.replaceAll("data-preview"," ")
+  }
+  ```
+
+  The `addSection` function appends the section to the end of the editor, and then calls `sectionEventListeners` and `elementEventListeners`, which will be used to add the required event listeners for the drag-and-drop system to work, along with `createResizeBoxes` to draw in the resize boxes to the elements.
+
+  ```js
+  function addSection(html) {
+    try {siteroot().insertAdjacentHTML("beforeend",html)}
+    catch {siteroot().innerHTML += html}
+
+    // sectionEventListeners()
+    // elementEventListeners()
+
+    // createResizeBoxes()
+  }
+  ```
+  
+  <img alt="A section added to the editor" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.2_draganddrop_addsection_addedsection.png?raw=true" width=500/>
+
+  The `sectionEventListener` function goes through each section and adds an `onclick` event, which will clear all selected sections and set the current one as selected. It will also display the section action buttons, once they have been implemented.
+
+  ```js
+  function sectionEventListeners() {
+    clearSelectedSections()
+
+    for (var section of sections()) {
+      section.addEventListener("click",((e)=>{
+        var x = e.currentTarget.parentElement
+        while (!(x.hasAttribute("data-kraken-section"))) 
+          x = x.parentElement
+
+        clearSelectedSections()
+        x.setAttribute("data-kraken-section-selected","")
+        selectedSection=x
+        
+        // TODO show the section action buttons
+      }))
+    }
+  }
+  ```
+
+  The `clearSelectedSections` function goes through each section and removes the `data-kraken-section-selected` attribute from them. It will also hide the section action buttons once they have been implemeneted.
+
+  ```js
+  function clearSelectedSections() {
+    for (var section of sections()) 
+      section.removeAttribute("data-kraken-section-selected")
+
+    // TODO hide the section action buttons
+  }
+  ```
+
+  To allow for easier selection of elements, I created the `siteroot`, `elements`, and `sections` functions, that all return `NodeList`s or DOM elements, so that all of the query definition for elements is in the same place.
+
+  ```js
+  function siteroot() { return document.querySelector("[data-content-parentview]")}
+
+  function sections() { 
+    return document.querySelectorAll(`[data-kraken-section]:not([data-preview])`) 
+  }
+
+  function elements() { 
+    return document.querySelectorAll(`[data-kraken-section]:not([data-preview]) 
+    [data-kraken-element]`) 
+  }
+  ```
+
+  When a section in the editor is hovered, it will display a light border. When it is then selected, it will display a more prominent border to indicate that it has been selected. It will also display the list of section action buttons when a section is selected.
+
+  ```js
+  var sectionEditActions = document.querySelector(".section-edit-actions")
+  ```
+
+  ```js
+  function sectionEventListeners() {
+  ```
+  ```js
+    sectionEditActions.classList.add("shown")
+  ```
+
+  ```js
+  function clearSelectedSections() {
+  ```
+  ```js
+    sectionEditActions.classList.remove("shown")
+  ```
+
+  To add functionality to the section edit actions, I added event listeners to the four of them in the top-level of the JavaScript code. As the settings page is yet to be implemented, I have not added any functionality to it yet
+
+  ```js
+  // section action event listeners
+  document.getElementById("section_edit_action_settings")
+    .addEventListener("click",e=>{})
+
+  document.getElementById("section_edit_action_duplicate")
+    .addEventListener("click",e=>{ addSection(selectedSection.outerHTML) })
+
+  document.getElementById("section_edit_action_lock")
+    .addEventListener("click",e=>{ 
+      selectedSection.setAttribute("data-kraken-locked","") })
+
+  document.getElementById("section_edit_action_delete")
+    .addEventListener("click",e=>{ selectedSection.remove() })
+  ```
+
+  This means that after adding and selecting a section, the editor looks like this:
+
+  <img alt="Selected section with action button" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.2_draganddrop_addsection_actionbuttons.png?raw=true" width=600/>
+
+  It can also successfully duplicate and delete the section. Whilst it can also add the `data-kraken-locked` data tag to it, at the moment this does nothing.
