@@ -16,7 +16,7 @@ tkinter/
 .commentary
 .grip.bat
 db.sqlite
-
+15101_*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
