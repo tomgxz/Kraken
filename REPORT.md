@@ -5372,6 +5372,8 @@ root((MAIN))
 
 ### Stage 6 - Drag-and-Drop Editor
 
+#### HTML Syntax
+
   The first part of creating the drag-and-drop editor was creating the syntax used for the sections. I created a basic headline section to use as a template when testing. It includes the `section-wrapper`, which has the relevant data tags. The section element inside contains all of the required css variables for the section parameters, and then the `grid-item`s with their own individual parameters. 
 
   The `position` paramater is used in the grid positioning system, with the syntax `<start-row>/<start-column>/<end-row>/<end-column>`. This is what will be changed when the element is being moved or resized by JavaScript.
@@ -5453,7 +5455,6 @@ root((MAIN))
               </h2>
             </div>
 
-
             <div class="element-resize-container">
               <div class="resize-corners">
                 <div class="resize-corner resize-corner-horizontal-left">
@@ -5474,9 +5475,9 @@ root((MAIN))
 
   I next created the HTML for the editor. This includes a local navigation bar containing links for the website page organisation modal, section selection modal, style editor, and settings page, which, when hovered, will display a label showing what they do. I also created the website styles modal with the associated JavaScript to open it. It also includes the section options buttons, which will be rendered when a section is selected.
 
-  <img alt="Elements in the drag-and-drop editor" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_empty.png?raw=true" width=370/>
+  <img alt="Elements in the drag-and-drop editor" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_empty.png?raw=true" width=360/>
   
-  <img alt="Elements in the drag-and-drop editor" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_sectionmodal_empty.png?raw=true" width=370/>
+  <img alt="Elements in the drag-and-drop editor" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_sectionmodal_empty.png?raw=true" width=360/>
 
 ##### /templates/site-edit.html
   ```html
@@ -5667,6 +5668,8 @@ root((MAIN))
   document.querySelector(".lightbox-mask")
   .addEventListener("click",addSectionModal_hide)
   ```
+
+#### Importing Sections
 
   The next step was to be able to import the template sections into the site so that they can be shown in the add section modal. The format of the directories for the template directories looks like this (where file nodes are a darker shade): 
 
@@ -5877,6 +5880,8 @@ root((MAIN))
 
   <img alt="Template sections being displayed much better" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_sectionmodal_sections_resized.png?raw=true" width="50%"/>
 
+#### Adding Sections to the Editor
+
   The next step was to be able to add a selected section to the editor. When the modal is being populated with elements, they are each given click event listeners. These will use the functions `stripPreviewTags` and `addSection`, along with the `addSectionModal_hide` function to close the modal.
 
   After completing this, I added the event listener functionality to sections and elements in the editor.
@@ -5913,7 +5918,7 @@ root((MAIN))
     // createResizeBoxes()
   }
   ```
-  
+
   <img alt="A section added to the editor" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.2_draganddrop_addsection_addedsection.png?raw=true" width=500/>
 
   The `sectionEventListener` function goes through each section and adds an `onclick` event, which will clear all selected sections and set the current one as selected. It will also display the section action buttons, once they have been implemented.
