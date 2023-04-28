@@ -71,12 +71,27 @@ height:225px
       - [Saving to the Server](#saving-to-the-server) ~~192~~
   >
 
-  - [Appendix A - Code](#appendix-a---code) 
-  - [Appendix B - Testing](#appendix-b---testing) 
+<!--
 
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
+  - [Testing](#testing)
+    - [Load Testing](#load-testing)
+    - [Compatibility Testing](#compatibility-testing)
+    - [Security Testing](#security-testing)
+  >
+
+  - [Evaluation](#evaluation)
+    - [Usability](#usability-1)
+    - [Performance & Maintenance](#performance--maintenance)
+    - [Security](#security)
+    - [User Satisfaction](#user-satisfaction)
+    - [Accessibility](#accessibility-1)
+    - [Overall Comments](#overall-comments)
+  >
+
+-->
+  - [Appendix A - Code](#appendix-a---code) 
+  - [Appendix B - Testing](#appendix-b---testing)
+
 <br><br><br><br>
 <br><br><br><br>
 <br><br><br><br>
@@ -5644,7 +5659,7 @@ root((MAIN))
 
 <br>
 
-##### /static/js/site_edit.js
+##### /static/js/site-edit.js
   ```js
   var addSectionBtn = document.getElementById("localnav_add_section_btn")
   var addSectionModal_container = document.querySelector(
@@ -5854,7 +5869,7 @@ root((MAIN))
   }
   ```
 
-  The top-level of `site_edit.js` defines all of the variables used for the modal, which can be easily identified by the `addSectionModal_` prefix. It also includes simple functions such as `addSectionModal_getAllTemplates`.
+  The top-level of `site-edit.js` defines all of the variables used for the modal, which can be easily identified by the `addSectionModal_` prefix. It also includes simple functions such as `addSectionModal_getAllTemplates`.
   
   ```js
   var addSectionModal_selectedNavItem="one"
@@ -5895,7 +5910,7 @@ root((MAIN))
 
   After completing this, I added the event listener functionality to sections and elements in the editor.
 
-##### changes to /static/js/site_edit.js
+##### changes to /static/js/site-edit.js
   ```js
   function addSectionModal_populate(data)
   ```
@@ -6030,7 +6045,7 @@ root((MAIN))
 
   The code makes use of the functions `resizable` and `draggable`, which are defined at the start of the code, similarly to `siteroot`, `elements`, and `sections`. They return a list of all the resizalbe and draggable elements respectively, based on criteria that considers tags such as `data-preview` and `data-locked`. Functions are used instead of repeatedly calling the `document.querySelectorAll` function as it means that the query used is only written once, making it easy to edit should some aspect of the syntax change.
 
-##### changes to /static/js/site_edit.js
+##### changes to /static/js/site-edit.js
   ```js
   // return all unlocked resizable elements in the editor
   function resizable() { 
@@ -6468,17 +6483,21 @@ root((MAIN))
 
   The elements could now be resized using the resize handles that are rendered when an element is hovered or selected. The element cannot be resized to larger than the grid due to the `closestValInArray` being only snapping to the extremes as a maximum, and how the `grid-position` property is handled in CSS. The handles have a invisible area around them that also responds to the `mousemove` and `mouseup` events, so that it can still be moved if the user moves their cursor outside of the handle's area (by going vertically or moving too fast). The testing evidence of this can be found in Appendix B.
 
+<br><br>
+
 #### Dragging and Dropping Elements
 
   The most important component of the editor is the ability to drag and drop elements. The code will work in a similar structure to how the resize functions do.
 
+##### changes to /static/js/site-edit.js
+
   ```js
   // creates event listeners for all draggable elements
-function createDragEventListeners() {
+  function createDragEventListeners() {
     // get every draggable element
     for (element of draggable()) {
 
-      // create the mouse down eevent listener
+      // create the mouse down event listener
       element.addEventListener("mousedown",(e1) => {
 
         // end the listener if a resize corner is being clicked, because otherwise
@@ -6517,6 +6536,7 @@ function createDragEventListeners() {
           // get the differences in position
           xdiff = newpos[0] - startpos[0]
           ydiff = newpos[1] - startpos[1]
+
 
           // get the bounding boxes of the section and element
           sectionbox = selectedSection.getBoundingClientRect()
@@ -6570,6 +6590,7 @@ function createDragEventListeners() {
             // while the new one is being calculated
             current.style.setProperty("--position",storedPosition)
 
+
             // calculate and set the new position property for the element
             elementDrop(e2,endpos)
 
@@ -6620,6 +6641,7 @@ function createDragEventListeners() {
     // get a list of the template columns as integers
     for (var col of currentsection_gridtemplatecolumns.split(" ")) 
       columnlist.push(parseInt(col.replace("px","")))
+
 
     // get the cumulative values of the column positions
     // this gets the offset from the start of the grid, in pixels, of every column
@@ -6680,7 +6702,6 @@ function createDragEventListeners() {
 
     //console.log("Col number: ",columnnumber)
     //console.log("Row number: ",rownumber)
-
     //console.log("Position: ",current_position)
 
     // 0 = start row
@@ -6688,15 +6709,14 @@ function createDragEventListeners() {
     // 2 = end row
     // 3 = end column
 
-    // Set the new end positions based on the difference between the original
-    // and new position
-    current_position[2] = String(parseInt(current_position[2])
-                                 + parseInt(rownumber) 
-                                 - parseInt(current_position[0]))
+    // Set the new end positions based on the diff between original and new
+    current_position[2] = 
+      String(parseInt(current_position[2]) + parseInt(rownumber)
+      - parseInt(current_position[0]))
 
-    current_position[3] = String(parseInt(current_position[3]) 
-                                 + parseInt(columnnumber) 
-                                 - parseInt(current_position[1]))
+    current_position[3] = 
+      String(parseInt(current_position[3]) + parseInt(columnnumber) 
+       - parseInt(current_position[1]))
 
     // set the new start positions
     current_position[1] = columnnumber
