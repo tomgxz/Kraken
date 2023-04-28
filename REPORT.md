@@ -59,11 +59,16 @@ height:225px
     - [Stage 3 - Homepage and Settings](#stage-3---homepage-and-settings) ~~104~~
     - [Stage 4 - Creating a New Site](#stage-4---creating-a-new-site) ~~122~~
     - [Stage 5 - Code Documentation](#stage-5---code-documentation) ~~150~~
-    - [Stage 6 - Drag-and-Drop Editor](#stage-6---drag-and-drop-editor) ~~158~~
-      - [HTML Syntax](#html-syntax)
-      - [Importing Sections](#importing-sections)
-      - [Adding Sections to the Editor](#adding-sections-to-the-editor)
-      - [Resizing Text Elements](#resizing-text-elements)
+    - [Stage 6 - Drag-and-Drop Editor](#stage-6---drag-and-drop-editor) ~~157~~
+      - [HTML Syntax](#html-syntax) ~~157~~
+      - [Importing Sections](#importing-sections) ~~163~~
+      - [Adding Sections to the Editor](#adding-sections-to-the-editor) ~~169~~
+      - [Resizing Text Elements](#resizing-text-elements) ~~172~~
+      - [Dragging and Dropping Elements](#dragging-and-dropping-elements) ~~182~~
+      - [Grid Preview System](#grid-preview-system) ~~186~~
+    - [Stage 7 - Loading from and Saving to the Server](#stage-7---loading-from-and-saving-to-the-server) ~~190~~
+      - [Loading from the Server](#loading-from-the-server) ~~190~~
+      - [Saving to the Server](#saving-to-the-server) ~~192~~
   >
 
   - [Appendix A - Code](#appendix-a---code) 
@@ -6704,3 +6709,434 @@ function createDragEventListeners() {
 
   }
   ```
+
+#### Grid Preview System
+
+  The functions went through many iterations and changes while being developed, including a number of cases where the element would snap to seemingly random grid spaces, before realising that I had mixed up row and column at one point. The developent of both the drag-and-drop and resize functions was aided by the grid preview function in DevTools, that allows you to view where the grid rows and columns are. It looks like this:
+
+  <img alt="The in-built DevTools grid preview system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.5_draganddrop_draganddrop_gridpreview.png?raw=true" width=440/>
+
+  My research into other solutions included finding similar systems, wherein users could see the grid spaces for where the element would land as they were dragging/resizing it. Squarespace, for example, used an image per row for showing the preview. As this wouldn't work with the way my sections are created, I decided to add a `section-grid-preview` element, which would contain elements for every rendered square and mimic the CSS of the `section-grid` element.
+
+##### changes to /static/js/site-edit.js
+
+  ```js
+  function createGridPreviews() {
+    // for every section
+    for (var section of document.querySelectorAll(
+        "[data-kraken-section]:not([data-preview]) section")) {
+
+      // remove any existing grid previews in the section
+      for (var existing of section.querySelectorAll(".section-grid-preview")) {
+        existing.parentNode.removeChild(existing)
+      }
+
+      // create the grid container element and add required classes
+      container = document.createElement("div")
+      container.classList.add("section-grid-preview")
+
+      // get the style of the section grid and any required paramaters
+      gridstyle = getComputedStyle(section.querySelector(".section-grid"))
+      gridstyle_rows = gridstyle.gridTemplateRows.split(" ")
+      gridstyle_columns = gridstyle.gridTemplateColumns.split(" ")
+      gridstyle_rowgap = parseInt(gridstyle.rowGap.replace("px",""))
+      gridstyle_columngap = parseInt(gridstyle.columnGap.replace("px",""))
+
+      columnoffset = parseInt(gridstyle.getPropertyValue("--block-padding-left"))
+      rowoffset = parseInt(gridstyle.getPropertyValue("--block-padding-top"))
+
+      //console.log(gridstyle.gridTemplateColumns)
+
+      // for every column in the grid
+      for (var columnwidth of gridstyle_columns) {
+
+        // set the rowoffset back to the starting value
+        rowoffset = parseInt(gridstyle.getPropertyValue("--block-padding-top"))
+
+        // for every row in the column
+        for (var rowheight of gridstyle_rows) {
+          //console.log(columnoffset,rowoffset)
+
+          // add a child box with the correct positions
+          container.appendChild(
+            createGridPreviewBox(columnwidth,rowheight,rowoffset,columnoffset))
+
+          //console.log(parseInt(rowheight.replace("px","")))
+
+          // increase the row offset by the width of the row and the row gap
+          rowoffset = rowoffset + parseInt(rowheight.replace("px","")) 
+                      + gridstyle_rowgap
+        }
+
+        // increase the column offset by the width of the column and the column gap
+        columnoffset = columnoffset + parseInt(columnwidth.replace("px","")) 
+                       + gridstyle_columngap
+
+      }
+
+      // add the grid previeew
+      section.appendChild(container)
+    }
+  }
+  ```
+
+  The creation of a grid preview box is in its own function. It takes the width, height, position from the top of the section, and position from the left of the section, as arguments, and uses them when assigning the CSS. The box itself is an `absolute` element with a parent `relative` element, meaning that `top` and `left` can be used to position it anywhere inside the parent.
+
+  ```js
+  // creates a single box for the grid previews
+  function createGridPreviewBox(width,height,top,left) {
+    // create the box element and add any required classes
+    box = document.createElement("div")
+    box.classList.add("section-grid-preview-box")
+
+    // set the style to match the arguments
+    box.style.width = width
+    box.style.height = height
+    box.style.top = top+"px"
+    box.style.left = left+"px"
+
+    // hide the box if one of the dimensions is 0
+    if (width == "0px" || height == "0px") box.style.opacity = "0"
+
+    return box
+  }
+  ```
+
+  By default, the grid preview is kept hidden in CSS, so I added code to the `createResizeCornerEventListeners` and `createDragEventListeners` functions that shows and hides it when an element is being resized or dragged.
+
+  ```js
+  // get the parent section by iterating through every parent element
+  parent = current.parentElement
+  while (!(parent.hasAttribute("data-kraken-section"))) 
+    parent = parent.parentElement
+
+  // render the grid preview element
+  parent.querySelectorAll(".section-grid-preview").forEach((e)=>{
+    e.setAttribute("data-kraken-visible","")
+  })
+  ```
+
+  ```js
+  // get the parent section by iterating through every parent element
+  parent = current.parentElement
+  while (!(parent.hasAttribute("data-kraken-section"))) 
+    parent = parent.parentElement
+
+  // hide the grid preview element
+  parent.querySelectorAll(".section-grid-preview").forEach((e)=>{
+    e.removeAttribute("data-kraken-visible")
+  })
+  ```
+
+  Now, when elements are being dragged or resized, this background is displayed:
+
+  <img alt="My custom grid preview shown when dragging" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.5_draganddrop_gridpreview_dragging.png?raw=true" width="100%"/><img alt="My custom grid preview shown when resizing" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.5_draganddrop_gridpreview_resizing.png?raw=true" width="100%"/>
+  
+  And when the operation is finished, the grid is hidden.
+
+### Stage 7 - Loading from and Saving to the Server
+
+#### Loading from the Server
+
+  One of the most important components of the website is the ability to load content from and save content to the server-side storage system, so that users can easily edit their websites instantly. To do this, I looked into different ways of sending information via JavaScript, and found that jQuery's AJAX system would be the best suited.
+
+  AJAX (or Asynchronous JavaScript And XML) allows client-side applications to communicate with remote servers in an asynchronous way (without interfering with the behaviour of the webpage). It essentialy means that I can make dynamic data requests from and to the server. On a rewrite, I would probably use AJAX to handle the importing of sections to make the code consistent, but as the current code works fine, and I am on a strict time schedule, I won't worry about doing that now.
+
+  I started by creating the `run` command, which is where all of the code necessary to begin the webpage will be contained, such as event listener creation and dynamic content generation. It is asynchronous, to allow for the loading of user content. For any fetching of user content, I loaded it via the `fetch` command and handled it with `.then`. Any required functions are `await`ed to ensure they are finished before the program continues.
+
+##### changes to /static/js/site-edit.js
+
+  ```js
+  // called on the page being loaded
+  // loads content from the server, starts all required event listeners, 
+  // creates any required resize boxes, and starts the autosave timer
+  async function run() {
+    // get the username and sitename from the site url
+    user = window.location.pathname.split("/")[1]
+    site = window.location.pathname.split("/")[2]
+
+    // get the siteinfo dictionary from the server
+    siteinfo = await fetch(
+      `../../../static/data/userData/${user}/sites/${site}/siteDat.json`)
+      .then(response => { return response.json(); })
+
+    // get the current site page, defaults to "Home" if nothing is set
+    currentpage = siteinfo["pages"][currentsitename]
+
+    // load the current page
+    await loadcurrentpage(user,site,currentpage)
+    
+    // create any required event listeners
+    sectionEventListeners()
+    elementEventListeners()
+
+    // create any required resize boxes for elements and grid previews for sections
+    createResizeBoxes()
+    createGridPreviews()
+
+    // import the template sections
+    addSectionModal_loadsections()
+    
+    // constant checks for stuff
+    document.querySelector(".site-builder").addEventListener("click",() => {
+        sectionEditActions_checkVisibility()
+        createResizeBoxes()
+        createGridPreviews()
+    })
+  }
+  ```
+
+  The asynchronous function `loadcurrentpage` loads the required HTML into the editor via the `sethtml` and `loadhtmlfile` commands, based on the arguments `user`, `site`, and `currentpage`.
+
+  ```js
+  // loads the current page into the editor from a set criteria
+  async function loadcurrentpage(user,site,currentpage) {
+    return sethtml(await loadhtmlfile(
+      `../../../static/data/userData/${user}/sites/${site}/files/${currentpage}`))
+  }
+  ```
+
+  The asynchronous function `loadhtmlfile` takes a path and fetches it. It will return the given content if successful.
+
+  ```js
+  // loads a file from a path
+  async function loadhtmlfile(path) {
+    return await fetch(path)
+    .then( response => { 
+      if (!response.ok) { throw new Error(`HTTP error: ${response.status}`) } 
+      return response.text()
+    })
+    .then( text => { 
+      return text 
+    })
+  }
+  ```
+
+  The `sethtml` function sets the editor content to a given HTML string.
+
+  ```js
+  // sets the content of the editor
+  function sethtml(html) {
+    builder.innerHTML=html
+  }
+  ```
+
+  This now means that, when the webpage is loaded, the content of the default home file, `1.html`, in the server directory `/static/data/userData/<username>/sites/<sitename>/ files/1.html` is loaded into the editor for the user.
+
+#### Saving to the Server
+
+  Saving to the server is a bit more complicated as it requires use of the AJAX request methods. This is the solution I came up with.
+
+##### changes to \_\_init\_\_.py
+
+  The `app.route` function `site_edit_save` has been added to the Python code. It responds to `post` methods on the url `/<username>/<sitename>/save/<pagename>`, which is what will be used to save content. From there, it fetches the data and saves it to the designated file in storage. No error catching to inform the server is required as that can all be handled by AJAX.
+
+  ```python
+  @self.app.route("/<name>/<site>/save/<page>",methods=["post"])
+  @login_required
+  def site_edit_save(name:str="",site:str="",page:str="") -> None:
+      # get the content of the request - the HTML to save
+      tosave:str = request.form.get("content")
+
+      # get the path of the file to save from the arguments
+      sitePath:str = self.os.path.abspath(
+        f"static/data/userData/{name}/sites/{site}/files/{page}")
+
+      # save to the file
+      with open(sitePath,"w") as f: f.write(tosave)
+      return "success"
+  ```
+
+##### changes to /static/js/site-edit.js
+
+  The asynchronous function `saveContent` will be called whenever the save button is pressed in the editor, and whenever the autosave process is triggered. It uses the jQuery function `ajax` to send a `POST` method request to the server, on the URL `/<username>/<sitename>/save/<pagename>`, with the content `siteroot().outerHTML` - i.e. the content of the editor. The paramaters `error` and `success` define the functions to be called when the request is finished, based on the outcome. As of now, they simply write to the console. Testing of this using DevTools's Network Conditions functionality can be found in Appendix B.
+
+  ```js
+  // sends a request to the server to save the content of the editor 
+  // to the server file storage
+  async function saveContent() {
+    req = $.ajax({
+      type:"post",
+
+      url:`../../../${window.location.pathname.split("/")[1]}/
+           ${window.location.pathname.split("/")[2]}/save/
+           ${siteinfo["pages"][currentsitename]}`,
+
+      data:{content:siteroot().outerHTML},
+      datatype:"json",
+      error: function(xhr,ajaxOptions,thrownError) { console.log(thrownError) },
+      success: function(response) { console.log("Saved") },
+    })
+  }
+  ```
+
+  The combination of these two functions mean that a user can now save their page when it is called, but there is no way of it being triggered. As such, I added a save icon to the local navigation bar. It also includes three hidden icons that are used in the saving animation.
+
+##### changes to /templates/site-edit.html
+  ```html
+  <li class="localnav-item four">
+    <a class="link unformatted" id="localnav_save">
+      <div class="localnav-item-collapsible-icon">
+        <i class="faicon fa-solid fa-save"></i>
+      </div>
+
+      <div class="localnav-item-collapsible-text text bold primary">
+        Save Website
+      </div>
+
+      <div class="localnav-item-collapsible-icon saveloader">
+        <i class="faicon fa-solid fa-loader"></i>
+      </div>
+
+      <div class="localnav-item-collapsible-icon savetick">
+        <i class="faicon fa-solid fa-check"></i>
+      </div>
+
+      <div class="localnav-item-collapsible-icon savecross">
+        <i class="faicon fa-solid fa-xmark"></i>
+      </div>
+
+    </a>
+  </li>
+  ```
+
+  The CSS for when the icons are being shown is defined in `site-edit.css`. In short:
+  - When there is no `data-kraken-savestate` attribute:
+    - `fa-save` is shown
+    - All others are hidden
+  - When `data-kraken-savestate="saving"`:
+    - `fa-loader` is shown
+    - All others are hidden
+  - When `data-kraken-savestate="success"`:
+    - `fa-check` is shown in green
+    - All others are hidden
+  - When `data-kraken-savestate="error"`:
+    - `fa-xmark` is shown in red
+    - All others are hidden
+
+  All of the icons have opacity transitions with appropriate delays so that the animation looks nice. The `fa-loader` spins slowly to represent that something is happening.
+
+  By default, the icon looks like this:
+
+  <img alt="My custom grid preview shown when resizing" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.6_draganddrop_loadsave_saveicon.png?raw=true" width="100%"/>
+
+
+##### changes to /static/js/site-edit.js
+
+  The functions `showSaveLoader` and `hideSaveLoader` are used to trigger the animation by updating the `data-kraken-savestate` data tag on the `.localnav-item.four` element.
+
+  ```js
+  // starts the save loader animation
+  function showSaveLoader() {
+    document.querySelector(".localnav.one .localnav-item.four")
+    .setAttribute("data-kraken-savestate","saving")
+  }
+  ```
+
+  The `hideSaveLoader` function is asynchonous as it makes use of the `sleep` function, which delays the upcoming code by a given amount of miliseconds, in this case 1500. What this means in context is that the element will show either the tick or cross for 1.5 seconds, then revert back to the default icon.
+
+  ```js
+  // finishes the save loading animation and shows a success/fail icon
+  // then resets to normal after 1500ms
+  async function hideSaveLoader(success) {
+    document.querySelector(".localnav.one .localnav-item.four")
+    .setAttribute("data-kraken-savestate",success?"success":"error")
+
+    await sleep(1500)
+
+    document.querySelector(".localnav.one .localnav-item.four")
+    .removeAttribute("data-kraken-savestate")
+  }
+  ``` 
+
+  ```js
+  // source https://www.grepper.com/answers/17868/javascript+sleep
+
+  const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+  }
+
+  // endsource
+  ```
+
+  The asynchronous function `waitForNotSaving` also makes use of the `sleep` function to ensure that the program waits until the current save has finished before executing another one. It checks the `.localnav-item.four` element for the `data-kraken-savestate` tag and delays by 100 milliseconds before checking again if it has the tag.
+
+  ```js
+  // await function used to ensure that multiple saves are not occuring
+  // at the same time
+  async function waitForNotSaving() {
+    while (document.querySelector(".localnav.one .localnav-item.four")
+           .hasAttribute("data-kraken-savestate")) { 
+      await sleep(100) 
+    }
+
+    return true
+  }
+  ```
+
+  I then combined this all together with a `setTimeout` function for the autosave feature, and an event listener on the save icon. The `setTimeout` function creates a delay, in milliseconds, before a given function is called, meaning that I can call it at the end of the `saveContent` function to create a loop. In the AJAX code in `saveContent`, I also modified the existing `error` and `success` functions to call `hideSaveLoader` with the appropriate argument for the success of the request 
+
+  ```js
+  async function saveContent() {
+    // wait for the current save to finish, if running
+    await waitForNotSaving()
+
+    console.log("Saving...")
+
+    // start the save animation
+    showSaveLoader()
+    
+    req = $.ajax({
+      
+      ...
+
+      error: function(xhr,ajaxOptions,thrownError) { hideSaveLoader(false) },
+      success: function(response) { hideSaveLoader(true) },
+    })
+
+    // create the new timeout
+    saveTimeout()
+  }
+  ```
+
+  The `savetimeout` function is used to create the timeout for the next call of the function. The value, 60000, represents the time, in milliseconds, before it is called. In this case, it equates to one minute.
+
+  ```js
+  // starts the timeout for the saveContent function
+  function saveTimeout() {
+    setTimeout(saveContent,60000) // run the savecontent function every minute
+  }
+  ```
+
+  ```js
+  async function run() {
+
+    ... // previous code
+
+    // start the autosave process
+    saveTimeout()
+
+  }
+  ```
+
+  After running preliminary tests on a lower timeout delay, I found that it could very quickly get to the point where it was constantly running the saving animation. As such, I added the `clearTimeout` function to make sure that only one timeout was running for the `saveContent` function at a time.
+
+  ```js
+  // starts the timeout for the saveContent function
+  function saveTimeout() {
+    clearTimeout(saveContent) // clear any previous timeouts
+    setTimeout(saveContent,60000) // run the savecontent function every minute
+  }
+  ```
+
+  ```js
+  async function saveContent() {
+    // remove all existing timeouts to reduce conflicts
+    clearTimeout(saveContent)
+
+    ... // previous code
+
+  }
+  ```
+
+  In Appendix B, I used DevTools' Network Conditions throttling settings to test how it worked on lower connections, including when the site was offline.
