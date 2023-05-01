@@ -99,9 +99,11 @@ height:225px
 ## Analysis
 
 ### Problem identification
-  With the internet constantly growing and more and more people relying on it, the demand for websites is continuously increasing. They can range in style from business portfolios and online stores to games. Regardless of who you are or what you do, a website is often expected of you, especially for businesses. However, the problem of creating a professional and functional website can be a daunting task for many individuals and small businesses, especially those who need more technical expertise or resources. Existing website builders may be challenging to navigate, require extensive coding knowledge, or lack the necessary design flexibility to create a unique and effective online presence. Furthermore, many website builders are geared toward specific industries or types of websites, making it difficult for users to find a platform that meets their specific needs. The task of manually programming it can seem very daunting.
+  In today's ever-expanding digital world, the demand for websites has skyrocketed as more and more people rely on the internet. From promoting business portfolios and creating online stores to hosting games, websites cater to several different purposes. No matter who you are or what you do, having a website is now considered a necessity, especially for businesses. However, creating a professional and functional website can be a daunting task for many individuals and small businesses, especially those without technical expertise or resources. 
 
-  The main aim of this project is to develop a website that allows clients to produce their website via a simple user interface, which alleviates the technical intricacies of HTML, CSS, and JavaScript and will enable them to focus on creating a website that reflects their brand and meets their business goals. Clients can select from various styles and themes (or create their own), upload media such as images and videos, and then interact with a drag-and-drop interface to organise a webpage. Each website they create would have a page dedicated to it, with options to customise the styles of the site, the ability to create, organise, and link together pages of the website, preview the website in a variety of display sizes, and add pre-made elements and edit the parameters of the elements in the site.
+  Existing website builders can be challenging to navigate, require extensive coding knowledge, or lack the necessary design flexibility needed to develop a distinctive and successful online presence. Furthermore, it can be challenging for users to locate a platform that suits their particular requirements because many website builders are targeted at particular industries or types of websites. This makes it challenging for users to find a platform that meets their specific needs, and the task of programming a website from scratch can seem daunting.
+
+  The main aim of this project is to develop a platform where anyone can build their own website with a simple user interfacae, without having to deal with the complexities of HTML, CSS, and JavaScript. This will enable them to focus on creating a website that reflects their brand and meets their business goals. Clients will be able to choose from various style and theme options, or create their own. They can upload images, videos, and other media, and interact with a drag-and-drop interface to easily organise and customise their page's styles and elements. Each website they create would have a page dedicated to it, with options to customise the styles of the site, the ability to create, organise, and link pages together, and preview their website on different display sizes. On top of this, they would be able to add pre-made elements and edit the parameters of the elements in the site, however these features would be more geared towards those with some technical expertise.
 
   A drag-and-drop website builder that is easy to use is increasingly important in today's digital age, where having an online presence is crucial for businesses, organisations, and individuals. A user-friendly website builder that offers a wide range of customisable design options would greatly benefit users who may not have the technical know-how to create a website independently
 
@@ -112,14 +114,14 @@ height:225px
   In summary, the problem that this website builder aims to solve is to provide an easy-to-use, drag-and-drop website builder for individuals and small businesses, which can be easily customised to their specific needs and optimised for different devices without requiring technical expertise. This will greatly benefit users by allowing them to create a professional and functional website that meets their business goals and reflects their brand without needing a background in technology or coding.
 
 ### Stakeholders
-  The clients for this solution could be a wide range of individuals or organisations looking to create a website without the need for technical competency or dedicating large amounts of time to it.
+  The clients for this solution consist of a wide range of individuals/organisations looking to create a website with minimal technical or time requirements.
 
-  Some potential clients could include:
-  - Individuals: People who want to create a personal website, such as a blog, portfolio, or online resume.
-  - Small businesses: Owners or managers of small businesses who want to create a website for their business, such as an online store or service provider website.
-  - Entrepreneurs: Entrepreneurs who want to create a website for their startup or new business venture.
-  - Non-profit organisations: Non-profit organisations that want to create a website to promote their mission and raise awareness.
-  - Freelancers: Freelancers and independent contractors who want to create a website to showcase their work and promote their services.
+  For example, categories of potential clients could include:
+  - Individuals: Personal websites can include blogs, portfolios, or resumes.
+  - Small businesses: Managers or owners of small businesses can create service provider websites and online stores, or simple websites that show off what their business is capable of.
+  - Entrepreneurs: Entrepeneurs can often be assisted by a good looking website for their startup or business venture that successfully manages to capture the spirit of their ideas.
+  - Non-profit organisations: Non-profit organisations that want to create a website that raise awareness of their cause and encourage people to support them.
+  - Freelancers: Freelancers and independent contractors may wish to create a websites that showcase their work and promote their services.
 
   The stakeholders are divided in two main groups: those who have some technical knowledge and can help with alpha-testing and feedback, and those who are not very technically literate, as that is the target audience of this solution. Having two groups will mean I get a variety of useful feedback when developing and beta-testing.
 
@@ -134,38 +136,45 @@ height:225px
   |Kevin |Professional web hosting provider |High |Can provide insights into platform's compatibility with different hosting environments. Has insight into Site Engine Optimisation (referred to as SEO throughout)
   |David |Barber shop owner and tech enthusiast |High |Excited to test features and provide feedback on capabilities and limitations
 
-<br>
-
 ### Why it is suited to a computational approach
-  This problem is suitable for a computational approach because it automates many technical and design tasks typically associated with creating a website. This is achieved by breaking down the website-building process into smaller, more manageable tasks that a computer program can easily handle.
+  This problem is suitable for a computational approach due to it automating many technical and design tasks typically associated with creating a website. This is achieved by breaking down the website-building process into smaller, more manageable tasks that a computer program can easily handle.
 
-  For example, it can implement a drag-and-drop interface to allow users to easily add and arrange elements on a webpage, such as text, images, and videos, without coding. The website builder can also include a visual editor that allows users to easily customise the design and layout of their website, such as selecting from a variety of pre-designed templates or themes. The website builder can also apply pre-defined styles and formatting to the website and organise and link the pages together.
+  For example, the implementation of a drag-and-drop visual interface can allow users to arrange a range of elements on a webpage (including text, images, and videos) without requiring any coding skills. The visual editor can also allow users to customise the design and layout of their website, including the ability to select from various themes and templates, along with applying pre-defined styles and formatting to the website.
 
-  In addition, the solution can also use computational algorithms to optimise the website for different devices and screen sizes, ensuring that the website is responsive and easy to navigate on any device. This can be done by using CSS media queries, which can change the website's layout based on the screen's width, and JavaScript libraries that can detect the device and size of the screen and adjust the layout accordingly.
+  Moreover, the use of computational algorithms can enhance website performance accross a range of different devices and screen sizes, ensuring that the user's content is not compromised by their client's device. By implementing CSS media queries, the website's layout can be programatically changed based on screen dimensions and what it is being viewed on. Additionaly, JavaScript can modify the layout in accordance to the user's device and screen size.
 
-  Using a computational approach can also ensure that the website is secure, fast, and reliable. It can use techniques like minifying, compression, and caching to make the website load faster and use authentication and authorisation mechanisms to ensure the website is secure.
+  A computational approach an also be used to ensure speed, security, and reliability for the website. Making use of programming techniques such as minifying (removing redundant elements of code files), compression (reducing file size and quality in exchange for faster loading times), and caching, allows the website to load faster. Furthermore, authentication algorithms can be used both client and server-side to ensure that the website is secure.
 
-  The solution will be accessible through a server that hosts a website, which requires a computer to use. No alternative would not require a computer to be able to create a website, as at some point, the user will need to write and host the code that they have produced. This solution would act as a bridge between the client and the code, making it easy for users to create a website without needing to understand the technical details of coding.
+  The solution will be implemented via a server hosting the website, which will require a computer to use. There is no way around requiring a computer to be able to create a website, as at some point, the user will need to write and host the code that they have produced. This solution, therefore, acts as a bridge between the user and the code. The project would manage any technical detailsm allowing the user to focus on creating a website that suits their requirements, without needing to understand the technical details of coding.
+
 
 #### Computational methods that the solution lends itself to:
 
 ##### Problem recognition
-  This solution is suitable for problem recognition because it addresses a specific problem that many individuals and small businesses face: the difficulty of creating a professional and functional website without technical expertise or resources. By providing a user-friendly, drag-and-drop interface, a website builder allows users to quickly create and edit their website without the need for coding or technical expertise. This addresses the problem of users not having the technical skills or resources to create a website themselves.
+  The solution is suitable for problem recognition as it addresses the problem that many small businesses or individuals may face: websites, especially professional-looking and funcitional ones, can be difficult to create without technical expertise or resources. The user-friendly, drag-and-drop interface that this solution proposes will allow users to create and edit their website quickly and easily, without as harsh technical requirements. This addresses the problem of users not having the required resources or technical skills to create a website for themselves or their business.
 
-  Furthermore, a website builder can also use computational algorithms to optimise the website for different devices and screen sizes, ensuring that the website is responsive and easy to navigate on any device. This addresses the problem of the rise of mobile devices and the increasing importance of responsive design in today's digital age.
+  Furtermore, website builders can take advantage of computational algorithms to enable optimisation across a wide range of devices and resolutions, ensuring a response and easy experience for users on any device. This addresses the problem of the rising popularity of mobile devices, and the increasing demand this places on responsive design.
 
 ##### Problem decomposition
-  The problem can be broken down into smaller tasks that must be programmed for the program to operate effectively.
-  - Creating an account system and a database to store the user's data.
-  > The account system would allow many users to access the server and edit their sites. The data would be stored in a server-side SQL database. The sites would be stored separately on the server.
-  - Creating a menu system for users to navigate to access different sites.
+  The problem can be broken down, or "decomposed," into smaller, more manageable tasks that must be programmed for the program to operate effectively:
+  
+  - Creating a multi-user system that implements a database for data storage.
+  > This system would allow for many users accessing the server and editing their sites simultaneously. An SQL database would store the user data server-side. The sites would also be stored on the server, but in a separate location as it would not be efficient or effective to store them in the database.
+
+  - Creating a menu system that means the users can navigate through the website.
+
+  - Creating a variety of templates for users to use in their sites.
+  > The process of storing, previewing, and implementing the elements into a user's site still needs to be decided on. 
 
   - Storing a list of template elements the user can preview and use in their sites.
   > I need to decide how to store the template elements, display them to the user, and then implement them into a user's site while still allowing them to edit them.
+
   - Creating a simple drag-and-drop interface that is easy to use and understand.
   > This will probably be based on the grid-based positioning system that many existing website builders use or the constraint system that applications such as android studio use; however, the constraint system may not work with how HTML is created.
+  
   - Creating an effective way of storing the users' sites on the server.
   > They would either be stored in HTM, CSS, and JS files, which would remove the need to convert them, or they could be stored all in XML files, which would make accessing the files easier: the program could convert the XML elements into HTML, CSS, and JS to allow it to be shown. This would allow for the storage of more information about the site and elements and would mean it could all be in one file, including all the separate pages.
+  
   - Converting the user's site into runnable HTML, CSS, and JavaScript so they can download and use it.
   > There would need to be a way for JavaScript to do it so that the user can edit the site in the editor and a way for the server (written in Python) to do it as well
 
@@ -177,16 +186,14 @@ height:225px
 
   For example, the proposed drag-and-drop interface abstracts the implementation details of adding and arranging elements on a webpage using HTML and CSS code.
 
-<br><br><br><br>
-<br><br><br><br>
-<br><br>
+<br>
 
 ### Initial talks with stakeholders
 
-  After meeting with each of the stakeholders and proposing the solution to them, I asked them each for feedback on what they would want the project to include, how they would want it to function, and, if they had technical knowledge, how I could implement the functionality. The questions I asked each person were:
+  I met with each stakeholder to propose the solution and gather feedback on it. This included identifying what features they would want in a website builder, how they'd like it to function, and, if they had some technical experience, whether they had any advice on the implementation of certain aspects of the project. The questions I asked each person were: 
 
   1. "How much technical experience do you have?"
-  2. If they have technical experience: "Do you have any experience creating websites yourself, and if so how much?"
+  2. If they have technical experience: "Do you have any experience creating websites yourself, and, if so, how much?"
   3. "Do you have any experience using existing website builders, and if so, what are your thoughts on them?"
   4. "What are the ideal features that you would look for in a website builder?"
   5. If they have a lot of technical knowledge: "What methods would you suggest when creating this project?"
@@ -406,7 +413,7 @@ height:225px
 
 ### Key features of the solution
 
-The proposed solution is a multi-user, web-based program that is designed to make website creation easier for a diverse range of users, including individuals, small businesses, freelancers, and non-profit organizations. The key features of the solution are outlined below:
+The proposed solution will be a multi-user, web-based program. It will be designed to allow for a wide range of users to create a website that meets their requirements. The key features of the solution are outlined below:
 
 - Grid-based, drag-and-drop system: The system is based on a grid layout that makes it easy for users to place and arrange various elements on their pages. The drag-and-drop feature allows users to add elements to their pages and reposition them as desired.
 - Pre-defined template elements: The solution comes with a wide range of pre-defined template elements that users can use to create their websites quickly. These elements can be customised to match the user's needs.
@@ -418,11 +425,10 @@ The proposed solution is a multi-user, web-based program that is designed to mak
 The overall aim of the solution is to provide an easy-to-use, intuitive system that has a low learning curve, making it accessible to anyone who wants to create a website. The user interface is designed to be visually appealing and straightforward, with a minimal cognitive load, enabling users to focus on designing their websites rather than struggling with technical details. The solution is designed to be flexible and adaptable to suit a wide range of needs, from simple personal sites to more complex business sites.
 
 ### Limitations of the solution
-  The main limitation is that, as a server-side application, the user will always need an active internet connection to access it, and if the server goes down, there will be no way of using the program.
+  The main limitation is that, as a server-side application, the user will always need an active internet connection to access it, and if the server goes down, there will be no way of using the program. Furthermore, if the website is used by more people, and more websites are created, the server may require more resources, impacting on the performance of the builder and making for a slower experience for individual users. This solution can be mitigated by implementing solutions such as load testing to identify bottlenecks and weakness points, so that they can be fixed. More methods are also brought up when mentioning hardware requirements later in this document.
 
-  <!-- TODO write more about limitations -->
+  While the intention for the project is to create an easy-to-use platform for creating professional and functional websites, it may not be the ideal solution for every user. For clients with more complex needs, who require a bespoke website with customised functionality, this builder may fall short of expectations. As the builder prioritises accessibility and a low learning curve, it may lack the level of customisation and responsiveness that certain clients need. This can be reduced by the ability for users to add custom code to their projects, however those with more specific needs may be more inclined towards hiring a developer or using a more advanced builder.
 
-<br><br>
 
 ### Hardware and Software Requirements
 
@@ -436,7 +442,7 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   - The server will require sufficient storage to store the website builder application and the images and files uploaded by the users to the CMS.
   - The server will need a high-speed network connection to handle incoming and outgoing traffic between itself and the users. The faster the connection, the better the user's experience will be.
 
-  In addition to the above hardware requirements, it should be designed with scalability in mind so it can be adjusted if the application size or the number of users increases.
+  In addition to the above hardware requirements, the project will need to be designed with scalability in mind, so it can be adjusted if the application size or the number of users increases.
 
 #### Software Requirements
   The client will need a JavaScript-compatible web browser and an active internet connection.
@@ -449,13 +455,11 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   - Firewall software to monitor incoming and outgoing traffic and stop potential threats from corrupting the system.
   - Load balancer software may be required when the user base increases to manage server resources and route traffic to available servers.
 
-<br><br>
-
 ### Success Criteria
 
 #### Essential Features
   - Login system
-  - the ability to view the password with the all-seeing eye
+  - The ability to view the password with the all-seeing eye
   - Signup fields to be name, email, username, and two passwords to make sure they get it correct
   - SQL database that stores user and site information
   - Fully functional error checking on all fields as follows
@@ -477,7 +481,7 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 
   - Sites can be accessed with the URL: `/<username>/<sitename>`, and, if public, can be viewed (but not edited) by anyone from this URL. If private, other users will be told this and redirected home.
   - The site will have a config file, where it stores all of its global variables - mostly style choices - which have been selected when creating the site. These can also be edited at any time on the site's homepage.
-  > These variables include primary, secondary, accent, and grey colours, primary and secondary fonts, and animation types.
+  > These variables include primary, secondary, accent & grey colours, and primary and secondary fonts.
 
   - File storage system to store user site files
   - CMS system for users to be able to upload custom content
@@ -498,8 +502,6 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   - The position parameters that are changed, as described above, are separate for the desktop and mobile views of the web page. Changing the position when the page is in desktop mode will not affect the position in mobile mode and vice versa.
   - When a widget is right-clicked, it will show useful commands such as copy, paste, delete and duplicate.
   >
-
-<br><br>
 
 #### Desirable Features
   - Ability to (export and) import sites in a zip file so you can transfer them between sites, which is different to downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
@@ -529,8 +531,7 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 
   <!-- TODO: explain it's called Kraken -->
 
-<br><br><br><br>
-<br><br><br><br>
+<br><br>
 
 ## Design
 
@@ -668,21 +669,22 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   |Design to standards|Valid and conventional HTML & CSS promote accessibility by making code more flexible and robust. It also means that screen readers can correctly interpret some website elements.|
 
 #### ARIA
-  ARIA (Accessible Rich Internet Applications) attributes will be used throughout the website to allow screen readers to navigate the website. These attributes can be used by assistive technologies, such as screen readers, to provide a more detailed and customised user experience. It is particularly useful for improving the accessibility of dynamic content and advanced user interface controls, such as those used in rich internet applications.
+  ARIA (Accessible Rich Internet Applications) is a syntax system developed by the W3C Web Accessibility Initiative to allow for screen readers and other accessibilty features when navigating websites on the internet. Quoted from [their overview on w3.org](https://www.w3.org/WAI/standards-guidelines/aria/):
+  > "WAI-ARIA, the Accessible Rich Internet Applications Suite, defines a way to make Web content and Web applications more accessible to people with disabilities. It especially helps with dynamic content and advanced user interface controls developed with HTML, JavaScript, and related technologies."
+
+  ARIA attributes will be used throughout the website to allow screen readers and other accessibilty features to use the website, despite the small chance that they would use it. It is also intended to be implemented into the creation of websites via the drag-and-drop editor, using JavaScript to programatically assign appropriate ARIA tags to elements that require them. 
 
 ### Stakeholder input
 
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
+<br><br>
 
 ### Website structure and backend
 
 #### Flask
-  I have decided to use the Flask Python library as the backend for this website, as I have prior experience in using it, and it suits this project. It is well-documented online, relatively lightweight, and easy to use. Although it does not include as many built-in features as other libraries (such as Django), there are plenty of other Python libraries, such as `flask-login` and `flask-sqlalchemy`, that can add in all of the functionality that is missing from the framework.
+  I have decided to use the Flask Python library as the backend for this website. This is because I have prior experience in using it, it suits this project, and was suggested by Kevin, one of the stakeholders. It is also appealing due to it being well documented, relatively lightweight, and easy to set up. Despite its lack of built-in features when compared to other libraries (such as Django), there are many other third-party Python libraries (including as `flask-login` and `flask-sqlalchemy`) that add in more functionality that is missing from the framework, and that is required for this project. The one thing that I will have to keep in mind if the project gets significantly larger is that it may not be suited as well to large amounts of traffic, in comparison to other frameworks.
 
 #### Jinja
-  I have decided to use the Jinja2 template syntax for storing the HTML files, as it has in-built functionality with Flask via the `flask.render_template()` function. All of the HTML files used for the website will be stored in the `templates/` folder in the server directory.
+  I have decided to use the Jinja2 template syntax for storing the HTML files, as it has in-built functionality with Flask via the `flask.render_template()` function. All of the HTML files used for the website will be stored in the `templates/` folder in the server directory, as it is the native directory that Flask looks for, making it more intuitive for other potential developers.
 
   Jinja is a template system built for Python and Flask (other frameworks have different template systems). It uses templates to reduce duplicated code and make it easier to develop. It enables logic operations in the template file, with functionality for `if`, `while`, `for`, and variable declaration and usage.
 
@@ -703,8 +705,7 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   </html>
   ```
 
-  <br><br><br><br>
-  <br><br><br><br>
+  <br><br><br>
 
   ##### itemlist.html
   ```jinja
@@ -748,13 +749,13 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 
   <!-- TODO: More in depth, Normalisation, CRUD, etc -->
 
-  This project will use SQL to store the multi-user information as I have previous experience using SQL, so it will be easy to set up and use. It is also useful due to its entity-relationship capability, meaning it will be well-suited for storing information about users' sites. It also has a Python library that integrates into the current backend library that is being used, Flask. This means there will be less work, as most of the functionality needed is already built-in and tested.
+  SQL will be used to store data for the multi-user system, including paramaters such as the username, email, and password. I have had previous experience with SQL, meaning that it will be easy for me to set up. It's entity-relationship system makes it well suited for storing user and site information, as it can be linked together. The Python library `flask-sqlalchemy` also means that it can integrate into the backend framework that I have chosen. This means that there will be less work for me, as the functionality needed is already built-in and will have been extensively tested. Furthermore, due to the SQLAlchemly library not requiring any queries inputted directly by my code, it aleviates the risk of SQL injection attacks.
 
   This is the planned entity relationship diagram for the SQL database. It contains two entities, `USER` and `SITE`, connected with a one-to-many relationship with `user_id` being the foreign key in `SITE`.
 
-  <img alt="SQL Database Diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-sqldiagram1.svg?raw=true" height="535"/>
+  <img alt="SQL Database Diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-sqldiagram1.svg?raw=true" height="495"/>
 
-  To incorporate a multi-user editing system for certain sites, the entity relationship diagram for the database will look like this. However, this may not be implemented due to time constraints.
+  To incorporate a multi-user editing system for certain sites, the entity relationship diagram for the database will look like this. However, this may not be implemented, as it is only a desirable feature and is not required for the project to function.
 
   It contains three entities, `USER`, `SITE`, and `LINK`. It is similar to the previous one, with a linking table added between the two original entities, allowing multiple users to edit multiple sites. Each `LINK` also contains information about the `USER`'s permissions for the `SITE`.
 
@@ -765,9 +766,9 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 <br><br><br><br>
 
 #### Server-side file storage
-  For the actual user website files, server-side storage will be used as it cannot be easily stored in SQL. It is all stored server-side so the user can access their files from any computer with an internet connection. The way I intend to store the site information is shown below:
+  The user's website files will be impractical to store in SQL, so will instead be stored in the server-side storage, and accessed by the Python `os` module. The server-side storage means that a user will be able to access their websites from any location, assuming that they have an internet connectino. The syntax for storing site information is show below:
 
-  <img alt="Server-side File Storage Structure Diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-serverstoragediagram.svg?raw=true" height="556"/>
+  <img alt="Server-side File Storage Structure Diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-serverstoragediagram.svg?raw=true" height="525"/>
 
   The `username` and `sitename` folders will be named by the primary keys of the data in the SQL database to avoid duplicate folder names.
 
@@ -779,7 +780,7 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   The `site.ini` config file will contain all of the information about the site settings, theming, and preferences.
 
 ### Algorithms
-  The main parts of this solution are using a SQL database to store information about the multi-user system, the UI design and interactivity, and the actual drag-and-drop editor, with the drag-and-drop editor being the most complex.
+  The main elements of this solution are: using SQL to store user data for the multi-user system, the UI design and interactivity, and the JavaScript for the drag-and-drop editor, with the latter being the most complex. To ensure security is maintaned when user data is being sent to the server, a lot of algorithms, such as `verifyField`, will be developed and tested in both languages. This will aleviate the risk of an attacker bypassing the client validation, whilst also meaning that the load on the server is reduced if a user inputs invalid data.
 
 <!--TODO: add algorithms for hidden navigation bar -->
 
@@ -804,13 +805,9 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   These will define which functionalities can be used for each element.
   For all of the below diagrams, if the element has the tag `data-kraken-locked`, it will only show a button next to the element/section to unlock it.
 
-  When an element is selected, depending on its function, it will be tagged with one of these attributes so that the JavaScript can easily edit it:
+  When an element is selected, depending on its function, it will be tagged with one of these attributes so that the JavaScript can easily edit it (more may be added during development):
   - `data-kraken-selected-text`
   - `data-kraken-selected-style`
-  - `data-kraken-selected-resize`
-  - `data-kraken-selected-drag`
-
-<br>
 
 ##### Resize box
   <img alt="Resize Box Algorithm Flowchart 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-resizebox1.svg?raw=true" height="250"/>
@@ -963,9 +960,9 @@ root((MAIN))
 <br><br><br><br>
 
 ### Subroutines
-  Now that I have a rough idea of what the subroutines will do and how they will fit together, I can start planning them in pseudocode. The multi-user subroutines will be written in Python, as it is used for the backend, whereas the subroutines for the website builder will be written in JavaScript and imported into the HTML.
-
-  <!--TODO: Talk about how the JavaScript subroutines will be organised in the files.-->
+  Now that I have an idea of the requirements for the subroutines and how the different modules will fit together, I can start writing pseudocode to plan them. The multi-user subroutines will be written in Python, and in some cases JavaScript, whereas the subroutines for the website builder will be written primarily in JavaScript. For now, all of the subroutines are written in pseudocode
+  
+  I anticipate the JavaScript files to be quite large after development has finish, so I may also separate the subroutines out into separate files to make navigating the code easier. Each page will have it's own JavaScript file, so that only the required code is being imported
 
 #### Multi-user system - login system
 
@@ -995,8 +992,6 @@ root((MAIN))
 
 ##### auth_signup_post
   The Flask backend will call this subroutine when the user submits the signup form. It uses similar functionality to the `auth_login_post` function, including the passwords being hashed client-side. It uses the `verifyField` and `isEmailFormat` subroutines to check that fields are valid and the `createUser` subroutine to insert a new user into the database and add them to the server storage. Both subroutines are shown later.
-
-  <br><br>
 
   ```js
   
@@ -1354,17 +1349,22 @@ root((MAIN))
 <br><br>
 
 ### Explanation and justification of this process
-  The initial concept seems large and complicated, but the way it is broken down above into separate parts will make the development easier and faster, and will aid the testing and maintaining of the code due to it's modularity.
+  Although the initial concept for this solution appears large and complicated, the decomposition into separate parts will make the development easier and quicker, and will also aid the testing and maintinance of the code, due to its modularity
 
   The program will be split into three main sections: the multi-user system (including the login system and the creation of sites), the site edit system (including the drag-and-drop editor and the styling system), and the user interface.
 
   The multi-user part of the program will integrate with the SQL database and the server-side file storage. It is mostly made of sequential algorithms that are either called when the user performs a certain interaction, or when another algorithm calls them.
 
-  The diagrams above can be used to explain this. The `auth_signup_post` subroutine is called when the user completes the signup form, which then calls the `verifyField`, `isEmailFormat`, and `createUser` subroutines.
+  The diagrams above demonstrate this implementation. The `auth_signup_post` subroutine is called when the user completes the signup form, which then calls the `verifyField`, `isEmailFormat`, and `createUser` subroutines.
 
-  Breaking it down like this ensures that the program is modularised in such a way that all of the subroutines can interact with each other. If there is a bug that needs fixing, or a change that needs implementing, it is easy to find the code that needs editing and change it without breaking the rest of the program.
+  Breaking it down in a clear and linear fashion ensures that the program is modularised in such a way that all of the subroutines can interact with each other. If there is a bug that needs fixing, or a change that needs implementing, it is easy to find the code that needs editing and change it without breaking the rest of the program, as most of the code doesn't rely inherently on what came before.
 
-  The code will be very modular, which will help with development and any changes that will be made later. This will be achieved by following this design and separating the multi-user system, editing system, and user interface. If another developer were to take over the programming, this design would make it easier to understand and make amendments. The two different programming languages, Python and JavaScript, will communicate via Flask's `session` and `flash` features to make sure that the two languages can interact with each other. The functions will be contained in a class, that will be initialised when ran, to make use of the `self` variable communication so that all of the subroutines can use the same variables. It will also use variables and `return` statements for some subroutines where necessary.
+  The code will be designed to be modular, so that development and modifications down the line are easier. This will be achieved by following the principles set out in this design. For example, separating the multi-user system, editing system, and user interface. The overall goal is that, if another developer were to take over the development, they would be able to easily comprehend how the code works and fits together. To further aid this, the code will be well documented with clear and concise comments througout the code, along with function definitions.
+  
+  The two main programming languages, Python and JavaScript, will communicate via Flask's `session` and `flash` functionality, ensuring the languages can interact as expected. The Python functions will be contained in an object representing the full project. This means that it can make use of the `self` communication to easily pass frequently used variables between different functions. It will also use variables and `return` statements for some subroutines, where required.
+
+<br><br><br><br>
+<br><br>
 
 ### Inputs and Outputs
   |Input|Process|Output|
@@ -1410,12 +1410,13 @@ root((MAIN))
   |`fontDropdownItem`| string| Template for a font dropdown element for the font family dropdown in the style modal.|
 
 <br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
+<br><br>
 
 ### Validation
-  To make sure that the program is robust and will not throw critical errors, validation will be used throughout the code to ensure that the data entered by users is accurate, complete, and conforms to specific rules and constraints. Due to the usage of `<input>`s in the HTML code as the vast majority of the input methods, HTML can make sure that the correct data type is being inputted. However, some text that the user input needs to be validated to make sure that it meets certain requirements. Instances of this include:
+  There is always the possibility that the code will break at some point, and where it does can have a large impact on the effect of this. For example, JavaScript errors will simply halt any further processes, meaning the user will have to refresh to resume functionality. However, this can be unintuitive and frustrating for the user. In contrast, flask will catch most errors, and throw a `500 Internal Error` that the user will see, causing a similar annoyance to the user. In the rare chance that something very bad breaks, such as the database being corrupted, the entire process will be stopped and the server will go down. As such, these, and many other possibilities, need to be accounted for and the risk mitigated as much as possible. 
+  
+  One way of reducing said risk is via thorough validation throughout the program. At any point when the user inputs information, both the client-side and server-side programs should ensure that the data is accurate, complete, and conforming to any requirements set. Some of this is aided by the usage of HTML `<input>`s for user input. This means that HTML can make sure that the correct data type and format is being inputted. However, a lot of data requires specific validation to ensure it meets certain requirements. Instances of this include:
+
 
 ##### Login and signup forms
   For the login and signup forms, the text inputted need to have specific parameters. For example, the username must have a minimum length of 3 characters, must not contain special characters, and must be unique in the database. To verify most of this, the `verifyFunction` subroutine is used. This subroutine is outlined earlier in the document. For specific things like checking that the username is unique, or that the password matches the given user, SQL queries are used to validate the inputs. The data here is verified on the client-side before being sent, and is then checked server-side to double check that the data is valid.
@@ -1426,7 +1427,9 @@ root((MAIN))
   - At least one alphanumeric character
   - Illegal characters can be inputted, but will be changed
 
-  In the JavaScript, it will take the content of the input and replace any illegal characters into dashes, then display this name to the user. It will also make sure that the form can be submitted until the input matches the given criteria. This process is outlined earlier in the document. This is an example of client-side validation, where the JavaScript checks the data locally before sending it off to the server.
+  The JavaScript will take the content of the input and replace any invalid characters with dashes, and then display the final result to the user, so that they know what the name of their site will be. The code will also insure that the form can only be submitted when the user has filled out all required information. This process is oudlined earlier in the document. 
+  
+  This is an example of client-side validation, where JavaScript ensures that the data is valid before sending it off to the server, reducing the load on the server. This validation will still be executed server-side as well.
 
 ##### Importing an exported site
   When the user attempts to import a zip file containing a website, the zip file will be verified to conform with a specific format that exporting will use. If any malicious files are found, or any extra files that are not supposed to be there, the website will throw an error client-side before sending it to the server. It will also make sure that the HTML files contained are in the correct format.
@@ -1434,13 +1437,17 @@ root((MAIN))
 ##### Uploading data to the CMS
   There will be a whitelist for the allowed files that can be uploaded to the CMS, and these will be checked and validated before they are sent to the server.
 
-##### Data Sanitization
+##### Data Sanitisation
   Throughout the code, the user input will be checked and cleaned to remove the risk of potentially dangerous or malicious data before being stored in the database. For example, to negate the possibility of an SQL injection attack, the library used to manage the database removes any usage of SQL queries in the code, meaning the data inputted cannot be used to execute a query. Other attack methods that will be looked into include XSS (cross-site scripting), DDoS (distributed denial of service), and MitM (man in the middle) attacks.
 
-### Testing method
-  When developing the project, a lot of the alpha testing done will be white box testing, done by the developers. Unit testing will be used to ensure that all of the subroutines function as expected and intended. By testing each module of the program individually, this means that when they are all combined together, the program will function correctly. Integration testing will be performed to make sure the program functions as a whole. This will include checking how different modules interact with each other, and how the frontend interacts with the backend of the website.
+  A good example of this, that will require a lot of validation and checking, is the ability to import sites and user content into the server. This, if unchecked, is a good opportunity for attackers to insert malicious code into the server, and, as such, any content uploaded like this must be sanitised thoroughly to ensure that the integrity of the server is maintained.
 
-  Different areas of testing when programming will include the input data of the program (for example, the user input on the login form), how the program handles said data, and what the result will be. To ensure that it has suitable error catching throughout, each module should go through destructive testing. For user input, this means using a variety of incorrect entries to see how it handles them. For the editor, this means attempting to perform styling that is invalid, dragging elements outside their boundary region, or making them too large. This will also include security testing; making sure that SQL injection or XSS attacks do not work.
+### Testing method
+  During development, the vast majority of alpha testing will be white box testing, performed by the developers as the project is being coded. Unit testing will be used to make sure that all of the individual modules function as expected and intended, before combining them together. By testing each module separately, it ensure that, when all of them are combined together, the program will function correctly. Integration testing will make sure that the program functions as a whole, including checking how different modules interact with each other, and how the front-end interacts with the back-end.
+
+  Different areas of testing when programming will include the input data of the program (for example, the user input on the login form), how the program handles said data, and what the result will be. To ensure that it has suitable error catching throughout, each module should go through destructive testing. For user input, this means using a variety of incorrect entries to see how it handles them. For the editor, this means attempting to perform styling 
+  
+  that is invalid, dragging elements outside their boundary region, or making them too large. This will also include security testing; making sure that SQL injection or XSS attacks do not work.
 
   Usability testing will be done both white-box and black-box - the UI design will be tested during and after development and will be tested with some of the stakeholders to make sure that it is easy to understand and navigate, and that it functions as intended on a variety of devices, resolutions, and browsers. Feedback, criticisms, and suggestions from the stakeholders will be taken after these sessions to ensure that the final product is easy to use and meets their requirements.
 
@@ -1448,6 +1455,12 @@ root((MAIN))
 
   <!-- TODO: consider specific test data for specific aspects of the process -->
 
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
 <br><br><br><br>
 
 ## Development
