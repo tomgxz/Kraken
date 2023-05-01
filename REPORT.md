@@ -7471,6 +7471,6 @@ This means that the project meets this critera, as, despite it only being desira
   - They can export the site, which will download a different zip file that contains all of the internal files that Kraken uses to run the editor for the page. This means the user can download backups and send their websites to others.
   >
 
-  The import/export functionality has not yet been added due to the unfinished editor, and there not yet being much use for it. The import feature especially would take a lot of effort to implement due to the complexity required for malware checking. As such, it is a feature that has been delayed until later in the application development.
+  The import/export functionality has not yet been added due to the unfinished editor, and there is not much use for it yet. The import feature especially would take a lot of effort to implement due to the complexity required for malware checking. As such, it is a feature that has been delayed until later in the application development.
 
   Overall, a large portion of the desirable features have not been implemented due to the prioritisation of more important functionality, in combination with time contstraints.
