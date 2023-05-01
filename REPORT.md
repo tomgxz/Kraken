@@ -7173,3 +7173,184 @@ root((MAIN))
   ```
 
   In Appendix B, I used DevTools' Network Conditions throttling settings to test how it worked on lower connections, including when the site was offline.
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+
+## Evaluation
+
+Due to time contstraints, I have had to finish the first release of the project in it's current state. Although not fully functional, the project fulfils a large portion of the success criteria outlined in the Analysis section.
+
+### Success Criteria
+
+#### Essential Features
+  - ##### Login system
+    - the ability to view the password with the all-seeing eye
+    - Signup fields to be name, email, username, and two passwords to make sure they get it correct
+    - SQL database that stores user and site information
+    - Fully functional error checking on all fields as follows
+
+    >- All fields must not be empty
+    >- Name can have spaces and non-alphanumeric characters and must be longer than 2.
+    >- Email must be in an email format.
+    >- Username cannot have non-alphanumeric characters and must be longer than 2.
+    >- Password must be longer than 8.
+    >- The repeated password must be identical to password.
+    >- Email cannot already be in the database.
+
+    The login/signup system is fully functional with integration to the server's SQL database, that uses two tables: `User` and `Site`. The user can view their passwords before submitting, and there is appropriate validation on both the client-side and server-side, which lines up with the criteria defined above. The data is validated client-side because it means that the user can recieve instant feedback and reduce server load, and it is validated server-side as well to ensure that the client-side validation hasn't been tampered with. Testing was performed during development on both instances of the validation to ensure that the features all worked properly. The backend implements the `flask-login` system to integrate users being able to login. This means that the backend can access information about the current logged-in user for the session that's being requested, which is useful for executing SQL queries about the specific user. The system fully meets this criteria.
+
+  - ##### Homepage
+    - The homepage, when there are no sites, displays a prompt to create a new site
+    - The homepage, when the user has created sites, lists all of them along with a "create new site" button
+
+    The homepage renders any of the user's current sites, if there are any, by using an SQL query. The backend will return two different templates based on whether the user has any sites. The system fully meets this criteria.
+
+  - ##### Site Creation
+    - When creating a site, the user will get the following options
+    >- Website Name: at least four characters, and any illegal characters are converted into dashes. The user is given a preview of what their site name will look like when it does not match the criteria.
+    >- Description: optional
+    >- Whether the site is public or private: determines who has access to the site URLs
+
+    On the first page of the website creation system, the user is prompted for a site name, an optional description, and privacy flag. Similarly to the login system, the validation system for the site name is executed both client-side and server-side to negate any risks of malicious attacks. The system fully meets this criteria.
+
+  - ##### Site syntax
+    - Sites can be accessed with the URL: `/<username>/<sitename>`, and, if public, can be viewed (but not edited) by anyone from this URL. If private, other users will be told this and redirected home.
+    - The site will have a config file, where it stores all of its global variables - mostly style choices - which have been selected when creating the site. These can also be edited at any time on the site's homepage.
+    > These variables include primary, secondary, accent & grey colours, and primary and secondary fonts.
+
+    The if not logged in, as of now, the `/<username>/<sitename>` page currently redirects to the login page. If the current user is logged in but no the owner, it recieves a message stating that they are not the owner, regardless of the privacy settings. This feature has not yet been implemented, and as such, does not meet the criteria.
+
+    The site config file is written to when the site is created (as of yet there is no way to change it), and contains the settings, such as the website name, owner, and description; colours, including `light`, `dark`, `primary`, `secondary`, `accent` & their variants, and the `grey-100` through `grey-900` variables; and fonts, including `header` and `body`. 
+    
+    For example:
+
+    ```ini
+    [settings]
+    name = Epic-Webpage
+    user = test
+    desc = This is a description!
+
+    [color]
+    accent = #878acf
+    accent-dark = #696ec3
+    accent-light = #abaede
+    dark = #0f0f0f
+    grey-100 = #303030
+    grey-200 = #474747
+    grey-300 = #5e5e5e
+    grey-400 = #757575
+    grey-500 = #8c8c8c
+    grey-600 = #a3a3a3
+    grey-700 = #bababa
+    grey-800 = #d1d1d1
+    grey-900 = #e8e8e8
+    light = #f5f5f5
+    primary = #1cb566
+    primary-dark = #15894d
+    primary-light = #22d87a
+    secondary = #d9ca20
+    secondary-dark = #ada11a
+    secondary-light = #e6da56
+
+    [font]
+    header = DM Sans
+    body = Catamaran
+    ```
+
+  - ##### CMS
+    - File storage system to store user site files
+    - CMS system for users to be able to upload custom content
+    >
+
+    This is currently not implemented into the project, partially due to the amount of time required to implement it with use of validation and malware checking. Hence, the project does not meet this criteria.
+
+  - ##### Editing a site
+
+    - The site page (`/<username>/<sitename>`) can be programmatically assigned due to the Python backend: it can take both parameters, search for them in the database, make sure that the current user has permissions, and display the appropriate site.
+
+    The `/<username>/<sitename>` is handled partially by the back-end of the system, in that it can return the site if the logged-in user is the owner of the site, but otherwise will simply return a message for the user stating that they can't view the website. The project partially meets this criteria.
+
+    - On the site page, the user will get a preview of the website, along with customisability options for the website: the ability to edit the site, reorganise the site structure (which pages go where), edit site settings (such as default colours), and export the site.
+
+    The site page does not render a preview of the current user's site, or give customizability options for the website - except for the link to edit the site. The project does not meet this criteria.
+
+    - When editing the site, the organisation will look like this
+    >- A navigation bar on the left that contains the options: "website pages", where you can navigate to a different page, "add section", where you can add another template section to the current page, "website styles", where you can change global settings such as fonts and colours, and "add element", where you can drag and drop individual elements into the canvas to edit.
+    >- A central canvas where the actual web page can be previewed
+    >- A popup modal that appears when the user needs to add an element or section
+    >- A styling section on the right-hand side where the user can edit all of the styling properties for a selected element
+    
+    The editing page reflects some of the design set out in the success criteria: there is a local navigation bar on the left containing the options given in the success criteria; there is a central canvas that contains the page that is currently being edited; there is a popup modal that appears when adding a section, but not when adding an element, as that functionality has not yet been implemented; and there is no styling section on the right hand side. The project partially meets this criteria.
+
+    - The central canvas will import the raw HTML and CSS files from the server and rely on data tags in the HTML element to understand what does what and how to edit it.
+
+    The client-side JavaScript successfully fetches the required HTML from the server - as of yet the project does not require the importing of any CSS. The JavaScript uses the data tags, such as `data-kraken-section` to parse the HTML and create appropriate event listeners and control elements. The project meets this criteria.
+
+    - Whenever a widget is selected, a box will be drawn around it, with the ability to resize it. The style menu on the right will also populate with style options for the selected element that can be changed in real-time and previewed when hovered over so that the user can easily understand what certain buttons will do.
+
+    An element, when hovered or selected (identified with the `data-kraken-element-selected` tag), shows a box around it depending on whether it is resizable and/or draggable (identified with the `data-kraken-resizable` and `data-kraken-draggable` tags respectively), and a set of "corners" on the box which, when dragged, will resize the element. The elements are contained in a child element of the element which contains the outline and any corners required. The elements can have either two corners on either side, or four corners on the vertices, depending on its type (such as `data-kraken-text-element`). The code, despite having the multiple corner style functionalities, only resizes when horizontal corners are present. Despite this, the project meets this criteria.
+
+    The style menu on the right has not yet been implement, and, as such, the project does not meet this criteria.
+
+    - Whenever a widget is selected and held, an outline of the parent section's grid system is previewed, and the element can be moved around. It does this by tracking the cursor's position and relating that to the start position of the cursor on the widget (the anchor point) to render it in the correct place using left, right, top, and bottom CSS tags. When released, the widget will snap into the nearest grid space to where it was released. A similar thing happens when the user selects and holds one of the resize elements on the outline, where it tracks the cursor and then snaps into the closest grid space to resize it.
+
+    The dragging and dropping system is defined with the `data-kraken-draggable` tag. Any elements with the tag will be assigned `mousedown` event listeners for when they are dragged. It is important to note that these events cancel if a resize corner is detected as the element that has been clicked, as otherwise the element would be simultaneously being dragged and resized. As the element is being dragged, the code listens for `mousemove` events, and updates the element's `top` and `left` CSS properties to ensure that the element properly tracks to the cursor when being moved. The element is also rendered with a solid background and drop shadow to indicate that it has been "picked up".
+
+    All sections have a hidden `section-grid-preview` element inside, that contains the content needed to render the outline of the parent section's grid system, so that when an element is being dragged, the user knows where the element will snap to when dropped. This element is added in by the JavaScript, and is shown via the `data-kraken-visible` tag. Due to the nature of how it has been created, it will render the correct positions of each of the grid areas even if the content area (i.e. the browser window the user is viewing it on) has been resized.
+
+    The project meets this criteria.
+
+    - The position parameters that are changed, as described above, are separate for the desktop and mobile views of the web page. Changing the position when the page is in desktop mode will not affect the position in mobile mode and vice versa.
+
+    The project does not meet this criteria, as the plan for developing the editor was to ensure that the content for desktop views of the web page were finished before moving on to mobile, and the desktop implementation has not been completed yet.
+
+    - When a widget is right-clicked, it will show useful commands such as copy, paste, delete and duplicate.
+    >
+
+    This functionality has not been added, and, as such, the project does not meet this critera.
+
+#### Desirable Features
+  - Ability to (export and) import sites in a zip file so you can transfer them between sites, which is different to downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
+  >
+
+  The ability to import and export zip files of the site is not a required feature, meaning they are not essential to the finished project and do not have to be implemented. Due to time contstraints, they were not developed. While they would add another level of portability to the system that is not required, the amount of time needed to develop it, in comparison to the usefulness it adds, is not justified in comparison to the other, more important features.
+
+  - An easy-to-use settings interface where the user can customise things such as public profile appearance and account settings.
+  >
+
+  The settings pages, despite being mostly added to the project, do not have any back-end functionality. They have been added as it was fast and easy to create the HTML for them, and it means that when the features are developed in a later iteration of the project, myself or another developer will find it easier to implement. The pages currently have indicators that there is no functionality to the displayed features.
+
+  - A list of predefined templates for sites when creating a site, that can be organised and filtered via relevant tags.
+  >
+
+  There is currently no list of templates that the user can select from when creating a site. This is due to the amount of time it would take to create and categorise each template. When the editor is completed, it will be easier to create them and will mean that they will have native compatibility with it, so their creation has been delayed until then.
+
+  - When creating the site, the user can select options that allow them to change the default styling properties of the site.
+  > These will be the options for colour palettes and font families.
+
+  During the site creation process, the user can select options such as colours to build a colour palette, and header-paragraph font combinations. The colour options include a light/dark theme selection, the colour temperature of the monochromatic colours (tinting their white balance), the light and dark bounds (the maximum lightness and darkness of the monochromatic colours), and selections of the primary, secondary, and accent colors (including generation of light and dark variants). This means that the project meets this critera, as, despite it only being desirable, it is an important component of the usability of the editor.
+
+  - The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously.
+  > This would be achieved by modifying the database structure to have a linking table between the User and Site tables. This is explained later in the design section.
+
+  This has not been implemented into the project, as it is a feature that is quite far down the devlopment timeline, and not required for the project to be fully functional. It would require the database to be recreated to allow for a linking table between the two original tables, and more complex back-end functionality, which would take a lot of time to implement.
+
+  - Accessibility and support: Automatic ARIA tag assignment inside website builder, accessibility analysis tools to ensure that the current colour palette is acceptable, and adequate support for screen readers in created websites.
+  >
+
+  - Audience interaction features such as forms, social media feeds, and article posts.
+
+  Despsite accessibiliy support and audience interaction features being important components of modern websites, they have not yet been implemented into the editor as more important features have been prioritised due to time constraints.
+
+  - To export the site, the user will have two options that will be clearly defined in the UI
+  - They can download the site, which will download a zip file containing all the required HTML, CSS, and JavaScript code, so that they can unpack the archive and run the webpage by simply opening the HTML file.
+  - They can export the site, which will download a different zip file that contains all of the internal files that Kraken uses to run the editor for the page. This means the user can download backups and send their websites to others.
+  >
+
+  The import/export functionality has not yet been added due to the unfinished editor, and there not yet being much use for it. The import feature especially would take a lot of effort to implement due to the complexity required for malware checking. As such, it is a feature that has been delayed until later in the application development.
+
+  Overall, a large portion of the desirable features have not been implemented due to the prioritisation of more important functionality, in combination with time contstraints.
