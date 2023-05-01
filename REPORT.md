@@ -966,32 +966,34 @@ root((MAIN))
   The Flask backend will call this subroutine when the user submits the login form. The subroutine can fetch input data from the form using the `flask` `request` import. The password it receives will already have been hashed on the client's side so that it is being sent over the internet encrypted.
 
   ```js
-  function auth_login_post() { // run when the user submits the login form
+  function auth_login_post() // run when the user submits the login form
     flask.route("login",method=post)
 
     // fetch inputs from the form using the ids of the inputs
-    username,password,remember = flask.request.form.get()
+    username,password,remember = * flask.request.form.get()
 
     // fetch a list of users that match the username from the database
     user = db.query(f"SELECT * from USER where user_id={username}").fetchall()
 
     // if the list of users is empty or the password doesn't match
-    if user.length = 0 || user[0].password == password {
+    if user.length = 0 or user[0].password == password then
       flash("Please check your login details and try again")
       return flask.redirect(flask.url_for("auth_login"))
-    }
+    endif
 
-    flask.login_user(user,remember=remember) # login the user
+    flask.login_user(user,remember=remember) // login the user
     return flask.redirect(flask.url_for("main_home"))
-  }
+
+  endfunction
   ```
 
 ##### auth_signup_post
-  The Flask backend will call this subroutine when the user submits the signup form. It uses similar functionality to the `auth_login_post` function, including the passwords being hashed client-side. It uses the `verifyField` and `isEmailFormat` subroutines to check that fields are valid and the `createUser` subroutine to insert a new user into the database and add them to the server storage. Both subroutines are shown later.
+  The Flask backend will call this subroutine when the user submits the signup form. It uses similar functionality to the `auth_login_post` function, including the passwords being hashed client-side. It uses the `verifyField` and `isEmailFormat` subroutines to check that fields are valid and the `createUser` subroutine to insert a new user into the database and 
+  
+  add them to the server storage. Both subroutines are shown later.
 
   ```js
-  
-  function auth_signup_post() { // run when the user submits the signup form
+  function auth_signup_post() // run when the user submits the signup form
     flask.route("signup",method=post)
 
     // fetch inputs from the form using the ids of the inputs
@@ -1000,39 +1002,53 @@ root((MAIN))
     // Use the verifyField function to check the inputs are valid.
     out = verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
 
-    if (out) return flask.redirect(flask.url_for("auth_signup"))
+    if out then
+      return flask.redirect(flask.url_for("auth_signup"))
+    endif
 
     out = verifyField(email,"Email",minLen=0,canHaveSpace=False,
     canHaveSpecialChar=True)
 
-    if (out) return flask.redirect(flask.url_for("auth_signup"))
+    if out then
+      return flask.redirect(flask.url_for("auth_signup"))
+    endif
 
     // Check to see whether the email is in a valid format
-    if (not isEmailFormat(email)) 
+    if not isEmailFormat(email) then
       return flask.redirect(flask.url_for("auth_signup"))
+    endif
 
     // Run an SQL query to check whether this email already has an account
     user = db.query(f"SELECT * from USER where email={username}").fetchall()
 
-    if user return flask.redirect(flask.url_for("auth_signup"))
+    if user then
+      return flask.redirect(flask.url_for("auth_signup"))
+    endif
 
     out = verifyField(username,"Username",canHaveSpecialChar=False)
 
-    if (out) return flask.redirect(flask.url_for("auth_signup"))
+    if out then
+      return flask.redirect(flask.url_for("auth_signup"))
+    endif
 
     out = verifyField(password1,"Password",minLen=8)
 
-    if (out) return flask.redirect(flask.url_for("auth_signup"))
+    if out then
+      return flask.redirect(flask.url_for("auth_signup"))
+    endif
 
     // Make sure the passwords match
-    if (password1 != password2) return flask.redirect(flask.url_for("auth_signup"))
+    if password1 != password2 then
+      return flask.redirect(flask.url_for("auth_signup"))
+    endif
 
     // run the createUser function to insert a user into the database
     createUser(username,email,name,password)
 
     // redirect to the home page
     return flask.redirect(flask.url_for("main_home"))
-}
+
+  endfunction
   ```
 
   <!--TODO: talk about how the flashes for the error messages work-->
@@ -1057,38 +1073,44 @@ root((MAIN))
     specialChar = "%&{}\\<>*?/$!'\":@+`|="
 
     // Make sure that field is the correct datatype
-    if field.type is not str {
-      raise Exception(
-      f"Invalid data type for field. Expected string, received {field.type}")
-    }
+    if field.type is not str then
+      throw "Invalid data type for field. Expected string, received " + field.type
+    endif
 
     // If field is empty and mustHaveChar is true
-    if (field.length == 0 and mustHaveChar) return f"{fieldName} is not filled out."
+    if field.length == 0 and mustHaveChar then
+      return f"{fieldName} is not filled out."
+    endif
 
     // If field is shorter than minLen
-    if (field.length < minLen) 
+    if field.length < minLen then
       return f"{fieldName} must be greater than {minLen-1} characters."
+    endif
 
     // If field contains spaces and canHaveSpace is false
-    if (not canHaveSpace and " " in field) 
+    if not canHaveSpace and " " in field then
       return f"{fieldName} cannot contain spaces."
+    endif
 
     // If the field contains any of the specialChars and canHaveSpecialChar is false
-    if (not canHaveSpecialChar) {
-      for (char of specialChar) {
-        if (char in field) return f"{fieldName} cannot contain '{char}'"
-      }
-    }
+    if not canHaveSpecialChar then
+      for char in specialChar
+        if char in field 
+          return fieldName + " cannot contain '"+char+"'"
+        endif
+      next char
+    endif
 
     return ""
-  }
+
+  endfunction
   ```
 
 ##### createUser
   This subroutine will be called from `auth_signup_post` when it wants to add a new user to the system. Using the arguments given, it will insert a new user into the database and generate the required folder structure for the user using the subroutine `generateFolderStructure`. It is a procedure, so it will not return anything.
 
   ```js
-  function createUser(username,email,name,password) {
+  procedure createUser(username,email,name,password)
     // generate the model for a new user
     newUser = db.User(
       user_id=username,
@@ -1109,8 +1131,12 @@ root((MAIN))
     generateFolderStructure(folderStructure)
 
     db.session.add(newUser)
-  }
+
+  endprocedure
   ```
+
+<br><br><br><br>
+<br>
 
 #### Multi-user system - creating a new site
   <!--TODO: add the algorithms for creating the sites-->
@@ -1119,20 +1145,21 @@ root((MAIN))
   On the first page for creating a new site, the `checkFormSubmitButton` subroutine is called to see whether all inputs have been filled out and are valid. If everything is acceptable, it will remove the `disabled` tag from the button element, defined as `formSubmit` in the JavaScript.
 
   ```js
-  function checkFormSubmitButton() {
+  procedure checkFormSubmitButton() {
     // if the website name is either marked as success or warning
     // AND one of the form privacy options is checked, remove the attribute
     // else set the button to disabled
 
-    if  (formName.getAttribute("data-form-input-display") == "success" || 
-         formName.getAttribute("data-form-input-display") == "warning")  && 
-        (formPrivacy1.checked || formPrivacy2.checked) {
-          formSubmit.removeAttribute("disabled","")
-    } else formSubmit.setAttribute("disabled","")
-  }
-  ```
+    if (formName.getAttribute("data-form-input-display") == "success" or 
+        formName.getAttribute("data-form-input-display") == "warning") and 
+       (formPrivacy1.checked or formPrivacy2.checked) then
+        formSubmit.removeAttribute("disabled","")
+    else 
+      formSubmit.setAttribute("disabled","")
+    endif
 
-<br><br><br><br>
+  endprocedure
+  ```
 
 ##### Website name formatting subroutines
   There are certain requirements for a site name that need to be fulfilled, including limiting it to only certain characters and no spaces (the specific requirements are listed elsewhere in the document). To ensure that the user knows what their final site name looks like, the JavaScript converts the input into a valid name, that will be used when it is created server-side. As such, some of these functions will exist both client-side and server-side.
@@ -1143,112 +1170,137 @@ root((MAIN))
 
   Variables such as `messageSpan` and `messageContainer` are defined earlier using `document.querySelector` calls to fetch HTML elements from the DOM (document object manager).
 
+  <br><br><br>
+
   ```js
   forminput_websiteName = document.getElementById("input_websitename");
 
-  forminput_websiteName.addEventListener("keyup",(event) => {
-    // set the color of the input
-    forminput_websiteName.classList.append(verifyNameField())
-    checkFormSubmitButton();
-  })
+  forminput_websiteName.addEventListener("keyup",
+    procedure 
+      // set the color of the input
+      newcolor = verifyNameField()
+      forminput_websiteName.classList.append(newcolor)
+      checkFormSubmitButton()
+    endprocedure
+  )
   ```
 
   ```js
-  function hideFormMessage() {
+  procedure hideFormMessage()
     // clears the current contents of the warning dialog
     // used in the verifyNameField function.
     messageContainer.classList.add("visibly-hidden")
     messageSpan.innerHTML=""
-  }
+  endprocedure
   ```
   
   ```js
-  function hasRepeatedDashes(val) {
+  function hasRepeatedDashes(val)
     // checks whether a string has repeated dashes in it
-    for (i in range(val.length)) 
-      if (val[i] == "-" && val[i+1] == "-") 
+    for i=0 to val.length
+      if val[i] == "-" and val[i+1] == "-" then
         return true
+      endif
+    next i
+
     return false
-  }
+
+  endfunction
+  ```
+
+  ```js
+  function replaceRepeatedDashes(val)
+    // replaces all sets of repeated dashes with a single dash
+    // by implementing recursion
+    for i=0 of val.length
+      if val[i] == "-" and val[i+1] == "-" then
+        val.removeIndex(i+1)
+        val = replaceRepeatedDashes(val)
+      endif
+    next i
+
+    return val
+
+  endfunction
   ```
 
   <br><br>
 
   ```js
-  function replaceRepeatedDashes(val) {
-    // replaces all sets of repeated dashes with a single dash
-    // by implementing recursion
-    for (i in range(val.length)) {
-      if (val[i] == "-" && val[i+1] == "-") {
-        val.remove(i+1)
-        val=replaceRepeatedDashes(val)
-      }
-    }
-    return val
-  }
-  ```
-
-  ```js
-  function editFormMessage() {
+  procedure editFormMessage()
     messageContainer.classList.remove("visibly-hidden")
-    val=val.toLowerCase()
+    val = val.lower()
 
-    for (i in range(val.length)) {
-      letter=val[i];
-      if !(allowedChars.includes(letter)) val=val.replaceAt(i,"-")
-    }
+    for i=0 of val.length
+      letter = val[i]
+      if not letter in allowedChars then
+        val=val.replaceAt(i,"-")
+      endif
+    next i
 
-    if (hasRepeatedDashes(val)) { val=replaceRepeatedDashes(val) }
+    if hasRepeatedDashes(val) then
+      val = replaceRepeatedDashes(val)
+    endif
 
     messageSpan.innerHTML=val
-  }
+
+  endprocedure
   ```
 
   ```js
-  function verifyNameField() {
+  function verifyNameField()
     // Adds content to the warning dialog (if required), and returns a class name
     // that will color the name input box
 
-    val = forminput_websiteName.value;
+    val = websiteNameInput.value
 
     hideFormMessage()
 
-    if (val.length < 1) return "inactive"
-    if (val.length < 4) return "danger"
+    if (val.length < 1) then 
+      return "inactive"
+    elseif val.length < 4 then
+      return "danger"
+    endif
 
     // must include at least one of the given characters
 
     check=true
-    for (i in range(val.length)) {
-        letter = val[i]
-        if ("qwertyuiopasdfghjklzxcvbnm1234567890".includes(letter)) { check=false }
-    }
 
-    if check return "danger"
+    for i=0 of val.length
+        letter = val[i]
+        if letter in "qwertyuiopasdfghjklzxcvbnm1234567890" then 
+          check=false
+        endif
+    next i
+
+    if check then
+      return "danger"
+    endif
 
     sitenames = request.db.query(
       f"SELECT sitename from SITE where userid={session.user.id}")
 
-    if (val in sitenames) { 
+    if val in sitenames then
       messageSpan.innerHTML= "A site with this name already exists!"
       return "danger" 
-    }
+    endif
     
-    for (letter of val) {
-        if (letter not in "qwertyuiopasdfghjklzxcvbnm-._1234567890") { 
-          editFormMessage(val)
-          return "warning"
-        }
-    }
+    for letter in val
+      if letter not in "qwertyuiopasdfghjklzxcvbnm-._1234567890" then
+        editFormMessage(val)
+        return "warning"
+      endif
+    next letter
 
-    if hasRepeatedDashes(val) { 
+    if hasRepeatedDashes(val) then
       editFormMessage(replaceRepeatedDashes(val))
       return "warning" 
-    }
+    endif
 
     hideFormMessage()
     return "success"
-  }
+
+  endfunction
   ```
 
 ##### Diagram showing how these subroutines link
@@ -1256,7 +1308,6 @@ root((MAIN))
   <img alt="Diagram showing how the first layer of site creation subroutines link together" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-subroutines-createsite-websitename-link.svg?raw=true" height="380"/>
 
 <br><br><br><br>
-<br><br>
 
 ##### Website colour palette selection subroutines
 
@@ -1265,84 +1316,89 @@ root((MAIN))
   The `updateStored` subroutine will take the content of the `userSelectedColors` data and append it to a HTML element (`colorOutputSpan` in the JS code) inside a `<form>`, so that it can be sent to the server. This is the only way I've been able to send JavaScript-generated information to the server, after doing some testing. The `updateStored` function is called every time the user changes an input, or when a new set of colours is generated.
 
   ```js
-  function updateStored() {
-    keys=userSelectedColors.keys()
-    for (key in keys) out+=key+":"+colors[key]+","
+  procedure updateStored()
+    keys = userSelectedColors.keys()
+    for key in keys
+      out = out + key + ":" + colors[key] + ","
+    endfor
+    
     colorOutputSpan.innerText = out
-  }
+  endprocedure
   ```
 
   The `updateColorVariables` subroutine is called each time any of the colour pickers are changed, to generate lighter and darker versions of the given colour.
 
   ```js
-  function updateColorVariables() {
-    for (color in colorPickers) {
+  procedure updateColorVariables()
+    for color in colorPickers
 
-      newColor = rgbToHsl(color.r,color.g,color.g)
+      newColor = hsl(color)
       newColor = darken(newColor,CHANGEPERCENT)
-      newColor = hslToRgb(newColor.h,newColor.s,newColor.l)
-      newColor = rgbToHex(newColor.r/255,newColor.b/255,newColor.g/255)
-      userSelectedColors[f"{color}-dark"]=newColor
+      newColor = hex(newColor)
+      userSelectedColors[f"{color}-dark"] = newColor
 
-      newColor = rgbToHsl(color.r,color.g,color.g)
+      newColor = hsl(color)
       newColor = lighten(newColor,CHANGEPERCENT)
-      newColor = hslToRgb(newColor.h,newColor.s,newColor.l)
-      newColor = rgbToHex(newColor.r,newColor.b,newColor.g)
-      userSelectedColors[f"{color}-light"]=newColor
+      newColor = hex(newColor)
+      userSelectedColors[f"{color}-light"] = newColor
 
-    }
+    next color
 
     updateStored()
-  }
+
+  endprocedure
   ```
 
 ##### Diagram showing how these subroutines link
 
   <img alt="Diagram showing how the colour palette site creation subroutines link together" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-subroutines-createsite-colors-link.svg?raw=true" height="65"/>
 
-<br><br>
-
 #### Utility subroutines
   These subroutines are called in different parts of the Python files to perform specific actions. This means that it removes duplicate code for procedures that may need to be used many times throughout
 
   <!--TODO: add subroutines relating to user settings-->
   
-
 ##### generateFolderStructure
   This subroutine is called whenever the code needs to generate a list of folders. It makes use of the in-built `os` library in Python. It is called when a new user is created or when a user creates a new site.
 
-  ```python
-  def generateFolderStructure(folders):
-    for folder in folders: # iterate through the list of folders
-      if os.path.isdir(folder): # if the folder already exists
+  ```js
+  procedure generateFolderStructure(folders)
+    for folder in folders // iterate through the list of folders
+
+      if os.isdir(folder) then // if the folder already exists
         continue
-      try:
-        os.makedirs(folder)
-      except OSError as e: # error catching if required
-        raise OSError(e)
+      endif
+
+      os.makedirs(folder)
+
+    next folder
+      
+  endprocedure
   ```
 
 ##### generateFileStructure
   This subroutine is called whenever the code needs to generate a list of files. It makes use of the in-built `os` library in Python. It is called when a user creates a new site.
 
-  ```python
-  def generateFileStructure(files):
-    for file in files: # iterate through the list of files
-      if os.path.exists(file): # if the file already exists
+  ```js
+  procedure generateFileStructure(files)
+    for file in files // iterate through the list of files
+
+      if os.isfile(file) then // if the file already exists
         continue
-      try:
-        with open(file,"w") as f: f.close() # write a new, empty file
-      except OSError as e: # error catching if required
-        raise OSError(e)
+      endif
+
+      // write a new, empty file
+      f = openWrite(file)
+      f.close()
+
+  endprocedure
   ```
 
   <!--TODO: pseudocode for a multi-user permission system for the sites-->
 
   <!--TODO: JavaScript pseudocode for drag and drop editor-->
 
-<br><br><br><br>
-<br><br><br><br>
-<br><br>
+<br><br><br>
 
 ### Explanation and justification of this process
   Although the initial concept for this solution appears large and complicated, the decomposition into separate parts will make the development easier and quicker, and will also aid the testing and maintinance of the code, due to its modularity
