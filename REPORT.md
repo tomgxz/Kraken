@@ -93,13 +93,13 @@ height:225px
 ## Analysis
 
 ### Problem identification
-  In today's ever-expanding digital world, the demand for websites has skyrocketed as more and more people rely on the internet. From promoting business portfolios and creating online stores to hosting games, websites cater to several different purposes. No matter who you are or what you do, having a website is now considered a necessity, especially for businesses. However, creating a professional and functional website can be a daunting task for many individuals and small businesses, especially those without technical expertise or resources. 
+  In today's ever-expanding digital world, the demand for websites has skyrocketed as more and more people rely on the Internet. Websites cater to several different purposes, from promoting business portfolios and creating online stores to hosting games. No matter who you are or what you do, having a website is now considered a necessity, especially for businesses. However, creating a professional and functional website can be daunting for many individuals and small businesses, especially those without technical expertise or resources. 
 
-  Existing website builders can be challenging to navigate, require extensive coding knowledge, or lack the necessary design flexibility needed to develop a distinctive and successful online presence. Furthermore, it can be challenging for users to locate a platform that suits their particular requirements because many website builders are targeted at particular industries or types of websites. This makes it challenging for users to find a platform that meets their specific needs, and the task of programming a website from scratch can seem daunting.
+  Existing website builders can be challenging to navigate, require extensive coding knowledge, or lack the necessary design flexibility to develop a distinctive and successful online presence. Furthermore, it can be challenging for users to locate a platform that suits their requirements, because many website builders are targeted at particular industries or websites. This makes it challenging for users to find a platform that meets their specific needs, and programming a website from scratch can seem daunting.
 
-  The main aim of this project is to develop a platform where anyone can build their own website with a simple user interfacae, without having to deal with the complexities of HTML, CSS, and JavaScript. This will enable them to focus on creating a website that reflects their brand and meets their business goals. Clients will be able to choose from various style and theme options, or create their own. They can upload images, videos, and other media, and interact with a drag-and-drop interface to easily organise and customise their page's styles and elements. Each website they create would have a page dedicated to it, with options to customise the styles of the site, the ability to create, organise, and link pages together, and preview their website on different display sizes. On top of this, they would be able to add pre-made elements and edit the parameters of the elements in the site, however these features would be more geared towards those with some technical expertise.
+  The main aim of this project is to develop a platform where anyone can build their own website with a simple user interface, without having to deal with the complexities of HTML, CSS, and JavaScript. This will enable them to focus on creating a website that reflects their brand and meets their business goals. Clients will be able to choose from various style and theme options, or create their own. They can upload images, videos, and other media, and interact with a drag-and-drop interface to easily organise and customise their page's styles and elements. Each website they create would have a dedicated page, with options to customise the styles of the site, create, organise, and link pages together, and preview their website on different display sizes. On top of this, they would be able to add pre-made elements and edit the parameters of the elements on the site. However, these features would be more geared towards those with some technical expertise.
 
-  A drag-and-drop website builder that is easy to use is increasingly important in today's digital age, where having an online presence is crucial for businesses, organisations, and individuals. A user-friendly website builder that offers a wide range of customisable design options would greatly benefit users who may not have the technical know-how to create a website independently
+  A drag-and-drop website builder that is easy to use is increasingly important in today's digital age, where having an online presence is crucial for businesses, organisations, and individuals. A user-friendly website builder that offers a wide range of customisable design options would greatly benefit users who may not have the technical know-how to create a website independently.
 
   Moreover, the rise of mobile devices and the increasing importance of responsive design have made it crucial for websites to be optimised for different screen sizes and devices. As such, this project would also be geared towards easily creating mobile-friendly websites to ensure optimal user experience.
 
@@ -113,84 +113,84 @@ height:225px
   For example, categories of potential clients could include:
   - Individuals: Personal websites can include blogs, portfolios, or resumes.
   - Small businesses: Managers or owners of small businesses can create service provider websites and online stores, or simple websites that show off what their business is capable of.
-  - Entrepreneurs: Entrepeneurs can often be assisted by a good looking website for their startup or business venture that successfully manages to capture the spirit of their ideas.
-  - Non-profit organisations: Non-profit organisations that want to create a website that raise awareness of their cause and encourage people to support them.
-  - Freelancers: Freelancers and independent contractors may wish to create a websites that showcase their work and promote their services.
+  - Entrepreneurs: Entrepreneurs can often be assisted by a good-looking website for their startup or business venture that successfully captures the spirit of their ideas.
+  - Non-profit organisations: Non-profit organisations that want to create a website that raises awareness of their cause and encourages people to support them.
+  - Freelancers: Freelancers and independent contractors may wish to create websites that showcase their work and promote their services.
 
-  The stakeholders are divided in two main groups: those who have some technical knowledge and can help with alpha-testing and feedback, and those who are not very technically literate, as that is the target audience of this solution. Having two groups will mean I get a variety of useful feedback when developing and beta-testing.
+  The stakeholders are divided into two main groups: those who have some technical knowledge and can help with alpha-testing and feedback, and those who are not very technically literate, as this solution's target audience. Having two groups will mean there will be a variety of useful feedback when developing and beta-testing.
 
   <br>
 
   |Stakeholder |Role |Technical Knowledge |Notes
   |-|-|-|-|
-  |Archie |Student |Medium |Will be able to help me with testing. Has some experience using website builders
-  |Luke |Student |Medium |Will be able to help me with testing. Enjoys creating websites in his free time, well versed in usability and accessibility
+  |Archie |Student |Medium |Will be able to help with testing. Has some experience using website builders
+  |Luke |Student |Medium |Will be able to help with testing. Enjoys creating websites in his free time, well versed in usability and accessibility
   |Sarah |Member of local Scout group |Little |Looking for a way to create a website without hiring a professional developer
   |Jake |Small business owner |Little |Interested in integration with social media
-  |Kevin |Professional web hosting provider |High |Can provide insights into platform's compatibility with different hosting environments. Has insight into Site Engine Optimisation (referred to as SEO throughout)
+  |Kevin |Professional web hosting provider |High |Can provide insights into the platform's compatibility with different hosting environments. Has insight into Site Engine Optimisation (referred to as SEO throughout)
   |David |Barber shop owner and tech enthusiast |High |Excited to test features and provide feedback on capabilities and limitations
 
 ### Why it is suited to a computational approach
-  This problem is suitable for a computational approach due to it automating many technical and design tasks typically associated with creating a website. This is achieved by breaking down the website-building process into smaller, more manageable tasks that a computer program can easily handle.
+  This problem suits a computational approach because it automates many technical and design tasks typically associated with creating a website. This is achieved by breaking down the website-building process into smaller, more manageable tasks that a computer program can easily handle.
 
-  For example, the implementation of a drag-and-drop visual interface can allow users to arrange a range of elements on a webpage (including text, images, and videos) without requiring any coding skills. The visual editor can also allow users to customise the design and layout of their website, including the ability to select from various themes and templates, along with applying pre-defined styles and formatting to the website.
+  For example, implementing a drag-and-drop visual interface can allow users to arrange a range of elements on a webpage (including text, images, and videos) without requiring coding skills. The visual editor can also allow users to customise the design and layout of their website, including the ability to select from various themes and templates, along with applying pre-defined styles and formatting to the website.
 
-  Moreover, the use of computational algorithms can enhance website performance accross a range of different devices and screen sizes, ensuring that the user's content is not compromised by their client's device. By implementing CSS media queries, the website's layout can be programatically changed based on screen dimensions and what it is being viewed on. Additionaly, JavaScript can modify the layout in accordance to the user's device and screen size.
+  Moreover, computational algorithms can enhance website performance across various devices and screen sizes, ensuring that the client's device does not compromise the user's content. By implementing CSS media queries, the website's layout can be programmatically changed based on screen dimensions and what it is being viewed on. Additionally, JavaScript can modify the layout per the user's device and screen size.
 
-  A computational approach an also be used to ensure speed, security, and reliability for the website. Making use of programming techniques such as minifying (removing redundant elements of code files), compression (reducing file size and quality in exchange for faster loading times), and caching, allows the website to load faster. Furthermore, authentication algorithms can be used both client and server-side to ensure that the website is secure.
+  A computational approach can also ensure the website's speed, security, and reliability. Programming techniques such as minifying (removing redundant elements of code files), compression (reducing file size and quality in exchange for faster loading times), and caching allow the website to load faster. Furthermore, authentication algorithms can be used on both client and server side to ensure that the website is secure.
 
-  The solution will be implemented via a server hosting the website, which will require a computer to use. There is no way around requiring a computer to be able to create a website, as at some point, the user will need to write and host the code that they have produced. This solution, therefore, acts as a bridge between the user and the code. The project would manage any technical detailsm allowing the user to focus on creating a website that suits their requirements, without needing to understand the technical details of coding.
+  The solution will be implemented via a server hosting the website, requiring a computer. There is no way around requiring a computer to be able to create a website, as at some point, the user will need to write and host the code that they have produced. This solution, therefore, acts as a bridge between the user and the code. The project would manage any technical details allowing the user to focus on creating a website that suits their requirements, without needing to understand the technical details of coding.
 
 
 #### Computational methods that the solution lends itself to:
 
 ##### Problem recognition
-  The solution is suitable for problem recognition as it addresses the problem that many small businesses or individuals may face: websites, especially professional-looking and funcitional ones, can be difficult to create without technical expertise or resources. The user-friendly, drag-and-drop interface that this solution proposes will allow users to create and edit their website quickly and easily, without as harsh technical requirements. This addresses the problem of users not having the required resources or technical skills to create a website for themselves or their business.
+  The solution is suitable for problem recognition as it addresses the problem many small businesses or individuals may face: websites, especially professional-looking and functional ones, can be difficult to create without technical expertise or resources. The user-friendly, drag-and-drop interface that this solution proposes will allow users to create and edit their websites quickly and easily, without harsh technical requirements. This addresses the problem of users not having the required resources or technical skills to create a website for themselves or their business.
 
-  Furtermore, website builders can take advantage of computational algorithms to enable optimisation across a wide range of devices and resolutions, ensuring a response and easy experience for users on any device. This addresses the problem of the rising popularity of mobile devices, and the increasing demand this places on responsive design.
+  Furthermore, website builders can use computational algorithms to optimise across a wide range of devices and resolutions, ensuring a responsive and easy experience for users on any device. This addresses the problem of the rising popularity of mobile devices and the increasing demand this places on responsive design.
 
 ##### Problem decomposition
   The problem can be broken down, or "decomposed," into smaller, more manageable tasks that must be programmed for the program to operate effectively:
   
   - Creating a multi-user system that implements a database for data storage.
-  > This system would allow for many users accessing the server and editing their sites simultaneously. An SQL database would store the user data server-side. The sites would also be stored on the server, but in a separate location as it would not be efficient or effective to store them in the database.
+  > This system would allow many users to access the server and edit their sites simultaneously. An SQL database would store the user data server-side. The sites would also be stored on the server, but in a separate location, as storing them in the database would not be efficient or effective.
 
-  - Creating a menu system that means the users can navigate through the website.
+  - Creating a menu system that users can navigate through the website.
 
-  - Creating a variety of templates for users to use in their sites.
+  - Creating a variety of templates for users to use on their sites.
   > The process of storing, previewing, and implementing the elements into a user's site still needs to be decided on. 
 
   - Storing a list of template elements the user can preview and use in their sites.
-  > I need to decide how to store the template elements, display them to the user, and then implement them into a user's site while still allowing them to edit them.
+  > The method for storing the template elements, displaying them to the user, and implementing them into the user's site still needs to be decided.
 
   - Creating a simple drag-and-drop interface that is easy to use and understand.
   > This will probably be based on the grid-based positioning system that many existing website builders use or the constraint system that applications such as android studio use; however, the constraint system may not work with how HTML is created.
   
   - Creating an effective way of storing the users' sites on the server.
-  > They would either be stored in HTM, CSS, and JS files, which would remove the need to convert them, or they could be stored all in XML files, which would make accessing the files easier: the program could convert the XML elements into HTML, CSS, and JS to allow it to be shown. This would allow for the storage of more information about the site and elements and would mean it could all be in one file, including all the separate pages.
+  > They would either be stored in HTM, CSS, and JS files, which would remove the need to convert them, or in XML files, which would make accessing the files easier: the program could convert the XML elements into HTML, CSS, and JS to allow it to be shown. This would allow for storing more information about the site and elements and would mean it could all be in one file, including all the separate pages.
   
   - Converting the user's site into runnable HTML, CSS, and JavaScript so they can download and use it.
   > There would need to be a way for JavaScript to do it so that the user can edit the site in the editor and a way for the server (written in Python) to do it as well
 
 ##### Divide and conquer
-  These smaller steps are all doable on their own, and combining them would make a divide-and-conquer approach. The advantage of it being coded in a modular way is that each part can be tested and built on its own without relying on other parts of the project.
+  These smaller steps are all doable independently, and combining them would make a divide-and-conquer approach. The advantage of it being coded modularly is that each part can be tested and built independently without relying on other parts of the project.
 
 ##### Abstraction
   The program uses abstraction as it removes the complex process of programming code by transferring it into a more straightforward, graphical interface - it provides a high-level interface for users to create a website while hiding the underlying implementation details. This removes the need for the client to have knowledge and experience in programming, opening the market to a much larger audience.
 
-  For example, the proposed drag-and-drop interface abstracts the implementation details of adding and arranging elements on a webpage using HTML and CSS code.
+  For example, using HTML and CSS code, the proposed drag-and-drop interface abstracts the implementation details of adding and arranging elements on a webpage.
 
 <br>
 
 ### Initial talks with stakeholders
 
-  I met with each stakeholder to propose the solution and gather feedback on it. This included identifying what features they would want in a website builder, how they'd like it to function, and, if they had some technical experience, whether they had any advice on the implementation of certain aspects of the project. The questions I asked each person were: 
+  I met with each stakeholder to propose the solution and gather feedback. This included identifying what features they would want in a website builder, how they'd like it to function, and, if they had some technical experience, whether they had any advice on implementing certain aspects of the project. The questions I asked each person were: 
 
   1. "How much technical experience do you have?"
   2. If they have technical experience: "Do you have any experience creating websites yourself, and, if so, how much?"
   3. "Do you have any experience using existing website builders, and if so, what are your thoughts on them?"
   4. "What are the ideal features that you would look for in a website builder?"
-  5. If they have a lot of technical knowledge: "What methods would you suggest when creating this project?"
+  5. If they have much technical knowledge: "What methods would you suggest when creating this project?"
   6. "Do you have any other comments, ideas or requests about my proposed project?"
 
 ##### Archie, Student
@@ -201,13 +201,13 @@ height:225px
   > I haven't really used HTML, CSS, and JavaScript outside of small things here and there
 
   3. Existing website builders
-  > A lot of website builders that I have seen before are very feature heavy and convoluted, which can often obscure the creation of a website. The paywall against many of their features often annoys me
+  > A lot of website builders that I have seen before are very feature-heavy and convoluted, which can often obscure the creation of a website. The paywall against many of their features often annoys me.
 
   4. Ideal features
-  > If I were looking for a website builder, I would want it to be easy to pick up how to use, and have it so that I could edit an existing site quickly - very user friendly. The ability to invite other people to help with the creation would be good, and the ability to import and export sites. I'd also want it to have a lot of customisability so that I can make the website look how I want.
+  > If I were looking for a website builder, I would want it to be easy to pick up how to use, and have it so that I could edit an existing site quickly - very user-friendly. The ability to invite other people to help with the creation would be good, and the ability to import and export sites. I'd also want it to have a lot of customisability so that I can make the website look how I want.
 
   6. Other comments
-  > Make sure to use VS code as its 100% better than everything else.
+  > Make sure to use VS code as it's 100% better than everything else.
 
 ##### Luke, Student
   1. Technical experience
@@ -217,15 +217,15 @@ height:225px
   > I find it fun to create websites with crazy premises in my free time. It helps me expand my knowledge and skills. Each one is better than the last. Recently I've been trying to implement more usability and accessibility requirements into the websites that I create, such as contrast ratios and ARIA tags.
 
   3. Existing website builders
-  > I haven't really looked into website builders that much as I get more enjoyment from building them myself - its more of a hobby than a serious thing, and you have to pay for most builders. I have taken a look at bootstrap before, which is quite powerful.
+  > I haven't really looked into website builders that much, as I get more enjoyment from building them myself - it's more of a hobby than a serious thing, and you have to pay for most builders. I have taken a look at Bootstrap before, which is quite powerful.
 
   4. Ideal features
-  > Well, you start with the drag-and-drop, and build from there. You want an easy way to position and reposition elements throughout the site - the ability to reorganise everything is really important. Styling customisability, so global styles and then the ability to change individual elements as well. Custom CSS and JS could also be a cool idea, but you'd need to look out for people putting in malicious code. Various templates that people can choose from is always a good idea, along with tags and filters for them. And accessibility: automatically assigning ARIA tags so that the user doesn't have to do it, checks to make sure the colours are high contrast enough, screen reader support. I'd be happy to help you with getting that stuff correct.
+  > Well, you start with the drag-and-drop, and build from there. You want an easy way to position and reposition elements throughout the site - the ability to reorganise everything is really important. Styling customisability, so global styles and then the ability to change individual elements as well. Custom CSS and JS could also be a cool idea, but you'd need to look out for people putting in malicious code. Various templates that people can choose from are always a good idea, along with tags and filters for them. And accessibility: automatically assigning ARIA tags so that the user doesn't have to do it, checks to make sure the colours are high contrast enough, screen reader support. I'd be happy to help you with getting that stuff correct.
 
   5. Programming methods
 
   6. Other comments
-  > When I took a look at android studio, the way they do their positioning system is with constraints and XML formatted elements. That could be a cool way to do the positioning system, but it might also be a lot harder to program.
+  > When I took a look at Android Studio, the way they do their positioning system is with constraints and XML formatted elements. That could be a cool way to do the positioning system, but it might also be a lot harder to program.
 
 <br><br><br><br>
 <br><br><br>
@@ -235,10 +235,10 @@ height:225px
   > No
 
   3. Existing website builders
-  > The scout group is beginning to look into creating a website, so you've come along at the perfect time. In terms of what we've seen already, a couple of ideas have been put backwards and forward but we haven't come to a decision yet.
+  > The scout group is beginning to look into creating a website, so you've come along at the perfect time. In terms of what we've seen already, a couple of ideas have been put backwards and forward, but we haven't come to a decision yet.
 
   4. Ideal features
-  > I mean, as a scout group, we would want to be able to put up photos and videos of what we've been doing so that people are encouraged to join - we need to be able to change it quickly, and have multiple people be able to change it. We'd need to be able to change the colour scheme so that it matches with the official scout branding. Sign up forms would be a feature we'd need so that people can sign up straight from the website. And the ability to add a privacy policy, so that it's compliant with our GDPR regulations. If I'm honest, a lot of us aren't very technically savvy, so it would need to be pretty basic.
+  > I mean, as a scout group, we would want to be able to put up photos and videos of what we've been doing so that people are encouraged to join - we need to be able to change it quickly, and have multiple people be able to change it. We'd need to be able to change the colour scheme so that it matches the official scout branding. Sign-up forms would be a feature we'd need so that people can sign up straight from the website. And the ability to add a privacy policy, so that it's compliant with our GDPR regulations. If I'm honest, a lot of us aren't very technically savvy, so it would need to be pretty basic.
 
 <br>
 
@@ -250,7 +250,7 @@ height:225px
   > I've not really considered having a website for [the business], as it's quite small, and I've found that social media is good enough at the moment
 
   4. Ideal features
-  > Well, the biggest thing that comes to mind is having my social media feeds on the front page so that people can easily get up-to-date information and see the latest posts quickly. I'd want a lot of styles to choose from so that I can make it look how I want it too - but not so many that I can't choose.
+  > Well, the biggest thing that comes to mind is having my social media feeds on the front page so that people can easily get up-to-date information and see the latest posts quickly. I'd want a lot of styles to choose from so that I can make it look how I want it to - but not so many that I can't choose.
 
 <br><br><br><br>
 <br>
@@ -260,7 +260,7 @@ height:225px
   > I work as a professional web hosting provider, making sure that clients have the best hosting plan based on requirements such as ease of use, security requirements, or expected lifetime
 
   2. Creating your own websites
-  > My job doesn't really require me to, but I do often have to look through clients' code to ensure certain requirements are met, such as accessibility guidelines or creating suitable SEO information for the site. I do have knowledge of how the web languages work.
+  > My job doesn't really require me to, but I do often have to look through clients' code to ensure certain requirements are met, such as accessibility guidelines or creating suitable SEO information for the site. I do have knowledge of how web languages work.
 
   3. Existing website builders
   > The company that I work for provide a website builder as part of one of the pricing plans, but I'm not involved in its programming. It functions fine, but there are a lot of things that I would change about it.
@@ -269,7 +269,7 @@ height:225px
   > The visual aspect of any program is key - if it doesn't look good, is too cluttered, or doesn't look easy to understand, it will put people off using it. Nailing the design is an important aspect of any project, and you should make sure to prioritise it. Another thing to consider is site speed - if it takes forever to update the website, or it lags when you move things around, it will make people not want to use it. Other than that, you've got the other customisation features, organising objects, styles, content management, SEO customisability, and so on.
 
   5. Programming methods
-  > I'd suggest using Flask for this project, as you are already quite used to python, and it is easy to set up. The go to frontend languages would be HTML, CSS and JS. Testing isolated features throughout will make the development faster, and make it easier to link components together.
+  > I'd suggest using Flask for this project, as you are already quite used to Python, and it is easy to set up. The go-to frontend languages would be HTML, CSS and JS. Testing isolated features throughout will make the development faster and make it easier to link components together.
 
   6. Other comments
   > Make sure you talk to your other stakeholders throughout to ensure that the final project will be something they'll want to use - their input can be vital.
@@ -279,7 +279,7 @@ height:225px
 ##### David, Barber Shop Owner, Tech Enthusiast
 
   1. Technical experience
-  > I've done a lot in terms of technical stuff - I program a lot in my spare time to help with tasks, I have a pretty nice computer setup, a couple of raspberry pies setup around my house to run automated processes, and I'm big into collecting older tech.
+  > I've done a lot in terms of technical stuff - I program a lot in my spare time to help with tasks, I have a pretty nice computer setup, a couple of Raspberry Pies set up around my house to run automated processes, and I'm big into collecting older tech.
 
   2. Creating your own websites
   > I've used HTML before. I wouldn't say I'm the best at it, but I know how it works. As for creating websites, I've not gone that far.
@@ -288,7 +288,7 @@ height:225px
   > I tend to stay away from automated solutions to technical programming, especially online ones, where subscriptions and paywalls are a massive component of the industry. I'm beginning to look into creating a website for my shop, but I'm cautious about using website builders and may go down other avenues.
 
   4. Ideal features
-  > The design is the most important bit for me - I should be able to create the entire site to look exactly how I want it, and then be able to release it to the public. Making sure that everything looks how it should, that precision is a big importance to me.
+  > The design is the most important bit for me - I should be able to create the entire site to look exactly how I want and then be able to release it to the public. Making sure that everything looks how it should, that precision is of great importance to me.
 
   5. Programming methods
   > You should definitely look at how other services have created their versions before, as it can give you inspiration and help you work out how you want to approach the construction of it. Make sure to be constantly testing and looking for feedback - I'd be happy to help with that.
@@ -316,14 +316,14 @@ height:225px
   - Sign-up forms and privacy policy options
   - Integration with social media feeds
 
-  It's also worth noting that some stakeholders expressed a willingness to help with the implementation of certain features, so it may be beneficial to involve them in the development process. Additionally, the website builder should aim to be basic enough for those with minimal technical experience to use, while also providing enough features and customizability for those with more technical experience to make use of.
+  It is also worth noting that some stakeholders expressed a willingness to help with the implementation of certain features, so it may be beneficial to involve them in the development process. Additionally, the website builder should be basic enough for those with minimal technical experience to use while also providing enough features and customizability for those with more technical experience.
 
 <br><br><br><br><br><br>
 
 ### Research
 
 #### Existing solution - Squarespace
-  Their template list gives the option to preview the website, with all its functionality on a separate page. They allow their users to view it in different sizes as well.
+  Their template list allows previewing the website, with all its functionality on a separate page. They allow their users to view it in different sizes as well.
 
   <img alt="Squarespace research image: template preview" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace15.png?raw=true"/>
 
@@ -350,14 +350,14 @@ height:225px
   <br><br><br><br>
   <br><br>
 
-  Selecting text gives the user a popup that displays the text formatting options. Whenever the user clicks on an element, they get a different popup that displays its design options.
+  Selecting text gives the user a popup that displays the text formatting options. Whenever users click on an element, they get a different popup displaying its design options.
 
   <img alt="Squarespace research image: text edit and style popup" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchSquarespace11.png?raw=true" width="640"/>
 
 ##### Parts I can apply to my project
   This solution will have the option to preview and use templates similarly to how Squarespace does it, along with their grid positioning system, which is, for lack of a better phrase, an "industry standard." There will also be a similar formatting option setup, but it will be docked on the right-hand side with all the formatting settings in the same place.
 
-  Squarespace also offers a variety of features such as e-commerce integration, SEO tools, analytics, 24/7 customer support, and a Content Management System (CMS) that allows users to update and manage their website's content easily. Although these features are helpful in a website builder, I intend leave them out of the solution's first release due to the timeframe for it and how long these features would take to make. This solution would have a CMS, but not at the scale or capability of Squarespace.
+  Squarespace also offers a variety of features such as e-commerce integration, SEO tools, analytics, 24/7 customer support, and a Content Management System (CMS) that allows users to update and manage their website's content easily. Although these features are helpful in a website builder, I intend to leave them out of the solution's first release due to the timeframe for it and how long these features would take to make. This solution would have a CMS, but not at the scale or capability of Squarespace.
 
 <br><br><br><br>
 <br><br><br><br>
@@ -369,7 +369,7 @@ height:225px
 
   <img alt="Zyro research image: assistant images" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro11.png?raw=true" width="50%"/>
 
-  Zyro has two ways of positioning objects; one is very similar to the way Squarespace does, with a grid positioning system, and the second is a smart layout. It instead uses only columns to position, and the elements can be moved up and down said columns freely and snap to other elements, like how many editors like photoshop might do. The user can toggle the snapping to other elements in section settings.
+  Zyro has two ways of positioning objects; one is very similar to the way Squarespace does, with a grid positioning system, and the second is a smart layout. It instead uses only columns to position, and the elements can be moved up and down said columns freely and snap to other elements, like how many editors - such as Photoshop - might do. The user can toggle the snapping to other elements in section settings.
 
   <img alt="Zyro research image: grid positioning system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro12.png?raw=true" width="60%"/>
 
@@ -380,17 +380,17 @@ height:225px
 
   The CSS class with all of the variable references:
 
-  <img alt="Zyro research image: css: positioning variable usage" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro7.png?raw=true" width="240"/>
+  <img alt="Zyro research image: CSS: positioning variable usage" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro7.png?raw=true" width="240"/>
 
   The HTML style attribute with all of the variable declarations in it:
 
   <img alt="Zyro research image: positioning variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro8.png?raw=true" width="240"/>
 
-  Their image resizing system is good. It uses the `object-fit: cover` property in the style of the image and changes the width and height attributes when being dragged, as explained later.
+  Their image resizing system is good. As explained later, it uses the `object-fit: cover` property in the image style and changes the width and height attributes when dragged.
 
   <img alt="Zyro research image: image resize animation" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro6.gif?raw=true" height="480"/>
 
-  When moving elements around the layout, Zyro adds four variables to the element, `top`, `left`, `width`, and `height`, which they use to render the element positioning while you are moving it. When the user releases the element, these values are removed. This positioning will be done in JavaScript by taking the position of the cursor when the user clicks on the element, getting the element's position when they click on it, and then offsetting the element's position by the amount they move the cursor. Then, when the user releases the cursor, it runs the code to calculate the new grid positioning of the element. They also have a max width for desktop mode, where the element cannot be moved further.
+  When moving elements around the layout, Zyro adds four variables to the element, `top`, `left`, `width`, and `height`, which they use to render the element positioning while you are moving it. When the user releases the element, these values are removed. This positioning will be done in JavaScript by taking the cursor's position when the user clicks on the element, getting the element's position when they click on it, and then offsetting the element's position by the amount they move the cursor. Then, when the user releases the cursor, it runs the code to calculate the new grid positioning of the element. They also have a max width for desktop mode, where the element cannot be moved further.
 
   <img alt="Zyro research image: live position variable declaration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/research/ResearchZyro9.png?raw=true" width="640"/>
 
@@ -407,31 +407,31 @@ height:225px
 
 ### Key features of the solution
 
-The proposed solution will be a multi-user, web-based program. It will be designed to allow for a wide range of users to create a website that meets their requirements. The key features of the solution are outlined below:
+The proposed solution will be a multi-user, web-based program. It will be designed to allow a wide range of users to create a website that meets their requirements. The key features of the solution are outlined below:
 
-- Grid-based, drag-and-drop system: The system is based on a grid layout that makes it easy for users to place and arrange various elements on their pages. The drag-and-drop feature allows users to add elements to their pages and reposition them as desired.
+- Grid-based, drag-and-drop system: The system is based on a grid layout that makes it easy for users to place and arrange various elements on their pages. The drag-and-drop feature allows users to add and reposition elements to their pages as desired.
 - Pre-defined template elements: The solution comes with a wide range of pre-defined template elements that users can use to create their websites quickly. These elements can be customised to match the user's needs.
 - Customisable styles: Users can customise the style of their website by changing the font, colours, background, and other design elements. This feature allows users to create unique designs that match their brand or personal preferences.
-- Organised pages: The solution provides users with tools to organise their pages in a way that makes sense to them. This feature enables users to create a clear, logical structure for their websites, which makes it easy for visitors to navigate.
-- Library of pre-defined templates: The solution comes with a library of pre-defined templates for widgets such as text, buttons, or links. These templates are designed to save users time and effort by providing them with ready-made elements that they can use on their pages.
+- Organised pages: The solution provides users with tools to organise their pages in a way that makes sense. This feature enables users to create a clear, logical structure for their websites, which makes it easy for visitors to navigate.
+- Library of pre-defined templates: The solution comes with a library of pre-defined templates for widgets such as text, buttons, or links. These templates are designed to save users time and effort by providing ready-made elements they can use on their pages.
 - Control of styling for each element: Users have complete control over the styling of each element on their pages. This feature allows users to create visually appealing designs that match their brand or personal preferences.
 
-The overall aim of the solution is to provide an easy-to-use, intuitive system that has a low learning curve, making it accessible to anyone who wants to create a website. The user interface is designed to be visually appealing and straightforward, with a minimal cognitive load, enabling users to focus on designing their websites rather than struggling with technical details. The solution is designed to be flexible and adaptable to suit a wide range of needs, from simple personal sites to more complex business sites.
+The overall aim of the solution is to provide an easy-to-use, intuitive system with a low learning curve, making it accessible to anyone who wants to create a website. The user interface is designed to be visually appealing and straightforward, with a minimal cognitive load, enabling users to focus on designing their websites rather than struggling with technical details. The solution is designed to be flexible and adaptable to suit a wide range of needs, from simple personal sites to more complex business sites.
 
 ### Limitations of the solution
-  The main limitation is that, as a server-side application, the user will always need an active internet connection to access it, and if the server goes down, there will be no way of using the program. Furthermore, if the website is used by more people, and more websites are created, the server may require more resources, impacting on the performance of the builder and making for a slower experience for individual users. This solution can be mitigated by implementing solutions such as load testing to identify bottlenecks and weakness points, so that they can be fixed. More methods are also brought up when mentioning hardware requirements later in this document.
+  The main limitation is that, as a server-side application, the user will always need an active internet connection to access it, and if the server goes down, there will be no way of using the program. Furthermore, if the website is used by more people, and more websites are created, the server may require more resources, impacting the builder's performance and making for a slower experience for individual users. This solution can be mitigated by implementing solutions such as load testing to identify bottlenecks and points of weakness so that they can be fixed. More methods are also brought up when mentioning hardware requirements later in this document.
 
-  While the intention for the project is to create an easy-to-use platform for creating professional and functional websites, it may not be the ideal solution for every user. For clients with more complex needs, who require a bespoke website with customised functionality, this builder may fall short of expectations. As the builder prioritises accessibility and a low learning curve, it may lack the level of customisation and responsiveness that certain clients need. This can be reduced by the ability for users to add custom code to their projects, however those with more specific needs may be more inclined towards hiring a developer or using a more advanced builder.
+  While the intention of the project is to create an easy-to-use platform for creating professional and functional websites, there may be better solutions for some users. For clients with more complex needs, who require a bespoke website with customised functionality, this builder may fall short of expectations. As the builder prioritises accessibility and a low learning curve, it may lack the level of customisation and responsiveness that certain clients need. This can be reduced by the ability for users to add custom code to their projects. However, those with more specific needs may be more inclined towards hiring a developer or using a more advanced builder.
 
 
 ### Hardware and Software Requirements
 
 #### Hardware Requirements
-  The client will need a computer capable of accessing the internet.
+  The client will need a computer capable of accessing the Internet.
 
   In terms of the server side, hardware requirements may include the following:
-  - A server to host the website builder application and handle user requests. This server could be physical or virtual and run on any operating system that can also run Python (as it is the language I will be using to program the backend).
-  - The server will require a CPU with enough processing power: it may need a high number of cores and a fast clock speed to handle high traffic and many concurrent users.
+  - A server to host the website builder application and handle user requests. This server could be physical or virtual and run on any operating system that can also run Python (as it is the language I will use to program the backend).
+  - The server will require a CPU with enough processing power: it may need many cores and a fast clock speed to handle high traffic and many concurrent users.
   - The server will need enough memory (RAM) to handle the requests and processes of the application.
   - The server will require sufficient storage to store the website builder application and the images and files uploaded by the users to the CMS.
   - The server will need a high-speed network connection to handle incoming and outgoing traffic between itself and the users. The faster the connection, the better the user's experience will be.
@@ -445,7 +445,7 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   - The operating system used on the server should be able to run Python alongside other software listed below.
   - Python - it will need to be able to run Python in order to host the website builder.
   - A file structure system to store the code and assets for the website builder.
-  - A database or file structure system to manage and store the data and media uploaded by the users to the CMS.
+  - A database or file structure system to manage and store the data and media users upload to the CMS.
   - Firewall software to monitor incoming and outgoing traffic and stop potential threats from corrupting the system.
   - Load balancer software may be required when the user base increases to manage server resources and route traffic to available servers.
 
@@ -454,7 +454,7 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 #### Essential Features
   - Login system
   - The ability to view the password with the all-seeing eye
-  - Signup fields to be name, email, username, and two passwords to make sure they get it correct
+  - Sign-up fields to be name, email, username, and two passwords to make sure they get it correct
   - SQL database that stores user and site information
   - Fully functional error checking on all fields as follows
   >- All fields must not be empty
@@ -492,19 +492,19 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 
   - The central canvas will import the raw HTML and CSS files from the server and rely on data tags in the HTML element to understand what does what and how to edit it.
   - Whenever a widget is selected, a box will be drawn around it, with the ability to resize it. The style menu on the right will also populate with style options for the selected element that can be changed in real-time and previewed when hovered over so that the user can easily understand what certain buttons will do.
-  - Whenever a widget is selected and held, an outline of the parent section's grid system is previewed, and the element can be moved around. It does this by tracking the cursor's position and relating that to the start position of the cursor on the widget (the anchor point) to render it in the correct place using left, right, top, and bottom CSS tags. When released, the widget will snap into the nearest grid space to where it was released. A similar thing happens when the user selects and holds one of the resize elements on the outline, where it tracks the cursor and then snaps into the closest grid space to resize it.
+  - Whenever a widget is selected and held, an outline of the parent section's grid system is previewed, and the element can be moved around. It does this by tracking the cursor's position and relating that to the start position of the cursor on the widget (the anchor point) to render it in the correct place using left, right, top, and bottom CSS tags. When released, the widget will snap into the nearest grid space to where it was released. A similar thing happens when the user selects and holds one of the resizeable elements on the outline, where it tracks the cursor and then snaps into the closest grid space to resize it.
   - The position parameters that are changed, as described above, are separate for the desktop and mobile views of the web page. Changing the position when the page is in desktop mode will not affect the position in mobile mode and vice versa.
   - When a widget is right-clicked, it will show useful commands such as copy, paste, delete and duplicate.
   >
 
 #### Desirable Features
-  - Ability to (export and) import sites in a zip file so you can transfer them between sites, which is different to downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
+  - Ability to (export and) import sites in a zip file so you can transfer them between sites, which differs from downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
   >
 
   - An easy-to-use settings interface where the user can customise things such as public profile appearance and account settings.
   >
 
-  - A list of predefined templates for sites when creating a site, that can be organised and filtered via relevant tags.
+  - A list of pre-defined site templates for creating a site that can be organised and filtered via relevant tags.
   >
 
   - When creating the site, the user can select options that allow them to change the default styling properties of the site.
@@ -513,17 +513,17 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   - The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously.
   > This would be achieved by modifying the database structure to have a linking table between the User and Site tables. This is explained later in the design section.
 
-  - Accessibility and support: Automatic ARIA tag assignment inside website builder, accessibility analysis tools to ensure that the current colour palette is acceptable, and adequate support for screen readers in created websites.
+  - Accessibility and support: Automatic ARIA tag assignment inside website builder, accessibility analysis tools to ensure the current colour palette is acceptable, and adequate support for screen readers in created websites.
   >
 
-  - Audience interaction features such as forms, social media feeds, and article posts.
+  - Audience interaction features, including forms, social media feeds, and article posts.
 
   - To export the site, the user will have two options that will be clearly defined in the UI
   - They can download the site, which will download a zip file containing all the required HTML, CSS, and JavaScript code, so that they can unpack the archive and run the webpage by simply opening the HTML file.
   - They can export the site, which will download a different zip file that contains all of the internal files that Kraken uses to run the editor for the page. This means the user can download backups and send their websites to others.
   >
 
-  <!-- TODO: explain it's called Kraken -->
+  <!-- TODO: Explain it's called Kraken -->
 
 <br><br>
 
@@ -535,10 +535,10 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 
   <img alt="URL Navigation diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-urlnavigation.svg?raw=true" height="512"/>
 
-  The different nodes are colour coded based on the permission required to access those pages. If a user does not have the required permission, the user will be redirected to the nearest parent node that the user has access to. Most pages will redirect the user to the Login page if they are signed out. The colour coding is as such:
+  The different nodes are colour coded based on the permission required to access those pages. If a user does not have the required permission, the user will be redirected to the nearest parent node to which the user has access. Most pages will redirect users to the Login page if signed out. The colour coding is as such:
   - Green: Any user can access this page and does not need to be signed in; it is public.
   - Orange: The user needs to be logged in to access this page. This mainly relates to account-based pages such as the settings menu or creating a new site.
-  - Red: You need to be the owner of this website or have sufficient permissions granted by the owner. This only applies to the user websites that are set to private.
+  - Red: The user needs to be the owner of this website or have sufficient permissions granted by the owner. This only applies to the user websites that are set to private.
 
 <br><br><br><br>
 <br>
@@ -547,7 +547,7 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 
   ![Main Page Template diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/MainPageTemplate.png?raw=true)
 
-  This is the main "template" on which all pages are built, where the main content will be displayed inside. Defining this in a separate file beforehand (`/templates/base.html`) means that the website has a more unified feel and allows the user to go home and access the navigation menu. Defining it in a separate file also removes redundancy, as the code for it only appears once.
+  This is the main "template" on which all pages are built, where the main content will be displayed inside. Defining this in a separate file beforehand (`/templates/base.html`) means the website has a more unified feel and allows the user to go home and access the navigation menu. Defining it in a separate file also removes redundancy, as the code for it only appears once.
 
   Home Button
   >The Home button is placed in the top left-hand corner so that it is easy to find and matches how other websites do it; it conforms to the established design patterns and standardised expectations that the user will be familiar with.
@@ -577,10 +577,10 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 
   ![Homepage diagram](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/templates/HomepageTemplate.png?raw=true)
 
-  This shows the layout of the homepage once the user has logged in, if the user already has created a website. If the user has not made any websites yet, it will look similar to this but without the grid of their websites. Built inside the main template, it contains the following:
+  This shows the homepage layout once the user has logged in, if the user already has created a website. If the user has yet to make any websites, it will look similar to this but without the grid of their websites. Built inside the main template, it contains the following:
   - The header, saying "Welcome, `<username>`" so that they know that it is the homepage
   - A grid of all of their current sites.
-  > The grid will programmatically change the number of columns based on the display size. It contains square `div`s, each showing the title of the website, an icon informing the user as to whether it is public or private, and is coloured based on the primary colour of said website. The text colour redefines itself based on what the background colour of the `div` is, to make sure it is easy to read
+  > The grid will programmatically change the number of columns based on the display size. It contains square `div`s, each showing the title of the website, an icon informing the user as to whether it is public or private, and is coloured based on the primary colour of said website. The text colour redefines itself based on the background colour of the `div` to make sure it is easy to read.
 
   - A create new site button with the same dimensions as the site `div`s, at the end of the grid layout.
 
@@ -629,11 +629,11 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   - The header displays "Settings" to inform the user of what page they are on.
   - Settings navigation options, a list of links that separate different categories of settings
   > The links include:
-  >- Public Profile - settings that dictate how your profile will appear to other people, such as name, profile picture, and bio.
-  >- Account - account based settings, most of which have warnings next to them, such as change username, export account data, archive account and delete account.
-  >- Appearance & Accessibility - Accessibility settings such as high contrast mode, and utility settings such as tab preference for writing code.
-  >- My Websites - A table of the users websites. Contains a link to the website, how large the size of the website is, the name of the site, and its privacy status.
-  >- Custom Code & Elements - A beta option for storing custom code and elements, in a similar fashion to the above website menu.
+  >- Public Profile - settings that dictate how the user's profile will appear to other users, such as name, profile picture, and bio.
+  >- Account - account-based settings, most of which have warnings next to them, such as change username, export account data, archive account, and delete account.
+  >- Appearance & Accessibility - Accessibility settings such as high contrast mode and utility settings such as tab preference for writing code.
+  >- My Websites - A table of the user's websites. Contains a link to the website, how large the size of the website is, the name of the site, and its privacy status.
+  >- Custom Code & Elements - A beta option for storing custom code and elements in a similar fashion to the above website menu.
   >- Help and Documentation - Documentation and a help guide for the application.
 
   - The options content window will display content based on what is selected in the settings navigation options.
@@ -642,15 +642,15 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 
   <!-- TODO: rewrite with mentions of stakeholders and success criteria -->
 
-  The usability features I have considered ensure that the program is easy to use for as many users as possible, including those with accessibility issues. All of the buttons in the designs are large and easy to notice. When font selection or styling is used, previews for what the font looks like are shown so the user can clearly see what it will look like. This functionality is borrowed by other styling and positioning functions in the editor.
+  The usability features I have considered ensure that the program is easy to use for as many users as possible, including those with accessibility issues. All of the buttons in the designs are large and easy to notice. When font selection or styling is used, previews for the font are shown so the user can see what it will look like. This functionality is borrowed from other styling and positioning functions in the editor.
 
   To make it easier for users to navigate and reduce cognitive load on users, the site will have a deliberately simple structure, with many features hidden behind modals or popup boxes. Elements such as the home button will be placed in conventional positions to make it easier for the user to find.
 
 #### Accessibility
-  All colours will be checked to ensure a large enough contrast ratio so that people with colour deficiencies will see an adequate contrast between the text and the background. This includes elements such as colour pickers, where the label text that shows the hex code will change colour depending on the background to ensure that it is still readable. [WebAIM](https://webaim.org/resources/contrastchecker/), a website used to improve accessibility on the internet, will be used to ensure that there is enough contrast in the text. Furthermore, links in text blocks will also be checked to ensure that they have at least a 3:1 contrast ratio with the surrounding text and are visible enough. Quoted from [WebAIM](https://webaim.org/intro/#types),
+  All colours will be checked to ensure a large enough contrast ratio so that people with colour deficiencies will see an adequate contrast between the text and the background. This includes elements such as colour pickers, where the label text showing the hex code will change colour depending on the background to ensure it is still readable. [WebAIM](https://webaim.org/resources/contrastchecker/), a website used to improve accessibility on the Internet, will ensure enough contrast in the text. Furthermore, links in text blocks will also be checked to ensure they have at least a 3:1 contrast ratio with the surrounding text and are visible enough. Quoted from [WebAIM](https://webaim.org/intro/#types),
   > "Often, these [accessibility features] promote overall usability, beyond people with disabilities. Everyone benefits from helpful illustrations, logically-organised content and intuitive navigation. Similarly, while users with disabilities need captions and transcripts, they can be helpful to anyone who uses multimedia in silent or noisy environments."
 
-  The basic accessibility requirements that are suggested, and that could apply to this project, include the following:
+  The basic accessibility requirements that are suggested and that could apply to this project include the following:
 
   |Requirement|Explanation|
   |:---:|---|
@@ -663,10 +663,10 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   |Design to standards|Valid and conventional HTML & CSS promote accessibility by making code more flexible and robust. It also means that screen readers can correctly interpret some website elements.|
 
 #### ARIA
-  ARIA (Accessible Rich Internet Applications) is a syntax system developed by the W3C Web Accessibility Initiative to allow for screen readers and other accessibilty features when navigating websites on the internet. Quoted from [their overview on w3.org](https://www.w3.org/WAI/standards-guidelines/aria/):
-  > "WAI-ARIA, the Accessible Rich Internet Applications Suite, defines a way to make Web content and Web applications more accessible to people with disabilities. It especially helps with dynamic content and advanced user interface controls developed with HTML, JavaScript, and related technologies."
+  ARIA (Accessible Rich Internet Applications) is a syntax system developed by the W3C Web Accessibility Initiative to allow for screen readers and other accessibility features when navigating websites. Quoted from [their overview on w3.org](https://www.w3.org/WAI/standards-guidelines/aria/):
+  > "WAI-ARIA, the Accessible Rich Internet Applications Suite, defines a method for making Web content and Web applications more accessible to people with disabilities. It helps especially with dynamic content and advanced user interface controls developed with HTML, JavaScript, and related technologies."
 
-  ARIA attributes will be used throughout the website to allow screen readers and other accessibilty features to use the website, despite the small chance that they would use it. It is also intended to be implemented into the creation of websites via the drag-and-drop editor, using JavaScript to programatically assign appropriate ARIA tags to elements that require them. 
+  ARIA attributes will be used throughout the website to allow screen readers and other accessibility features to use the website, despite the small chance that they would use it. It is also intended to be implemented into creating websites via the drag-and-drop editor, using JavaScript to assign appropriate ARIA tags to required elements programmatically. 
 
 ### Stakeholder input
 
@@ -675,10 +675,10 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 ### Website structure and backend
 
 #### Flask
-  I have decided to use the Flask Python library as the backend for this website. This is because I have prior experience in using it, it suits this project, and was suggested by Kevin, one of the stakeholders. It is also appealing due to it being well documented, relatively lightweight, and easy to set up. Despite its lack of built-in features when compared to other libraries (such as Django), there are many other third-party Python libraries (including as `flask-login` and `flask-sqlalchemy`) that add in more functionality that is missing from the framework, and that is required for this project. The one thing that I will have to keep in mind if the project gets significantly larger is that it may not be suited as well to large amounts of traffic, in comparison to other frameworks.
+  I have decided to use the Flask Python library as the backend for this website. This is because I have prior experience in using it, it suits this project, and Kevin, one of the stakeholders, suggested it. It is also appealing because it is well-documented, relatively lightweight, and easy to set up. Despite its lack of built-in features compared to other libraries (such as Django), many other third-party Python libraries (including `flask-login` and `flask-sqlalchemy`) add more functionality that is missing from the framework and that is required for this project. The one thing that I will have to keep in mind if the project gets significantly larger is that it may not be suited to large amounts of traffic compared to other frameworks.
 
 #### Jinja
-  I have decided to use the Jinja2 template syntax for storing the HTML files, as it has in-built functionality with Flask via the `flask.render_template()` function. All of the HTML files used for the website will be stored in the `templates/` folder in the server directory, as it is the native directory that Flask looks for, making it more intuitive for other potential developers.
+  I have decided to use the Jinja2 template syntax to store the HTML files, as it has built-in functionality with Flask via the `flask.render_template()` function. All of the HTML files used for the website will be stored in the `templates/` folder in the server directory, as it is the native directory that Flask looks for, making it more intuitive for other potential developers.
 
   Jinja is a template system built for Python and Flask (other frameworks have different template systems). It uses templates to reduce duplicated code and make it easier to develop. It enables logic operations in the template file, with functionality for `if`, `while`, `for`, and variable declaration and usage.
 
@@ -741,9 +741,9 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 
 #### SQL database storage
 
-  <!-- TODO: More in depth, Normalisation, CRUD, etc -->
+  <!-- TODO: More in-depth, Normalisation, CRUD, etc. -->
 
-  SQL will be used to store data for the multi-user system, including paramaters such as the username, email, and password. I have had previous experience with SQL, meaning that it will be easy for me to set up. It's entity-relationship system makes it well suited for storing user and site information, as it can be linked together. The Python library `flask-sqlalchemy` also means that it can integrate into the backend framework that I have chosen. This means that there will be less work for me, as the functionality needed is already built-in and will have been extensively tested. Furthermore, due to the SQLAlchemly library not requiring any queries inputted directly by my code, it aleviates the risk of SQL injection attacks.
+  SQL will be used to store data for the multi-user system, including parameters such as username, email, and password. I have had previous experience with SQL, meaning it will be easy for me to set up. Its entity-relationship system is well-suited for storing user and site information, as it can be linked. The Python library `flask-sqlalchemy` also means it can integrate into the backend framework I have chosen. This means there will be less work for me, as the functionality needed is already built-in and will have been extensively tested. Furthermore, the SQLAlchemly library, not requiring any queries inputted directly by my code, alleviates the risk of SQL injection attacks.
 
   This is the planned entity relationship diagram for the SQL database. It contains two entities, `USER` and `SITE`, connected with a one-to-many relationship with `user_id` being the foreign key in `SITE`.
 
@@ -760,7 +760,7 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
 <br><br><br><br>
 
 #### Server-side file storage
-  The user's website files will be impractical to store in SQL, so will instead be stored in the server-side storage, and accessed by the Python `os` module. The server-side storage means that a user will be able to access their websites from any location, assuming that they have an internet connectino. The syntax for storing site information is show below:
+  The user's website files will be impractical to store in SQL, so they will instead be stored in the server-side storage, and accessed by the Python `os` module. Server-side storage means that users can access their websites from any location, assuming they have an internet connection. The syntax for storing site information is shown below:
 
   <img alt="Server-side File Storage Structure Diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-serverstoragediagram.svg?raw=true" height="525"/>
 
@@ -771,10 +771,10 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   The `siteDat.json` file will contain all the information about the site file structure, referencing which page requires which HTML file in the `files` folder and which CSS and JavaScript code blocks need to be imported.
   > The server will have a store of CSS and JavaScript that will format every template element and section.
 
-  The `site.ini` config file will contain all of the information about the site settings, theming, and preferences.
+  The `site.ini` config file will contain all the information about the site settings, theming, and preferences.
 
 ### Algorithms
-  The main elements of this solution are: using SQL to store user data for the multi-user system, the UI design and interactivity, and the JavaScript for the drag-and-drop editor, with the latter being the most complex. To ensure security is maintaned when user data is being sent to the server, a lot of algorithms, such as `verifyField`, will be developed and tested in both languages. This will aleviate the risk of an attacker bypassing the client validation, whilst also meaning that the load on the server is reduced if a user inputs invalid data.
+  The main elements of this solution are: using SQL to store user data for the multi-user system, the UI design and interactivity, and JavaScript for the drag-and-drop editor, with the latter being the most complex. To ensure security is maintained when user data is sent to the server, many algorithms, such as `verifyField`, will be developed and tested in both languages. This will alleviate the risk of an attacker bypassing the client validation whilst also meaning that the load on the server is reduced if a user inputs invalid data.
 
 <!--TODO: add algorithms for hidden navigation bar -->
 
@@ -825,7 +825,7 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system t
   <img alt="Text Editor Algorithm Flowchart" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-algorithms-textedit.svg?raw=true" height="450"/>
 
 #### Multi-user system algorithms
-  A lot of the SQL and multi-user algorithms are handled by libraries that are being used, which means that function calls can be used, such as `login_user(user)` from the `flask_login` library or `user = self.User.query.filter_by(user_id=username).first()` that uses an inherited class in the `models.py` file to perform an SQL query. As such, it will reduce a lot of the programming work required, as I can call a function from a different module to do it for me.
+  A lot of the SQL and multi-user algorithms are handled by libraries that are being used, meaning that function calls can be used, such as `login_user(user)` from the `flask_login` library or `user = self.User.query.filter_by(user_id=username).first()` that uses an inherited class in the `models.py` file to perform an SQL query. As such, it will reduce a lot of the programming work required, as I can call a function from a different module to do it for me.
 
   The main things that the multi-user system should be able to do are:
   - Read and write to an SQL database that contains information on the users and their sites
@@ -954,9 +954,9 @@ root((MAIN))
 <br><br><br><br>
 
 ### Subroutines
-  Now that I have an idea of the requirements for the subroutines and how the different modules will fit together, I can start writing pseudocode to plan them. The multi-user subroutines will be written in Python, and in some cases JavaScript, whereas the subroutines for the website builder will be written primarily in JavaScript. For now, all of the subroutines are written in pseudocode
+  Now that I have an idea of the requirements for the subroutines and how the different modules will fit together, I can start writing pseudocode to plan them. The multi-user subroutines will be written in Python, and in some cases, JavaScript, whereas the subroutines for the website builder will be written primarily in JavaScript. For now, all of the subroutines are written in pseudocode.
   
-  I anticipate the JavaScript files to be quite large after development has finish, so I may also separate the subroutines out into separate files to make navigating the code easier. Each page will have it's own JavaScript file, so that only the required code is being imported
+  I anticipate the JavaScript files to be quite large after development, so I may also separate the subroutines into separate files to make navigating the code easier. Each page will have its own JavaScript file so that only the required code is imported
 
 #### Multi-user system - login system
 
@@ -1160,11 +1160,11 @@ root((MAIN))
   ```
 
 ##### Website name formatting subroutines
-  There are certain requirements for a site name that need to be fulfilled, including limiting it to only certain characters and no spaces (the specific requirements are listed elsewhere in the document). To ensure that the user knows what their final site name looks like, the JavaScript converts the input into a valid name, that will be used when it is created server-side. As such, some of these functions will exist both client-side and server-side.
+  Certain requirements for a site name need to be fulfilled, including limiting it to only certain characters and no spaces (the specific requirements are listed elsewhere in the document). To ensure that the user knows what their final site name looks like, the JavaScript converts the input into a valid name that will be used when it is created server-side. As such, some of these functions will exist both client-side and server-side.
 
-  Whenever there is a change in input to the website name input, defined by `forminput_websiteName`, it will call the `verifyNameField` function to validate the input. The function will return a class name based on the result of the validation process, that will change the styling of the input to match.
+  Whenever there is a change in input to the website name input, defined by `forminput_websiteName`, it will call the `verifyNameField` function to validate the input. The function will return a class name based on the result of the validation process, which will change the styling of the input to match.
 
-  `verifyNameField` uses functions such as `replaceRepeatedDashes`, which uses recursion to replace any substrings of dashes in a given string, in this case the input given by the user. 
+  `verifyNameField` uses functions such as `replaceRepeatedDashes`, which uses recursion to replace any substrings of dashes in a given string, in this case, the input given by the user. 
 
   Variables such as `messageSpan` and `messageContainer` are defined earlier using `document.querySelector` calls to fetch HTML elements from the DOM (document object manager).
 
@@ -1309,9 +1309,9 @@ root((MAIN))
 
 ##### Website colour palette selection subroutines
 
-  There will be data structures (such as `userSelectedColors` and `defaultColors`) storing the different colours that the user selects, and their corresponding generated colours. 
+  Data structures (such as `userSelectedColors` and `defaultColors`) will store the different colours the user selects and their corresponding generated colours. 
   
-  The `updateStored` subroutine will take the content of the `userSelectedColors` data and append it to a HTML element (`colorOutputSpan` in the JS code) inside a `<form>`, so that it can be sent to the server. This is the only way I've been able to send JavaScript-generated information to the server, after doing some testing. The `updateStored` function is called every time the user changes an input, or when a new set of colours is generated.
+  The `updateStored` subroutine will take the content of the `userSelectedColors` data and append it to an HTML element (`colorOutputSpan` in the JS code) inside a `<form>` so that it can be sent to the server. This is the only way I have been able to send JavaScript-generated information to the server after doing some testing. The `updateStored` function is called every time the user changes an input, or when a new set of colours is generated.
 
   ```js
   procedure updateStored()
@@ -1399,19 +1399,22 @@ root((MAIN))
 <br><br><br>
 
 ### Explanation and justification of this process
-  Although the initial concept for this solution appears large and complicated, the decomposition into separate parts will make the development easier and quicker, and will also aid the testing and maintinance of the code, due to its modularity
+  Although the initial concept for this solution appears large and complicated, the decomposition into separate parts will make the development easier and quicker. It will also aid the testing and maintenance of the code, due to its modularity.
 
-  The program will be split into three main sections: the multi-user system (including the login system and the creation of sites), the site edit system (including the drag-and-drop editor and the styling system), and the user interface.
+  The program will be split into three main sections:
+the multi-user system (including the login system and the creation of sites)
+the site edit system (including the drag-and-drop editor and the styling system)
+the user interface
 
-  The multi-user part of the program will integrate with the SQL database and the server-side file storage. It is mostly made of sequential algorithms that are either called when the user performs a certain interaction, or when another algorithm calls them.
+  The multi-user part of the program will integrate with the SQL database and the server-side file storage. It is mostly made of sequential algorithms that are called when the user performs a certain interaction or when another algorithm calls them.
 
   The diagrams above demonstrate this implementation. The `auth_signup_post` subroutine is called when the user completes the signup form, which then calls the `verifyField`, `isEmailFormat`, and `createUser` subroutines.
 
-  Breaking it down in a clear and linear fashion ensures that the program is modularised in such a way that all of the subroutines can interact with each other. If there is a bug that needs fixing, or a change that needs implementing, it is easy to find the code that needs editing and change it without breaking the rest of the program, as most of the code doesn't rely inherently on what came before.
+  Breaking it down in a clear and linear fashion ensures that the program is modularised in such a way that all of the subroutines can interact with each other. If there is a bug that needs fixing, or a change that needs implementing, it is easy to find the code that needs editing and change it without breaking the rest of the program, as most of the code does not rely inherently on what came before.
 
-  The code will be designed to be modular, so that development and modifications down the line are easier. This will be achieved by following the principles set out in this design. For example, separating the multi-user system, editing system, and user interface. The overall goal is that, if another developer were to take over the development, they would be able to easily comprehend how the code works and fits together. To further aid this, the code will be well documented with clear and concise comments througout the code, along with function definitions.
+  The code will be designed to be modular, so that development and modifications down the line are easier. This will be achieved by following the principles set out in this design. For example, separating the multi-user system, editing system, and user interface. The overall goal is that, if another developer takes over the development, they can easily comprehend how the code works and fits together. To further aid this, the code will be well documented with clear and concise comments throughout the code, along with function definitions.
   
-  The two main programming languages, Python and JavaScript, will communicate via Flask's `session` and `flash` functionality, ensuring the languages can interact as expected. The Python functions will be contained in an object representing the full project. This means that it can make use of the `self` communication to easily pass frequently used variables between different functions. It will also use variables and `return` statements for some subroutines, where required.
+  The two main programming languages, Python and JavaScript, will communicate via Flask's `session` and `flash` functionality, ensuring the languages can interact as expected. The Python functions will be contained in an object representing the full project. This means it can easily use the `self` communication to pass frequently used variables between different functions. It will also use variables and `return` statements for some subroutines, where required.
 
 <br><br><br><br>
 <br><br>
@@ -1420,15 +1423,15 @@ root((MAIN))
   |Input|Process|Output|
   |---|---|---|
   |Login submit button| `auth_login_post` to verify user input.| Log in the user to the session, or provide a suitable error message.|
-  |Signup submit button| `auth_login_signup` to verify user input, insert the new user into the database and generating the new folder structure for the user.| Log in the user to the session, or provide a suitable error message.|
+  |Signup submit button| `auth_login_signup` to verify user input, insert the new user into the database and generate the new folder structure for the user.| Log in the user to the session, or provide a suitable error message.|
   |Create site inputs (when the user goes through the new site creation pages)|Store the inputs in the session, and generate a new site in the database & file structure from the inputs given.| Redirect the user to the site page.|
   |Home button| Redirect the user to the homepage.| Redirect the user to the homepage.|
   |Menu hamburger| Darken the main content and display the menu items over them.| Show the user the menu items.|
   |Hamburger open and anything else selected| Remove the darkening of the main content and hide the menu items.| Hide the menu items.|
-  |Site edit option (Add Section, Website Pages, etc)| A modal will open over the main content with the main content being darkened, with the content relating to the selected option.| A modal with relevant options is displayed.|
-  |Display size option.| The site container will change width to match the option selected. The elements in the container will have the necessary data tags appended.| The editing window will change size to match the selected option.|
-  |Element selected| Fetch element data tags to perform appropriate tasks. Listen for events such as dragging the element, or the resize box, if necessary.| Display appropriate style settings in right hand dock. Display resize box. Display text editor if necessary.|
-  |Section selected| Fetch section data tags to perform appropriate tasks. Listen for events such as dragging the section up and down, or dragging on the bottom to resize, if necessary.| Display appropriate style settings in right hand dock. Display resize bar on bottom when hovered.|
+  |Site edit option (Add Section, Website Pages, etc.)| A modal will open over the main content, with the main content being darkened, with the content relating to the selected option.| A modal with appropriate options is displayed.|
+  |Display size option.| The site container will change its width to match the option selected. The elements in the container will have the necessary data tags appended.| The editing window will change its size to match the selected option.|
+  |Element selected| Fetch element data tags to perform appropriate tasks. Listen for events such as dragging the element, or the resize box if necessary.| Display appropriate style settings in the right-hand dock. Display resize box. Display text editor if necessary.|
+  |Section selected| Fetch section data tags to perform appropriate tasks. Listen for events such as dragging the section up and down or dragging it on the bottom to resize, if necessary.| Display appropriate style settings in the right-hand dock. Display resize bar on the bottom when hovered.|
   |Style option hovered| Apply the hovered style to the selected element.| Render what the element will look like with the hovered style.|
   |Style option selected| Apply the selected style to the selected element.| Add the selected style option to the element.|
 
@@ -1445,31 +1448,31 @@ root((MAIN))
   These are the main variables that the JavaSript code will use:
   |Name|Data Type|How it is used|
   |---|---|---|
-  |`requiredChars`| string| A set of characters of which at least one must be in a site name for it to be valid.|
-  |`allowedChars`| string| A set of characters that are allowed in the site name when creating a new site.|
+  |`requiredChars`| string| A set of characters of which at least one must be in a site name to be valid.|
+  |`allowedChars`| string| A set of characters allowed in the site name when creating a new site.|
   |`defaultColors`| dictionary of strings| The default colour scheme when generating a new site.|
   |`userSelectedColors`| dictionary of strings| The selected colour options when generating a new site.|
-  |`colorPickers`| dictionary of lists of elements| The colour preview elements when generating a new site - the first one is the element that changes colour, the second one is the text element that displays the current hex colour.|
-  |`CHANGEPERCENT`| integer| The amount to lighten or darken colors when generating.|
+  |`colorPickers`| dictionary of lists of elements| The colour preview elements when generating a new site - the first is the element that changes colour, and the second is the text element that displays the current hex colour.|
+  |`CHANGEPERCENT`| integer| The amount to lighten or darken colours when generating.|
   |`textOptions`| list of elements| A list of the text options when generating a new site - they get given event listeners for when they are selected.|
   |`sectionSelectorNavSelected`| string| A written number referring to the selected section category in the `Add Section` modal.|
   |`sectionSelectorNavSelectedInt`| integer| An integer version of the previous variable. A written number is used to insert it into classes, as integers are not allowed.|
   |`sectionSelectorNavItem`| string| Template for a section link element for the section navigation bar in the `Add Section` modal.|
   |`selectedElement`| element| The currently selected element.|
-  |`fonts`| list of dicts| A list of all of the fonts that the style settings use.|
+  |`fonts`| list of dicts| A list of all the fonts used by the style settings.|
   |`fontDropdownItem`| string| Template for a font dropdown element for the font family dropdown in the style modal.|
 
 <br><br><br><br>
 <br><br>
 
 ### Validation
-  There is always the possibility that the code will break at some point, and where it does can have a large impact on the effect of this. For example, JavaScript errors will simply halt any further processes, meaning the user will have to refresh to resume functionality. However, this can be unintuitive and frustrating for the user. In contrast, flask will catch most errors, and throw a `500 Internal Error` that the user will see, causing a similar annoyance to the user. In the rare chance that something very bad breaks, such as the database being corrupted, the entire process will be stopped and the server will go down. As such, these, and many other possibilities, need to be accounted for and the risk mitigated as much as possible. 
+  There is always the possibility that the code will break at some point, and where it does can have a large impact on the effect of this. For example, JavaScript errors will halt any further processes, meaning the user will have to refresh to resume functionality. However, this can be unintuitive and frustrating for the user. In contrast, Flask will catch most errors and throw a `500 Internal Error` that the user will see, causing a similar annoyance to the user. If something very bad breaks, such as the database being corrupted, the entire process will be stopped, and the server will go down. As such, these, and many other possibilities, need to be accounted for and the risk mitigated as much as possible. 
   
-  One way of reducing said risk is via thorough validation throughout the program. At any point when the user inputs information, both the client-side and server-side programs should ensure that the data is accurate, complete, and conforming to any requirements set. Some of this is aided by the usage of HTML `<input>`s for user input. This means that HTML can make sure that the correct data type and format is being inputted. However, a lot of data requires specific validation to ensure it meets certain requirements. Instances of this include:
+  One way of reducing said risk is via thorough validation throughout the program. At any point when the user inputs information, both the client-side and server-side programs should ensure that the data is accurate, complete, and conforming to any requirements set. Some of this is aided by using HTML `<input>`s for user input. This means that HTML can ensure that the correct data type and format are inputted. However, many data inputs require specific validation to meet certain requirements. Instances of this include:
 
 
 ##### Login and signup forms
-  For the login and signup forms, the text inputted need to have specific parameters. For example, the username must have a minimum length of 3 characters, must not contain special characters, and must be unique in the database. To verify most of this, the `verifyFunction` subroutine is used. This subroutine is outlined earlier in the document. For specific things like checking that the username is unique, or that the password matches the given user, SQL queries are used to validate the inputs. The data here is verified on the client-side before being sent, and is then checked server-side to double check that the data is valid.
+  The text inputted for the login and signup forms needs to conform to specific parameters. For example, the username must have a minimum length of 3 characters, must not contain special characters, and must be unique in the database. To verify most of this, the `verifyField` subroutine is used. This subroutine is outlined earlier in the document. For specific things like checking that the username is unique, or that the password matches the given user, SQL queries are used to validate the inputs. The data here is verified on the client-side before being sent, and is then checked server-side to ensure the data is valid.
 
 ##### Website Name when creating a new site
   The website name must meet these specific requirements:
@@ -1477,31 +1480,31 @@ root((MAIN))
   - At least one alphanumeric character
   - Illegal characters can be inputted, but will be changed
 
-  The JavaScript will take the content of the input and replace any invalid characters with dashes, and then display the final result to the user, so that they know what the name of their site will be. The code will also insure that the form can only be submitted when the user has filled out all required information. This process is oudlined earlier in the document. 
+  The JavaScript will take the content of the input and replace any invalid characters with dashes, then display the final result to the user so that they know what the name of their site will be. The code will also ensure that the form can only be submitted when the user has filled out all required information. This process is outlined earlier in the document. 
   
   This is an example of client-side validation, where JavaScript ensures that the data is valid before sending it off to the server, reducing the load on the server. This validation will still be executed server-side as well.
 
 ##### Importing an exported site
-  When the user attempts to import a zip file containing a website, the zip file will be verified to conform with a specific format that exporting will use. If any malicious files are found, or any extra files that are not supposed to be there, the website will throw an error client-side before sending it to the server. It will also make sure that the HTML files contained are in the correct format.
+  When the user attempts to import a zip file containing a website, the zip file will be verified to conform with a specific format that exporting will use. If any malicious files or extra files that are not supposed to be there are found, the website will throw an error client-side before sending it to the server. It will also ensure that the HTML files are in the correct format.
 
 ##### Uploading data to the CMS
   There will be a whitelist for the allowed files that can be uploaded to the CMS, and these will be checked and validated before they are sent to the server.
 
 ##### Data Sanitisation
-  Throughout the code, the user input will be checked and cleaned to remove the risk of potentially dangerous or malicious data before being stored in the database. For example, to negate the possibility of an SQL injection attack, the library used to manage the database removes any usage of SQL queries in the code, meaning the data inputted cannot be used to execute a query. Other attack methods that will be looked into include XSS (cross-site scripting), DDoS (distributed denial of service), and MitM (man in the middle) attacks.
+  The user input will be checked and cleaned throughout the code to remove the risk of potentially dangerous or malicious data before being stored in the database. For example, to negate the possibility of an SQL injection attack, the library used to manage the database removes any usage of SQL queries in the code, meaning the data inputted cannot be used to execute a query. Other attack methods that will be looked into include XSS (cross-site scripting), DDoS (distributed denial of service), and MitM (man in the middle) attacks.
 
-  A good example of this, that will require a lot of validation and checking, is the ability to import sites and user content into the server. This, if unchecked, is a good opportunity for attackers to insert malicious code into the server, and, as such, any content uploaded like this must be sanitised thoroughly to ensure that the integrity of the server is maintained.
+  A good example of this, which will require a lot of validation and checking, is the ability to import sites and user content into the server. This, if unchecked, is a good opportunity for attackers to insert malicious code into the server. As such, any content uploaded like this must be sanitised thoroughly to ensure that the integrity of the server is maintained.
 
 ### Testing method
-  During development, the vast majority of alpha testing will be white box testing, performed by the developers as the project is being coded. Unit testing will be used to make sure that all of the individual modules function as expected and intended, before combining them together. By testing each module separately, it ensure that, when all of them are combined together, the program will function correctly. Integration testing will make sure that the program functions as a whole, including checking how different modules interact with each other, and how the front-end interacts with the back-end.
+  During development, the vast majority of alpha testing will be white box testing, performed by the developers as the project is being coded. Unit testing will be used to make sure that all of the individual modules function as expected and intended before combining them. By testing each module separately, it ensures that, when all of them are combined, the program will function correctly. Integration testing will ensure that the program functions as a whole, including checking how different modules interact with each other and how the front-end interacts with the back-end.
 
-  Different areas of testing when programming will include the input data of the program (for example, the user input on the login form), how the program handles said data, and what the result will be. To ensure that it has suitable error catching throughout, each module should go through destructive testing. For user input, this means using a variety of incorrect entries to see how it handles them. For the editor, this means attempting to perform styling 
+  Different areas of testing when programming will include the input data of the program (for example, the user input on the login form), how the program handles said data, and what the result will be. Each module will go through destructive testing to ensure that it has suitable error catching throughout. For user input, this means using a variety of incorrect entries to see how it handles them. For the editor, this means attempting to perform styling 
   
-  that is invalid, dragging elements outside their boundary region, or making them too large. This will also include security testing; making sure that SQL injection or XSS attacks do not work.
+  that is invalid, dragging elements outside their boundary region, or making them too large. This will also include security testing: making sure that SQL injection or XSS attacks do not work.
 
-  Usability testing will be done both white-box and black-box - the UI design will be tested during and after development and will be tested with some of the stakeholders to make sure that it is easy to understand and navigate, and that it functions as intended on a variety of devices, resolutions, and browsers. Feedback, criticisms, and suggestions from the stakeholders will be taken after these sessions to ensure that the final product is easy to use and meets their requirements.
+  Usability testing will be done both white-box and black-box - the UI design will be tested during and after development. It will be tested with some of the stakeholders to make sure that it is easy to understand and navigate, and that it functions as intended on a variety of devices, resolutions, and browsers. Feedback, criticisms, and suggestions from the stakeholders will be taken after these sessions to ensure that the final product is easy to use and meets their requirements.
 
-  Any testing will either be recorded during the development process or recorded in Appendix B, such as different platforms used in the UI design, or invalid inputs entered when checking user input.
+  Any testing will either be recorded during the development process or in Appendix B, such as different platforms used in the UI design or invalid input entered when checking user input.
 
   <!-- TODO: consider specific test data for specific aspects of the process -->
 
@@ -1515,11 +1518,11 @@ root((MAIN))
 
 ## Development
 
-  For the sake of conciseness and clarity, when the document outlines certain HTML and CSS files, such as `/templates/login.html`, it will not show all of the different iterations of the page. Major changes, such as reogranisations of the page, would be displayed in later sections, but the actual process of orignally designing the website is not documented to make the document easier to read. A lot of the design process involved tweaking classes, re-ordering HTML elements, and adding new or modifying existing CSS blocks.
+  For the sake of conciseness and clarity, when the document outlines certain HTML and CSS files, such as `/templates/login.html`, it will not show all of the different iterations of the page. Major changes, such as reorganisations of the page, would be displayed in later sections. However, the actual process of designing the website is not documented to make the document easier to read. A lot of the design process involved tweaking classes, re-ordering HTML elements, and adding new or modifying existing CSS blocks.
 
 ### Stage 1 - Setting up the website
 
-  Before creating the database system, I decided to get the website backend up and running, and design the login and signup pages, to make it easier to test certain elements of the database. This includes setting up the template design for the frontend, creating a form system with verification in JavaScript, and performing validation server-side. The first thing I did was get the flask backend running. For this, I modified some code that I have used before when using Flask as a backend.
+  Before creating the database system, I decided to get the website backend up and running and design the login and signup pages to make testing certain elements of the database easier. This includes setting up the template design for the front-end, creating a form system with verification in JavaScript, and performing validation server-side. The first thing I did was get the Flask backend running. For this, I modified some code I have used before when using Flask as a backend.
 
 ##### \_\_init\_\_.py
   ```python
@@ -1560,7 +1563,7 @@ root((MAIN))
 
   <img alt="The website after running this code" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.1_creatingthebackend_browser.png?raw=true" width="750"/>
 
-  Having got the framework for the backend in place, I then created a basic template for the HTML (in Jinja) and some CSS code to work with it, so that I could test some of the functions that I wanted to use. These files were created at `/templates/test.html` and `/static/css/test.css`, and were deleted afterwards when I knew that the system was functioning as intended. To make sure that some of the modules of Flask were working as intended, I used the `render_template` and `flash` functions in Python, ran a loop in the HTML file using Jinja, and used `url_for` to import the CSS file.
+  Having got the framework for the backend in place, I then created a basic template for the HTML (in Jinja) and some CSS code to work with it to test some of the functions I wanted to use. These files were created at `/templates/test.html` and `/static/css/test.css` and were deleted after I knew the system was functioning as intended. To ensure that some of the modules of Flask were working as intended, I used the `render_template` and `flash` functions in Python, ran a loop in the HTML file using Jinja, and used `url_for` to import the CSS file.
 
 <!-- Having got the framework in place... -->
 
@@ -1634,9 +1637,9 @@ root((MAIN))
 
   <img alt="A screenshot of the test page that I programmed" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.2_testingflaskandjinja_browser.png?raw=true" width="750"/>
 
-  As you can see by the image, using the `flash` function, flask successfully sends the list `["Apples","Oranges","Pears",1,2,3]` to the webpage for it to be recieved by the `get_flashed_messages` function. It also successfully managed to iterate through the list using `{% for element in get_flashed_messages()[0] %}`, and used the `url_for` function to import the stylesheet.
+  As you can see by the image, using the `flash` function, flask successfully sends the list `["Apples", "Oranges", "Pears", 1, 2, 3]` to the webpage for it to be received by the `get_flashed_messages` function. It also successfully managed to iterate through the list using `{% for element in get_flashed_messages()[0] %}` and used the `url_for` function to import the stylesheet.
 
-  Before creating the database structure, I decided to create the frontend for the login and signup pages, so that it would be easier to test. Due to the above code working successfully, I started off by making a `base.html` template, that all of the other Jinja files would build on top of. I then created the `login.html` and `signup.html` files as well. This was made easier by my previous experience in web design, as I could use a library of CSS code that I have created from previous projects to speed up the design process. To be able to view the templates, I added some `app.route` functions to `__init__.py` using the `render_template` function.
+  Before creating the database structure, I decided to create the front-end for the login and signup pages to make it easier to test. Due to the above code working successfully, I started by making a `base.html` template that all of the other Jinja files would build on top of. I then created the `login.html` and `signup.html` files. This was made easier by my previous experience in web design, as I could use a library of CSS code I have created from previous projects to speed up the design process. To view the templates, I added some `app.route` functions to `__init__.py` using the `render_template` function.
 
 <!-- TODO: add icon code -->
 
@@ -1942,17 +1945,17 @@ root((MAIN))
   {% endblock %}
   ```
 
-  The files make use of `url_for` to fetch many different URLs, including page icons, stylesheets, images, links to other pages, and scripts.
+  The files use `url_for` to fetch many different URLs, including page icons, stylesheets, images, links to other pages, and scripts.
 
   For example, the URL for the home button image in `base.html` is defined by `{{url_for('static', filename='img/icon/512-512/kraken-icon-png-'+navbarLogoColor+'-512-512.png')}}`. The variable `navbarLogoColor` is declared in child templates to define which colour should be used.
 
-  I also added some icons to be used as the logo for the website. They are located in `/static/img/icon/<resolution>/` where there are different folders for each resolution of the icon. These were generated by me using a bit of Python code that I have written previously. To add some variation to the site, there are three colours of logo: primary (blue), secondary (magenta) and gradient (a gradient of the two going from top left to bottom right). These colours match up with the primary and secondary colours of the website, defined in the CSS code.
+  I also added some icons to be used as the logo for the website. They are located in `/static/img/icon/<resolution>/`, where there are different folders for each resolution of the icon. I generated these using some Python code that I have written previously. To add some variation to the site, there are three colours of the logo: primary (blue), secondary (magenta) and gradient (a gradient of the two going from top left to bottom right). These colours match up with the primary and secondary colours of the website, defined in the CSS code.
 
   The inheriting system is displayed here in these files, where you can see `{% block content %} {% endblock %}` in `base.html`, to define where the code block `content` will be inserted into the file, and then `{% extends "base.html" %}` and `{% block content %} {% endblock %}` in `login.html` and `signup.html`, which define what file will be extended, and which block to insert into.
 
-  The CSS and JavaScript for both pages is imported from the `/static/css/` and `/static/js/` directories respectively. `main.css` is my library of CSS code that I have collected (the syntax for classes is shown below), and `build.css` contains the CSS for the `base.html` template. `build.css` contains the code for the floating navigation options, that I tested by appending classes in devtools. This means that the only thing I need to do for it to work is to program the event listeners. The login and signup pages have a CSS file called `auth.css`, that defines the page-specific styling for the login form.
+  The CSS and JavaScript for both pages are imported from the `/static/css/` and `/static/js/` directories, respectively. `main.css` is my library of CSS code that I have collected (the class syntax is shown below), and `build.css` contains the CSS for the `base.html` template. `build.css` contains the floating navigation options code, which I tested by appending classes in DevTools. This means that the only thing I need to do for it to work is to program the event listeners. The login and signup pages have a CSS file called `auth.css` that defines the page-specific styling for the login form.
 
-  For JavaScript, I added in some abstract imports to be filled in later: `main.js` for global code, and `globalnav-floating-options.js` for when I code the navigation bar.
+  For JavaScript, I added some abstract imports to fill in later: `main.js` for global code and `globalnav-floating-options.js` for when I code the navigation bar.
 
 <!-- The css and js ... -->
 
@@ -2286,7 +2289,7 @@ root((MAIN))
 
   <img alt="A screenshot of the floating navigation options when closed" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/1.3_loginfrontend_floatingnav.png?raw=true" width="360"/>
 
-  There is validation of the inputs both client-side and server-side, so I needed to implement that into the JavaScript for the login and signup pages. I also need to add code so that when the all-seeing eye is pressed, the password field is miraculously revealed. For the validation, I will use the `verifyField` function that I have written in pseudocode (which will also be used in the Python backend). Because of this, there will be three files, `auth.js`, `login.js` and `signup.js` so that there is less duplicated code. There will also be a function `isEmail`, which uses a regex validation check to make sure that the email given is in a valid format.
+  There is validation of the inputs, both client-side and server-side, so I needed to implement that into the JavaScript for the login and signup pages. I also need to add code so that the password field is miraculously revealed when the all-seeing eye is pressed. For the validation, I will use the `verifyField` function that I have written in pseudocode (which will also be used in the Python backend). Because of this, there will be three files, `auth.js`, `login.js` and `signup.js`, so there is less duplicated code. There will also be a function `isEmail`, which uses a regex validation check to ensure the email given is in a valid format.
 
 ##### /static/js/auth.js
   <!-- TODO: fix regex pattern breakdown breaking following formatting -->
@@ -2549,7 +2552,7 @@ root((MAIN))
     }
   ```
 
-  I then implemented the server-side validation, which re-checks all of the validation performed client-side (using the same `verifyField` function), to ensure that the inputs are valid and weren't tampered with client-side. Flask retrieves the values of the form via the `requests` import. The database checking has not yet been implemented at this point, as I wanted to get the login and signup pages fully completed before creating the database. This also involved adding code to the templates to interpret the flashed error message.
+  I then implemented the server-side validation, which re-checks all of the validation performed client-side (using the same `verifyField` function), to ensure that the inputs were valid and not tampered with client-side. Flask retrieves the values of the form via the `requests` import. The database checking has not yet been implemented, as I wanted to complete the login and signup pages before creating the database. This also involved adding code to the templates to interpret the flashed error message.
 
 <!-- Implemented server-side validation -->
 
@@ -2699,7 +2702,7 @@ root((MAIN))
   </span>
   ```
 
-  At the suggestion of one of the stakeholders, I also added a feature so that when you submit the form, and it throws an error, the form values are carried over so that the user doesn't have to fill them out again. I implemented this using the `flash` function, flashing a list containing the inputs that they had given. To make sure that this didn't cause any issues when opening the page for the first time, the `auth_login` and `auth_signup` functions also flash a list (`[False,"","","",""]`) to prevent any index errors. In the HTML files, an extra variable is added to the Jinja list of field items, to define what value the input should default to.
+  At the suggestion of one of the stakeholders, Archie, I added a feature so that when you submit the form, and it throws an error, the form values are carried over so that the user does not have to fill them out again. I implemented this using the `flash` function, flashing a list containing the inputs that they had given. To make sure that this did not cause any issues when opening the page for the first time, the `auth_login` and `auth_signup` functions also flash a list (`[False,"","","",""]`) to prevent any index errors. In the HTML files, an extra variable is added to the Jinja list of field items to define what value the input should default to.
 
 <!-- Carrying inputs over -->
 
@@ -2786,7 +2789,7 @@ root((MAIN))
   name="{{item[3]}}" value="{{item[5]}}">
   ```
 
-  To finish the design of the login and signup pages, I added a jinja variable that defines the colour of the logo in the sidebar, and added another variable that defines whether or not the hamburger and subsequent option modal is visible or not. This is because, although it will be required for other sites (such as the homepage), the navigation bar is not necessary here as all of the links in the navigation bar will redirect to `/login` as the user is not signed in.
+  To finish the design of the login and signup pages, I added a jinja variable that defines the logo's colour in the sidebar and adds another variable that defines whether or not the hamburger and subsequent option modal is visible or not. This is because, although it will be required for other sites (such as the homepage), the navigation bar is not necessary here as all of the links in the navigation bar will redirect to `/login` as the user is not signed in.
 
 <!-- Logo color and navbar toggle -->
 
@@ -2862,7 +2865,7 @@ root((MAIN))
   {% set navbarOptionsEnabled = False %}
   ```
 
-  All of the logo images now have the `navbarLogoColor` variable to define which image to fetch. The hamburger and navigation options are now surrounded in `{% if navbarOptionsEnabled %}`. Both of these variables will be defined in files that extend from this file, such as `login.html`. The script import for `/js/globalnav-floating-options.js` has also been moved into the if block to remove unnecessary imports.
+  All logo images now have the `navbarLogoColor` variable to define which image to fetch. The hamburger and navigation options are now surrounded by `{% if navbarOptionsEnabled %}`. Both variables will be defined in files that extend from this file, such as `login.html`. The script import for `/js/globalnav-floating-options.js` has also been moved into the if block to remove unnecessary imports.
 
 <br><br><br><br>
 <br><br><br><br>
@@ -2870,11 +2873,11 @@ root((MAIN))
 
 ### Stage 2 - Creating and implementing the database
 
-  After completing the login and signup pages, I created the dabase, referring to the entity relationship diagram that I had outlined when planning. The two entities are `User` and `Site`, where `user_id` is a foregin key in `Site` to allow them to link together via a one to many relationship. The `User` entity contains some settings information, such as `bio`, `url`, and `tabpreference`, which will be able to be changed in the settings page, that are implemented now to make development down the line easier.
+  After completing the login and signup pages, I created the database, referring to the entity relationship diagram I had outlined when planning. The two entities are `User` and `Site`, where `user_id` is a foreign key in `Site`, allowing them to link together via a one-to-many relationship. The `User` entity contains some settings information, such as `bio`, `url`, and `tabpreference`, which can be changed in the settings page, that are implemented now to make development down the line easier.
 
   <img alt="SQL Database Diagram" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-sqldiagram1.svg?raw=true" height="535"/>
 
-  The database is managed by the `flask_sqlalchemy.SQLAlchemy` object. In `__init.py`, the object is created (with the variable name `databaseObject`) when the file is run so that `models.py`, the new file that I created which contains the entity classes, can import it. After adding the `databaseObject` object to the class, it imports the two classes from `models.py`, so that the database can interact with them. I also moved all of the flask setup into the function `initFlask` to make the code clearer.
+  The database is managed by the `flask_sqlalchemy.SQLAlchemy` object. In `__init.py`, the object is created (with the variable name `databaseObject`) when the file is run so that `models.py`, the new file I created, contains the entity classes, can import it. After adding the `databaseObject` object to the class, it imports the two classes from `models.py` so that the database can interact with them. I also moved the flask setup into the function `initFlask` to make the code clearer.
 
 <br><br><br><br>
 
@@ -3012,7 +3015,7 @@ root((MAIN))
   )
   ```
 
-  I now added the authentication code to `auth_login_post` and `auth_signup_post` so that they could query the new database. This also included importing the `werkzeug.security` module to implement the hashing of passwords, and the `flask_login` module to implement the logging in system
+  I now added the authentication code to `auth_login_post` and `auth_signup_post` so that they could query the new database. This also included importing the `werkzeug.security` module to implement the hashing of passwords, and the `flask_login` module to implement the logging-in system.
 
 <!-- Login auth -->
 
@@ -3085,7 +3088,7 @@ root((MAIN))
         return redirect(url_for("auth_signup"))
   ```
 
-  Next, I created the function `createUser`, that would be called when all of the validation in `auth_signup_post` is complete. It takes the variables `username`,`email`,`name`, and `password`. The function creates a new entry in the database, and creates the users file structure in the server-side storage, making use of the `generateFolderStructure` function.
+  Next, I created the function `createUser`, which would be called when all of the validation in `auth_signup_post` is complete. It takes the variables `username`, `email`, `name`, and `password`. The function creates a new entry in the database and creates the user's file structure in the server-side storage, making use of the `generateFolderStructure` function.
 
 <!-- createUser fn -->
 
@@ -3178,13 +3181,13 @@ root((MAIN))
 <br>
 
 ### Stage 3 - Homepage and Settings
-  This stage consisted of creating the frontend HTML for the user, including the settings pages. Although they lack much tangible functionality, they create the basis for future developers to implement. I decided not to complete all of the functionality due to time constraints, and lack of the features being required in the brief.
+  This stage consisted of creating the frontend HTML for the user, including the settings pages. Although they lack much tangible functionality, they create the basis for future developers to implement. I decided to only complete some of the functionality due to time constraints, and the features not being required in the brief.
 
-  First, I created the home page. There are two template files `home-nosite.html` and `home-sites.html`, which are called by Flask based on whether the user has any sites stored in the database. 
+  First, I created the home page. There are two template files, `home-nosite.html` and `home-sites.html`, which Flask calls based on whether the user has any sites stored in the database. 
 
   Due to there not yet being a way of creating sites, the line `flash([[x.user_id,x.name,x.private] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])` would never work.
 
-  Instead, for testing and design purposes, I used the test data `flash([["user1","Site 1",True],["user1","Epic Webpage",False]])` to see how the code handles a user's sites, and I used `and False` in the if block to simulate the user having no sites.
+  Instead, for testing and design purposes, I used the test data `flash([["user1", "Site 1", True],["user1", "Epic Webpage", False]])` to see how the code handles a user's sites, and I used `and False` in the if block to simulate the user having no sites.
 
 ##### changes to \_\_init\_\_.py
   ```python
@@ -3218,7 +3221,7 @@ root((MAIN))
 <br>
 
 ##### /templates/home-nosite.html
-  This file uses `current_user.name` to display the username of the logged-in user. The object `current_user` is a Flask variable that is read from and inserted into the page during the `render_template` function. It is also used in `__init__.py` for commands such as `filter_by(user_id=current_user.user_id)`.
+  This file uses `current_user.name` to display the username of the logged-in user. The object `current_user` is a Flask variable read from and inserted into the page during the `render_template` function. It is also used in `__init__.py` for commands such as `filter_by(user_id=current_user.user_id)`.
 
   ```jinja
   {% extends "base.html" %}
@@ -3322,17 +3325,17 @@ root((MAIN))
 
   <img alt="Screenshot of the Kraken homepage when the user has sites" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.1_homepage_sites.png?raw=true" width="544"/><img alt="Screenshot of the Kraken homepage when the user has no sites" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.1_homepage_nosites.png?raw=true" width="499"/>
 
-  I also decided to reorganise the `app.route` functions in `__init__.py` into separate functions in the class, such as `initPages_auth` and `initPages_main`, to make the file easier to interperet. The diagram below shows the new organisation. Coloured boxes demonstrate routing functions: green means it has a use, and red means it is currently either abstract or simply outputs text on screen.
+  I also decided to reorganise the `app.route` functions in `__init__.py` into separate functions in the class, such as `initPages_auth` and `initPages_main`, to make the file easier to interpret. The diagram below shows the new organisation. Coloured boxes demonstrate routing functions: green means it has a use, and red means it is currently either abstract or simply outputs text onscreen.
 
   <img alt="app.route function diagram - part 1" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-1.svg?raw=true" width="250"/><img alt="app.route function diagram - part 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-2.svg?raw=true" width="240" style="margin-left:32px" class="margin-left-32"/>
 
   <img alt="app.route function diagram - part 3" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-3.svg?raw=true" width="250"/><img alt="app.route function diagram - part 4" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-4.svg?raw=true" width="300" class="margin-left-32"/>
 
-  At this point in development, I was able to quickly build the frontend versions of the settings pages for the account system (they are listed in the desirable features section of the success criteria). I didn't add in database functionality to them yet as I knew it would take significantly longer.
+  At this point in development, I was able to quickly build the frontend versions of the settings pages for the account system (they are listed in the desirable features section of the success criteria). I didn't add database functionality to them yet as I knew it would take significantly longer.
 
-  The settings page, which is accessed from the navigation hamburger, consists of 7 sections, as outlined in the design section. 6 of them open in the same page, whereas the seventh, `Help & Documentation`, loads the help page. Similar to how the `base.html` Jinja architecture works, there is a `settings-base.html` template that the settings pages are built off of. I did not write the templates for `Custom Code & Elements` or `Developer Settings` as they are not yet implemented into the database. The template `My Websites` will need to be revisited when the website creation system is in place - for now, I used test data such as <!-- TODO ADD TEST DATA --> to simulate the user having sites.
+  The settings page, accessed from the navigation hamburger, consists of 7 sections, as outlined in the design section. Six open in the same template, whereas the seventh, `Help & Documentation`, loads a separate help page. Similar to how the `base.html` Jinja architecture works, there is a `settings-base.html` template on which the settings pages are built. I did not write the templates for `Custom Code & Elements` or `Developer Settings` as they are not yet implemented into the database. The template `My Websites` will need to be revisited when the website creation system is in place - for now, I used test data such as <!-- TODO ADD TEST DATA --> to simulate the user having sites.
 
-  To set the hilighted element in the local navigation bar, the Jinja variable `settingsSidebarActivated` is declared in child files so that, during rendering, the navigation bar knows which element to give the `is-active` class. It uses the if statement `{% if settingsSidebarActivated==<i> %} is-active{% endif %}` to assign the class, and the if statement `{% if not settingsSidebarActivated==<i> %} href="{{ url_for('main_help') }}"{% endif %}` to assign the link if it is not selected.
+  To set the highlighted element in the local navigation bar, the Jinja variable `settingsSidebarActivated` is declared in child files. The navigation bar knows which element to give the `is-active` class during rendering. It uses the if statement `{% if settingsSidebarActivated==<i> %} is-active{% endif %}` to assign the class, and the if statement `{% if not settingsSidebarActivated==<i> %} href="{{ url_for('main_help') }}"{% endif %}` to assign the link if it is not selected.
 
   <img alt="Settings - local navigation bar" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_base.png?raw=true" width="225"/>
   
@@ -3449,7 +3452,7 @@ root((MAIN))
   {% endblock %}
   ```
 
-  The `Public Profile` page contains inputs such as display name, bio, and URL, that will all appear on a user's profile page. As of yet, there is no post route function so the data does not get stored. after updating it.
+  The `Public Profile` page contains inputs such as display name, bio, and URL, which will all appear on a user's profile page. As of yet, there is no post route function, so the data is not stored after updating it.
 
   <img alt="Settings - Public Profile page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_profile.png?raw=true" width="450"/>
 
@@ -3539,7 +3542,7 @@ root((MAIN))
   {% endblock %}
   ```
 
-  The `Account` page contains functionalities such as deleting account and changing username. Like with the previous page, there is currently no functionality to these processes. There will be more information added to the change username prompt as, if a user does, it will change all of the URLs for their webpages, which could create issues for the user.
+  The `Account` page contains functionalities such as deleting the user's account and changing their username. Like with the previous page, these processes have no functionality. More information will be added to the change username prompt as, if a user does, it will change all of the URLs for their web pages, which could create issues for the user.
 
   <img alt="Settings Account page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_admin.png?raw=true" width="400"/>
 
@@ -3716,7 +3719,7 @@ root((MAIN))
   {% endblock %}
   ```
 
-  The `My Websites` page is the most useful of the settings pages, as of now. It contains a table of all of the user's current sites, with links to their respective pages. It also calculates and displays how large the pages are. As such, it requires a Python subroutine to work it out, displayed below.
+  The `My Websites` page is the most useful of the settings pages, as of now. It contains a table of the user's current sites, with links to their respective pages. It also calculates and displays how large the pages are. As such, it requires a Python subroutine to work it out, displayed below.
 
   <img alt="Settings - My Websites page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/3.2_settings_sites.png?raw=true" width="600"/>
 
@@ -3786,16 +3789,16 @@ root((MAIN))
 
   ```
 
-  The changes to `__init__.py` are outlined below. This includes the `app.route` functions for each page
-  The number flashed is interpereted as `settingsSidebarActivated` in the Jinja template rendering.
+  The changes to `__init__.py` are outlined below. This includes the `app.route` functions for each page.
+  The number flashed is interpreted as `settingsSidebarActivated` in the Jinja template rendering.
 
   The `My Websites` `app.route` function includes the line `self.convertByteSize(self.getFolderSize(self.os.path.abspath(site.sitePath)))`. 
   
   This will:
-  - Fetch the file path of the current selected site (`site.sitePath`), which may look like `<username>\sites\<sitename>`
+  - Fetch the file path of the currently selected site (`site.sitePath`), which may look like `<username>\sites\<sitename>`
   - Get the absolute path of the directory (`os.path.abspath()`)
   - Call the `getFolderSize` subroutine and pass the absolute path - this will return a value, in bytes, of the directory
-  - Call the `convertByteSize` subroutine and pass the size of the directory, in bytes - this will return a human readable string showing how large the directory is.
+  - Call the `convertByteSize` subroutine and pass the directory size, in bytes - this will return a human-readable string showing how large the directory is.
 
   The `getFolderSize` function is recursive, meaning it will call itself each time it finds another subfolder. It will go through each branch in a depth-first manner, before collapsing back up when there are no more subfolders.
 
@@ -3909,7 +3912,7 @@ root((MAIN))
 
 ### Stage 4 - Creating a New Site
 
-  In this stage, I created the system for when a user creates a new site. This includes various subroutines outlined in the design section of the report, such as the website name formatting and storage of colour palettes. Some functionality has not yet been included yet, such as the ability to import a website. This is because there is not a way to export sites yet, and it would be quite time consuming to create a validation algorithm to make sure that the imported files are not malicious: I want to finish the essential success criteria before moving on to the desirable features.
+  In this stage, I created the system for when a user creates a new site. This includes various subroutines outlined in the design section of the report, such as the website name formatting and storage of colour palettes. Some functionality still needs to be included, such as importing a website. This is because there is no way to export sites yet, and it would be quite time-consuming to create a validation algorithm that ensures that the imported files are not malicious: I want to finish the essential success criteria before moving on to the desirable features.
 
   Similar to the settings pages, I first created a base template to build the rest of the pages from. 
 
@@ -4064,14 +4067,14 @@ root((MAIN))
 
   ```
 
-  I had a basic outline of the JavaScript I needed to write, based on the algorithms in the Design section:
+  I had a basic outline of the JavaScript I needed to write based on the algorithms in the Design section:
 
   - Fetch all of this user's site names from the server
   - Validation for the website name, including a function to remove all repeated dashes
   - A way of styling the website name input to show whether it is valid
-  - A way of programatically enabling and disabling the submit button
+  - A way of programmatically enabling and disabling the submit button
 
-  To get all of the user's site names, I added a SQL query to the `app.route` function for this page, and flashed the results so that it could be used by the JavaScript.
+  To get all of the user's site names, I added a SQL query to the `app.route` function for this page and flashed the results so that the JavaScript could use it.
 
 ##### changes to \_\_init\_\_.py
   ```python
@@ -4100,7 +4103,7 @@ root((MAIN))
   ```
 
 ##### /static/site-create.js
-  The `checkFormSubmitButton` function is called whenever an input is changed, to see wether all inputs are valid. If so, it sets the submit button (`formSubmit`) to enabled, and if not, sets it to disabled. This system can be hijacked via DevTools, so the same validation system will be implemented in Python as well.
+  The `checkFormSubmitButton` function is called whenever an input is changed to see whether all inputs are valid. If so, it sets the submit button (`formSubmit`) to enabled, and if not, sets it to disabled. This system can be hijacked via DevTools so that the same validation system will also be implemented in Python.
 
   ```js
   function checkFormSubmitButton() {
@@ -4163,7 +4166,7 @@ root((MAIN))
   }
   ```
 
-  This is the CSS that styles the website name input, to demonstrate how it interacts with the JavaScript.
+  This CSS styles the website name input, to demonstrate how it interacts with the JavaScript.
 
   ```css
   .new-site-form.one .form-input-container.one 
@@ -4185,11 +4188,11 @@ root((MAIN))
   }
   ```
 
-  This is what the input looks like when the `data-form-input-display` tag is changed. The four options are `inactive`, `danger`, `success`, `warning`.
+  The input looks like this when the `data-form-input-display` tag is changed. The four options are `inactive`, `danger`, `success`, and `warning`.
 
   <img alt="Create A New Site - Website name input styling" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.3_newsite_page1_namemerge.png?raw=true" width="600"/>
 
-  The `verifyNameField` function makes use of 4 other functions, `hideFormMessage`, `editFormMessage`, `hasRepeatedDashes`, and `replaceRepeatedDashes`. 
+  The `verifyNameField` function uses 4 other functions, `hideFormMessage`, `editFormMessage`, `hasRepeatedDashes`, and `replaceRepeatedDashes`. 
   
   The first two are used to interact with the warning message that is displayed underneath the input. 
 
@@ -4217,9 +4220,9 @@ root((MAIN))
   }
   ```
 
-  The second two handle the formatting of the input. When the validated name is being created, if it has any invalid characters in it, they will all be replaced with dashes (invalid characters are any characters not in `allowedChars`). This means that if you have a string such as `abc&& bcgf`, it will be turned into `abc---bcgf`. The function `hasRepeatedDashes` uses Regex to identify any adjacent dashes in the string, and the function `replaceRepeatedDashes` implements recursion to remove them all, changing `abc&& bcgf` to `abc-bcgf`.
+  The second two handle the formatting of the input. When the validated name is created, if it has any invalid characters, they will all be replaced with dashes (invalid characters are any characters not in `allowedChars`). This means that if you have a string such as `abc&& bcgf`, it will be turned into `abc---bcgf`. The function `hasRepeatedDashes` uses Regex to identify any adjacent dashes in the string. The function `replaceRepeatedDashes` implements recursion to remove them all, changing `abc&& bcgf` to `abc-bcgf`.
 
-  These functions, in combination with `verifyField`, went through extensive testing to ensure that they worked properly. The data and results can be found in the appendix. <!-- TODO: add data and name appendix -->
+  Combined with `verifyField`, these functions went through extensive testing to ensure that they worked properly. The data and results can be found in Appendix B.
 
   ```js
   function hasRepeatedDashes(val) {
@@ -4288,7 +4291,7 @@ root((MAIN))
   })
   ```
 
-  After completing the JavaScript validation, I then rewrote the code in Python and used it in the `app.route` post function, so that if the client-side validation was bypassed, it would still be validated server-side.
+  After completing the JavaScript validation, I rewrote the code in Python and used it in the `app.route` post function so that if the client-side validation were bypassed, it would still be validated server-side.
 
 ##### changes to \_\_init\_\_.py
   ```python
@@ -4340,7 +4343,7 @@ root((MAIN))
     return redirect(url_for("site_create_options_1"))
   ```
 
-  To ensure that all pages in the site creation process can only be accessed in order, all `app.route` functions have a piece of code referencing `flask.request.referrer` to ensure that the user is following the steps chronologically
+  To ensure that all pages in the site creation process can only be accessed in order, all `app.route` functions have a piece of code referencing `flask.request.referrer` to ensure that the user is following the steps chronologically.
 
 ##### changes to \_\_init\_\_.py
   ```python
@@ -4359,11 +4362,11 @@ root((MAIN))
 <br><br><br><br>
 <br><br><br><br>
 
-  The next page is the colour palette selection system. This involves functions for colour temperature adjustment, generation of lighter and darker variants, and storing the variables in a way that the backend can read them. The page would consist of a light or dark mode toggle, faders for certain parameters, and colour pickers for the primary, secondary, and accent colours. Without any JavaScript, the page looked like this:
+  The next page is the colour palette selection system. This involves functions for colour temperature adjustment, generating lighter and darker variants, and storing the variables so the backend can read them. The page would consist of a light or dark mode toggle, faders for certain parameters, and colour pickers for the primary, secondary, and accent colours. Without any JavaScript, the page looked like this:
 
   <img alt="Create A New Site - Page 2" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_nojs.png?raw=true" width="600"/>
 
-  The row of 9 mono-chromatic colours at the bottom will be set as the variables `--colors-grey-<100-900>`. To display them, it uses an "expanding column" system that I have used previously. When a column is hovered, it will "expand open" to reveal text inside. When a column is hovered, it looks like this:
+  The row of 9 mono-chromatic colours at the bottom will be set as the variables `--colors-grey-<100-900>`. It uses an "expanding column" system I created in a previous project to display them. When a column is hovered, it will "expand open" to reveal text inside. When a column is hovered, it looks like this:
 
   <img alt="Create A New Site - Page 2 - Expanding column demonstration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_excmerge.png?raw=true" width="600"/>
 
@@ -4582,7 +4585,7 @@ root((MAIN))
 
 ##### /static/site-create-options-1.js
 
-  The first JavaScript I wrote was the definitions for the colour storage. For clarity, any long strings, such as queries, have been replaced with `...` The `defaultColors` dictionary defines what the default colours are (the defaults are also defined in CSS for when the page loads) so that the page knows what to first render. The `colors` dictionary defines the user-selected colours.
+  The first JavaScript I wrote was the definitions for colour storage. For clarity, any long strings, such as queries, have been replaced with `...` The `defaultColors` dictionary defines the default colours (the defaults are also defined in CSS for when the page loads) so that the page knows what to first render. The `colors` dictionary defines the user-selected colours.
 
   ```js
   var defaultColors = { 
@@ -4616,7 +4619,7 @@ root((MAIN))
   }
   ```
 
-  The way the JavaScript manages to send the data to the server is by an input element in the form. This means it can be retrieved via the `flask.requests` module. I appeneded this element to the end of the form and then wrote the `updateStored` function, which sets the content of the input to the contnet of the `colors` dictionary. The definition for the element (referred to as `stored`), along with the other HTML elements are defined via the DOM.
+  The JavaScript manages to send the data to the server by an input element in the form. This means it can be retrieved via the `flask.requests` module. I appended this element to the end of the form and then wrote the `updateStored` function, which sets the content of the input to the content of the `colors` dictionary. The definition for the element (referred to as `stored`) and the other HTML elements are defined via the DOM.
 
   ```html
   <input id="color-output" class="visibly-hidden" type="text" value="." 
@@ -4723,7 +4726,7 @@ root((MAIN))
   }
   ```
 
-  The `updateColorVariables` is callede whenever a colour picker is changed, to generate light and dark variants of that colour. This meant that the user could select any of the colour inputs, and when they submitted it, it would immediately show a darker and lighter version underneath.
+  The `updateColorVariables` is called whenever a colour picker is changed to generate light and dark variants of that colour. This meant that the user could select any of the colour inputs, and when they submitted it, it would immediately show a darker and lighter version underneath.
 
   <img alt="Create A New Site - Page 2 - Colour picker input demonstration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_cp_2.png?raw=true" height="150"/><img alt="Create A New Site - Page 2 - Colour picker input demonstration" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.4_newsite_page2_cp_1.png?raw=true" height="150"/>
 
@@ -4797,7 +4800,7 @@ root((MAIN))
   }
   ```
 
-  In the backend, the form retrieves the inputted colour variables via the form element `new_site_color_options_dict`. It then interperets the given input into a dictionary, and stores it in the `flask.session` object, meaning it can be accessed at a later date.
+  The form retrieves the inputted colour variables in the backend via the form element `new_site_color_options_dict`. It then interprets the given input into a dictionary and stores it in the `flask.session` object, meaning it can be accessed at a later date.
 
 ##### changes to \_\_init\_\_.py
   ```python
@@ -4828,11 +4831,11 @@ root((MAIN))
     return redirect(url_for("site_create_options_2"))
   ```
 
-  The next page is the typeface selection system. This one is much simpler, and only requires event listeners for each typeface to set the active group. Inside each group, there is a hidden input element that will be assigned the `new_site_font_face_list_active` name if active, or the `new_site_font_face_list_inactive` name if inactive. This means that the backend only has to query the active name to find the selected group. The JavaScript ensures that only one input can have the active name.
+  The next page is the typeface selection system. This one is much simpler and only requires event listeners for each typeface to set the active group. Inside each group, a hidden input element will be assigned the `new_site_font_face_list_active` name if active or the `new_site_font_face_list_inactive` name if inactive. This means the back-end only has to query the active name to find the selected group. The JavaScript ensures that only one input can have the active name.
 
   <img alt="Create A New Site - Page 3 - Typeface selection" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/4.5_newsite_page3_nojs.png?raw=true" width="500"/>
 
-  The template makes use of a Jinja list of all fonts, where the two trailing booleans state whether the font has a googlefonts api link. The code iterates through each element, creating a new form entry for each, which has the header font, paragraph font, and google api imports for each font, if required (`<link href="https://fonts.googleapis.com/css2?family={{headerFont}}&display=swap" rel="stylesheet">`). It also sets the first entry as the active one.
+  The template uses a Jinja list of all fonts, where the two trailing booleans state whether the font has a GoogleFonts API link. The code iterates through each element, creating a new form entry for each, which has the header font, paragraph font, and Google API imports for each font, if required (`<link href="https://fonts.googleapis.com/css2?family={{headerFont}}&display=swap" rel="stylesheet">`). It also sets the first entry as the active one.
 
 ##### /templates/site-create-options-2.html
   ```jinja
@@ -4970,9 +4973,9 @@ root((MAIN))
     return redirect(url_for("site_create_options_generate"))
   ```
 
-  After this, it redirects to `site_create_options_generate`. This will collect all of the `flask.session` data and store it in the dictionary `siteSettings` (and then clear the session data). It then calls the function `createSiteStructure` and passes said dictionary, and redirects the user to the site they just generated.
+  After this, it redirects to `site_create_options_generate`. This will collect the `flask.session` data and store it in the dictionary `siteSettings` (and then clear the session data). It then calls the function `createSiteStructure`, passes said dictionary, and redirects the user to the site they just generated.
 
-  The `createSiteStructure` takes the `siteSettings` dictionary and converts it into a database object, along with generating the required server-side files and directories. The data was originally going to be stored in a JSON or XML file, however I opted to use config files (`.ini`) as the `ConfigParser` python library allows for easier editing and creation of data storage. The storage of site pages and code files is stored in a `.json` file. An example `site.ini` file may look like this:
+  The `createSiteStructure` takes the `siteSettings` dictionary and converts it into a database object, along with generating the required server-side files and directories. The data was originally going to be stored in a JSON or XML file. However, I opted to use config files (`.ini`) as the `ConfigParser` Python library allows for easier editing and creation of data storage. The storage of site pages and code files is stored in a `.json` file. An example `site.ini` file may look like this:
 
   ```ini
   [settings]
@@ -5007,7 +5010,7 @@ root((MAIN))
   body = Catamaran
   ```
 
-  The `generateFolderStructure` and `generateFileStructure` functions are called to create the files and directories. They take a list of paths and iterate through them, creating new files or directories if they don't already exist.
+  The `generateFolderStructure` and `generateFileStructure` functions are called to create the files and directories. They take a list of paths and iterate through them, creating new files or directories if they do not already exist.
 
   The `defaultHTMLPage` function returns a string of HTML content to set as the default content when a new site is created.
 
@@ -5213,11 +5216,11 @@ root((MAIN))
 
 ### Stage 5 - Code Documentation
 
-  To ensure that the code is easy to interperet by any other developers, and also allow it to integrate better into IDEs, I went through each function in `__init__.py` to add more detailed comments, variable type declarations, and Sphinx docstrings to the start of each function.
+  To ensure that the code can be easily interpreted by any other developers and also allow it to integrate better into IDEs, I went through each function in `__init__.py` to add more detailed comments, variable type declarations, and Sphinx docstrings to the start of each function.
 
 #### Sphinx Docstring Format
 
-  The `Sphinx` docstring format is a standard used to automatically generate documentation for code. It describes the purpose of the function, the parameters and their types, and the return value. The following is taken from [Sphinx Docstring Documentation](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html).
+  The `Sphinx` docstring format is a standard used to generate code documentation automatically. It describes the purpose of the function, the parameters and their types, and the return value. The following is taken from [Sphinx Docstring Documentation](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html).
   
   >In general, a typical `Sphinx` docstring has the following format:
 
@@ -5237,7 +5240,7 @@ root((MAIN))
 
   >Note that the `...` notation has been used above to indicate repetition and should not be used when generating actual docstrings, as can be seen by the example presented below.
 
-  Every function in `__init__.py` has been documented in this format. The full results of this can be seen in Appendix A. Here are some examples, with example screenshots of when the functions are being used.
+  Every function in `__init__.py` has been documented in this format. The full results of this can be seen in Appendix A. Here are some examples, with screenshots of when the functions are being used.
 
   <br><br><br><br>
   <br><br><br><br>
@@ -5432,7 +5435,7 @@ root((MAIN))
     pass
   ```
 
-  For example, the function `getSiteCfg` uses this form of declaration, which is especially useful considering that you can't look at the content of the function to identify what data type is being returned. However, the function declaration ends in `-> list[str]`, showing that the function will return a list of strings. This makes development workflow that bit faster due to clearly displaying variable types.
+  For example, the function `getSiteCfg` uses this form of declaration, which is especially useful considering that you cannot look at the content of the function to identify what data type is being returned. However, the function declaration ends in `-> list[str]`, showing that the function will return a list of strings. This makes the development workflow faster due to clearly displaying variable types.
 
   ```python
   def getSiteCfg(self,siteName:str) -> list[str]:
@@ -5461,13 +5464,13 @@ root((MAIN))
 
 #### HTML Syntax
 
-  The first part of creating the drag-and-drop editor was creating the syntax used for the sections. I created a basic headline section to use as a template when testing. It includes the `section-wrapper`, which has the relevant data tags. The section element inside contains all of the required css variables for the section parameters, and then the `grid-item`s with their own individual parameters. 
+  The first part of creating the drag-and-drop editor was creating the syntax used for the sections. I created a basic headline section to use as a template when testing. It includes the `section-wrapper`, which has the relevant data tags. The section element inside contains all the required CSS variables for the section parameters and then the `grid-item`s with their own individual parameters. 
 
-  The `position` paramater is used in the grid positioning system, with the syntax `<start-row>/<start-column>/<end-row>/<end-column>`. This is what will be changed when the element is being moved or resized by JavaScript.
+  The `position` parameter is used in the grid positioning system, with the syntax `<start-row>/<start-column>/<end-row>/<end-column>`. This will be changed when the element is moved or resized by JavaScript.
   
-  Each `grid-item` has an `element-resize-container`, which contains the `resize-corner`s for resizing, and the `element-outline` to show that the element is selected. These will not be included in the final product, and instead will be added by the JavaScript so that it doesn't appear in the final site. They are included at the moment for design purposes.
+  Each `grid-item` has an `element-resize-container`, which contains the `resize-corner`s for resizing and the `element-outline` to show that the element is selected. These will not be included in the final product and instead will be added by JavaScript so that it does not appear on the final site. They are included at the moment for design purposes.
 
-  This is what the example section looked like when I opened the HTML file on it's own:
+  This is what the example section looked like when I opened the HTML file on its own:
 
   <img alt="Element resize boxes" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_elements_resizecontainer.png?raw=true"/>
 
@@ -5567,7 +5570,7 @@ root((MAIN))
   <img alt="Elements in the drag-and-drop editor" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_sectionmodal_empty.png?raw=true" width=360/>
 
 ##### /templates/site-edit.html
-  ```html
+  ```jinja
   {% extends "base.html" %}
 
   {% set navbarLogoColor = "gradient" %}
@@ -5802,7 +5805,7 @@ root((MAIN))
 
 ##### changes to /static/js/site-edit.js
   
-  The `loadsections` function goes through every template and adds it to the `addSectionModal_data` dictionary to make sure that all of the files are loaded. This is done when the webpage has finished loading to ensure that the user can access all of the section templates immediatly, without having to wait for them to load. Due to the nature of this being an `async` function that isn't `await`ed, it also means that this can happen in "parallel" to the rest of the JavaScript, meaning that it can load the files in the background without affecting the usability of the interface.
+  The `loadsections` function goes through every template and adds it to the `addSectionModal_data` dictionary to ensure all the files are loaded. This is done when the webpage has finished loading to ensure that the user can access all of the section templates immediately without waiting for them to load. Due to this being an `async` function that is not `await`ed, it also means that this can happen in "parallel" to the rest of the JavaScript, meaning that it can load the files in the background without affecting the usability of the interface.
 
   ```js
   // loads all section templates from the /static/html/ directory and stores them 
@@ -5882,7 +5885,7 @@ root((MAIN))
   }
   ```
 
-  The `addSectionModal_setNavbar` function is called by the `loadsections` function to append a given title to the local navigation bar of the modal. It uses the `addSectionModal_navItem` variable, which is essentially a template string defined later in the project. The string includes `[i]`, `[n1]`, and `[n2]`, which indicate areas that will be replaced in this function, before appending it to the `section-selector-nav-list` DOM element.
+  The `addSectionModal_setNavbar` function is called by the `loadsections` function to append a given title to the local navigation bar of the modal. It uses the `addSectionModal_navItem` variable, a template string defined later in the project. The string includes `[i]`, `[n1]`, and `[n2]`, which indicate areas that will be replaced in this function before appending it to the `section-selector-nav-list` DOM element.
 
   ```js
   function addSectionModal_setNavbar(text) {
@@ -5910,7 +5913,7 @@ root((MAIN))
   }
   ```
 
-  The `addSectionModal_populate` function is also called when a new navigation item is selected. It calles the `addSectionModal_clearCurrentPreviews` to clear the current sections, iterates through all of the sections in the passed `data` argument, and adds each one to the section. It will also add the event listeners to add the section to the content once the functionality has been built. I had to experiment with different ways of adding the section to the modal, as `innerHTML += section` wasn't able to do it correctly in this instance.
+  The `addSectionModal_populate` function is also called when selecting a new navigation item. It calls the `addSectionModal_clearCurrentPreviews` to clear the current sections, iterates through all of the sections in the passed `data` argument, and adds each one to the section. It will also add the event listeners to add the section to the content once the functionality has been built. I had to experiment with different ways of adding the section to the modal, as `innerHTML += section` was not able to do it correctly in this instance.
 
   ```js
   function addSectionModal_populate(data) {
@@ -5959,7 +5962,7 @@ root((MAIN))
 
   <img alt="Template sections being displayed not very well" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.1_draganddrop_sectionmodal_sections_toolarge.png?raw=true" width="50%"/>
 
-  The important thing that I had forgotten was to consider that the sections would not be scaled down from their original sizes, so, with use of the `data-preview` tag, I created the `preview_override.css` file and went through every style that could affect an element in the section from both `main.css` and `edit.css`, and copied them over. I then wrapped any variables in `calc(<value> * 2 / 3)` or simply put in the calculated value for explicit values. This was only necessary for measurements using the `px` units. The full contents of `preview_override.css` can be found in Appendix A.
+  The important thing I hadn't considered was that the sections would not be scaled down from their original sizes. So, using the `data-preview` tag, I created the `preview_override.css` file and went through every style that could affect an element in the section from both `main.css` and `edit.css`, and copied them over. I then wrapped any variables in `calc(<value> * 2 / 3)` or put in the calculated value for explicit values. This was only necessary for measurements using the `px` units. The full contents of `preview_override.css` can be found in Appendix A.
 
   To make a clearer distinction between sections, I also added a light border (that gets more noticeable when hovered) to each section.
 
@@ -5969,7 +5972,7 @@ root((MAIN))
 
 #### Adding Sections to the Editor
 
-  The next step was to be able to add a selected section to the editor. When the modal is being populated with elements, they are each given click event listeners. These will use the functions `stripPreviewTags` and `addSection`, along with the `addSectionModal_hide` function to close the modal.
+  The next step was to be able to add a selected section to the editor. When the modal is being populated with elements, they are each given click event listeners. These will use the functions `stripPreviewTags` and `addSection`, along with the `addSectionModal_hide` function, to close the modal.
 
   After completing this, I added the event listener functionality to sections and elements in the editor.
 
@@ -5984,7 +5987,7 @@ root((MAIN))
     })
   ```
 
-  The `stripPreviewTags` function removes all `data-preview` tags from the element so that it renders normally in the editor. To do this, the event listener gets the `currentTarget` (the element that was assigned the event listener) and fetches its `outerHTML`, which returns a string containing the HTML the element and its contents.
+  The `stripPreviewTags` function removes all `data-preview` tags from the element to render it normally in the editor. To do this, the event listener gets the `currentTarget` (the element assigned to the event listener) and fetches its `outerHTML`, which returns a string containing the HTML element and its contents.
 
   ```js
   function stripPreviewTags(html) {
@@ -5992,7 +5995,7 @@ root((MAIN))
   }
   ```
 
-  The `addSection` function appends the section to the end of the editor, and then calls `sectionEventListeners` and `elementEventListeners`, which will be used to add the required event listeners for the drag-and-drop system to work, along with `createResizeBoxes` to draw in the resize boxes to the elements.
+  The `addSection` function appends the section to the end of the editor and then calls `sectionEventListeners` and `elementEventListeners`, which will be used to add the required event listeners for the drag-and-drop system to work, along with `createResizeBoxes` to draw in the resize boxes to the elements.
 
   ```js
   function addSection(html) {
@@ -6008,7 +6011,7 @@ root((MAIN))
 
   <img alt="A section added to the editor" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.2_draganddrop_addsection_addedsection.png?raw=true" width=500/>
 
-  The `sectionEventListener` function goes through each section and adds an `onclick` event, which will clear all selected sections and set the current one as selected. It will also display the section action buttons, once they have been implemented.
+  The `sectionEventListener` function goes through each section and adds an `onclick` event, clearing all selected sections and setting the current one as selected. It will also display the section action buttons once they have been implemented.
 
   ```js
   function sectionEventListeners() {
@@ -6030,7 +6033,7 @@ root((MAIN))
   }
   ```
 
-  The `clearSelectedSections` function goes through each section and removes the `data-kraken-section-selected` attribute from them. It will also hide the section action buttons once they have been implemeneted.
+  The `clearSelectedSections` function goes through each section and removes the `data-kraken-section-selected` attribute from them. It will also hide the section action buttons once they have been implemented.
 
   ```js
   function clearSelectedSections() {
@@ -6041,7 +6044,7 @@ root((MAIN))
   }
   ```
 
-  To allow for easier selection of elements, I created the `siteroot`, `elements`, and `sections` functions, that all return `NodeList`s or DOM elements, so that all of the query definition for elements is in the same place.
+  To allow for easier selection of elements, I created the `siteroot`, `elements`, and `sections` functions, that all return `NodeList`s or DOM elements so that all of the query definition for elements is in the same place.
 
   ```js
   function siteroot() { return document.querySelector("[data-content-parentview]")}
@@ -6056,7 +6059,7 @@ root((MAIN))
   }
   ```
 
-  When a section in the editor is hovered, it will display a light border. When it is then selected, it will display a more prominent border to indicate that it has been selected. It will also display the list of section action buttons when a section is selected.
+  When a section in the editor is hovered, it will display a light border. When selected, it will display a more prominent border to indicate that it has been selected. It will also display the list of section action buttons when a section is selected.
 
   ```js
   var sectionEditActions = document.querySelector(".section-edit-actions")
@@ -6098,15 +6101,15 @@ root((MAIN))
 
   <img alt="Selected section with action button" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.2_draganddrop_addsection_actionbuttons.png?raw=true" width=600/>
 
-  It can also successfully duplicate and delete the section. Whilst it can also add the `data-kraken-locked` data tag to it, at the moment this does nothing.
+  It can also successfully duplicate and delete the section. Whilst it can also add the `data-kraken-locked` data tag, this does nothing at the moment.
 
 #### Resizing Text Elements
 
-  Next up, I implemented the resizing functionality for text elements. There are two different versions of it: one for horizontal resizing (for elements such as text), and one for 2D resizing (for elements such as images). The horizontal resizing is useful for elements such as text as it means that the text will automatically add linebreaks where necessary, so two resize points are all that is required. As such, there is a selector in the JavaScript code that checks for the `data-kraken-editable-text` tag to see whether the element needs four corners or two.
+  Next up, I implemented the resizing functionality for text elements. It has two different versions: horizontal resizing (for elements such as text) and 2D resizing (for elements such as images). The horizontal resizing is useful for elements such as text as it means that the text will automatically add linebreaks where necessary, so two resize points are all required. As such, a selector in the JavaScript code checks for the `data-kraken-editable-text` tag to see whether the element needs four corners or two.
 
-  The system of generating the element control box is broke up into a lot of functions that each generate individual parts of the element or combine them together.
+  The system of generating the element control box is broken up into many functions that each generate individual parts of the element or combine them.
 
-  The code makes use of the functions `resizable` and `draggable`, which are defined at the start of the code, similarly to `siteroot`, `elements`, and `sections`. They return a list of all the resizalbe and draggable elements respectively, based on criteria that considers tags such as `data-preview` and `data-locked`. Functions are used instead of repeatedly calling the `document.querySelectorAll` function as it means that the query used is only written once, making it easy to edit should some aspect of the syntax change.
+  The code uses the functions `resizable` and `draggable`, defined at the start of the code, similarly to `siteroot`, `elements`, and `sections`. They return a list of all the resizable and draggable elements based on criteria that consider tags such as `data-preview` and `data-locked`. Functions are used instead of repeatedly calling the `document.querySelectorAll` function as it means that the query used is only written once, making it easy to edit should some aspect of the syntax change.
 
 ##### changes to /static/js/site-edit.js
   ```js
@@ -6241,7 +6244,7 @@ root((MAIN))
   }
   ```
 
-  For these to be rendered properly, I now needed to define the `elementEventListeners` function that was commented out in `addSection`. The hover functionality is added in via CSS, and the `elementEventListeners` function adds the selected element functionality so that the resize box can be held on visible. Similarly to the `sectionEventListeners` function, it uses a `clearSelectedElements` function, like the `clearSelectedSections` function, to remove the `data-kraken-element-selected` tag from each element. To do this, it uses the `elements` function that returns a `NodeList` of all elements.
+  To render these properly, I now needed to define the `elementEventListeners` function that was commented out in `addSection`. The hover functionality is added via CSS, and the `elementEventListeners` function adds the selected element functionality so that the resize box can be visible. Similarly to the `sectionEventListeners` function, it uses a `clearSelectedElements` function, like the `clearSelectedSections` function, to remove the `data-kraken-element-selected` tag from each element. It uses the `elements` function that returns a `NodeList` of all elements to do this.
 
   ```js
   // creates the event listeners for every element
@@ -6269,7 +6272,7 @@ root((MAIN))
   }
   ```
 
-  The final part was to make the actual resize event listeners. These would will for a `mousedown` event on the resize handles, then create `mousemove` and `mouseup` event listeners on said resize handles. The `mousemove` listener will change the position attributes of the handle so that it emulates where the mouse is, and the `mouseup` listener will locate the nearest grid row/column and update the `--position` variable of the resized element.
+  The final part was to make the actual resize event listeners. These would will for a `mousedown` event on the resize handles, then create `mousemove` and `mouseup` event listeners on said resize handles. The `mousemove` listener will change the position attributes of the handle so that it emulates where the mouse is. The `mouseup` listener will locate the nearest grid row/column and update the resized element's `--position` variable.
 
   ```js
   // creates event listeners for resize corners on currently selected elements
@@ -6396,7 +6399,7 @@ root((MAIN))
   }
   ```
 
-  To make the code easier to read, the code that actually assigns the new `position` attribute to the element is in another function, `eventResize`, that takes the event object as an argument. To work out which column is the closest, it takes the `grid-template-columns` style attribute from the parent section's `section-grid` element, converts it into a list of offsets from the start of the grid, and then compares it to the cursor's offset from the start of the grid.
+  To make the code easier to read, the code that assigns the new `position` attribute to the element is in another function, `eventResize`, that takes the event object as an argument. To work out which column is the closest, it takes the `grid-template-columns` style attribute from the parent section's `section-grid` element, converts it into a list of offsets from the start of the grid, and then compares it to the cursor's offset from the start of the grid.
 
   ```js
   // event listener function for element resizing
@@ -6527,7 +6530,7 @@ root((MAIN))
   }
   ```
 
-  After some testing with the resize function, I realised that the `closestValInArray` was insufficient for snapping to the grid, as it simply went to the closest value below. I rewrote it so that it would find the closest, instead of the one lower
+  After testing the resize function, I realised that the `closestValInArray` was insufficient for snapping to the grid, as it simply went to the closest value below. I rewrote it so that it would find the closest instead of the one lower.
 
   ```js
   function closestValInArray(num, arr) {
@@ -6544,7 +6547,7 @@ root((MAIN))
   }
   ```
 
-  The elements could now be resized using the resize handles that are rendered when an element is hovered or selected. The element cannot be resized to larger than the grid due to the `closestValInArray` being only snapping to the extremes as a maximum, and how the `grid-position` property is handled in CSS. The handles have a invisible area around them that also responds to the `mousemove` and `mouseup` events, so that it can still be moved if the user moves their cursor outside of the handle's area (by going vertically or moving too fast). The testing evidence of this can be found in Appendix B.
+  The elements could now be resized using the resize handles that are rendered when an element is hovered or selected. The element cannot be resized to larger than the grid due to the `closestValInArray` being only snapping to the extremes as a maximum, and how the `grid-position` property is handled in CSS. The handles have an invisible area around them that also responds to the `mousemove` and `mouseup` events, so that they can still be moved if the user moves their cursor outside of the handle's area (by going vertically or moving too fast). The testing evidence of this can be found in Appendix B.
 
 <br><br>
 
@@ -6795,11 +6798,11 @@ root((MAIN))
 
 #### Grid Preview System
 
-  The functions went through many iterations and changes while being developed, including a number of cases where the element would snap to seemingly random grid spaces, before realising that I had mixed up row and column at one point. The developent of both the drag-and-drop and resize functions was aided by the grid preview function in DevTools, that allows you to view where the grid rows and columns are. It looks like this:
+  The functions underwent many iterations and changes while being developed, including several cases where the element would snap to seemingly random grid spaces before realising that I had mixed up row and column at one point. The development of both the drag-and-drop and resize functions was aided by the grid preview function in DevTools, which allows you to view where the grid rows and columns are. It looks like this:
 
   <img alt="The in-built DevTools grid preview system" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/development/6.5_draganddrop_draganddrop_gridpreview.png?raw=true" width=440/>
 
-  My research into other solutions included finding similar systems, wherein users could see the grid spaces for where the element would land as they were dragging/resizing it. Squarespace, for example, used an image per row for showing the preview. As this wouldn't work with the way my sections are created, I decided to add a `section-grid-preview` element, which would contain elements for every rendered square and mimic the CSS of the `section-grid` element.
+  My research into other solutions included finding similar systems wherein users could see the grid spaces where the element would land as they were dragging/resizing it. Squarespace, for example, used an image per row to show the preview. As this would not work with how the sections are created, I decided to add a `section-grid-preview` element, which would contain elements for every rendered square and mimic the CSS of the `section-grid` element.
 
 ##### changes to /static/js/site-edit.js
 
@@ -6863,7 +6866,7 @@ root((MAIN))
   }
   ```
 
-  The creation of a grid preview box is in its own function. It takes the width, height, position from the top of the section, and position from the left of the section, as arguments, and uses them when assigning the CSS. The box itself is an `absolute` element with a parent `relative` element, meaning that `top` and `left` can be used to position it anywhere inside the parent.
+  The creation of a grid preview box is its own function. It takes the width, height, position from the top of the section, and position from the left of the section, as arguments, and uses them when assigning the CSS. The box itself is an `absolute` element with a parent `relative` element, meaning that `top` and `left` can position it anywhere inside the parent.
 
   ```js
   // creates a single box for the grid previews
@@ -6885,7 +6888,7 @@ root((MAIN))
   }
   ```
 
-  By default, the grid preview is kept hidden in CSS, so I added code to the `createResizeCornerEventListeners` and `createDragEventListeners` functions that shows and hides it when an element is being resized or dragged.
+  By default, the grid preview is kept hidden in CSS. I added code to the `createResizeCornerEventListeners` and `createDragEventListeners` functions that shows and hides it when an element is being resized or dragged.
 
   ```js
   // get the parent section by iterating through every parent element
@@ -6921,11 +6924,11 @@ root((MAIN))
 
 #### Loading from the Server
 
-  One of the most important components of the website is the ability to load content from and save content to the server-side storage system, so that users can easily edit their websites instantly. To do this, I looked into different ways of sending information via JavaScript, and found that jQuery's AJAX system would be the best suited.
+  One of the most important components of the website is the ability to load content from and save content to the server-side storage system so that users can easily edit their websites instantly. To do this, I looked into different ways of sending information via JavaScript and found that jQuery's AJAX system would be the best suited.
 
-  AJAX (or Asynchronous JavaScript And XML) allows client-side applications to communicate with remote servers in an asynchronous way (without interfering with the behaviour of the webpage). It essentialy means that I can make dynamic data requests from and to the server. On a rewrite, I would probably use AJAX to handle the importing of sections to make the code consistent, but as the current code works fine, and I am on a strict time schedule, I won't worry about doing that now.
+  AJAX (or Asynchronous JavaScript And XML) allows client-side applications to communicate with remote servers in an asynchronous way (without interfering with the behaviour of the webpage). It essentially means that I can make dynamic data requests from and to the server. On a rewrite, I would probably use AJAX to handle the importing of sections to make the code consistent, but as the current code works fine and I am on a strict schedule, I won't worry about doing that now.
 
-  I started by creating the `run` command, which is where all of the code necessary to begin the webpage will be contained, such as event listener creation and dynamic content generation. It is asynchronous, to allow for the loading of user content. For any fetching of user content, I loaded it via the `fetch` command and handled it with `.then`. Any required functions are `await`ed to ensure they are finished before the program continues.
+  I started by creating the `run` command, where all the code necessary to begin the webpage will be contained, such as event listener creation and dynamic content generation. It is asynchronous to allow for the loading of user content. For any fetching of user content, I loaded it via the `fetch` command and handled it with `.then`. Any required functions are `await`ed to ensure they are finished before the program continues.
 
 ##### changes to /static/js/site-edit.js
 
@@ -7012,7 +7015,7 @@ root((MAIN))
 
 ##### changes to \_\_init\_\_.py
 
-  The `app.route` function `site_edit_save` has been added to the Python code. It responds to `post` methods on the url `/<username>/<sitename>/save/<pagename>`, which is what will be used to save content. From there, it fetches the data and saves it to the designated file in storage. No error catching to inform the server is required as that can all be handled by AJAX.
+  The `app.route` function `site_edit_save` has been added to the Python code. It responds to `post` methods on the URL `/<username>/<sitename>/save/<pagename>`, which is what will be used to save content. From there, it fetches the data and saves it to the designated file in storage. No error catching to inform the server is required, as AJAX can handle that.
 
   ```python
   @self.app.route("/<name>/<site>/save/<page>",methods=["post"])
@@ -7032,7 +7035,7 @@ root((MAIN))
 
 ##### changes to /static/js/site-edit.js
 
-  The asynchronous function `saveContent` will be called whenever the save button is pressed in the editor, and whenever the autosave process is triggered. It uses the jQuery function `ajax` to send a `POST` method request to the server, on the URL `/<username>/<sitename>/save/<pagename>`, with the content `siteroot().outerHTML` - i.e. the content of the editor. The paramaters `error` and `success` define the functions to be called when the request is finished, based on the outcome. As of now, they simply write to the console. Testing of this using DevTools's Network Conditions functionality can be found in Appendix B.
+  The asynchronous function `saveContent` will be called whenever the save button is pressed in the editor, and the autosave process is triggered. It uses the jQuery function `ajax` to send a `POST` method request to the server on the URL `/<username>/<sitename>/save/<pagename>`, with the content `siteroot().outerHTML` - i.e. the content of the editor. Based on the outcome, the parameters `error` and `success` define the functions to be called when the request is finished. As of now, they write to the console. Testing this using DevTools's Network Conditions functionality can be found in Appendix B.
 
   ```js
   // sends a request to the server to save the content of the editor 
@@ -7053,7 +7056,7 @@ root((MAIN))
   }
   ```
 
-  The combination of these two functions mean that a user can now save their page when it is called, but there is no way of it being triggered. As such, I added a save icon to the local navigation bar. It also includes three hidden icons that are used in the saving animation.
+  The combination of these two functions means that a user can now save their page when it is called, but there is no way of it being triggered. As such, I added a save icon to the local navigation bar. It also includes three hidden icons that are used in the saving animation.
 
 ##### changes to /templates/site-edit.html
   ```html
@@ -7097,7 +7100,7 @@ root((MAIN))
     - `fa-xmark` is shown in red
     - All others are hidden
 
-  All of the icons have opacity transitions with appropriate delays so that the animation looks nice. The `fa-loader` spins slowly to represent that something is happening.
+  All icons have opacity transitions with appropriate delays so that the animation looks nice. The `fa-loader` spins slowly to represent that something is happening.
 
   By default, the icon looks like this:
 
@@ -7116,7 +7119,7 @@ root((MAIN))
   }
   ```
 
-  The `hideSaveLoader` function is asynchonous as it makes use of the `sleep` function, which delays the upcoming code by a given amount of miliseconds, in this case 1500. What this means in context is that the element will show either the tick or cross for 1.5 seconds, then revert back to the default icon.
+  The `hideSaveLoader` function is asynchronous as it uses the `sleep` function, which delays the upcoming code by a given amount of milliseconds, in this case, 1500. In context, this means that the element will show either the tick or cross for 1.5 seconds, then revert to the default icon.
 
   ```js
   // finishes the save loading animation and shows a success/fail icon
@@ -7142,7 +7145,7 @@ root((MAIN))
   // endsource
   ```
 
-  The asynchronous function `waitForNotSaving` also makes use of the `sleep` function to ensure that the program waits until the current save has finished before executing another one. It checks the `.localnav-item.four` element for the `data-kraken-savestate` tag and delays by 100 milliseconds before checking again if it has the tag.
+  The asynchronous function `waitForNotSaving` also uses the `sleep` function to ensure that the program waits until the current save has finished before executing another one. It checks the `.localnav-item.four` element for the `data-kraken-savestate` tag and delays by 100 milliseconds before checking again if it has the tag.
 
   ```js
   // await function used to ensure that multiple saves are not occuring
@@ -7157,7 +7160,7 @@ root((MAIN))
   }
   ```
 
-  I then combined this all together with a `setTimeout` function for the autosave feature, and an event listener on the save icon. The `setTimeout` function creates a delay, in milliseconds, before a given function is called, meaning that I can call it at the end of the `saveContent` function to create a loop. In the AJAX code in `saveContent`, I also modified the existing `error` and `success` functions to call `hideSaveLoader` with the appropriate argument for the success of the request 
+  I combined this with a `setTimeout` function for the autosave feature and an event listener on the save icon. The `setTimeout` function creates a delay, in milliseconds, before a given function is called, meaning that I can call it at the end of the `saveContent` function to create a loop. In the AJAX code in `saveContent`, I also modified the existing `error` and `success` functions to call `hideSaveLoader` with the appropriate argument for the success of the request. 
 
   ```js
   async function saveContent() {
@@ -7202,7 +7205,7 @@ root((MAIN))
   }
   ```
 
-  After running preliminary tests on a lower timeout delay, I found that it could very quickly get to the point where it was constantly running the saving animation. As such, I added the `clearTimeout` function to make sure that only one timeout was running for the `saveContent` function at a time.
+  After running preliminary tests on a lower timeout delay, I found that it could very quickly get to the point where it was constantly running the saving animation. As such, I added the `clearTimeout` function to ensure that only one timeout was running for the `saveContent` function at a time.
 
   ```js
   // starts the timeout for the saveContent function
@@ -7222,7 +7225,43 @@ root((MAIN))
   }
   ```
 
-  In Appendix B, I used DevTools' Network Conditions throttling settings to test how it worked on lower connections, including when the site was offline.
+  I used DevTools' Network Conditions throttling settings in Appendix B to test how it worked on lower connections, including when the site was offline.
+<!--
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+
+
+### Stage 8 - Birthday Invite Generator
+
+### Stage 9 - Element & Selection Styling System
+
+### Stage 10 - Various Element Integration
+
+### Stage 11 - Importing and Exporting Sites
+
+## Testing
+
+### Load Testing
+
+### Compatibility Testing
+
+### Security Testing
+
+-->
 
 <br><br><br><br>
 <br><br><br><br>
@@ -7232,7 +7271,7 @@ root((MAIN))
 
 ## Evaluation
 
-Due to time contstraints, I have had to finish the first release of the project in it's current state. Although not fully functional, the project fulfils a large portion of the success criteria outlined in the Analysis section.
+Due to time constraints, I have had to finish the project's first release in its current state. Although not fully functional, the project fulfils a large portion of the success criteria outlined in the Analysis section.
 
 ### Success Criteria
 
@@ -7251,13 +7290,17 @@ Due to time contstraints, I have had to finish the first release of the project 
     >- The repeated password must be identical to password.
     >- Email cannot already be in the database.
 
-    The login/signup system is fully functional with integration to the server's SQL database, that uses two tables: `User` and `Site`. The user can view their passwords before submitting, and there is appropriate validation on both the client-side and server-side, which lines up with the criteria defined above. The data is validated client-side because it means that the user can recieve instant feedback and reduce server load, and it is validated server-side as well to ensure that the client-side validation hasn't been tampered with. Testing was performed during development on both instances of the validation to ensure that the features all worked properly. The backend implements the `flask-login` system to integrate users being able to login. This means that the backend can access information about the current logged-in user for the session that's being requested, which is useful for executing SQL queries about the specific user. The system fully meets this criteria.
+    The login/signup system is fully functional with integration to the server's SQL database, which uses two tables: `User` and `Site`. The user can view their passwords before submitting, and there is appropriate validation on both the client-side and server-side, which aligns with the criteria defined above. The data is validated client-side because the user can receive instant feedback and reduce server load. It is also validated server-side to ensure the client-side validation has not been tampered with. Testing was performed during development on both instances of the validation to ensure that the features all worked properly. The backend implements the `flask-login` system to integrate users' ability to log in. This means that the backend can access information about the currently logged-in user for the session that's being requested, which is useful for executing SQL queries about the specific user. The system fully meets this criteria.
 
+    <img alt="The login and signup pages, demonstrating features such as error checking and viewing the password" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/loginsystem_combined.png?raw=true" width="100%"/>
+    
   - ##### Homepage
     - The homepage, when there are no sites, displays a prompt to create a new site
     - The homepage, when the user has created sites, lists all of them along with a "create new site" button
 
-    The homepage renders any of the user's current sites, if there are any, by using an SQL query. The backend will return two different templates based on whether the user has any sites. The system fully meets this criteria.
+    The homepage renders any of the user's current sites, if there are any, by using an SQL query. The backend will return two templates based on whether the user has any sites. The system fully meets this criteria.
+
+    <img alt="The homepage of the site, with different displays depending on whether the user has any sites" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/homepage_combined.png?raw=true" width="100%"/>
 
   - ##### Site Creation
     - When creating a site, the user will get the following options
@@ -7265,16 +7308,24 @@ Due to time contstraints, I have had to finish the first release of the project 
     >- Description: optional
     >- Whether the site is public or private: determines who has access to the site URLs
 
-    On the first page of the website creation system, the user is prompted for a site name, an optional description, and privacy flag. Similarly to the login system, the validation system for the site name is executed both client-side and server-side to negate any risks of malicious attacks. The system fully meets this criteria.
+    On the first page of the website creation system, the user is prompted for a site name, an optional description, and a privacy flag. Similarly to the login system, the validation system for the site name is executed both client-side and server-side to negate any risks of malicious attacks. The system fully meets this criteria.
+
+    <img alt="The first site creation page" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/sitecreation_page1.png?raw=true" width="49%"/>
+    
+    <img alt="The first site creation page, shown with an error in the website name input" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/sitecreation_page1_invalidname.png?raw=true" width="49%"/>
 
   - ##### Site syntax
     - Sites can be accessed with the URL: `/<username>/<sitename>`, and, if public, can be viewed (but not edited) by anyone from this URL. If private, other users will be told this and redirected home.
     - The site will have a config file, where it stores all of its global variables - mostly style choices - which have been selected when creating the site. These can also be edited at any time on the site's homepage.
     > These variables include primary, secondary, accent & grey colours, and primary and secondary fonts.
 
-    The if not logged in, as of now, the `/<username>/<sitename>` page currently redirects to the login page. If the current user is logged in but no the owner, it recieves a message stating that they are not the owner, regardless of the privacy settings. This feature has not yet been implemented, and as such, does not meet the criteria.
+    If not logged in, as of now, the `/<username>/<sitename>` page currently redirects to the login page. If the current user is logged in but not the owner, it receives a message stating that they are not the owner, regardless of the privacy settings. This feature still needs to be implemented, and as such, it does not meet the criteria.
 
-    The site config file is written to when the site is created (as of yet there is no way to change it), and contains the settings, such as the website name, owner, and description; colours, including `light`, `dark`, `primary`, `secondary`, `accent` & their variants, and the `grey-100` through `grey-900` variables; and fonts, including `header` and `body`. 
+    <img alt="The home page for a created site, showing the URL at the top" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/sitesyntax_yoursite.png?raw=true" width="48%"/>
+    
+    <img alt="The home page for a created site that is not owned by the current user, showing the URL at the top" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/sitesyntax_othersite.png?raw=true" width="48%"/>
+
+    The site config file is written to when the site is created (as of yet, there is no way to change it) and contains the settings, such as the website name, owner, and description; colours, including `light`, `dark`, `primary`, `secondary`, `accent` & their variants, and the `grey-100` through `grey-900` variables; and fonts, including `header` and `body`. 
     
     For example:
 
@@ -7316,17 +7367,17 @@ Due to time contstraints, I have had to finish the first release of the project 
     - CMS system for users to be able to upload custom content
     >
 
-    This is currently not implemented into the project, partially due to the amount of time required to implement it with use of validation and malware checking. Hence, the project does not meet this criteria.
+    This currently needs to be implemented into the project, partially due to the time required to implement it using validation and malware checking. Hence, the project does not meet this criteria.
 
   - ##### Editing a site
 
-    - The site page (`/<username>/<sitename>`) can be programmatically assigned due to the Python backend: it can take both parameters, search for them in the database, make sure that the current user has permissions, and display the appropriate site.
+    - The site page (`/<username>/<sitename>`) can be programmatically assigned due to the Python back-end: it can take both parameters, search for them in the database, make sure that the current user has permissions, and display the appropriate site.
 
-    The `/<username>/<sitename>` is handled partially by the back-end of the system, in that it can return the site if the logged-in user is the owner of the site, but otherwise will simply return a message for the user stating that they can't view the website. The project partially meets this criteria.
+    The `/<username>/<sitename>` is handled partially by the back-end of the system, in that it can return the site if the logged-in user is the owner of the site, but otherwise will return a message for the user stating that they cannot view the website. The project partially meets this criteria. Screenshots for this are shown above, under Site Syntax.
 
     - On the site page, the user will get a preview of the website, along with customisability options for the website: the ability to edit the site, reorganise the site structure (which pages go where), edit site settings (such as default colours), and export the site.
 
-    The site page does not render a preview of the current user's site, or give customizability options for the website - except for the link to edit the site. The project does not meet this criteria.
+    The site page does not render a preview of the current user's site or give customizability options for the website - except for the link to edit the site. The project does not meet this criteria.
 
     - When editing the site, the organisation will look like this
     >- A navigation bar on the left that contains the options: "website pages", where you can navigate to a different page, "add section", where you can add another template section to the current page, "website styles", where you can change global settings such as fonts and colours, and "add element", where you can drag and drop individual elements into the canvas to edit.
@@ -7334,67 +7385,86 @@ Due to time contstraints, I have had to finish the first release of the project 
     >- A popup modal that appears when the user needs to add an element or section
     >- A styling section on the right-hand side where the user can edit all of the styling properties for a selected element
     
-    The editing page reflects some of the design set out in the success criteria: there is a local navigation bar on the left containing the options given in the success criteria; there is a central canvas that contains the page that is currently being edited; there is a popup modal that appears when adding a section, but not when adding an element, as that functionality has not yet been implemented; and there is no styling section on the right hand side. The project partially meets this criteria.
+    The editing page reflects some of the design set out in the success criteria: there is a local navigation bar on the left containing the options given in the success criteria; there is a central canvas that contains the page that is currently being edited; there is a popup modal that appears when adding a section, but not when adding an element, as that functionality has not yet been implemented; and there is no styling section on the right-hand side. The project partially meets this criteria.
+
+    <img alt="The drag-and-drop editor with no content" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/editing_blanksite.png?raw=true" width="50%"/>
 
     - The central canvas will import the raw HTML and CSS files from the server and rely on data tags in the HTML element to understand what does what and how to edit it.
 
-    The client-side JavaScript successfully fetches the required HTML from the server - as of yet the project does not require the importing of any CSS. The JavaScript uses the data tags, such as `data-kraken-section` to parse the HTML and create appropriate event listeners and control elements. The project meets this criteria.
+    The client-side JavaScript successfully fetches the required HTML from the server - as of yet, the project does not require importing any CSS. The JavaScript uses data tags, such as `data-kraken-section`, to parse the HTML, create appropriate event listeners, and control elements. The project meets this criteria.
+
+    <img alt="The drag-and-drop editor with an imported site" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/editing_importsite.png?raw=true" width="50%"/>
 
     - Whenever a widget is selected, a box will be drawn around it, with the ability to resize it. The style menu on the right will also populate with style options for the selected element that can be changed in real-time and previewed when hovered over so that the user can easily understand what certain buttons will do.
 
-    An element, when hovered or selected (identified with the `data-kraken-element-selected` tag), shows a box around it depending on whether it is resizable and/or draggable (identified with the `data-kraken-resizable` and `data-kraken-draggable` tags respectively), and a set of "corners" on the box which, when dragged, will resize the element. The elements are contained in a child element of the element which contains the outline and any corners required. The elements can have either two corners on either side, or four corners on the vertices, depending on its type (such as `data-kraken-text-element`). The code, despite having the multiple corner style functionalities, only resizes when horizontal corners are present. Despite this, the project meets this criteria.
+    An element, when hovered or selected (identified with the `data-kraken-element-selected` tag), shows a box around it depending on whether it is resizable and/or draggable (identified with the `data-kraken-resizable` and `data-kraken-draggable` tags respectively), and a set of "corners" on the box which, when dragged, will resize the element. The elements are contained in a child element, which contains the outline and any corners required. The elements can have two corners on either side or four corners on the vertices, depending on its type (such as `data-kraken-text-element`). Despite having multiple corner style functionalities, the code only resizes when horizontal corners are present. Despite this, the project meets this criteria.
 
-    The style menu on the right has not yet been implement, and, as such, the project does not meet this criteria.
+    <img alt="A selected element in the drag-and-drop editor" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/editing_elementselected.png?raw=true" width="100%"/>
 
-    - Whenever a widget is selected and held, an outline of the parent section's grid system is previewed, and the element can be moved around. It does this by tracking the cursor's position and relating that to the start position of the cursor on the widget (the anchor point) to render it in the correct place using left, right, top, and bottom CSS tags. When released, the widget will snap into the nearest grid space to where it was released. A similar thing happens when the user selects and holds one of the resize elements on the outline, where it tracks the cursor and then snaps into the closest grid space to resize it.
+    When corners are dragged, JavaScript will generate new width and position variables to simulate the resizing. Similar to how it is done with dragging and dropping, the code will remove the selected element from the grid and give it separate, absolute position attributes (`top` and `left`). This means that the element can accurately follow the cursor. When released, the JavaScript calculates the closest grid position to the cursor, sets the new grid position attribute, and removes the absolute positioning parameters.
 
-    The dragging and dropping system is defined with the `data-kraken-draggable` tag. Any elements with the tag will be assigned `mousedown` event listeners for when they are dragged. It is important to note that these events cancel if a resize corner is detected as the element that has been clicked, as otherwise the element would be simultaneously being dragged and resized. As the element is being dragged, the code listens for `mousemove` events, and updates the element's `top` and `left` CSS properties to ensure that the element properly tracks to the cursor when being moved. The element is also rendered with a solid background and drop shadow to indicate that it has been "picked up".
+    <img alt="An element being resized, and it snapping to its final position" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/editing_resizing_combined.png?raw=true" width="100%"/>
 
-    All sections have a hidden `section-grid-preview` element inside, that contains the content needed to render the outline of the parent section's grid system, so that when an element is being dragged, the user knows where the element will snap to when dropped. This element is added in by the JavaScript, and is shown via the `data-kraken-visible` tag. Due to the nature of how it has been created, it will render the correct positions of each of the grid areas even if the content area (i.e. the browser window the user is viewing it on) has been resized.
+    The style menu on the right has not yet been implemented, so the project does not meet this criteria.
+
+    - Whenever a widget is selected and held, an outline of the parent section's grid system is previewed, and the element can be moved around. It does this by tracking the cursor's position and relating that to the start position of the cursor on the widget (the anchor point) to render it in the correct place using left, right, top, and bottom CSS tags. When released, the widget will snap into the nearest grid space to where it was released. A similar thing happens when the user selects and holds one of the resizeable elements on the outline, where it tracks the cursor and then snaps into the closest grid space to resize it.
+
+    The dragging and dropping system is defined with the `data-kraken-draggable` tag. Any elements with the tag will be assigned `mousedown` event listeners for when they are dragged. It is important to note that these events cancel if a resize corner is detected as the element that has been clicked. Otherwise, the element would simultaneously be being dragged and resized. As the element is being dragged, the code listens for `mousemove` events and updates the element's `top` and `left` CSS properties to ensure that the element properly tracks to the cursor when being moved. The element is also rendered with a solid background and drop shadow to indicate that it has been "picked up".
+
+    <img alt="An element being dragged, and it snapping to its final position" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/editing_dragging_combined.png?raw=true" width="100%"/>
+
+    All sections have a hidden `section-grid-preview` element inside, containing the content needed to render the outline of the parent section's grid system. While an element is being dragged, the user knows where the element will snap to when dropped. This element is added in by the JavaScript, and is shown via the `data-kraken-visible` tag. Due to how it has been created, it will render the correct positions of each grid area even if the content area (i.e. the browser window the user is viewing it on) has been resized. The grid preview is shown in the dragging and resizing screenshots above.
 
     The project meets this criteria.
 
     - The position parameters that are changed, as described above, are separate for the desktop and mobile views of the web page. Changing the position when the page is in desktop mode will not affect the position in mobile mode and vice versa.
 
-    The project does not meet this criteria, as the plan for developing the editor was to ensure that the content for desktop views of the web page were finished before moving on to mobile, and the desktop implementation has not been completed yet.
+    The project does not meet this criteria, as the plan for developing the editor was to ensure that the content for desktop views of the web page was finished before moving on to mobile, and the desktop implementation still needs to be completed.
 
     - When a widget is right-clicked, it will show useful commands such as copy, paste, delete and duplicate.
     >
 
-    This functionality has not been added, and, as such, the project does not meet this critera.
+    This functionality has not been added, and, as such, the project does not meet this criteria.
 
 #### Desirable Features
   - Ability to (export and) import sites in a zip file so you can transfer them between sites, which is different to downloading a usable copy of the website. An export function may not be necessary as it is given in the site settings.
   >
 
-  The ability to import and export zip files of the site is not a required feature, meaning they are not essential to the finished project and do not have to be implemented. Due to time contstraints, they were not developed. While they would add another level of portability to the system that is not required, the amount of time needed to develop it, in comparison to the usefulness it adds, is not justified in comparison to the other, more important features.
+  The ability to import and export zip files of the site is not a required feature, meaning they are not essential to the finished project and do not have to be implemented. Due to time constraints, they were not developed. While they would add another level of portability to the system that is not required, the amount of time needed to develop it, compared to the usefulness it adds, is not justified compared to the other, more important features.
 
   - An easy-to-use settings interface where the user can customise things such as public profile appearance and account settings.
   >
 
-  The settings pages, despite being mostly added to the project, do not have any back-end functionality. They have been added as it was fast and easy to create the HTML for them, and it means that when the features are developed in a later iteration of the project, myself or another developer will find it easier to implement. The pages currently have indicators that there is no functionality to the displayed features.
+  Despite being mostly added to the project, the settings pages have no back-end functionality. They have been added as it was fast and easy to create the HTML for them. It means that when the features are developed in a later iteration of the project, myself or another developer will find it easier to implement. The pages currently have indicators that there is no functionality to the displayed features.
 
   - A list of predefined templates for sites when creating a site, that can be organised and filtered via relevant tags.
   >
 
-  There is currently no list of templates that the user can select from when creating a site. This is due to the amount of time it would take to create and categorise each template. When the editor is completed, it will be easier to create them and will mean that they will have native compatibility with it, so their creation has been delayed until then.
+  There is currently no list of templates that the user can select from when creating a site. This is due to the amount of time it would take to create and categorise each template. When the editor is completed, it will be easier to create them, and it will mean that they will have native compatibility with it, so their creation has been delayed until then.
 
   - When creating the site, the user can select options that allow them to change the default styling properties of the site.
   > These will be the options for colour palettes and font families.
 
-  During the site creation process, the user can select options such as colours to build a colour palette, and header-paragraph font combinations. The colour options include a light/dark theme selection, the colour temperature of the monochromatic colours (tinting their white balance), the light and dark bounds (the maximum lightness and darkness of the monochromatic colours), and selections of the primary, secondary, and accent colors (including generation of light and dark variants). This means that the project meets this critera, as, despite it only being desirable, it is an important component of the usability of the editor.
+  Users can select options such as colours to build a colour palette and header-paragraph font combinations during the site creation process. The colour options include
+a light/dark theme selection,
+the colour temperature of the monochromatic colours (tinting their white balance),
+the light and dark bounds (the maximum lightness and darkness of the monochromatic colours)
+selections of the primary, secondary, and accent colours (including generation of light and dark variants).
+This means that the project meets this critera, as, despite it only being desirable, it is an important component of the usability of the editor.
+
+  <img alt="The colour selection page of site creation" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/sitecreation_page2.png?raw=true"/>
 
   - The site owner can assign other users the ability to edit public or private sites, but there cannot be two people editing simultaneously.
   > This would be achieved by modifying the database structure to have a linking table between the User and Site tables. This is explained later in the design section.
 
-  This has not been implemented into the project, as it is a feature that is quite far down the devlopment timeline, and not required for the project to be fully functional. It would require the database to be recreated to allow for a linking table between the two original tables, and more complex back-end functionality, which would take a lot of time to implement.
+  This has not been implemented into the project, as it is a feature that is quite far down the development timeline, and not required for the project to be fully functional. It would require the database to be recreated to allow for a linking table between the two original tables, and more complex back-end functionality, which would take a lot of time to implement.
 
-  - Accessibility and support: Automatic ARIA tag assignment inside website builder, accessibility analysis tools to ensure that the current colour palette is acceptable, and adequate support for screen readers in created websites.
+  - Accessibility and support: Automatic ARIA tag assignment inside website builder, accessibility analysis tools to ensure the current colour palette is acceptable, and adequate support for screen readers in created websites.
   >
 
   - Audience interaction features such as forms, social media feeds, and article posts.
 
-  Despsite accessibiliy support and audience interaction features being important components of modern websites, they have not yet been implemented into the editor as more important features have been prioritised due to time constraints.
+  Despite accessibility support and audience interaction features being important components of modern websites, they have not yet been implemented into the editor as more important features have been prioritised due to time constraints.
 
   - To export the site, the user will have two options that will be clearly defined in the UI
   - They can download the site, which will download a zip file containing all the required HTML, CSS, and JavaScript code, so that they can unpack the archive and run the webpage by simply opening the HTML file.
