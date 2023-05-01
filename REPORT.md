@@ -47,28 +47,28 @@ height:225px
       - [Multi-user system - creating a new site](#multi-user-system---creating-a-new-site) ~~52~~
       - [Utility subroutines](#utility-subroutines) ~~57~~
     - [Explanation and justification of this process](#explanation-and-justification-of-this-process) ~~58~~
-    - [Inputs and Outputs](#inputs-and-outputs) ~~58~~
+    - [Inputs and Outputs](#inputs-and-outputs) ~~59~~
     - [Key variables](#key-variables) ~~60~~
     - [Validation](#validation) ~~62~~
     - [Testing method](#testing-method) ~~63~~
   >
 
-  - [Development](#development) ~~64~~
-    - [Stage 1 - Setting up the website](#stage-1---setting-up-the-website) ~~64~~
-    - [Stage 2 - Creating and implementing the database](#stage-2---creating-and-implementing-the-database) ~~97~~
-    - [Stage 3 - Homepage and Settings](#stage-3---homepage-and-settings) ~~104~~
-    - [Stage 4 - Creating a New Site](#stage-4---creating-a-new-site) ~~122~~
-    - [Stage 5 - Code Documentation](#stage-5---code-documentation) ~~150~~
-    - [Stage 6 - Drag-and-Drop Editor](#stage-6---drag-and-drop-editor) ~~157~~
-      - [HTML Syntax](#html-syntax) ~~157~~
-      - [Importing Sections](#importing-sections) ~~163~~
-      - [Adding Sections to the Editor](#adding-sections-to-the-editor) ~~169~~
-      - [Resizing Text Elements](#resizing-text-elements) ~~172~~
-      - [Dragging and Dropping Elements](#dragging-and-dropping-elements) ~~182~~
-      - [Grid Preview System](#grid-preview-system) ~~186~~
-    - [Stage 7 - Loading from and Saving to the Server](#stage-7---loading-from-and-saving-to-the-server) ~~190~~
-      - [Loading from the Server](#loading-from-the-server) ~~190~~
-      - [Saving to the Server](#saving-to-the-server) ~~192~~
+  - [Development](#development) ~~65~~
+    - [Stage 1 - Setting up the website](#stage-1---setting-up-the-website) ~~65~~
+    - [Stage 2 - Creating and implementing the database](#stage-2---creating-and-implementing-the-database) ~~98~~
+    - [Stage 3 - Homepage and Settings](#stage-3---homepage-and-settings) ~~105~~
+    - [Stage 4 - Creating a New Site](#stage-4---creating-a-new-site) ~~123~~
+    - [Stage 5 - Code Documentation](#stage-5---code-documentation) ~~151~~
+    - [Stage 6 - Drag-and-Drop Editor](#stage-6---drag-and-drop-editor) ~~158~~
+      - [HTML Syntax](#html-syntax) ~~158~~
+      - [Importing Sections](#importing-sections) ~~164~~
+      - [Adding Sections to the Editor](#adding-sections-to-the-editor) ~~170~~
+      - [Resizing Text Elements](#resizing-text-elements) ~~173~~
+      - [Dragging and Dropping Elements](#dragging-and-dropping-elements) ~~183~~
+      - [Grid Preview System](#grid-preview-system) ~~187~~
+    - [Stage 7 - Loading from and Saving to the Server](#stage-7---loading-from-and-saving-to-the-server) ~~191~~
+      - [Loading from the Server](#loading-from-the-server) ~~191~~
+      - [Saving to the Server](#saving-to-the-server) ~~193~~
   >
 
 <!--
@@ -79,16 +79,12 @@ height:225px
     - [Security Testing](#security-testing)
   >
 
-  - [Evaluation](#evaluation)
-    - [Usability](#usability-1)
-    - [Performance & Maintenance](#performance--maintenance)
-    - [Security](#security)
-    - [User Satisfaction](#user-satisfaction)
-    - [Accessibility](#accessibility-1)
-    - [Overall Comments](#overall-comments)
+-->
+
+  - [Evaluation](#evaluation) ~~199~~
+    - [Success Criteria](#success-criteria-1) ~~199~~
   >
 
--->
   - [Appendix A - Code](#appendix-a---code) 
   - [Appendix B - Testing](#appendix-b---testing)
 
