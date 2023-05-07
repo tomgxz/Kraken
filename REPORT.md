@@ -29,13 +29,13 @@ height:225px
       - [Desirable Features](#desirable-features) ~~24~~
   >
 
-  - [Design](#design) ~~25~~ <!-- +7 -->
+  - [Design](#design) ~~25~~
     - [URL Navigation](#url-navigation) ~~25~~
     - [User Interface Design](#user-interface-design) ~~26~~
     - [Usability](#usability) ~~32~~
       - [Accessibility](#accessibility) ~~32~~
       - [ARIA](#aria) ~~33~~
-    - [Stakeholder input](#stakeholder-input-d) ~~33~~
+    <!--- [Stakeholder input](#stakeholder-input-d) ~~33~~-->
     - [Website structure and backend](#website-structure-and-backend) ~~34~~
     - [Data storage](#data-storage) ~~36~~
     - [Algorithms](#algorithms) ~~39~~
@@ -83,10 +83,17 @@ height:225px
 
   - [Evaluation](#evaluation) ~~200~~
     - [Success Criteria](#success-criteria-1) ~~200~~
+    - [Usability](#usability-1) ~~210~~
+    - [User Satisfaction](#user-satisfaction) ~~212~~
+    - [Accessibility](#accessibility-1) ~~213~~
+    - [Performance & Maintenance](#performance--maintenance) ~~214~~
+    - [Security](#security) ~~215~~
+    - [Overall Comments](#overall-comments) ~~215~~
   >
 
-  - [Appendix A - Code](#appendix-a---code) 
-  - [Appendix B - Testing](#appendix-b---testing)
+  - [Appendix A - Code](#appendix-a---code)  <!--~~207~~-->~~217~~
+  - [Appendix B - Testing](#appendix-b---testing) ~~338~~
+  - [Appendix C - Bibliography](#appendix-b---bibliography) ~~345~~
 
 <br><br><br>
 
@@ -161,16 +168,16 @@ height:225px
   > The process of storing, previewing, and implementing the elements into a user's site still needs to be decided on. 
 
   - Storing a list of template elements the user can preview and use in their sites.
-  > The method for storing the template elements, displaying them to the user, and implementing them into the user's site still needs to be decided.
+  > The method for storing the template elements, displaying them to the user, and implementing them into the user's site still needs to be decided on.
 
   - Creating a simple drag-and-drop interface that is easy to use and understand.
-  > This will probably be based on the grid-based positioning system that many existing website builders use or the constraint system that applications such as android studio use; however, the constraint system may not work with how HTML is created.
+  > This will probably be based on the grid-based positioning system that many existing website builders use or the constraint system that applications such as Android Studio use. The constraint system may not work with how HTML is created.
   
   - Creating an effective way of storing the users' sites on the server.
-  > They would either be stored in HTM, CSS, and JS files, which would remove the need to convert them, or in XML files, which would make accessing the files easier: the program could convert the XML elements into HTML, CSS, and JS to allow it to be shown. This would allow for storing more information about the site and elements and would mean it could all be in one file, including all the separate pages.
+  > They would either be stored in HTML, CSS, and JS files, which would remove the need to convert them, or in XML files, which would make accessing the files easier: the program could convert the XML elements into HTML, CSS, and JS to allow it to be shown. This would allow for storing more information about the site and elements and would mean it could all be in one file, including all the separate pages.
   
   - Converting the user's site into runnable HTML, CSS, and JavaScript so they can download and use it.
-  > There would need to be a way for JavaScript to do it so that the user can edit the site in the editor and a way for the server (written in Python) to do it as well
+  > There would need to be a way for JavaScript to convert it so that the user can edit the site in the editor and a way for the server (written in Python) to convert it as well.
 
 ##### Divide and conquer
   These smaller steps are all doable independently, and combining them would make a divide-and-conquer approach. The advantage of it being coded modularly is that each part can be tested and built independently without relying on other parts of the project.
@@ -180,7 +187,7 @@ height:225px
 
   For example, using HTML and CSS code, the proposed drag-and-drop interface abstracts the implementation details of adding and arranging elements on a webpage.
 
-<br>
+<br><br>
 
 ### Initial talks with stakeholders
 
@@ -195,10 +202,10 @@ height:225px
 
 ##### Archie, Student
   1. Technical experience
-  > I study [A level] Computer Science and have used Python for a long time. The course teaches many various aspects of building applications and programming paradigms, which will be useful in the creation of a website builder.
+  > I study [A Level] Computer Science and have used Python for a long time. The course teaches many various aspects of building applications and programming paradigms, which will be useful in the creation of a website builder.
 
   2. Creating your own websites
-  > I haven't really used HTML, CSS, and JavaScript outside of small things here and there
+  > I haven't really used HTML, CSS, and JavaScript outside of small things here and there.
 
   3. Existing website builders
   > A lot of website builders that I have seen before are very feature-heavy and convoluted, which can often obscure the creation of a website. The paywall against many of their features often annoys me.
@@ -211,16 +218,16 @@ height:225px
 
 ##### Luke, Student
   1. Technical experience
-  > I mainly program in C (and sometimes Java), having learnt them while doing computer science. I've used web languages quite a lot.
+  > I mainly program in C (and sometimes Java), having learnt them while studying Computer Science. I've used web languages quite a lot.
 
   2. Creating your own websites
-  > I find it fun to create websites with crazy premises in my free time. It helps me expand my knowledge and skills. Each one is better than the last. Recently I've been trying to implement more usability and accessibility requirements into the websites that I create, such as contrast ratios and ARIA tags.
+  > I find it fun to create websites with crazy premises in my free time. It helps me expand my knowledge and skills. Each one is better than the last. Recently I've been trying to implement more usability and accessibility requirements into the websites that I create, such as using contrast ratios and ARIA tags.
 
   3. Existing website builders
   > I haven't really looked into website builders that much, as I get more enjoyment from building them myself - it's more of a hobby than a serious thing, and you have to pay for most builders. I have taken a look at Bootstrap before, which is quite powerful.
 
   4. Ideal features
-  > Well, you start with the drag-and-drop, and build from there. You want an easy way to position and reposition elements throughout the site - the ability to reorganise everything is really important. Styling customisability, so global styles and then the ability to change individual elements as well. Custom CSS and JS could also be a cool idea, but you'd need to look out for people putting in malicious code. Various templates that people can choose from are always a good idea, along with tags and filters for them. And accessibility: automatically assigning ARIA tags so that the user doesn't have to do it, checks to make sure the colours are high contrast enough, screen reader support. I'd be happy to help you with getting that stuff correct.
+  > Well, you start with the drag-and-drop, and build from there. You want an easy way to position and reposition elements throughout the site - the ability to reorganise everything is really important. Styling customisability, so global styles and then the ability to change individual elements as well. Custom CSS and JS could also be a cool idea, but you'd need to look out for people putting in malicious code. Various templates that people can choose from are always a good idea, along with tags and filters for them. And accessibility: automatically assigning ARIA tags so that the user doesn't have to do it, checks to make sure the colours are high contrast enough, and screen reader support. I'd be happy to help you with getting all that stuff correct.
 
   5. Programming methods
 
@@ -235,10 +242,10 @@ height:225px
   > No
 
   3. Existing website builders
-  > The scout group is beginning to look into creating a website, so you've come along at the perfect time. In terms of what we've seen already, a couple of ideas have been put backwards and forward, but we haven't come to a decision yet.
+  > The Scout group is beginning to look into creating a website, so you've come along at the perfect time. In terms of what we've seen already, a couple of ideas have been put backwards and forward, but we haven't come to a decision yet.
 
   4. Ideal features
-  > I mean, as a scout group, we would want to be able to put up photos and videos of what we've been doing so that people are encouraged to join - we need to be able to change it quickly, and have multiple people be able to change it. We'd need to be able to change the colour scheme so that it matches the official scout branding. Sign-up forms would be a feature we'd need so that people can sign up straight from the website. And the ability to add a privacy policy, so that it's compliant with our GDPR regulations. If I'm honest, a lot of us aren't very technically savvy, so it would need to be pretty basic.
+  > I mean, as a Scout group, we would want to be able to put up photos and videos of what we've been doing so that people are encouraged to join - we need to be able to change it quickly, and have multiple people be able to change it. We'd need to be able to change the colour scheme so that it matches the official Scout branding. Sign-up forms would be a feature we'd need so that people can sign up straight from the website. And the ability to add a privacy policy, so that it's compliant with our GDPR regulations. If I'm honest, a lot of us aren't very technically savvy, so it would need to be pretty basic.
 
 <br>
 
@@ -269,7 +276,7 @@ height:225px
   > The visual aspect of any program is key - if it doesn't look good, is too cluttered, or doesn't look easy to understand, it will put people off using it. Nailing the design is an important aspect of any project, and you should make sure to prioritise it. Another thing to consider is site speed - if it takes forever to update the website, or it lags when you move things around, it will make people not want to use it. Other than that, you've got the other customisation features, organising objects, styles, content management, SEO customisability, and so on.
 
   5. Programming methods
-  > I'd suggest using Flask for this project, as you are already quite used to Python, and it is easy to set up. The go-to frontend languages would be HTML, CSS and JS. Testing isolated features throughout will make the development faster and make it easier to link components together.
+  > I'd suggest using Flask for this project, as you are already quite used to Python, and it is easy to set up. The go-to front-end languages would be HTML, CSS and JS. Testing isolated features throughout will make the development faster and make it easier to link components together.
 
   6. Other comments
   > Make sure you talk to your other stakeholders throughout to ensure that the final project will be something they'll want to use - their input can be vital.
@@ -306,8 +313,8 @@ height:225px
   - Ability to edit an existing site quickly
   - Ability to invite others to collaborate on the site
   - Import and export sites
-  - Enough customizability to make the website look as desired
-  - Styling customizability with global and individual element options
+  - Enough customisability to make the website look as desired
+  - Styling customisability with global and individual element options
   - Custom CSS and JS options
   - Various templates with tags and filters
   - Accessibility features, including automatic ARIA tags and contrast ratio checks for colour
@@ -316,7 +323,7 @@ height:225px
   - Sign-up forms and privacy policy options
   - Integration with social media feeds
 
-  It is also worth noting that some stakeholders expressed a willingness to help with the implementation of certain features, so it may be beneficial to involve them in the development process. Additionally, the website builder should be basic enough for those with minimal technical experience to use while also providing enough features and customizability for those with more technical experience.
+  It is also worth noting that some stakeholders expressed a willingness to help with the implementation of certain features, so it may be beneficial to involve them in the development process. Additionally, the website builder should be basic enough for those with minimal technical experience to use while also providing enough features and customisability for those with more technical experience.
 
 <br><br><br><br><br><br>
 
@@ -647,8 +654,10 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system w
   To make it easier for users to navigate and reduce cognitive load on users, the site will have a deliberately simple structure, with many features hidden behind modals or popup boxes. Elements such as the home button will be placed in conventional positions to make it easier for the user to find.
 
 #### Accessibility
-  All colours will be checked to ensure a large enough contrast ratio so that people with colour deficiencies will see an adequate contrast between the text and the background. This includes elements such as colour pickers, where the label text showing the hex code will change colour depending on the background to ensure it is still readable. [WebAIM](https://webaim.org/resources/contrastchecker/), a website used to improve accessibility on the Internet, will ensure enough contrast in the text. Furthermore, links in text blocks will also be checked to ensure they have at least a 3:1 contrast ratio with the surrounding text and are visible enough. Quoted from [WebAIM](https://webaim.org/intro/#types),
+  All colours will be checked to ensure a large enough contrast ratio so that people with colour deficiencies will see an adequate contrast between the text and the background. This includes elements such as colour pickers, where the label text showing the hex code will change colour depending on the background to ensure it is still readable. [WebAIM<sup>1</sup>](https://webaim.org/resources/contrastchecker/), a website used to improve accessibility on the Internet, will ensure enough contrast in the text. Furthermore, links in text blocks will also be checked to ensure they have at least a 3:1 contrast ratio with the surrounding text and are visible enough. Quoted from [WebAIM<sup>2</sup>](https://webaim.org/intro/#types),
   > "Often, these [accessibility features] promote overall usability, beyond people with disabilities. Everyone benefits from helpful illustrations, logically-organised content and intuitive navigation. Similarly, while users with disabilities need captions and transcripts, they can be helpful to anyone who uses multimedia in silent or noisy environments."
+
+  For text hilighted in blue throughout the report, see Appendix C.
 
   The basic accessibility requirements that are suggested and that could apply to this project include the following:
 
@@ -663,14 +672,20 @@ The overall aim of the solution is to provide an easy-to-use, intuitive system w
   |Design to standards|Valid and conventional HTML & CSS promote accessibility by making code more flexible and robust. It also means that screen readers can correctly interpret some website elements.|
 
 #### ARIA
-  ARIA (Accessible Rich Internet Applications) is a syntax system developed by the W3C Web Accessibility Initiative to allow for screen readers and other accessibility features when navigating websites. Quoted from [their overview on w3.org](https://www.w3.org/WAI/standards-guidelines/aria/):
+  ARIA (Accessible Rich Internet Applications) is a syntax system developed by the W3C Web Accessibility Initiative to allow for screen readers and other accessibility features when navigating websites. Quoted from [their overview on w3.org<sup>3</sup>](https://www.w3.org/WAI/standards-guidelines/aria/):
   > "WAI-ARIA, the Accessible Rich Internet Applications Suite, defines a method for making Web content and Web applications more accessible to people with disabilities. It helps especially with dynamic content and advanced user interface controls developed with HTML, JavaScript, and related technologies."
 
   ARIA attributes will be used throughout the website to allow screen readers and other accessibility features to use the website, despite the small chance that they would use it. It is also intended to be implemented into creating websites via the drag-and-drop editor, using JavaScript to assign appropriate ARIA tags to required elements programmatically. 
 
+<!--
+
 ### Stakeholder input
 
-<br><br>
+-->
+
+<br><br><br>
+
+<br><br><br>
 
 ### Website structure and backend
 
@@ -883,7 +898,7 @@ root((MAIN))
         (Check for user permissions)
             (If editor, run as normal)
             (If viewer, direct to the preview page)
-            (If private, display an error screen)
+            (If private, display an appropriate message)
         (Load files from the server)
             (Necessary files will be listed in the siteDat JSON file)
             (HTML will be populated with kraken data attributes)
@@ -934,17 +949,14 @@ root((MAIN))
             (If draggable, listen for click and hold)
             (If resizable, listen for hover over the bottom border)
                 (Display a resize toggle and listen for click and hold)
-            (Append necessary selected tags)
+          (Append necessary selected tags)
   ```
 
   -->
 
-  <!--![Diagram showing how the subroutines link](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-mindmap-subroutines.svg?raw=true)-->
-  <!-- TODO redo -->
+  ![Diagram showing how the subroutines link](https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mindmeister-mindmap-subroutines.png?raw=true)
 
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
+
 <br><br><br><br>
 <br><br><br><br>
 <br><br><br><br>
@@ -1402,9 +1414,9 @@ root((MAIN))
   Although the initial concept for this solution appears large and complicated, the decomposition into separate parts will make the development easier and quicker. It will also aid the testing and maintenance of the code, due to its modularity.
 
   The program will be split into three main sections:
-the multi-user system (including the login system and the creation of sites)
-the site edit system (including the drag-and-drop editor and the styling system)
-the user interface
+  - the multi-user system (including the login system and the creation of sites)
+  - the site edit system (including the drag-and-drop editor and the styling system)
+  - the user interface
 
   The multi-user part of the program will integrate with the SQL database and the server-side file storage. It is mostly made of sequential algorithms that are called when the user performs a certain interaction or when another algorithm calls them.
 
@@ -1417,7 +1429,7 @@ the user interface
   The two main programming languages, Python and JavaScript, will communicate via Flask's `session` and `flash` functionality, ensuring the languages can interact as expected. The Python functions will be contained in an object representing the full project. This means it can easily use the `self` communication to pass frequently used variables between different functions. It will also use variables and `return` statements for some subroutines, where required.
 
 <br><br><br><br>
-<br><br>
+<br>
 
 ### Inputs and Outputs
   |Input|Process|Output|
@@ -1462,7 +1474,6 @@ the user interface
   |`fonts`| list of dicts| A list of all the fonts used by the style settings.|
   |`fontDropdownItem`| string| Template for a font dropdown element for the font family dropdown in the style modal.|
 
-<br><br><br><br>
 <br><br>
 
 ### Validation
@@ -1483,6 +1494,8 @@ the user interface
   The JavaScript will take the content of the input and replace any invalid characters with dashes, then display the final result to the user so that they know what the name of their site will be. The code will also ensure that the form can only be submitted when the user has filled out all required information. This process is outlined earlier in the document. 
   
   This is an example of client-side validation, where JavaScript ensures that the data is valid before sending it off to the server, reducing the load on the server. This validation will still be executed server-side as well.
+
+<br>
 
 ##### Importing an exported site
   When the user attempts to import a zip file containing a website, the zip file will be verified to conform with a specific format that exporting will use. If any malicious files or extra files that are not supposed to be there are found, the website will throw an error client-side before sending it to the server. It will also ensure that the HTML files are in the correct format.
@@ -1666,6 +1679,8 @@ the user interface
     def auth_signup() -> str:
       return render_template("signup.html")
   ```
+
+<br>
 
 ##### /templates/base.html
   ```jinja
@@ -2259,7 +2274,7 @@ the user interface
 
   Currently, when you click the submit button, it redirects to a page saying "Method not allowed", as the post functions have not been added to `__init__.py` yet.
 
-  The next step was to set up the frontend programming for the login and signup pages, and the navigation bar. Starting with the navigation bar, I needed to set event listeners for the hamburger and background darkener `div`. These listeners would add or remove the `is-active` class to the hamburger, options list, and background, so that the website renders correctly. The file is already imported into `base.html` via `<script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}">`.
+  The next step was to set up the front-end programming for the login and signup pages, and the navigation bar. Starting with the navigation bar, I needed to set event listeners for the hamburger and background darkener `div`. These listeners would add or remove the `is-active` class to the hamburger, options list, and background, so that the website renders correctly. The file is already imported into `base.html` via `<script src="{{url_for('static', filename='js/globalnav-floating-options.js')}}">`.
 
 <!-- Front end prog - globalnav hide -->
 
@@ -3181,7 +3196,7 @@ the user interface
 <br>
 
 ### Stage 3 - Homepage and Settings
-  This stage consisted of creating the frontend HTML for the user, including the settings pages. Although they lack much tangible functionality, they create the basis for future developers to implement. I decided to only complete some of the functionality due to time constraints, and the features not being required in the brief.
+  This stage consisted of creating the front-end HTML for the user, including the settings pages. Although they lack much tangible functionality, they create the basis for future developers to implement. I decided to only complete some of the functionality due to time constraints, and the features not being required in the brief.
 
   First, I created the home page. There are two template files, `home-nosite.html` and `home-sites.html`, which Flask calls based on whether the user has any sites stored in the database. 
 
@@ -3331,9 +3346,9 @@ the user interface
 
   <img alt="app.route function diagram - part 3" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-3.svg?raw=true" width="250"/><img alt="app.route function diagram - part 4" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/diagrams/mermaid-flowchart-development-routing-4.svg?raw=true" width="300" class="margin-left-32"/>
 
-  At this point in development, I was able to quickly build the frontend versions of the settings pages for the account system (they are listed in the desirable features section of the success criteria). I didn't add database functionality to them yet as I knew it would take significantly longer.
+  At this point in development, I was able to quickly build the front-end versions of the settings pages for the account system (they are listed in the desirable features section of the success criteria). I didn't add database functionality to them yet as I knew it would take significantly longer.
 
-  The settings page, accessed from the navigation hamburger, consists of 7 sections, as outlined in the design section. Six open in the same template, whereas the seventh, `Help & Documentation`, loads a separate help page. Similar to how the `base.html` Jinja architecture works, there is a `settings-base.html` template on which the settings pages are built. I did not write the templates for `Custom Code & Elements` or `Developer Settings` as they are not yet implemented into the database. The template `My Websites` will need to be revisited when the website creation system is in place - for now, I used test data such as <!-- TODO ADD TEST DATA --> to simulate the user having sites.
+  The settings page, accessed from the navigation hamburger, consists of 7 sections, as outlined in the design section. Six open in the same template, whereas the seventh, `Help & Documentation`, loads a separate help page. Similar to how the `base.html` Jinja architecture works, there is a `settings-base.html` template on which the settings pages are built. I did not write the templates for `Custom Code & Elements` or `Developer Settings` as they are not yet implemented into the database. The template `My Websites` will need to be revisited when the website creation system is in place - for now, I used test data such as `[ ["test", "Site 1", True, "738B"], ["test", "Epic Webpage", False, "685B"] ]` to simulate the user having sites.
 
   To set the highlighted element in the local navigation bar, the Jinja variable `settingsSidebarActivated` is declared in child files. The navigation bar knows which element to give the `is-active` class during rendering. It uses the if statement `{% if settingsSidebarActivated==<i> %} is-active{% endif %}` to assign the class, and the if statement `{% if not settingsSidebarActivated==<i> %} href="{{ url_for('main_help') }}"{% endif %}` to assign the link if it is not selected.
 
@@ -3901,14 +3916,7 @@ the user interface
 
   ```
 
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
-<br>
+<br><br><br>
 
 ### Stage 4 - Creating a New Site
 
@@ -4272,10 +4280,6 @@ the user interface
     ".new-site-form .form-input-container.one .message-container 
     .message-container-jsedit");
 
-
-
-
-
   formName.addEventListener("keyup",(event) => {
       formName.setAttribute("data-form-input-display",verifyNameField())
       checkFormSubmitButton();
@@ -4357,10 +4361,6 @@ the user interface
       
     return render_template("site-create-options-1.html")
   ```
-
-<br><br><br><br>
-<br><br><br><br>
-<br><br><br><br>
 
   The next page is the colour palette selection system. This involves functions for colour temperature adjustment, generating lighter and darker variants, and storing the variables so the backend can read them. The page would consist of a light or dark mode toggle, faders for certain parameters, and colour pickers for the primary, secondary, and accent colours. Without any JavaScript, the page looked like this:
 
@@ -5220,7 +5220,7 @@ the user interface
 
 #### Sphinx Docstring Format
 
-  The `Sphinx` docstring format is a standard used to generate code documentation automatically. It describes the purpose of the function, the parameters and their types, and the return value. The following is taken from [Sphinx Docstring Documentation](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html).
+  The `Sphinx` docstring format is a standard used to generate code documentation automatically. It describes the purpose of the function, the parameters and their types, and the return value. The following is taken from [Sphinx Docstring Documentation<sup>4</sup>](https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html).
   
   >In general, a typical `Sphinx` docstring has the following format:
 
@@ -6549,7 +6549,7 @@ the user interface
 
   The elements could now be resized using the resize handles that are rendered when an element is hovered or selected. The element cannot be resized to larger than the grid due to the `closestValInArray` being only snapping to the extremes as a maximum, and how the `grid-position` property is handled in CSS. The handles have an invisible area around them that also responds to the `mousemove` and `mouseup` events, so that they can still be moved if the user moves their cursor outside of the handle's area (by going vertically or moving too fast). The testing evidence of this can be found in Appendix B.
 
-<br><br>
+<br><br><br><br>
 
 #### Dragging and Dropping Elements
 
@@ -7292,7 +7292,7 @@ Due to time constraints, I have had to finish the project's first release in its
 
     The login/signup system is fully functional with integration to the server's SQL database, which uses two tables: `User` and `Site`. The user can view their passwords before submitting, and there is appropriate validation on both the client-side and server-side, which aligns with the criteria defined above. The data is validated client-side because the user can receive instant feedback and reduce server load. It is also validated server-side to ensure the client-side validation has not been tampered with. Testing was performed during development on both instances of the validation to ensure that the features all worked properly. The backend implements the `flask-login` system to integrate users' ability to log in. This means that the backend can access information about the currently logged-in user for the session that's being requested, which is useful for executing SQL queries about the specific user. The system fully meets this criteria.
 
-    <img alt="The login and signup pages, demonstrating features such as error checking and viewing the password" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/loginsystem_combined.png?raw=true" width="100%"/>
+    <img alt="The login and signup pages, demonstrating features such as error checking and viewing the password" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/loginsystem_combined.png?raw=true" width="90%"/>
     
   - ##### Homepage
     - The homepage, when there are no sites, displays a prompt to create a new site
@@ -7377,7 +7377,7 @@ Due to time constraints, I have had to finish the project's first release in its
 
     - On the site page, the user will get a preview of the website, along with customisability options for the website: the ability to edit the site, reorganise the site structure (which pages go where), edit site settings (such as default colours), and export the site.
 
-    The site page does not render a preview of the current user's site or give customizability options for the website - except for the link to edit the site. The project does not meet this criteria.
+    The site page does not render a preview of the current user's site or give customisability options for the website - except for the link to edit the site. The project does not meet this criteria.
 
     - When editing the site, the organisation will look like this
     >- A navigation bar on the left that contains the options: "website pages", where you can navigate to a different page, "add section", where you can add another template section to the current page, "website styles", where you can change global settings such as fonts and colours, and "add element", where you can drag and drop individual elements into the canvas to edit.
@@ -7397,7 +7397,9 @@ Due to time constraints, I have had to finish the project's first release in its
 
     - Whenever a widget is selected, a box will be drawn around it, with the ability to resize it. The style menu on the right will also populate with style options for the selected element that can be changed in real-time and previewed when hovered over so that the user can easily understand what certain buttons will do.
 
-    An element, when hovered or selected (identified with the `data-kraken-element-selected` tag), shows a box around it depending on whether it is resizable and/or draggable (identified with the `data-kraken-resizable` and `data-kraken-draggable` tags respectively), and a set of "corners" on the box which, when dragged, will resize the element. The elements are contained in a child element, which contains the outline and any corners required. The elements can have two corners on either side or four corners on the vertices, depending on its type (such as `data-kraken-text-element`). Despite having multiple corner style functionalities, the code only resizes when horizontal corners are present. Despite this, the project meets this criteria.
+    An element, when hovered or selected (identified with the `data-kraken-element-selected` tag), shows a box around it depending on whether it is resizable and/or draggable (identified with the `data-kraken-resizable` and `data-kraken-draggable` tags respectively), and a set of "corners" on the box which, when dragged, will resize the element. The elements are contained in a child element, which contains the outline 
+    
+    and any corners required. The elements can have two corners on either side or four corners on the vertices, depending on its type (such as `data-kraken-text-element`). Despite having multiple corner style functionalities, the code only resizes when horizontal corners are present. Despite this, the project meets this criteria.
 
     <img alt="A selected element in the drag-and-drop editor" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/editing_elementselected.png?raw=true" width="100%"/>
 
@@ -7413,7 +7415,10 @@ Due to time constraints, I have had to finish the project's first release in its
 
     <img alt="An element being dragged, and it snapping to its final position" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/evaluation/editing_dragging_combined.png?raw=true" width="100%"/>
 
-    All sections have a hidden `section-grid-preview` element inside, containing the content needed to render the outline of the parent section's grid system. While an element is being dragged, the user knows where the element will snap to when dropped. This element is added in by the JavaScript, and is shown via the `data-kraken-visible` tag. Due to how it has been created, it will render the correct positions of each grid area even if the content area (i.e. the browser window the user is viewing it on) has been resized. The grid preview is shown in the dragging and resizing screenshots above.
+    All sections have a hidden `section-grid-preview` element inside, containing the content needed to render the outline of the parent section's grid system. While an element is being dragged, the user knows where the element will snap to when dropped. This element is added in by the JavaScript, and is shown via the `data-kraken-visible` tag. Due to how it has been created, it will render the correct positions of 
+    each grid area even if the content area (i.e. the browser window the user is viewing it 
+    
+    on) has been resized. The grid preview is shown in the dragging and resizing screenshots above.
 
     The project meets this criteria.
 
@@ -7473,4 +7478,96 @@ This means that the project meets this critera, as, despite it only being desira
 
   The import/export functionality has not yet been added due to the unfinished editor, and there is not much use for it yet. The import feature especially would take a lot of effort to implement due to the complexity required for malware checking. As such, it is a feature that has been delayed until later in the application development.
 
-  Overall, a large portion of the desirable features have not been implemented due to the prioritisation of more important functionality, in combination with time contstraints.
+  Overall, a large portion of the desirable features have not been implemented due to prioritising more important functionality, combined with time constraints.
+
+### Usability
+
+  To ensure the project was easy to understand, I tested it with Archie and Sarah, two of the stakeholders. I asked them to go through the process of creating a site whilst I watched to get an idea of how easy they found it. I chose these two as they have different levels of technical knowledge, allowing me to get more feedback.
+
+  Throughout the test, I watched how they interacted with it and what they thought of certain features, layouts, and settings. This allowed me to gain more insight into how intuitive the system is. Being quite tech-savvy, Archie provided some insights into how the system functioned technically (among others). Sarah's feedback helped locate parts of the system that are more difficult to understand, and may need more prompting for the user.
+
+  I collected the feedback from both tests and categorised it into different areas of the project:
+
+  - Overall comments
+    - The general look of the website is good, with Archie being slightly more critical because of personal taste.
+    - Most of the time, it is quite clear how to continue creating and editing a site. Both participants commented on the simplicity of the options and how the site was easy to navigate (for the most part).
+    - The system has potential, if more features are added.
+
+  - Modifications required for the CSS
+    - The link styling system includes an underline that increases to become the background of the text. Archie suggested it would look nicer if there was a slight padding around it when it becomes the background, as it currently fits the exact edge of the text, which can look a bit janky.
+    - The selected text styling is not working properly.
+    - The hamburger at the bottom left of the screen can be difficult to spot the first time using the application. To mitigate this, it should be emphasised more by making it larger and adding an animation when the page is loaded to add more emphasis to it.
+
+  - Login form
+    - When filling out the login form, it gives the no password warning message before you have had a chance to input the password, which could be held back until the user has attempted to submit the form at least once. This can be achieved by a simple boolean flag in the JavaScript.
+
+  - General page organisation
+    - Pages that don't do anything, such as the help page, should still be styled like the rest of the site, just with a notice that the page content still needs to be created.
+
+  - Creating a new site
+    - The colour selection page needs more information - for example, the primary, secondary, and accent colour selections are not labelled or explained, as is the same with the expanding column system. Also, there needs to be a visual response from changing between light and dark themes, probably due to something failing in the JavaScript.
+    - The home page for sites is empty, as there is no way of previewing the site yet.
+
+  - Editing a Site
+    - The blank canvas when creating a new site does not give any advice on how to start - perhaps putting a prompt in the empty canvas to add a new section. The add section button is small and not labelled until hovered, making it slightly difficult to find.
+    - Some buttons in the editor don't do anything.
+    - The z-indexes for the buttons are placed above the add section modal when opened.
+    - For some reason, the darkening element behind the add section modal does not close the modal when clicked, despite what should be happening in the JavaScript. This means the only way to close the modal without adding a section is to click the small cross at the top left of the modal, making it a bit fiddly.
+    - There is a very limited variety of sections to choose from.
+    - Elements can only be dragged or resized if they have already been selected, which means that if you want to drag an element, you have to click it first and then drag it, instead of just dragging it from the off.
+    - A lot of features are missing from the editor (which the stakeholders were aware of before starting), including text editing, section dragging and resizing, styling, and settings modals.
+    - You can still drag elements around when the section is locked.
+    - The drag-and-drop system is quite intuitive, with both participants working out how to use it quite quickly. They both did note that there was no way to undo any actions that had been made, and that there was no way to deselect an element by clicking in empty space.
+    - Whilst Archie was using the drag-and-drop interface, the placement system didn't work properly, resulting in a `NaN` position instead of a number. This will need to be tested again to get more information on what is causing the bug and how to fix it.
+
+  The process of two people with no withstanding knowledge of the system having to create a website on their own proved to be a valuable way of understanding the usability of the system. It identified strengths and weaknesses throughout the program, and the feedback given will be useful in further iterations of the development of the program. I intend to perform similar tests with different stakeholders after a second phase of development is completed, hoping to gain more information about where the project can be improved further.
+
+### User Satisfaction
+  Having performed the tests with Archie and Sarah, the user satisfaction is generally positive. Both users found the system easy to use and understand, although some areas lacked clarity. They both said that, for the most part, the process of creating a site was intuitive to follow. They were mostly positive about the web page's design, with suggestions for minor changes. They also both said they thought the project has potential, reliant on more features being developed and issues they mentioned being fixed.
+
+  They both mentioned the lack of features that the project currently had, such as customisation options and different content types. Additionally, I am aware that other stakeholders, including Jake and David, were interested in user interactivity features that still
+  
+  need to be included. These limitations show that there is room for improvement and still more to do in later phases of development that will address the concerns raised during the testing.
+
+### Accessibility
+  Despite the best intentions for ensuring that accessibility guidelines were met during the project's development, they had to be put to one side in place of more critical features due to time constraints. Although its importance was recognised, it was not possible to implement all of the necessary features at this stage in development. However, some easier guidelines were considered when designing the page, such as ensuring links make sense out of context and adding alt text to images. 
+
+  The table below shows which of the suggested accessibility requirements from [WebAIM<sup>5</sup>](https://webaim.org/intro/) have been fulfilled in the project's development so far.
+
+  |Requirement|Fulfilled|Explanation|
+  |:---:|---|---|
+  |Provide equivalent alternative text|Partially|Images in the HTML code as `<img>` tags are given appropriate alternative text. However, due to the nature of certain images being implemented via CSS's `background-image` property, some of them are unable to be provided with alternative text.|
+  |Create logical document structure|Partially|Some content, such as navigation bars, make use of HTML tags such as `<nav>`, `<ul>`, `<li>`, and so on. However, the use of header tags is inconsistent and often not conforming to a general standard. There are also some places, such as the floating options system, where list tags are not used.|
+  |Ensure users can complete and submit all forms|No|Form labels have not been linked with their respective inputs, and in some cases, such as colour pickers, the inputs are not labelled at all.|
+  |Write links that make sense out of context|Yes|This aspect of accessibility was taken into consideration during the development and can be seen in links such as `Maybe you should create a new site?`, `login page`, and `import an existing site`.|
+  |Do not rely on colour alone to convey meaning|Yes|There are no aspects of the program where colour is the sole method of conveying meaning. In places where colour is used to give a warning, such as the delete account button, associated text is used to explain said warnings. This can also be seen in the website name input, where, although the input changes colour based on the validity of the input, there is also a field below that explains the validity of the inputted data.|
+  |Make sure content is clearly written and easy to read|Yes|All text is clear and readable, and the pages follow a logical format.|
+  |Design to standards|Yes|The project is programmed in HTML & CSS using conventions to ensure flexibility and robustness.|
+
+  Future iterations of the project will prioritise accessibility features both in the website itself and the websites it creates. However, as of now, more important features need to be implemented first.
+
+### Performance & Maintenance
+  As of right now, there is not much information to go on about performance under pressure and required maintenance. Being run on a computer during development, instead of a dedicated server, you cannot get a good idea of how the program will function if fully deployed. Saying this, I did run some load tests with the Python library `locust` on the login, signup, and home pages. These were being run with a steadily increasing number of users sending up to 250 requests per second. What can be seen from the graphs is that the requests per second flatten out at around 20 users sending constant requests, meaning that the program will begin to bottleneck at that point. However, the accuracy of these tests can be disputed due to the requests not loading any HTML content and the lack of realistic hardware being used. Despite this, the tests are interesting to carry out.
+
+  <img alt="Element resize boxes" src="https://github.com/Tomgxz/Kraken/blob/report/.readmeassets/screenshots/locust/2023 04 26 1940.png?raw=true" width="50%"/>
+
+### Security
+  The security of the program at the moment is incomplete. Due to time constraints, there are certain areas where the security of a system has been overlooked. For example, when a user creates an account or logs in, the password is sent in plain text to the server. This means that it can be intercepted before it has a chance to be encrypted, which exposes it to a Man in the Middle attack. This has been identified as a large security risk that needs to be urgently fixed. As a temporary fix, when any tests are performed, the participants are told not to use any of their actual data so that, if intercepted, it cannot be traced to them.
+
+  In other areas of the project, however, security is emphasised to ensure that the integrity of the server is not compromised. For example, the library `flask-sqlalchemy`, which handles all database transactions, has in-build SQL injection attack prevention, making the program quicker and easier to develop. The advantage of using the library is that it has already been thoroughly tested to ensure that it can prevent these issues and so can be relied upon.
+
+### Overall Comments
+
+  The project is on its way to becoming a successful website builder, with current stakeholders already expressing their interest in its timeline and agreeing that it is showing potential. Implementing features such as the drag-and-drop element manipulation and the site creation process reflect the original goals in the analysis: an easy-to-use website builder with a low learning curve. There are, of course, areas where the project can and will be improved, including, but not limited to, the unfinished features in the success criteria, the criticisms levied by the usability tests (and many more to come), and the current flaws and bugs that are present. Furthermore, the limited accessibility features being implemented and the lack of clarity in certain areas also need to be addressed in future project iterations. In addition, the program's security needs to be addressed and look into potential avenues for scalability.
+
+  I believe that this project has been a good learning experience for me: I have grown much more proficient in JavaScript, which has allowed me to attempt other projects; I have learned a significant amount about certain aspects of programming and designing webpages, such as the docstring format and various CSS features; and I have gained a better understanding of how to effectively organise and modularise code. Whilst I am very happy with the current state of the project, it is clear that there are areas for improvement throughout. Looking back, I can see that the time I spent developing could have been managed much more effectively, allowing me to integrate more features into the system and fix more problems.
+
+  If I were to attempt this project again, or start another project of a similar scale, I would make sure to have a much more comprehensive plan in place before the start of the development phase. Having an in-depth plan of how I would tackle the project would aid me in prioritising tasks and allocating time in a smarter fashion, which is definitely 
+  
+  something that I struggle with. I would, similarly to this, attempt to break the project down into small, more manageable chunks, which would also aid in tracking the progress of the overall project and ensuring that I stick to the schedule laid out.
+  
+  I would also try to have a much clearer design plan that goes into more detail about how individual components of the program will function, along with researching different methods of achieving a certain aspect of a system. A good example of this done badly in this project was saving content to the server. During the middle of development, I had to halt what I was doing to try and find a way to send content to the server, which took a long time to sort out. If I had planned my algorithms more effectively before starting, I would have been able to discover a solution to this much sooner, allowing for a smoother development cycle and less extra work.
+
+  Furthermore, if I were to attempt to create this project again, I would pay more attention to security concerns from the beginning instead of discovering many of them during development. This would include looking for opportunities for attackers to send malicious information to the server and ensuring that all data sent from the client to the server is adequately encrypted. I also would have put more attention into ensuring the website's design was coherent, logical, and easy to glean information from, as it took quite a long time to get right during the early development phases.
+
+  In conclusion, I am proud of what I have created in this project so far, and I am aware of the room for improvement. I intend to keep working on the project, though not as consistently as I have previously. I also would like to contact some of the more tech-oriented stakeholders and show them the back-end of the system to get more advice on improving my programming skills. In future projects, I intend to use the lessons I have learned from this project to manage my time more effectively and produce a visually and responsively successful product.
