@@ -10,6 +10,9 @@
     width: 104px;
 }
 .localnav.one .localnav-item.four .localnav-item-collapsible-text {
+    width: 110px;
+}
+.localnav.one .localnav-item.five .localnav-item-collapsible-text {
     width: 134px;
 }
 
@@ -111,11 +114,16 @@
     display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     height: 85%;
     flex-direction: column;
 }
+
+.section-selector-nav-item li {
+    margin-bottom:6px;
+}
+
 .section-selector-nav-item a.link {
     position: relative;
 }
@@ -194,11 +202,33 @@
     cursor: pointer;
 }
 
-[data-kraken-section][data-kraken-section-selected]:not([data-preview]) .controls-ghost-overlay {
+@keyframes lock-hash-move {
+    from{background-position-x:calc(var(--background-size) * -1)}
+    to{background-position-x:var(--background-size)}
+}
+
+[data-kraken-section][data-kraken-locked] {
+    --hash-stripe-width:20px;
+    --hash-opacity:.1;
+    --hash-light-color: rgba(var(--colors-light-rgb),var(--hash-opacity));
+    --hash-dark-color: rgba(var(--colors-dark-rgb),var(--hash-opacity));
+    --background-size: calc(var(--hash-stripe-width) * 16.97);
+    background-image: repeating-linear-gradient(45deg, var(--hash-light-color) 0, var(--hash-light-color) var(--hash-stripe-width), var(--hash-dark-color) var(--hash-stripe-width), var(--hash-dark-color) calc(var(--hash-stripe-width) * 2));
+    background-size: var(--background-size);
+    background-repeat: repeat;
+    filter:grayscale(1);
+    animation:lock-hash-move 60s linear infinite;
+}
+
+[data-kraken-section][data-kraken-section-selected]:not([data-preview]):not([data-kraken-locked]) .controls-ghost-overlay {
     border: 3px solid var(--selected-border-color, #053ea0);
 }
 
-[data-kraken-section]:not([data-preview]):hover .controls .controls-ghost-overlay {
+[data-kraken-section][data-kraken-section-selected]:not([data-preview])[data-kraken-locked] .controls-ghost-overlay {
+    border: 3px solid var(--selected-border-locked-color, #adb5bd);
+}
+
+[data-kraken-section]:not([data-preview]):not([data-kraken-locked]):hover .controls .controls-ghost-overlay {
     border: 3px solid var(--hover-border-color);
 }
 
@@ -221,10 +251,12 @@
     pointer-events: none;
     outline-color: initial;
     border: 0px solid transparent;
+    transition: border 80ms ease-in-out;
     --position: 0/0/0/0;
     --outline-color: var(--accent-two);
     --hover-border-color: var(--colors-primary-light);
     --selected-border-color: var(--colors-primary);
+    --selected-border-locked-color: var(--colors-grey-300);
 }
 
 .controls .controls-resize-handle-container {
@@ -236,7 +268,7 @@
     max-width: 1200px;
 }
 
-[data-kraken-section][data-kraken-section-selected]:not([data-preview]) .controls .resize-handle,.section-wrapper:hover:not([data-preview]) .controls .resize-handle {
+[data-kraken-section][data-kraken-section-selected]:not([data-preview]):not([data-kraken-locked]) .controls .resize-handle,.section-wrapper:hover:not([data-preview]) .controls .resize-handle {
     display:flex
 }
 
@@ -278,7 +310,7 @@
     transform:translateX(calc(-100% - 8px));
     z-index: 104;
     opacity: 1;
-    transition: opacity .15s cubic-bezier(.4,0,.2,1);
+    transition: opacity .15s cubic-bezier(.4,0,.2,1), top .12s ease-in-out;
     margin-top:16px;
     margin-right:8px;
 }
@@ -304,18 +336,35 @@
     box-shadow: 0 4px 9px 0 rgba(0,0,0,.15);
     cursor:pointer;
     margin-right:8px;
+    transition-property: background-color,box-shadow;
+    transition-duration: 115ms;
+    transition-timing-function: ease-in-out;
+}
+
+.section-edit-actions .edit-action:active {
+    --pressed-color: var(--colors-grey-200);
+    --inset-shadow-opacity: .15;
+    background-color: var(--pressed-color);
+    box-shadow: 0 4px 9px 0 rgba(0,0,0,.15), inset 0 0 8px rgba(0,0,0,var(--inset-shadow-opacity));
+}
+
+.section-edit-actions .edit-action.hilight-danger:active {
+    --pressed-color: var(--colors-danger);
+    --inset-shadow-opacity: .35;
 }
 
 .element-resize-container {
-    display:none;
+    display:grid;
     grid-area:1/1/-1/-1;
     visibility:hidden;
+    opacity:0;
+    transition: opacity 80ms ease-in-out, visibility 80ms ease-in-out, display 80ms ease-in-out;
 }
 
-.grid-item[data-kraken-element-selected] .element-resize-container,
-.grid-item:hover .element-resize-container {
-    display:grid;
+[data-kraken-section]:not([data-kraken-locked]) .grid-item[data-kraken-element-selected] .element-resize-container,
+[data-kraken-section]:not([data-kraken-locked]) .grid-item:hover .element-resize-container {
     visibility:visible;
+    opacity:1;
 }
 
 .element-resize-container .resize-corners {
@@ -328,7 +377,7 @@
 .element-resize-container .resize-corner {
     position: absolute;
     grid-area: 1/1/-1/-1;
-    padding: 4px;
+    padding: 48px;
     pointer-events: all;
 }
 
@@ -367,6 +416,20 @@
     transform: translate(50%,50%);
 }
 
+.element-resize-container .resize-corner-horizontal-left {
+    align-self: center;
+    justify-self: start;
+    cursor: ew-resize;
+    transform: translateX(-50%);
+}
+
+.element-resize-container .resize-corner-horizontal-right {
+    align-self: center;
+    justify-self: end;
+    cursor: ew-resize;
+    transform: translateX(50%);
+}
+
 .element-resize-container .element-outline {
     --outline-style: solid;
     --outline-color: var(--colors-secondary);
@@ -378,4 +441,89 @@
     height: 100%;
     pointer-events: none;
     outline: 2px var(--outline-style) var(--outline-color);
+}
+
+.section-selector-list [data-preview] section {
+    border: 2px solid rgba(var(--colors-primary-light-rgb),0.25);
+    border-radius: 0.25em;
+    transition-property: transform border;
+    transition-duration: 120ms;
+    transition-timing-function: ease-in-out;
+}
+
+.section-selector-list [data-preview] section:hover {
+    border: 2px solid rgba(var(--colors-primary-light-rgb),0.75);
+}
+
+.section-selector-nav-list .link {
+    opacity:.5;
+}
+
+.section-selector-nav-list .link:hoverd {
+    opacity:.85;
+}
+
+.localnav.localnav-collapsible .localnav-item.four {
+    --save-animation-duration:2s;
+}
+
+.localnav.localnav-collapsible .localnav-item.four .saveloader,
+.localnav.localnav-collapsible .localnav-item.four .savetick,
+.localnav.localnav-collapsible .localnav-item.four .savecross {
+    position: absolute;
+    top:0;
+    opacity:0;
+}
+
+.localnav.localnav-collapsible .localnav-item.four .saveloader .faicon {
+    animation: saveloader_rotate infinite 3s linear;
+}
+
+.localnav.localnav-collapsible .localnav-item.four .localnav-item-collapsible-icon .fa-save {
+    transition: opacity 500ms ease-in-out;
+}
+
+.localnav.localnav-collapsible .localnav-item.four .saveloader {
+    transition: opacity 500ms 200ms ease-in-out;
+}
+
+.localnav.localnav-collapsible .localnav-item.four .savetick,
+.localnav.localnav-collapsible .localnav-item.four .savecross {
+    transition: opacity 500ms ease-in-out;
+}
+
+.localnav.localnav-collapsible .localnav-item.four[data-kraken-savestate="saving"] .localnav-item-collapsible-icon .fa-save,
+.localnav.localnav-collapsible .localnav-item.four[data-kraken-savestate="saving"] .savetick,
+.localnav.localnav-collapsible .localnav-item.four[data-kraken-savestate="success"] .localnav-item-collapsible-icon .fa-save,
+.localnav.localnav-collapsible .localnav-item.four[data-kraken-savestate="success"] .saveloader,
+.localnav.localnav-collapsible .localnav-item.four[data-kraken-savestate="error"] .localnav-item-collapsible-icon .fa-save,
+.localnav.localnav-collapsible .localnav-item.four[data-kraken-savestate="error"] .saveloader,
+.localnav.localnav-collapsible .localnav-item.four:not([data-kraken-savestate]) .saveloader,
+.localnav.localnav-collapsible .localnav-item.four:not([data-kraken-savestate]) .savetick,
+.localnav.localnav-collapsible .localnav-item.four:not([data-kraken-savestate]) .savecross {
+    opacity:0;
+}
+
+.localnav.localnav-collapsible .localnav-item.four[data-kraken-savestate="saving"] .saveloader,
+.localnav.localnav-collapsible .localnav-item.four[data-kraken-savestate="success"] .savetick,
+.localnav.localnav-collapsible .localnav-item.four[data-kraken-savestate="error"] .savecross,
+.localnav.localnav-collapsible .localnav-item.four:not([data-kraken-savestate]) .localnav-item-collapsible-icon .fa-save {
+    opacity:1;
+}
+
+.localnav.localnav-collapsible .localnav-item.four .savetick {
+    color:var(--colors-success);
+}
+
+.localnav.localnav-collapsible .localnav-item.four .savecross {
+    color:red;
+}
+
+
+@keyframes saveloader_rotate {
+    from {
+        transform:rotate(0deg)
+    } to {
+        transform:rotate(360deg)
+    }
 }

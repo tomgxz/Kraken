@@ -10,6 +10,8 @@
 {% block content %}
 
 <link href="{{url_for('static', filename='css/site-edit.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url_for('static', filename='css/edit.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url_for('static', filename='css/preview_override.css')}}" rel="stylesheet" type="text/css" />
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
@@ -20,38 +22,51 @@
     <div class="localnav one localnav-vertical localnav-collapsible">
         <div class="localnav-content">
             <ul class="localnav-list">
-              <ul class="localnav-list" style="height:30%">
-                <li class="localnav-item one">
-                    <a class="link unformatted">
-                        <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-layer-group"></i></div>
-                        <div class="localnav-item-collapsible-text text bold primary">Website Pages</div>
-                    </a>
-                </li>
+                <ul class="localnav-list" style="height:30%">
+                    <li class="localnav-item one">
+                        <a class="link unformatted">
+                            <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-layer-group"></i></div>
+                            <div class="localnav-item-collapsible-text text bold primary">Website Pages</div>
+                        </a>
+                    </li>
 
-                <li class="localnav-item two">
-                    <a class="link unformatted" id="localnav_add_section_btn">
-                        <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-circle-plus"></i></div>
-                        <div class="localnav-item-collapsible-text text bold primary">Add Section</div>
-                    </a>
-                </li>
+                    <li class="localnav-item two">
+                        <a class="link unformatted" id="localnav_add_section_btn">
+                            <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-circle-plus"></i></div>
+                            <div class="localnav-item-collapsible-text text bold primary">Add Section</div>
+                        </a>
+                    </li>
 
-                <li class="localnav-item three">
-                    <a class="link unformatted">
-                        <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-paintbrush"></i></div>
-                        <div class="localnav-item-collapsible-text text bold primary">Website Styles</div>
-                    </a>
-                </li>
+                    <li class="localnav-item three">
+                        <a class="link unformatted">
+                            <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-paintbrush"></i></div>
+                            <div class="localnav-item-collapsible-text text bold primary">Website Styles</div>
+                        </a>
+                    </li>
                 </ul>
 
-                <li class="localnav-item four">
-                    <a class="link unformatted">
-                        <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-gear"></i></div>
-                        <div class="localnav-item-collapsible-text text bold primary">Website Settings</div>
-                    </a>
-                </li>
+                <ul class="localnav-list" style="height:fit-content">
+                    <li class="localnav-item four">
+                        <a class="link unformatted" id="localnav_save">
+                            <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-save"></i></div>
+                            <div class="localnav-item-collapsible-text text bold primary">Save Website</div>
 
-
+                            <div class="localnav-item-collapsible-icon saveloader"><i class="faicon fa-solid fa-loader"></i></div>
+                            <div class="localnav-item-collapsible-icon savetick"><i class="faicon fa-solid fa-check"></i></div>
+                            <div class="localnav-item-collapsible-icon savecross"><i class="faicon fa-solid fa-xmark"></i></div>
+                            
+                        </a>
+                    </li>
+                    <li class="localnav-item five">
+                        <a class="link unformatted">
+                            <div class="localnav-item-collapsible-icon"><i class="faicon fa-solid fa-gear"></i></div>
+                            <div class="localnav-item-collapsible-text text bold primary">Website Settings</div>
+                        </a>
+                    </li>
+                </ul>
+                
             </ul>
+
         </div>
 
     </div>
@@ -64,7 +79,6 @@
                 <div class="section-selector-nav" id="section_selector_nav">
                   <div class="section-selector-nav-content">
                       <ul class="section-selector-nav-list">
-                        <ul class="section-selector-nav-list two" style="height:30%">
 
                       </ul>
                       </ul>
@@ -84,8 +98,6 @@
     </div>
 
     <div class="site-builder">
-        <!--<link href="{{url_for('static', filename='css/default_content_style.css')}}" rel="stylesheet" type="text/css" />-->
-        <link href="{{url_for('static', filename='css/edit.css')}}" rel="stylesheet" type="text/css" />
         <div class="site-builder-preview" id="contains_site">
         </div>
 
@@ -94,7 +106,7 @@
                 <div class="edit-action" id="section_edit_action_settings"><i class="fa-regular fa-gear"></i></div>
                 <div class="edit-action" id="section_edit_action_duplicate"><i class="fa-regular fa-clone"></i></div>
                 <div class="edit-action" id="section_edit_action_lock"><i class="fa-regular fa-lock"></i></div>
-                <div class="edit-action" id="section_edit_action_delete"><i class="fa-regular fa-trash"></i></div>
+                <div class="edit-action hilight-danger" id="section_edit_action_delete"><i class="fa-regular fa-trash"></i></div>
             </div>
         </div>
 
