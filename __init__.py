@@ -51,7 +51,7 @@ databaseObject=SQLAlchemy()
 
 # The main class of the application
 class Kraken():
-    """ Initializes the Kraken application and runs it on the given host and port
+    """Initializes the Kraken application and runs it on the given host and port
 
     :param host: The host of the application, given in the format ``"<i>.<i>.<i>.<i>"``
     :type host: str
@@ -72,8 +72,8 @@ class Kraken():
 
         # import modules and add them to the object
         import os,datetime
-        self.os=os
-        self.datetime=datetime
+        self.os = os
+        self.datetime = datetime
 
         # Initialise the flask application
         self.initFlask()
@@ -82,18 +82,19 @@ class Kraken():
         self.db.init_app(self.app)
 
         # Initialise the login manager
-        self.loginManager=LoginManager()
-        self.loginManager.login_view="auth_login" # set which function routes to the login page
+        self.loginManager = LoginManager()
+        self.loginManager.login_view = "auth_login" # set which function routes to the login page
         self.loginManager.init_app(self.app)
 
         # Import the User and Site entities from models.py
         from models import User, Site
-        self.User=User
-        self.Site=Site
+        self.User = User
+        self.Site = Site
 
         # Fetches a row from the User table in the database
         @self.loginManager.user_loader
-        def loadUser(user_id): return self.User.query.get(user_id)
+        def loadUser(user_id:str): 
+            return self.User.query.get(user_id)
 
         # Run the Flask application
         self.app.run(host=host,port=port)
@@ -151,7 +152,10 @@ class Kraken():
             flash(1)
             flash(name)
             flash(site)
-            if current_user.user_id!=name: return "External view of site"
+
+            # If the current user is not the owner, render a different version
+            if current_user.user_id != name: return "External view of site"
+
             return render_template("site-edit-home.html")
 
         @self.app.route("/<name>/<site>/edit/")
@@ -175,10 +179,14 @@ class Kraken():
             flash(2)
             flash(name)
             flash(site)
-            return render_template("site-edit.html")
+
+            # If the current user is not the owner, redirect to the site home
+            if current_user.user_id != name: return redirect(url_for("site_edit_home"))
+
+            return render_template("site-edit.html",name=name,site=site)
 
     def initPages_main(self):
-        # Index route, redirects to auth_login, which will redirect to main_home if logged in
+        
         @self.app.route("/")
         def main_index() -> Response: 
             """Page for ``/``
@@ -191,9 +199,8 @@ class Kraken():
 
             return redirect(url_for("auth_login"))
 
-        # Home Page Route
         @self.app.route("/home/")
-        @login_required # User must be logged in to access this page
+        @login_required # User must be logged in to access this page, or it will redirect to the auth_login page (as setup in the constructor)
         def main_home() -> str:
             """Page for ``/home/``.
 
@@ -223,7 +230,7 @@ class Kraken():
         def main_404(e=None) -> str: return "Page not found - i.e. you made a mistake"
 
         @self.app.errorhandler(500)
-        @self.app.route("/404")
+        @self.app.route("/500")
         def main_500(e=None) -> str: return "Server go boom - i.e. I made a mistake"
 
         @self.app.route("/help")
@@ -231,7 +238,6 @@ class Kraken():
 
     def initPages_auth(self):
 
-        # Login page route
         @self.app.route("/login/")
         def auth_login() -> str | Response:
             """Page for ``/login/``.
@@ -253,7 +259,6 @@ class Kraken():
             if current_user.is_authenticated: return redirect(url_for("main_home"))
             return render_template("login.html")
 
-        # Login post route
         @self.app.route("/login/", methods=["post"])
         def auth_login_post() -> Response:
             """POST method of ``/login/``.
@@ -268,9 +273,9 @@ class Kraken():
             """
 
             # Get the filled-in items from the login form
-            username = request.form.get("username")
-            password = request.form.get("password")
-            remember = True if request.form.get('remember') else False
+            username:str = request.form.get("username")
+            password:str = request.form.get("password")
+            remember:bool = True if request.form.get('remember') else False
 
             # Fetch the user from the database. if there's no user it returns none
             user = self.User.query.filter_by(user_id=username).first()
@@ -285,7 +290,6 @@ class Kraken():
             login_user(user,remember=remember)
             return redirect(url_for("main_home"))
 
-        # Signup page route
         @self.app.route("/signup/")
         def auth_signup() -> str | Response:
             """Page for ``/signup/``.
@@ -308,7 +312,6 @@ class Kraken():
 
             return render_template("signup.html")
 
-        # Signup post route
         @self.app.route("/signup/", methods=["post"])
         def auth_signup_post() -> Response:
             """POST method of ``/signup/``.
@@ -321,44 +324,44 @@ class Kraken():
             """
 
             # Get the filled-in items from the signup form
-            name=request.form.get("name")
-            email=request.form.get("email")
-            username=request.form.get("username")
-            password1=request.form.get("password")
-            password2=request.form.get("password-repeat")
+            name:str = request.form.get("name")
+            email:str = request.form.get("email")
+            username:str = request.form.get("username")
+            password1:str = request.form.get("password")
+            password2:str = request.form.get("password-repeat")
 
             # the verifyField function returns either an empty string if the field meets the requirements
             # defined by the arguments, or an error message. So, if len(verifyOutput) > 0, that
             # means that the field is invalid
 
             # Verify the name input and return an error message if invalid
-            verifyOutput=self.verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
+            verifyOutput:str = self.verifyField(name,"Name",canHaveSpace=True,canHaveSpecialChar=True)
 
-            if len(verifyOutput) > 0:
+            if verifyOutput:
                 # Flashes true to signify an error, the error message, the name given (removed due to error), the email given, and the username given
                 flash([True,verifyOutput,"",email,username])
                 return redirect(url_for("auth_signup"))
 
             # Verify the email input and return an error message if invalid
-            verifyOutput=self.verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
+            verifyOutput:str = self.verifyField(email,"Email",minLen=0,canHaveSpace=False,canHaveSpecialChar=True)
 
-            if len(verifyOutput) > 0:
+            if verifyOutput:
                 # Flash an error message and the filled in values
                 flash([True,verifyOutput,name,"",username])
                 return redirect(url_for("auth_signup"))
 
-            verifyOutput=self.verifyField(username,"Username",canHaveSpecialChar=False)
+            verifyOutput:str = self.verifyField(username,"Username",canHaveSpecialChar=False)
 
             # Verify the username input and return an error message if invalid
-            if len(verifyOutput) > 0:
+            if verifyOutput:
                 # Flash an error message and the filled in values
                 flash([True,verifyOutput,name,email,""])
                 return redirect(url_for("auth_signup"))
 
             # Verify the password input and return an error message if invalid
-            verifyOutput=self.verifyField(password1,"Password",minLen=8)
+            verifyOutput:str = self.verifyField(password1,"Password",minLen=8)
 
-            if len(verifyOutput) > 0:
+            if verifyOutput:
                 # Flash an error message and the filled in values
                 flash([True,verifyOutput,name,email,username])
                 return redirect(url_for("auth_signup"))
@@ -406,6 +409,7 @@ class Kraken():
             return redirect(url_for("auth_login"))
 
     def initPages_site_create(self):
+
         @self.app.route("/home/new/")
         @login_required
         def site_create() -> str:
@@ -421,10 +425,15 @@ class Kraken():
             :rtype: str
             """
 
-            out=""
-            # get all current site names for the logged in user, then flash (send) it to the site, where it is processed by the javascript
-            for name in [x.name for x in self.Site.query.filter_by(user_id=current_user.user_id).all()]: out+=name+","
+            # get all current site names for the logged in user, then flash (send) it to the site, where it is processed by the JavaScript
+            out:str = ""
+            allusernames:list[str] = [x.name for x in self.Site.query.filter_by(user_id=current_user.user_id).all()]
+
+            for name in allusernames: 
+                out+=name+","
+
             flash(out[:-1])
+
             return render_template("site-create.html")
 
         @self.app.route("/home/new/", methods=["post"])
@@ -448,9 +457,8 @@ class Kraken():
                 :rtype: str
                 """
 
-                out=""
-                for char in var:
-                    out+=char
+                out:str = ""
+                for char in var: out+=char
                 return out
             
             def replaceToDash(var:str) -> str:
@@ -464,7 +472,7 @@ class Kraken():
                 :rtype: str
                 """ 
 
-                var=list(var)
+                var:list[str] = list(var)
                 for i in range(len(var)):
                     if var[i] not in "qwertyuiopasdfghjklzxcvbnm-._1234567890": var[i]="-"
                 return listToStr(var)
@@ -479,25 +487,31 @@ class Kraken():
                 :rtype: str
                 """
 
-                var=list(var)
+                var:list[str] = list(var)
                 for i in range(len(var)):
+
+                    # if this is the last character, return
                     if i+1 >= len(var): return listToStr(var)
+
+                    # if this and the next character are dashes
                     if var[i] == "-" and var[i+1] == "-":
+                        # remove this character
                         del var[i]
                         var = list(replaceRepeatedDashesRecursion(var))
                         return listToStr(var)
 
             # get the user inputs
-            sitename = request.form.get("new_site_name")
-            sitedesc = request.form.get("new_site_desc")
-            isPublic = request.form.get("new_site_privacy")=="public"
+            sitename:str = request.form.get("new_site_name")
+            sitedesc:str = request.form.get("new_site_desc")
+            isPublic:bool = request.form.get("new_site_privacy")=="public"
 
-            sitename=replaceRepeatedDashesRecursion(replaceToDash(sitename.lower())) # remove adjacent dashes
+            # convert the sitename to lowercase, replace all illegal characters with dashes, and remove adjacent dashes
+            sitename:str = replaceRepeatedDashesRecursion(replaceToDash(sitename.lower())) 
 
             # session can carry over variables between functions
-            session["new_site_sitename"]=sitename
-            session["new_site_sitedesc"]=sitedesc
-            session["new_site_isPublic"]=isPublic
+            session["new_site_sitename"] = sitename
+            session["new_site_sitedesc"] = sitedesc
+            session["new_site_isPublic"] = isPublic
 
             return redirect(url_for("site_create_options_1"))
 
@@ -517,6 +531,7 @@ class Kraken():
 
             # stop people from starting halfway through the form i.e. if they didnt come from the previous site_create page, send them to the start
             if not request.referrer == url_for("site_create",_external=True): return redirect(url_for("site_create"))
+
             return render_template("site-create-options-1.html")
 
         @self.app.route("/home/new/1", methods=["post"])
@@ -530,14 +545,28 @@ class Kraken():
             :rtype: Response
             """
 
-            formOutput = request.form.get("new_site_color_options_dict").split(",")
-            colorOptions = {}
-            for pair in formOutput:
-                x=pair.split(":")
-                colorOptions[x[0]]=x[1]
+            # new_site_color_options_dict is in the format
+            # "key1:value,key2:value,key3:value"
+            # so splitting by comma gives ["key1:value","key2:value","key3:value"]
+            # then iterate through the list, split by colon, and add parts to dictionary
+            
+            # split into "k:v" list items
+            formOutput:list[str] = request.form.get("new_site_color_options_dict").split(",")
 
-            session["new_site_colorOptions"]=colorOptions
+            # create output dictionary
+            colorOptions = dict()
 
+            for pair in formOutput: # where pair is in the format "<key>:<value>"
+                # split into ["<key>","<value>"]
+                colonsplit:list[str] = pair.split(":")
+
+                # append to dictionary - result = {... , "<key>":"<value>"}
+                colorOptions[colonsplit[0]] = colonsplit[1]
+
+            # add color options dictionary to session
+            session["new_site_colorOptions"] = colorOptions
+
+            # proceed to next page
             return redirect(url_for("site_create_options_2"))
 
         @self.app.route("/home/new/2")
@@ -556,6 +585,7 @@ class Kraken():
 
             # stop people from starting halfway through the form i.e. if they didnt come from the previous site_create page, send them to the start
             if not request.referrer == url_for("site_create_options_1",_external=True): return redirect(url_for("site_create"))
+
             return render_template("site-create-options-2.html")
 
         @self.app.route("/home/new/2", methods=["post"])
@@ -569,8 +599,16 @@ class Kraken():
             :rtype: Response
             """
 
-            formOutput = request.form.get("new_site_font_face_list_active").split(",")
+            # new_site_font_face_list_active is in the format "<headerfontname>,<paragraphfontname>"
+            # so split by comma to get ["<headerfontname>","<paragraphfontname>"]
+
+            # get value from the active form element and split into list
+            formOutput:list[str] = request.form.get("new_site_font_face_list_active").split(",")
+
+            # store font selection in session
             session["new_site_fontOptions"]=formOutput
+
+            # proceed to next page
             return redirect(url_for("site_create_options_3"))
 
         @self.app.route("/home/new/3")
@@ -589,6 +627,7 @@ class Kraken():
 
             # stop people from starting halfway through the form i.e. if they didnt come from the previous site_create page, send them to the start
             if not request.referrer == url_for("site_create_options_2",_external=True): return redirect(url_for("site_create"))
+
             return render_template("site-create-options-3.html")
 
         @self.app.route("/home/new/3", methods=["post"])
@@ -602,15 +641,34 @@ class Kraken():
             :rtype: Response
             """
 
-            formOutput = request.form.get("new_site_style_options_list").split(",")
+            # similarly to the colour options, new_site_font_face_list_active is in the format
+            # "key1:value,key2:value,key3:value"
+            # so splitting by comma gives ["key1:value","key2:value","key3:value"]
+            # then iterate through the list, split by colon, and add parts to dictionary
+
+            # split into "k:v" list items
+            formOutput:list[str] = request.form.get("new_site_style_options_list").split(",")
+
+            # create output dictionary
             styleOptions = {}
-            for pair in formOutput:
-                x=pair.split(":")
-                if x[1] == "false": x[1]=False
-                if x[1] == "true": x[1]=True
-                if x[1] == "null": x[1]=None
-                styleOptions[x[0]]=x[1]
-            session["new_site_buttonOptions"]=styleOptions
+
+            for pair in formOutput: # where pair is in the format "<key>:<value>"
+                # split into ["<key>","<value>"]
+                colonsplit:list[str] = pair.split(":")
+
+                # Make sure that all variables are in the correct form
+                match colonsplit[1]:
+                    case "false": colonsplit[1] = False
+                    case "true": colonsplit[1] = True
+                    case "null": colonsplit[1] = None
+
+                # append to dictionary - result = {... , "<key>":"<value>"}
+                styleOptions[colonsplit[0]] = colonsplit[1]
+
+            # store in session
+            session["new_site_buttonOptions"] = styleOptions
+
+            # proceed to site generation
             return redirect(url_for("site_create_generate"))
 
         @self.app.route("/home/new/generate")
@@ -627,27 +685,33 @@ class Kraken():
             :rtype: Response
             """
 
+            # stop people from starting halfway through the form i.e. if they didnt come from the previous site_create page, send them to the start
             if not request.referrer == url_for("site_create_options_3",_external=True): return redirect(url_for("site_create"))
-            siteSettings={
-                "name":session["new_site_sitename"],
-                "user":str(current_user.user_id),
-                "desc":session["new_site_sitedesc"] if session["new_site_sitedesc"]!="" else "No Description Set",
-                "created":self.datetime.datetime.utcnow(),
-                "isPublic":session["new_site_isPublic"],
-                "colorOptions":session["new_site_colorOptions"],
-                "fontOptions":session["new_site_fontOptions"],
-                "buttonOptions":session["new_site_buttonOptions"]
+
+            # Store session data into a dictionary, along with extra paramaters such as when the site was created and the user id
+            siteSettings:dict[str,str | self.datetime] = {
+                "name": session["new_site_sitename"],
+                "user": str(current_user.user_id),
+                "desc": session["new_site_sitedesc"] if session["new_site_sitedesc"]!="" else "No Description Set",
+                "created": self.datetime.datetime.utcnow(),
+                "isPublic": session["new_site_isPublic"],
+                "colorOptions": session["new_site_colorOptions"],
+                "fontOptions": session["new_site_fontOptions"],
+                "buttonOptions": session["new_site_buttonOptions"]
             }
+
+            # Create the site database object and local storage
             self.createSiteStructure(siteSettings)
 
             # Clear any used session variables
-            session["new_site_sitename"]=""
-            session["new_site_sitedesc"]=""
-            session["new_site_isPublic"]=""
-            session["new_site_colorOptions"]={}
-            session["new_site_fontOptions"]=[]
-            session["new_site_buttonOptions"]={}
+            session["new_site_sitename"] = ""
+            session["new_site_sitedesc"] = ""
+            session["new_site_isPublic"] = ""
+            session["new_site_colorOptions"] = dict()
+            session["new_site_fontOptions"] = list()
+            session["new_site_buttonOptions"] = dict()
 
+            # Redirect to the site homepage
             return redirect(url_for("site_edit_home",name=siteSettings["user"],site=siteSettings["name"]))
 
     def initPages_settings(self):
@@ -681,6 +745,7 @@ class Kraken():
 
             # Flash the URL for the user's profile picture
             flash(1,self.getUserImage(current_user.user_id))
+
             return render_template("settings-profile.html")
 
         @self.app.route("/account/settings/admin")
@@ -735,8 +800,10 @@ class Kraken():
             """
 
             flash(4)
-            # flash a list of the user's sites to be used in the table.
+
+            # Flash a list of information about the user's sites to be used in the site table.
             flash([[x.user_id,x.name,x.private,self.convertByteSize(self.getFolderSize(self.os.path.abspath(x.sitePath)))] for x in self.Site.query.filter_by(user_id=current_user.user_id).all()])
+            
             return render_template("settings-sites.html")
 
         @self.app.route("/account/settings/code")
@@ -805,16 +872,22 @@ class Kraken():
 
         # Server-side folder generation
 
-        prefix="static/data/userData/"
+        prefix:str = "static/data/userData/"
 
-        folderStructure=[self.os.path.abspath(f"{prefix}{u}"),self.os.path.abspath(f"{prefix}{u}/sites/")]
-
+        # create a list of required directories
+        folderStructure:list[str] = [
+            self.os.path.abspath(f"{prefix}{u}"),
+            self.os.path.abspath(f"{prefix}{u}/sites/")
+        ]
+        
+        # create the list of directories in the local storage
         self.generateFolderStructure(folderStructure)
 
+        # add and commit the user to the database
         self.db.session.add(newUser)
         self.db.session.commit()
 
-    def createSiteStructure(self,siteSettings:dict) -> None:
+    def createSiteStructure(self,siteSettings:dict[str,str | any]) -> None:
         """Creates a new site in the database and in local storage.
 
         :param siteSettings: a dictionary containing the information about the site, with the keys: ``name`` ``user`` ``desc`` ``created`` ``isPublic`` ``colorOptions`` ``fontOptions`` ``buttonOptions``
@@ -824,61 +897,81 @@ class Kraken():
         :rtype: None
         """
 
-        sitePath=self.os.path.abspath(f"static/data/userData/{siteSettings['user']}/sites/{siteSettings['name']}")
-        siteConfigFile=f"{sitePath}/site.ini"
+        # get the prefix for the site path
+        sitePath:str = self.os.path.abspath(f"static/data/userData/{siteSettings['user']}/sites/{siteSettings['name']}")
 
-        folderStructure=[f"{sitePath}",f"{sitePath}/output",f"{sitePath}/files"]
-        fileStructure=[siteConfigFile,f"{sitePath}/siteDat.json",f"{sitePath}/files/1.html"]
+        # get the path for the site config file
+        siteConfigFile:str = f"{sitePath}/site.ini"
 
+        # create a list of required directories
+        folderStructure:list[str] = [
+            f"{sitePath}",
+            f"{sitePath}/output",
+            f"{sitePath}/files"
+        ]
+
+        # create a list of required files
+        fileStructure:list[str] = [
+            siteConfigFile,
+            f"{sitePath}/siteDat.json",
+            f"{sitePath}/files/1.html"
+        ]
+
+        # create the required directories and files in the local storage
         self.generateFolderStructure(folderStructure)
         self.generateFileStructure(fileStructure)
 
-        with open(f"{sitePath}/siteDat.json","w") as f: f.write("{\"pages\":{\"Home\":\"1.html\"},\"css\":{},\"js\":{}}")
-        with open(f"{sitePath}/files/1.html","w") as f: f.write(self.defaultHtmlPage(siteSettings["name"],siteSettings["desc"],siteSettings["user"]))
+        # create the JSON file for the site, which contains code locations
+        with open(f"{sitePath}/siteDat.json","w") as f: 
+            f.write("{\"pages\":{\"Home\":\"1.html\"},\"css\":{},\"js\":{}}")
 
-        cfgContent=ConfigParser()
-        cfgContent.read(siteConfigFile)
+        # create the default webpage for the site
+        with open(f"{sitePath}/files/1.html","w") as f: 
+            f.write(self.defaultHtmlPage(siteSettings["name"],siteSettings["desc"],siteSettings["user"]))
 
-        section="settings"
-        try: cfgContent.add_section(section)
-        except: pass
+        # Create the config parser for the site.ini file
+        with ConfigParser() as cfgContent:
 
-        cfgContent.set(section,"name",siteSettings["name"])
-        cfgContent.set(section,"user",siteSettings["user"])
-        cfgContent.set(section,"desc",siteSettings["desc"])
+            cfgContent.read(siteConfigFile)
 
-        section="color"
-        try: cfgContent.add_section(section)
-        except: pass
+            # create the required sections
+            for section in ["settings","color","font","button"]:
+                try: cfgContent.add_section(section)
+                except: pass
 
-        for key in siteSettings["colorOptions"]: cfgContent.set(section,key,siteSettings["colorOptions"][key])
+            # Add basic information to the settings section
+            cfgContent.set("settings","name",siteSettings["name"])
+            cfgContent.set("settings","user",siteSettings["user"])
+            cfgContent.set("settings","desc",siteSettings["desc"])
 
-        section="font"
-        try: cfgContent.add_section(section)
-        except: pass
+            # Add the color palette
+            for key in siteSettings["colorOptions"]: 
+                cfgContent.set("color",key,siteSettings["colorOptions"][key])
 
-        cfgContent.set(section,"header",siteSettings["fontOptions"][0])
-        cfgContent.set(section,"body",siteSettings["fontOptions"][1])
+            # Add the typeface
+            cfgContent.set("font","header",siteSettings["fontOptions"][0])
+            cfgContent.set("font","body",siteSettings["fontOptions"][1])
 
-        section="button"
-        try: cfgContent.add_section(section)
-        except: pass
+            # Add any required button styling settings
+            for key in siteSettings["buttonOptions"]: 
+                cfgContent.set("button",key,str(siteSettings["buttonOptions"][key]).lower())
 
-        for key in siteSettings["buttonOptions"]: cfgContent.set(section,key,str(siteSettings["buttonOptions"][key]).lower())
+            # write to the site.ini file
+            with open(siteConfigFile,"w") as f:
+                cfgContent.write(f)
+                f.close()
 
-        with open(siteConfigFile,"w") as f:
-            cfgContent.write(f)
-            f.close()
-
+        # Create a new Site object using the varaibles given
         newSite = self.Site(
-            name=siteSettings["name"],
-            datecreated=siteSettings["created"],
-            private=not siteSettings["isPublic"],
-            deleted=False,
-            user_id=siteSettings["user"],
-            sitePath=sitePath,
+            name = siteSettings["name"],
+            datecreated = siteSettings["created"],
+            private = not siteSettings["isPublic"],
+            deleted = False,
+            user_id = siteSettings["user"],
+            sitePath = sitePath,
         )
 
+        # Add and commit the new site to the database
         self.db.session.add(newSite)
         self.db.session.commit()
 
@@ -892,12 +985,12 @@ class Kraken():
         :rtype: None
         """
 
-        for folder in folders:
+        for folder in folders: # Iterate through given list of directories
+            # Ignore if directory already exists
             if self.os.path.isdir(folder): continue
+            # Create the directory
             try: self.os.makedirs(folder)
-            except OSError as e:
-                raise OSError(
-                      e)
+            except OSError as e: raise e
 
     def generateFileStructure(self,files:list) -> None:
         """Creates empty files in the local storage from the given list, if any of the files do not already exist
@@ -909,15 +1002,16 @@ class Kraken():
         :rtype: None
         """
 
-        for file in files:
+        for file in files: # Iterate through given list of files
+            # Ignore if file already exists
             if self.os.path.exists(file): continue
+
             try:
+                # Create the empty file
                 with open(file,"w") as f:
                     if self.os.path.splitext(file)[-1] == ".json": f.write("{\"content\":[]}")
                     f.close()
-            except OSError as e:
-                raise OSError(
-                      e)
+            except OSError as e: raise e
 
     def getUserImage(self,u:str) -> str: 
         """Returns the path of a given user's profile picture
@@ -952,15 +1046,26 @@ class Kraken():
         """
 
         # List of special characters for the canHaveSpecialChar flag
-        specialChar="%&{}\\<>*?/$!'\":@+`|="
+        specialChar:str = "%&{}\\<>*?/$!'\":@+`|="
 
         # Make sure that the input given is a string, raise an exception if its not
-        if type(field) != str: Exception("HEY! that's not a string?")
+        if type(field) != str: TypeError("HEY! that's not a string?")
 
         # Check through all the flags given and throw an appropriate error message if input is invalid
-        if len(field) == 0 and mustHaveChar: return f"{fieldName} is not filled out."
-        if len(field) < minLen: return f"{fieldName} must be greater than {minLen-1} characters."
-        if not canHaveSpace and " " in field: return f"{fieldName} cannot contain spaces."
+
+        # If it is empty and it must have content
+        if len(field) == 0 and mustHaveChar: 
+            return f"{fieldName} is not filled out."
+        
+        # If it is shorter than the minimum length
+        if len(field) < minLen: 
+            return f"{fieldName} must be greater than {minLen-1} characters."
+        
+        # If it has spaces when it shouldn't
+        if not canHaveSpace and " " in field: 
+            return f"{fieldName} cannot contain spaces."
+        
+        # If it can't have any special characters, and there are special characters in the field
         if not canHaveSpecialChar:
             for char in specialChar:
                 if char in field:
@@ -969,7 +1074,7 @@ class Kraken():
         return "" # Return an empty string if the input is valid
 
     def getFolderSize(self,path:str) -> int:
-        """Gets the size of a given folder path.
+        """Gets the size of a given folder path via recursively searching through every directory in a depth-first manner.
 
         :param path: The path of the root folder
         :type path: str
@@ -978,49 +1083,80 @@ class Kraken():
         :rtype: int
         """
 
-        size=self.os.path.getsize(path)
+        # Get the size of the base directory, should return 0
+        size:int = self.os.path.getsize(path)
+
+        # for all directories and files under the path
         for sub in self.os.listdir(path):
-            subPath=self.os.path.join(path,sub)
-            if self.os.path.isfile(subPath): size+=self.os.path.getsize(subPath)
-            elif self.os.path.isdir(subPath): size+=self.getFolderSize(subPath)
+            subPath=self.os.path.join(path,sub) # get the path of the directory / file
+            
+            # get the size if it is a file
+            if self.os.path.isfile(subPath): size += self.os.path.getsize(subPath)
+            
+            # get the size if it is a directory by calling this function
+            elif self.os.path.isdir(subPath): size += self.getFolderSize(subPath)
+
+        # return the size, in bytes
         return size
 
     def convertByteSize(self,bytes:int) -> str:
-       """Converts a given byte value into a human readable version
+        """Converts a given byte value into a human readable version
 
-       :param bytes: The amount of bytes to convert
-       :type bytes: int
+        :param bytes: The amount of bytes to convert
+        :type bytes: int
 
-       :returns: A human readable version of the value
-       :rtype: str
-       """
+        :returns: A human readable version of the value
+        :rtype: str
+        """
 
-       if bytes==0: return "0B"
-       sizes=("B","KB","MB","GB","TB","PB","EB","ZB","YB")
-       i=int(math.floor(math.log(bytes,1024)))
-       p=math.pow(1024,i)
-       s=round(bytes/p,2)
-       if i==0: s=int(s)
-       return f"{s}{sizes[i]}"
+        # Zero check
+        if bytes==0: return "0B"
 
-    def getSiteCfg(self,siteName:str) -> list[str]:
+        # All possible sizes
+        sizes:tuple[str] = ("B","KB","MB","GB","TB","PB","EB","ZB","YB")
+
+        i:int = int(math.floor(math.log(bytes,1024)))
+        p:float = math.pow(1024,i)
+        s:float = round(bytes/p,2)
+
+        if i==0: s = int(s)
+
+        return f"{s}{sizes[i]}"
+
+    def getSiteCfg(self,siteName:str) -> ConfigParser:
         """Gets the content of the current user's given site's config file.
 
         :param siteName: the name of the site to check
         :type siteName: str
 
         :returns: The content of the config file
-        :rtype: list[str]
+        :rtype: ConfigParser
         """
         
+        # Get path of the config file
         cfgPath=self.os.path.abspath(f"static/data/userData/{current_user.user_id}/sites/{siteName}/site.ini")
 
+        # Open a config parser for said path
         cfgContent=ConfigParser()
         cfgContent.read(cfgPath)
 
+        # Return the config parser
         return cfgContent
 
-    def defaultHtmlPage(self,n,d,u):
+    def defaultHtmlPage(self,n:str,d:str,u:str):
+        """Returns the default HTML content for a new page
+
+        :param n: The name of the site
+        :type n: str
+        :param d: The description of the site
+        :type d: str
+        :param u: The name of the owner
+        :type u: str
+
+        :returns: The default HTML content for a new page
+        :rtype: str
+        """
+
         return f"""<div class=\"page\" data-content-parentview></div>"""
 
 if __name__ == "__main__": 
