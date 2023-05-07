@@ -7,13 +7,11 @@ Dependencies:
     configparser
     datetime
     math
-
-    npm install iframe-resizer --save
 """
 
 # TODO: Fix color picker for site style generation page
 # TODO: Add click listener to sections in dropdown
-# TODO: make sure you dont render a random site that doesnt exist (line 83)
+# TODO: make sure you dont render a random site that doesnt exist
 
 from flask import Flask, render_template, Blueprint, redirect, url_for, request, flash, session, Response
 from flask_sqlalchemy import SQLAlchemy
@@ -41,10 +39,11 @@ from werkzeug.security import generate_password_hash, check_password_hash
 # generate_password_hash and check_password_hash are used when generating and authenticating users
 
 from configparser import ConfigParser
-import math
+import math,json
 
 # ConfigParser is used when read/writing the user and site .ini files
 # math.floor is used for calculating file size
+# json.loads is used when saving files sent from the javascript
 
 # Create the database object
 databaseObject=SQLAlchemy()
@@ -898,7 +897,7 @@ class Kraken():
         self.db.session.add(newUser)
         self.db.session.commit()
 
-    def createSiteStructure(self,siteSettings:dict[str,str | any]) -> None:
+    def createSiteStructure(self,siteSettings:dict[str,any]) -> None:
         """Creates a new site in the database and in local storage.
 
         :param siteSettings: a dictionary containing the information about the site, with the keys: ``name`` ``user`` ``desc`` ``created`` ``isPublic`` ``colorOptions`` ``fontOptions`` ``buttonOptions``
