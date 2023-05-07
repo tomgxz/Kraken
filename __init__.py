@@ -185,6 +185,17 @@ class Kraken():
 
             return render_template("site-edit.html",name=name,site=site)
 
+        @self.app.route("/<name>/<site>/save/<page>",methods=["post"])
+        @login_required
+        def site_edit_save(name:str="",site:str="",page:str="") -> str:
+            # get the content of the request - the HTML to save
+            tosave:str = request.form.get("content")
+            # get the path of the file to save from the arguments
+            sitePath:str = self.os.path.abspath(f"static/data/userData/{name}/sites/{site}/files/{page}")
+            # save to the file
+            with open(sitePath,"w") as f: f.write(tosave)
+            return "success"
+
     def initPages_main(self):
         
         @self.app.route("/")
