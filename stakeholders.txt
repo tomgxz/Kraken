@@ -1,0 +1,16 @@
+notes from stakeholder #1
+
+on signup, if an error only clear the password input, leave the other ones the same - done
+email address has no error checking
+log in straight after signup - done
+hamburger - unintuitive position
+click on logo to go home
+reorganise the color picking section, maye make it smaller, move greys up to the blacks
+color pickers dont work
+indication as to light or dark mode
+indication as to the button styles selected to be made clearer
+from left shyle doenst work
+dont allow sidebar to be scrolled in edit site
+settings - dont allow bio to change size
+elaborate more on why changing username messes up things
+IMPLEMENT SETTINGS CHANGING USER ATTRIBUTES

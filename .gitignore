@@ -4,17 +4,17 @@ tkinter/assets/screen/__pycache__
 tkinter/assets/tk/__pycache__
 db.sqlite
 db.sqlite.old
-stakeholders.txt
+
 static/data/userData
-dbCommands.txt
+
 tkinter
 tkinter/
 *.psd
 .grip.py
-.grip*
-.ignore
-.commentary
-.grip.bat
+
+.ignore/codetheme.json
+
+
 db.sqlite
 15101_*
 

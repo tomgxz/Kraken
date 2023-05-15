@@ -1,0 +1,10 @@
+ol{
+  background-color:#e8e8ff;
+  font-size:12px;
+  font-family:Lexend,sans-serif;
+  width:200px;
+}
+
+li:first-of-type{
+  font-size:16px;
+}

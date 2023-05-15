@@ -1,0 +1,117 @@
+del {
+  text-decoration: none;
+  float: right;
+  display: inline-block;
+}
+
+.margin-left-32 {
+  margin-left: 32px
+}
+
+.preview-page {
+  margin-top: 0
+}
+
+.markdown-body .highlight pre, .markdown-body pre {
+  font-size: 70%;
+}
+
+a[href="#file-structure-diagram"],
+a[href="#code"],
+a[href="#root-directory"],
+a[href="#__init__py"],
+a[href="#dbcommandstxt"],
+a[href="#modelspy"],
+a[href="#requirementstxt"],
+a[href="#staticcss"],
+a[href="#staticcss"],
+a[href="#staticcssauthcss"],
+a[href="#staticcssblankcss"],
+a[href="#staticcssbuildcss"],
+a[href="#staticcssdefault_content_stylescss"],
+a[href="#staticcsseditcss"],
+a[href="#staticcsshomecss"],
+a[href="#staticcssindexcss"],
+a[href="#maincss"],
+a[href="#staticcsspreview_overridecss"],
+a[href="#settingscss"],
+a[href="#site-createcss"],
+a[href="#site-editcss"],
+a[href="#statichtmlsections"],
+a[href="#statichtmlsectionsclasses"],
+a[href="#statichtmlsectionsheadline"],
+a[href="#statichtmlsectionsheadlinecsscss"],
+a[href="#statichtmlsectionsheadlinefiles"],
+a[href="#statichtmlsectionsheadlinehtom_element_headline_1html"],
+a[href="#staticjs"],
+a[href="#staticjsauthjs"],
+a[href="#staticjscolorconversionjs"],
+a[href="#staticjsglobalnav-floating-optionsjs"],
+a[href="#staticjsloginjs"],
+a[href="#staticjsmainjs"],
+a[href="#staticjssignupjs"],
+a[href="#staticjssite-create-options-1js"],
+a[href="#staticjssite-create-options-2js"],
+a[href="#staticjssite-create-options-2js"],
+a[href="#staticjssite-createjs"],
+a[href="#staticjssite-editjs"],
+a[href="#templates"],
+a[href="#templatesbasehtml"],
+a[href="#templateshome-nositehtml"],
+a[href="#templateshome-siteshtml"],
+a[href="#templatesloginhtml"],
+a[href="#templatessettings-adminhtml"],
+a[href="#templatessettings-basehtml"],
+a[href="#templatessettings-codehtml"],
+a[href="#templatessettings-devhtml"],
+a[href="#templatessettings-lookshtml"],
+a[href="#templatessettings-profilehtml"],
+a[href="#templatessettings-siteshtml"],
+a[href="#templatessignup"],
+a[href="#templatessite-create-basehtml"],
+a[href="#templatessite-create-options-1html"],
+a[href="#templatessite-create-options-2html"],
+a[href="#templatessite-create-options-3html"],
+a[href="#templatessite-createhtml"],
+a[href="#templatessite-edit-homehtml"],
+a[href="#templatessite-edithtml"] {
+  color: black
+}
+
+a[href="#file-structure-diagram"],
+a[href="#code"] {
+  font-weight: 600
+}
+
+:root {
+  --color-prettylights-syntax-comment: #6e7781;
+  --color-prettylights-syntax-constant: #0550ae;
+  --color-prettylights-syntax-entity: #8250df;
+  --color-prettylights-syntax-storage-modifier-import: #24292f;
+  --color-prettylights-syntax-entity-tag: #1c1f99;
+  --color-prettylights-syntax-keyword: #dd2431;
+  --color-prettylights-syntax-string: #007514;
+  --color-prettylights-syntax-variable: #b91313;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
+  --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
+  --color-prettylights-syntax-invalid-illegal-bg: #82071e;
+  --color-prettylights-syntax-carriage-return-text: #f6f8fa;
+  --color-prettylights-syntax-carriage-return-bg: #cf222e;
+  --color-prettylights-syntax-string-regexp: #116329;
+  --color-prettylights-syntax-markup-list: #3b2300;
+  --color-prettylights-syntax-markup-heading: #0550ae;
+  --color-prettylights-syntax-markup-italic: #24292f;
+  --color-prettylights-syntax-markup-bold: #24292f;
+  --color-prettylights-syntax-markup-deleted-text: #82071e;
+  --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
+  --color-prettylights-syntax-markup-inserted-text: #116329;
+  --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
+  --color-prettylights-syntax-markup-changed-text: #953800;
+  --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
+  --color-prettylights-syntax-markup-ignored-text: #eaeef2;
+  --color-prettylights-syntax-markup-ignored-bg: #0550ae;
+  --color-prettylights-syntax-meta-diff-range: #8250df;
+  --color-prettylights-syntax-brackethighlighter-angle: #57606a;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
+  --color-prettylights-syntax-constant-other-reference-link: #0a3069;
+}

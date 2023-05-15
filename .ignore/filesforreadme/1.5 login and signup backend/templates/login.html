@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% set messages = get_flashed_messages()[0] %}
+
+{% block content %}
+
+<link href="{{url_for('static', filename='css/auth.css')}}" rel="stylesheet" type="text/css" />
+
+<div class="application-content">
+    <div class="text-header-container">
+        <h2 class="text header xl dark one">Kraken - Login</h2>
+        <ul class="header-options">
+            <li class="header-option header-option-login active notextselect">
+                <h4 class="text header bold">Login</h4>
+            </li>
+            <li class="header-option header-option-signup notextselect" onclick="window.location.href=`{{ url_for('auth_signup') }}`">
+                <h4 class="text header bold">Signup</h4>
+            </li>
+        </ul>
+    </div>
+    <div class="field-container active">
+
+        <!-- Warning area for the form that uses the flashed warning message -->
+
+        <span class="field-warning text italic">
+          {% if messages[0] %}
+            {{ messages[1] }}
+          {% endif %}
+        </span>
+
+        <form class="field-options" method="post" action="/login/">
+
+            {% for item in formItems %}
+            <div class="field-option field-option-name">
+                <h4 class="text italic">{{item[0]}}</h4>
+                <div class="field-input-container">
+                    <input class="field-input" placeholder="{{item[1]}}" type="{{item[2]}}" name="{{item[3]}}" value="{{item[5]}}">
+                    {% if item[4] %}
+                    <span class="eye-reveal">
+                      <i class="fa-solid fa-eye"></i>
+                    </span>
+                    {% else %}
+                    <span class="eye-spacer"></span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="field-option field-option-remember">
+                <h4 class="text italic">Remember Me</h4>
+                <div class="field-input-container">
+                    <input class="field-input" type="checkbox" name="remember" value={{messages[3]}}>
+                    <span class="eye-spacer"></span>
+                </div>
+            </div>
+
+            <button class="field-submit btn secondary rounded slide" type="submit">
+              <span class="btn-content text uppercase secondary">Submit</span>
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="{{url_for('static', filename='js/auth.js')}}"></script>
+<script src="{{url_for('static', filename='js/login.js')}}"></script>
+
+{% endblock %}
