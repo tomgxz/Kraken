@@ -1,0 +1,139 @@
+del {
+  text-decoration: none;
+  float: right;
+  display: inline-block;
+}
+
+.margin-left-32 {
+  margin-left: 32px
+}
+
+.preview-page {
+  margin-top: 0
+}
+
+a[href="#analysis"],
+a[href="#problem-identification"],
+a[href="#stakeholders"],
+a[href="#why-it-is-suited-to-a-computational-approach"],
+a[href="#initial-talks-with-stakeholdlers"],
+a[href="#analysis-from-stakeholders"],
+a[href="#research"],
+a[href="#existing-solution---squarespace"],
+a[href="#existing-solution---zyro"],
+a[href="#key-features-of-the-solution"],
+a[href="#limitations-of-the-solution"],
+a[href="#hardware-and-software-requirements"],
+a[href="#hardware-requirements"],
+a[href="#software-requirements"],
+a[href="#success-criteria"],
+a[href="#essential-features"],
+a[href="#desirable-features"],
+a[href="#design"],
+a[href="#url-navigation"],
+a[href="#user-interface-design"],
+a[href="#usability"],
+a[href="#accessibility"],
+a[href="#aria"],
+a[href="#stakeholder-input-d"],
+a[href="#website-structure-and-backend"],
+a[href="#data-storage"],
+a[href="#algorithms"],
+a[href="#drag-and-drop-editor-algorithms"],
+a[href="#multi-user-system-algorithms"],
+a[href="#diagram-showing-how-the-subroutines-link"],
+a[href="#subroutines"],
+a[href="#multi-user-system---login-system"],
+a[href="#multi-user-system---creating-a-new-site"],
+a[href="#utility-subroutines"],
+a[href="#explanation-and-justification-of-this-process"],
+a[href="#inputs-and-outputs"],
+a[href="#key-variables"],
+a[href="#validation"],
+a[href="#testing-method"],
+a[href="#development"],
+a[href="#stage-1---setting-up-the-website"],
+a[href="#stage-2---creating-and-implementing-the-database"],
+a[href="#stage-3---homepage-and-settings"],
+a[href="#stage-4---creating-a-new-site"],
+a[href="#stage-5---code-documentation"],
+a[href="#stage-6---drag-and-drop-editor"],
+a[href="#html-syntax"],
+a[href="#importing-sections"],
+a[href="#adding-sections-to-the-editor"],
+a[href="#resizing-text-elements"],
+a[href="#dragging-and-dropping-elements"],
+a[href="#grid-preview-system"],
+a[href="#stage-7---loading-from-and-saving-to-the-server"],
+a[href="#loading-from-the-server"],
+a[href="#saving-to-the-server"],
+a[href="#"],
+a[href="#"],
+a[href="#"],
+a[href="#"],
+a[href="#"],
+a[href="#"],
+a[href="#"],
+a[href="#"],
+a[href="#"],
+a[href="#testing"],
+a[href="#load-testing"],
+a[href="#compatibility-testing"],
+a[href="#security-testing"],
+a[href="#evaluation"],
+a[href="#success-criteria-1"],
+a[href="#usability-1"],
+a[href="#performance--maintenance"],
+a[href="#security"],
+a[href="#user-satisfaction"],
+a[href="#accessibility-1"],
+a[href="#overall-comments"],
+a[href="#appendix-a---code"],
+a[href="#appendix-b---testing"],
+a[href="#appendix-b---bibliography"] {
+  color: black
+}
+
+a[href="#analysis"],
+a[href="#design"],
+a[href="#development"],
+a[href="#testing"],
+a[href="#evaluation"],
+a[href="#appendix-a---code"],
+a[href="#appendix-b---testing"],
+a[href="#appendix-b---bibliography"] {
+  font-weight: 600
+}
+
+:root {
+  --color-prettylights-syntax-comment: #6e7781;
+  --color-prettylights-syntax-constant: #0550ae;
+  --color-prettylights-syntax-entity: #8250df;
+  --color-prettylights-syntax-storage-modifier-import: #24292f;
+  --color-prettylights-syntax-entity-tag: #1c1f99;
+  --color-prettylights-syntax-keyword: #dd2431;
+  --color-prettylights-syntax-string: #007514;
+  --color-prettylights-syntax-variable: #b91313;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
+  --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
+  --color-prettylights-syntax-invalid-illegal-bg: #82071e;
+  --color-prettylights-syntax-carriage-return-text: #f6f8fa;
+  --color-prettylights-syntax-carriage-return-bg: #cf222e;
+  --color-prettylights-syntax-string-regexp: #116329;
+  --color-prettylights-syntax-markup-list: #3b2300;
+  --color-prettylights-syntax-markup-heading: #0550ae;
+  --color-prettylights-syntax-markup-italic: #24292f;
+  --color-prettylights-syntax-markup-bold: #24292f;
+  --color-prettylights-syntax-markup-deleted-text: #82071e;
+  --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
+  --color-prettylights-syntax-markup-inserted-text: #116329;
+  --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
+  --color-prettylights-syntax-markup-changed-text: #953800;
+  --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
+  --color-prettylights-syntax-markup-ignored-text: #eaeef2;
+  --color-prettylights-syntax-markup-ignored-bg: #0550ae;
+  --color-prettylights-syntax-meta-diff-range: #8250df;
+  --color-prettylights-syntax-brackethighlighter-angle: #57606a;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
+  --color-prettylights-syntax-constant-other-reference-link: #0a3069;
+}

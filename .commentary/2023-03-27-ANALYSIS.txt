@@ -1,0 +1,9 @@
+Problem clearly identified and the features described justified and linked to a clear explanation of its amenability to computational approaches. 
+Stakeholders are described and choice of them fully explained both in terms of their possible use of the solution and there usefulness in supporting the development of it. 
+Similarly there is detailed analysis of other competing solutions which considers usability and algometric approaches taken in their production. 
+This includes consideration of features that go beyond the scope of the proposed solution .. with some reasons. 
+Tom links this research to his own intended solutions. 
+He then uses this research to identify and fully explain the features of his solution, he is less specific about limitations aside from those already mentioned in the research. 
+Hardware, software and scalability requirements are considered and justified; a more specific minimum specification and/or links between this and scalability would be nice. 
+Success criteria are extensive, measurable and justified. 
+On balance sufficient for top mark.
