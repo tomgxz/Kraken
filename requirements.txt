@@ -1,6 +1,6 @@
 flask
 flask-login
 flask-sqlalchemy
-pillow
+pillow=10.3.0
 configparser
 datetime
